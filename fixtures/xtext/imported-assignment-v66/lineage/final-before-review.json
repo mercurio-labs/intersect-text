@@ -1,0 +1,4551 @@
+{
+  "version": 1,
+  "state": "FROZEN_BEFORE_ONLY_NO_PRODUCTION_CHANGE",
+  "preexecution": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\preexecution.json",
+    "bytes": 6947,
+    "sha256": "14f0054aed8b76a7b28eb98b00670661ae474d2869eab00b5f9d4e58a4767431"
+  },
+  "native_terminal": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\native-terminal.json",
+    "bytes": 366,
+    "sha256": "42cdb3d0c9f8acd7d5955d4f0a219570c1e4cc29150cabc1124b7d821881fc2d"
+  },
+  "oracle_terminal": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-terminal.json",
+    "bytes": 3036,
+    "sha256": "d0d8d07864b1c8a6ec1ee04a5b18095553f4663754fb207e8d89e4be6c8580f7"
+  },
+  "validation_addendum_terminal": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\validation-addendum-v2\\terminal.json",
+    "bytes": 21244,
+    "sha256": "8fb6da2b785ffd80ab918307b7eca15decd166006843c1a64f5f52fa5c3805bf"
+  },
+  "actual_current_sources": [
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-xtext\\src\\inference.rs",
+      "bytes": 82984,
+      "sha256": "01afb84b6e5041579e7e47e0c34ce40ac140778cce6955bcbdb31de44ee426ec"
+    },
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-xtext\\src\\ordinary.rs",
+      "bytes": 10645,
+      "sha256": "8c20f91527e41e3c84c101a36289c5cb4d08065a77835bdaa809fe5b17748580"
+    },
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-model\\src\\definitions\\ecore_document.rs",
+      "bytes": 46762,
+      "sha256": "488628014b89a36b40ce5729237cc2ed032e3a1d5f4b79fba9510e6665f36245"
+    },
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-model\\src\\definitions\\ecore_migration.rs",
+      "bytes": 35044,
+      "sha256": "621f64e735ea07f2428e43352b509b82fc500d6f2bc04fbaed0fe8b68d9221fd"
+    },
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-model\\src\\core\\storage\\collection.rs",
+      "bytes": 5470,
+      "sha256": "c313b4671bb052fb6857917435cef776f8cb7d099ddb84dc940f80263ce4c8e6"
+    },
+    {
+      "path": "C:\\Users\\MarkPetrotta\\.codex\\worktrees\\rcore-xtext-support\\intersect\\crates\\intersect-model\\src\\core\\storage\\feature_shape.rs",
+      "bytes": 2786,
+      "sha256": "ef30fede371d06bac5544ad482e3dd85d3333ba63b92f05e62d6e54155673c7b"
+    }
+  ],
+  "summary": [
+    {
+      "id": "imported_refs_default_true",
+      "source": {
+        "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext",
+        "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+      },
+      "original_ecore_sha256": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47",
+      "grammar_metadata_clean": true,
+      "generation_exit": 0,
+      "javac_exit": 0,
+      "actual_runtime": 6,
+      "fully_linked_no_Xtext_ERROR": 4,
+      "native_compile_ok": false,
+      "native_diagnostics": [
+        {
+          "end": 242,
+          "message": "Grammar assignment conflicts with the imported feature",
+          "source": "memory:imported_refs_default_true/audit.ImportedUnique.xtext",
+          "start": 224
+        }
+      ],
+      "runtime": [
+        {
+          "text": "nodes a,b; refs a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs a,a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs b,a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a; refs a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs missing;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [
+            {
+              "message": "Couldn't resolve reference to Node 'missing'.",
+              "line": 1,
+              "column": 17
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "message": "Couldn't resolve reference to Node 'missing'.",
+                "offset": 16,
+                "length": 7,
+                "line": 1,
+                "column": 17
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "external": "memory:/model.lexicaltest#|0",
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs a,;",
+          "main_resource_load_accepted_before_lazy_model_read": false,
+          "linked_resource_errors": [
+            {
+              "message": "missing RULE_ID at ';'",
+              "line": 1,
+              "column": 19
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Syntax",
+                "message": "missing RULE_ID at ';'",
+                "offset": 18,
+                "length": 1,
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        }
+      ]
+    },
+    {
+      "id": "imported_refs_explicit_true",
+      "source": {
+        "uri": "memory:imported_refs_explicit_true/audit.ImportedUnique.xtext",
+        "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+      },
+      "original_ecore_sha256": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977",
+      "grammar_metadata_clean": true,
+      "generation_exit": 0,
+      "javac_exit": 0,
+      "actual_runtime": 6,
+      "fully_linked_no_Xtext_ERROR": 4,
+      "native_compile_ok": false,
+      "native_diagnostics": [
+        {
+          "end": 242,
+          "message": "Grammar assignment conflicts with the imported feature",
+          "source": "memory:imported_refs_explicit_true/audit.ImportedUnique.xtext",
+          "start": 224
+        }
+      ],
+      "runtime": [
+        {
+          "text": "nodes a,b; refs a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs a,a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs b,a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a; refs a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs missing;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [
+            {
+              "message": "Couldn't resolve reference to Node 'missing'.",
+              "line": 1,
+              "column": 17
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "message": "Couldn't resolve reference to Node 'missing'.",
+                "offset": 16,
+                "length": 7,
+                "line": 1,
+                "column": 17
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "external": "memory:/model.lexicaltest#|0",
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        },
+        {
+          "text": "nodes a,b; refs a,;",
+          "main_resource_load_accepted_before_lazy_model_read": false,
+          "linked_resource_errors": [
+            {
+              "message": "missing RULE_ID at ';'",
+              "line": 1,
+              "column": 19
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Syntax",
+                "message": "missing RULE_ID at ';'",
+                "offset": 18,
+                "length": 1,
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": true,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": null
+        }
+      ]
+    },
+    {
+      "id": "imported_refs_explicit_false",
+      "source": {
+        "uri": "memory:imported_refs_explicit_false/audit.ImportedUnique.xtext",
+        "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+      },
+      "original_ecore_sha256": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6",
+      "grammar_metadata_clean": true,
+      "generation_exit": 0,
+      "javac_exit": 0,
+      "actual_runtime": 6,
+      "fully_linked_no_Xtext_ERROR": 4,
+      "native_compile_ok": true,
+      "native_diagnostics": null,
+      "runtime": [
+        {
+          "text": "nodes a,b; refs a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [],
+            "error": null,
+            "model_refs": [
+              "memory:imported_refs_explicit_false/model.unique#1",
+              "memory:imported_refs_explicit_false/model.unique#2"
+            ],
+            "direct_equals_source_verified_archive": true
+          }
+        },
+        {
+          "text": "nodes a,b; refs a,a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [],
+            "error": null,
+            "model_refs": [
+              "memory:imported_refs_explicit_false/model.unique#1",
+              "memory:imported_refs_explicit_false/model.unique#1"
+            ],
+            "direct_equals_source_verified_archive": true
+          }
+        },
+        {
+          "text": "nodes a,b; refs b,a,b;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            },
+            {
+              "object": 2,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [],
+            "error": null,
+            "model_refs": [
+              "memory:imported_refs_explicit_false/model.unique#2",
+              "memory:imported_refs_explicit_false/model.unique#1",
+              "memory:imported_refs_explicit_false/model.unique#2"
+            ],
+            "direct_equals_source_verified_archive": true
+          }
+        },
+        {
+          "text": "nodes a; refs a;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [],
+          "xtext_validation": {
+            "issues": [],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [],
+            "error": null,
+            "model_refs": [
+              "memory:imported_refs_explicit_false/model.unique#1"
+            ],
+            "direct_equals_source_verified_archive": true
+          }
+        },
+        {
+          "text": "nodes a,b; refs missing;",
+          "main_resource_load_accepted_before_lazy_model_read": true,
+          "linked_resource_errors": [
+            {
+              "message": "Couldn't resolve reference to Node 'missing'.",
+              "line": 1,
+              "column": 17
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "message": "Couldn't resolve reference to Node 'missing'.",
+                "offset": 16,
+                "length": 7,
+                "line": 1,
+                "column": 17
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "external": "memory:/model.lexicaltest#|0",
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [
+              {
+                "end": 23,
+                "message": "Unresolved reference 'missing' (Node)",
+                "source": "memory:imported_refs_explicit_false/model.unique",
+                "start": 16
+              }
+            ],
+            "error": null,
+            "model_refs": [
+              "?missing"
+            ],
+            "direct_equals_source_verified_archive": true
+          }
+        },
+        {
+          "text": "nodes a,b; refs a,;",
+          "main_resource_load_accepted_before_lazy_model_read": false,
+          "linked_resource_errors": [
+            {
+              "message": "missing RULE_ID at ';'",
+              "line": 1,
+              "column": 19
+            }
+          ],
+          "xtext_validation": {
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Syntax",
+                "message": "missing RULE_ID at ';'",
+                "offset": 18,
+                "length": 1,
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "failure": null
+          },
+          "emf_severity": 0,
+          "model_refs": [
+            {
+              "object": 1,
+              "class": "urn:intersect:xtext:imported-unique:1#//Node"
+            }
+          ],
+          "generated_feature": {
+            "owner": "urn:intersect:xtext:imported-unique:1#//Model",
+            "name": "refs",
+            "type": "urn:intersect:xtext:imported-unique:1#//Node",
+            "unique": false,
+            "ordered": true,
+            "containment": false,
+            "lower": 1,
+            "upper": -1
+          },
+          "generated_list_probe": {
+            "first_add_changed": true,
+            "second_same_target_add_changed": false,
+            "size": 1,
+            "identical_targets": true,
+            "scope": "Isolated generated-list mutation probe; not a structurally valid complete resource/model."
+          },
+          "native": {
+            "diagnostics": [
+              {
+                "end": 19,
+                "message": "Expected reference name",
+                "source": "memory:imported_refs_explicit_false/model.unique",
+                "start": 18
+              }
+            ],
+            "error": null,
+            "model_refs": null,
+            "direct_equals_source_verified_archive": true
+          }
+        }
+      ]
+    }
+  ],
+  "proof_counts": {
+    "graphs": 3,
+    "probes_per_graph": 6,
+    "full_oracle_runtime_per_run": 18,
+    "full_oracle_fresh_runs": 2,
+    "validation_addendum_per_run": 18,
+    "validation_fresh_runs": 2,
+    "native_complete_calls_per_run": 22,
+    "native_fresh_zero_import_instances": 44,
+    "native_compiled_graphs": 1,
+    "native_direct_and_archive_evaluations": 12
+  },
+  "findings": [
+    "The imported unique mismatch alone is established by otherwise byte-identical minimal Ecore inputs: omitted/true reject, false passes in immutable normal34e3 NativeV64. Actual imported flag/report/source identities are retained unchanged.",
+    "Pinned EClassifierInfo.containsCompatibleFeature checks mutable cardinality/type/reference-containment/container constraints, not uniqueness. Its new-feature creation default setsUnique separately. This supports separating imported compatibility from inferred feature creation rather than repairing imported flags.",
+    "Both unique=true and false generated provider metadata are correct. Direct generated EList duplicate add returns false/size1 for ALL3. The code generator uses EObjectResolvingEList in each. Do not claim direct nonunique list insertion equivalence.",
+    "All3 linked resource observations preserve repeated resolved references [1,1] and [2,1,2] with no Xtext validation ERROR or EMF diagnostic severity. Preserve these pinned proxy/list observations; they do not authorize dropping unique flags or disabling native shared uniqueness.",
+    "Main unchanged FullRuntime snapshots resource errors before RuntimeOracle.model triggers lazy crossref resolution. Its raw accepted=true for unresolved missing is retained as pre-link load status, not full semantic acceptance. New additive validator observes the later linking ERROR. Named IParser model refs are empty because it does not perform resource linking.",
+    "Explicitfalse native direct/source-verified archive models preserve duplicate references; true/default native package/runtime remain unexecuted because source compile rejected. No prediction of their native duplicate behavior after a future admission change."
+  ],
+  "next_plan": [
+    "Review this complete immutable BEFORE before authorizing any source predicate change.",
+    "Use a new explicit profile after current pending profile work if compatibility policy requires it; preserve all old profiles/default inference responses.",
+    "Keep imported unique flags and native shared storage/validation authority. Separate imported feature assignment compatibility from new inferred feature uniqueness defaults; do not mutate same_shape globally.",
+    "Add explicit wrong type/reference-kind/containment/cardinality/changeable/container guards before claiming general imported compatibility. This cohort proves only the3reference-uniqueness cells.",
+    "Re-run unchanged whole pinned KerML correct ordinary frontend/contracts/budgets after a justified bounded fix to expose the next actual blocker. No limits increase or source repair.",
+    "Duplicate linked-model behavior versus native source uniqueness needs an explicit decision and qualification; do not silently fit proxy-resolution quirks or claim full Xtext/EMF/model equivalence."
+  ],
+  "preserved_failures": [
+    "Addendum v1 javac failed wrong static helper qualifier; v2 corrected the verification helper only.",
+    "Inline v2 preparation command failed shell/Python quoting before writing files; subsequent missing-file run had no source effect.",
+    "UTF-8 inspection of upstream source entry failed; raw source bytes retained separately.",
+    "Finalizer v1 assumed every native error model had an element; malformed syntax produced an empty model. v2 handles absent/empty model in report only, without changing any captured result.",
+    "Original stale low-level KerML guard failure, original pinned source graphs and original profiles remain unchanged."
+  ],
+  "scope_limits": [
+    "Verification-only Java; production Java remains absent.",
+    "Native Ecore migration/report is a bounded explicit source adapter; no native Ecore runtime award.",
+    "No actual R source/index/docs/public/dist mutation or Cargo build.",
+    "No wrong-shape/imported-attribute/containment-unique/general enum/default/covariance qualification from3cells.",
+    "No full Xtext, KerML, SysML or S09 gate closure."
+  ],
+  "all_frozen_files": [
+    {
+      "relative": "capture_native.mjs",
+      "bytes": 5534,
+      "sha256": "172e96bf6fdcce6861eff448d2e0ac4fdbb61c4fe92b645ab0aa4d3588c8fd9f"
+    },
+    {
+      "relative": "finalize-v1.stderr",
+      "bytes": 642,
+      "sha256": "7db60b2b950985c885f87642d3bf882256c5a1ff75920cf9842a8afc81e06912"
+    },
+    {
+      "relative": "finalize-v1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "finalize.py",
+      "bytes": 10047,
+      "sha256": "7ff709cc633b820e917aca3fb0573b98fd3abc6477301d29d3cc15c1df3cda53"
+    },
+    {
+      "relative": "finalize_v2.py",
+      "bytes": 10256,
+      "sha256": "8af2bbae11bfa02bafeafb26c9b85ed435599e1cfe2394b0bcf01c72e0e20bcd"
+    },
+    {
+      "relative": "inputs/cases.json",
+      "bytes": 2573,
+      "sha256": "018facfd64ffe886665705405689f3d1db0fcf328cd841c4b23a8d451cf70910"
+    },
+    {
+      "relative": "inputs/Generate.mwe2.template",
+      "bytes": 525,
+      "sha256": "3338b2b8630f242a3215f17ab70d7dcc35f24b2e66c37dd401447c7ba25b9fef"
+    },
+    {
+      "relative": "inputs/imported_refs_default_true/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "inputs/imported_refs_default_true/imported.ecore",
+      "bytes": 872,
+      "sha256": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47"
+    },
+    {
+      "relative": "inputs/imported_refs_explicit_false/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "inputs/imported_refs_explicit_false/imported.ecore",
+      "bytes": 887,
+      "sha256": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6"
+    },
+    {
+      "relative": "inputs/imported_refs_explicit_true/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "inputs/imported_refs_explicit_true/imported.ecore",
+      "bytes": 886,
+      "sha256": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977"
+    },
+    {
+      "relative": "inputs/independent-expectations.json",
+      "bytes": 1160,
+      "sha256": "8b71edb2181a179f044cb8a5a85c029deac0c198748142f1f3ea24fcb23510e7"
+    },
+    {
+      "relative": "inputs/MetamodelOracle.java",
+      "bytes": 8405,
+      "sha256": "1b90b692cbf96439592ebe5d0e449e87c65ce90e4fd9e9cc466fd1033417a98d"
+    },
+    {
+      "relative": "inputs/pins.json",
+      "bytes": 1389,
+      "sha256": "743c7f2d4e33533f8b38d8c0710afe8000db8034c7d40116041e334cfd0bc1cf"
+    },
+    {
+      "relative": "inputs/RuntimeOracle.java",
+      "bytes": 4035,
+      "sha256": "b4fb77536f9f4a9743a76e92eca31176d1ba33f29042be907b9a525e3f3e84e3"
+    },
+    {
+      "relative": "inputs/stack.json",
+      "bytes": 11732,
+      "sha256": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304"
+    },
+    {
+      "relative": "inputs/TerminalNegationOracle.java",
+      "bytes": 6960,
+      "sha256": "9a42efff7e87512ca0c224c4ea4118d33fc5cc1abc1752c7c47ac7075390eb66"
+    },
+    {
+      "relative": "native-preexecution.json",
+      "bytes": 853,
+      "sha256": "22488bfd3c2baaaf7e769de81402176c773a684cf29b027809c4751c12b0f9ea"
+    },
+    {
+      "relative": "native-record.json",
+      "bytes": 1399149,
+      "sha256": "bfc6c61f4ba18e40ee5a8cb9602c9d7356312102186f7dc6fc7bf114f62f1195"
+    },
+    {
+      "relative": "native-replay.json",
+      "bytes": 1050649,
+      "sha256": "71fe4ce5b4289951ed9963714e89bb6cbdc3d8127bb1feba27d60afed87b0aed"
+    },
+    {
+      "relative": "native-terminal.json",
+      "bytes": 366,
+      "sha256": "42cdb3d0c9f8acd7d5955d4f0a219570c1e4cc29150cabc1124b7d821881fc2d"
+    },
+    {
+      "relative": "oracle-producer/BuildProvider.java",
+      "bytes": 2219,
+      "sha256": "40c8797bb2de1b735f7a9009deab8506743d88dd5f4abd01d64519a4aaab2f50"
+    },
+    {
+      "relative": "oracle-producer/FirstRuleMetadata.java",
+      "bytes": 2931,
+      "sha256": "90bbdd15d5ec3ddad7eb0692f4fd175c6186aac7ec1e4c922c624ff356bfa8da"
+    },
+    {
+      "relative": "oracle-producer/FullRuntime.java",
+      "bytes": 4626,
+      "sha256": "b72066a0c46cf2cb9db49c258881a641feb3de0d20b663589f474c2c11295a1a"
+    },
+    {
+      "relative": "oracle-producer/produce.py",
+      "bytes": 8137,
+      "sha256": "3cb89bd370d8ac0df91339653d36c5e45784de0b5a550971ed6f7b4b7f978c6b"
+    },
+    {
+      "relative": "oracle-progress.json",
+      "bytes": 1301,
+      "sha256": "ea1925039b6ba7e5204711402a1863b9f90966d431032216b6bb47ed18729df0"
+    },
+    {
+      "relative": "oracle-record/001.stderr.log",
+      "bytes": 190,
+      "sha256": "2ab81cbc7dced1c1d963d27227ee386768c5b57f06d75e9aef9be8a9767c813c"
+    },
+    {
+      "relative": "oracle-record/001.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/002.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/002.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/003.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/003.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-record/004.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/004.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-record/005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/005.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-record/006.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/006.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/007.stderr.log",
+      "bytes": 2087,
+      "sha256": "d2835d9af40423e248a0ff676bd7ae836c64183b68bfaf2d15a7f42d6bb3983a"
+    },
+    {
+      "relative": "oracle-record/007.stdout.log",
+      "bytes": 457,
+      "sha256": "6607d4bef47f355ec39d038fb1c62663d89082189ac4ad874655967ff029e370"
+    },
+    {
+      "relative": "oracle-record/008.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/008.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/009.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/009.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-record/010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/010.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-record/011.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/011.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-record/012.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/012.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-record/013.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/013.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-record/014.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/014.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-record/015.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/015.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-record/016.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/016.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-record/017.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/017.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-record/018.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/018.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/019.stderr.log",
+      "bytes": 2089,
+      "sha256": "70926216ae22fba3592a74d0a6eb7e8034b7f872a90bc37a0318fc441564f304"
+    },
+    {
+      "relative": "oracle-record/019.stdout.log",
+      "bytes": 457,
+      "sha256": "1454142474576e99c33207b2f003a10e2d27aa69595be80205c0ac6d902ceeb8"
+    },
+    {
+      "relative": "oracle-record/020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/020.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/021.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/021.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-record/022.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/022.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-record/023.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/023.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-record/024.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/024.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-record/025.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/025.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-record/026.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/026.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-record/027.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/027.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-record/028.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/028.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-record/029.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/029.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-record/030.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/030.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/031.stderr.log",
+      "bytes": 2091,
+      "sha256": "f721050e9fdb8c16912b5e5ac41dc98711b2eaec389709960f14acba01bde355"
+    },
+    {
+      "relative": "oracle-record/031.stdout.log",
+      "bytes": 457,
+      "sha256": "a0a054da5165b79e757ffdd3afda2a3b3aa4282e187fed741133488de344ec68"
+    },
+    {
+      "relative": "oracle-record/032.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/032.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/033.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/033.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-record/034.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/034.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-record/035.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/035.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-record/036.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/036.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-record/037.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/037.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-record/038.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-record/038.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-record/adapter/BuildProvider.class",
+      "bytes": 5925,
+      "sha256": "73b53db8d54e85686576d8260a528710cc44a92539562bf9e7d6784d58511f65"
+    },
+    {
+      "relative": "oracle-record/adapter/intersect/oracle/FirstRuleMetadata.class",
+      "bytes": 6864,
+      "sha256": "69bfa9c06baaf33e0727953c17202393869edd34e986b1309188da03ac83a7a5"
+    },
+    {
+      "relative": "oracle-record/adapter/intersect/oracle/FullRuntime.class",
+      "bytes": 9454,
+      "sha256": "b0d424b93b3259b92bace93fcdb69a4684cee0fe13b49114b85898b9b63002a0"
+    },
+    {
+      "relative": "oracle-record/adapter/intersect/oracle/MetamodelOracle.class",
+      "bytes": 14448,
+      "sha256": "82ab0ec57979dae1f333acbf33ca3e2a188e1c1c94054eb34a37df71892827b8"
+    },
+    {
+      "relative": "oracle-record/adapter/intersect/oracle/RuntimeOracle.class",
+      "bytes": 7661,
+      "sha256": "befe7e266249406685b91dca757887b72f9c6f5f9d19142f2a9b6330b1e542c8"
+    },
+    {
+      "relative": "oracle-record/adapter/intersect/oracle/TerminalNegationOracle.class",
+      "bytes": 14137,
+      "sha256": "1a23fccb2ec3f333d21133cf5fbef2b9a927f0ac7e476f7959fb83736a773f0b"
+    },
+    {
+      "relative": "oracle-record/artifacts-sha256.json",
+      "bytes": 39785,
+      "sha256": "561461e2b87936df4c9609173c91994b17b12361839ccbd73539f29ba0cf0730"
+    },
+    {
+      "relative": "oracle-record/commands.json",
+      "bytes": 260073,
+      "sha256": "fa42b2c21f43e92ede1441f3d79ed50a5eee3ace0ce7db6675b2f42182117bb3"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/metadata/imported.ecore",
+      "bytes": 872,
+      "sha256": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "4a7975fb46855fd12db39d80ac87c1639889588708b3a6ef9a1ef964bcf7393f"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-record/imported_refs_default_true/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/metadata/imported.ecore",
+      "bytes": 887,
+      "sha256": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "4949ef310c8f8532ea5a650b024665fb944f739c2f1feb9909525594e6761fb0"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_false/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/metadata/imported.ecore",
+      "bytes": 886,
+      "sha256": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "731f0ecc88f9e38a1134327e5e93daa156d25e0d134ed1bec38ff5a9f8e43653"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-record/imported_refs_explicit_true/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-record/javac-1.args",
+      "bytes": 7799,
+      "sha256": "61970c9430a8f7569960719707757117911f6ce9ed1844549329b05a1e894ed6"
+    },
+    {
+      "relative": "oracle-record/javac-17.args",
+      "bytes": 8963,
+      "sha256": "11ae0096f61355889ade901dbcd8837f406e046e929476daf766cbdab6b41f8b"
+    },
+    {
+      "relative": "oracle-record/javac-19.args",
+      "bytes": 10428,
+      "sha256": "ddc70f61f105b8c17cfe6046f6f2f8fe345b87ef57735cdf8d10b56c4604c768"
+    },
+    {
+      "relative": "oracle-record/javac-29.args",
+      "bytes": 8963,
+      "sha256": "59b53fae4ee68b979143120f279ddf5ca6d75b254c32c05e460be0e8497c3172"
+    },
+    {
+      "relative": "oracle-record/javac-31.args",
+      "bytes": 10446,
+      "sha256": "d3a387e350fde418ae4d88964a4b3b051960de45e742da408a760bee9cebdbfb"
+    },
+    {
+      "relative": "oracle-record/javac-5.args",
+      "bytes": 8963,
+      "sha256": "5036542ffa692ccaf76ca685f5f9890371fe8ec4425b03695e4c8bf6dfef6ed9"
+    },
+    {
+      "relative": "oracle-record/javac-7.args",
+      "bytes": 10410,
+      "sha256": "9052d69fd9e509f67a43c89a8496d968f5ad3dfc5a55b028db45fd723f1debae"
+    },
+    {
+      "relative": "oracle-record/observations.json",
+      "bytes": 161799,
+      "sha256": "a61a501cb3828bb418ba542e105bd38118eb0c3e731bfcbef72fc4d125a13d22"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "9322c5df8947847d614020ec310d4e85298524ab9c7c51515a7fb46553b2f97e"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/provider.genmodel",
+      "bytes": 1530,
+      "sha256": "4cbfea9038943c0000213129600efbd96f4f8fb8507164a88c95bf6392320e34"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6863,
+      "sha256": "926793eeed37891e090aef866aef4be74e9af44994171d64b3d85236e4cd6aa1"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-record/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "9322c5df8947847d614020ec310d4e85298524ab9c7c51515a7fb46553b2f97e"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/provider.genmodel",
+      "bytes": 1524,
+      "sha256": "bf0042bd5efff113029f62daf23d5d5378f6d86c75420b33bb7ff02706781eda"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6863,
+      "sha256": "926793eeed37891e090aef866aef4be74e9af44994171d64b3d85236e4cd6aa1"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-record/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "01d5c5913b476d418ce7ca2366aa52bcbf9d67395606236b8e5947caa3c465ef"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/provider.genmodel",
+      "bytes": 1536,
+      "sha256": "ea6abf05b990fc15192164d7dec085d9195ad355f0a7f9a62e0df2bcccfd08bf"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6864,
+      "sha256": "7156b77da35efe5395739096cd0f50429a85ba0efc01c4bbb85f5130a4a2eec8"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-record/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-record/toolchain.json",
+      "bytes": 12372,
+      "sha256": "d260aeb4d7cfccf98e5d53ec847a5022aba03f3ca73392535fc7c674ab85543e"
+    },
+    {
+      "relative": "oracle-record.log",
+      "bytes": 241,
+      "sha256": "11ab9c97ea53e8b35c9141046dd75a6b95a51f27b44b6ec73bf6ad12857e498e"
+    },
+    {
+      "relative": "oracle-replay/001.stderr.log",
+      "bytes": 190,
+      "sha256": "2ab81cbc7dced1c1d963d27227ee386768c5b57f06d75e9aef9be8a9767c813c"
+    },
+    {
+      "relative": "oracle-replay/001.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/002.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/002.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/003.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/003.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-replay/004.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/004.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-replay/005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/005.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-replay/006.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/006.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/007.stderr.log",
+      "bytes": 2087,
+      "sha256": "1e7b6c9eefd9125517a31e1bdf70b7bdb1c5c3315208f050af67dd470a034c44"
+    },
+    {
+      "relative": "oracle-replay/007.stdout.log",
+      "bytes": 457,
+      "sha256": "f3df04e4d3a14f6dc059c73324956dc03488c07933d854e72dba7bb7fa3d9771"
+    },
+    {
+      "relative": "oracle-replay/008.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/008.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/009.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/009.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-replay/010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/010.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-replay/011.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/011.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-replay/012.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/012.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-replay/013.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/013.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-replay/014.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/014.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-replay/015.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/015.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-replay/016.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/016.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-replay/017.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/017.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-replay/018.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/018.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/019.stderr.log",
+      "bytes": 2089,
+      "sha256": "13cc2814dfeb71ae3010dd483fcf52b65dfe39e73273d2e1d593665569bd144b"
+    },
+    {
+      "relative": "oracle-replay/019.stdout.log",
+      "bytes": 457,
+      "sha256": "7d3b54fbedc5f56119ff1dd9f641d5bb218e2b98623c50b420fa1dc724353f34"
+    },
+    {
+      "relative": "oracle-replay/020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/020.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/021.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/021.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-replay/022.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/022.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-replay/023.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/023.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-replay/024.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/024.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-replay/025.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/025.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-replay/026.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/026.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-replay/027.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/027.stdout.log",
+      "bytes": 846,
+      "sha256": "e12cff50deb1f044561e89e452fd3b1790f15603d078bc7b424aed36df16a2e7"
+    },
+    {
+      "relative": "oracle-replay/028.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/028.stdout.log",
+      "bytes": 951,
+      "sha256": "3c8e157fc78ca15c513644c5ebf0d859c123770a017d8d2a1dc5b602b8cd4e44"
+    },
+    {
+      "relative": "oracle-replay/029.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/029.stdout.log",
+      "bytes": 3821,
+      "sha256": "80a2cd20259674551f439d25b755963fb5044bf389b8f491459b5e4b8412b9c8"
+    },
+    {
+      "relative": "oracle-replay/030.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/030.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/031.stderr.log",
+      "bytes": 2091,
+      "sha256": "05f6ad6bb3157e092c413221dd32913783a49793f03d32ae392cf7190bcad4cf"
+    },
+    {
+      "relative": "oracle-replay/031.stdout.log",
+      "bytes": 457,
+      "sha256": "ccb7ef841d82e1ddf5a2550619cec66da86ad4f11ab8a6836d79b08badd86c65"
+    },
+    {
+      "relative": "oracle-replay/032.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/032.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/033.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/033.stdout.log",
+      "bytes": 3376,
+      "sha256": "2dbdcb1f2c3cae17303b00142ec2611e781aab342a8702e9a6469833e10a407e"
+    },
+    {
+      "relative": "oracle-replay/034.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/034.stdout.log",
+      "bytes": 3376,
+      "sha256": "fc947c1e15c8049e5761e14479eba863dd96672dbcd3c3db05263a733fb3906d"
+    },
+    {
+      "relative": "oracle-replay/035.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/035.stdout.log",
+      "bytes": 3771,
+      "sha256": "9f83a181231487aa59ec32fc2f79868e4219a0a2ce523bb08d1083f1e137efeb"
+    },
+    {
+      "relative": "oracle-replay/036.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/036.stdout.log",
+      "bytes": 2361,
+      "sha256": "c9efbd1c080e0627c29b7fa93b69cddb73ee5b0a794e65025a2c4546ed1c52ca"
+    },
+    {
+      "relative": "oracle-replay/037.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/037.stdout.log",
+      "bytes": 3030,
+      "sha256": "16a36a9fff9d0453793ca938f86e29c29befcdaa01e6c989dd0d256d4a50c04c"
+    },
+    {
+      "relative": "oracle-replay/038.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "oracle-replay/038.stdout.log",
+      "bytes": 3290,
+      "sha256": "664586ead7e597160887533c6c09c634d85663226ccd185ba774491e62209bb3"
+    },
+    {
+      "relative": "oracle-replay/adapter/BuildProvider.class",
+      "bytes": 5925,
+      "sha256": "73b53db8d54e85686576d8260a528710cc44a92539562bf9e7d6784d58511f65"
+    },
+    {
+      "relative": "oracle-replay/adapter/intersect/oracle/FirstRuleMetadata.class",
+      "bytes": 6864,
+      "sha256": "69bfa9c06baaf33e0727953c17202393869edd34e986b1309188da03ac83a7a5"
+    },
+    {
+      "relative": "oracle-replay/adapter/intersect/oracle/FullRuntime.class",
+      "bytes": 9454,
+      "sha256": "b0d424b93b3259b92bace93fcdb69a4684cee0fe13b49114b85898b9b63002a0"
+    },
+    {
+      "relative": "oracle-replay/adapter/intersect/oracle/MetamodelOracle.class",
+      "bytes": 14448,
+      "sha256": "82ab0ec57979dae1f333acbf33ca3e2a188e1c1c94054eb34a37df71892827b8"
+    },
+    {
+      "relative": "oracle-replay/adapter/intersect/oracle/RuntimeOracle.class",
+      "bytes": 7661,
+      "sha256": "befe7e266249406685b91dca757887b72f9c6f5f9d19142f2a9b6330b1e542c8"
+    },
+    {
+      "relative": "oracle-replay/adapter/intersect/oracle/TerminalNegationOracle.class",
+      "bytes": 14137,
+      "sha256": "1a23fccb2ec3f333d21133cf5fbef2b9a927f0ac7e476f7959fb83736a773f0b"
+    },
+    {
+      "relative": "oracle-replay/artifacts-sha256.json",
+      "bytes": 39785,
+      "sha256": "8fe4a20e1496a59d140d0f5f66e5f129a1e588e03624d53462db1a21ac6d7c16"
+    },
+    {
+      "relative": "oracle-replay/commands.json",
+      "bytes": 260073,
+      "sha256": "d4174575e63dec51a7bf7f6aaf2afda8588580fe91a44757343eb3a5292e627a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/metadata/imported.ecore",
+      "bytes": 872,
+      "sha256": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "1ea07169c0d67eb0321c98f44f74740b38653c736b22f2a74b4ce2ebf579cffc"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_default_true/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/metadata/imported.ecore",
+      "bytes": 887,
+      "sha256": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "8bc9d894f6f5140172ba50945c362fdf6b592d916db56178319444fc491100e5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_false/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/AbstractImportedUniqueRuntimeModule.class",
+      "bytes": 7410,
+      "sha256": "b5ac02e878f6b3b5aeca8caaf34e328e7cbb3419204bb3c72dce2206c1aba93c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/generator/ImportedUniqueGenerator.class",
+      "bytes": 459,
+      "sha256": "4bb6ba97e713743de28b66386860a125e7b73e2c5e241588dc0b23336f851333"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/ImportedUniqueRuntimeModule.class",
+      "bytes": 259,
+      "sha256": "88f3c96f65c474f56bfec451e30f6913dcba16ba9c8db71856797bd24cbfc831"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/ImportedUniqueStandaloneSetup.class",
+      "bytes": 415,
+      "sha256": "5ae8c490446853ded26b469ce051432f05949fddcc05cdcb2a988545e630f0cb"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/ImportedUniqueStandaloneSetupGenerated.class",
+      "bytes": 2448,
+      "sha256": "94efee231aa304c7527368ebe9809c2f5dba989f4ae5bd47c7b3dcd767684a4c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.class",
+      "bytes": 715,
+      "sha256": "b449bc202a4d70de2c1dca7599ac359210433e5bf436d25906cd5e17c5d824bd"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/parser/antlr/ImportedUniqueParser.class",
+      "bytes": 1539,
+      "sha256": "fe682f5217829a6ea48cd3b9a6cd578bedb6e1008ab6ddc9f96ab0221324a070"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer$DFA3.class",
+      "bytes": 1251,
+      "sha256": "df9dabc72b23cda7c5937227f16a174126ebdeede5c267b164f202caf450b7db"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueLexer.class",
+      "bytes": 4627,
+      "sha256": "3a1f04d74a9b3c9883ed62958d5356a4ec7b2d430e221337f7b08e7d2c0f7811"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/parser/antlr/internal/InternalImportedUniqueParser.class",
+      "bytes": 6461,
+      "sha256": "a1b43c1b3e275cbe099139ba49868cd4d5f0a3e2a8bd5c3aad8280504ca6cd34"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/scoping/AbstractImportedUniqueScopeProvider.class",
+      "bytes": 296,
+      "sha256": "fecf26ee4d3d0265bb7c315e015308d12a78d7ca1cbb36150af18b6911571441"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/scoping/ImportedUniqueScopeProvider.class",
+      "bytes": 275,
+      "sha256": "2e318054298a3e15d765331258179b9f3efa6447ed53cce5efefc0825762f4ce"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/serializer/ImportedUniqueSemanticSequencer.class",
+      "bytes": 4567,
+      "sha256": "02378326cf36ff5d6ec7d5d4e6652aa82ede7c0639d3459e161c967f12aa33e6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/serializer/ImportedUniqueSyntacticSequencer.class",
+      "bytes": 2410,
+      "sha256": "c56aa8054c2e166e8c6ab9924a3351f4b29a417d59d24d18d7ec931e3da5718c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess$ModelElements.class",
+      "bytes": 4426,
+      "sha256": "5343f0442b4449b7f52b9c719c3505811d8e40a896f2c4fdae7e844a559abd5d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess$NodeElements.class",
+      "bytes": 1824,
+      "sha256": "07fce6ec6c17a2936a95aa5f3f77bfe0d744f18a0d62ea063c05e0769bf34c39"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/services/ImportedUniqueGrammarAccess.class",
+      "bytes": 2959,
+      "sha256": "7f85ea89df16d0369f10830752f28525c4af79e8725ae4d22a2d2cb00b366210"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/validation/AbstractImportedUniqueValidator.class",
+      "bytes": 878,
+      "sha256": "97000b5051da6a185a56dedf56609a588bd1efc49b39afe5c782c69da0843f9c"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/classes/audit/validation/ImportedUniqueValidator.class",
+      "bytes": 269,
+      "sha256": "41132d5bc0d4c838be772e01c9a8a70e6ee4af13617fcbe83f7fa3457bfc6e32"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/metadata/audit.ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/metadata/entry.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/metadata/imported.ecore",
+      "bytes": 886,
+      "sha256": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/metadata/order.txt",
+      "bytes": 22,
+      "sha256": "b749659d9bf10d49769fc43db78894732d3e5c5c0030026d51bcc781f5e837b7"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/generator/ImportedUniqueGenerator.java",
+      "bytes": 999,
+      "sha256": "d77a08bdd9063d738d10636fbf6ec039109391baa6ca9fe1af6b0614d14a25f4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/ImportedUnique.xtext",
+      "bytes": 413,
+      "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/ImportedUniqueRuntimeModule.java",
+      "bytes": 248,
+      "sha256": "4714e487de4881c77b7d41fc9cba2822cdf366e2918d2c797c94bd4ee91ac79d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/ImportedUniqueStandaloneSetup.java",
+      "bytes": 350,
+      "sha256": "11e10621531ac422beb6f6b9efdc5cc9b7a7fb82c8b73c69ae44741850ec9d4f"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/scoping/ImportedUniqueScopeProvider.java",
+      "bytes": 322,
+      "sha256": "1fd4a577abb4ae382b0c1ed5ae0a04ad1f616015172af7baabaad4a978e48ae4"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/audit/validation/ImportedUniqueValidator.java",
+      "bytes": 630,
+      "sha256": "0ff5ce285d151a46470f936ff285d36a34115676c8eb6740f2ef5733508401c9"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src/Generate.mwe2",
+      "bytes": 1126,
+      "sha256": "85b043d741045091b788549ae520c8a9b1a4eed91674f76334d720e05059ba5d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/AbstractImportedUniqueRuntimeModule.java",
+      "bytes": 8652,
+      "sha256": "7dcaa78f2af79b768336e28aa81676084cb83cee77809abdddf8b847406494f5"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/ImportedUnique.xtextbin",
+      "bytes": 1076,
+      "sha256": "aa23a61a572ee466ed645fc6de54c62b1ccdcb5528212233e56434d7d351fe14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/ImportedUniqueStandaloneSetupGenerated.java",
+      "bytes": 2196,
+      "sha256": "3af05b940bb7d13b42b7c497d6db8248d25325a236f998662eeed6b613fbc707"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/ImportedUniqueAntlrTokenFileProvider.java",
+      "bytes": 456,
+      "sha256": "b2281291f1892119b3c62d7cd63989ddc717335d288318ba29df28b528180744"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/ImportedUniqueParser.java",
+      "bytes": 1036,
+      "sha256": "e87d0165f52dfa3fb35fc37befe2bc218b48dce3898911f46a49cc98a306ba86"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.g",
+      "bytes": 4544,
+      "sha256": "e943da15821e7b9b1f3aace0b8c8fc65dc9ed5fed0c62ab6baeebe776a52b10d"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUnique.tokens",
+      "bytes": 79,
+      "sha256": "2086a79197aad12c2512803653bbef57860c86812f7a795af2acb560a100d91a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueLexer.java",
+      "bytes": 9586,
+      "sha256": "2f371faa2d1d15d91124af22ec9562bccabfd100ebda52cefe5a48762a96976a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/parser/antlr/internal/InternalImportedUniqueParser.java",
+      "bytes": 14009,
+      "sha256": "1ca98f802329bb31a5685bf7dd3091b84ebab67f258ae080c5a386bdd1c99a2a"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/scoping/AbstractImportedUniqueScopeProvider.java",
+      "bytes": 211,
+      "sha256": "8beb20f60e52e947e92eae9f4cf2ce218cf850684bb11258609a87f9d9f1eab6"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/serializer/ImportedUniqueSemanticSequencer.java",
+      "bytes": 2733,
+      "sha256": "0f06801fb4e42c451a725662a245901bd6b755d35de18ed0f170c40642d10a14"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/serializer/ImportedUniqueSyntacticSequencer.java",
+      "bytes": 1439,
+      "sha256": "a956dcbbae441900f0c5bc2b99fa479fcb70030f959717f43f86ddb162916ed2"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/services/ImportedUniqueGrammarAccess.java",
+      "bytes": 7057,
+      "sha256": "c63f34053242f856c784da0296eb3b62f70187c2b2fd1a2b7200d7f9e59f00a0"
+    },
+    {
+      "relative": "oracle-replay/imported_refs_explicit_true/src-gen/audit/validation/AbstractImportedUniqueValidator.java",
+      "bytes": 532,
+      "sha256": "628a9cdf00b26addf241d4b150b22313818822fbef91099bd39f333b4dfbd5c5"
+    },
+    {
+      "relative": "oracle-replay/javac-1.args",
+      "bytes": 7799,
+      "sha256": "adaff72ec8a6ab6ac9ef3d65a6057c87a21458ee8072a9e03f6695f545b7038e"
+    },
+    {
+      "relative": "oracle-replay/javac-17.args",
+      "bytes": 8963,
+      "sha256": "afaa958af6d56d7a43800e46290b5f6a6eb4c4ab71538aa8bbc34c0562644e61"
+    },
+    {
+      "relative": "oracle-replay/javac-19.args",
+      "bytes": 10428,
+      "sha256": "e2a943fd23b19b2c4148d262ad9ee4ffb480293bf547f68945b3bc749f626e15"
+    },
+    {
+      "relative": "oracle-replay/javac-29.args",
+      "bytes": 8963,
+      "sha256": "2198215d7e667c5ec30d3f6f0f6923139f780abb621a15793dcdaf70335da4bf"
+    },
+    {
+      "relative": "oracle-replay/javac-31.args",
+      "bytes": 10446,
+      "sha256": "5e743efa7fd7194d900ae221d3b15b57ea5e7162bf0c8238053d85b49e2a8477"
+    },
+    {
+      "relative": "oracle-replay/javac-5.args",
+      "bytes": 8963,
+      "sha256": "23f366c117bc101c839c1b0042321b642c9783b6936045d31e83bf37bd44eaa5"
+    },
+    {
+      "relative": "oracle-replay/javac-7.args",
+      "bytes": 10410,
+      "sha256": "3fc1fa47ef88f9e408408f34cd51311dda7728381517bd7dd96cab2936fab487"
+    },
+    {
+      "relative": "oracle-replay/observations.json",
+      "bytes": 161799,
+      "sha256": "b8d7bfca143d809ff4ee6077d588b32cd5fe16c8260bc373727464e1f1a6841e"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "9322c5df8947847d614020ec310d4e85298524ab9c7c51515a7fb46553b2f97e"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/provider.genmodel",
+      "bytes": 1530,
+      "sha256": "4cbfea9038943c0000213129600efbd96f4f8fb8507164a88c95bf6392320e34"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6863,
+      "sha256": "926793eeed37891e090aef866aef4be74e9af44994171d64b3d85236e4cd6aa1"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-replay/provider-06bd65c30365/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "9322c5df8947847d614020ec310d4e85298524ab9c7c51515a7fb46553b2f97e"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/provider.genmodel",
+      "bytes": 1524,
+      "sha256": "bf0042bd5efff113029f62daf23d5d5378f6d86c75420b33bb7ff02706781eda"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6863,
+      "sha256": "926793eeed37891e090aef866aef4be74e9af44994171d64b3d85236e4cd6aa1"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-replay/provider-a5c185c758cc/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.class",
+      "bytes": 2693,
+      "sha256": "fdde0facee71eb92f97f10400177d54fd37fe2fec06d2731e6252b049f4e1f92"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.class",
+      "bytes": 4187,
+      "sha256": "01d5c5913b476d418ce7ca2366aa52bcbf9d67395606236b8e5947caa3c465ef"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/ModelImpl.class",
+      "bytes": 2689,
+      "sha256": "615b157a694cc1b047cdf914c35bc1cd4964ff8707f897d07641ecca901f4665"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/impl/NodeImpl.class",
+      "bytes": 2244,
+      "sha256": "04e4526de5ee1877f841ea1a096bbbc484961457a85c047afb4f2fb3dae2f4b6"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniqueFactory.class",
+      "bytes": 731,
+      "sha256": "136ee138a7ee423f027030a0979e9fffc206cf6eea4bc75a3ca1230bb46bf692"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniquePackage$Literals.class",
+      "bytes": 999,
+      "sha256": "d46edaf5edef6b6d27614d0106772dab8b2190d68be6b0ca67f30f9ac4a569e9"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/ImportedUniquePackage.class",
+      "bytes": 1368,
+      "sha256": "07d8f23e9437552249f39baec41c5aa5b31886d10f03485d84c618ab97fe504f"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/Model.class",
+      "bytes": 343,
+      "sha256": "52bb70df5f2d1b2aee19b400f37326f8a855ae21cf07104d95a3b597d79e3a44"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/Node.class",
+      "bytes": 240,
+      "sha256": "c2c3eb2c1c875987207e2f7b7717d21a4dbe00425b5f1bbd3afc70da3e799a40"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory$1.class",
+      "bytes": 1702,
+      "sha256": "efcc933ee0c9a9c7580c02adbdd1b9dcef6d7e2d3cef15eae262dfac1a0e0ffa"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.class",
+      "bytes": 1870,
+      "sha256": "694ad3a6f182ebca2e49c03e886e31a29f31be78babcc8303c2bc7690c6c9707"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/classes/oracle/provider/importedUnique/util/ImportedUniqueSwitch.class",
+      "bytes": 1624,
+      "sha256": "3329410ecad974dc89bdc7c0a9fcd47b8c93d1f90031df4bac00260fb0ef9a64"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/provider.genmodel",
+      "bytes": 1536,
+      "sha256": "ea6abf05b990fc15192164d7dec085d9195ad355f0a7f9a62e0df2bcccfd08bf"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ImportedUniqueFactoryImpl.java",
+      "bytes": 2542,
+      "sha256": "996bd179869a86c3ac5539f9b3f58d42eb542a8f24a7f34efb8284e144f7db6f"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ImportedUniquePackageImpl.java",
+      "bytes": 6864,
+      "sha256": "7156b77da35efe5395739096cd0f50429a85ba0efc01c4bbb85f5130a4a2eec8"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/ModelImpl.java",
+      "bytes": 4596,
+      "sha256": "299f78802656907e4dc790b049e04599f8f2261a58d45de7ddfb5c0665ef90be"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/impl/NodeImpl.java",
+      "bytes": 3621,
+      "sha256": "0beb6b934b6ec6f113af3d01be8877361179b12c345426d00176ba20372ace0c"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/ImportedUniqueFactory.java",
+      "bytes": 1338,
+      "sha256": "902a50cf9f1ebb89af9a29105aba511c31f64f52eb805a0726d65bcf2daf61c9"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/ImportedUniquePackage.java",
+      "bytes": 6974,
+      "sha256": "001009f5f55b8b5e80d045c2aff4a595180a98b42a2d86a49faf9bef5d56b021"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/Model.java",
+      "bytes": 1579,
+      "sha256": "a5140f19370c97acde2e7eb514acf59969c05fb3aa53e25a549f8c1c9e07ca5d"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/Node.java",
+      "bytes": 1209,
+      "sha256": "9d09c8e33418e95e0e339f37ddd4fae8729c46c1af25591dbe633431d768e939"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/util/ImportedUniqueAdapterFactory.java",
+      "bytes": 3929,
+      "sha256": "c7bbf141604eff79caa6ea8e4a73c52e71d3d2364b12b099595ebab82c397d7f"
+    },
+    {
+      "relative": "oracle-replay/provider-d0b25186c276/src-gen/oracle/provider/importedUnique/util/ImportedUniqueSwitch.java",
+      "bytes": 4068,
+      "sha256": "339357fa8bba4a96184f645b6e5710affc09f1474b27a6f35e03025e230cd5c7"
+    },
+    {
+      "relative": "oracle-replay/toolchain.json",
+      "bytes": 12372,
+      "sha256": "d260aeb4d7cfccf98e5d53ec847a5022aba03f3ca73392535fc7c674ab85543e"
+    },
+    {
+      "relative": "oracle-replay.log",
+      "bytes": 241,
+      "sha256": "11ab9c97ea53e8b35c9141046dd75a6b95a51f27b44b6ec73bf6ad12857e498e"
+    },
+    {
+      "relative": "oracle-terminal.json",
+      "bytes": 3036,
+      "sha256": "d0d8d07864b1c8a6ec1ee04a5b18095553f4663754fb207e8d89e4be6c8580f7"
+    },
+    {
+      "relative": "preexecution.json",
+      "bytes": 6947,
+      "sha256": "14f0054aed8b76a7b28eb98b00670661ae474d2869eab00b5f9d4e58a4767431"
+    },
+    {
+      "relative": "prepare_finalize_v2.py",
+      "bytes": 659,
+      "sha256": "cdd1cd61efe07a84d49c56dd8a4ca48365a705cac323d799a2651b6cc0b97419"
+    },
+    {
+      "relative": "prepare_validation_v2.py",
+      "bytes": 1597,
+      "sha256": "b7508cf89d2db2ce74b23b4a140768a63a9931dd865fec8fa8231b95ffab0285"
+    },
+    {
+      "relative": "run_oracle.py",
+      "bytes": 2528,
+      "sha256": "e82973fdb1604a690306cad5f9b0417ad5dd1d2d36af23c499d8ca0aa75a1716"
+    },
+    {
+      "relative": "run_validation_addendum.py",
+      "bytes": 3583,
+      "sha256": "fa3bf7cb3a5f95a4a57eab20cebbb2c4c431b44bb3f3f41699a28d1814196391"
+    },
+    {
+      "relative": "run_validation_addendum_v2.py",
+      "bytes": 3589,
+      "sha256": "12b277ea3d1a998940e759bc377b79cc023513033639f659db394a1a9a9af955"
+    },
+    {
+      "relative": "source-evidence/EClassifierInfo.java.raw",
+      "bytes": 20067,
+      "sha256": "ec0fd9f5eb691ae58900b4c752e99c646895a105efbf848802f6c0d3c9400224"
+    },
+    {
+      "relative": "source-evidence/upstream-predicate.json",
+      "bytes": 10627,
+      "sha256": "c4737a69272b1c3897933d78929203bd9501d08f5a3632207726b9bf92073d00"
+    },
+    {
+      "relative": "UniqueRuntimeAddendum.java",
+      "bytes": 4147,
+      "sha256": "8f9d6cb98b93e85ad86a04454348b27347b9d417207874056a8f10aff262f02c"
+    },
+    {
+      "relative": "UniqueRuntimeAddendumV2.java",
+      "bytes": 4153,
+      "sha256": "3dc50cd1b830a28be36b12524e65bec69fb9beb6097b846e28467f3db1aced22"
+    },
+    {
+      "relative": "validation-addendum-correction-v2.json",
+      "bytes": 1439,
+      "sha256": "d91305a8a9cf1e56c2f7851efed06905e94b3a143154ade58411391ca245c2a5"
+    },
+    {
+      "relative": "validation-addendum-v1/000.stderr.log",
+      "bytes": 1153,
+      "sha256": "6a3d75594b19d390d0c22cf5b98645ec6a1c13f3868d529d55f8046adc1a550f"
+    },
+    {
+      "relative": "validation-addendum-v1/000.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v1/commands.json",
+      "bytes": 8100,
+      "sha256": "301a8a09e55df4b89aa2e22054ba17019b616462eb5913fe1d0eaf0269422b73"
+    },
+    {
+      "relative": "validation-addendum-v1/preexecution.json",
+      "bytes": 2094,
+      "sha256": "72bd3c6ae982bed1bc09a7ce4fa17bdb1449d749ce40f3313a93594e02ab7f47"
+    },
+    {
+      "relative": "validation-addendum-v2/000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/000.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/001.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/001.stdout.log",
+      "bytes": 1312,
+      "sha256": "af65f5ccb1c94074286cf76fea6c659cc5ebedde7bd1fba028a1446065c7027e"
+    },
+    {
+      "relative": "validation-addendum-v2/002.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/002.stdout.log",
+      "bytes": 1312,
+      "sha256": "e3dde7bb6e1097b5da166ffaae643f1697bc49d72aa8a61570404dc7a12816fa"
+    },
+    {
+      "relative": "validation-addendum-v2/003.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/003.stdout.log",
+      "bytes": 1382,
+      "sha256": "1c15b828edf5ec5a3b58efb69888b58105ecdbf1399713d55bc75a77afecdb0d"
+    },
+    {
+      "relative": "validation-addendum-v2/004.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/004.stdout.log",
+      "bytes": 1093,
+      "sha256": "9ec6d9aa3f9e499a86d4e73213b4bb4573dbb4b7ced44563bd007579d5d21814"
+    },
+    {
+      "relative": "validation-addendum-v2/005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/005.stdout.log",
+      "bytes": 1539,
+      "sha256": "863ea0ff84b47ee696cffad086ec3f48ea189cafd2917fa27db863badac51311"
+    },
+    {
+      "relative": "validation-addendum-v2/006.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/006.stdout.log",
+      "bytes": 1456,
+      "sha256": "eb20cbba2a7fe6aebd4c4bf583033afc7144f9c6cd6f797da96daecd3e65bee7"
+    },
+    {
+      "relative": "validation-addendum-v2/007.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/007.stdout.log",
+      "bytes": 1312,
+      "sha256": "af65f5ccb1c94074286cf76fea6c659cc5ebedde7bd1fba028a1446065c7027e"
+    },
+    {
+      "relative": "validation-addendum-v2/008.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/008.stdout.log",
+      "bytes": 1312,
+      "sha256": "e3dde7bb6e1097b5da166ffaae643f1697bc49d72aa8a61570404dc7a12816fa"
+    },
+    {
+      "relative": "validation-addendum-v2/009.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/009.stdout.log",
+      "bytes": 1382,
+      "sha256": "1c15b828edf5ec5a3b58efb69888b58105ecdbf1399713d55bc75a77afecdb0d"
+    },
+    {
+      "relative": "validation-addendum-v2/010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/010.stdout.log",
+      "bytes": 1093,
+      "sha256": "9ec6d9aa3f9e499a86d4e73213b4bb4573dbb4b7ced44563bd007579d5d21814"
+    },
+    {
+      "relative": "validation-addendum-v2/011.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/011.stdout.log",
+      "bytes": 1539,
+      "sha256": "863ea0ff84b47ee696cffad086ec3f48ea189cafd2917fa27db863badac51311"
+    },
+    {
+      "relative": "validation-addendum-v2/012.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/012.stdout.log",
+      "bytes": 1456,
+      "sha256": "eb20cbba2a7fe6aebd4c4bf583033afc7144f9c6cd6f797da96daecd3e65bee7"
+    },
+    {
+      "relative": "validation-addendum-v2/013.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/013.stdout.log",
+      "bytes": 1313,
+      "sha256": "ceec0ffd7e458498d24eb9b1f37361e50f180b2a51c553700c0a8004862e9987"
+    },
+    {
+      "relative": "validation-addendum-v2/014.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/014.stdout.log",
+      "bytes": 1313,
+      "sha256": "3bc3aee71eafbcea96e117761cab63de90097072cc688243d64f19b457783c80"
+    },
+    {
+      "relative": "validation-addendum-v2/015.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/015.stdout.log",
+      "bytes": 1383,
+      "sha256": "289cf9bfbfb315d985ea267279dbb5a220c42c5fc512799a60f89f61bc613469"
+    },
+    {
+      "relative": "validation-addendum-v2/016.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/016.stdout.log",
+      "bytes": 1094,
+      "sha256": "26b8ef3ff226bf102e197ff25c6d171687f82be4aabbf88da0fd06e49e39b911"
+    },
+    {
+      "relative": "validation-addendum-v2/017.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/017.stdout.log",
+      "bytes": 1540,
+      "sha256": "58298ba279e29eabb4740f8df05e0312cfed80e06973ea50a8a4c0dfaae5f009"
+    },
+    {
+      "relative": "validation-addendum-v2/018.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/018.stdout.log",
+      "bytes": 1457,
+      "sha256": "88a1612131b9313aaee94ab97c76ae4ad5a5aeb2d3d85f7fd146fdcb2aaf162c"
+    },
+    {
+      "relative": "validation-addendum-v2/019.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/019.stdout.log",
+      "bytes": 1312,
+      "sha256": "af65f5ccb1c94074286cf76fea6c659cc5ebedde7bd1fba028a1446065c7027e"
+    },
+    {
+      "relative": "validation-addendum-v2/020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/020.stdout.log",
+      "bytes": 1312,
+      "sha256": "e3dde7bb6e1097b5da166ffaae643f1697bc49d72aa8a61570404dc7a12816fa"
+    },
+    {
+      "relative": "validation-addendum-v2/021.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/021.stdout.log",
+      "bytes": 1382,
+      "sha256": "1c15b828edf5ec5a3b58efb69888b58105ecdbf1399713d55bc75a77afecdb0d"
+    },
+    {
+      "relative": "validation-addendum-v2/022.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/022.stdout.log",
+      "bytes": 1093,
+      "sha256": "9ec6d9aa3f9e499a86d4e73213b4bb4573dbb4b7ced44563bd007579d5d21814"
+    },
+    {
+      "relative": "validation-addendum-v2/023.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/023.stdout.log",
+      "bytes": 1539,
+      "sha256": "863ea0ff84b47ee696cffad086ec3f48ea189cafd2917fa27db863badac51311"
+    },
+    {
+      "relative": "validation-addendum-v2/024.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/024.stdout.log",
+      "bytes": 1456,
+      "sha256": "eb20cbba2a7fe6aebd4c4bf583033afc7144f9c6cd6f797da96daecd3e65bee7"
+    },
+    {
+      "relative": "validation-addendum-v2/025.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/025.stdout.log",
+      "bytes": 1312,
+      "sha256": "af65f5ccb1c94074286cf76fea6c659cc5ebedde7bd1fba028a1446065c7027e"
+    },
+    {
+      "relative": "validation-addendum-v2/026.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/026.stdout.log",
+      "bytes": 1312,
+      "sha256": "e3dde7bb6e1097b5da166ffaae643f1697bc49d72aa8a61570404dc7a12816fa"
+    },
+    {
+      "relative": "validation-addendum-v2/027.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/027.stdout.log",
+      "bytes": 1382,
+      "sha256": "1c15b828edf5ec5a3b58efb69888b58105ecdbf1399713d55bc75a77afecdb0d"
+    },
+    {
+      "relative": "validation-addendum-v2/028.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/028.stdout.log",
+      "bytes": 1093,
+      "sha256": "9ec6d9aa3f9e499a86d4e73213b4bb4573dbb4b7ced44563bd007579d5d21814"
+    },
+    {
+      "relative": "validation-addendum-v2/029.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/029.stdout.log",
+      "bytes": 1539,
+      "sha256": "863ea0ff84b47ee696cffad086ec3f48ea189cafd2917fa27db863badac51311"
+    },
+    {
+      "relative": "validation-addendum-v2/030.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/030.stdout.log",
+      "bytes": 1456,
+      "sha256": "eb20cbba2a7fe6aebd4c4bf583033afc7144f9c6cd6f797da96daecd3e65bee7"
+    },
+    {
+      "relative": "validation-addendum-v2/031.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/031.stdout.log",
+      "bytes": 1313,
+      "sha256": "ceec0ffd7e458498d24eb9b1f37361e50f180b2a51c553700c0a8004862e9987"
+    },
+    {
+      "relative": "validation-addendum-v2/032.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/032.stdout.log",
+      "bytes": 1313,
+      "sha256": "3bc3aee71eafbcea96e117761cab63de90097072cc688243d64f19b457783c80"
+    },
+    {
+      "relative": "validation-addendum-v2/033.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/033.stdout.log",
+      "bytes": 1383,
+      "sha256": "289cf9bfbfb315d985ea267279dbb5a220c42c5fc512799a60f89f61bc613469"
+    },
+    {
+      "relative": "validation-addendum-v2/034.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/034.stdout.log",
+      "bytes": 1094,
+      "sha256": "26b8ef3ff226bf102e197ff25c6d171687f82be4aabbf88da0fd06e49e39b911"
+    },
+    {
+      "relative": "validation-addendum-v2/035.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/035.stdout.log",
+      "bytes": 1540,
+      "sha256": "58298ba279e29eabb4740f8df05e0312cfed80e06973ea50a8a4c0dfaae5f009"
+    },
+    {
+      "relative": "validation-addendum-v2/036.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative": "validation-addendum-v2/036.stdout.log",
+      "bytes": 1457,
+      "sha256": "88a1612131b9313aaee94ab97c76ae4ad5a5aeb2d3d85f7fd146fdcb2aaf162c"
+    },
+    {
+      "relative": "validation-addendum-v2/classes/intersect/oracle/UniqueRuntimeAddendumV2.class",
+      "bytes": 9284,
+      "sha256": "46e7604bbef85d48a3d73868bb219a81c5b8fe1901024883933a0ae35b15425d"
+    },
+    {
+      "relative": "validation-addendum-v2/commands.json",
+      "bytes": 323126,
+      "sha256": "05ff7ff2bc688dd08d19bd1f93105ee652158aa9464228f1a4d4e85c8b72e00d"
+    },
+    {
+      "relative": "validation-addendum-v2/preexecution.json",
+      "bytes": 2099,
+      "sha256": "4fb9362e026c0c541a3189eaf61991e0e398e356bc1f06831053e0a30b6e2c16"
+    },
+    {
+      "relative": "validation-addendum-v2/record.json",
+      "bytes": 48675,
+      "sha256": "9b6a2c750a5ff6ae68b876f082e5142c0dbf029c4ed2695b9fe8e08b67cca324"
+    },
+    {
+      "relative": "validation-addendum-v2/replay.json",
+      "bytes": 48675,
+      "sha256": "9b6a2c750a5ff6ae68b876f082e5142c0dbf029c4ed2695b9fe8e08b67cca324"
+    },
+    {
+      "relative": "validation-addendum-v2/terminal.json",
+      "bytes": 21244,
+      "sha256": "8fb6da2b785ffd80ab918307b7eca15decd166006843c1a64f5f52fa5c3805bf"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "original_sha256": "420ce36ab0885da17298316c7dd98727020f8866e7194aa7dc7209f8db00f8dc",
+  "new_sha256": "e2bba13f8b518347860eb5687bf0c28e6af0411b94a75b7c348b1bc8bf758b2b",
+  "changes": [
+    {
+      "old": "HERE/'BuildProvider.java',HERE/'FullRuntime.java'",
+      "new": "HERE/'BuildProvider.java',HERE/'original/FullRuntime.java',HERE/'HiddenScopeRuntime.java',HERE/'HiddenScopeMetadata.java'"
+    },
+    {
+      "old": "'FullRuntime_sha256':sha(HERE/'FullRuntime.java')",
+      "new": "'FullRuntime_original_sha256':sha(HERE/'original/FullRuntime.java'),'HiddenScopeRuntime_sha256':sha(HERE/'HiddenScopeRuntime.java'),'HiddenScopeMetadata_sha256':sha(HERE/'HiddenScopeMetadata.java')"
+    },
+    {
+      "old": "'runtime':[]}",
+      "new": "'runtime':[],'named_runtime':[],'hidden_metadata':None}"
+    },
+    {
+      "old": "(metadata/'order.txt').write_text",
+      "new": "shutil.copyfile(source/'uri-bindings.tsv',metadata/'uri-bindings.tsv')\n  (metadata/'order.txt').write_text"
+    },
+    {
+      "old": "row['metadata']={'exit_code':v.returncode,'observation':data[0]if len(data)==1 else None}",
+      "new": "row['metadata']={'exit_code':v.returncode,'observation':data[0]if len(data)==1 else None}\n  v=run([java,'-cp',str(adapter)+os.pathsep+cp,'intersect.oracle.HiddenScopeMetadata',str(metadata)]);data=[json.loads(x)for x in v.stdout.splitlines()if x.startswith('{')];row['hidden_metadata']={'exit_code':v.returncode,'observation':data[0]if len(data)==1 else None}"
+    },
+    {
+      "old": "'intersect.oracle.FullRuntime',info['package_class']",
+      "new": "'intersect.oracle.HiddenScopeRuntime',info['package_class']"
+    },
+    {
+      "old": "  print('COMPLETE '+c['id']+' '+str(len(row['runtime'])),flush=True)",
+      "new": "  for entry in c['named_entries']:\n   for text in c['inputs']:\n    v=run([java,'-cp',runtime,'intersect.oracle.HiddenScopeRuntime',info['package_class'],c['entry'],base64.b64encode(text.encode('utf-8')).decode('ascii'),entry],timeout=15);values=[json.loads(x)for x in v.stdout.splitlines()if x.startswith('{')];row['named_runtime'].append({'entry':entry,'text':text,'exit_code':v.returncode,'timeout_seconds':15 if v.returncode==124 else None,'observation':values[0]if len(values)==1 else None});save(out/'observations.json',rows)\n  print('COMPLETE '+c['id']+' '+str(len(row['runtime'])),flush=True)"
+    }
+  ],
+  "workflow": "Original full StandardLanguage workflow unchanged for every source, including any failure; source repair forbidden."
+}

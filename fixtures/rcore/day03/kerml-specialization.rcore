@@ -1,0 +1,10 @@
+// Explicit projection; retain day01 provenance. This is not the full KerML metamodel.
+rcore 1;
+package kermlSpecializationDemo version "1";
+metamodel "urn:intersect:rcore:kerml-specialization-demo" prefix demo {
+  class Type {}
+  class Specialization {
+    ref general: Type [1,1] unordered;
+    ref specific: Type [1,1] unordered;
+  }
+}

@@ -1,0 +1,15 @@
+rcore 1;
+package binding.checked version "1";
+import model "urn:intersect:bindings" as m;
+
+fn twice(value: Int64) -> Int64 { value + value }
+fn admissible(value: Int64) -> Bool { value >= 0 && value <= 4611686018427387903 }
+fn correct(value: Int64, result: Int64) -> Bool { result == value + value }
+fn wrongSignature(value: Bool) -> Bool { value }
+fn wrongResult(value: Int64) -> Int64 { value }
+
+// A model operation uses the same explicit contract declaration mechanism.
+fn doubled(meter: m.Meter) -> Int64 { meter.value + meter.value }
+fn modelCorrect(meter: m.Meter, result: Int64) -> Bool {
+  result == meter.value + meter.value
+}

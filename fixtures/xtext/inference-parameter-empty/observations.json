@@ -1,0 +1,1247 @@
+{
+  "version": 1,
+  "metadata": [
+    {
+      "id": "forward_empty",
+      "entry": "main",
+      "accepted": true,
+      "all_sources_accepted": true,
+      "initial": [
+        {
+          "id": "main",
+          "grammar": "oracle.parameters.empty.forward_empty.Language",
+          "accepted": true,
+          "error_count": 0,
+          "parents": [],
+          "metamodels": [
+            {
+              "generated": true,
+              "alias": null,
+              "namespace": "urn:intersect:parameter-empty:forward_empty",
+              "package": {
+                "name": "model",
+                "uri": "urn:intersect:parameter-empty:forward_empty",
+                "prefix": "model",
+                "annotations": [],
+                "classifiers": [
+                  {
+                    "name": "Model",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Model",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [
+                      {
+                        "grammar": "oracle.parameters.empty.forward_empty.Language",
+                        "kind": "TypeRef",
+                        "start": 191,
+                        "end": 196
+                      }
+                    ],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": [
+                      {
+                        "name": "child",
+                        "kind": "EReference",
+                        "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.forward_empty.Language",
+                            "kind": "Assignment",
+                            "start": 202,
+                            "end": 222
+                          }
+                        ],
+                        "containment": true,
+                        "container": false,
+                        "resolve_proxies": true,
+                        "opposite": null,
+                        "keys": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Forward",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": []
+                  },
+                  {
+                    "name": "Node",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Node",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:forward_empty#//Forward"
+                    ],
+                    "features": [
+                      {
+                        "name": "name",
+                        "kind": "EAttribute",
+                        "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.forward_empty.Language",
+                            "kind": "Assignment",
+                            "start": 293,
+                            "end": 300
+                          }
+                        ],
+                        "id": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "generated": false,
+              "alias": "ecore",
+              "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+              "package": {
+                "name": "ecore",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                "prefix": "ecore"
+              }
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Model",
+              "fragment": false,
+              "wildcard": false,
+              "start": 183,
+              "end": 223,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Forward",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 208,
+                  "end": 222
+                }
+              ]
+            },
+            {
+              "name": "Forward",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+              "fragment": false,
+              "wildcard": false,
+              "start": 224,
+              "end": 265,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Node",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:forward_empty#//Node",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 254,
+                  "end": 264
+                }
+              ]
+            },
+            {
+              "name": "Node",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Node",
+              "fragment": false,
+              "wildcard": false,
+              "start": 266,
+              "end": 303,
+              "calls": [
+                {
+                  "target": {
+                    "name": "ID",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "TerminalRule",
+                    "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 298,
+                  "end": 300
+                }
+              ]
+            },
+            {
+              "name": "ID",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 304,
+              "end": 329,
+              "calls": []
+            },
+            {
+              "name": "WS",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 330,
+              "end": 365,
+              "calls": []
+            },
+            {
+              "name": "ANY_OTHER",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 366,
+              "end": 388,
+              "calls": []
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "WARNING",
+              "code": "RuleWithoutInstantiationInspector.noInstantiation",
+              "start": 266,
+              "length": 4,
+              "message": "The rule 'Node' may be consumed without object instantiation. Add an action to ensure object creation, e.g. '{Node}'."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "main",
+          "grammar": "oracle.parameters.empty.forward_empty.Language",
+          "accepted": true,
+          "error_count": 0,
+          "parents": [],
+          "metamodels": [
+            {
+              "generated": true,
+              "alias": null,
+              "namespace": "urn:intersect:parameter-empty:forward_empty",
+              "package": {
+                "name": "model",
+                "uri": "urn:intersect:parameter-empty:forward_empty",
+                "prefix": "model",
+                "annotations": [],
+                "classifiers": [
+                  {
+                    "name": "Model",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Model",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [
+                      {
+                        "grammar": "oracle.parameters.empty.forward_empty.Language",
+                        "kind": "TypeRef",
+                        "start": 191,
+                        "end": 196
+                      }
+                    ],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": [
+                      {
+                        "name": "child",
+                        "kind": "EReference",
+                        "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.forward_empty.Language",
+                            "kind": "Assignment",
+                            "start": 202,
+                            "end": 222
+                          }
+                        ],
+                        "containment": true,
+                        "container": false,
+                        "resolve_proxies": true,
+                        "opposite": null,
+                        "keys": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Forward",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": []
+                  },
+                  {
+                    "name": "Node",
+                    "identity": "urn:intersect:parameter-empty:forward_empty#//Node",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:forward_empty#//Forward"
+                    ],
+                    "features": [
+                      {
+                        "name": "name",
+                        "kind": "EAttribute",
+                        "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.forward_empty.Language",
+                            "kind": "Assignment",
+                            "start": 293,
+                            "end": 300
+                          }
+                        ],
+                        "id": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "generated": false,
+              "alias": "ecore",
+              "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+              "package": {
+                "name": "ecore",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                "prefix": "ecore"
+              }
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Model",
+              "fragment": false,
+              "wildcard": false,
+              "start": 183,
+              "end": 223,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Forward",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 208,
+                  "end": 222
+                }
+              ]
+            },
+            {
+              "name": "Forward",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Forward",
+              "fragment": false,
+              "wildcard": false,
+              "start": 224,
+              "end": 265,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Node",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:forward_empty#//Node",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 254,
+                  "end": 264
+                }
+              ]
+            },
+            {
+              "name": "Node",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:forward_empty#//Node",
+              "fragment": false,
+              "wildcard": false,
+              "start": 266,
+              "end": 303,
+              "calls": [
+                {
+                  "target": {
+                    "name": "ID",
+                    "grammar": "oracle.parameters.empty.forward_empty.Language",
+                    "kind": "TerminalRule",
+                    "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 298,
+                  "end": 300
+                }
+              ]
+            },
+            {
+              "name": "ID",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 304,
+              "end": 329,
+              "calls": []
+            },
+            {
+              "name": "WS",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 330,
+              "end": 365,
+              "calls": []
+            },
+            {
+              "name": "ANY_OTHER",
+              "grammar": "oracle.parameters.empty.forward_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 366,
+              "end": 388,
+              "calls": []
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "WARNING",
+              "code": "RuleWithoutInstantiationInspector.noInstantiation",
+              "start": 266,
+              "length": 4,
+              "message": "The rule 'Node' may be consumed without object instantiation. Add an action to ensure object creation, e.g. '{Node}'."
+            }
+          ]
+        }
+      ],
+      "parent_snapshots": [],
+      "imported_unchanged": true,
+      "imported_package": {
+        "name": "external",
+        "uri": "urn:intersect:inference:imported",
+        "prefix": "external",
+        "annotations": [],
+        "classifiers": [
+          {
+            "name": "External",
+            "identity": "urn:intersect:inference:imported#//External",
+            "kind": "EClass",
+            "instance_class": null,
+            "instance_type": null,
+            "annotations": [],
+            "origins": [],
+            "abstract": false,
+            "interface": false,
+            "super_types": [],
+            "features": [
+              {
+                "name": "name",
+                "kind": "EAttribute",
+                "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                "lower": 0,
+                "upper": 1,
+                "ordered": true,
+                "unique": true,
+                "changeable": true,
+                "volatile": false,
+                "transient": false,
+                "derived": false,
+                "unsettable": false,
+                "default_literal": null,
+                "annotations": [],
+                "origins": [],
+                "id": false
+              }
+            ]
+          },
+          {
+            "name": "Shade",
+            "identity": "urn:intersect:inference:imported#//Shade",
+            "kind": "EEnum",
+            "instance_class": null,
+            "instance_type": null,
+            "annotations": [],
+            "origins": [],
+            "serializable": true,
+            "literals": [
+              {
+                "name": "RED",
+                "literal": "red",
+                "value": 0,
+                "origins": []
+              },
+              {
+                "name": "BLUE",
+                "literal": "blue",
+                "value": 1,
+                "origins": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "root_empty",
+      "entry": "main",
+      "accepted": true,
+      "all_sources_accepted": true,
+      "initial": [
+        {
+          "id": "main",
+          "grammar": "oracle.parameters.empty.root_empty.Language",
+          "accepted": true,
+          "error_count": 0,
+          "parents": [],
+          "metamodels": [
+            {
+              "generated": true,
+              "alias": null,
+              "namespace": "urn:intersect:parameter-empty:root_empty",
+              "package": {
+                "name": "model",
+                "uri": "urn:intersect:parameter-empty:root_empty",
+                "prefix": "model",
+                "annotations": [],
+                "classifiers": [
+                  {
+                    "name": "Model",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Model",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": []
+                  },
+                  {
+                    "name": "Forward",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Forward",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:root_empty#//Model"
+                    ],
+                    "features": []
+                  },
+                  {
+                    "name": "Node",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Node",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:root_empty#//Forward"
+                    ],
+                    "features": [
+                      {
+                        "name": "name",
+                        "kind": "EAttribute",
+                        "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.root_empty.Language",
+                            "kind": "Assignment",
+                            "start": 269,
+                            "end": 276
+                          }
+                        ],
+                        "id": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "generated": false,
+              "alias": "ecore",
+              "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+              "package": {
+                "name": "ecore",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                "prefix": "ecore"
+              }
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Model",
+              "fragment": false,
+              "wildcard": false,
+              "start": 177,
+              "end": 199,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Forward",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:root_empty#//Forward",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 184,
+                  "end": 198
+                }
+              ]
+            },
+            {
+              "name": "Forward",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Forward",
+              "fragment": false,
+              "wildcard": false,
+              "start": 200,
+              "end": 241,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Node",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:root_empty#//Node",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 230,
+                  "end": 240
+                }
+              ]
+            },
+            {
+              "name": "Node",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Node",
+              "fragment": false,
+              "wildcard": false,
+              "start": 242,
+              "end": 279,
+              "calls": [
+                {
+                  "target": {
+                    "name": "ID",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "TerminalRule",
+                    "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 274,
+                  "end": 276
+                }
+              ]
+            },
+            {
+              "name": "ID",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 280,
+              "end": 305,
+              "calls": []
+            },
+            {
+              "name": "WS",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 306,
+              "end": 341,
+              "calls": []
+            },
+            {
+              "name": "ANY_OTHER",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 342,
+              "end": 364,
+              "calls": []
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "WARNING",
+              "code": "RuleWithoutInstantiationInspector.noInstantiation",
+              "start": 242,
+              "length": 4,
+              "message": "The rule 'Node' may be consumed without object instantiation. Add an action to ensure object creation, e.g. '{Node}'."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "main",
+          "grammar": "oracle.parameters.empty.root_empty.Language",
+          "accepted": true,
+          "error_count": 0,
+          "parents": [],
+          "metamodels": [
+            {
+              "generated": true,
+              "alias": null,
+              "namespace": "urn:intersect:parameter-empty:root_empty",
+              "package": {
+                "name": "model",
+                "uri": "urn:intersect:parameter-empty:root_empty",
+                "prefix": "model",
+                "annotations": [],
+                "classifiers": [
+                  {
+                    "name": "Model",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Model",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [],
+                    "features": []
+                  },
+                  {
+                    "name": "Forward",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Forward",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:root_empty#//Model"
+                    ],
+                    "features": []
+                  },
+                  {
+                    "name": "Node",
+                    "identity": "urn:intersect:parameter-empty:root_empty#//Node",
+                    "kind": "EClass",
+                    "instance_class": null,
+                    "instance_type": null,
+                    "annotations": [],
+                    "origins": [],
+                    "abstract": false,
+                    "interface": false,
+                    "super_types": [
+                      "urn:intersect:parameter-empty:root_empty#//Forward"
+                    ],
+                    "features": [
+                      {
+                        "name": "name",
+                        "kind": "EAttribute",
+                        "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                        "lower": 0,
+                        "upper": 1,
+                        "ordered": true,
+                        "unique": true,
+                        "changeable": true,
+                        "volatile": false,
+                        "transient": false,
+                        "derived": false,
+                        "unsettable": false,
+                        "default_literal": null,
+                        "annotations": [],
+                        "origins": [
+                          {
+                            "grammar": "oracle.parameters.empty.root_empty.Language",
+                            "kind": "Assignment",
+                            "start": 269,
+                            "end": 276
+                          }
+                        ],
+                        "id": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "generated": false,
+              "alias": "ecore",
+              "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+              "package": {
+                "name": "ecore",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                "prefix": "ecore"
+              }
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Model",
+              "fragment": false,
+              "wildcard": false,
+              "start": 177,
+              "end": 199,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Forward",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:root_empty#//Forward",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 184,
+                  "end": 198
+                }
+              ]
+            },
+            {
+              "name": "Forward",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Forward",
+              "fragment": false,
+              "wildcard": false,
+              "start": 200,
+              "end": 241,
+              "calls": [
+                {
+                  "target": {
+                    "name": "Node",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "ParserRule",
+                    "type": "urn:intersect:parameter-empty:root_empty#//Node",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 230,
+                  "end": 240
+                }
+              ]
+            },
+            {
+              "name": "Node",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "ParserRule",
+              "type": "urn:intersect:parameter-empty:root_empty#//Node",
+              "fragment": false,
+              "wildcard": false,
+              "start": 242,
+              "end": 279,
+              "calls": [
+                {
+                  "target": {
+                    "name": "ID",
+                    "grammar": "oracle.parameters.empty.root_empty.Language",
+                    "kind": "TerminalRule",
+                    "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                    "fragment": false,
+                    "wildcard": false
+                  },
+                  "explicit": false,
+                  "proxy": false,
+                  "synthetic": false,
+                  "start": 274,
+                  "end": 276
+                }
+              ]
+            },
+            {
+              "name": "ID",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 280,
+              "end": 305,
+              "calls": []
+            },
+            {
+              "name": "WS",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 306,
+              "end": 341,
+              "calls": []
+            },
+            {
+              "name": "ANY_OTHER",
+              "grammar": "oracle.parameters.empty.root_empty.Language",
+              "kind": "TerminalRule",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "fragment": false,
+              "wildcard": false,
+              "start": 342,
+              "end": 364,
+              "calls": []
+            }
+          ],
+          "diagnostics": [
+            {
+              "severity": "WARNING",
+              "code": "RuleWithoutInstantiationInspector.noInstantiation",
+              "start": 242,
+              "length": 4,
+              "message": "The rule 'Node' may be consumed without object instantiation. Add an action to ensure object creation, e.g. '{Node}'."
+            }
+          ]
+        }
+      ],
+      "parent_snapshots": [],
+      "imported_unchanged": true,
+      "imported_package": {
+        "name": "external",
+        "uri": "urn:intersect:inference:imported",
+        "prefix": "external",
+        "annotations": [],
+        "classifiers": [
+          {
+            "name": "External",
+            "identity": "urn:intersect:inference:imported#//External",
+            "kind": "EClass",
+            "instance_class": null,
+            "instance_type": null,
+            "annotations": [],
+            "origins": [],
+            "abstract": false,
+            "interface": false,
+            "super_types": [],
+            "features": [
+              {
+                "name": "name",
+                "kind": "EAttribute",
+                "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                "lower": 0,
+                "upper": 1,
+                "ordered": true,
+                "unique": true,
+                "changeable": true,
+                "volatile": false,
+                "transient": false,
+                "derived": false,
+                "unsettable": false,
+                "default_literal": null,
+                "annotations": [],
+                "origins": [],
+                "id": false
+              }
+            ]
+          },
+          {
+            "name": "Shade",
+            "identity": "urn:intersect:inference:imported#//Shade",
+            "kind": "EEnum",
+            "instance_class": null,
+            "instance_type": null,
+            "annotations": [],
+            "origins": [],
+            "serializable": true,
+            "literals": [
+              {
+                "name": "RED",
+                "literal": "red",
+                "value": 0,
+                "origins": []
+              },
+              {
+                "name": "BLUE",
+                "literal": "blue",
+                "value": 1,
+                "origins": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "generation": [
+    {
+      "id": "forward_empty",
+      "source_sha256": {
+        "main": "371454fb17f156e771a38b30ee5f58be5460e649cb0d3246cc24ebff9d6f0900"
+      },
+      "source_unchanged": true,
+      "generation_exit": 0,
+      "stage": "compiled",
+      "compilation_exit": 0,
+      "error_keys": [],
+      "parser_entries": {
+        "oracle.parameters.empty.forward_empty.Language": [
+          "Forward",
+          "Model",
+          "Node"
+        ]
+      },
+      "ecore_sha256": {
+        "model/generated/Language.ecore": "908c522c06202879cb8c53714e09e8a078862d08def8fe1c9477d291d862d95c"
+      }
+    },
+    {
+      "id": "root_empty",
+      "source_sha256": {
+        "main": "772a45f20778e5c755fd0645f45d836cc6b97a0e17e6e5d2ada9172180229411"
+      },
+      "source_unchanged": true,
+      "generation_exit": 0,
+      "stage": "compiled",
+      "compilation_exit": 0,
+      "error_keys": [],
+      "parser_entries": {
+        "oracle.parameters.empty.root_empty.Language": [
+          "Forward",
+          "Model",
+          "Node"
+        ]
+      },
+      "ecore_sha256": {
+        "model/generated/Language.ecore": "8558761b879d6e6eec325d0477bda63a1c1d888debf8f184a7b03044fbec4767"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "case": "forward_empty",
+      "grammar": "oracle.parameters.empty.forward_empty.Language",
+      "entry": "resource",
+      "text": "m node",
+      "accepted": true,
+      "errors": [],
+      "model": [
+        {
+          "class": "urn:intersect:parameter-empty:forward_empty#//Model",
+          "values": {
+            "child": null
+          }
+        }
+      ],
+      "exception": null,
+      "resource_contents": 1
+    },
+    {
+      "case": "forward_empty",
+      "grammar": "oracle.parameters.empty.forward_empty.Language",
+      "entry": "resource",
+      "text": "m node alpha",
+      "accepted": false,
+      "errors": [
+        {
+          "message": "extraneous input 'alpha' expecting EOF",
+          "line": 1,
+          "column": 8
+        }
+      ],
+      "model": [
+        {
+          "class": "urn:intersect:parameter-empty:forward_empty#//Model",
+          "values": {
+            "child": null
+          }
+        }
+      ],
+      "exception": null,
+      "resource_contents": 1
+    },
+    {
+      "case": "root_empty",
+      "grammar": "oracle.parameters.empty.root_empty.Language",
+      "entry": "resource",
+      "text": "node",
+      "accepted": false,
+      "errors": [],
+      "model": null,
+      "exception": null,
+      "resource_contents": 0
+    },
+    {
+      "case": "root_empty",
+      "grammar": "oracle.parameters.empty.root_empty.Language",
+      "entry": "resource",
+      "text": "node alpha",
+      "accepted": false,
+      "errors": [
+        {
+          "message": "extraneous input 'alpha' expecting EOF",
+          "line": 1,
+          "column": 6
+        }
+      ],
+      "model": null,
+      "exception": null,
+      "resource_contents": 0
+    }
+  ]
+}

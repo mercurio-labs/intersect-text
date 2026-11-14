@@ -1,0 +1,19 @@
+{
+  "upstream_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "sources": [
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/OperandEList.java",
+      "sha256": "ce453540ec316f31e4863523a1a01a89690df0a218ad9cbc840b4b280ef02807"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/adapter/InvocationExpressionAdapter.java",
+      "sha256": "9a284c0bb706af9768ff7bb203388516abd04bbf9cd1401c6b7ac185017bbd7a"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/TypeUtil.java",
+      "sha256": "22305319e299ccf35c62c1a1054c5552d615a93e660faa4b8fa67765fae44358"
+    }
+  ],
+  "finding": "operand is a write-only parsing facade: addUnique creates an owned parameter and sets private visibility; readback is empty. Existing computed-setting readback validation checks structural type and unsettable state, not requested-value equality. Empty readback is not itself a blocker. Missing operations are Append requests and object creation in stored edit plans; text admission, journal integration and source-bound providers also remain.",
+  "implementation_status": "Not implemented; coordinate shared atomic construction contracts and keep domain transformation in the KerML language package."
+}

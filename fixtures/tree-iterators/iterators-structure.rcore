@@ -1,0 +1,11 @@
+rcore 1;
+package `iterators` version "1";
+metamodel "urn:intersect:iterators" prefix `iterators` {
+  datatype `Cursor` instanceClass "org.eclipse.emf.common.util.TreeIterator" nonserializable {  }
+  class `Session` {
+    attr `name`: EString [0,1];
+    attr `cursor`: external "http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator" [0,1];
+    attr `localCursor`: external "#//@eClassifiers.1" [0,1];
+    op `resume`(`cursor`: external "http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator" [0,1];
+  }
+}

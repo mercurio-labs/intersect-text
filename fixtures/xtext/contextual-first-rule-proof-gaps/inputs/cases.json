@@ -1,0 +1,146 @@
+[
+  {
+    "id": "wildcard_original_control",
+    "entry": "inference.fragments.WildcardBasic",
+    "sources": [
+      {
+        "grammar": "inference.fragments.WildcardBasic",
+        "file": "inference.fragments.WildcardBasic.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext",
+          "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8"
+        }
+      }
+    ],
+    "inputs": [
+      "m alpha",
+      "malpha",
+      "m ",
+      "",
+      "m alpha beta"
+    ],
+    "question": "Unchanged original wildcard_basic source proves later Fields classifier null; source control only, not first-rule proof.",
+    "provider_cohort": "unchanged_original_provider",
+    "origin": "New additive proof-gap probe. Original contextual20 and wildcard fixtures remain untouched."
+  },
+  {
+    "id": "wildcard_first_null",
+    "entry": "inference.fragments.WildcardBasic",
+    "sources": [
+      {
+        "grammar": "inference.fragments.WildcardBasic",
+        "file": "inference.fragments.WildcardBasic.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext",
+          "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0"
+        }
+      }
+    ],
+    "inputs": [
+      "m alpha",
+      "malpha",
+      "m ",
+      "",
+      "m alpha beta"
+    ],
+    "question": "Only move the exact original fragment declaration before Model. Verify actual resolved null classifier plus default validator branch without relabelling missing return.",
+    "provider_cohort": "unchanged_original_provider",
+    "origin": "New additive proof-gap probe. Original contextual20 and wildcard fixtures remain untouched."
+  },
+  {
+    "id": "scalar_fragment_library",
+    "entry": "audit.ProofScalarFragmentLibrary",
+    "sources": [
+      {
+        "grammar": "audit.ProofScalarFragmentLibrary",
+        "file": "audit.ProofScalarFragmentLibrary.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext",
+          "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0"
+        }
+      }
+    ],
+    "inputs": [
+      "a",
+      "b",
+      "",
+      "aa",
+      "a\ud83c\udf0d"
+    ],
+    "question": "Explicit EString fragment first with scalar-only closure. Admission is separate from executable standalone entry.",
+    "provider_cohort": "unchanged_original_provider",
+    "origin": "New additive proof-gap probe. Original contextual20 and wildcard fixtures remain untouched."
+  },
+  {
+    "id": "scalar_fragment_model_child",
+    "entry": "audit.ProofScalarFragmentChild",
+    "sources": [
+      {
+        "grammar": "audit.ProofScalarFragmentLibrary",
+        "file": "audit.ProofScalarFragmentLibrary.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext",
+          "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0"
+        }
+      },
+      {
+        "grammar": "audit.ProofScalarFragmentChild",
+        "file": "audit.ProofScalarFragmentChild.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext",
+          "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8"
+        }
+      }
+    ],
+    "inputs": [
+      "a",
+      "b",
+      "",
+      "aa",
+      "a\ud83c\udf0d"
+    ],
+    "question": "Consume identical original scalar-fragment library through model-first child, no silent source or generation scaffold repair.",
+    "provider_cohort": "unchanged_original_provider",
+    "origin": "New additive proof-gap probe. Original contextual20 and wildcard fixtures remain untouched."
+  },
+  {
+    "id": "syntax_clean_object_three_level",
+    "entry": "audit.ProofObjectChild",
+    "sources": [
+      {
+        "grammar": "audit.ProofObjectBase",
+        "file": "audit.ProofObjectBase.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext",
+          "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f"
+        }
+      },
+      {
+        "grammar": "audit.ProofObjectMiddle",
+        "file": "audit.ProofObjectMiddle.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext",
+          "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a"
+        }
+      },
+      {
+        "grammar": "audit.ProofObjectChild",
+        "file": "audit.ProofObjectChild.xtext",
+        "source_id": {
+          "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext",
+          "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b"
+        }
+      }
+    ],
+    "inputs": [
+      "a",
+      "b",
+      "z",
+      "",
+      "ab"
+    ],
+    "question": "Nonempty middle removes original syntax obstruction; Middle/Child may each be validator-invalid through recursive Base. Not an admission-clean chain.",
+    "provider_cohort": "unchanged_original_provider",
+    "origin": "New additive proof-gap probe. Original contextual20 and wildcard fixtures remain untouched."
+  }
+]

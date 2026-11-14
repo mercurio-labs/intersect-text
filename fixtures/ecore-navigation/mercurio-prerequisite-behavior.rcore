@@ -1,0 +1,4 @@
+rcore 1;
+package prerequisite_projection version "1";
+import model "urn:intersect:mercurio-prerequisite-projection" as m;
+fn main(x:m.Feature)->OrderedSet<m.Feature> = closure([x],|f|map(f.owned_relationship,|r|r.redefined_feature));

@@ -1,0 +1,379 @@
+/**
+ */
+package oracle.provider.currentActions;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Package</b> for the model.
+ * It contains accessors for the meta objects to represent
+ * <ul>
+ *   <li>each class,</li>
+ *   <li>each feature of each class,</li>
+ *   <li>each enum,</li>
+ *   <li>and each data type</li>
+ * </ul>
+ * <!-- end-user-doc -->
+ * @see oracle.provider.currentActions.CurrentActionsFactory
+ * @model kind="package"
+ * @generated
+ */
+public interface CurrentActionsPackage extends EPackage {
+	/**
+	 * The package name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNAME = "currentActions";
+
+	/**
+	 * The package namespace URI.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_URI = "urn:intersect:xtext:current-actions:1";
+
+	/**
+	 * The package namespace name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_PREFIX = "k";
+
+	/**
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	CurrentActionsPackage eINSTANCE = oracle.provider.currentActions.impl.CurrentActionsPackageImpl.init();
+
+	/**
+	 * The meta object id for the '{@link oracle.provider.currentActions.impl.ModelImpl <em>Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see oracle.provider.currentActions.impl.ModelImpl
+	 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getModel()
+	 * @generated
+	 */
+	int MODEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link oracle.provider.currentActions.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see oracle.provider.currentActions.impl.ExpressionImpl
+	 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link oracle.provider.currentActions.impl.LiteralImpl <em>Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see oracle.provider.currentActions.impl.LiteralImpl
+	 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getLiteral()
+	 * @generated
+	 */
+	int LITERAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link oracle.provider.currentActions.impl.OperatorExpressionImpl <em>Operator Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see oracle.provider.currentActions.impl.OperatorExpressionImpl
+	 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getOperatorExpression()
+	 * @generated
+	 */
+	int OPERATOR_EXPRESSION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_EXPRESSION__OPERATOR = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operand</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_EXPRESSION__OPERAND = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Operator Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+
+	/**
+	 * Returns the meta object for class '{@link oracle.provider.currentActions.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see oracle.provider.currentActions.Model
+	 * @generated
+	 */
+	EClass getModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link oracle.provider.currentActions.Model#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see oracle.provider.currentActions.Model#getName()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EAttribute getModel_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link oracle.provider.currentActions.Model#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see oracle.provider.currentActions.Model#getValue()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Value();
+
+	/**
+	 * Returns the meta object for class '{@link oracle.provider.currentActions.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see oracle.provider.currentActions.Expression
+	 * @generated
+	 */
+	EClass getExpression();
+
+	/**
+	 * Returns the meta object for class '{@link oracle.provider.currentActions.Literal <em>Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal</em>'.
+	 * @see oracle.provider.currentActions.Literal
+	 * @generated
+	 */
+	EClass getLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link oracle.provider.currentActions.Literal#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see oracle.provider.currentActions.Literal#getValue()
+	 * @see #getLiteral()
+	 * @generated
+	 */
+	EAttribute getLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link oracle.provider.currentActions.OperatorExpression <em>Operator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operator Expression</em>'.
+	 * @see oracle.provider.currentActions.OperatorExpression
+	 * @generated
+	 */
+	EClass getOperatorExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link oracle.provider.currentActions.OperatorExpression#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see oracle.provider.currentActions.OperatorExpression#getOperator()
+	 * @see #getOperatorExpression()
+	 * @generated
+	 */
+	EAttribute getOperatorExpression_Operator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link oracle.provider.currentActions.OperatorExpression#getOperand <em>Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operand</em>'.
+	 * @see oracle.provider.currentActions.OperatorExpression#getOperand()
+	 * @see #getOperatorExpression()
+	 * @generated
+	 */
+	EReference getOperatorExpression_Operand();
+
+	/**
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the factory that creates the instances of the model.
+	 * @generated
+	 */
+	CurrentActionsFactory getCurrentActionsFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 *   <li>each class,</li>
+	 *   <li>each feature of each class,</li>
+	 *   <li>each enum,</li>
+	 *   <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link oracle.provider.currentActions.impl.ModelImpl <em>Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see oracle.provider.currentActions.impl.ModelImpl
+		 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getModel()
+		 * @generated
+		 */
+		EClass MODEL = eINSTANCE.getModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__VALUE = eINSTANCE.getModel_Value();
+
+		/**
+		 * The meta object literal for the '{@link oracle.provider.currentActions.impl.ExpressionImpl <em>Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see oracle.provider.currentActions.impl.ExpressionImpl
+		 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getExpression()
+		 * @generated
+		 */
+		EClass EXPRESSION = eINSTANCE.getExpression();
+
+		/**
+		 * The meta object literal for the '{@link oracle.provider.currentActions.impl.LiteralImpl <em>Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see oracle.provider.currentActions.impl.LiteralImpl
+		 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getLiteral()
+		 * @generated
+		 */
+		EClass LITERAL = eINSTANCE.getLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL__VALUE = eINSTANCE.getLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link oracle.provider.currentActions.impl.OperatorExpressionImpl <em>Operator Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see oracle.provider.currentActions.impl.OperatorExpressionImpl
+		 * @see oracle.provider.currentActions.impl.CurrentActionsPackageImpl#getOperatorExpression()
+		 * @generated
+		 */
+		EClass OPERATOR_EXPRESSION = eINSTANCE.getOperatorExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATOR_EXPRESSION__OPERATOR = eINSTANCE.getOperatorExpression_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Operand</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR_EXPRESSION__OPERAND = eINSTANCE.getOperatorExpression_Operand();
+
+	}
+
+} //CurrentActionsPackage

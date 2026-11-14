@@ -1,0 +1,8 @@
+grammar independent.Records with org.eclipse.xtext.common.Terminals
+    import "urn:general-text" as d
+    import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+    Document returns d::Document: 'doc' '[' Fields ']' '!'* 'path' path=QualifiedName ('active' active=Boolean)? mode=Mode count=INT;
+    fragment Fields returns d::Document hidden(): name=ID ':' ID;
+    QualifiedName returns ecore::EString: ID ('::' ID)*;
+    Boolean returns ecore::EBoolean: 'true' | 'false';
+    enum Mode returns d::Mode: FAST='fast' | SLOW='slow';

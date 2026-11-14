@@ -1,0 +1,2581 @@
+[
+  {
+    "id": "valid_inherited_operand_override",
+    "entry": "audit.UntilValidInheritedOperandChild",
+    "original_inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "source_pins": {
+      "audit.UntilValidInheritedOperandBase.xtext": "06573c0e481aacfd344bdf386764cd895b8547d9151431a05d125d9c55562fc1",
+      "audit.UntilValidInheritedOperandChild.xtext": "63e5385384b09ac64b22a78fec0ac7164095541c4e05103ffc339ec84727fbba",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\full-finite-until-context-v1\\valid-inheritance-v2-replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.UntilValidInheritedOperandBase",
+            "errors": []
+          },
+          {
+            "source": "audit.UntilValidInheritedOperandChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.UntilValidInheritedOperandBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.UntilValidInheritedOperandBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.UntilValidInheritedOperandChild::END",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.UntilValidInheritedOperandChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.UntilValidInheritedOperandBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.UntilValidInheritedOperandBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.UntilValidInheritedOperandChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 219,
+                "length": 5,
+                "message": "This rule overrides Model in audit.UntilValidInheritedOperandBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 273,
+                "length": 3,
+                "message": "This rule overrides END in audit.UntilValidInheritedOperandBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.UntilValidInheritedOperandChild::END",
+            "name": "RULE_END",
+            "fragment": true,
+            "body": "('ab'|'abc')"
+          },
+          {
+            "source_rule": "audit.UntilValidInheritedOperandBase::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "'@' ( options {greedy=false;} : . )*RULE_END"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "@",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@abc",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@abc",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abx",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abx",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting '@'",
+                "line": 1,
+                "column": 4
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "x",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'x' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abca",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abca",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@abc",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 5
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@abc",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@aabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@aabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@aabc",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@aabc",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@aabc",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@aabc",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@ababa",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@ababa",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "b",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 6
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "b",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'b' expecting '@'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 5,
+                "utf16_end": 6
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@acb",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@acb",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "@acb",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "utf16_start": 0,
+                "utf16_end": 4
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@xabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@xabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@xabc",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@xabc",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@xabc",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@xabc",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abcabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abcabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@abc",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "b",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "line": 1,
+                "column": 6
+              },
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@abc",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "b",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": "mismatched character 'b' expecting '@'"
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "utf16_start": 5,
+                "utf16_end": 6
+              },
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 6,
+                "utf16_end": 7
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@abc",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@aba@aba",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@aba@aba",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 4,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "extraneous input '@ab' expecting EOF",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 8
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 4,
+                "utf16_end": 7,
+                "syntax_error": "extraneous input '@ab' expecting EOF"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "extraneous input '@ab' expecting EOF",
+                "utf16_start": 4,
+                "utf16_end": 7
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 7,
+                "utf16_end": 8
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "valid_explicit_parent_operand",
+    "entry": "audit.UntilValidExplicitParentOperandChild",
+    "original_inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "source_pins": {
+      "audit.UntilValidExplicitParentOperandBase.xtext": "a395586f1bf509ace43382880fd5df4843db7db0fb55cbd5a21f9f06f62ed619",
+      "audit.UntilValidExplicitParentOperandChild.xtext": "d7ca88634c53077d5b0867e3e3a9e5cbf01fe3238eff2e8c26b56422382da32b",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\full-finite-until-context-v1\\valid-inheritance-v2-replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.UntilValidExplicitParentOperandBase",
+            "errors": []
+          },
+          {
+            "source": "audit.UntilValidExplicitParentOperandChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.UntilValidExplicitParentOperandBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.UntilValidExplicitParentOperandChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.UntilValidExplicitParentOperandChild::END",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.UntilValidExplicitParentOperandChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.UntilValidExplicitParentOperandChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.UntilValidExplicitParentOperandBase::END",
+                "proxy": false,
+                "explicit": true
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.UntilValidExplicitParentOperandBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.UntilValidExplicitParentOperandChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 229,
+                "length": 5,
+                "message": "This rule overrides Model in audit.UntilValidExplicitParentOperandBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 274,
+                "length": 5,
+                "message": "This rule overrides VALUE in audit.UntilValidExplicitParentOperandBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 340,
+                "length": 3,
+                "message": "This rule overrides END in audit.UntilValidExplicitParentOperandBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.UntilValidExplicitParentOperandChild::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "'@' ( options {greedy=false;} : . )*SUPER_END"
+          },
+          {
+            "source_rule": "audit.UntilValidExplicitParentOperandChild::END",
+            "name": "RULE_END",
+            "fragment": true,
+            "body": "('ab'|'abc')"
+          },
+          {
+            "source_rule": "audit.UntilValidExplicitParentOperandBase::END",
+            "name": "SUPER_END",
+            "fragment": true,
+            "body": "('abc'|'b')"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "@",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character '<EOF>'",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 4
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abx",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abx",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting '@'",
+                "line": 1,
+                "column": 4
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "x",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'x' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abca",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abca",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 5
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@aabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@aabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@aab",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 5
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@aab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@aab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@aab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@ababa",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@ababa",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "b",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 6
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "b",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'b' expecting '@'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 5,
+                "utf16_end": 6
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@acb",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@acb",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@acb",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@acb",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@acb",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@acb",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@xabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@xabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@xab",
+                "utf16_start": 0,
+                "utf16_stop": 3,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 5
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@xab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@xab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 4,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@xab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@abcabc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@abcabc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 4,
+                "utf16_stop": 4,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "b",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "c",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "line": 1,
+                "column": 6
+              },
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 4,
+                "utf16_end": 5,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "b",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": "mismatched character 'b' expecting '@'"
+              },
+              {
+                "text": "c",
+                "hidden": true,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": "mismatched character 'c' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 4,
+                "utf16_end": 5
+              },
+              {
+                "message": "mismatched character 'b' expecting '@'",
+                "utf16_start": 5,
+                "utf16_end": 6
+              },
+              {
+                "message": "mismatched character 'c' expecting '@'",
+                "utf16_start": 6,
+                "utf16_end": 7
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "@aba@aba",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "@aba@aba",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 0,
+                "utf16_stop": 2,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 3,
+                "utf16_stop": 3,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "@ab",
+                "utf16_start": 4,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 4
+              },
+              {
+                "message": "extraneous input '@ab' expecting EOF",
+                "line": 1,
+                "column": 5
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "line": 1,
+                "column": 8
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 3,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 3,
+                "utf16_end": 4,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              },
+              {
+                "text": "@ab",
+                "hidden": false,
+                "utf16_start": 4,
+                "utf16_end": 7,
+                "syntax_error": "extraneous input '@ab' expecting EOF"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": "mismatched character 'a' expecting '@'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 3,
+                "utf16_end": 4
+              },
+              {
+                "message": "extraneous input '@ab' expecting EOF",
+                "utf16_start": 4,
+                "utf16_end": 7
+              },
+              {
+                "message": "mismatched character 'a' expecting '@'",
+                "utf16_start": 7,
+                "utf16_end": 8
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "@ab",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  }
+]

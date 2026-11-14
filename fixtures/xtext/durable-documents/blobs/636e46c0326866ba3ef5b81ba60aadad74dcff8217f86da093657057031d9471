@@ -1,0 +1,56 @@
+{
+  "id": "grouped_objects_namespace_companion",
+  "sources": [
+    {
+      "file": "model.xtext",
+      "source_id": {
+        "uri": "memory:node-recovery/companion/grouped_objects_namespace_companion/model.xtext",
+        "sha256": "ff812d2f64f001b81599b8604da31bbebeeafb77e3ed2a96f9d1ecfd666d6a72"
+      },
+      "original_source": {
+        "uri": "memory:node-recovery/original/grouped_objects_original/model.xtext",
+        "sha256": "a33d7189199953f7740a3986699cc3e89186378836dafcbae89d412f2c3aab8e"
+      }
+    }
+  ],
+  "provider": {
+    "file": "imported.ecore",
+    "bytes": 1240,
+    "sha256": "46eac47e46a738b35b9b00b35245f164a2e79cca28b7017e8dc41189bcbf653b"
+  },
+  "native_structure_adapter": {
+    "file": "model-structure.rcore",
+    "bytes": 537,
+    "sha256": "ddb33612e29f88bc53841065deb9650ba7182b9984687249f3a0544a44ebac17",
+    "scope": "byte-exact original fixture migration structure, separate from native Ecore import"
+  },
+  "native_behavior": {
+    "file": "model-behavior.rcore",
+    "bytes": 47,
+    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+  },
+  "inputs": [
+    "Demo = sum(1,sum(2,3));",
+    "m = sum(1,2);",
+    "m = sum(1,sum(2,3));",
+    "m = sum(1,);",
+    "m = sum(1,2;",
+    "m = sum(1 2);",
+    "m = sum(1,?);",
+    "m = sum(1,\ud83d\ude00);"
+  ],
+  "named_entries": [],
+  "interpretation": "NEW identity; no credit for original namespace/case validation failure; grammar validity/generation/runtime not assumed",
+  "original_example": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-candidate-v64joined-v1\\workspace\\fixtures\\xtext\\grouped-object-assignments\\example.model",
+    "bytes": 23,
+    "sha256": "49ba72edb1259c9cdb97a5daf64ddb3bd4f5cbefa73d065e96f8313bc8d990a1"
+  },
+  "source_delta": {
+    "only": {
+      "old": "grammar groupedObjects hidden(WS)",
+      "new": "grammar node.recovery.GroupedObjects hidden(WS)"
+    },
+    "original_body_provider_probe_bytes_unchanged": true
+  }
+}

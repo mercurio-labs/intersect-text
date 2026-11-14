@@ -1,0 +1,31 @@
+grammar example.Catalog with org.eclipse.xtext.common.Terminals
+import "urn:intersect:example:catalog:1" as cat
+
+Model returns cat::Model:
+  {cat::Model} imports+=Import* elements+=Element*;
+
+Import returns cat::Import:
+  'import' importedNamespace=QualifiedNameWithWildcard;
+
+Element returns cat::Element:
+  Package | DataType | Entity;
+
+Package returns cat::Package:
+  'package' name=QualifiedName '{' elements+=Element* '}';
+
+DataType returns cat::DataType:
+  'datatype' name=ID;
+
+Entity returns cat::Entity:
+  'entity' name=ID ('extends' superType=[cat::Entity|QualifiedName])? '{'
+    features+=Feature*
+  '}';
+
+Feature returns cat::Feature:
+  (many?='many')? name=ID ':' type=[cat::Type|QualifiedName];
+
+QualifiedName:
+  ID ('.' ID)*;
+
+QualifiedNameWithWildcard:
+  QualifiedName '.*'?;

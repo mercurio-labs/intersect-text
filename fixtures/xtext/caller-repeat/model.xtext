@@ -1,0 +1,5 @@
+grammar callerRepeat hidden(WS)
+import "urn:intersect:compatibility:graph" as g
+Root returns g::Node: ('one' Part 'a' 'c' | 'two' Part 'a' 'd');
+fragment Part returns g::Node: name='start' ('a' labels+='b')*;
+terminal WS: ' '+;

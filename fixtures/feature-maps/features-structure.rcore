@@ -1,0 +1,26 @@
+rcore 1;
+package `fm` version "1";
+metamodel "urn:fm" prefix `fm` {
+  datatype `Count` instanceClass "int" {  }
+  datatype `RGB` instanceClass "example.RGB" {  }
+  enum `Mode` {
+    `First` = 7;
+    `Alias` = 7;
+  }
+  class `Holder` {
+    attr `text`: EString [0,1];
+    attr `count`: external "#//@eClassifiers.3" [0,1];
+    attr `mode`: external "#//@eClassifiers.2" [0,1];
+    attr `color`: external "#//@eClassifiers.4" [0,1];
+    ref `peer`: external "#//@eClassifiers.1" [0,1];
+    attr `entry`: external "http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry" [0,1];
+    attr `map`: external "http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap" [0,1];
+    attr `localEntry`: external "#//@eClassifiers.5" [0,1];
+    attr `localMap`: external "#//@eClassifiers.6" [0,1];
+    op `echo`(`value`: external "http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry" [0,1];
+  }
+  class `Peer` {
+  }
+  datatype `Entry` instanceClass "org.eclipse.emf.ecore.util.FeatureMap$Entry" nonserializable {  }
+  datatype `Map` instanceClass "org.eclipse.emf.ecore.util.FeatureMap" nonserializable {  }
+}

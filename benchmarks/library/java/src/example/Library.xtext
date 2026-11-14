@@ -1,0 +1,5 @@
+// Benchmark-only projection; generated EMF classes are in src-gen.
+grammar example.Library with org.eclipse.xtext.common.Terminals
+generate library "urn:intersect:benchmark:library:1"
+Library: 'library' name=ID '{' (members+=Member)* '}';
+Member: 'member' name=ID ';';

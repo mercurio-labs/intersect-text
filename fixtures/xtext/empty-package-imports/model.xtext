@@ -1,0 +1,6 @@
+grammar example.EmptyPackage hidden(WS)
+import "urn:main" as p
+import "urn:empty" as empty
+Model returns p::Model: 'model' name=ID;
+terminal ID: ('a'..'z')+;
+terminal WS: ' '+;

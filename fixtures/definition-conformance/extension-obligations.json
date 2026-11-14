@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "scope": "Handwritten service obligations supplement the complete pinned metamodel node inventory; planned cases are not executable evidence",
+  "obligations": [
+    {
+      "id": "ecore/conversion-delegates",
+      "domain": "ecore",
+      "title": "conversion delegates",
+      "milestone": "E06",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/EDataType.java",
+      "selector": "ConversionDelegate",
+      "requirement": "Typed datatype conversion delegates require registered implementations and preserve lexical/value failures",
+      "cases": {
+        "positive": "Convert and round-trip a custom decimal datatype",
+        "negative": "Reject a missing converter and overflow without a default substitute",
+        "boundary": "Distinguish null, empty lexical value and unset"
+      }
+    },
+    {
+      "id": "ecore/setting-delegates",
+      "domain": "ecore",
+      "title": "setting delegates",
+      "milestone": "E12",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/EStructuralFeature.java",
+      "selector": "SettingDelegate",
+      "requirement": "Derived and dynamic feature reads/writes invoke typed setting delegates",
+      "cases": {
+        "positive": "Read a derived collection through reflection and typed API",
+        "negative": "Reject absent provider and invalid write effect",
+        "boundary": "Inherited provider override and duplicate binding"
+      }
+    },
+    {
+      "id": "ecore/invocation-delegates",
+      "domain": "ecore",
+      "title": "invocation delegates",
+      "milestone": "E12",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/EOperation.java",
+      "selector": "InvocationDelegate",
+      "requirement": "Operations dispatch by receiver and signature with checked exceptions",
+      "cases": {
+        "positive": "Execute an overloaded operation with typed parameters",
+        "negative": "Reject wrong receiver/arity and missing implementation",
+        "boundary": "Overload identity and inherited override"
+      }
+    },
+    {
+      "id": "ecore/validation-delegates",
+      "domain": "ecore",
+      "title": "validation delegates",
+      "milestone": "E12",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/EValidator.java",
+      "selector": "ValidationDelegate",
+      "requirement": "Validation applicability and constraint providers preserve diagnostic outcomes",
+      "cases": {
+        "positive": "Execute named constraint with structured diagnostic",
+        "negative": "Missing provider remains unsupported instead of valid",
+        "boundary": "Inherited applicability and multiple diagnostics"
+      }
+    },
+    {
+      "id": "ecore/uri-fragments",
+      "domain": "ecore",
+      "title": "uri fragments",
+      "milestone": "E11",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/resource/Resource.java",
+      "selector": "getURIFragment",
+      "requirement": "Stable resource identity and fragment resolution use explicit adapters",
+      "cases": {
+        "positive": "Resolve contained and ID-based objects across resources",
+        "negative": "Reject missing or ambiguous fragment",
+        "boundary": "Escaped fragments and move/reload identity"
+      }
+    },
+    {
+      "id": "ecore/resource-state",
+      "domain": "ecore",
+      "title": "resource state",
+      "milestone": "E11",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/resource/Resource.java",
+      "selector": "isLoaded",
+      "requirement": "Load/unload, diagnostics and resource state remain distinct from model validity",
+      "cases": {
+        "positive": "Load and unload supplied resource bytes",
+        "negative": "Failed load preserves prior published revision",
+        "boundary": "Unload referenced resource and retry without stale proxies"
+      }
+    },
+    {
+      "id": "ecore/resource-set",
+      "domain": "ecore",
+      "title": "resource set",
+      "milestone": "E11",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/resource/ResourceSet.java",
+      "selector": "getResource",
+      "requirement": "Explicit resource registries select revision-specific dependencies",
+      "cases": {
+        "positive": "Resolve a cross-resource proxy with supplied URI map",
+        "negative": "Missing resource reports unresolved without implicit host I/O",
+        "boundary": "Multiple revisions and cyclic resource references"
+      }
+    },
+    {
+      "id": "ecore/extended-metadata",
+      "domain": "ecore",
+      "title": "extended metadata",
+      "milestone": "E13",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/util/ExtendedMetaData.java",
+      "selector": "ExtendedMetaData",
+      "requirement": "Namespace, element/attribute and content-kind annotations affect the shared codec",
+      "cases": {
+        "positive": "Round-trip annotated element and attribute names",
+        "negative": "Reject conflicting or unsupported content metadata",
+        "boundary": "Mixed content and wildcard namespace handling"
+      }
+    },
+    {
+      "id": "ecore/feature-maps",
+      "domain": "ecore",
+      "title": "feature maps",
+      "milestone": "E13",
+      "source_path": "upstream/ecore/src/org/eclipse/emf/ecore/util/ExtendedMetaData.java",
+      "selector": "GROUP_FEATURE",
+      "requirement": "Feature maps preserve grouped/mixed ordered entries through serialization",
+      "cases": {
+        "positive": "Round-trip interleaved feature-map entries",
+        "negative": "Reject incompatible grouped value type",
+        "boundary": "Empty entries, repeated values and significant text"
+      }
+    },
+    {
+      "id": "xtext/value-converters",
+      "domain": "xtext",
+      "title": "value converters",
+      "milestone": "X06",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/conversion/IValueConverterService.java",
+      "selector": "IValueConverterService",
+      "requirement": "Terminal/datatype values use declared bidirectional converters",
+      "cases": {
+        "positive": "Convert escaped identifier and numeric values",
+        "negative": "Reject invalid escape and numeric range",
+        "boundary": "Exact lexical source and round-trip spelling"
+      }
+    },
+    {
+      "id": "xtext/scoping",
+      "domain": "xtext",
+      "title": "scoping",
+      "milestone": "X14",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/scoping/IScopeProvider.java",
+      "selector": "IScopeProvider",
+      "requirement": "Language scope supplies typed visible candidates for references",
+      "cases": {
+        "positive": "Resolve local, imported and inherited name",
+        "negative": "Report ambiguity or missing candidate at link stage",
+        "boundary": "Shadowing and absent-lookup invalidation"
+      }
+    },
+    {
+      "id": "xtext/linking",
+      "domain": "xtext",
+      "title": "linking",
+      "milestone": "X14",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/linking/ILinkingService.java",
+      "selector": "ILinkingService",
+      "requirement": "Cross-reference syntax and scope jointly produce model links",
+      "cases": {
+        "positive": "Resolve qualified datatype reference spelling",
+        "negative": "Wrong target type never becomes a valid link",
+        "boundary": "Multiple resources and repeated link requests"
+      }
+    },
+    {
+      "id": "xtext/naming",
+      "domain": "xtext",
+      "title": "naming",
+      "milestone": "S12",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/naming/IQualifiedNameProvider.java",
+      "selector": "IQualifiedNameProvider",
+      "requirement": "Qualified names are supplied by explicit language policy",
+      "cases": {
+        "positive": "Compute nested names from model structure",
+        "negative": "Reject ambiguous names without ordinal guessing",
+        "boundary": "Unnamed elements and renamed ancestors"
+      }
+    },
+    {
+      "id": "xtext/resource-index",
+      "domain": "xtext",
+      "title": "resource index",
+      "milestone": "X17",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/resource/IResourceDescription.java",
+      "selector": "IResourceDescription",
+      "requirement": "Exported objects and reference descriptions feed a shared resource index",
+      "cases": {
+        "positive": "Find references across open resource descriptions",
+        "negative": "Reject stale index revision",
+        "boundary": "Rename, delete and absent reference target updates"
+      }
+    },
+    {
+      "id": "xtext/serializer",
+      "domain": "xtext",
+      "title": "serializer",
+      "milestone": "X16",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/serializer/ISerializer.java",
+      "selector": "ISerializer",
+      "requirement": "Model-to-text serialization obeys grammar and reports unrepresentable objects",
+      "cases": {
+        "positive": "Parse serialize parse with equal model graph",
+        "negative": "Reject graph lacking any legal grammar representation",
+        "boundary": "Actions, optional values and preserved comments"
+      }
+    },
+    {
+      "id": "xtext/resource-validation",
+      "domain": "xtext",
+      "title": "resource validation",
+      "milestone": "S13",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/validation/IResourceValidator.java",
+      "selector": "IResourceValidator",
+      "requirement": "Validation modes, cancellation and diagnostic severity are explicit",
+      "cases": {
+        "positive": "Run all applicable constraints for current revision",
+        "negative": "Missing algorithm remains unassessed",
+        "boundary": "Cancel during validation without publishing valid status"
+      }
+    },
+    {
+      "id": "xtext/concrete-syntax-validation",
+      "domain": "xtext",
+      "title": "concrete syntax validation",
+      "milestone": "X16",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/validation/IConcreteSyntaxValidator.java",
+      "selector": "IConcreteSyntaxValidator",
+      "requirement": "Validate graph representability before serialization",
+      "cases": {
+        "positive": "Accept representable direct-API model",
+        "negative": "Reject mismatched assignment cardinality",
+        "boundary": "Unassigned calls and action-created objects"
+      }
+    },
+    {
+      "id": "xtext/parse-recovery",
+      "domain": "xtext",
+      "title": "parse recovery",
+      "milestone": "X15",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/parser/IParser.java",
+      "selector": "IParser",
+      "requirement": "Parser recovery retains errors and source spans rather than validating partial input",
+      "cases": {
+        "positive": "Recover enough nodes for incomplete editor text",
+        "negative": "Malformed text cannot publish a valid complete model",
+        "boundary": "Error at EOF and nested action rollback"
+      }
+    },
+    {
+      "id": "xtext/node-model",
+      "domain": "xtext",
+      "title": "node model",
+      "milestone": "X15",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/nodemodel/INode.java",
+      "selector": "INode",
+      "requirement": "Node model retains text, hidden trivia and semantic associations",
+      "cases": {
+        "positive": "Map semantic feature to exact text span",
+        "negative": "Detect stale/out-of-range spans",
+        "boundary": "Unicode offsets and empty/trivia-only nodes"
+      }
+    },
+    {
+      "id": "xtext/formatting",
+      "domain": "xtext",
+      "title": "formatting",
+      "milestone": "X16",
+      "source_path": "upstream/xtext/src/org/eclipse/xtext/formatting2/IFormatter2.java",
+      "selector": "IFormatter2",
+      "requirement": "Language formatter edits text without changing model semantics",
+      "cases": {
+        "positive": "Format and reparse equivalent model",
+        "negative": "Invalid formatting provider produces explicit error",
+        "boundary": "Comments, hidden tokens and idempotent formatting"
+      }
+    }
+  ]
+}

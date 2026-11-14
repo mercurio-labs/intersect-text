@@ -1,0 +1,13 @@
+--- toolkit/src/language.worker.js
++++ toolkit/src/language.worker.js
+@@ -419,7 +419,9 @@
+     }
+     case 'intersect/packageImport': {
+       if (params.revision !== `${session}:${revision}`) throw new Error('The active language changed. Retry package import.');
+-      const method=params.inference_context == null ? 'package/import' : 'package/import_with_context';
++      const explicitProviders=['conversions','applied_conversions','constructors'].some(key=>Object.hasOwn(params,key));
++      if(params.inference_context != null && explicitProviders)throw new Error('Conflicting ordinary and inferred package provider contexts.');
++      const method=params.inference_context != null ? 'package/import_with_context' : explicitProviders ? 'package/import_with_conversions' : 'package/import';
+       const imported = (await runtime)({ ...params, method });
+       const result = { ok: true, package: imported.package, keywords: imported.keywords };
+       await activateLanguage(result,params.entry_rule);

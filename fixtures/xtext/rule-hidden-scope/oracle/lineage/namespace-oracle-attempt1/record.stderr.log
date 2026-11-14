@@ -1,0 +1,24 @@
+Exception in thread Thread-35 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\MarkPetrotta\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "C:\Users\MarkPetrotta\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\MarkPetrotta\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1568, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 10: invalid continuation byte
+Traceback (most recent call last):
+  File "D:\dev\repos\mercurio-labs\intersect\target\hidden-scope-after-v63-v1\helper-addendum-v3\produce-hidden.py", line 59, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\dev\repos\mercurio-labs\intersect\target\hidden-scope-after-v63-v1\helper-addendum-v3\produce-hidden.py", line 52, in main
+    v=run([java,'-cp',runtime,'intersect.oracle.HiddenScopeRuntime',info['package_class'],c['entry'],base64.b64encode(text.encode('utf-8')).decode('ascii'),'',str(source/'uri-bindings.tsv')],timeout=15);values=[json.loads(x)for x in v.stdout.splitlines()if x.startswith('{')];row['runtime'].append({'text':text,'exit_code':v.returncode,'timeout_seconds':15 if v.returncode==124 else None,'observation':values[0]if len(values)==1 else None});save(out/'observations.json',rows)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\dev\repos\mercurio-labs\intersect\target\hidden-scope-after-v63-v1\helper-addendum-v3\produce-hidden.py", line 21, in run
+    (out/f'{n:03d}.stdout.log').write_text(v.stdout,encoding='utf-8',newline='\n');(out/f'{n:03d}.stderr.log').write_text(v.stderr,encoding='utf-8',newline='\n');commands.append({'command':cmd,'exit_code':v.returncode,'timeout_seconds':timeout,'stdout':f'{n:03d}.stdout.log','stderr':f'{n:03d}.stderr.log'});save(out/'commands.json',commands);return v
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MarkPetrotta\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1075, in write_text
+    raise TypeError('data must be str, not %s' %
+TypeError: data must be str, not NoneType

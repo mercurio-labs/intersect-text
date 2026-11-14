@@ -1,0 +1,55 @@
+{
+  "names": {
+    "child": "RULE_CHOICE",
+    "parent": "SUPER_Choice",
+    "order": [
+      "child",
+      "parent"
+    ]
+  },
+  "cases": [
+    {
+      "case": "identical",
+      "grammar": "lexer grammar TerminalIdentity0;\nRULE_CHOICE: 'red';\nSUPER_Choice: 'red';\n",
+      "generation_exit_code": 1,
+      "diagnostic": "error(208): <artifact-dir>/TerminalIdentity0.g:3:1: The following token definitions can never be matched because prior tokens match the same input: SUPER_Choice\n",
+      "tokens": []
+    },
+    {
+      "case": "disjoint",
+      "grammar": "lexer grammar TerminalIdentity1;\nRULE_CHOICE: 'blue';\nSUPER_Choice: 'red';\n",
+      "generation_exit_code": 0,
+      "diagnostic": "",
+      "tokens": [
+        {
+          "text": "red",
+          "selected": "parent",
+          "complete": true
+        },
+        {
+          "text": "blue",
+          "selected": "child",
+          "complete": true
+        }
+      ]
+    },
+    {
+      "case": "partial-overlap",
+      "grammar": "lexer grammar TerminalIdentity2;\nRULE_CHOICE: 'red';\nSUPER_Choice: 'red' | 'blue';\n",
+      "generation_exit_code": 0,
+      "diagnostic": "",
+      "tokens": [
+        {
+          "text": "red",
+          "selected": "child",
+          "complete": true
+        },
+        {
+          "text": "blue",
+          "selected": "parent",
+          "complete": true
+        }
+      ]
+    }
+  ]
+}

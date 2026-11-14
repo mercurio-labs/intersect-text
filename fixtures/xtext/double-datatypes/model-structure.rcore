@@ -1,0 +1,10 @@
+rcore 1;
+package `double` version "1";
+metamodel "urn:intersect:xtext:double:1" prefix `double` {
+  class `Model` {
+    ref `values`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  class `LiteralRational` {
+    attr `value`: EDouble [0,1];
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "archive_plain",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "archive_bom",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "dependencies": [],
+        "source": "\ufeffgrammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "archive_unicode",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n\n// exact Unicode source: \u03b1\n"
+      }
+    ]
+  }
+]

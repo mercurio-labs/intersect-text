@@ -1,0 +1,367 @@
+{
+  "request": {
+    "method": "ecore/migrate",
+    "uri": "memory:hidden-scope/legacy-colors/imported.ecore",
+    "text": "<ecore:EPackage xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"colors\" nsURI=\"urn:intersect:xtext:enum-composition:1\">\n <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\"><eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"shade\" eType=\"#//Shade\"/></eClassifiers>\n <eClassifiers xsi:type=\"ecore:EEnum\" name=\"Shade\"><eLiterals name=\"Red\" value=\"1\" literal=\"red\"/><eLiterals name=\"Blue\" value=\"2\" literal=\"blue\"/></eClassifiers>\n <eClassifiers xsi:type=\"ecore:EEnum\" name=\"OtherShade\"><eLiterals name=\"Red\" value=\"1\" literal=\"red\"/><eLiterals name=\"Blue\" value=\"2\" literal=\"blue\"/></eClassifiers>\n</ecore:EPackage>\n",
+    "target_uri": "memory:hidden-scope/legacy-colors/model.rcore"
+  },
+  "response": {
+    "ok": true,
+    "report": {
+      "converted": {
+        "dependencies": [],
+        "id": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "kind": "rcore",
+        "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+      },
+      "correspondence": [
+        {
+          "converted": {
+            "path": [],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 353,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 39
+          },
+          "original": {
+            "path": [],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 680,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 0
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              0
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 184,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 110
+          },
+          "original": {
+            "path": [
+              0
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 331,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 185
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              0,
+              0
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 180,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 130
+          },
+          "original": {
+            "path": [
+              0,
+              0
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 316,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 236
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              1
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 265,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 187
+          },
+          "original": {
+            "path": [
+              1
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 494,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 333
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              1,
+              0
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 230,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 206
+          },
+          "original": {
+            "path": [
+              1,
+              0
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 430,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 383
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              1,
+              1
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 261,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 235
+          },
+          "original": {
+            "path": [
+              1,
+              1
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 479,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 430
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              2
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 351,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 268
+          },
+          "original": {
+            "path": [
+              2
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 662,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 496
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              2,
+              0
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 316,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 292
+          },
+          "original": {
+            "path": [
+              2,
+              0
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 598,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 551
+          }
+        },
+        {
+          "converted": {
+            "path": [
+              2,
+              1
+            ],
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            }
+          },
+          "converted_span": {
+            "end": 347,
+            "source": {
+              "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+              "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+            },
+            "start": 321
+          },
+          "original": {
+            "path": [
+              2,
+              1
+            ],
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            }
+          },
+          "original_span": {
+            "end": 647,
+            "source": {
+              "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+              "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+            },
+            "start": 598
+          }
+        }
+      ],
+      "draft": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n",
+      "issues": [],
+      "original": {
+        "dependencies": [],
+        "id": {
+          "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+          "uri": "memory:hidden-scope/legacy-colors/imported.ecore"
+        },
+        "kind": "ecore",
+        "text": "<ecore:EPackage xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"colors\" nsURI=\"urn:intersect:xtext:enum-composition:1\">\n <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\"><eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"shade\" eType=\"#//Shade\"/></eClassifiers>\n <eClassifiers xsi:type=\"ecore:EEnum\" name=\"Shade\"><eLiterals name=\"Red\" value=\"1\" literal=\"red\"/><eLiterals name=\"Blue\" value=\"2\" literal=\"blue\"/></eClassifiers>\n <eClassifiers xsi:type=\"ecore:EEnum\" name=\"OtherShade\"><eLiterals name=\"Red\" value=\"1\" literal=\"red\"/><eLiterals name=\"Blue\" value=\"2\" literal=\"blue\"/></eClassifiers>\n</ecore:EPackage>\n"
+      },
+      "version": 1
+    }
+  },
+  "source_qualification": "Explicit separately identified canonical Rcore migration adapter only; no native Ecore import claim."
+}

@@ -1,0 +1,2459 @@
+{
+  "scope": "Additive historical immutable V60 observation captured after candidate initial code; no chronological pre-edit claim. Original failure retained, no fullgenerated qualification.",
+  "wasm_sha256": "99fbb605670d467aad9fcfb9195c874aae9669dcaad718641a7e0ea190f9776b",
+  "cases": [
+    {
+      "id": "identity_parameter_before",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:contextual-first-rule/parameterized.xtext",
+                  "sha256": "08b5f49b43316014bbe23223c3bf7341cb5b9c53c5cb558401445f6d64cc043c"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.FirstRuleIdentityClass\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::EString: Item<true>;\nItem<Enabled> returns k::EString: <Enabled> name=VALUE;\nterminal VALUE:'a';\n",
+                "dependencies": [
+                  {
+                    "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                    "uri": "memory:contextual-first-rule/identity/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                    "uri": "memory:contextual-first-rule/identity/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+            "uri": "memory:contextual-first-rule/identity/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:first-rule:identity:1",
+          "xtext": {
+            "uri": "memory:contextual-first-rule/parameterized.xtext",
+            "sha256": "08b5f49b43316014bbe23223c3bf7341cb5b9c53c5cb558401445f6d64cc043c"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 244,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:contextual-first-rule/parameterized.xtext",
+            "start": 234
+          }
+        ],
+        "ok": false
+      },
+      "replay": {
+        "diagnostics": [
+          {
+            "end": 244,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:contextual-first-rule/parameterized.xtext",
+            "start": 234
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "id": "canonical_parameter",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:contextual-first-rule/canonical_parameter.xtext",
+                  "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:contextual-first-rule/canonical_parameter.xtext",
+            "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf",
+                    "uri": "memory:contextual-first-rule/canonical_parameter.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf",
+              "uri": "memory:contextual-first-rule/canonical_parameter.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Item": {
+                "end": 378,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 336
+              },
+              "Model": {
+                "end": 335,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 288
+              },
+              "VALUE": {
+                "end": 458,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 439
+              },
+              "_intersect_parameter_3": {
+                "end": 438,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 379
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.FirstRuleTerminalBeforeModel",
+            "parameterized_rules": [
+              "Item",
+              "_intersect_parameter_3"
+            ],
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Item": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_3": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v60",
+            "rules": {
+              "Item": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Alternative": []
+                  }
+                },
+                "class": "Model"
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "_intersect_parameter_3"
+                  }
+                },
+                "class": "Model"
+              },
+              "_intersect_parameter_3": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      97,
+                      97
+                    ]
+                  ],
+                  "kind": {
+                    "Literal": [
+                      97
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 458,
+                "identity": "audit.FirstRuleTerminalBeforeModel::VALUE",
+                "start": 439
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf": "// Generated native parameter program; original digest 72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf\ngrammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: _intersect_parameter_3;\nItem returns k::Model: <false> name=VALUE;\n_intersect_parameter_3 returns k::Model: <true> name=VALUE;\nterminal VALUE:'a';\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n"
+          },
+          "version": 2
+        }
+      },
+      "replay": {
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf",
+                    "uri": "memory:contextual-first-rule/canonical_parameter.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf",
+              "uri": "memory:contextual-first-rule/canonical_parameter.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Item": {
+                "end": 378,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 336
+              },
+              "Model": {
+                "end": 335,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 288
+              },
+              "VALUE": {
+                "end": 458,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 439
+              },
+              "_intersect_parameter_3": {
+                "end": 438,
+                "source": {
+                  "sha256": "23db7940aa0be74ca55bf39bf5729901d470017830b07c9c737d7454760a081d",
+                  "uri": "intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+                },
+                "start": 379
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.FirstRuleTerminalBeforeModel",
+            "parameterized_rules": [
+              "Item",
+              "_intersect_parameter_3"
+            ],
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Item": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_3": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v60",
+            "rules": {
+              "Item": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Alternative": []
+                  }
+                },
+                "class": "Model"
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "_intersect_parameter_3"
+                  }
+                },
+                "class": "Model"
+              },
+              "_intersect_parameter_3": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      97,
+                      97
+                    ]
+                  ],
+                  "kind": {
+                    "Literal": [
+                      97
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 458,
+                "identity": "audit.FirstRuleTerminalBeforeModel::VALUE",
+                "start": 439
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:ca08103795b9aa7464e1967bc4d84280954b3dc2d124c43eebc18ca118d14687:72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf": "// Generated native parameter program; original digest 72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf\ngrammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: _intersect_parameter_3;\nItem returns k::Model: <false> name=VALUE;\n_intersect_parameter_3 returns k::Model: <true> name=VALUE;\nterminal VALUE:'a';\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n"
+          },
+          "version": 2
+        }
+      }
+    },
+    {
+      "id": "terminal_first_parameter",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext",
+                  "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext",
+            "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f",
+                    "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f",
+              "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Item": {
+                "end": 398,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 356
+              },
+              "Model": {
+                "end": 355,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 308
+              },
+              "VALUE": {
+                "end": 307,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 288
+              },
+              "_intersect_parameter_3": {
+                "end": 458,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 399
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.FirstRuleTerminalBeforeModel",
+            "parameterized_rules": [
+              "Item",
+              "_intersect_parameter_3"
+            ],
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Item": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_3": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v60",
+            "rules": {
+              "Item": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Alternative": []
+                  }
+                },
+                "class": "Model"
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "_intersect_parameter_3"
+                  }
+                },
+                "class": "Model"
+              },
+              "_intersect_parameter_3": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      97,
+                      97
+                    ]
+                  ],
+                  "kind": {
+                    "Literal": [
+                      97
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 307,
+                "identity": "audit.FirstRuleTerminalBeforeModel::VALUE",
+                "start": 288
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f": "// Generated native parameter program; original digest b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f\ngrammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: _intersect_parameter_3;\nItem returns k::Model: <false> name=VALUE;\n_intersect_parameter_3 returns k::Model: <true> name=VALUE;\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n"
+          },
+          "version": 2
+        }
+      },
+      "replay": {
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f",
+                    "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f",
+              "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Item": {
+                "end": 398,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 356
+              },
+              "Model": {
+                "end": 355,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 308
+              },
+              "VALUE": {
+                "end": 307,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 288
+              },
+              "_intersect_parameter_3": {
+                "end": 458,
+                "source": {
+                  "sha256": "b6bcc43af0f58ab5356ef87eb8d37752b4322254104f24abeba8aa2a3a42e665",
+                  "uri": "intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+                },
+                "start": 399
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.FirstRuleTerminalBeforeModel",
+            "parameterized_rules": [
+              "Item",
+              "_intersect_parameter_3"
+            ],
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Item": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_3": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v60",
+            "rules": {
+              "Item": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Alternative": []
+                  }
+                },
+                "class": "Model"
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "_intersect_parameter_3"
+                  }
+                },
+                "class": "Model"
+              },
+              "_intersect_parameter_3": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      97,
+                      97
+                    ]
+                  ],
+                  "kind": {
+                    "Literal": [
+                      97
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 307,
+                "identity": "audit.FirstRuleTerminalBeforeModel::VALUE",
+                "start": 288
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:d3a0dfb473d44643ceaa2ccd2eba6a68129a1d258982c4b33123f531931f3411:b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f": "// Generated native parameter program; original digest b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f\ngrammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: _intersect_parameter_3;\nItem returns k::Model: <false> name=VALUE;\n_intersect_parameter_3 returns k::Model: <true> name=VALUE;\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n"
+          },
+          "version": 2
+        }
+      }
+    }
+  ]
+}

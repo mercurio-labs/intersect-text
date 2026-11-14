@@ -1,0 +1,123 @@
+//! Private V65 controls. All authored source graphs are frozen originals or the
+//! independently qualified namespace-only grouped companion; old inputs stay exact.
+use super::*;
+use intersect_model::definitions::{bundle::{DefinitionSource,SourceKind},schema::BundleCompilation};
+fn cases() -> Vec<Value> { serde_json::from_str::<Value>(include_str!("document_tests/cases.json")).unwrap()["cases"].as_array().unwrap().clone() }
+fn inputs(c:&Value)->BundleCompilation{serde_json::from_value(c["compilation"].clone()).unwrap()}
+fn walk(expr:&Expr, source:&str, count:&mut usize){
+ let range=expr.original_range.as_ref().expect("same-parser V65 origin"); assert!(range.start<=range.end&&range.end<=source.len(),"{range:?}"); assert!(source.is_char_boundary(range.start)&&source.is_char_boundary(range.end)); *count+=1;
+ match &expr.kind {Kind::Sequence(v)|Kind::Alternative(v)=>for e in v{walk(e,source,count)},Kind::Assign{value,..}|Kind::BooleanAssign{value,..}=>walk(value,source,count),_=>{}}
+}
+#[test]
+fn exact_authored_origins_and_legacy_absence(){
+ for c in cases().into_iter().filter(|c|c["id"]!="grouped_objects_original") {
+  let p=ordinary::compile(inputs(&c),grammar::Profile::NativeV65).unwrap_or_else(|e|panic!("{} {e:?}",c["id"]));let g=p.grammar.as_ref().unwrap();let b=&p.compilation.as_ref().unwrap().bundle;let mut count=0;
+  for (name,rule) in &g.rules {let declaration=g.declaration_sources.get(name).unwrap();let source=b.sources.iter().find(|s|s.id==declaration.source).unwrap();walk(&rule.body,&source.text,&mut count);}
+  assert!(count>0);assert_eq!(json!(crate::recompile(&p).unwrap()),json!(p));
+  if c["id"]!="grouped_objects_namespace_companion" {let old=ordinary::compile(inputs(&c),grammar::Profile::NativeV64).unwrap();assert!(!json!(old).to_string().contains("original_range"));}
+ }
+}
+#[test]
+fn invalid_original_is_not_repaired_by_imported_hierarchy(){
+ let cases=cases();let original=cases.iter().find(|c|c["id"]=="grouped_objects_original").unwrap();let e=ordinary::compile(inputs(original),grammar::Profile::NativeV65).unwrap_err();assert!(e.iter().any(|e|e.message.contains("upper case")),"{e:?}");
+ let companion=cases.iter().find(|c|c["id"]=="grouped_objects_namespace_companion").unwrap();assert!(ordinary::compile(inputs(companion),grammar::Profile::NativeV64).unwrap_err().iter().any(|e|e.message.contains("Missing inferred hierarchy")));ordinary::compile(inputs(companion),grammar::Profile::NativeV65).unwrap();
+}
+#[test]
+fn recovery_follows_only_actual_live_return_site(){
+ let c=cases().remove(0);let mut input=inputs(&c);let old=input.xtext.clone().unwrap();let at=input.bundle.sources.iter().position(|s|s.id==old).unwrap();let mut src=DefinitionSource::new("memory:document-mechanics/ActualReturn.xtext",SourceKind::Xtext,"grammar document.mechanics.ActualReturn\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Inner 'm';\nOther returns k::Model: name=Inner 'o';\nInner returns ecore::EString: 'a';\n");src.dependencies=input.bundle.sources[at].dependencies.clone();input.xtext=Some(src.id.clone());input.bundle.sources[at]=src;
+ let p=ordinary::compile(input,grammar::Profile::NativeV65).unwrap();let program=p.grammar.as_ref().unwrap().parser_prediction.as_ref().unwrap();let mut work=Some(1000);
+ let m=program.recovery_symbols_with_work("rule/Inner",&["rule/Model/s0/value"],&mut work).unwrap();assert_eq!(m,BTreeSet::from([grammar::PredictionSymbol::Keyword("m".into())]));let o=program.recovery_symbols_with_work("rule/Inner",&["rule/Other/s0/value"],&mut work).unwrap();assert_eq!(o,BTreeSet::from([grammar::PredictionSymbol::Keyword("o".into())]));assert_eq!(program.recovery_symbols_with_work("rule/Inner",&[],&mut work).unwrap(),BTreeSet::from([grammar::PredictionSymbol::End]));
+ assert!(program.recovery_symbols_with_work("rule/Inner",&["rule/Model/s0/value"],&mut Some(0)).unwrap_err().contains("budget"));
+}
+
+#[test]
+fn same_machine_durable_positive_nodes_and_complete_models(){
+ let cases=cases();let data:Value=serde_json::from_str(include_str!("document_tests/positive_nodes.json")).unwrap();
+ for c in cases.into_iter().filter(|c|data["rows"].as_array().unwrap().iter().any(|r|r["id"]==c["id"])) {
+  let package=ordinary::compile(inputs(&c),grammar::Profile::NativeV65).unwrap();let language=document::DocumentLanguage::prepare(&package,Default::default(),document::AnalysisLimits::workbench()).unwrap();
+  for row in data["rows"].as_array().unwrap().iter().filter(|r|r["id"]==c["id"]){
+   let source=Source{uri:"memory:node-analysis/input".into(),text:row["text"].as_str().unwrap().into()};let analysis=language.analyze(&source,None,EvaluationLimits::native()).unwrap_or_else(|e|panic!("{} {} {e}",c["id"],row["text"]));
+   assert!(analysis.recovered.is_none(),"{} {} {:?}",c["id"],row["text"],analysis.diagnostics);let model=analysis.valid_model.as_ref().unwrap();assert_eq!(json!(model),json!(evaluate(&package,std::slice::from_ref(&source))),"{} {}",c["id"],row["text"]);
+   let snapshot=&analysis.snapshot;let leaves:Vec<_>=snapshot.document.nodes().iter().filter(|n|n.kind==intersect_model::core::text_document::NodeKind::Leaf).map(|n|json!({"text":snapshot.document.text_in(n.total_range).unwrap().unwrap(),"hidden":n.data.hidden,"utf16_start":n.range.start,"utf16_end":n.range.end,"syntax_error":null})).collect();assert_eq!(json!(leaves),row["resource"]["all_root_leaves"],"{} {}",c["id"],row["text"]);
+   snapshot.document.check_resource(&model.model.resources[&source.uri]).unwrap();let mut stale=model.model.resources[&source.uri].clone();stale.content_revision+=1;assert!(snapshot.document.check_resource(&stale).is_err());
+   let expected=row["nodes"]["nodes"].as_array().unwrap();assert_eq!(snapshot.document.nodes().len(),expected.len(),"{} {} native {} vs upstream {}",c["id"],row["text"],json!(snapshot),row["nodes"]);
+   for (i,(node,expected)) in snapshot.document.nodes().iter().zip(expected).enumerate(){assert_eq!(json!(node.parent),expected["parent"],"{} {} node{i}",c["id"],row["text"]);assert_eq!(node.range.start,expected["utf16_start"].as_u64().unwrap()as usize);assert_eq!(node.range.end,expected["utf16_end"].as_u64().unwrap()as usize);assert_eq!(node.total_range.start,expected["total_utf16_start"].as_u64().unwrap()as usize);assert_eq!(node.total_range.end,expected["total_utf16_end"].as_u64().unwrap()as usize);assert_eq!(json!(snapshot.semantic_object(intersect_model::core::text_document::NodeId(i)).unwrap()),expected["semantic_object"]);}
+  }
+ }
+}
+
+#[test]
+fn original_nested_error_nodes_and_quarantined_partial_models(){
+ let c=cases().into_iter().find(|c|c["id"]=="namespace_nested_restore").unwrap();let package=ordinary::compile(inputs(&c),grammar::Profile::NativeV65).unwrap();let language=document::DocumentLanguage::prepare(&package,Default::default(),document::AnalysisLimits::workbench()).unwrap();let data:Value=serde_json::from_str(include_str!("document_tests/nested_recovery.json")).unwrap();
+ for row in data["rows"].as_array().unwrap(){
+  let source=Source{uri:"memory:node-analysis/recovery".into(),text:row["text"].as_str().unwrap().into()};let analysis=language.analyze(&source,None,EvaluationLimits::workbench()).unwrap_or_else(|e|panic!("{} {e}",row["text"]));assert!(analysis.valid_model.is_none());let recovered=analysis.recovered.as_ref().unwrap();assert_eq!(recovered.objects.len(),row["resource"]["model"].as_array().unwrap().len(),"{} {}",row["text"],json!(analysis));for(object,expected)in recovered.objects.iter().zip(row["resource"]["model"].as_array().unwrap()){assert_eq!(json!(object.values()),expected["values"],"{} {}",row["text"],json!(analysis));}
+  let snapshot=&analysis.snapshot;let errors:Vec<_>=snapshot.syntax_issues.iter().map(|e|&e.message).collect();let expected:Vec<_>=row["resource"]["errors"].as_array().unwrap().iter().map(|e|e["message"].as_str().unwrap()).collect();assert_eq!(errors,expected,"{} {}",row["text"],json!(analysis));
+  let leaves:Vec<_>=snapshot.document.nodes().iter().filter(|n|n.kind==intersect_model::core::text_document::NodeKind::Leaf).map(|n|json!({"text":snapshot.document.text_in(n.total_range).unwrap().unwrap(),"hidden":n.data.hidden,"utf16_start":n.range.start,"utf16_end":n.range.end,"syntax_error":n.data.syntax_error.map(|i|&snapshot.syntax_issues[i].message)})).collect();assert_eq!(json!(leaves),row["resource"]["all_root_leaves"],"{} {}",row["text"],json!(analysis));
+  let expected=row["nodes"]["nodes"].as_array().unwrap();assert_eq!(snapshot.document.nodes().len(),expected.len(),"{} {}",row["text"],json!(analysis));for(i,(n,e))in snapshot.document.nodes().iter().zip(expected).enumerate(){assert_eq!(json!(n.parent),e["parent"],"{} node{i}",row["text"]);assert_eq!(json!(n.range.start),e["utf16_start"]);assert_eq!(json!(n.range.end),e["utf16_end"]);assert_eq!(json!(n.total_range.start),e["total_utf16_start"]);assert_eq!(json!(n.total_range.end),e["total_utf16_end"]);assert_eq!(json!(snapshot.semantic_object(intersect_model::core::text_document::NodeId(i)).unwrap()),e["semantic_object"]);}
+ }
+}
+
+#[test]
+fn all_original_resource_node_outcomes(){
+ let cases=cases();let data:Value=serde_json::from_str(include_str!("document_tests/all_resource_nodes.json")).unwrap();let mut failures=Vec::new();
+ for c in cases.into_iter().filter(|c|data["rows"].as_array().unwrap().iter().any(|r|r["id"]==c["id"])){
+  let package=ordinary::compile(inputs(&c),grammar::Profile::NativeV65).unwrap();let language=document::DocumentLanguage::prepare(&package,Default::default(),document::AnalysisLimits::workbench()).unwrap();
+  for row in data["rows"].as_array().unwrap().iter().filter(|r|r["id"]==c["id"]){
+   let source=Source{uri:"memory:node-analysis/all-resource".into(),text:row["text"].as_str().unwrap().into()};let result=language.analyze(&source,None,EvaluationLimits::workbench());let analysis=match result{Ok(a)=>a,Err(e)=>{failures.push(format!("{} {} unavailable: {e}",c["id"],row["text"]));continue}};
+   let snapshot=&analysis.snapshot;let accepted=analysis.valid_model.is_some();if accepted!=row["resource"]["accepted"].as_bool().unwrap(){failures.push(format!("{} {} publication: {}",c["id"],row["text"],json!(analysis)));continue}
+   compare_complete_objects(language.package(),&analysis,row,&mut failures);
+   let leaves:Vec<_>=snapshot.document.nodes().iter().filter(|n|n.kind==intersect_model::core::text_document::NodeKind::Leaf).map(|n|json!({"text":snapshot.document.text_in(n.total_range).unwrap().unwrap(),"hidden":n.data.hidden,"utf16_start":n.range.start,"utf16_end":n.range.end,"syntax_error":n.data.syntax_error.map(|i|&snapshot.syntax_issues[i].message)})).collect();if json!(leaves)!=row["resource"]["all_root_leaves"]{failures.push(format!("{} {} leaves native={} expected={}",c["id"],row["text"],json!(leaves),row["resource"]["all_root_leaves"]));continue}
+   let expected=row["nodes"]["nodes"].as_array().unwrap();let actual:Vec<_>=snapshot.document.nodes().iter().enumerate().map(|(i,n)|json!({"parent":n.parent,"kind":n.kind,"start":n.range.start,"end":n.range.end,"total_start":n.total_range.start,"total_end":n.total_range.end,"semantic":snapshot.semantic_object(intersect_model::core::text_document::NodeId(i)).unwrap(),"direct":n.data.direct_semantic_association})).collect();let expected:Vec<_>=expected.iter().map(|n|json!({"parent":n["parent"],"kind":n["kind"],"start":n["utf16_start"],"end":n["utf16_end"],"total_start":n["total_utf16_start"],"total_end":n["total_utf16_end"],"semantic":n["semantic_object"],"direct":n["direct_semantic_association"]})).collect();if actual!=expected{failures.push(format!("{} {} tree native={} expected={}",c["id"],row["text"],json!(actual),json!(expected)));}
+  }
+ }
+ assert!(failures.is_empty(),"{} original mismatches:\n{}",failures.len(),failures.join("\n"));
+}
+
+fn objects(analysis:&document::DocumentAnalysis)->Vec<(&str,&str,&BTreeMap<String,Value>)>{
+ if let Some(model)=&analysis.valid_model{model.model.elements.iter().map(|e|(e.id.as_str(),e.class.as_str(),&e.values)).collect()}else{analysis.recovered.as_ref().unwrap().objects.iter().map(|e|(e.id(),e.class(),e.values())).collect()}
+}
+fn classifier_identity(schema:&intersect_model::definitions::schema::Schema,key:&str)->String{
+ let declaration=schema.declarations.get(key).expect("source-established class identity");format!("{}#//{}",declaration.namespace,declaration.name)
+}
+fn compare_complete_objects(package:&Package,analysis:&document::DocumentAnalysis,row:&Value,failures:&mut Vec<String>){
+ let actual=objects(analysis);let expected=row["resource"]["model"].as_array().cloned().unwrap_or_default();
+ if actual.len()!=expected.len(){failures.push(format!("{} {} object count {} vs{}",row["id"],row["text"],actual.len(),expected.len()));return}
+ for (i,((_,class,values),expected)) in actual.iter().zip(&expected).enumerate(){
+  if classifier_identity(&package.schema,class)!=expected["class"].as_str().unwrap(){failures.push(format!("{} {} class{i}: {class}",row["id"],row["text"]));continue}
+  let expected_values=expected["values"].as_object().unwrap();if values.len()!=expected_values.len(){failures.push(format!("{} {} object{i} feature count",row["id"],row["text"]));continue}
+  for(name,value)in *values{
+   let feature=package.schema.effective_feature(class,name).unwrap();let wanted=&expected_values[name];
+   if !feature.feature.reference{if value!=wanted{failures.push(format!("{} {} object{i}.{name}: {value} vs{wanted}",row["id"],row["text"]));}continue}
+   let values:Vec<_>=if (feature.feature.upper!=1){value.as_array().unwrap().iter().collect()}else{vec![value]};let wanted:Vec<_>=if (feature.feature.upper!=1){wanted.as_array().unwrap().iter().collect()}else{vec![wanted]};
+   if values.len()!=wanted.len(){failures.push(format!("{} {} object{i}.{name} reference count",row["id"],row["text"]));continue}
+   for(value,wanted)in values.into_iter().zip(wanted){
+    if value.is_null(){if !wanted.is_null(){failures.push(format!("{} {} object{i}.{name} unexpected null",row["id"],row["text"]));}continue}
+    let id=value.as_str().unwrap();
+    if let Some((target,(_,class,_)))=actual.iter().enumerate().find(|(_,o)|o.0==id){if wanted["object"]!=json!(target)||wanted["class"]!=json!(classifier_identity(&package.schema,class)){failures.push(format!("{} {} object{i}.{name} target {value} vs{wanted}",row["id"],row["text"]));}}
+    else if let Some(spelling)=id.strip_prefix('?'){
+     let references=row["references_after_resolution"].as_array().unwrap();let reference=references.iter().find(|r|r["owner"]==json!(i)&&r["feature"]==json!(name)).expect("actual unresolved source reference");let nodes=reference["nodes"].as_array().unwrap();let spelling_from_nodes:String=nodes.iter().flat_map(|n|n["leaves"].as_array().unwrap()).filter(|n|n["hidden"]==false).map(|n|n["text"].as_str().unwrap()).collect();let target=&reference["targets"][0];
+     if spelling!=spelling_from_nodes||target["proxy"]!=true||wanted["external"]!=target["uri"]||wanted["class"]!=target["class"]{failures.push(format!("{} {} object{i}.{name} unresolved source identity {value} vs{wanted}",row["id"],row["text"]));}
+    }else{failures.push(format!("{} {} object{i}.{name} unknown target {value}",row["id"],row["text"]));}
+   }
+  }
+ }
+}
+
+#[test]
+fn actual_named_and_construction_node_models(){
+ let cases=cases();let mut failures=Vec::new();
+ for data in [include_str!("document_tests/named_nodes.json"),include_str!("document_tests/construction_nodes.json")]{
+  let data:Value=serde_json::from_str(data).unwrap();
+  for c in cases.iter().filter(|c|data["rows"].as_array().unwrap().iter().any(|r|r["id"]==c["id"])){
+   let package=ordinary::compile(inputs(c),grammar::Profile::NativeV65).unwrap();let language=document::DocumentLanguage::prepare(&package,Default::default(),document::AnalysisLimits::workbench()).unwrap();
+   for row in data["rows"].as_array().unwrap().iter().filter(|r|r["id"]==c["id"]){
+    let source=Source{uri:"memory:node-analysis/complete-consumers".into(),text:row["text"].as_str().unwrap().into()};let result=language.analyze(&source,row["entry"].as_str(),EvaluationLimits::workbench());let analysis=match result{Ok(a)=>a,Err(e)=>{failures.push(format!("{} {} entry{} unavailable: {e}",c["id"],row["text"],row["entry"]));continue}};
+    let snapshot=&analysis.snapshot;if analysis.valid_model.is_some()!=row["resource"]["accepted"].as_bool().unwrap(){failures.push(format!("{} {} entry{} publication: {}",c["id"],row["text"],row["entry"],json!(analysis)));}
+    compare_complete_objects(language.package(),&analysis,row,&mut failures);
+    let leaves:Vec<_>=snapshot.document.nodes().iter().filter(|n|n.kind==intersect_model::core::text_document::NodeKind::Leaf).map(|n|json!({"text":snapshot.document.text_in(n.total_range).unwrap().unwrap(),"hidden":n.data.hidden,"utf16_start":n.range.start,"utf16_end":n.range.end,"syntax_error":n.data.syntax_error.map(|i|&snapshot.syntax_issues[i].message)})).collect();if json!(leaves)!=row["resource"]["all_root_leaves"]{failures.push(format!("{} {} entry{} leaves native={} expected={}",c["id"],row["text"],row["entry"],json!(leaves),row["resource"]["all_root_leaves"]));}
+    let actual:Vec<_>=snapshot.document.nodes().iter().enumerate().map(|(i,n)|json!({"parent":n.parent,"kind":n.kind,"start":n.range.start,"end":n.range.end,"total_start":n.total_range.start,"total_end":n.total_range.end,"semantic":snapshot.semantic_object(intersect_model::core::text_document::NodeId(i)).unwrap(),"direct":n.data.direct_semantic_association})).collect();let expected:Vec<_>=row["nodes"]["nodes"].as_array().unwrap().iter().map(|n|json!({"parent":n["parent"],"kind":n["kind"],"start":n["utf16_start"],"end":n["utf16_end"],"total_start":n["total_utf16_start"],"total_end":n["total_utf16_end"],"semantic":n["semantic_object"],"direct":n["direct_semantic_association"]})).collect();if actual!=expected{failures.push(format!("{} {} entry{} tree native={} expected={}",c["id"],row["text"],row["entry"],json!(actual),json!(expected)));}
+   }
+  }
+ }
+ assert!(failures.is_empty(),"{} exact original named/construction mismatches:\n{}",failures.len(),failures.join("\n"));
+}

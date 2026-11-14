@@ -1,0 +1,11 @@
+grammar example.Adjacent hidden(WS)
+import "urn:intersect:adjacent:76" as model
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Root returns model::Root: {model::Root} ( -> Caller00 | Caller01 | Caller02 | Caller03 );
+fragment Caller00 returns model::Root: Shared 's00';
+fragment Caller01 returns model::Root: Shared 's01';
+fragment Caller02 returns model::Root: Shared 's02';
+fragment Caller03 returns model::Root: Shared 's03';
+fragment Shared returns model::Root: -> 'p' -> 'p' -> 'p' -> 'p' Tail;
+fragment Tail returns model::Root: 't';
+terminal WS: (' ' | '\t' | '\r' | '\n')+;

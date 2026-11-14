@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "baseline": "066ad510aa55bde491663d6b95a1b7e0ef0a557b",
+  "status": "preimplementation_native_provider_context_plan",
+  "qualification": "Authored native/provider contracts; no independent JVM parser/provider outcomes or full X03/X07/X10/S09 qualification are awarded.",
+  "requirements": [
+    "Pass explicit native conversion registries through imported schema preparation, inherited worlds, skeleton and final materialization, generated grammar compilation and source replay.",
+    "Admit explicit exact computed-setting contracts through the same grammar compiler; execute only separately supplied checked providers.",
+    "Exercise real RGB converted defaults and real derived-setting plans in NativeV56 and parameterized NativeV57, default and named entries.",
+    "Keep original source recipes, classifier/member/provider identities, canonical source policy ceilings, limits and atomic rollback.",
+    "Reject missing/wrong/stale providers/contracts, changed source digests, unmatched cached requirements, stale settings package borrows and invalid provider plans.",
+    "Use native/fresh-WASM shared controls; adopt original-source archive/replay context and installed host conversion catalog without a second semantic implementation.",
+    "Retain legacy no-context profiles, default DTOs, packages and ZIP bytes; preserve failures and all remaining full provider/resource/origin requirements."
+  ],
+  "cases": [
+    {
+      "id": "rgb_defaults",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/rgb_defaults/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package paint version \"1\";\nmetamodel \"urn:inferred:paint\" prefix p {\n datatype RGB instanceClass \"example.RGB\" {}\n class Paint { attr color: RGB [0,1] default \"#123abc\"; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/rgb_defaults/model.xtext",
+                "sha256": "c7a7b12b8684a3c999dff069ee529ba908b04504e7803b73d0bf0f385a407286"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.rgb.Language hidden(WS)\ngenerate model \"urn:contexts:rgb\"\nimport \"urn:inferred:paint\" as p\nModel: child=Paint<false>;\nPaint<Flag> returns p::Paint: <Flag> 'yes' | <!Flag> 'paint';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/rgb_defaults/model.rcore",
+                  "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:paint",
+              "source": {
+                "uri": "memory:inferred-contexts/rgb_defaults/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/rgb_defaults/model.xtext",
+          "sha256": "c7a7b12b8684a3c999dff069ee529ba908b04504e7803b73d0bf0f385a407286"
+        }
+      },
+      "model_text": "paint",
+      "entry": "Paint"
+    },
+    {
+      "id": "rgb_defaults_plain",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/rgb_defaults_plain/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package paint version \"1\";\nmetamodel \"urn:inferred:paint\" prefix p {\n datatype RGB instanceClass \"example.RGB\" {}\n class Paint { attr color: RGB [0,1] default \"#123abc\"; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/rgb_defaults_plain/model.xtext",
+                "sha256": "54fc7631e59c9366eeb7a5b45bbbacdb311fcfa5e61136e131b9c8d2b0467574"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.rgb.Language hidden(WS)\ngenerate model \"urn:contexts:rgb\"\nimport \"urn:inferred:paint\" as p\nModel: child=Paint;\nPaint returns p::Paint: 'paint';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/rgb_defaults_plain/model.rcore",
+                  "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:paint",
+              "source": {
+                "uri": "memory:inferred-contexts/rgb_defaults_plain/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/rgb_defaults_plain/model.xtext",
+          "sha256": "54fc7631e59c9366eeb7a5b45bbbacdb311fcfa5e61136e131b9c8d2b0467574"
+        }
+      },
+      "model_text": "paint",
+      "entry": "Paint"
+    },
+    {
+      "id": "computed_settings",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings/model.xtext",
+                "sha256": "d2bf09a5f356568414d12fc0255c537c6fdc4d888ab57840042b4418c45bb65f"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item<true>;\nItem<Flag> returns p::Item: <Flag> computed=ID | <!Flag> backing=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings/model.xtext",
+          "sha256": "d2bf09a5f356568414d12fc0255c537c6fdc4d888ab57840042b4418c45bb65f"
+        }
+      },
+      "model_text": "alpha",
+      "entry": "Item"
+    },
+    {
+      "id": "computed_settings_plain",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain/model.xtext",
+                "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings_plain/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings_plain/model.xtext",
+          "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+        }
+      },
+      "model_text": "alpha",
+      "entry": "Item"
+    }
+  ]
+}

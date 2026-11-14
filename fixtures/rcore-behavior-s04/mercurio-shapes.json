@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "upstream_commit": "32750d7c7799970d7d494e0e8e6e0bf1daae4689",
+  "upstream_path": "crates/mercurio-sysml/resources/metamodels/sysml-2.0-pilot-2026-08/ecore-effective.extract.json",
+  "upstream_sha256": "7c4290959d5687e5245ee7d4c6b018ab337d950d3552402e18977252541fb8dd",
+  "upstream_behavior": "metadata only; delegates and model algorithms not executed",
+  "classes": [
+    {
+      "abstract": false,
+      "id": "https://www.omg.org/spec/SysML/20250201#//ActionUsage",
+      "interface": false,
+      "name": "ActionUsage",
+      "super_types": [
+        "https://www.omg.org/spec/SysML/20250201#//OccurrenceUsage",
+        "https://www.omg.org/spec/SysML/20250201#//Step"
+      ]
+    },
+    {
+      "abstract": false,
+      "id": "https://www.omg.org/spec/SysML/20250201#//Expression",
+      "interface": false,
+      "name": "Expression",
+      "super_types": [
+        "https://www.omg.org/spec/SysML/20250201#//Step"
+      ]
+    },
+    {
+      "abstract": false,
+      "id": "https://www.omg.org/spec/SysML/20250201#//ReferenceUsage",
+      "interface": false,
+      "name": "ReferenceUsage",
+      "super_types": [
+        "https://www.omg.org/spec/SysML/20250201#//Usage"
+      ]
+    },
+    {
+      "abstract": false,
+      "id": "https://www.omg.org/spec/SysML/20250201#//ActionDefinition",
+      "interface": false,
+      "name": "ActionDefinition",
+      "super_types": [
+        "https://www.omg.org/spec/SysML/20250201#//OccurrenceDefinition",
+        "https://www.omg.org/spec/SysML/20250201#//Behavior"
+      ]
+    },
+    {
+      "abstract": false,
+      "id": "https://www.omg.org/spec/SysML/20250201#//AcceptActionUsage",
+      "interface": false,
+      "name": "AcceptActionUsage",
+      "super_types": [
+        "https://www.omg.org/spec/SysML/20250201#//ActionUsage"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "changeable": true,
+      "container": false,
+      "containment": false,
+      "default_literal": null,
+      "default_value": null,
+      "derived": true,
+      "id": "https://www.omg.org/spec/SysML/20250201#//ActionDefinition/action",
+      "is_id": false,
+      "kind": "reference",
+      "lower_bound": 0,
+      "name": "action",
+      "opposite": null,
+      "ordered": true,
+      "owner": "https://www.omg.org/spec/SysML/20250201#//ActionDefinition",
+      "resolve_proxies": true,
+      "transient": true,
+      "type": "https://www.omg.org/spec/SysML/20250201#//ActionUsage",
+      "unique": true,
+      "unsettable": false,
+      "upper_bound": -1,
+      "volatile": true
+    },
+    {
+      "changeable": true,
+      "container": false,
+      "containment": false,
+      "default_literal": null,
+      "default_value": null,
+      "derived": true,
+      "id": "https://www.omg.org/spec/SysML/20250201#//AcceptActionUsage/payloadArgument",
+      "is_id": false,
+      "kind": "reference",
+      "lower_bound": 0,
+      "name": "payloadArgument",
+      "opposite": null,
+      "ordered": false,
+      "owner": "https://www.omg.org/spec/SysML/20250201#//AcceptActionUsage",
+      "resolve_proxies": true,
+      "transient": true,
+      "type": "https://www.omg.org/spec/SysML/20250201#//Expression",
+      "unique": true,
+      "unsettable": false,
+      "upper_bound": 1,
+      "volatile": true
+    },
+    {
+      "changeable": true,
+      "container": false,
+      "containment": false,
+      "default_literal": null,
+      "default_value": null,
+      "derived": true,
+      "id": "https://www.omg.org/spec/SysML/20250201#//AcceptActionUsage/payloadParameter",
+      "is_id": false,
+      "kind": "reference",
+      "lower_bound": 1,
+      "name": "payloadParameter",
+      "opposite": null,
+      "ordered": false,
+      "owner": "https://www.omg.org/spec/SysML/20250201#//AcceptActionUsage",
+      "resolve_proxies": true,
+      "transient": true,
+      "type": "https://www.omg.org/spec/SysML/20250201#//ReferenceUsage",
+      "unique": true,
+      "unsettable": false,
+      "upper_bound": 1,
+      "volatile": true
+    }
+  ],
+  "qualification": "Selected metadata retained; native minimal shape projection statically consumed; no delegate or SysML algorithm execution."
+}

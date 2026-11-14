@@ -1,0 +1,38 @@
+{
+  "scope": "separate verification adapter message correction only; original v1 source/output/receipts immutable",
+  "change": {
+    "before": "if(text==null||text.length()!=7||text.charAt(0)!='#')throw new IllegalArgumentException(\"RGB text requires #RRGGBB\");",
+    "after": "if(text==null||text.isEmpty()||text.charAt(0)!='#')throw new IllegalArgumentException(\"RGB text requires #RRGGBB\");if(text.length()!=7)throw new IllegalArgumentException(\"RGB text requires six ASCII hexadecimal digits\");"
+  },
+  "why": "Actual native example.rgb/v1 parse first tests prefix, then six-ASCII-digit length. Adapterv1 incorrectly used prefix error for short #bad. This unqualified diagnostic difference is retained; v2 aligns the declared provider error contract without source, generated grammar, parser, payload or other conversion changes.",
+  "original_service": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-after-v64-v1\\provider-rgb-converter-oracle-v1\\RgbService.java",
+    "bytes": 5477,
+    "sha256": "26054126bf62204f9a4ea108cd3d94db6ac4db9012361e128785f28f634f0029"
+  },
+  "replacement": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-after-v64-v1\\provider-rgb-message-alignment-v2\\RgbService.java",
+    "bytes": 5580,
+    "sha256": "fd1636cd0b58e476f3e1d816a55ff98709eac11ed812fda3e60766ec3ced7e6a"
+  },
+  "native_provider": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-candidate-v64joined-v1\\workspace\\crates\\intersect-model\\src\\conversion.rs",
+    "bytes": 44643,
+    "sha256": "a8dd44783e64e7aad3f575d5342c6e2613c03c9925e54b925fd0783f0f24c9d3"
+  },
+  "runtime_reuse": "New helper javac into new directory; each fresh JVM loads NEWRgbService before byte-pinned original generated record classes and original unchanged RgbFullRuntime/RgbCalibration. Verify all169originalartifactpins before/after. No new generation success claim: source/generation/javac evidence reused explicitly from original frozen full record/replay receipt.",
+  "old_full_generation_receipt": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-after-v64-v1\\provider-rgb-oracle-execution-attempt1\\receipt.json",
+    "bytes": 4483,
+    "sha256": "077e221bf94a2f3037fbc6bd6a7c9423b23da87d86da29a5f3caae7d5f68977c"
+  },
+  "source_graphs": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-after-v64-v1\\provider-rgb-converter-oracle-v1\\inputs\\cases.json",
+    "bytes": 1301,
+    "sha256": "ba4d559cdbee825e071ad0823a034063d264fe77c26e058d685a059424b4bec3"
+  },
+  "probe_plan": "exact original twelve source/runtime inputs plus separately named existing provider calibration; record and fresh-JVM replay26 executions total; raw stdout/stderr before strictUTF8 JSON decoding; unchanged15s deadline/512MiB/JDK21/60JARs",
+  "normalization": "none: generated owned GenModel path not present in runtime-only rows; exact full JSON comparison required",
+  "unqualified": "No native/JVM whole-model claim until complete structured comparison including raw mismatches; original no-default default JVM converter and original defaulted provider javac failures stay separate.",
+  "gate_closures": []
+}

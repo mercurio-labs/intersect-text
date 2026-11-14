@@ -1,0 +1,18 @@
+import base.types.*
+import base.Named
+package shop {
+  entity Customer extends Named {
+    age : Int
+    many orders : Order
+  }
+  entity Order {
+    customer : Customer
+    total : base.types.Int
+  }
+  package billing {
+    entity Invoice extends shop.Order {
+      number : String
+      buyer : Customer
+    }
+  }
+}

@@ -1,0 +1,50 @@
+rcore 1;
+package fixture.release.sheets.scoping version "1";
+import model "urn:intersect:fixture:release-sheets:1" as sh;
+
+// Xtext-default-style scoping for the release feature fixture, written in
+// Rcore: a name resolves to a cell of the enclosing sheet first; then through
+// the `use` imports of the enclosing sheet and workbook (`use a.*` and
+// `use a.b`); then as a qualified name `sheet.cell` (or `sheet`) among every
+// loaded resource.
+
+bind scope sh.CellRef.cell = cell_ref;
+bind scope sh.Cell.sources = cell_sources;
+bind scope sh.Sheet.base = sheet_base;
+
+fn cell_ref(r:sh.CellRef, name:String)->Sequence<sh.Cell> =
+  cells(ancestors::<sh.Sheet>(r), ancestors::<sh.Workbook>(r), every_sheet(roots::<sh.Workbook>(r)), name);
+
+fn cell_sources(r:sh.Cell, name:String)->Sequence<sh.Cell> =
+  cells(ancestors::<sh.Sheet>(r), ancestors::<sh.Workbook>(r), every_sheet(roots::<sh.Workbook>(r)), name);
+
+fn sheet_base(r:sh.Sheet, name:String)->Sequence<sh.Sheet> =
+  every_sheet(roots::<sh.Workbook>(r)).filter(|s| s.name == name);
+
+fn every_sheet(books:OrderedSet<sh.Workbook>)->Sequence<sh.Sheet> =
+  Sequence(books).flatMap(|b| b.sheets);
+
+fn cells(sheets:OrderedSet<sh.Sheet>, books:OrderedSet<sh.Workbook>, everything:Sequence<sh.Sheet>, name:String)->Sequence<sh.Cell> {
+  let local = Sequence(sheets).flatMap(|s| s.cells).filter(|c| c.name == name);
+  if local.notEmpty() { local } else {
+    let imports = Sequence(sheets).flatMap(|s| s.imports).concat(Sequence(books).flatMap(|b| b.imports));
+    let imported = imports.flatMap(|i| through_import(everything, i.importedNamespace, name));
+    if imported.notEmpty() { imported } else { qualified(everything, name) }
+  }
+}
+
+// `use a.*` imports every cell of sheet a; `use a.b` imports cell b as b.
+fn through_import(everything:Sequence<sh.Sheet>, namespace:String, name:String)->Sequence<sh.Cell> {
+  let wildcard = namespace.split(".*");
+  if wildcard.size() == 2 {
+    match wildcard.first() {
+      Some(prefix) => qualified(everything, prefix + "." + name),
+      None => []
+    }
+  } else {
+    if namespace.split(".").last() == Some(name) { qualified(everything, namespace) } else { [] }
+  }
+}
+
+fn qualified(everything:Sequence<sh.Sheet>, name:String)->Sequence<sh.Cell> =
+  everything.flatMap(|s| s.cells.filter(|c| s.name + "." + c.name == name));

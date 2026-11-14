@@ -1,0 +1,70 @@
+[
+  {
+    "id": "caller_suffix",
+    "entry": "audit.scopes.CallerSuffix",
+    "sources": [
+      {
+        "grammar": "audit.scopes.CallerSuffix",
+        "file": "audit.scopes.CallerSuffix.xtext",
+        "source_id": {
+          "uri": "memory:hidden-delegation/caller_suffix/audit.scopes.CallerSuffix.xtext",
+          "sha256": "cde69dcd723e30ebb4e09fc6ed3d17168a44f0c1ee5c981a6c3538b3f693a49d"
+        },
+        "bytes": 693
+      }
+    ],
+    "inputs": [
+      "ab!",
+      "a b!",
+      "a/*x*/b!",
+      "ab?",
+      "a b?",
+      " a b?",
+      "a  b?",
+      "a b? ",
+      "a b",
+      "direct a b?",
+      "direct a b? ",
+      "direct a/*x*/b?",
+      "directab?",
+      "direct a b?done",
+      "direct a b? done",
+      "direct a b?done ",
+      "direct a b?/*\ud83d\ude00*/done"
+    ],
+    "named_entries": [
+      "Model",
+      "TightEntry"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Actual EObject semantic node interval when an unassigned child returns current through a caller prefix AND suffix; test endpoints rather than infer from prefix-only source.",
+    "lineage": {
+      "original": {
+        "grammar": "audit.scopes.AvailablePredictionEntry",
+        "file": "audit.scopes.AvailablePredictionEntry.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+          "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+        },
+        "bytes": 698
+      },
+      "original_probe_prefix_unchanged": true,
+      "delta": [
+        {
+          "old": "audit.scopes.AvailablePredictionEntry",
+          "new": "audit.scopes.CallerSuffix"
+        },
+        {
+          "old": "| 'direct' TightEntry;",
+          "new": "| 'direct' TightEntry 'done';"
+        }
+      ],
+      "original_and_attempt2_immutable": true
+    },
+    "execution": "UNEXECUTED; source/generation/runtime success not assumed."
+  }
+]

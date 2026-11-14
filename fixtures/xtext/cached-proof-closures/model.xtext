@@ -1,0 +1,36 @@
+grammar cachedProofClosures hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+Root returns k::Expression: Left | Right;
+Left returns k::OperatorExpression: F0+ operator='left';
+Right returns k::OperatorExpression: ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') ('x'|'y') operator='right';
+fragment F0 returns k::OperatorExpression: F1;
+fragment F1 returns k::OperatorExpression: F2;
+fragment F2 returns k::OperatorExpression: F3;
+fragment F3 returns k::OperatorExpression: F4;
+fragment F4 returns k::OperatorExpression: F5;
+fragment F5 returns k::OperatorExpression: F6;
+fragment F6 returns k::OperatorExpression: F7;
+fragment F7 returns k::OperatorExpression: F8;
+fragment F8 returns k::OperatorExpression: F9;
+fragment F9 returns k::OperatorExpression: F10;
+fragment F10 returns k::OperatorExpression: F11;
+fragment F11 returns k::OperatorExpression: F12;
+fragment F12 returns k::OperatorExpression: F13;
+fragment F13 returns k::OperatorExpression: F14;
+fragment F14 returns k::OperatorExpression: F15;
+fragment F15 returns k::OperatorExpression: F16;
+fragment F16 returns k::OperatorExpression: F17;
+fragment F17 returns k::OperatorExpression: F18;
+fragment F18 returns k::OperatorExpression: F19;
+fragment F19 returns k::OperatorExpression: F20;
+fragment F20 returns k::OperatorExpression: F21;
+fragment F21 returns k::OperatorExpression: F22;
+fragment F22 returns k::OperatorExpression: F23;
+fragment F23 returns k::OperatorExpression: F24;
+fragment F24 returns k::OperatorExpression: F25;
+fragment F25 returns k::OperatorExpression: F26;
+fragment F26 returns k::OperatorExpression: F27;
+fragment F27 returns k::OperatorExpression: F28;
+fragment F28 returns k::OperatorExpression: F29;
+fragment F29 returns k::OperatorExpression: ('x'|'y');
+terminal WS: ' '+;

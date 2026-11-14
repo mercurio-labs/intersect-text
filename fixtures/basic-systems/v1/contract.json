@@ -1,0 +1,1749 @@
+{
+  "schema": "intersect.basic-systems.acceptance.v1",
+  "version": 1,
+  "state": "DRAFT_UNQUALIFIED",
+  "pilot": {
+    "commit": "692170b71867353b8f90341e61556f49a5beb0e5",
+    "sources": {
+      "ecore": {
+        "relative_path": "org.omg.sysml/model/SysML.ecore",
+        "uri": "org.omg.sysml/model/SysML.ecore",
+        "bytes": 629610,
+        "sha256": "22719934c65588180fc19658f8a7c891cb209458e4027bf90ddf005c80ddc17f"
+      },
+      "expressions": {
+        "relative_path": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+        "uri": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+        "bytes": 15252,
+        "sha256": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8"
+      },
+      "kerml": {
+        "relative_path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+        "uri": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+        "bytes": 29731,
+        "sha256": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa"
+      },
+      "sysml": {
+        "relative_path": "org.omg.sysml.xtext/src/org/omg/sysml/xtext/SysML.xtext",
+        "uri": "org.omg.sysml.xtext/src/org/omg/sysml/xtext/SysML.xtext",
+        "bytes": 61789,
+        "sha256": "7d9142742c454f5810fe4db61a089abef5e0b8d61ad8bf552631d9136b04f298"
+      }
+    }
+  },
+  "hard_prerequisites": {
+    "complete_original_grammar_admission": true,
+    "reduced_grammar_or_projection_forbidden": true,
+    "original_source_bytes_and_dependency_edges_required": true,
+    "grammar_closures": {
+      "kerml": {
+        "sources": [
+          "ecore",
+          "expressions",
+          "kerml"
+        ],
+        "authored_rules": 284,
+        "effective_rules": 282
+      },
+      "sysml": {
+        "sources": [
+          "ecore",
+          "expressions",
+          "sysml"
+        ],
+        "authored_rules": 551
+      }
+    },
+    "source_policy_is_exact_host_authorized_not_a_runtime_limit_increase": true
+  },
+  "required_lanes": [
+    "native",
+    "wasm",
+    "browser-dev",
+    "browser-production"
+  ],
+  "evidence_states": {
+    "imported": "Exact original source information retained, with original-to-native correspondence and no omissions. A pin inventory alone is not import evidence.",
+    "consumed": "The real ordinary frontend and active language owner use exact definitions, library dependency closure and provider contracts to perform this case.",
+    "semantically_verified": "All expected observations/rejections/recovery pass on real consumers, with independent truth evidence, raw complete results and source/artifact guards."
+  },
+  "sources": {
+    "interchange/unknown-class.xmi": {
+      "path": "corpus/interchange/unknown-class.xmi",
+      "uri": "memory://intersect/basic-v1/interchange/unknown-class.xmi",
+      "bytes": 190,
+      "sha256": "f8fdb770eb335e42d0621009d9c1afaaa966d304bbdb23fbe209ac91bb271b8b",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "kerml/library.kerml": {
+      "path": "corpus/kerml/library.kerml",
+      "uri": "memory://intersect/basic-v1/kerml/library.kerml",
+      "bytes": 169,
+      "sha256": "601737ca0bc3c0dc1b084a7dcd030dc407514b2d93fb8796b529365a72b3b62a",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "kerml/scope.kerml": {
+      "path": "corpus/kerml/scope.kerml",
+      "uri": "memory://intersect/basic-v1/kerml/scope.kerml",
+      "bytes": 219,
+      "sha256": "2928a302dd544ab1e61c4dbe82dac8a3a073237aa179bb4f766271b8f6143ce1",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "kerml/syntax-error.kerml": {
+      "path": "corpus/kerml/syntax-error.kerml",
+      "uri": "memory://intersect/basic-v1/kerml/syntax-error.kerml",
+      "bytes": 47,
+      "sha256": "e3d9d3e33bb400b632ecf105e3eaacea8f0c6d7eb593a2c028167f08eb3cab3d",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "kerml/system.kerml": {
+      "path": "corpus/kerml/system.kerml",
+      "uri": "memory://intersect/basic-v1/kerml/system.kerml",
+      "bytes": 331,
+      "sha256": "121c7135bcb16a44ff8ce54f77fe121a2f323a76ed2592714a8ce731dd6ac948",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "kerml/unresolved.kerml": {
+      "path": "corpus/kerml/unresolved.kerml",
+      "uri": "memory://intersect/basic-v1/kerml/unresolved.kerml",
+      "bytes": 97,
+      "sha256": "54bbb9b42680ac954a6ae2f90223ac8d33ee8f87a54ff706ce44d9b0c55b14f0",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "sysml/definitions.sysml": {
+      "path": "corpus/sysml/definitions.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/definitions.sysml",
+      "bytes": 298,
+      "sha256": "3a6d4eb5581927511760cc3d48ef42c2fd1596bcf97abed7e2f4c35d85cb1e29",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "sysml/false-constraint.sysml": {
+      "path": "corpus/sysml/false-constraint.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/false-constraint.sysml",
+      "bytes": 230,
+      "sha256": "d425e69cb4777d9f03425699b2bfd5de74c17a9fb5939920b37ed929f2375f67",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "sysml/syntax-error.sysml": {
+      "path": "corpus/sysml/syntax-error.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/syntax-error.sysml",
+      "bytes": 48,
+      "sha256": "efc9189bfeb4577fc4725418558098ad6cab94d1f9e970c6fa4e9598bfc70c30",
+      "origin": "originally authored; exact syntax rejection independently observed; full workflow unverified"
+    },
+    "sysml/system.sysml": {
+      "path": "corpus/sysml/system.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/system.sysml",
+      "bytes": 689,
+      "sha256": "d942e3728238ea3db91456083444f61d1245eeea63dfa1e10ffcb1185bf5cbe4",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "sysml/type-error.sysml": {
+      "path": "corpus/sysml/type-error.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/type-error.sysml",
+      "bytes": 100,
+      "sha256": "6a22f58474b0f3fe4d2834184abf370837705887d50aa8c5165c6103ee4143ab",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    },
+    "sysml/unresolved.sysml": {
+      "path": "corpus/sysml/unresolved.sysml",
+      "uri": "memory://intersect/basic-v1/sysml/unresolved.sysml",
+      "bytes": 62,
+      "sha256": "68d8e2b74e38755a077dc0bd5d7963efa90ed24ae1079f1461e64ca91a2f1c21",
+      "origin": "originally authored; syntax grounded only; unexecuted"
+    }
+  },
+  "cases": [
+    {
+      "id": "K01",
+      "language": "kerml",
+      "workflow": "packages-cross-resource-import-and-link",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "resolve-type",
+          "arguments": {
+            "element": "BasicSystem::source"
+          },
+          "expected": {
+            "target": "BasicLibrary::Sensor",
+            "target_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/kerml/library.kerml",
+                "sha256": "601737ca0bc3c0dc1b084a7dcd030dc407514b2d93fb8796b529365a72b3b62a"
+              },
+              "start": 146,
+              "end": 152,
+              "unit": "UTF-8 bytes"
+            },
+            "reference_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/kerml/system.kerml",
+                "sha256": "121c7135bcb16a44ff8ce54f77fe121a2f323a76ed2592714a8ce731dd6ac948"
+              },
+              "start": 154,
+              "end": 160,
+              "unit": "UTF-8 bytes"
+            }
+          }
+        },
+        {
+          "operation": "query-owned-names",
+          "arguments": {
+            "namespace": "BasicLibrary"
+          },
+          "expected": {
+            "names": [
+              "Component",
+              "Sensor"
+            ]
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import",
+        "K-import",
+        "K-feature-value"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K02",
+      "language": "kerml",
+      "workflow": "types-specialization-and-inherited-members",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "query-generalizations",
+          "arguments": {
+            "element": "BasicLibrary::Sensor"
+          },
+          "expected": {
+            "direct": [
+              "BasicLibrary::Component"
+            ],
+            "transitive_contains": [
+              "Base::Anything",
+              "BasicLibrary::Component"
+            ]
+          }
+        },
+        {
+          "operation": "is-specialization",
+          "arguments": {
+            "specific": "BasicLibrary::Sensor",
+            "general": "Base::Anything"
+          },
+          "expected": {
+            "value": true
+          }
+        },
+        {
+          "operation": "query-inherited-features",
+          "arguments": {
+            "element": "BasicLibrary::Sensor"
+          },
+          "expected": {
+            "features": [
+              {
+                "name": "serial",
+                "owner": "BasicLibrary::Component",
+                "type": "ScalarValues::Integer"
+              }
+            ]
+          }
+        }
+      ],
+      "grounding": [
+        "K-type-specialization"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K03",
+      "language": "kerml",
+      "workflow": "features-relationships-and-endpoint-linking",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "query-connector",
+          "arguments": {
+            "element": "BasicSystem::signal"
+          },
+          "expected": {
+            "kind": "Connector",
+            "ends": [
+              "BasicSystem::source",
+              "BasicSystem::destination"
+            ],
+            "endpoint_types": [
+              "BasicLibrary::Sensor",
+              "BasicLibrary::Sensor"
+            ]
+          }
+        }
+      ],
+      "grounding": [
+        "K-feature-value",
+        "K-connector"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K04",
+      "language": "kerml",
+      "workflow": "expression-precedence-and-value-evaluation",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicSystem::total"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "7",
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicSystem::doubled"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "14",
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "K-value",
+        "E-operators",
+        "E-literals"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K05",
+      "language": "kerml",
+      "workflow": "nested-scope-and-qualified-reference",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml",
+        "kerml/scope.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "resolve-type",
+          "arguments": {
+            "element": "ScopedSystem::Local::localSensor"
+          },
+          "expected": {
+            "target": "ScopedSystem::Local::Sensor",
+            "target_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/kerml/scope.kerml",
+                "sha256": "2928a302dd544ab1e61c4dbe82dac8a3a073237aa179bb4f766271b8f6143ce1"
+              },
+              "start": 92,
+              "end": 98,
+              "unit": "UTF-8 bytes"
+            }
+          }
+        },
+        {
+          "operation": "resolve-type",
+          "arguments": {
+            "element": "ScopedSystem::Local::importedSensor"
+          },
+          "expected": {
+            "target": "BasicLibrary::Sensor",
+            "target_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/kerml/library.kerml",
+                "sha256": "601737ca0bc3c0dc1b084a7dcd030dc407514b2d93fb8796b529365a72b3b62a"
+              },
+              "start": 146,
+              "end": 152,
+              "unit": "UTF-8 bytes"
+            }
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import",
+        "K-type-specialization",
+        "K-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K06",
+      "language": "kerml",
+      "workflow": "rejection-diagnostics-and-recovery",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "kerml/library.kerml",
+              "kerml/unresolved.kerml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "linking",
+              "category": "unresolved-reference",
+              "symbol": "MissingSensor",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/kerml/unresolved.kerml",
+                  "sha256": "54bbb9b42680ac954a6ae2f90223ac8d33ee8f87a54ff706ce44d9b0c55b14f0"
+                },
+                "start": 80,
+                "end": 93,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "kerml/syntax-error.kerml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "parsing",
+              "category": "syntax",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/kerml/syntax-error.kerml",
+                  "sha256": "e3d9d3e33bb400b632ecf105e3eaacea8f0c6d7eb593a2c028167f08eb3cab3d"
+                },
+                "start": 43,
+                "end": 44,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicSystem::total"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "7",
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "K-import",
+        "K-feature-value"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K07",
+      "language": "kerml",
+      "workflow": "shared-direct-construction-edit-query-rejection",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "construct-equivalent-model",
+          "arguments": {},
+          "expected": {
+            "same_semantic_graph": true,
+            "schema_source_identities_equal": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "bind-element",
+          "arguments": {
+            "element": "BasicSystem::source",
+            "handle": "selected"
+          },
+          "expected": {
+            "handle": "selected",
+            "qualified_name": "BasicSystem::source",
+            "identity_bound": true
+          }
+        },
+        {
+          "operation": "rename-element",
+          "arguments": {
+            "handle": "selected",
+            "name": "renamed"
+          },
+          "expected": {
+            "name": "renamed",
+            "query_finds_new_name": true,
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "set-feature-value",
+          "arguments": {
+            "element": "BasicSystem::total",
+            "value": {
+              "kind": "Integer",
+              "value": "9"
+            }
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "9",
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicSystem::doubled"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "18",
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "invalid-reference-edit",
+          "arguments": {
+            "handle": "selected",
+            "wrong_target_kind": "LiteralInteger"
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "edit",
+              "category": "reference-type-mismatch"
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "query-after-rejection",
+          "arguments": {
+            "handle": "selected"
+          },
+          "expected": {
+            "name": "renamed",
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicSystem::doubled"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "18",
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K08",
+      "language": "kerml",
+      "workflow": "save-reload-project-and-exact-source-recovery",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "save-reload-project",
+          "arguments": {},
+          "expected": {
+            "exact_source_bytes_preserved": true,
+            "source_URIs_and_SHA256_preserved": true,
+            "reference_targets_preserved": true,
+            "same_complete_model": true,
+            "same_derived_and_diagnostics": true
+          }
+        },
+        {
+          "operation": "corrupt-source-digest-and-reload",
+          "arguments": {},
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "reload",
+              "category": "source-digest-mismatch"
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "restart-and-recover",
+          "arguments": {},
+          "expected": {
+            "exact_source_bytes_preserved": true,
+            "same_complete_model": true,
+            "same_derived_and_diagnostics": true
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K09",
+      "language": "kerml",
+      "workflow": "text-and-XMI-interchange",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "bind-element",
+          "arguments": {
+            "element": "BasicSystem::source",
+            "handle": "selected"
+          },
+          "expected": {
+            "handle": "selected",
+            "qualified_name": "BasicSystem::source",
+            "identity_bound": true
+          }
+        },
+        {
+          "operation": "rename-element",
+          "arguments": {
+            "handle": "selected",
+            "name": "interchanged"
+          },
+          "expected": {
+            "name": "interchanged",
+            "query_finds_new_name": true,
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "export-text-and-reparse",
+          "arguments": {},
+          "expected": {
+            "same_semantic_graph": true,
+            "all_reference_targets_preserved": true,
+            "complete_source_identity_correspondence_recorded": true,
+            "emitted_text_contains_edited_name": true,
+            "no_unsupported_content_dropped": true
+          }
+        },
+        {
+          "operation": "export-XMI-and-reimport",
+          "arguments": {},
+          "expected": {
+            "same_complete_model": true,
+            "same_source_and_type_identities": true,
+            "same_ordered_memberships_and_references": true,
+            "same_language_validation_and_derived_results": true,
+            "deterministic_second_export": true
+          }
+        },
+        {
+          "operation": "import-invalid-XMI",
+          "arguments": {
+            "source": "interchange/unknown-class.xmi"
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "interchange",
+              "category": "unknown-metaclass",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/interchange/unknown-class.xmi",
+                  "sha256": "f8fdb770eb335e42d0621009d9c1afaaa966d304bbdb23fbe209ac91bb271b8b"
+                },
+                "start": 147,
+                "end": 158,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "query-after-rejection",
+          "arguments": {},
+          "expected": {
+            "still_valid": true
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "K10",
+      "language": "kerml",
+      "workflow": "standard-library-source-consumption-and-provider-coverage",
+      "mandatory": true,
+      "sources": [
+        "kerml/library.kerml",
+        "kerml/system.kerml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "audit-language-context",
+          "arguments": {},
+          "expected": {
+            "all_referenced_library_sources_exact": true,
+            "all_dependencies_explicit_and_closed": true,
+            "no_runtime_Java": true,
+            "no_projection_grammar": true,
+            "no_missing_provider_silently_defaulted": true,
+            "source_bound_initializer_parity": true,
+            "language_scoping_and_validation_installed": true,
+            "consumed_library_receipt_present": true
+          }
+        }
+      ],
+      "grounding": [
+        "K-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S01",
+      "language": "sysml",
+      "workflow": "part-definitions-usages-attributes-and-values",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "query-element",
+          "arguments": {
+            "element": "BasicAssembly::Assembly"
+          },
+          "expected": {
+            "kind": "PartDefinition",
+            "name": "Assembly"
+          }
+        },
+        {
+          "operation": "resolve-type",
+          "arguments": {
+            "element": "BasicAssembly::system"
+          },
+          "expected": {
+            "target": "BasicAssembly::Assembly",
+            "target_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/sysml/system.sysml",
+                "sha256": "d942e3728238ea3db91456083444f61d1245eeea63dfa1e10ffcb1185bf5cbe4"
+              },
+              "start": 152,
+              "end": 160,
+              "unit": "UTF-8 bytes"
+            }
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "element": "BasicAssembly::system.sensor.sample"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "2",
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-package-import",
+        "S-parts",
+        "S-attribute"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S02",
+      "language": "sysml",
+      "workflow": "ports-conjugation-and-connection",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "query-port-type",
+          "arguments": {
+            "element": "BasicDefinitions::Sensor::output"
+          },
+          "expected": {
+            "original": "BasicDefinitions::DataPort",
+            "conjugated": false
+          }
+        },
+        {
+          "operation": "query-port-type",
+          "arguments": {
+            "element": "BasicDefinitions::Controller::input"
+          },
+          "expected": {
+            "original": "BasicDefinitions::DataPort",
+            "conjugated": true
+          }
+        },
+        {
+          "operation": "query-connections",
+          "arguments": {
+            "owner": "BasicAssembly::Assembly"
+          },
+          "expected": {
+            "connections": [
+              {
+                "owner": "BasicAssembly::Assembly",
+                "ends": [
+                  "sensor.output",
+                  "controller.input"
+                ],
+                "compatible": true
+              }
+            ]
+          }
+        }
+      ],
+      "grounding": [
+        "S-ports",
+        "S-connection"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S03",
+      "language": "sysml",
+      "workflow": "requirements-subject-and-required-constraint",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "query-requirement",
+          "arguments": {
+            "element": "BasicAssembly::BoundedReading"
+          },
+          "expected": {
+            "kind": "RequirementDefinition",
+            "subject": "unit",
+            "subject_type": "BasicAssembly::Assembly",
+            "required_constraint_count": 1,
+            "assumed_constraint_count": 0
+          }
+        },
+        {
+          "operation": "resolve-type",
+          "arguments": {
+            "element": "BasicAssembly::boundedReading"
+          },
+          "expected": {
+            "target": "BasicAssembly::BoundedReading",
+            "target_source": {
+              "source": {
+                "uri": "memory://intersect/basic-v1/sysml/system.sysml",
+                "sha256": "d942e3728238ea3db91456083444f61d1245eeea63dfa1e10ffcb1185bf5cbe4"
+              },
+              "start": 480,
+              "end": 494,
+              "unit": "UTF-8 bytes"
+            }
+          }
+        },
+        {
+          "operation": "query-satisfaction",
+          "arguments": {
+            "requirement": "BasicAssembly::boundedReading"
+          },
+          "expected": {
+            "subject": "BasicAssembly::system",
+            "satisfied": true,
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-requirement",
+        "S-constraint",
+        "S-satisfaction"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S04",
+      "language": "sysml",
+      "workflow": "basic-constraint-evaluation-and-semantic-validation",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "validate-language",
+          "arguments": {},
+          "expected": {
+            "valid": true,
+            "constraint_results": [
+              {
+                "owner": "BasicAssembly::Assembly",
+                "name": "bounded",
+                "value": true
+              }
+            ],
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "sysml/false-constraint.sysml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "validation",
+              "category": "asserted-constraint-false",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/sysml/false-constraint.sysml",
+                  "sha256": "d425e69cb4777d9f03425699b2bfd5de74c17a9fb5939920b37ed929f2375f67"
+                },
+                "start": 208,
+                "end": 225,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "validate-language",
+          "arguments": {},
+          "expected": {
+            "valid": true,
+            "constraint_results": [
+              {
+                "owner": "BasicAssembly::Assembly",
+                "name": "bounded",
+                "value": true
+              }
+            ],
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-constraint",
+        "E-operators"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S05",
+      "language": "sysml",
+      "workflow": "unresolved-type-wrong-value-and-recovery",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "sysml/unresolved.sysml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "linking",
+              "category": "unresolved-reference",
+              "symbol": "MissingAssembly",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/sysml/unresolved.sysml",
+                  "sha256": "68d8e2b74e38755a077dc0bd5d7963efa90ed24ae1079f1461e64ca91a2f1c21"
+                },
+                "start": 43,
+                "end": 58,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "sysml/type-error.sysml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "validation",
+              "category": "value-type-mismatch",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/sysml/type-error.sysml",
+                  "sha256": "6a22f58474b0f3fe4d2834184abf370837705887d50aa8c5165c6103ee4143ab"
+                },
+                "start": 89,
+                "end": 96,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-parts",
+        "S-attribute",
+        "E-literals"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S06",
+      "language": "sysml",
+      "workflow": "syntax-rejection-and-recovery",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "replace-project",
+          "arguments": {
+            "sources": [
+              "sysml/syntax-error.sysml"
+            ]
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "parsing",
+              "category": "syntax",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/sysml/syntax-error.sysml",
+                  "sha256": "efc9189bfeb4577fc4725418558098ad6cab94d1f9e970c6fa4e9598bfc70c30"
+                },
+                "start": 42,
+                "end": 43,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-parts"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; S06 syntax rejection independently observed on exact proposed identity; publication/rollback/recovery unverified"
+    },
+    {
+      "id": "S07",
+      "language": "sysml",
+      "workflow": "shared-direct-construction-edit-query-rejection",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "construct-equivalent-model",
+          "arguments": {},
+          "expected": {
+            "same_semantic_graph": true,
+            "schema_source_identities_equal": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "bind-element",
+          "arguments": {
+            "element": "BasicAssembly::system",
+            "handle": "selected"
+          },
+          "expected": {
+            "handle": "selected",
+            "qualified_name": "BasicAssembly::system",
+            "identity_bound": true
+          }
+        },
+        {
+          "operation": "rename-element",
+          "arguments": {
+            "handle": "selected",
+            "name": "renamed"
+          },
+          "expected": {
+            "name": "renamed",
+            "query_finds_new_name": true,
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "set-feature-value",
+          "arguments": {
+            "handle": "selected",
+            "feature_path": "sensor.sample",
+            "value": {
+              "kind": "Integer",
+              "value": "4"
+            }
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "4",
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "retarget-connection",
+          "arguments": {
+            "owner": "BasicAssembly::Assembly",
+            "connection_index": 0,
+            "end_index": 1,
+            "target": "spareController.input"
+          },
+          "expected": {
+            "ends": [
+              "sensor.output",
+              "spareController.input"
+            ],
+            "compatible": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "validate-language",
+          "arguments": {},
+          "expected": {
+            "valid": true,
+            "constraint_results": [
+              {
+                "owner": "BasicAssembly::Assembly",
+                "name": "bounded",
+                "value": true
+              }
+            ],
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "invalid-reference-edit",
+          "arguments": {
+            "handle": "selected",
+            "wrong_target_kind": "LiteralInteger"
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "edit",
+              "category": "reference-type-mismatch"
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "query-after-rejection",
+          "arguments": {
+            "handle": "selected"
+          },
+          "expected": {
+            "name": "renamed",
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "evaluate-feature-value",
+          "arguments": {
+            "handle": "selected",
+            "feature_path": "sensor.sample"
+          },
+          "expected": {
+            "kind": "Integer",
+            "value": "4",
+            "diagnostics": []
+          }
+        }
+      ],
+      "grounding": [
+        "S-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S08",
+      "language": "sysml",
+      "workflow": "save-reload-project-and-exact-source-recovery",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "save-reload-project",
+          "arguments": {},
+          "expected": {
+            "exact_source_bytes_preserved": true,
+            "source_URIs_and_SHA256_preserved": true,
+            "reference_targets_preserved": true,
+            "same_complete_model": true,
+            "same_derived_and_diagnostics": true
+          }
+        },
+        {
+          "operation": "corrupt-source-digest-and-reload",
+          "arguments": {},
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "reload",
+              "category": "source-digest-mismatch"
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "restart-and-recover",
+          "arguments": {},
+          "expected": {
+            "exact_source_bytes_preserved": true,
+            "same_complete_model": true,
+            "same_derived_and_diagnostics": true
+          }
+        }
+      ],
+      "grounding": [
+        "S-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S09",
+      "language": "sysml",
+      "workflow": "text-and-XMI-interchange",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "bind-element",
+          "arguments": {
+            "element": "BasicAssembly::system",
+            "handle": "selected"
+          },
+          "expected": {
+            "handle": "selected",
+            "qualified_name": "BasicAssembly::system",
+            "identity_bound": true
+          }
+        },
+        {
+          "operation": "rename-element",
+          "arguments": {
+            "handle": "selected",
+            "name": "interchanged"
+          },
+          "expected": {
+            "name": "interchanged",
+            "query_finds_new_name": true,
+            "stable_identity_preserved": true
+          }
+        },
+        {
+          "operation": "export-text-and-reparse",
+          "arguments": {},
+          "expected": {
+            "same_semantic_graph": true,
+            "all_reference_targets_preserved": true,
+            "complete_source_identity_correspondence_recorded": true,
+            "emitted_text_contains_edited_name": true,
+            "no_unsupported_content_dropped": true
+          }
+        },
+        {
+          "operation": "export-XMI-and-reimport",
+          "arguments": {},
+          "expected": {
+            "same_complete_model": true,
+            "same_source_and_type_identities": true,
+            "same_ordered_memberships_and_references": true,
+            "same_language_validation_and_derived_results": true,
+            "deterministic_second_export": true
+          }
+        },
+        {
+          "operation": "import-invalid-XMI",
+          "arguments": {
+            "source": "interchange/unknown-class.xmi"
+          },
+          "expected": {
+            "accepted": false,
+            "failure": {
+              "phase": "interchange",
+              "category": "unknown-metaclass",
+              "span": {
+                "source": {
+                  "uri": "memory://intersect/basic-v1/interchange/unknown-class.xmi",
+                  "sha256": "f8fdb770eb335e42d0621009d9c1afaaa966d304bbdb23fbe209ac91bb271b8b"
+                },
+                "start": 147,
+                "end": 158,
+                "unit": "UTF-8 bytes"
+              }
+            },
+            "previous_model_unchanged": true
+          }
+        },
+        {
+          "operation": "query-after-rejection",
+          "arguments": {},
+          "expected": {
+            "still_valid": true
+          }
+        }
+      ],
+      "grounding": [
+        "S-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    },
+    {
+      "id": "S10",
+      "language": "sysml",
+      "workflow": "standard-library-source-consumption-and-provider-coverage",
+      "mandatory": true,
+      "sources": [
+        "sysml/definitions.sysml",
+        "sysml/system.sysml"
+      ],
+      "steps": [
+        {
+          "operation": "open-project",
+          "arguments": {},
+          "expected": {
+            "accepted": true,
+            "diagnostics": []
+          }
+        },
+        {
+          "operation": "audit-language-context",
+          "arguments": {},
+          "expected": {
+            "all_referenced_library_sources_exact": true,
+            "all_dependencies_explicit_and_closed": true,
+            "no_runtime_Java": true,
+            "no_projection_grammar": true,
+            "no_missing_provider_silently_defaulted": true,
+            "source_bound_initializer_parity": true,
+            "language_scoping_and_validation_installed": true,
+            "consumed_library_receipt_present": true
+          }
+        }
+      ],
+      "grounding": [
+        "S-package-import"
+      ],
+      "status": {
+        "imported": "unverified",
+        "consumed": "unverified",
+        "semantically_verified": "unverified",
+        "qualification_receipts": []
+      },
+      "expectations_status": "authored contract; grammar-grounded; no independent runtime truth"
+    }
+  ],
+  "protocol": {
+    "request_schema": "intersect.basic-systems.request.v1",
+    "response_schema": "intersect.basic-systems.response.v1",
+    "steps_are_draft_host_protocol_not_existing_public_Rust_symbols": true,
+    "literal_observation_equality": true,
+    "raw_model_result_and_diagnostic_receipts_mandatory": true,
+    "independent_semantic_truth_required_for_closure": true,
+    "classification_preserves_raw_failure_detail": true,
+    "all_expected_values_are_authored_not_oracle_verified": true,
+    "candidate_execution_does_not_award_semantic_verification": true
+  },
+  "stdlib_manifest": "upstream-standard-library-manifest.json",
+  "grounding": "grounding.json",
+  "in_scope": [
+    "Mandatory workflows over full original grammar inputs",
+    "Basic deterministic scalar expressions and asserted constraints",
+    "Same language-owned semantics across direct/text/native/WASM/browser consumers"
+  ],
+  "outside_basic_scope": [
+    "Full OMG conformance",
+    "Simulation/scheduling/solver profiles",
+    "All advanced action/state/flow/calculation constructs",
+    "All general Xtext/Rcore completeness gates"
+  ],
+  "closure_rule": "All mandatory cases pass all required lanes, exact original grammars admitted, independent semantic truth established, imported/consumed/verified separately proven, whole source/static/artifact postguards pass. Missing, blocked, skipped, xfail, flaky, incomplete is not PASS. Original broader full Rcore/Xtext goal and historical failures remain intact.",
+  "draft_revision": 2
+}

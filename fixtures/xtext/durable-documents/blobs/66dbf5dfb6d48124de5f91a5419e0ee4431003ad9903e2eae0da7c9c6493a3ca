@@ -1,0 +1,32 @@
+from pathlib import Path
+import json,hashlib,zipfile
+N=Path(__file__).resolve().parent;O=N/'portable-v65-evidence-v1';M=Path('C:/Users/MarkPetrotta/.m2/repository')
+def pin(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+original=json.loads((O/'origins.json').read_text(encoding='utf-8'));extra={}
+def add_bytes(b,name,role):
+    assert name not in original and name not in extra
+    q=pin(b);dest=O/'blobs'/q['sha256']
+    if not dest.exists():dest.open('xb').write(b)
+    else:assert dest.read_bytes()==b
+    extra[name]={**q,'blob':'blobs/'+q['sha256'],'role':role}
+for root in ['construction-native-before-v1','construction-addendum-native-before-v1',
+ 'typed-normal-abi-complete-attempt1','no-document-offset-complete-abi-attempt1']:
+    for p in sorted((N/root).rglob('*')):
+        if p.is_file()and p.suffix not in ['.exe','.wasm']:
+            add_bytes(p.read_bytes(),'public-native/'+root+'/'+p.relative_to(N/root).as_posix(),'complete-native-request-observation-and-replay')
+jars=json.loads((N.parent/'pncl65r/toolchain.json').read_text(encoding='utf-8'))['jars'];notices=[]
+for jar in jars:
+    p=M/jar['path'];b=p.read_bytes();assert pin(b)['sha256']==jar['sha256']
+    matches=[]
+    with zipfile.ZipFile(p)as z:
+        for name in sorted(z.namelist()):
+            base=name.rsplit('/',1)[-1].lower()
+            if not name.endswith('/')and (base.startswith(('license','notice','copying')) or name.lower()in ['about.html','meta-inf/eclipse.inf']):
+                data=z.read(name);logical='upstream-notices/'+jar['sha256']+'/'+name
+                add_bytes(data,logical,'exact-license-notice-from-unchanged-pinned-jar')
+                matches.append({'entry':name,'origin':logical,**pin(data)})
+    notices.append({'artifact':jar['path'],'jar_sha256':jar['sha256'],'notices':matches})
+add_bytes(Path(__file__).read_bytes(),'producer-original/augment-portable-v65-evidence-v1.py','verification-extractor')
+for name,value in [('origins-addendum-v1.json',extra),('upstream-license-notices.json',notices)]:
+    with(O/name).open('x',encoding='utf-8',newline='\n')as f:f.write(json.dumps(value,ensure_ascii=True,indent=2)+'\n')
+print(json.dumps({'addendum_origins':len(extra),'jars_checked':len(jars),'notice_entries':sum(len(x['notices'])for x in notices),'addendum':pin((O/'origins-addendum-v1.json').read_bytes())}))

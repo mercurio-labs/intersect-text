@@ -1,0 +1,51 @@
+from pathlib import Path
+import argparse,base64,hashlib,json,os,subprocess
+HERE=Path(__file__).resolve().parent;T=HERE.parent.parent
+
+def raw(p):return Path(p).read_bytes()
+def pin(p):b=raw(p);return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def read(p):return json.loads(raw(p).decode('utf-8'))
+def save(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+def b64(p):return base64.b64encode(str(p).encode('utf-8')).decode('ascii')
+def main():
+ a=argparse.ArgumentParser();a.add_argument('--output',required=True,type=Path);arg=a.parse_args();out=arg.output.resolve();out.mkdir(exist_ok=False)
+ freeze=read(HERE/'preexecution.json');assert pin(HERE/'SourceNodeBindings.java')==freeze['helper'];assert pin(HERE/'plans.json')==freeze['plans'];assert pin(HERE/'OwnedGeneratedLauncher.java')==freeze['launcher']
+ for name,p in freeze['input_files'].items():assert pin(HERE/name)==p,name
+ producer=read(HERE/'producer-preexecution.json');assert pin(__file__)==producer['producer']
+ stack=read(T/'xtext-node-recovery-after-v64-v1/construction-addenda-oracle-helper-v1/inputs/stack.json');jars=[Path('C:/Users/MarkPetrotta/.m2/repository')/j['path']for j in stack['jars']];assert len(jars)==60
+ for j,p in zip(jars,stack['jars']):assert pin(j)['sha256']==p['sha256']
+ java=Path('D:/dev/jdks/jdk21/bin/java.exe');javac=java.with_name('javac.exe');plans=read(HERE/'plans.json');roots=set()
+ for p in plans:
+  for r in p['owned_roots']:roots.add(str(Path(r).resolve().parent if Path(r).name=='adapter'else Path(r).resolve().parent.parent))
+ # Every original generated root used by an adapter is immutable and hash checked.
+ checked={}
+ for p in plans:
+  generated=Path(p['owned_roots'][0]).parent
+  if str(generated)in checked:continue
+  manifest=read(generated/'artifacts-sha256.json');assert pin(generated/'artifacts-sha256.json')==p['generated_manifest']
+  for name,h in manifest.items():assert pin(generated/name)['sha256']==h,(generated,name)
+  checked[str(generated)]=p['generated_manifest']
+ save(out/'preexecution.json',{'producer':pin(__file__),'freeze':pin(HERE/'preexecution.json'),'producer_freeze':pin(HERE/'producer-preexecution.json'),'plans':plans,'generated':checked,'java':pin(java),'javac':pin(javac),'jars':stack['jars'],'comparison_exceptions':[]})
+ commands=[];observations=[]
+ def run(command,deadline=15):
+  try:r=subprocess.run(command,capture_output=True,timeout=deadline)
+  except subprocess.TimeoutExpired as e:r=subprocess.CompletedProcess(command,124,e.stdout or b'',e.stderr or b'')
+  index=len(commands)+1;stdout=out/(str(index).zfill(3)+'.stdout.log');stderr=out/(str(index).zfill(3)+'.stderr.log');stdout.write_bytes(r.stdout);stderr.write_bytes(r.stderr);commands.append({'command':command,'exit_code':r.returncode,'deadline_seconds':deadline,'stdout':pin(stdout),'stderr':pin(stderr),'raw_stdout_file':stdout.name,'raw_stderr_file':stderr.name});save(out/'commands.json',commands);return r.returncode,r.stdout.decode('utf-8',errors='strict'),r.stderr.decode('utf-8',errors='strict')
+ try:
+  adapter=out/'adapter';adapter.mkdir();cp=os.pathsep.join([plans[0]['owned_roots'][0],*map(str,jars)]);code,_,error=run([str(javac),'-encoding','UTF-8','--release','17','-cp',cp,'-d',str(adapter),str(HERE/'SourceNodeBindings.java')],30);assert code==0,error
+  launcher=out/'launcher';launcher.mkdir();code,_,error=run([str(javac),'-encoding','UTF-8','--release','17','-d',str(launcher),str(HERE/'OwnedGeneratedLauncher.java')],30);assert code==0,error
+  for p in plans:
+   owned=[adapter];owned.extend(Path(r)for r in dict.fromkeys(p['owned_roots']));lines=['format\t1','launcher\t'+b64(launcher)];lines.extend('jar\t'+b64(j)+'\t'+x['sha256']for j,x in zip(jars,stack['jars']));names=set()
+   for index,root in enumerate(owned):
+    lines.append('root\t'+b64(root))
+    for f in sorted(root.rglob('*')):
+     if not f.is_file():continue
+     name=f.relative_to(root).as_posix();assert name not in names,('ambiguous owned resource',name);names.add(name);lines.append('file\t'+str(index)+'\t'+b64(name)+'\t'+pin(f)['sha256'])
+   spec=out/(p['run']+'-'+p['id']+'.tsv');spec.write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n');command=[str(java),'-Dstdout.encoding=UTF-8','-Dstderr.encoding=UTF-8','-cp',os.pathsep.join([str(launcher),*map(str,jars)]),'intersect.oracle.OwnedGeneratedLauncher',str(spec),'intersect.oracle.SourceNodeBindings',p['input'],p['provider'],p['setup']];code,stdout,stderr=run(command);values=[json.loads(line)for line in stdout.splitlines()if line.startswith('{')];row={'run':p['run'],'id':p['id'],'exit_code':code,'observation':values[0]if len(values)==1 else None};observations.append(row);save(out/'observations.json',observations);assert code==0 and row['observation']is not None,(p['id'],code,stderr);assert len(row['observation']['source_node_bindings'])==p['requested_elements']
+  record=[{k:v for k,v in row.items()if k!='run'}for row in observations if row['run']=='record'];replay=[{k:v for k,v in row.items()if k!='run'}for row in observations if row['run']=='replay'];assert record==replay
+  first=plans[0];spec=out/(first['run']+'-'+first['id']+'.tsv');lines=spec.read_text(encoding='utf-8').splitlines();index=next(i for i,line in enumerate(lines)if line.startswith('file\t'));entry=lines[index].split('\t');bad=entry.copy();bad[3]='0'*64;escape=entry.copy();escape[2]=b64('../outside.class');trials=[('wrong-digest',lines[:index]+['\t'.join(bad)]+lines[index+1:]),('duplicate-resource',lines+[lines[index]]),('unlisted-owned-file',lines[:index]+lines[index+1:]),('path-escape',lines[:index]+['\t'.join(escape)]+lines[index+1:])];negatives=[]
+  for label,content in trials:
+   target=out/('negative-'+label+'.tsv');target.write_text('\n'.join(content)+'\n',encoding='utf-8',newline='\n');code,stdout,stderr=run([str(java),'-Dstdout.encoding=UTF-8','-Dstderr.encoding=UTF-8','-cp',os.pathsep.join([str(launcher),*map(str,jars)]),'intersect.oracle.OwnedGeneratedLauncher',str(target),'intersect.oracle.SourceNodeBindings',first['input'],first['provider'],first['setup']]);assert code!=0 and not any(line.startswith('{')for line in stdout.splitlines()),label;negatives.append({'id':label,'exit_code':code,'specification':pin(target)})
+  save(out/'receipt.json',{'state':'exact generated EObject to source-loaded authored EObject metadata recorded and independently replayed; no model runtime rerun','whitelist_negative_controls':negatives,'graphs':len(record),'observations':len(observations),'source_element_bindings_per_run':sum(len(row['observation']['source_node_bindings'])for row in record),'commands':pin(out/'commands.json'),'observations':pin(out/'observations.json'),'preexecution':pin(out/'preexecution.json'),'comparison_exceptions':[],'gate_closures':[]});print(json.dumps({'receipt':str(out/'receipt.json'),**pin(out/'receipt.json')}))
+ except BaseException as e:save(out/'failure.json',{'class':type(e).__name__,'message':str(e),'completed':len(observations),'commands':len(commands),'preexecution':pin(out/'preexecution.json')});raise
+if __name__=='__main__':main()

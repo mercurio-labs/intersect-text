@@ -1,0 +1,31 @@
+// Verification-only explicit example.rgb/v1 context. Never linked into production.
+package intersect.oracle;
+import java.util.*;import org.eclipse.emf.ecore.*;import org.eclipse.emf.ecore.util.EcoreUtil;import org.eclipse.xtext.*;import org.eclipse.xtext.conversion.*;import org.eclipse.xtext.nodemodel.INode;
+public final class RgbService implements IValueConverterService {
+ static final String NS="urn:document-provider:paint:no-default:1";
+ public static final class Rgb extends AbstractMap<String,Object> {
+  final int red,green,blue;private final Set<Entry<String,Object>> entries;
+  Rgb(int r,int g,int b){if(r<0||r>255||g<0||g>255||b<0||b>255)throw new IllegalArgumentException("RGB channel out of range");red=r;green=g;blue=b;var m=new LinkedHashMap<String,Object>();m.put("red",r);m.put("green",g);m.put("blue",b);entries=Collections.unmodifiableMap(m).entrySet();}
+  public Set<Entry<String,Object>> entrySet(){return entries;}
+ }
+ public static final class Context {
+  final String grammar,rule,sha,uri;Context(String g,String r,String s,String u){grammar=g;rule=r;sha=s;uri=u;if(!(g.equals("document.provider.TypedTerminalNoDefault")&&r.equals("COLOR")||g.equals("document.provider.TypedRuleNoDefault")&&r.equals("Color")))throw new IllegalArgumentException("Unknown exact RGB grammar/rule");}
+  void check(com.google.inject.Injector injector){
+   var g=injector.getInstance(IGrammarAccess.class).getGrammar();if(!g.getName().equals(grammar))throw new IllegalStateException("Grammar identity mismatch");
+   var selected=GrammarUtil.findRuleForName(g,rule);if(selected==null||selected.eIsProxy()||!GrammarUtil.getGrammar(selected).getName().equals(grammar))throw new IllegalStateException("Missing exact typed rule");
+   TypeRef type=selected instanceof TerminalRule?((TerminalRule)selected).getType():selected instanceof ParserRule?((ParserRule)selected).getType():null;
+   if(type==null||type.getClassifier()!=EcorePackage.Literals.EJAVA_OBJECT||type.getClassifier().eIsProxy())throw new IllegalStateException("Return is not exact resolved Ecore EJavaObject");
+   var root=GrammarUtil.findRuleForName(g,"Paint");if(!(root instanceof ParserRule)||((ParserRule)root).getType()==null)throw new IllegalStateException("Missing Paint parser");
+   var cls=((ParserRule)root).getType().getClassifier();if(!(cls instanceof EClass)||cls.eIsProxy()||!cls.getName().equals("Paint")||!cls.getEPackage().getNsURI().equals(NS))throw new IllegalStateException("Paint classifier identity mismatch");
+   var f=((EClass)cls).getEStructuralFeature("color");if(!(f instanceof EAttribute)||f.getEType()!=EcorePackage.Literals.EJAVA_OBJECT)throw new IllegalStateException("Feature datatype identity mismatch");
+  }
+  Object observation(){return TerminalNegationOracle.fields("provider",TerminalNegationOracle.fields("name","example.rgb","version","1"),"grammar",grammar,"rule",rule,"source",TerminalNegationOracle.fields("uri",uri,"sha256",sha),"datatype",EcoreUtil.getURI(EcorePackage.Literals.EJAVA_OBJECT).toString(),"class_namespace",NS,"class_name","Paint","feature","color","rgb_carrier","immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output");}
+ }
+ final IValueConverterService delegate;final Context context;final List<Object> calls=new ArrayList<>();
+ RgbService(IValueConverterService d,Context c){delegate=Objects.requireNonNull(d);context=c;if(d instanceof RgbService)throw new IllegalArgumentException("Recursive converter delegation");}
+ static Rgb parse(String text){if(text==null||text.length()!=7||text.charAt(0)!='#')throw new IllegalArgumentException("RGB text requires #RRGGBB");int bits=0;for(int i=1;i<7;i++){char c=text.charAt(i);int x=c>='0'&&c<='9'?c-'0':c>='A'&&c<='F'?c-'A'+10:c>='a'&&c<='f'?c-'a'+10:-1;if(x<0)throw new IllegalArgumentException("RGB text requires six ASCII hexadecimal digits");bits=(bits<<4)|x;}return new Rgb((bits>>16)&255,(bits>>8)&255,bits&255);}
+ static String format(Object value){if(!(value instanceof Map<?,?>))throw new IllegalArgumentException("Expected exact RGB payload");var m=(Map<?,?>)value;if(!m.keySet().equals(Set.of("red","green","blue")))throw new IllegalArgumentException("Expected exact RGB fields");int[] channels=new int[3];String[] names={"red","green","blue"};for(int i=0;i<3;i++){Object c=m.get(names[i]);if(!(c instanceof Integer||c instanceof Long)||((Number)c).longValue()<0||((Number)c).longValue()>255)throw new IllegalArgumentException("Expected integer RGB channel 0..255");channels[i]=((Number)c).intValue();}var rgb=new Rgb(channels[0],channels[1],channels[2]);return String.format(Locale.ROOT,"#%02X%02X%02X",rgb.red,rgb.green,rgb.blue);}
+ boolean selected(String name){return context.rule.equals(name)||(context.grammar+"."+context.rule).equals(name);}
+ public Object toValue(String text,String rule,INode node){if(!selected(rule))return delegate.toValue(text,rule,node);try{var rgb=parse(text);calls.add(TerminalNegationOracle.fields("operation","parse","rule",rule,"text",text,"value",rgb,"formatted",format(rgb),"utf16_start",node==null?null:node.getOffset(),"utf16_end",node==null?null:node.getEndOffset()));return rgb;}catch(IllegalArgumentException e){calls.add(TerminalNegationOracle.fields("operation","parse","rule",rule,"text",text,"failure",e.getMessage()));throw new ValueConverterException(e.getMessage(),node,e);}}
+ public String toString(Object value,String rule){if(!selected(rule))return delegate.toString(value,rule);return format(value);}
+}

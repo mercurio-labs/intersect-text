@@ -1,0 +1,956 @@
+[
+  {
+    "id": "typed_terminal",
+    "observation": {
+      "entry": "document.provider.TypedTerminal",
+      "syntax": [
+        {
+          "grammar": "document.provider.TypedTerminal",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "errors": []
+        }
+      ],
+      "resolve_failure": null,
+      "linking": [
+        {
+          "grammar": "document.provider.TypedTerminal",
+          "errors": []
+        }
+      ],
+      "metamodels": [
+        {
+          "grammar": "document.provider.TypedTerminal",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "alias": "p",
+          "kind": "imported",
+          "namespace": "urn:document-provider:paint:1",
+          "proxy": false,
+          "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal/imported.ecore"
+        },
+        {
+          "grammar": "document.provider.TypedTerminal",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "alias": "ecore",
+          "kind": "imported",
+          "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+          "proxy": false,
+          "resource_uri": "http://www.eclipse.org/emf/2002/Ecore"
+        }
+      ],
+      "declared_rules": [
+        {
+          "identity": "document.provider.TypedTerminal::Paint",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 151,
+            "end": 196,
+            "text": "Paint returns p::Paint: 'paint' color=COLOR?;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 165,
+            "end": 173,
+            "text": "p::Paint"
+          },
+          "type_metamodel_alias": "p",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "urn:document-provider:paint:1",
+            "name": "Paint",
+            "kind": "EClass",
+            "proxy": false,
+            "uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal/imported.ecore#//Paint",
+            "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal/imported.ecore",
+            "instance_class_name": null,
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminal",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+                  "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+                },
+                "alias": "p",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedTerminal::COLOR",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 197,
+            "end": 265,
+            "text": "terminal COLOR returns ecore::EJavaObject: '#' ('0'..'9'|'a'..'f')+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 220,
+            "end": 238,
+            "text": "ecore::EJavaObject"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EJavaObject",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.Object",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminal",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+                  "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedTerminal::WS",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 266,
+            "end": 307,
+            "text": "terminal WS returns ecore::EString: ' '+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 286,
+            "end": 300,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminal",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+                  "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        }
+      ],
+      "calls": [
+        {
+          "grammar": "document.provider.TypedTerminal",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "source_node": {
+            "start": 189,
+            "end": 194,
+            "text": "COLOR"
+          },
+          "target": "document.provider.TypedTerminal::COLOR",
+          "target_source": {
+            "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+            "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+          },
+          "proxy": false,
+          "explicit": false
+        }
+      ],
+      "effective_rules": [
+        "document.provider.TypedTerminal::Paint",
+        "document.provider.TypedTerminal::COLOR",
+        "document.provider.TypedTerminal::WS"
+      ],
+      "effective_failure": null
+    }
+  },
+  {
+    "id": "typed_rule",
+    "observation": {
+      "entry": "document.provider.TypedRule",
+      "syntax": [
+        {
+          "grammar": "document.provider.TypedRule",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "errors": []
+        }
+      ],
+      "resolve_failure": null,
+      "linking": [
+        {
+          "grammar": "document.provider.TypedRule",
+          "errors": []
+        }
+      ],
+      "metamodels": [
+        {
+          "grammar": "document.provider.TypedRule",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "alias": "p",
+          "kind": "imported",
+          "namespace": "urn:document-provider:paint:1",
+          "proxy": false,
+          "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule/imported.ecore"
+        },
+        {
+          "grammar": "document.provider.TypedRule",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "alias": "ecore",
+          "kind": "imported",
+          "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+          "proxy": false,
+          "resource_uri": "http://www.eclipse.org/emf/2002/Ecore"
+        }
+      ],
+      "declared_rules": [
+        {
+          "identity": "document.provider.TypedRule::Paint",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 147,
+            "end": 192,
+            "text": "Paint returns p::Paint: 'paint' color=Color?;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 161,
+            "end": 169,
+            "text": "p::Paint"
+          },
+          "type_metamodel_alias": "p",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "urn:document-provider:paint:1",
+            "name": "Paint",
+            "kind": "EClass",
+            "proxy": false,
+            "uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule/imported.ecore#//Paint",
+            "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule/imported.ecore",
+            "instance_class_name": null,
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRule",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+                  "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+                },
+                "alias": "p",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRule::Color",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 193,
+            "end": 233,
+            "text": "Color returns ecore::EJavaObject: COLOR;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 207,
+            "end": 225,
+            "text": "ecore::EJavaObject"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EJavaObject",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.Object",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRule",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+                  "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRule::COLOR",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 234,
+            "end": 298,
+            "text": "terminal COLOR returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 257,
+            "end": 271,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRule",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+                  "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRule::WS",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 299,
+            "end": 340,
+            "text": "terminal WS returns ecore::EString: ' '+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 319,
+            "end": 333,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRule",
+                "source": {
+                  "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+                  "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        }
+      ],
+      "calls": [
+        {
+          "grammar": "document.provider.TypedRule",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "source_node": {
+            "start": 185,
+            "end": 190,
+            "text": "Color"
+          },
+          "target": "document.provider.TypedRule::Color",
+          "target_source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "proxy": false,
+          "explicit": false
+        },
+        {
+          "grammar": "document.provider.TypedRule",
+          "source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "source_node": {
+            "start": 227,
+            "end": 232,
+            "text": "COLOR"
+          },
+          "target": "document.provider.TypedRule::COLOR",
+          "target_source": {
+            "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+            "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+          },
+          "proxy": false,
+          "explicit": false
+        }
+      ],
+      "effective_rules": [
+        "document.provider.TypedRule::Paint",
+        "document.provider.TypedRule::Color",
+        "document.provider.TypedRule::COLOR",
+        "document.provider.TypedRule::WS"
+      ],
+      "effective_failure": null
+    }
+  },
+  {
+    "id": "typed_terminal_nodefault_companion",
+    "observation": {
+      "entry": "document.provider.TypedTerminalNoDefault",
+      "syntax": [
+        {
+          "grammar": "document.provider.TypedTerminalNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "errors": []
+        }
+      ],
+      "resolve_failure": null,
+      "linking": [
+        {
+          "grammar": "document.provider.TypedTerminalNoDefault",
+          "errors": []
+        }
+      ],
+      "metamodels": [
+        {
+          "grammar": "document.provider.TypedTerminalNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "alias": "p",
+          "kind": "imported",
+          "namespace": "urn:document-provider:paint:no-default:1",
+          "proxy": false,
+          "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal_nodefault_companion/imported.ecore"
+        },
+        {
+          "grammar": "document.provider.TypedTerminalNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "alias": "ecore",
+          "kind": "imported",
+          "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+          "proxy": false,
+          "resource_uri": "http://www.eclipse.org/emf/2002/Ecore"
+        }
+      ],
+      "declared_rules": [
+        {
+          "identity": "document.provider.TypedTerminalNoDefault::Paint",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 171,
+            "end": 216,
+            "text": "Paint returns p::Paint: 'paint' color=COLOR?;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 185,
+            "end": 193,
+            "text": "p::Paint"
+          },
+          "type_metamodel_alias": "p",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "urn:document-provider:paint:no-default:1",
+            "name": "Paint",
+            "kind": "EClass",
+            "proxy": false,
+            "uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal_nodefault_companion/imported.ecore#//Paint",
+            "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_terminal_nodefault_companion/imported.ecore",
+            "instance_class_name": null,
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminalNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+                  "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+                },
+                "alias": "p",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedTerminalNoDefault::COLOR",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 217,
+            "end": 285,
+            "text": "terminal COLOR returns ecore::EJavaObject: '#' ('0'..'9'|'a'..'f')+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 240,
+            "end": 258,
+            "text": "ecore::EJavaObject"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EJavaObject",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.Object",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminalNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+                  "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedTerminalNoDefault::WS",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 286,
+            "end": 327,
+            "text": "terminal WS returns ecore::EString: ' '+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 306,
+            "end": 320,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedTerminalNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+                  "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        }
+      ],
+      "calls": [
+        {
+          "grammar": "document.provider.TypedTerminalNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "source_node": {
+            "start": 209,
+            "end": 214,
+            "text": "COLOR"
+          },
+          "target": "document.provider.TypedTerminalNoDefault::COLOR",
+          "target_source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+            "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+          },
+          "proxy": false,
+          "explicit": false
+        }
+      ],
+      "effective_rules": [
+        "document.provider.TypedTerminalNoDefault::Paint",
+        "document.provider.TypedTerminalNoDefault::COLOR",
+        "document.provider.TypedTerminalNoDefault::WS"
+      ],
+      "effective_failure": null
+    }
+  },
+  {
+    "id": "typed_rule_nodefault_companion",
+    "observation": {
+      "entry": "document.provider.TypedRuleNoDefault",
+      "syntax": [
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "errors": []
+        }
+      ],
+      "resolve_failure": null,
+      "linking": [
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "errors": []
+        }
+      ],
+      "metamodels": [
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "alias": "p",
+          "kind": "imported",
+          "namespace": "urn:document-provider:paint:no-default:1",
+          "proxy": false,
+          "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule_nodefault_companion/imported.ecore"
+        },
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "alias": "ecore",
+          "kind": "imported",
+          "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+          "proxy": false,
+          "resource_uri": "http://www.eclipse.org/emf/2002/Ecore"
+        }
+      ],
+      "declared_rules": [
+        {
+          "identity": "document.provider.TypedRuleNoDefault::Paint",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 167,
+            "end": 212,
+            "text": "Paint returns p::Paint: 'paint' color=Color?;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 181,
+            "end": 189,
+            "text": "p::Paint"
+          },
+          "type_metamodel_alias": "p",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "urn:document-provider:paint:no-default:1",
+            "name": "Paint",
+            "kind": "EClass",
+            "proxy": false,
+            "uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule_nodefault_companion/imported.ecore#//Paint",
+            "resource_uri": "file:/D:/dev/repos/mercurio-labs/intersect/target/xtext-node-recovery-after-v64-v1/provider-typed-return-metadata-addendum-v1/inputs/typed_rule_nodefault_companion/imported.ecore",
+            "instance_class_name": null,
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRuleNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+                  "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+                },
+                "alias": "p",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRuleNoDefault::Color",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "rule_kind": "ParserRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 213,
+            "end": 259,
+            "text": "Color returns ecore::EJavaObject: COLOR_TOKEN;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 227,
+            "end": 245,
+            "text": "ecore::EJavaObject"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EJavaObject",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.Object",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRuleNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+                  "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRuleNoDefault::COLOR_TOKEN",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 260,
+            "end": 330,
+            "text": "terminal COLOR_TOKEN returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 289,
+            "end": 303,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRuleNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+                  "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        },
+        {
+          "identity": "document.provider.TypedRuleNoDefault::WS",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "rule_kind": "TerminalRule",
+          "fragment": false,
+          "rule_source_node": {
+            "start": 331,
+            "end": 372,
+            "text": "terminal WS returns ecore::EString: ' '+;"
+          },
+          "type_ref_present": true,
+          "type_source_node": {
+            "start": 351,
+            "end": 365,
+            "text": "ecore::EString"
+          },
+          "type_metamodel_alias": "ecore",
+          "type_metamodel_kind": "ReferencedMetamodel",
+          "classifier": {
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "name": "EString",
+            "kind": "EDataType",
+            "proxy": false,
+            "uri": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "resource_uri": "http://www.eclipse.org/emf/2002/Ecore",
+            "instance_class_name": "java.lang.String",
+            "metamodel_declarations": [
+              {
+                "grammar": "document.provider.TypedRuleNoDefault",
+                "source": {
+                  "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+                  "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+                },
+                "alias": "ecore",
+                "kind": "imported"
+              }
+            ]
+          },
+          "type_failure": null
+        }
+      ],
+      "calls": [
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "source_node": {
+            "start": 205,
+            "end": 210,
+            "text": "Color"
+          },
+          "target": "document.provider.TypedRuleNoDefault::Color",
+          "target_source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "proxy": false,
+          "explicit": false
+        },
+        {
+          "grammar": "document.provider.TypedRuleNoDefault",
+          "source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "source_node": {
+            "start": 247,
+            "end": 258,
+            "text": "COLOR_TOKEN"
+          },
+          "target": "document.provider.TypedRuleNoDefault::COLOR_TOKEN",
+          "target_source": {
+            "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+            "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+          },
+          "proxy": false,
+          "explicit": false
+        }
+      ],
+      "effective_rules": [
+        "document.provider.TypedRuleNoDefault::Paint",
+        "document.provider.TypedRuleNoDefault::Color",
+        "document.provider.TypedRuleNoDefault::COLOR_TOKEN",
+        "document.provider.TypedRuleNoDefault::WS"
+      ],
+      "effective_failure": null
+    }
+  }
+]

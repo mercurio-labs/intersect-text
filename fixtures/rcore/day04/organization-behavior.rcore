@@ -1,0 +1,7 @@
+rcore 1;
+package demo.organization version "1";
+import model "urn:intersect:rcore:organization" as m;
+
+fn main(node:m.Node)->OrderedSet<m.Node> {
+  closure([node], |node| node.links)
+}

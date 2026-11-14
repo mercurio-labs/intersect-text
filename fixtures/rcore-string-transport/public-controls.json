@@ -1,0 +1,1984 @@
+{
+  "version": 1,
+  "source_native_plan_sha256": "e040c5abbb297d8a59475feaf46312aac0e83bbbd4521d435181cbeee317fa22",
+  "rows": 160,
+  "groups": [
+    {
+      "id": "ascii-original-baseline",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original"
+        },
+        {
+          "arguments": {
+            "$ref": "ascii-original/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 4194304,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/evaluateFunction",
+          "reference_contexts": {
+            "$ref": "ascii-original/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original:1",
+          "quantum": 256
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "$ref": "ascii-original/complete"
+        },
+        {
+          "job": "string-public-ascii-original:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-cancelFunction",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-cancelFunction"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "foreign-string-host:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/cancelFunction",
+          "job": "string-public-ascii-original-cancelFunction:1"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:2",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:3",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-cancelFunction:4"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-cancelFunction:5"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-cancelFunction:6"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-cancelFunction:7"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-cancelFunction:8",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:2",
+          "pending": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 0,
+                "context_bytes": 241025,
+                "membership_checks": 1,
+                "model_contexts": 1,
+                "model_elements": 1,
+                "model_storage_bytes": 1113440,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 242283,
+                "reference_domains": 1,
+                "steps": 84,
+                "value_bytes": 723784,
+                "value_nodes": 3
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": null,
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 124,
+                    "source": {
+                      "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                      "uri": "memory:s09-model-payload-read.rcore"
+                    },
+                    "start": 85
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 1,
+                        "source": {
+                          "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                          "uri": "memory:s09-model-payload-read.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "$ref": "ascii-original/program"
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:3",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:4",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:5",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:6",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:7",
+          "pending": true
+        },
+        {
+          "error": "Active function job budget exceeded (4)"
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "job": "string-public-ascii-original-cancelFunction:8",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-dropFunction",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-dropFunction"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "foreign-string-host:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-dropFunction:1"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:2",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:3",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-dropFunction:4"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-dropFunction:5"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-dropFunction:6"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-dropFunction:7"
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-dropFunction:8",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:2",
+          "pending": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:1",
+          "pending": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:3",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:4",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:5",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:6",
+          "pending": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:7",
+          "pending": true
+        },
+        {
+          "error": "Active function job budget exceeded (4)"
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "job": "string-public-ascii-original-dropFunction:8",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-retained-zero",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-zero",
+          "retained_encoded_limit": 0
+        },
+        {
+          "$ref": "ascii-original/request"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "error": "Retained job byte budget exceeded"
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-retained-one-short",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-one-short",
+          "retained_encoded_limit": 248644
+        },
+        {
+          "$ref": "ascii-original/request"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "error": "Retained job byte budget exceeded"
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-retained-exact",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-exact",
+          "retained_encoded_limit": 248645
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-exact:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-ascii-original-exact:2"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-ascii-original-exact:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-exact:2",
+          "pending": true
+        },
+        {
+          "dropped": true
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-value-exact",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-value-exact"
+        },
+        {
+          "arguments": {
+            "$ref": "ascii-original/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 723784,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/startFunction",
+          "reference_contexts": {
+            "$ref": "ascii-original/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-value-exact:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-value-exact:2",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-ascii-original-value-exact:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-value-exact:2",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ascii-original-value-one-short",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-ascii-original-value-one-short"
+        },
+        {
+          "arguments": {
+            "$ref": "ascii-original/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 723783,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/startFunction",
+          "reference_contexts": {
+            "$ref": "ascii-original/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-value-one-short:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "ascii-original/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-ascii-original-value-one-short:2",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-ascii-original-value-one-short:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 0,
+                "context_bytes": 241025,
+                "membership_checks": 1,
+                "model_contexts": 1,
+                "model_elements": 1,
+                "model_storage_bytes": 1113440,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 242283,
+                "reference_domains": 1,
+                "steps": 84,
+                "value_bytes": 483745,
+                "value_nodes": 3
+              },
+              "consumed_providers": [],
+              "kind": "ResourceExhausted",
+              "message": "Cumulative function value byte budget exceeded",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": null,
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 124,
+                    "source": {
+                      "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                      "uri": "memory:s09-model-payload-read.rcore"
+                    },
+                    "start": 85
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 1,
+                        "source": {
+                          "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                          "uri": "memory:s09-model-payload-read.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "$ref": "ascii-original/program"
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "job": "string-public-ascii-original-value-one-short:2",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "ascii-original/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-baseline",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced"
+        },
+        {
+          "arguments": {
+            "$ref": "unicode-core-produced/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 4194304,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/evaluateFunction",
+          "reference_contexts": {
+            "$ref": "unicode-core-produced/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced:1",
+          "quantum": 256
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "$ref": "unicode-core-produced/complete"
+        },
+        {
+          "job": "string-public-unicode-core-produced:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-cancelFunction",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-cancelFunction"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "foreign-string-host:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/cancelFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:1"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:2",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:3",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:4"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:5"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:6"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:7"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-cancelFunction:8",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:2",
+          "pending": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 0,
+                "context_bytes": 164889,
+                "membership_checks": 1,
+                "model_contexts": 1,
+                "model_elements": 1,
+                "model_storage_bytes": 587648,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 215298,
+                "reference_domains": 1,
+                "steps": 84,
+                "value_bytes": 495312,
+                "value_nodes": 3
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": null,
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 124,
+                    "source": {
+                      "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                      "uri": "memory:s09-model-payload-read.rcore"
+                    },
+                    "start": 85
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 1,
+                        "source": {
+                          "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                          "uri": "memory:s09-model-payload-read.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "$ref": "ascii-original/program"
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:3",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:4",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:5",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:6",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:7",
+          "pending": true
+        },
+        {
+          "error": "Active function job budget exceeded (4)"
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-cancelFunction:8",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-dropFunction",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-dropFunction"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "foreign-string-host:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "quantum": 256
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:1"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "quantum": 1
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:2",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:3",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:4"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:5"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:6"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:7"
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-dropFunction:8",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:2",
+          "pending": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:1",
+          "pending": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "error": "Unknown, stale or foreign function job"
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:3",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:4",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:5",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:6",
+          "pending": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:7",
+          "pending": true
+        },
+        {
+          "error": "Active function job budget exceeded (4)"
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "dropped": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-dropFunction:8",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-retained-zero",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-zero",
+          "retained_encoded_limit": 0
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "error": "Retained job byte budget exceeded"
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-retained-one-short",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-one-short",
+          "retained_encoded_limit": 172508
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "error": "Retained job byte budget exceeded"
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-retained-exact",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-exact",
+          "retained_encoded_limit": 172509
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-exact:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/dropFunction",
+          "job": "string-public-unicode-core-produced-exact:2"
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-exact:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-exact:2",
+          "pending": true
+        },
+        {
+          "dropped": true
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-value-exact",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-value-exact"
+        },
+        {
+          "arguments": {
+            "$ref": "unicode-core-produced/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 495312,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/startFunction",
+          "reference_contexts": {
+            "$ref": "unicode-core-produced/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-value-exact:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-value-exact:2",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-value-exact:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-value-exact:2",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unicode-core-produced-value-one-short",
+      "requests": [
+        {
+          "method": "rcore_behavior/jobHost",
+          "namespace": "string-public-unicode-core-produced-value-one-short"
+        },
+        {
+          "arguments": {
+            "$ref": "unicode-core-produced/arguments"
+          },
+          "bundle": {
+            "$ref": "ascii-original/bundle"
+          },
+          "entry": {
+            "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+            "uri": "memory:s09-model-payload-read.rcore"
+          },
+          "execution_limits": {
+            "max_captures": 65536,
+            "max_closures": 65536,
+            "max_collection_comparisons": 1048576,
+            "max_context_bytes": 16777216,
+            "max_frames": 256,
+            "max_membership_checks": 1048576,
+            "max_model_contexts": 8,
+            "max_model_elements": 100000,
+            "max_model_storage_bytes": 16777216,
+            "max_provider_evidence_bytes": 65536,
+            "max_provider_invocations": 1048576,
+            "max_provider_work": 1048576,
+            "max_reference_domains": 128,
+            "max_trace_bytes": 65536,
+            "max_trace_frames": 256,
+            "max_value_depth": 64,
+            "max_value_nodes": 65536,
+            "observation": {
+              "enabled": false,
+              "max_event_bytes": 65536,
+              "max_events": 4096
+            },
+            "scalar": {
+              "max_steps": 100000,
+              "max_value_bytes": 495311,
+              "numeric": {
+                "max_digits": 4096,
+                "max_intermediate_digits": 8192,
+                "max_scale_alignment": 4096,
+                "max_total_value_bytes": 1048576,
+                "max_value_bytes": 262144,
+                "max_work": 16777216
+              },
+              "values": {
+                "max_digits": 4096,
+                "max_value_bytes": 262144
+              }
+            }
+          },
+          "expected_program": {
+            "$ref": "ascii-original/program"
+          },
+          "method": "rcore_behavior/startFunction",
+          "reference_contexts": {
+            "$ref": "unicode-core-produced/contexts"
+          },
+          "selection": {
+            "$ref": "ascii-original/selection"
+          }
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-value-one-short:1",
+          "quantum": 4096
+        },
+        {
+          "$ref": "unicode-core-produced/request"
+        },
+        {
+          "method": "rcore_behavior/resumeFunction",
+          "job": "string-public-unicode-core-produced-value-one-short:2",
+          "quantum": 4096
+        }
+      ],
+      "expected": [
+        {
+          "initialized": true
+        },
+        {
+          "job": "string-public-unicode-core-produced-value-one-short:1",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 0,
+                "context_bytes": 164889,
+                "membership_checks": 1,
+                "model_contexts": 1,
+                "model_elements": 1,
+                "model_storage_bytes": 587648,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 215298,
+                "reference_domains": 1,
+                "steps": 84,
+                "value_bytes": 331433,
+                "value_nodes": 3
+              },
+              "consumed_providers": [],
+              "kind": "ResourceExhausted",
+              "message": "Cumulative function value byte budget exceeded",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": null,
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 124,
+                    "source": {
+                      "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                      "uri": "memory:s09-model-payload-read.rcore"
+                    },
+                    "start": 85
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 1,
+                        "source": {
+                          "sha256": "39bb36a5daf3bf9503e6c1b6d8b2a134d4d0fbfd0c5146deea09a6e7dbb9edf7",
+                          "uri": "memory:s09-model-payload-read.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "$ref": "ascii-original/program"
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "job": "string-public-unicode-core-produced-value-one-short:2",
+          "pending": true
+        },
+        {
+          "pending": false,
+          "result": {
+            "$ref": "unicode-core-produced/complete"
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Lossless fixture-reference packing of every complete original native request/response; no response normalization, discarded fields or source repair. Original raw captures preserved separately."
+}

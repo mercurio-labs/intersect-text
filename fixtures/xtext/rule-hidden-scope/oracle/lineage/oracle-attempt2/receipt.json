@@ -1,0 +1,922 @@
+{
+  "state": "record_and_fresh_generation_replay_complete_observations_equal",
+  "helpers": {
+    "bytes": 16741,
+    "sha256": "207ba6bd030e5a4cde122439b81f4d6f0b500a0d734548eb6eea4c68349d56f1"
+  },
+  "wrapper": {
+    "bytes": 7457,
+    "sha256": "b2ad9d1141456b83d9a7ff4923e35b1b5e9a1fee423c815838de7f0a54f058cc"
+  },
+  "source_matrix": {
+    "bytes": 4802,
+    "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+  },
+  "java": {
+    "bytes": 49768,
+    "sha256": "abd12f952caba9b7404f15ca3939100f5ad5db5553187a3449814c57c2bf4b82"
+  },
+  "javac": {
+    "bytes": 23656,
+    "sha256": "c81b3bece8daf28136b387841f924c66a9da88746246211cf769bfa6ac3a6f25"
+  },
+  "stack": {
+    "bytes": 11732,
+    "sha256": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304"
+  },
+  "planned_cases": 23,
+  "planned_resource_inputs": 195,
+  "planned_additional_named_entry_calls": 74,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hidden-scope-after-v63-v1\\helper-addendum-v2\\produce-hidden.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv2r",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv2r"
+    },
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hidden-scope-after-v63-v1\\helper-addendum-v2\\produce-hidden.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv2p",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv2p"
+    }
+  ],
+  "gate_closures": [],
+  "runs": {
+    "record": {
+      "artifact_pins": 390,
+      "raw_manifest": {
+        "bytes": 44050,
+        "sha256": "fb10c64b8d854d326a06d6d7e7ea94cc34b297816da6897713a9d3654148126d"
+      },
+      "observations": {
+        "bytes": 84450,
+        "sha256": "1d46f0b1d670d60a6123b0e856b25e3fb0ba3269df7015c6db3d2ca91a50a378"
+      },
+      "commands": {
+        "bytes": 573871,
+        "sha256": "f5220b15b7ce6b79df66034f95052849ea503cc77b202705b5bcb434265d8041"
+      },
+      "toolchain": {
+        "bytes": 12482,
+        "sha256": "62db2402a26e6d71c9b16ca7f2cec2e391bad1884afb8f69f88bf479bc10b586"
+      }
+    },
+    "replay": {
+      "artifact_pins": 390,
+      "raw_manifest": {
+        "bytes": 44050,
+        "sha256": "bd64e3181bb96409570fbfa7c3c2570e30e42819d754db81c07026e75fd7b44c"
+      },
+      "observations": {
+        "bytes": 84450,
+        "sha256": "4549ca67b697259cecedee9b787ea9349fc64999462d5c8bf5d27d871c625ba2"
+      },
+      "commands": {
+        "bytes": 573871,
+        "sha256": "9590443291fe6ead9c7df3a73385384e99db0b5665dae84a51adaf5554306e6b"
+      },
+      "toolchain": {
+        "bytes": 12482,
+        "sha256": "62db2402a26e6d71c9b16ca7f2cec2e391bad1884afb8f69f88bf479bc10b586"
+      }
+    }
+  },
+  "classification": [
+    {
+      "id": "grammar_hidden_control",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "grammar_empty_control",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "model_empty_scope",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "model_adds_scope",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "nested_restore",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 9,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "[abc]done",
+        " [abc] done ",
+        "[a b c]done",
+        "[ab c]done",
+        "[a bc]done",
+        "[a/*x*/b c]done",
+        "[abc]/*x*/done",
+        "[abc]",
+        "[ab]done"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "same_callee_two_contexts",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 9,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "looseab",
+        "loose a b",
+        "loosea/*x*/b",
+        "tightab",
+        "tight a b",
+        "tighta/*x*/b",
+        "tightab ",
+        "loosea",
+        "tighta"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "fragment_empty_scope",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 8,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "[a]done",
+        " [a] done ",
+        "[ a]done",
+        "[a ]done",
+        "[a]/*x*/done",
+        "[a/*x*/]done",
+        "[]done",
+        "[a]"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "significant_ws_datatype",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 9,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a b",
+        "a\tb",
+        "a\r\nb",
+        "a  b",
+        "ab",
+        " a b",
+        "a b ",
+        "a/*x*/b",
+        "a\u00e9 b"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "significant_comment_datatype",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a/*x*/b",
+        "a /*x*/ b",
+        "a/*\ud83d\ude00*/b",
+        "a/*x*/\r\nb",
+        "ab",
+        "a/*x*/",
+        "a/*"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "named_entry_policy",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "keyword_hidden_shadow",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 5,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "notea",
+        "note a",
+        "note/*x*/a",
+        "a",
+        "note"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "child_empty_policy",
+      "metadata_exit": 0,
+      "syntax_errors": 4,
+      "link_errors": 4,
+      "validation_ERRORs": 8,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 14,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a ",
+        "a\tb",
+        "a\r\nb",
+        "a/*x*/",
+        "/*x*/a",
+        "a//x\n",
+        "a//x",
+        "a/*\ud83d\ude00*/",
+        "a\u00e9",
+        "\u00a0a",
+        "a/*",
+        "a@",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "inherited_terminal_override",
+      "metadata_exit": 0,
+      "syntax_errors": 4,
+      "link_errors": 4,
+      "validation_ERRORs": 8,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 9,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        "~a~",
+        " a ",
+        "a~",
+        "a b",
+        "a~b",
+        "a\u00e9~",
+        "~",
+        ""
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "inherited_rule_override",
+      "metadata_exit": 0,
+      "syntax_errors": 4,
+      "link_errors": 4,
+      "validation_ERRORs": 8,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a!",
+        " a!",
+        "a !",
+        "a! ",
+        "a/*x*/!",
+        "a",
+        "a\u00e9!"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "unknown_hidden_target",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 2,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a "
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "fragment_hidden_target",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 2,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a "
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "parser_hidden_target",
+      "metadata_exit": 0,
+      "syntax_errors": 2,
+      "link_errors": 2,
+      "validation_ERRORs": 4,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 2,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "a",
+        " a "
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_absent_root",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 1,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_empty_root",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 1,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_hidden_root",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 1,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_inherited_absent",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 2,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_inherited_hidden",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 2,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    },
+    {
+      "id": "legacy_child_empty",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 1,
+      "validation_ERRORs": 2,
+      "hidden_metadata_exit": 1,
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": null,
+      "planned_resource_inputs": 7,
+      "actual_runtime_attempts": 0,
+      "complete_runtime_observations": 0,
+      "resource_accepted": 0,
+      "resource_rejected": 0,
+      "resource_rejected_partials": 0,
+      "named_calls_attempted": 0,
+      "complete_named_calls": 0,
+      "named_parser_accepted": 0,
+      "unexecuted_resource_inputs": [
+        "colorred;",
+        "color red;",
+        "colorwarm;",
+        "color warm;",
+        "color\tred;",
+        "color",
+        "color red"
+      ],
+      "runtime_process_failure_or_timeout": []
+    }
+  ],
+  "comparison_exception": "Only exact absolute owned provider-<EcoreSHA12>/provider.genmodel output path"
+}

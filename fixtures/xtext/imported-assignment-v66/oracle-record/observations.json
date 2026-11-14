@@ -1,0 +1,5645 @@
+[
+  {
+    "id": "imported_refs_default_true",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47"
+    },
+    "provider": {
+      "ecore_sha256": "a5c185c758cc737aa4a15745e54a98695a32976fe484dadcc30d7359ebf63b47",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-record\\provider-a5c185c758cc\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "nodes a,b; refs a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs b,a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs b,a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 20,
+                "utf16_stop": 20,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 21,
+                "utf16_stop": 21,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 20,
+                "utf16_end": 21,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 21,
+                "utf16_end": 22,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a; refs a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a; refs a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 9,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 13,
+                "utf16_stop": 13,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 14,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 13,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 13,
+                "utf16_end": 14,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 14,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs missing;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs missing;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "missing",
+                "utf16_start": 16,
+                "utf16_stop": 22,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 23,
+                "utf16_stop": 23,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "external": "memory:/model.lexicaltest#|0",
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "missing",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 23,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 23,
+                "utf16_end": 24,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": "missing RULE_ID at ';'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "utf16_start": 18,
+                "utf16_end": 19
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_explicit_true",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977"
+    },
+    "provider": {
+      "ecore_sha256": "06bd65c30365415b419bef6378a1ee068cbf127e3e8713094b6597d28362a977",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-record\\provider-06bd65c30365\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "nodes a,b; refs a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs b,a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs b,a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 20,
+                "utf16_stop": 20,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 21,
+                "utf16_stop": 21,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 20,
+                "utf16_end": 21,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 21,
+                "utf16_end": 22,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a; refs a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a; refs a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 9,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 13,
+                "utf16_stop": 13,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 14,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 13,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 13,
+                "utf16_end": 14,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 14,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs missing;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs missing;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "missing",
+                "utf16_start": 16,
+                "utf16_stop": 22,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 23,
+                "utf16_stop": 23,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "external": "memory:/model.lexicaltest#|0",
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "missing",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 23,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 23,
+                "utf16_end": 24,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": "missing RULE_ID at ';'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "utf16_start": 18,
+                "utf16_end": 19
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_explicit_false",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6"
+    },
+    "provider": {
+      "ecore_sha256": "d0b25186c276af94df2f36d377dd79111cde4ad368e5b21a11d91b9858bd4de6",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-record\\provider-d0b25186c276\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "nodes a,b; refs a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs b,a,b;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs b,a,b;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 20,
+                "utf16_stop": 20,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 21,
+                "utf16_stop": 21,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 20,
+                "utf16_end": 21,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 21,
+                "utf16_end": 22,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a; refs a;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a; refs a;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 9,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 13,
+                "utf16_stop": 13,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 14,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 13,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 13,
+                "utf16_end": 14,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 14,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs missing;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs missing;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "missing",
+                "utf16_start": 16,
+                "utf16_stop": 22,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 23,
+                "utf16_stop": 23,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "external": "memory:/model.lexicaltest#|0",
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "missing",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 23,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 23,
+                "utf16_end": 24,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "nodes a,b; refs a,;",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "nodes a,b; refs a,;",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "nodes",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "b",
+                "utf16_start": 8,
+                "utf16_stop": 8,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 9,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 10,
+                "utf16_stop": 10,
+                "channel": 0
+              },
+              {
+                "type": 9,
+                "name": "T__9",
+                "text": "refs",
+                "utf16_start": 11,
+                "utf16_stop": 14,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 0
+              },
+              {
+                "type": 7,
+                "name": "T__7",
+                "text": ",",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 0
+              },
+              {
+                "type": 8,
+                "name": "T__8",
+                "text": ";",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "line": 1,
+                "column": 19
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ]
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "nodes",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 9,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 9,
+                "utf16_end": 10,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 10,
+                "utf16_end": 11,
+                "syntax_error": null
+              },
+              {
+                "text": "refs",
+                "hidden": false,
+                "utf16_start": 11,
+                "utf16_end": 15,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": null
+              },
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": null
+              },
+              {
+                "text": ",",
+                "hidden": false,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": null
+              },
+              {
+                "text": ";",
+                "hidden": false,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": "missing RULE_ID at ';'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing RULE_ID at ';'",
+                "utf16_start": 18,
+                "utf16_end": 19
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Model",
+                "values": {
+                  "nodes": [
+                    {
+                      "object": 1,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    },
+                    {
+                      "object": 2,
+                      "class": "urn:intersect:xtext:imported-unique:1#//Node"
+                    }
+                  ],
+                  "refs": []
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "a"
+                }
+              },
+              {
+                "class": "urn:intersect:xtext:imported-unique:1#//Node",
+                "values": {
+                  "name": "b"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  }
+]

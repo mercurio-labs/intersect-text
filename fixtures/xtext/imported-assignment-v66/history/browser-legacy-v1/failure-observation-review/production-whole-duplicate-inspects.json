@@ -1,0 +1,4052 @@
+[
+  {
+    "callId": "call@49",
+    "state": {
+      "entry_rule": null,
+      "revision": 3,
+      "interfaceRevision": "52a05fd0-8d46-4783-af5d-44d0fbc5bbf0:3",
+      "generation": 8,
+      "overlay": false,
+      "modelOrigin": "text",
+      "evaluation": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Duplicate value: Model.refs",
+            "source": "memory:imported_refs_default_true/worker.model",
+            "start": 0
+          }
+        ],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 20,
+              "id": "memory:imported_refs_default_true/worker.model#0",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 0,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#0",
+              "values": {
+                "nodes": [
+                  "memory:imported_refs_default_true/worker.model#1",
+                  "memory:imported_refs_default_true/worker.model#2"
+                ],
+                "refs": [
+                  "memory:imported_refs_default_true/worker.model#1",
+                  "memory:imported_refs_default_true/worker.model#1"
+                ]
+              }
+            },
+            {
+              "class": "Node",
+              "end": 7,
+              "id": "memory:imported_refs_default_true/worker.model#1",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 6,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#1",
+              "values": {
+                "name": "a"
+              }
+            },
+            {
+              "class": "Node",
+              "end": 9,
+              "id": "memory:imported_refs_default_true/worker.model#2",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 8,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#1",
+              "values": {
+                "name": "b"
+              }
+            }
+          ],
+          "resources": {
+            "memory:imported_refs_default_true/worker.model": {
+              "content_revision": "19",
+              "diagnostics": [
+                "0..1: Duplicate value: Model.refs"
+              ],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:imported_refs_default_true/worker.model#0"
+              ],
+              "source": {
+                "revision": "7fb4af34688a6f7d39ba5b7164749824c1c3108bd0f352ecdf73d029019e2571",
+                "uri": "memory:imported_refs_default_true/worker.model"
+              },
+              "uri": "memory:imported_refs_default_true/worker.model"
+            }
+          },
+          "schema_revision": "fbee02925409fc0e6074f9dbb539971eefbe93c719a56692d919380ccf544649"
+        },
+        "references": [
+          {
+            "end": 17,
+            "start": 16,
+            "target": "memory:imported_refs_default_true/worker.model#1",
+            "uri": "memory:imported_refs_default_true/worker.model"
+          },
+          {
+            "end": 19,
+            "start": 18,
+            "target": "memory:imported_refs_default_true/worker.model#1",
+            "uri": "memory:imported_refs_default_true/worker.model"
+          }
+        ]
+      },
+      "package": {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                  "uri": "memory:imported_refs_default_true/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*];\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                  "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0",
+                  "uri": "memory:imported_refs_default_true/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+            "uri": "memory:imported_refs_default_true/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "rcore_behavior": {
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0",
+            "uri": "memory:imported_refs_default_true/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+            "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+          }
+        },
+        "grammar": {
+          "declaration_sources": {
+            "ID": {
+              "end": 353,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 305
+            },
+            "Model": {
+              "end": 273,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 148
+            },
+            "Node": {
+              "end": 304,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 274
+            },
+            "WS": {
+              "end": 412,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 354
+            }
+          },
+          "entry": "Model",
+          "hidden": [
+            "WS"
+          ],
+          "lexical_prediction": {
+            "alternatives": [
+              {
+                "Keyword": ","
+              },
+              {
+                "Keyword": ";"
+              },
+              {
+                "Keyword": "nodes"
+              },
+              {
+                "Keyword": "refs"
+              },
+              {
+                "Terminal": "ID"
+              },
+              {
+                "Terminal": "WS"
+              }
+            ],
+            "roots": [
+              0,
+              2,
+              4,
+              10,
+              15,
+              21
+            ],
+            "states": [
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 44,
+                    "low": 44,
+                    "target": 1
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 59,
+                    "low": 59,
+                    "target": 3
+                  }
+                ],
+                "epsilon": [],
+                "owner": 1
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 1
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 110,
+                    "low": 110,
+                    "target": 6
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 111,
+                    "low": 111,
+                    "target": 7
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 100,
+                    "low": 100,
+                    "target": 8
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 101,
+                    "low": 101,
+                    "target": 9
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 115,
+                    "low": 115,
+                    "target": 5
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 114,
+                    "low": 114,
+                    "target": 12
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 101,
+                    "low": 101,
+                    "target": 13
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 102,
+                    "low": 102,
+                    "target": 14
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 115,
+                    "low": 115,
+                    "target": 11
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  17
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  19
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  16,
+                  17
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 122,
+                    "low": 97,
+                    "target": 20
+                  }
+                ],
+                "epsilon": [],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  18
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  23
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  25
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  22,
+                  23
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  27,
+                  29,
+                  31,
+                  33
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  24
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 32,
+                    "low": 32,
+                    "target": 28
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 9,
+                    "low": 9,
+                    "target": 30
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 13,
+                    "low": 13,
+                    "target": 32
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 10,
+                    "low": 10,
+                    "target": 34
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              }
+            ]
+          },
+          "name": "audit.ImportedUnique",
+          "parser_prediction": {
+            "decisions": {
+              "@document-recovery": {
+                "entries": [],
+                "exit": null
+              },
+              "rule/Model/recovery": {
+                "entries": [
+                  0,
+                  1
+                ],
+                "exit": null
+              },
+              "rule/Model/s0/recovery": {
+                "entries": [
+                  0,
+                  6
+                ],
+                "exit": null
+              },
+              "rule/Model/s1/recovery": {
+                "entries": [
+                  6,
+                  7
+                ],
+                "exit": null
+              },
+              "rule/Model/s1/value/recovery": {
+                "entries": [
+                  6,
+                  7
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/recovery": {
+                "entries": [
+                  7,
+                  8
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/repeat": {
+                "entries": [
+                  9,
+                  8
+                ],
+                "exit": 1
+              },
+              "rule/Model/s2/s0/recovery": {
+                "entries": [
+                  9,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s0/recovery": {
+                "entries": [
+                  9,
+                  11
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s1/recovery": {
+                "entries": [
+                  11,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s1/value/recovery": {
+                "entries": [
+                  11,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s3/recovery": {
+                "entries": [
+                  8,
+                  12
+                ],
+                "exit": null
+              },
+              "rule/Model/s4/recovery": {
+                "entries": [
+                  12,
+                  13
+                ],
+                "exit": null
+              },
+              "rule/Model/s5/recovery": {
+                "entries": [
+                  13,
+                  14
+                ],
+                "exit": null
+              },
+              "rule/Model/s5/value/recovery": {
+                "entries": [
+                  13,
+                  14
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/recovery": {
+                "entries": [
+                  14,
+                  15
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/repeat": {
+                "entries": [
+                  16,
+                  15
+                ],
+                "exit": 1
+              },
+              "rule/Model/s6/s0/recovery": {
+                "entries": [
+                  16,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s0/recovery": {
+                "entries": [
+                  16,
+                  18
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s1/recovery": {
+                "entries": [
+                  18,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s1/value/recovery": {
+                "entries": [
+                  18,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s7/recovery": {
+                "entries": [
+                  15,
+                  1
+                ],
+                "exit": null
+              },
+              "rule/Node/recovery": {
+                "entries": [
+                  2,
+                  3
+                ],
+                "exit": null
+              },
+              "rule/Node/value/recovery": {
+                "entries": [
+                  2,
+                  3
+                ],
+                "exit": null
+              }
+            },
+            "first_guards": {},
+            "rules": {
+              "Model": [
+                0,
+                1
+              ],
+              "Node": [
+                2,
+                3
+              ]
+            },
+            "states": [
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": "nodes"
+                      },
+                      6
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "follow": [
+                  4
+                ],
+                "rule_stop": true
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      3
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "follow": [
+                  7,
+                  10
+                ],
+                "rule_stop": true
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      "End",
+                      5
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Call": {
+                      "follow": 7,
+                      "target": 2
+                    }
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 9
+                  },
+                  {
+                    "Epsilon": 8
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ";"
+                      },
+                      12
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ","
+                      },
+                      11
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 7
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Call": {
+                      "follow": 10,
+                      "target": 2
+                    }
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": "refs"
+                      },
+                      13
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      14
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 16
+                  },
+                  {
+                    "Epsilon": 15
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ";"
+                      },
+                      1
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ","
+                      },
+                      18
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 14
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      17
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              }
+            ]
+          },
+          "profile": "intersect.xtext.native.v66",
+          "rules": {
+            "Model": {
+              "body": {
+                "cardinality": "1",
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": "nodes"
+                      },
+                      "original_range": {
+                        "end": 181,
+                        "start": 174
+                      },
+                      "prediction_path": "rule/Model/s0"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Assign": {
+                          "feature": "nodes",
+                          "many": true,
+                          "value": {
+                            "cardinality": "1",
+                            "kind": {
+                              "Call": "Node"
+                            },
+                            "original_range": {
+                              "end": 193,
+                              "start": 189
+                            },
+                            "prediction_path": "rule/Model/s1/value"
+                          }
+                        }
+                      },
+                      "original_range": {
+                        "end": 193,
+                        "start": 182
+                      },
+                      "prediction_path": "rule/Model/s1"
+                    },
+                    {
+                      "cardinality": "*",
+                      "kind": {
+                        "Sequence": [
+                          {
+                            "cardinality": "1",
+                            "kind": {
+                              "Sequence": [
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Literal": ","
+                                  },
+                                  "original_range": {
+                                    "end": 198,
+                                    "start": 195
+                                  },
+                                  "prediction_path": "rule/Model/s2/s0/s0"
+                                },
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Assign": {
+                                      "feature": "nodes",
+                                      "many": true,
+                                      "value": {
+                                        "cardinality": "1",
+                                        "kind": {
+                                          "Call": "Node"
+                                        },
+                                        "original_range": {
+                                          "end": 210,
+                                          "start": 206
+                                        },
+                                        "prediction_path": "rule/Model/s2/s0/s1/value"
+                                      }
+                                    }
+                                  },
+                                  "original_range": {
+                                    "end": 210,
+                                    "start": 199
+                                  },
+                                  "prediction_path": "rule/Model/s2/s0/s1"
+                                }
+                              ]
+                            },
+                            "original_range": {
+                              "end": 210,
+                              "start": 195
+                            },
+                            "prediction_path": "rule/Model/s2/s0"
+                          }
+                        ]
+                      },
+                      "original_range": {
+                        "end": 212,
+                        "start": 194
+                      },
+                      "prediction_path": "rule/Model/s2"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": ";"
+                      },
+                      "original_range": {
+                        "end": 216,
+                        "start": 213
+                      },
+                      "prediction_path": "rule/Model/s3"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": "refs"
+                      },
+                      "original_range": {
+                        "end": 223,
+                        "start": 217
+                      },
+                      "prediction_path": "rule/Model/s4"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Assign": {
+                          "feature": "refs",
+                          "many": true,
+                          "value": {
+                            "cardinality": "1",
+                            "kind": {
+                              "Reference": "Node"
+                            },
+                            "original_range": {
+                              "end": 242,
+                              "start": 230
+                            },
+                            "prediction_path": "rule/Model/s5/value"
+                          }
+                        }
+                      },
+                      "original_range": {
+                        "end": 242,
+                        "start": 224
+                      },
+                      "prediction_path": "rule/Model/s5"
+                    },
+                    {
+                      "cardinality": "*",
+                      "kind": {
+                        "Sequence": [
+                          {
+                            "cardinality": "1",
+                            "kind": {
+                              "Sequence": [
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Literal": ","
+                                  },
+                                  "original_range": {
+                                    "end": 247,
+                                    "start": 244
+                                  },
+                                  "prediction_path": "rule/Model/s6/s0/s0"
+                                },
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Assign": {
+                                      "feature": "refs",
+                                      "many": true,
+                                      "value": {
+                                        "cardinality": "1",
+                                        "kind": {
+                                          "Reference": "Node"
+                                        },
+                                        "original_range": {
+                                          "end": 266,
+                                          "start": 254
+                                        },
+                                        "prediction_path": "rule/Model/s6/s0/s1/value"
+                                      }
+                                    }
+                                  },
+                                  "original_range": {
+                                    "end": 266,
+                                    "start": 248
+                                  },
+                                  "prediction_path": "rule/Model/s6/s0/s1"
+                                }
+                              ]
+                            },
+                            "original_range": {
+                              "end": 266,
+                              "start": 244
+                            },
+                            "prediction_path": "rule/Model/s6/s0"
+                          }
+                        ]
+                      },
+                      "original_range": {
+                        "end": 268,
+                        "start": 243
+                      },
+                      "prediction_path": "rule/Model/s6"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": ";"
+                      },
+                      "original_range": {
+                        "end": 272,
+                        "start": 269
+                      },
+                      "prediction_path": "rule/Model/s7"
+                    }
+                  ]
+                },
+                "original_range": {
+                  "end": 272,
+                  "start": 174
+                },
+                "prediction_path": "rule/Model"
+              },
+              "class": "Model"
+            },
+            "Node": {
+              "body": {
+                "cardinality": "1",
+                "kind": {
+                  "Assign": {
+                    "feature": "name",
+                    "many": false,
+                    "value": {
+                      "cardinality": "1",
+                      "kind": {
+                        "Call": "ID"
+                      },
+                      "original_range": {
+                        "end": 303,
+                        "start": 301
+                      },
+                      "prediction_path": "rule/Node/value"
+                    }
+                  }
+                },
+                "original_range": {
+                  "end": 303,
+                  "start": 296
+                },
+                "prediction_path": "rule/Node"
+              },
+              "class": "Node"
+            }
+          },
+          "terminal_order": [
+            "ID",
+            "WS"
+          ],
+          "terminals": {
+            "ID": {
+              "body": {
+                "cardinality": "+",
+                "cardinality_decision": {
+                  "alternatives": [
+                    {
+                      "Terminal": "0"
+                    },
+                    {
+                      "Terminal": "1"
+                    }
+                  ],
+                  "roots": [
+                    0,
+                    13
+                  ],
+                  "states": [
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        2
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        5
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        1
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        9,
+                        3
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        7
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        4
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 122,
+                          "low": 97,
+                          "target": 8
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        6
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        11
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        3,
+                        9
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 122,
+                          "low": 97,
+                          "target": 12
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        10
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        15
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        16
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        14
+                      ],
+                      "owner": 1
+                    }
+                  ]
+                },
+                "first": [
+                  [
+                    97,
+                    122
+                  ]
+                ],
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          97,
+                          122
+                        ]
+                      ],
+                      "kind": {
+                        "Range": [
+                          97,
+                          122
+                        ]
+                      },
+                      "nullable": false
+                    }
+                  ]
+                },
+                "nullable": false
+              },
+              "datatype": "EString",
+              "end": 353,
+              "identity": "audit.ImportedUnique::ID",
+              "start": 305
+            },
+            "WS": {
+              "body": {
+                "cardinality": "+",
+                "cardinality_decision": {
+                  "alternatives": [
+                    {
+                      "Terminal": "0"
+                    },
+                    {
+                      "Terminal": "1"
+                    }
+                  ],
+                  "roots": [
+                    0,
+                    29
+                  ],
+                  "states": [
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        2
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        5
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        1
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        17,
+                        3
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        7
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        4
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        9,
+                        11,
+                        13,
+                        15
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        6
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 32,
+                          "low": 32,
+                          "target": 10
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 9,
+                          "low": 9,
+                          "target": 12
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 13,
+                          "low": 13,
+                          "target": 14
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 10,
+                          "low": 10,
+                          "target": 16
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        19
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        3,
+                        17
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        21,
+                        23,
+                        25,
+                        27
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        18
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 32,
+                          "low": 32,
+                          "target": 22
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 9,
+                          "low": 9,
+                          "target": 24
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 13,
+                          "low": 13,
+                          "target": 26
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 10,
+                          "low": 10,
+                          "target": 28
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        31
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        32
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        30
+                      ],
+                      "owner": 1
+                    }
+                  ]
+                },
+                "first": [
+                  [
+                    9,
+                    10
+                  ],
+                  [
+                    13,
+                    13
+                  ],
+                  [
+                    32,
+                    32
+                  ]
+                ],
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          9,
+                          10
+                        ],
+                        [
+                          13,
+                          13
+                        ],
+                        [
+                          32,
+                          32
+                        ]
+                      ],
+                      "kind": {
+                        "Alternative": [
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                32,
+                                32
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                32
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                9,
+                                9
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                9
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                13,
+                                13
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                13
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                10,
+                                10
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                10
+                              ]
+                            },
+                            "nullable": false
+                          }
+                        ]
+                      },
+                      "nullable": false
+                    }
+                  ]
+                },
+                "nullable": false
+              },
+              "datatype": "EString",
+              "end": 412,
+              "identity": "audit.ImportedUnique::WS",
+              "start": 354
+            }
+          }
+        },
+        "schema": {
+          "classes": {
+            "Model": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "nodes": {
+                  "path": [
+                    0,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                },
+                "refs": {
+                  "path": [
+                    0,
+                    1
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "nodes",
+                "refs"
+              ],
+              "features": {
+                "nodes": {
+                  "containment": true,
+                  "default": [],
+                  "derived": false,
+                  "lower": 1,
+                  "name": "nodes",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Node",
+                  "unique": true,
+                  "upper": -1
+                },
+                "refs": {
+                  "containment": false,
+                  "default": [],
+                  "derived": false,
+                  "lower": 1,
+                  "name": "refs",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Node",
+                  "unique": true,
+                  "upper": -1
+                }
+              },
+              "name": "Model",
+              "parents": []
+            },
+            "Node": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "name": {
+                  "path": [
+                    1,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "name"
+              ],
+              "features": {
+                "name": {
+                  "containment": false,
+                  "default": null,
+                  "derived": false,
+                  "lower": 1,
+                  "name": "name",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": false,
+                  "target": "EString",
+                  "unique": true,
+                  "upper": 1
+                }
+              },
+              "name": "Node",
+              "parents": []
+            }
+          },
+          "declarations": {
+            "Model": {
+              "name": "Model",
+              "namespace": "urn:intersect:xtext:imported-unique:1",
+              "path": [
+                0
+              ],
+              "source": {
+                "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                "uri": "memory:imported_refs_default_true/model.rcore"
+              }
+            },
+            "Node": {
+              "name": "Node",
+              "namespace": "urn:intersect:xtext:imported-unique:1",
+              "path": [
+                1
+              ],
+              "source": {
+                "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                "uri": "memory:imported_refs_default_true/model.rcore"
+              }
+            }
+          },
+          "name": "importedUnique",
+          "reference_top": {
+            "path": [
+              10
+            ],
+            "source": {
+              "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore"
+            }
+          },
+          "revision": "fbee02925409fc0e6074f9dbb539971eefbe93c719a56692d919380ccf544649",
+          "uri": "urn:intersect:xtext:imported-unique:1"
+        },
+        "semantics": {
+          "derived": [],
+          "scope": "unique_names",
+          "validations": [],
+          "version": 1
+        },
+        "sources": {
+          "ecore": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*];\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "rcore_behavior": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+          "xtext": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n"
+        },
+        "version": 2
+      }
+    }
+  },
+  {
+    "callId": "call@51",
+    "state": {
+      "entry_rule": null,
+      "revision": 3,
+      "interfaceRevision": "52a05fd0-8d46-4783-af5d-44d0fbc5bbf0:3",
+      "generation": 8,
+      "overlay": false,
+      "modelOrigin": "text",
+      "evaluation": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Duplicate value: Model.refs",
+            "source": "memory:imported_refs_default_true/worker.model",
+            "start": 0
+          }
+        ],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 20,
+              "id": "memory:imported_refs_default_true/worker.model#0",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 0,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#0",
+              "values": {
+                "nodes": [
+                  "memory:imported_refs_default_true/worker.model#1",
+                  "memory:imported_refs_default_true/worker.model#2"
+                ],
+                "refs": [
+                  "memory:imported_refs_default_true/worker.model#1",
+                  "memory:imported_refs_default_true/worker.model#1"
+                ]
+              }
+            },
+            {
+              "class": "Node",
+              "end": 7,
+              "id": "memory:imported_refs_default_true/worker.model#1",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 6,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#1",
+              "values": {
+                "name": "a"
+              }
+            },
+            {
+              "class": "Node",
+              "end": 9,
+              "id": "memory:imported_refs_default_true/worker.model#2",
+              "resource": "memory:imported_refs_default_true/worker.model",
+              "start": 8,
+              "type_identity": "memory:imported_refs_default_true/model.rcore@80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d#1",
+              "values": {
+                "name": "b"
+              }
+            }
+          ],
+          "resources": {
+            "memory:imported_refs_default_true/worker.model": {
+              "content_revision": "19",
+              "diagnostics": [
+                "0..1: Duplicate value: Model.refs"
+              ],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:imported_refs_default_true/worker.model#0"
+              ],
+              "source": {
+                "revision": "7fb4af34688a6f7d39ba5b7164749824c1c3108bd0f352ecdf73d029019e2571",
+                "uri": "memory:imported_refs_default_true/worker.model"
+              },
+              "uri": "memory:imported_refs_default_true/worker.model"
+            }
+          },
+          "schema_revision": "fbee02925409fc0e6074f9dbb539971eefbe93c719a56692d919380ccf544649"
+        },
+        "references": [
+          {
+            "end": 17,
+            "start": 16,
+            "target": "memory:imported_refs_default_true/worker.model#1",
+            "uri": "memory:imported_refs_default_true/worker.model"
+          },
+          {
+            "end": 19,
+            "start": 18,
+            "target": "memory:imported_refs_default_true/worker.model#1",
+            "uri": "memory:imported_refs_default_true/worker.model"
+          }
+        ]
+      },
+      "package": {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                  "uri": "memory:imported_refs_default_true/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*];\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                  "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0",
+                  "uri": "memory:imported_refs_default_true/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+            "uri": "memory:imported_refs_default_true/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "rcore_behavior": {
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0",
+            "uri": "memory:imported_refs_default_true/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+            "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+          }
+        },
+        "grammar": {
+          "declaration_sources": {
+            "ID": {
+              "end": 353,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 305
+            },
+            "Model": {
+              "end": 273,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 148
+            },
+            "Node": {
+              "end": 304,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 274
+            },
+            "WS": {
+              "end": 412,
+              "source": {
+                "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+                "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext"
+              },
+              "start": 354
+            }
+          },
+          "entry": "Model",
+          "hidden": [
+            "WS"
+          ],
+          "lexical_prediction": {
+            "alternatives": [
+              {
+                "Keyword": ","
+              },
+              {
+                "Keyword": ";"
+              },
+              {
+                "Keyword": "nodes"
+              },
+              {
+                "Keyword": "refs"
+              },
+              {
+                "Terminal": "ID"
+              },
+              {
+                "Terminal": "WS"
+              }
+            ],
+            "roots": [
+              0,
+              2,
+              4,
+              10,
+              15,
+              21
+            ],
+            "states": [
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 44,
+                    "low": 44,
+                    "target": 1
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 59,
+                    "low": 59,
+                    "target": 3
+                  }
+                ],
+                "epsilon": [],
+                "owner": 1
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 1
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 110,
+                    "low": 110,
+                    "target": 6
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 111,
+                    "low": 111,
+                    "target": 7
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 100,
+                    "low": 100,
+                    "target": 8
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 101,
+                    "low": 101,
+                    "target": 9
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 115,
+                    "low": 115,
+                    "target": 5
+                  }
+                ],
+                "epsilon": [],
+                "owner": 2
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 114,
+                    "low": 114,
+                    "target": 12
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 101,
+                    "low": 101,
+                    "target": 13
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 102,
+                    "low": 102,
+                    "target": 14
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 115,
+                    "low": 115,
+                    "target": 11
+                  }
+                ],
+                "epsilon": [],
+                "owner": 3
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  17
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  19
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  16,
+                  17
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 122,
+                    "low": 97,
+                    "target": 20
+                  }
+                ],
+                "epsilon": [],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  18
+                ],
+                "owner": 4
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  23
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  25
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  22,
+                  23
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  27,
+                  29,
+                  31,
+                  33
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  24
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 32,
+                    "low": 32,
+                    "target": 28
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 9,
+                    "low": 9,
+                    "target": 30
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 13,
+                    "low": 13,
+                    "target": 32
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 10,
+                    "low": 10,
+                    "target": 34
+                  }
+                ],
+                "epsilon": [],
+                "owner": 5
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  26
+                ],
+                "owner": 5
+              }
+            ]
+          },
+          "name": "audit.ImportedUnique",
+          "parser_prediction": {
+            "decisions": {
+              "@document-recovery": {
+                "entries": [],
+                "exit": null
+              },
+              "rule/Model/recovery": {
+                "entries": [
+                  0,
+                  1
+                ],
+                "exit": null
+              },
+              "rule/Model/s0/recovery": {
+                "entries": [
+                  0,
+                  6
+                ],
+                "exit": null
+              },
+              "rule/Model/s1/recovery": {
+                "entries": [
+                  6,
+                  7
+                ],
+                "exit": null
+              },
+              "rule/Model/s1/value/recovery": {
+                "entries": [
+                  6,
+                  7
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/recovery": {
+                "entries": [
+                  7,
+                  8
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/repeat": {
+                "entries": [
+                  9,
+                  8
+                ],
+                "exit": 1
+              },
+              "rule/Model/s2/s0/recovery": {
+                "entries": [
+                  9,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s0/recovery": {
+                "entries": [
+                  9,
+                  11
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s1/recovery": {
+                "entries": [
+                  11,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s2/s0/s1/value/recovery": {
+                "entries": [
+                  11,
+                  10
+                ],
+                "exit": null
+              },
+              "rule/Model/s3/recovery": {
+                "entries": [
+                  8,
+                  12
+                ],
+                "exit": null
+              },
+              "rule/Model/s4/recovery": {
+                "entries": [
+                  12,
+                  13
+                ],
+                "exit": null
+              },
+              "rule/Model/s5/recovery": {
+                "entries": [
+                  13,
+                  14
+                ],
+                "exit": null
+              },
+              "rule/Model/s5/value/recovery": {
+                "entries": [
+                  13,
+                  14
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/recovery": {
+                "entries": [
+                  14,
+                  15
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/repeat": {
+                "entries": [
+                  16,
+                  15
+                ],
+                "exit": 1
+              },
+              "rule/Model/s6/s0/recovery": {
+                "entries": [
+                  16,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s0/recovery": {
+                "entries": [
+                  16,
+                  18
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s1/recovery": {
+                "entries": [
+                  18,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s6/s0/s1/value/recovery": {
+                "entries": [
+                  18,
+                  17
+                ],
+                "exit": null
+              },
+              "rule/Model/s7/recovery": {
+                "entries": [
+                  15,
+                  1
+                ],
+                "exit": null
+              },
+              "rule/Node/recovery": {
+                "entries": [
+                  2,
+                  3
+                ],
+                "exit": null
+              },
+              "rule/Node/value/recovery": {
+                "entries": [
+                  2,
+                  3
+                ],
+                "exit": null
+              }
+            },
+            "first_guards": {},
+            "rules": {
+              "Model": [
+                0,
+                1
+              ],
+              "Node": [
+                2,
+                3
+              ]
+            },
+            "states": [
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": "nodes"
+                      },
+                      6
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "follow": [
+                  4
+                ],
+                "rule_stop": true
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      3
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "follow": [
+                  7,
+                  10
+                ],
+                "rule_stop": true
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      "End",
+                      5
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Call": {
+                      "follow": 7,
+                      "target": 2
+                    }
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 9
+                  },
+                  {
+                    "Epsilon": 8
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ";"
+                      },
+                      12
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ","
+                      },
+                      11
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 7
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Call": {
+                      "follow": 10,
+                      "target": 2
+                    }
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": "refs"
+                      },
+                      13
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      14
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 16
+                  },
+                  {
+                    "Epsilon": 15
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ";"
+                      },
+                      1
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Keyword": ","
+                      },
+                      18
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Epsilon": 14
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "ID"
+                      },
+                      17
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              }
+            ]
+          },
+          "profile": "intersect.xtext.native.v66",
+          "rules": {
+            "Model": {
+              "body": {
+                "cardinality": "1",
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": "nodes"
+                      },
+                      "original_range": {
+                        "end": 181,
+                        "start": 174
+                      },
+                      "prediction_path": "rule/Model/s0"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Assign": {
+                          "feature": "nodes",
+                          "many": true,
+                          "value": {
+                            "cardinality": "1",
+                            "kind": {
+                              "Call": "Node"
+                            },
+                            "original_range": {
+                              "end": 193,
+                              "start": 189
+                            },
+                            "prediction_path": "rule/Model/s1/value"
+                          }
+                        }
+                      },
+                      "original_range": {
+                        "end": 193,
+                        "start": 182
+                      },
+                      "prediction_path": "rule/Model/s1"
+                    },
+                    {
+                      "cardinality": "*",
+                      "kind": {
+                        "Sequence": [
+                          {
+                            "cardinality": "1",
+                            "kind": {
+                              "Sequence": [
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Literal": ","
+                                  },
+                                  "original_range": {
+                                    "end": 198,
+                                    "start": 195
+                                  },
+                                  "prediction_path": "rule/Model/s2/s0/s0"
+                                },
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Assign": {
+                                      "feature": "nodes",
+                                      "many": true,
+                                      "value": {
+                                        "cardinality": "1",
+                                        "kind": {
+                                          "Call": "Node"
+                                        },
+                                        "original_range": {
+                                          "end": 210,
+                                          "start": 206
+                                        },
+                                        "prediction_path": "rule/Model/s2/s0/s1/value"
+                                      }
+                                    }
+                                  },
+                                  "original_range": {
+                                    "end": 210,
+                                    "start": 199
+                                  },
+                                  "prediction_path": "rule/Model/s2/s0/s1"
+                                }
+                              ]
+                            },
+                            "original_range": {
+                              "end": 210,
+                              "start": 195
+                            },
+                            "prediction_path": "rule/Model/s2/s0"
+                          }
+                        ]
+                      },
+                      "original_range": {
+                        "end": 212,
+                        "start": 194
+                      },
+                      "prediction_path": "rule/Model/s2"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": ";"
+                      },
+                      "original_range": {
+                        "end": 216,
+                        "start": 213
+                      },
+                      "prediction_path": "rule/Model/s3"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": "refs"
+                      },
+                      "original_range": {
+                        "end": 223,
+                        "start": 217
+                      },
+                      "prediction_path": "rule/Model/s4"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Assign": {
+                          "feature": "refs",
+                          "many": true,
+                          "value": {
+                            "cardinality": "1",
+                            "kind": {
+                              "Reference": "Node"
+                            },
+                            "original_range": {
+                              "end": 242,
+                              "start": 230
+                            },
+                            "prediction_path": "rule/Model/s5/value"
+                          }
+                        }
+                      },
+                      "original_range": {
+                        "end": 242,
+                        "start": 224
+                      },
+                      "prediction_path": "rule/Model/s5"
+                    },
+                    {
+                      "cardinality": "*",
+                      "kind": {
+                        "Sequence": [
+                          {
+                            "cardinality": "1",
+                            "kind": {
+                              "Sequence": [
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Literal": ","
+                                  },
+                                  "original_range": {
+                                    "end": 247,
+                                    "start": 244
+                                  },
+                                  "prediction_path": "rule/Model/s6/s0/s0"
+                                },
+                                {
+                                  "cardinality": "1",
+                                  "kind": {
+                                    "Assign": {
+                                      "feature": "refs",
+                                      "many": true,
+                                      "value": {
+                                        "cardinality": "1",
+                                        "kind": {
+                                          "Reference": "Node"
+                                        },
+                                        "original_range": {
+                                          "end": 266,
+                                          "start": 254
+                                        },
+                                        "prediction_path": "rule/Model/s6/s0/s1/value"
+                                      }
+                                    }
+                                  },
+                                  "original_range": {
+                                    "end": 266,
+                                    "start": 248
+                                  },
+                                  "prediction_path": "rule/Model/s6/s0/s1"
+                                }
+                              ]
+                            },
+                            "original_range": {
+                              "end": 266,
+                              "start": 244
+                            },
+                            "prediction_path": "rule/Model/s6/s0"
+                          }
+                        ]
+                      },
+                      "original_range": {
+                        "end": 268,
+                        "start": 243
+                      },
+                      "prediction_path": "rule/Model/s6"
+                    },
+                    {
+                      "cardinality": "1",
+                      "kind": {
+                        "Literal": ";"
+                      },
+                      "original_range": {
+                        "end": 272,
+                        "start": 269
+                      },
+                      "prediction_path": "rule/Model/s7"
+                    }
+                  ]
+                },
+                "original_range": {
+                  "end": 272,
+                  "start": 174
+                },
+                "prediction_path": "rule/Model"
+              },
+              "class": "Model"
+            },
+            "Node": {
+              "body": {
+                "cardinality": "1",
+                "kind": {
+                  "Assign": {
+                    "feature": "name",
+                    "many": false,
+                    "value": {
+                      "cardinality": "1",
+                      "kind": {
+                        "Call": "ID"
+                      },
+                      "original_range": {
+                        "end": 303,
+                        "start": 301
+                      },
+                      "prediction_path": "rule/Node/value"
+                    }
+                  }
+                },
+                "original_range": {
+                  "end": 303,
+                  "start": 296
+                },
+                "prediction_path": "rule/Node"
+              },
+              "class": "Node"
+            }
+          },
+          "terminal_order": [
+            "ID",
+            "WS"
+          ],
+          "terminals": {
+            "ID": {
+              "body": {
+                "cardinality": "+",
+                "cardinality_decision": {
+                  "alternatives": [
+                    {
+                      "Terminal": "0"
+                    },
+                    {
+                      "Terminal": "1"
+                    }
+                  ],
+                  "roots": [
+                    0,
+                    13
+                  ],
+                  "states": [
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        2
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        5
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        1
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        9,
+                        3
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        7
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        4
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 122,
+                          "low": 97,
+                          "target": 8
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        6
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        11
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        3,
+                        9
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 122,
+                          "low": 97,
+                          "target": 12
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        10
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        15
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        16
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        14
+                      ],
+                      "owner": 1
+                    }
+                  ]
+                },
+                "first": [
+                  [
+                    97,
+                    122
+                  ]
+                ],
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          97,
+                          122
+                        ]
+                      ],
+                      "kind": {
+                        "Range": [
+                          97,
+                          122
+                        ]
+                      },
+                      "nullable": false
+                    }
+                  ]
+                },
+                "nullable": false
+              },
+              "datatype": "EString",
+              "end": 353,
+              "identity": "audit.ImportedUnique::ID",
+              "start": 305
+            },
+            "WS": {
+              "body": {
+                "cardinality": "+",
+                "cardinality_decision": {
+                  "alternatives": [
+                    {
+                      "Terminal": "0"
+                    },
+                    {
+                      "Terminal": "1"
+                    }
+                  ],
+                  "roots": [
+                    0,
+                    29
+                  ],
+                  "states": [
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        2
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        5
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        1
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        17,
+                        3
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        7
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        4
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        9,
+                        11,
+                        13,
+                        15
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        6
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 32,
+                          "low": 32,
+                          "target": 10
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 9,
+                          "low": 9,
+                          "target": 12
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 13,
+                          "low": 13,
+                          "target": 14
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 10,
+                          "low": 10,
+                          "target": 16
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        8
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        19
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        3,
+                        17
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        21,
+                        23,
+                        25,
+                        27
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        18
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 32,
+                          "low": 32,
+                          "target": 22
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 9,
+                          "low": 9,
+                          "target": 24
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 13,
+                          "low": 13,
+                          "target": 26
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [
+                        {
+                          "high": 10,
+                          "low": 10,
+                          "target": 28
+                        }
+                      ],
+                      "epsilon": [],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        20
+                      ],
+                      "owner": 0
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        31
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": true,
+                      "edges": [],
+                      "epsilon": [],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        32
+                      ],
+                      "owner": 1
+                    },
+                    {
+                      "accepting": false,
+                      "edges": [],
+                      "epsilon": [
+                        30
+                      ],
+                      "owner": 1
+                    }
+                  ]
+                },
+                "first": [
+                  [
+                    9,
+                    10
+                  ],
+                  [
+                    13,
+                    13
+                  ],
+                  [
+                    32,
+                    32
+                  ]
+                ],
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          9,
+                          10
+                        ],
+                        [
+                          13,
+                          13
+                        ],
+                        [
+                          32,
+                          32
+                        ]
+                      ],
+                      "kind": {
+                        "Alternative": [
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                32,
+                                32
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                32
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                9,
+                                9
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                9
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                13,
+                                13
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                13
+                              ]
+                            },
+                            "nullable": false
+                          },
+                          {
+                            "cardinality": "1",
+                            "first": [
+                              [
+                                10,
+                                10
+                              ]
+                            ],
+                            "kind": {
+                              "Literal": [
+                                10
+                              ]
+                            },
+                            "nullable": false
+                          }
+                        ]
+                      },
+                      "nullable": false
+                    }
+                  ]
+                },
+                "nullable": false
+              },
+              "datatype": "EString",
+              "end": 412,
+              "identity": "audit.ImportedUnique::WS",
+              "start": 354
+            }
+          }
+        },
+        "schema": {
+          "classes": {
+            "Model": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "nodes": {
+                  "path": [
+                    0,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                },
+                "refs": {
+                  "path": [
+                    0,
+                    1
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "nodes",
+                "refs"
+              ],
+              "features": {
+                "nodes": {
+                  "containment": true,
+                  "default": [],
+                  "derived": false,
+                  "lower": 1,
+                  "name": "nodes",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Node",
+                  "unique": true,
+                  "upper": -1
+                },
+                "refs": {
+                  "containment": false,
+                  "default": [],
+                  "derived": false,
+                  "lower": 1,
+                  "name": "refs",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Node",
+                  "unique": true,
+                  "upper": -1
+                }
+              },
+              "name": "Model",
+              "parents": []
+            },
+            "Node": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "name": {
+                  "path": [
+                    1,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                    "uri": "memory:imported_refs_default_true/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "name"
+              ],
+              "features": {
+                "name": {
+                  "containment": false,
+                  "default": null,
+                  "derived": false,
+                  "lower": 1,
+                  "name": "name",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": false,
+                  "target": "EString",
+                  "unique": true,
+                  "upper": 1
+                }
+              },
+              "name": "Node",
+              "parents": []
+            }
+          },
+          "declarations": {
+            "Model": {
+              "name": "Model",
+              "namespace": "urn:intersect:xtext:imported-unique:1",
+              "path": [
+                0
+              ],
+              "source": {
+                "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                "uri": "memory:imported_refs_default_true/model.rcore"
+              }
+            },
+            "Node": {
+              "name": "Node",
+              "namespace": "urn:intersect:xtext:imported-unique:1",
+              "path": [
+                1
+              ],
+              "source": {
+                "sha256": "80b2443af8cc51457cb3a17ebd10ceb063d0c7dc1c07c4aa45edbab77a5aab5d",
+                "uri": "memory:imported_refs_default_true/model.rcore"
+              }
+            }
+          },
+          "name": "importedUnique",
+          "reference_top": {
+            "path": [
+              10
+            ],
+            "source": {
+              "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore"
+            }
+          },
+          "revision": "fbee02925409fc0e6074f9dbb539971eefbe93c719a56692d919380ccf544649",
+          "uri": "urn:intersect:xtext:imported-unique:1"
+        },
+        "semantics": {
+          "derived": [],
+          "scope": "unique_names",
+          "validations": [],
+          "version": 1
+        },
+        "sources": {
+          "ecore": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*];\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "rcore_behavior": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+          "xtext": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n"
+        },
+        "version": 2
+      }
+    }
+  }
+]

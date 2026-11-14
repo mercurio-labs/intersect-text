@@ -1,0 +1,1245 @@
+[
+  {
+    "id": "wildcard_original_control",
+    "entry": "inference.fragments.WildcardBasic",
+    "original_inputs": [
+      "m alpha",
+      "malpha",
+      "m ",
+      "",
+      "m alpha beta"
+    ],
+    "source_pins": {
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "inference.fragments.WildcardBasic.xtext": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "inference.fragments.WildcardBasic::Fields",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "inference.fragments.WildcardBasic::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "inference.fragments.WildcardBasic::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "inference.fragments.WildcardBasic::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "m alpha",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "m alpha",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "m",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "alpha",
+                "utf16_start": 2,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "alpha"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "m",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              },
+              {
+                "text": "alpha",
+                "hidden": false,
+                "utf16_start": 2,
+                "utf16_end": 7,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "alpha"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "malpha",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "malpha",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "malpha",
+                "utf16_start": 0,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing 'm' at 'malpha'",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "malpha"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "malpha",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 6,
+                "syntax_error": "missing 'm' at 'malpha'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "missing 'm' at 'malpha'",
+                "utf16_start": 0,
+                "utf16_end": 6
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "malpha"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "m ",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "m ",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "m",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_ID",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": null
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "m",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "mismatched input '<EOF>' expecting RULE_ID"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_ID",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": null
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting 'm'",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting 'm'",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "m alpha beta",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "m alpha beta",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "m",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "alpha",
+                "utf16_start": 2,
+                "utf16_stop": 6,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 7,
+                "utf16_stop": 7,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_ID",
+                "text": "beta",
+                "utf16_start": 8,
+                "utf16_stop": 11,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'beta' expecting EOF",
+                "line": 1,
+                "column": 9
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "alpha"
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "m",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              },
+              {
+                "text": "alpha",
+                "hidden": false,
+                "utf16_start": 2,
+                "utf16_end": 7,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 7,
+                "utf16_end": 8,
+                "syntax_error": null
+              },
+              {
+                "text": "beta",
+                "hidden": false,
+                "utf16_start": 8,
+                "utf16_end": 12,
+                "syntax_error": "extraneous input 'beta' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'beta' expecting EOF",
+                "utf16_start": 8,
+                "utf16_end": 12
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:inference:fragments:wildcard_basic#//Model",
+                "values": {
+                  "name": "alpha"
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:inference:fragments:wildcard_basic",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Fields",
+                "kind": "ParserRule",
+                "fragment": true,
+                "datatype": false,
+                "classifier": null
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "wildcard_first_null",
+    "entry": "inference.fragments.WildcardBasic",
+    "original_inputs": [
+      "m alpha",
+      "malpha",
+      "m ",
+      "",
+      "m alpha beta"
+    ],
+    "source_pins": {
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "inference.fragments.WildcardBasic.xtext": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "inference.fragments.WildcardBasic::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "inference.fragments.WildcardBasic::Fields",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.grammar.InvalidFragmentFirstRule",
+                "start": 169,
+                "length": 8,
+                "message": "The first rule must not be a fragment"
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "inference.fragments.WildcardBasic::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "inference.fragments.WildcardBasic::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "inference.fragments.WildcardBasic",
+            "used": [],
+            "rules": [
+              {
+                "name": "Fields",
+                "kind": "ParserRule",
+                "fragment": true,
+                "datatype": false,
+                "classifier": null
+              },
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:inference:fragments:wildcard_basic",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "scalar_fragment_library",
+    "entry": "audit.ProofScalarFragmentLibrary",
+    "original_inputs": [
+      "a",
+      "b",
+      "",
+      "aa",
+      "a\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.ProofScalarFragmentLibrary.xtext": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ProofScalarFragmentLibrary::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ProofScalarFragmentLibrary::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "'a'"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "used": [],
+            "rules": [
+              {
+                "name": "Text",
+                "kind": "ParserRule",
+                "fragment": true,
+                "datatype": true,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "VALUE",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "scalar_fragment_model_child",
+    "entry": "audit.ProofScalarFragmentChild",
+    "original_inputs": [
+      "a",
+      "b",
+      "",
+      "aa",
+      "a\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.ProofScalarFragmentChild.xtext": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+      "audit.ProofScalarFragmentLibrary.xtext": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "errors": []
+          },
+          {
+            "source": "audit.ProofScalarFragmentChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ProofScalarFragmentLibrary::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.ProofScalarFragmentChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ProofScalarFragmentLibrary::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.ProofScalarFragmentChild",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ProofScalarFragmentLibrary::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "'a'"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ProofScalarFragmentLibrary",
+            "used": [],
+            "rules": [
+              {
+                "name": "Text",
+                "kind": "ParserRule",
+                "fragment": true,
+                "datatype": true,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "VALUE",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          },
+          {
+            "source": "audit.ProofScalarFragmentChild",
+            "used": [
+              {
+                "name": "audit.ProofScalarFragmentLibrary",
+                "proxy": false,
+                "uri": "memory:/audit/ProofScalarFragmentLibrary.xtext#XtextFragmentProvider_audit.ProofScalarFragmentLibrary"
+              }
+            ],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                  "resource_fragment": "//Model"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "syntax_clean_object_three_level",
+    "entry": "audit.ProofObjectChild",
+    "original_inputs": [
+      "a",
+      "b",
+      "z",
+      "",
+      "ab"
+    ],
+    "source_pins": {
+      "audit.ProofObjectBase.xtext": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+      "audit.ProofObjectChild.xtext": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+      "audit.ProofObjectMiddle.xtext": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ProofObjectBase",
+            "errors": []
+          },
+          {
+            "source": "audit.ProofObjectMiddle",
+            "errors": []
+          },
+          {
+            "source": "audit.ProofObjectChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ProofObjectBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ProofObjectBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.ProofObjectMiddle",
+            "errors": [],
+            "warnings": [],
+            "calls": []
+          },
+          {
+            "source": "audit.ProofObjectChild",
+            "errors": [],
+            "warnings": [],
+            "calls": []
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ProofObjectBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.ProofObjectMiddle",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": null,
+                "start": 69,
+                "length": 3,
+                "message": "The first rule must be a parser rule."
+              }
+            ],
+            "failure": null
+          },
+          {
+            "source": "audit.ProofObjectChild",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": null,
+                "start": 70,
+                "length": 5,
+                "message": "The first rule must be a parser rule."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ProofObjectChild::FIRST",
+            "name": "RULE_FIRST",
+            "fragment": false,
+            "body": "'b'"
+          },
+          {
+            "source_rule": "audit.ProofObjectMiddle::MID",
+            "name": "RULE_MID",
+            "fragment": false,
+            "body": "'z'"
+          },
+          {
+            "source_rule": "audit.ProofObjectBase::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "'a'"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ProofObjectBase",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "VALUE",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          },
+          {
+            "source": "audit.ProofObjectMiddle",
+            "used": [
+              {
+                "name": "audit.ProofObjectBase",
+                "proxy": false,
+                "uri": "memory:/audit/ProofObjectBase.xtext#XtextFragmentProvider_audit.ProofObjectBase"
+              }
+            ],
+            "rules": [
+              {
+                "name": "MID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          },
+          {
+            "source": "audit.ProofObjectChild",
+            "used": [
+              {
+                "name": "audit.ProofObjectMiddle",
+                "proxy": false,
+                "uri": "memory:/audit/ProofObjectMiddle.xtext#XtextFragmentProvider_audit.ProofObjectMiddle"
+              }
+            ],
+            "rules": [
+              {
+                "name": "FIRST",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  }
+]

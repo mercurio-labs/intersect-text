@@ -1,0 +1,4 @@
+grammar example.Colors hidden(WS)
+import "urn:intersect:xtext:enum-composition:1" as p
+Choice returns p::Shade: 'red' | 'blue';
+terminal WS: (' '|'\t'|'\r'|'\n')+;

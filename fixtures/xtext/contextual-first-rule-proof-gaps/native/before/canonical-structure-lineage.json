@@ -1,0 +1,21 @@
+{
+  "original_provider": {
+    "bytes": 1283,
+    "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+  },
+  "original_adapter_source": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\unchanged-full7-native-adapter-cases.json",
+  "original_adapter": {
+    "bytes": 22102,
+    "sha256": "f4f75790ae1f0dec1d4ff516803b9f50a09749763123df1ed2dde69009271f27"
+  },
+  "selected_source": {
+    "id": {
+      "uri": "memory:terminal-negation/model.rcore",
+      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+    },
+    "kind": "rcore",
+    "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+    "dependencies": []
+  },
+  "scope": "Native source transport uses unchanged original migration adapter; no native Ecore or generated wildcard-profile qualification."
+}

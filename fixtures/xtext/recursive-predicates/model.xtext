@@ -1,0 +1,10 @@
+grammar example.RecursivePrediction hidden(WS)
+import "urn:intersect:xtext:recursive:1" as r
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Entry returns r::Entry: ->Left | Right;
+Left returns r::Left: 'a' (child=Inner)? 'b' (number=INT)?;
+Right returns r::Right: 'a' (child=Inner)? 'c';
+Inner returns r::Inner: 'a' (child=Inner)? 'b';
+RawInt returns Ecore::EString: INT;
+terminal INT returns Ecore::EInt: ('0'..'9')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;

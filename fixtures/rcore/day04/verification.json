@@ -1,0 +1,350 @@
+{
+  "checkpoint": "R04",
+  "hosts": [
+    "native",
+    "WASM"
+  ],
+  "demonstrations": [
+    {
+      "name": "organization",
+      "operation": {
+        "declaration": {
+          "path": [
+            0,
+            1
+          ],
+          "source": {
+            "sha256": "63f3ef2047ab679cd2ad5218c9f09d51017adaf0bf4a7c9defaeb3d6d1821753",
+            "uri": "fixture:rcore/day04/organization.generated.ecore"
+          }
+        },
+        "name": "reachable",
+        "original": {
+          "end": 186,
+          "source": {
+            "sha256": "3e9cb33a075f650c35917a79bf0a5ca9358bcf159409bc95b30f7071e539b3eb",
+            "uri": "fixture:rcore/day04/organization.rcore"
+          },
+          "start": 157
+        },
+        "owner": {
+          "path": [
+            0
+          ],
+          "source": {
+            "sha256": "63f3ef2047ab679cd2ad5218c9f09d51017adaf0bf4a7c9defaeb3d6d1821753",
+            "uri": "fixture:rcore/day04/organization.generated.ecore"
+          }
+        }
+      },
+      "binding": {
+        "declaration_span": {
+          "end": 552,
+          "source": {
+            "sha256": "63f3ef2047ab679cd2ad5218c9f09d51017adaf0bf4a7c9defaeb3d6d1821753",
+            "uri": "fixture:rcore/day04/organization.generated.ecore"
+          },
+          "start": 456
+        },
+        "implementation": {
+          "declaration": 1,
+          "source": {
+            "sha256": "f40116d80013e23d1688a17e3e62fbb231fdc13f3c4a215f1421bbfd312a6a72",
+            "uri": "fixture:rcore/day04/organization-behavior.rcore"
+          }
+        },
+        "implementation_span": {
+          "end": 184,
+          "source": {
+            "sha256": "f40116d80013e23d1688a17e3e62fbb231fdc13f3c4a215f1421bbfd312a6a72",
+            "uri": "fixture:rcore/day04/organization-behavior.rcore"
+          },
+          "start": 103
+        },
+        "operation": {
+          "declaration": {
+            "path": [
+              0,
+              1
+            ],
+            "source": {
+              "sha256": "63f3ef2047ab679cd2ad5218c9f09d51017adaf0bf4a7c9defaeb3d6d1821753",
+              "uri": "fixture:rcore/day04/organization.generated.ecore"
+            }
+          },
+          "generic": false,
+          "name": "reachable",
+          "parameters": [],
+          "result": {
+            "lower": 0,
+            "ordered": true,
+            "target": {
+              "kind": "class",
+              "name": "__type_intersect_generic_1_cb5af81e1c55168f4202b95be345aa02f03624fb46122e83fc7acf9c020c65b8"
+            },
+            "unique": true,
+            "upper": -1
+          },
+          "source_payload": "<eOperations name=\"reachable\" eType=\"#//Node\" lowerBound=\"0\" upperBound=\"-1\">\n    </eOperations>"
+        },
+        "receiver": {
+          "arguments": [],
+          "declaration": {
+            "path": [
+              0
+            ],
+            "source": {
+              "sha256": "63f3ef2047ab679cd2ad5218c9f09d51017adaf0bf4a7c9defaeb3d6d1821753",
+              "uri": "fixture:rcore/day04/organization.generated.ecore"
+            }
+          },
+          "kind": "classifier",
+          "raw": false
+        }
+      },
+      "results": [
+        {
+          "case": "chain",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "duplicate-diamond",
+          "expected": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "cycle",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "isolated",
+          "expected": [
+            "A"
+          ],
+          "actual": [
+            "A"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "empty-input",
+          "receiver_required": true
+        },
+        {
+          "case": "edited-chain",
+          "expected": [
+            "A",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        }
+      ]
+    },
+    {
+      "name": "kerml-specialization",
+      "operation": {
+        "declaration": {
+          "path": [
+            0,
+            0
+          ],
+          "source": {
+            "sha256": "b46ecb8e2ac823516836470eefc409056bb4b1052cbfe2d384da15b470fa5e57",
+            "uri": "fixture:rcore/day04/kerml-specialization.generated.ecore"
+          }
+        },
+        "name": "allGenerals",
+        "original": {
+          "end": 259,
+          "source": {
+            "sha256": "230344350750f39aedd09bf52ac52f5df04c4f9614ea4335056fddd24cfbbf3b",
+            "uri": "fixture:rcore/day04/kerml-specialization.rcore"
+          },
+          "start": 228
+        },
+        "owner": {
+          "path": [
+            0
+          ],
+          "source": {
+            "sha256": "b46ecb8e2ac823516836470eefc409056bb4b1052cbfe2d384da15b470fa5e57",
+            "uri": "fixture:rcore/day04/kerml-specialization.generated.ecore"
+          }
+        }
+      },
+      "binding": {
+        "declaration_span": {
+          "end": 449,
+          "source": {
+            "sha256": "b46ecb8e2ac823516836470eefc409056bb4b1052cbfe2d384da15b470fa5e57",
+            "uri": "fixture:rcore/day04/kerml-specialization.generated.ecore"
+          },
+          "start": 351
+        },
+        "implementation": {
+          "declaration": 1,
+          "source": {
+            "sha256": "9555d93ed2ecfd35022441d8f4712c81b4bebdd4c092295d93d29ab89eeae5c2",
+            "uri": "fixture:rcore/day04/kerml-specialization-behavior.rcore"
+          }
+        },
+        "implementation_span": {
+          "end": 209,
+          "source": {
+            "sha256": "9555d93ed2ecfd35022441d8f4712c81b4bebdd4c092295d93d29ab89eeae5c2",
+            "uri": "fixture:rcore/day04/kerml-specialization-behavior.rcore"
+          },
+          "start": 124
+        },
+        "operation": {
+          "declaration": {
+            "path": [
+              0,
+              0
+            ],
+            "source": {
+              "sha256": "b46ecb8e2ac823516836470eefc409056bb4b1052cbfe2d384da15b470fa5e57",
+              "uri": "fixture:rcore/day04/kerml-specialization.generated.ecore"
+            }
+          },
+          "generic": false,
+          "name": "allGenerals",
+          "parameters": [],
+          "result": {
+            "lower": 0,
+            "ordered": true,
+            "target": {
+              "kind": "class",
+              "name": "__type_intersect_generic_1_051e076a8ff75b9c4a8cf8f5f7c088d7f82de39514d748a0e0972950d854551f"
+            },
+            "unique": true,
+            "upper": -1
+          },
+          "source_payload": "<eOperations name=\"allGenerals\" eType=\"#//Type\" lowerBound=\"0\" upperBound=\"-1\">\n    </eOperations>"
+        },
+        "receiver": {
+          "arguments": [],
+          "declaration": {
+            "path": [
+              0
+            ],
+            "source": {
+              "sha256": "b46ecb8e2ac823516836470eefc409056bb4b1052cbfe2d384da15b470fa5e57",
+              "uri": "fixture:rcore/day04/kerml-specialization.generated.ecore"
+            }
+          },
+          "kind": "classifier",
+          "raw": false
+        }
+      },
+      "results": [
+        {
+          "case": "chain",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "duplicate-diamond",
+          "expected": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "cycle",
+          "expected": [
+            "A",
+            "B",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "B",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "isolated",
+          "expected": [
+            "A"
+          ],
+          "actual": [
+            "A"
+          ],
+          "source_reload": "receiver only"
+        },
+        {
+          "case": "empty-input",
+          "receiver_required": true
+        },
+        {
+          "case": "edited-chain",
+          "expected": [
+            "A",
+            "C"
+          ],
+          "actual": [
+            "A",
+            "C"
+          ],
+          "source_reload": "receiver only"
+        }
+      ]
+    }
+  ],
+  "native_wasm_comparisons": 72
+}

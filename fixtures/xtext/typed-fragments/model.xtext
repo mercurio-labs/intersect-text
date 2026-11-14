@@ -1,0 +1,8 @@
+grammar mini.TypedFragments with org.eclipse.xtext.common.Terminals
+import "urn:intersect:xtext:mini-kerml:fragments:1" as k
+fragment Identification returns k::Element: name=ID;
+fragment Target returns k::Feature: target=[k::Element|ID];
+Model returns k::Model: 'package' name=ID '{' members+=Member* '}';
+Member returns k::Element: Type | Feature;
+Type returns k::Type: isAbstract?='abstract'? 'type' Identification ';';
+Feature returns k::Feature: 'feature' Identification ('to' Target)? ';';

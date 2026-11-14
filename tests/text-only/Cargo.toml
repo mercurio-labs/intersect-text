@@ -1,0 +1,20 @@
+
+["package"]
+"name" = "intersect-text-only-consumer"
+"version" = "0.1.0-alpha.1"
+"edition" = "2024"
+"rust-version" = "1.88"
+"publish" = false
+
+["workspace"]
+
+["lib"]
+"crate-type" = ["rlib", "cdylib"]
+
+["dependencies"]
+"intersect-model" = { "version" = "0.1.0-alpha.1", "git" = "https://github.com/mercurio-labs/intersect-model.git", "rev" = "1955d1e9e99cad50049dd1f00096bee5fbe1a160" }
+"intersect-text" = { "version" = "0.1.0-alpha.1", "path" = "../../crates/intersect-text" }
+"serde_json" = "1.0.149"
+
+["profile"]
+"test-fast" = { "inherits" = "dev", "opt-level" = 1, "debug" = 0, "incremental" = true, "package" = { "*" = { "opt-level" = 3 } } }

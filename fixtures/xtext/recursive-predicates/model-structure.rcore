@@ -1,0 +1,16 @@
+rcore 1;
+package `recursive` version "1";
+metamodel "urn:intersect:xtext:recursive:1" prefix `r` {
+  abstract class `Entry` {
+    ref `child`: external "#//@eClassifiers.3" [0,1] containment;
+  }
+  class `Left` extends external "#//@eClassifiers.0" {
+    attr `number`: EInt [0,1];
+  }
+  class `Right` extends external "#//@eClassifiers.0" {
+    attr `raw`: EString [0,1];
+  }
+  class `Inner` {
+    ref `child`: external "#//@eClassifiers.3" [0,1] containment;
+  }
+}

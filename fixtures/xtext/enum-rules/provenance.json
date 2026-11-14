@@ -1,0 +1,83 @@
+{
+  "status": "Imported exact pinned declarations; enum-rule consumption and semantic verification remain unimplemented",
+  "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "license": "EPL-2.0",
+  "grammar": {
+    "path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+    "sha256": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa"
+  },
+  "ecore": {
+    "path": "org.omg.sysml/model/SysML.ecore",
+    "sha256": "22719934c65588180fc19658f8a7c891cb209458e4027bf90ddf005c80ddc17f",
+    "namespace": "https://www.omg.org/spec/SysML/20250201"
+  },
+  "rules": [
+    {
+      "name": "FilterPackageMemberVisibility",
+      "start": 6091,
+      "end": 6176,
+      "text": "enum FilterPackageMemberVisibility returns SysML::VisibilityKind :\r\n\tprivate = '['\r\n;",
+      "sha256": "520f7069f5a0352d560acb2aaf4abd926b0f8a40bc62fa335455af55b217fb01"
+    },
+    {
+      "name": "VisibilityIndicator",
+      "start": 6180,
+      "end": 6307,
+      "text": "enum VisibilityIndicator returns SysML::VisibilityKind :\r\n\tpublic = 'public' | private = 'private' | protected = 'protected'\r\n;",
+      "sha256": "92049b04dd53b7bf9fd857d5f259c7ad7608509464f99d3b592e724d6f3940d1"
+    },
+    {
+      "name": "FeatureDirection",
+      "start": 13382,
+      "end": 13487,
+      "text": "enum FeatureDirection returns SysML::FeatureDirectionKind:\r\n\tin = 'in' | out = 'out' | inout = 'inout'\r\n;",
+      "sha256": "7bcd8acd4370450b7ea4d9f76c21804269cdedf7ee6192aa177cc53a17652355"
+    }
+  ],
+  "enums": [
+    {
+      "name": "VisibilityKind",
+      "classifier_index": 180,
+      "attributes": {
+        "{http://www.w3.org/2001/XMLSchema-instance}type": "ecore:EEnum",
+        "name": "VisibilityKind"
+      },
+      "literals": [
+        {
+          "name": "private"
+        },
+        {
+          "name": "protected",
+          "value": "1"
+        },
+        {
+          "name": "public",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "FeatureDirectionKind",
+      "classifier_index": 61,
+      "attributes": {
+        "{http://www.w3.org/2001/XMLSchema-instance}type": "ecore:EEnum",
+        "name": "FeatureDirectionKind"
+      },
+      "literals": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "inout",
+          "value": "1"
+        },
+        {
+          "name": "out",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "consumed": false,
+  "semantically_verified": false
+}

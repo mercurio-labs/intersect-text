@@ -1,0 +1,26 @@
+// Named, contained browser projection of the day01 specialization demo.
+rcore 1;
+package specializationDemo version "1";
+metamodel "urn:intersect:rcore:web-specialization" prefix demo {
+  class Model {
+    attr name: String [1,1];
+    ref types: Type [0,*] containment;
+    ref specializations: Specialization [0,*] containment;
+  }
+  class Type { attr name: String [1,1]; op allGenerals() -> Type [0,*]; }
+  class Specialization {
+    attr name: String [1,1];
+    ref general: Type [1,1] unordered;
+    ref specific: Type [1,1] unordered;
+  }
+}
+
+behavior {
+import model "urn:intersect:rcore:web-specialization" as m;
+fn main(node:m.Type)->OrderedSet<m.Type> {
+  closure([node], |t| directGenerals(t))
+}
+fn directGenerals(t:m.Type)->Sequence<m.Type> {
+  Sequence(map(incoming::<m.Specialization>(t, "specific"), |s| s.general))
+}
+}

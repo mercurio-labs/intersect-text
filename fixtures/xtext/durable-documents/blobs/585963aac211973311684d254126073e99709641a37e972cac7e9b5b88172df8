@@ -1,0 +1,7 @@
+grammar mini.SimpleActions with org.eclipse.xtext.common.Terminals
+import "urn:intersect:xtext:mini-kerml:actions:1" as k
+Model returns k::Model: {k::Model} 'package' name=ID '{' members+=Member* '}';
+Member returns k::Element: Type | Feature;
+Type returns k::Element: {k::Type} 'type' Identification ('origin' origin=STRING)? ';';
+Feature returns k::Element: {k::Feature} 'feature' Identification ':' target=[k::Type|ID] ';';
+fragment Identification returns k::Element: name=ID;

@@ -1,0 +1,166 @@
+[
+  {
+    "id": "scalar_attributes",
+    "source": "grammar oracle.ScalarAttributes hidden(WS)\ngenerate model \"urn:intersect:inference:scalar_attributes\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID enabled?='enabled'? count=INT?;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "containment_and_cross_reference",
+    "source": "grammar oracle.ContainmentAndCrossReference hidden(WS)\ngenerate model \"urn:intersect:inference:containment_and_cross_reference\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node* ('uses' uses+=[Node|ID])*; Node: 'node' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "alternative_supertypes_and_lifting",
+    "source": "grammar oracle.AlternativeSupertypesAndLifting hidden(WS)\ngenerate model \"urn:intersect:inference:alternative_supertypes_and_lifting\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nCommon: A | B; A: 'a' name=ID; B: 'b' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "alternative_current_type_union",
+    "source": "grammar oracle.AlternativeCurrentTypeUnion hidden(WS)\ngenerate model \"urn:intersect:inference:alternative_current_type_union\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: (A | B) tail=ID; A: 'a' a=ID; B: 'b' b=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "optional_unassigned_call",
+    "source": "grammar oracle.OptionalUnassignedCall hidden(WS)\ngenerate model \"urn:intersect:inference:optional_unassigned_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: A? suffix=ID; A: 'a' value=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "simple_action",
+    "source": "grammar oracle.SimpleAction hidden(WS)\ngenerate model \"urn:intersect:inference:simple_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Start} 'start' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "assigned_action",
+    "source": "grammar oracle.AssignedAction hidden(WS)\ngenerate model \"urn:intersect:inference:assigned_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nExpression: Atom ({Binary.left=current} '+' right=Atom)*; Atom: {Number} value=INT;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "boolean_rhs_has_no_reference",
+    "source": "grammar oracle.BooleanRhsHasNoReference hidden(WS)\ngenerate model \"urn:intersect:inference:boolean_rhs_has_no_reference\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: flag?=Item*; Item: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "keyword_attribute",
+    "source": "grammar oracle.KeywordAttribute hidden(WS)\ngenerate model \"urn:intersect:inference:keyword_attribute\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: tag='fixed';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "keyword_alternative_attribute",
+    "source": "grammar oracle.KeywordAlternativeAttribute hidden(WS)\ngenerate model \"urn:intersect:inference:keyword_alternative_attribute\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=('a' | 'b');\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "forward_scalar_and_model_calls",
+    "source": "grammar oracle.ForwardScalarAndModelCalls hidden(WS)\ngenerate model \"urn:intersect:inference:forward_scalar_and_model_calls\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Later; Later: 'later' name=Name; Name: ID ('::' ID)*;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "explicit_new_return_type",
+    "source": "grammar oracle.ExplicitNewReturnType hidden(WS)\ngenerate model \"urn:intersect:inference:explicit_new_return_type\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Value; Value returns Token: ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "generated_enum",
+    "source": "grammar oracle.GeneratedEnum hidden(WS)\ngenerate model \"urn:intersect:inference:generated_enum\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: shade=Shade; enum Shade: RED='red' | BLUE='blue';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "multiple_generated_packages",
+    "source": "grammar oracle.MultipleGeneratedPackages hidden(WS)\ngenerate model \"urn:intersect:inference:multiple_generated_packages\"\ngenerate auxiliary \"urn:intersect:inference:auxiliary\" as aux\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Secondary; Secondary returns aux::Part: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "mixed_imported_generated_reference",
+    "source": "grammar oracle.MixedImportedGeneratedReference hidden(WS)\ngenerate model \"urn:intersect:inference:mixed_imported_generated_reference\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel: items+=Local* ('external' external=[ext::External|ID])?; Local: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "imported_existing_feature",
+    "source": "grammar oracle.ImportedExistingFeature hidden(WS)\ngenerate model \"urn:intersect:inference:imported_existing_feature\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel: items+=ExternalRule*; ExternalRule returns ext::External: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "same_generated_return_type",
+    "source": "grammar oracle.SameGeneratedReturnType hidden(WS)\ngenerate model \"urn:intersect:inference:same_generated_return_type\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: values+=(First | Second)*; First returns Value: 'first' name=ID; Second returns Value: 'second' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "multiple_inheritance_lifting",
+    "source": "grammar oracle.MultipleInheritanceLifting hidden(WS)\ngenerate model \"urn:intersect:inference:multiple_inheritance_lifting\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nCommon: A | B; Other: A | C; A: 'a' name=ID; B: 'b' name=ID; C: 'c' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "typed_terminal",
+    "source": "grammar oracle.TypedTerminal hidden(WS)\ngenerate model \"urn:intersect:inference:typed_terminal\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'value' number=DIGITS; terminal DIGITS returns ecore::EInt: ('0'..'9')+;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "cross_reference_only_type",
+    "source": "grammar oracle.CrossReferenceOnlyType hidden(WS)\ngenerate model \"urn:intersect:inference:cross_reference_only_type\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: target=[Target|ID];\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "enum_duplicate_literal_name",
+    "source": "grammar oracle.EnumDuplicateLiteralName hidden(WS)\ngenerate model \"urn:intersect:inference:enum_duplicate_literal_name\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: shade=Shade; enum Shade: RED='red' | RED='rouge' | BLUE='blue';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "unassigned_scalar_call",
+    "source": "grammar oracle.UnassignedScalarCall hidden(WS)\ngenerate model \"urn:intersect:inference:unassigned_scalar_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'model' ID name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "repeated_scalar_assignment",
+    "source": "grammar oracle.RepeatedScalarAssignment hidden(WS)\ngenerate model \"urn:intersect:inference:repeated_scalar_assignment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: (name=ID)+;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "empty_and_optional_alternatives",
+    "source": "grammar oracle.EmptyAndOptionalAlternatives hidden(WS)\ngenerate model \"urn:intersect:inference:empty_and_optional_alternatives\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: (A | B)? suffix=ID; A: 'a' value=ID; B: 'b' value=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "feature_type_conflict",
+    "source": "grammar oracle.FeatureTypeConflict hidden(WS)\ngenerate model \"urn:intersect:inference:feature_type_conflict\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=ID value=INT;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "feature_cardinality_conflict",
+    "source": "grammar oracle.FeatureCardinalityConflict hidden(WS)\ngenerate model \"urn:intersect:inference:feature_cardinality_conflict\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=ID value+=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "feature_kind_conflict",
+    "source": "grammar oracle.FeatureKindConflict hidden(WS)\ngenerate model \"urn:intersect:inference:feature_kind_conflict\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=ID value=Item; Item: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "imported_new_feature",
+    "source": "grammar oracle.ImportedNewFeature hidden(WS)\ngenerate model \"urn:intersect:inference:imported_new_feature\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel returns ext::External: extra=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "imported_new_supertype",
+    "source": "grammar oracle.ImportedNewSupertype hidden(WS)\ngenerate model \"urn:intersect:inference:imported_new_supertype\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel: ExternalRule; ExternalRule returns ext::External: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "imported_missing_classifier",
+    "source": "grammar oracle.ImportedMissingClassifier hidden(WS)\ngenerate model \"urn:intersect:inference:imported_missing_classifier\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel returns ext::Missing: 'model' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "duplicate_generated_alias",
+    "source": "grammar oracle.DuplicateGeneratedAlias hidden(WS)\ngenerate first \"urn:intersect:inference:first\"\ngenerate second \"urn:intersect:inference:second\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "unknown_type_alias",
+    "source": "grammar oracle.UnknownTypeAlias hidden(WS)\ngenerate model \"urn:intersect:inference:unknown_type_alias\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns missing::Thing: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "inheritance_cycle",
+    "source": "grammar oracle.InheritanceCycle hidden(WS)\ngenerate model \"urn:intersect:inference:inheritance_cycle\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: A; A: Model | 'a' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "different_containment_flags",
+    "source": "grammar oracle.DifferentContainmentFlags hidden(WS)\ngenerate model \"urn:intersect:inference:different_containment_flags\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Item value=[Item|ID]; Item: name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "enum_and_class_name_conflict",
+    "source": "grammar oracle.EnumAndClassNameConflict hidden(WS)\ngenerate model \"urn:intersect:inference:enum_and_class_name_conflict\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID shade=EnumRule; ClassRule returns Shared: name=ID; enum EnumRule returns Shared: RED='red';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "imported_enum_attribute",
+    "source": "grammar oracle.ImportedEnumAttribute hidden(WS)\ngenerate model \"urn:intersect:inference:imported_enum_attribute\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel: shade=ImportedShade; enum ImportedShade returns ext::Shade: RED='red' | BLUE='blue';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "generated_terminal_datatype",
+    "source": "grammar oracle.GeneratedTerminalDatatype hidden(WS)\ngenerate model \"urn:intersect:inference:generated_terminal_datatype\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=TOKEN; terminal TOKEN returns Token: ('a'..'z')+;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "multiple_inheritance_without_feature_collision",
+    "source": "grammar oracle.MultipleInheritanceWithoutFeatureCollision hidden(WS)\ngenerate model \"urn:intersect:inference:multiple_inheritance_without_feature_collision\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nCommon: A | B; Other: A | C; A: 'a' a=ID; B: 'b' b=ID; C: 'c' c=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "cross_reference_to_action_type",
+    "source": "grammar oracle.CrossReferenceToActionType hidden(WS)\ngenerate model \"urn:intersect:inference:cross_reference_to_action_type\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: target=[Target|ID]; TargetRule: {Target} name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "keyword_scalar_return",
+    "source": "grammar oracle.KeywordScalarReturn hidden(WS)\ngenerate model \"urn:intersect:inference:keyword_scalar_return\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: tag=Keyword; Keyword: 'one' | 'two';\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  },
+  {
+    "id": "assigned_model_type_alternative",
+    "source": "grammar oracle.AssignedModelTypeAlternative hidden(WS)\ngenerate model \"urn:intersect:inference:assigned_model_type_alternative\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=(A | B); A: 'a' name=ID; B: 'b' name=ID;\n\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+  }
+]

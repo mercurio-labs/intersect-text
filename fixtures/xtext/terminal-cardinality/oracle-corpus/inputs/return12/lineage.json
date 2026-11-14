@@ -1,0 +1,46 @@
+{
+  "approved_proposal": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\review-packet-v1\\proposed-return-identity-matrix.json",
+    "bytes": 15659,
+    "sha256": "1bb744f285f831210ca28adc7360f950443347b1320015764431ef9a1d777a50"
+  },
+  "producer": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\frozen-inputs-v1\\produce.py",
+    "bytes": 7611,
+    "sha256": "f1f9300df94b2300d6d705d915e32bd877b543adc8d2ec56a71d5f6498ce60d9"
+  },
+  "provider_ecore": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\frozen-inputs-v1\\inputs\\inline_optional_follow\\imported.ecore",
+    "bytes": 1283,
+    "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+  },
+  "native_structural_input": {
+    "id": {
+      "uri": "memory:terminal-negation/model.rcore",
+      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+    },
+    "kind": "rcore",
+    "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+    "dependencies": []
+  },
+  "native_behavior_input": {
+    "id": {
+      "uri": "memory:terminal-negation/behavior.rcore",
+      "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+    },
+    "kind": "rcore_behavior",
+    "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+    "dependencies": [
+      {
+        "uri": "memory:terminal-negation/model.rcore",
+        "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+      }
+    ]
+  },
+  "metadata_helper": {
+    "bytes": 9154,
+    "sha256": "0ae0624a127185f6e50e40e49d3f2180ed412e5e0c169f6bd32ab39fdd8f3c63"
+  },
+  "graph_validity_assumed": false,
+  "metadata_rule": "Actual source-loaded TypeRef/classifier identity, null/proxy and ownership; no builtin substitution; all earlier cohorts unchanged."
+}

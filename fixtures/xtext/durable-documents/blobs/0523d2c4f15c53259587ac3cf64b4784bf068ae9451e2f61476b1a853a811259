@@ -1,0 +1,394 @@
+{
+  "namespace_nested_restore": {
+    "id": "namespace_nested_restore",
+    "entry": "audit.scopes.NestedRestore",
+    "sources": [
+      {
+        "file": "audit.scopes.NestedRestore.xtext",
+        "grammar": "audit.scopes.NestedRestore",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_nested_restore/audit.scopes.NestedRestore.xtext",
+          "sha256": "6081a73809fbea6234196aff32052d43fb27a4724e5f74884157ee75c1809ea2"
+        },
+        "bytes": 593
+      }
+    ],
+    "inputs": [
+      "[abc]done",
+      " [abc] done ",
+      "[a b c]done",
+      "[ab c]done",
+      "[a bc]done",
+      "[a/*x*/b c]done",
+      "[abc]/*x*/done",
+      "[abc]",
+      "[ab]done"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Nested explicit scopes, call entry and successful restoration, missing close/suffix and partial models.",
+    "lineage": {
+      "original_case": "nested_restore",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  "namespace_significant_comment_datatype": {
+    "id": "namespace_significant_comment_datatype",
+    "entry": "audit.scopes.SignificantCommentDatatype",
+    "sources": [
+      {
+        "file": "audit.scopes.SignificantCommentDatatype.xtext",
+        "grammar": "audit.scopes.SignificantCommentDatatype",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_significant_comment_datatype/audit.scopes.SignificantCommentDatatype.xtext",
+          "sha256": "2987ea4ce30828501f62cbe6178fb6e30d82fb8e0194d1f956fd37b23f8ae8b7"
+        },
+        "bytes": 515
+      }
+    ],
+    "inputs": [
+      "a/*x*/b",
+      "a /*x*/ b",
+      "a/*\ud83d\ude00*/b",
+      "a/*x*/\r\nb",
+      "ab",
+      "a/*x*/",
+      "a/*"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Comment token used as significant input; hidden WS compression and Unicode spans remain separate observations.",
+    "lineage": {
+      "original_case": "significant_comment_datatype",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  "namespace_inherited_terminal_override": {
+    "id": "namespace_inherited_terminal_override",
+    "entry": "audit.scopes.OverrideTokenChild",
+    "sources": [
+      {
+        "file": "audit.scopes.OverrideTokenBase.xtext",
+        "grammar": "audit.scopes.OverrideTokenBase",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenBase.xtext",
+          "sha256": "f5a71fd5c222cd5520cb7ca0a97188745dd4f269a47dd17fd683e1ab78aaa324"
+        },
+        "bytes": 457
+      },
+      {
+        "file": "audit.scopes.OverrideTokenChild.xtext",
+        "grammar": "audit.scopes.OverrideTokenChild",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenChild.xtext",
+          "sha256": "2a4ddbafc6892babf823546672f6ed59a9104e789d9fbef796b1bc2f9efe02d2"
+        },
+        "bytes": 281
+      }
+    ],
+    "inputs": [
+      "a",
+      "~a~",
+      " a ",
+      "a~",
+      "a b",
+      "a~b",
+      "a\u00e9~",
+      "~",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Hidden token resolution uses effective override identity, not original body or spelling; warnings and lexer priority preserved.",
+    "lineage": {
+      "original_case": "inherited_terminal_override",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  "fragment_internal_significance": {
+    "id": "fragment_internal_significance",
+    "entry": "audit.scopes.FragmentInternalSignificance",
+    "sources": [
+      {
+        "grammar": "audit.scopes.FragmentInternalSignificance",
+        "file": "audit.scopes.FragmentInternalSignificance.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/fragment_internal_significance/audit.scopes.FragmentInternalSignificance.xtext",
+          "sha256": "c3df3c8ec5026447b97ce9c47f08b5994e974f5626dbf3b34752ec3e8d842335"
+        },
+        "bytes": 574
+      }
+    ],
+    "inputs": [
+      "[a:b]done",
+      "[ a:b ]done",
+      "[a :b]done",
+      "[a: b]done",
+      "[a/*x*/:b]done",
+      "[a:/*x*/b]done",
+      "[a:b]/*\ud83d\ude00*/done",
+      "[a:]done",
+      "[a:b]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Two significant tokens within caller-owned fragment distinguish its actual hidden policy. Earlier one-token fragment graph remains unchanged; it did not by itself discriminate internal skipping.",
+    "lineage": {
+      "original_case": "namespace_fragment_empty_scope",
+      "difference": "Separate full fragment body adds colon+second unassigned ID; original earlier body/providers/probes/results remain immutable."
+    },
+    "execution": "UNEXECUTED; separate source/workflow probes, never repair or requalify original inputs."
+  },
+  "reachable_named_prediction_entry": {
+    "id": "reachable_named_prediction_entry",
+    "entry": "audit.scopes.AvailablePredictionEntry",
+    "sources": [
+      {
+        "grammar": "audit.scopes.AvailablePredictionEntry",
+        "file": "audit.scopes.AvailablePredictionEntry.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+          "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+        },
+        "bytes": 698
+      }
+    ],
+    "inputs": [
+      "ab!",
+      "a b!",
+      "a/*x*/b!",
+      "ab?",
+      "a b?",
+      " a b?",
+      "a  b?",
+      "a b? ",
+      "a b",
+      "direct a b?",
+      "direct a b? ",
+      "direct a/*x*/b?",
+      "directab?"
+    ],
+    "named_entries": [
+      "Model",
+      "TightEntry"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Additional same-body named entry is made actually reachable by a new explicit Model alternative; verifies actual generated IParser entry availability and current-policy lookahead versus direct empty-policy call. Original unused TightEntry NoSuchMethodException remains its own availability observation.",
+    "lineage": {
+      "original_source": {
+        "grammar": "audit.scopes.PredictionMarkerScope",
+        "file": "audit.scopes.PredictionMarkerScope.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/prediction_marker_scope/audit.scopes.PredictionMarkerScope.xtext",
+          "sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135"
+        },
+        "bytes": 673
+      },
+      "original_file_sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135",
+      "source_delta": [
+        {
+          "old": "audit.scopes.PredictionMarkerScope",
+          "new": "audit.scopes.AvailablePredictionEntry"
+        },
+        {
+          "old": "Model returns k::Model: name=Loose '!' | name=Tight '?';",
+          "new": "Model returns k::Model: name=Loose '!' | name=Tight '?' | 'direct' TightEntry;"
+        }
+      ],
+      "original_probe_prefix_unchanged": true,
+      "new_probes": [
+        "direct a b?",
+        "direct a b? ",
+        "direct a/*x*/b?",
+        "directab?"
+      ]
+    },
+    "execution": "UNEXECUTED; separate source/workflow probes, never repair or requalify original inputs."
+  },
+  "reference_adds_scope": {
+    "id": "reference_adds_scope",
+    "entry": "audit.scopes.ReferenceAddsScope",
+    "sources": [
+      {
+        "grammar": "audit.scopes.ReferenceAddsScope",
+        "file": "audit.scopes.ReferenceAddsScope.xtext",
+        "source_id": {
+          "uri": "memory:hidden-references/reference_adds_scope/audit.scopes.ReferenceAddsScope.xtext",
+          "sha256": "69f9d0ec59636ba1ad8effe6b3d1365813372f94eca32739995a5429190c4ad7"
+        },
+        "bytes": 670
+      }
+    ],
+    "inputs": [
+      "type:a;use:f=a;",
+      "type:a;use:f= a;",
+      "type:a;use:f=/*x*/a;",
+      "type:a;use:f=a/*x*/;",
+      "type:a;use:f=a ;",
+      "type:a;use:f=/*\ud83d\ude00*/a;",
+      "type:\u00e9;use:f= /*\ud83d\ude00*/\u00e9;",
+      "type:a;use:f=z;",
+      "type:a;use:f= z;",
+      "type:a;use:f=;",
+      "type:a;use:f=a",
+      "type:a;use:f=a@;",
+      ""
+    ],
+    "named_entries": [
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Explicit actual noncontainment reference linking and feature-node semantic/total source spans under datatype rule-local hidden policy. Same original Ecore Feature.target/Type; no invented structural contract.",
+    "execution": "UNEXECUTED; no source/generation/linking/runtime success assumed."
+  },
+  "reference_empty_scope": {
+    "id": "reference_empty_scope",
+    "entry": "audit.scopes.ReferenceEmptyScope",
+    "sources": [
+      {
+        "grammar": "audit.scopes.ReferenceEmptyScope",
+        "file": "audit.scopes.ReferenceEmptyScope.xtext",
+        "source_id": {
+          "uri": "memory:hidden-references/reference_empty_scope/audit.scopes.ReferenceEmptyScope.xtext",
+          "sha256": "657a6af18077986fa9b0a0f2ac15580b5788397e51154391314c962a7e014b49"
+        },
+        "bytes": 671
+      }
+    ],
+    "inputs": [
+      "type:a;use:f=a;",
+      "type:a;use:f= a;",
+      "type:a;use:f=/*x*/a;",
+      "type:a;use:f=a/*x*/;",
+      "type:a;use:f=a ;",
+      "type:a;use:f=/*\ud83d\ude00*/a;",
+      "type:\u00e9;use:f= /*\ud83d\ude00*/\u00e9;",
+      "type:a;use:f=z;",
+      "type:a;use:f= z;",
+      "type:a;use:f=;",
+      "type:a;use:f=a",
+      "type:a;use:f=a@;",
+      ""
+    ],
+    "named_entries": [
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Explicit actual noncontainment reference linking and feature-node semantic/total source spans under datatype rule-local hidden policy. Same original Ecore Feature.target/Type; no invented structural contract.",
+    "execution": "UNEXECUTED; no source/generation/linking/runtime success assumed."
+  },
+  "caller_suffix": {
+    "id": "caller_suffix",
+    "entry": "audit.scopes.CallerSuffix",
+    "sources": [
+      {
+        "grammar": "audit.scopes.CallerSuffix",
+        "file": "audit.scopes.CallerSuffix.xtext",
+        "source_id": {
+          "uri": "memory:hidden-delegation/caller_suffix/audit.scopes.CallerSuffix.xtext",
+          "sha256": "cde69dcd723e30ebb4e09fc6ed3d17168a44f0c1ee5c981a6c3538b3f693a49d"
+        },
+        "bytes": 693
+      }
+    ],
+    "inputs": [
+      "ab!",
+      "a b!",
+      "a/*x*/b!",
+      "ab?",
+      "a b?",
+      " a b?",
+      "a  b?",
+      "a b? ",
+      "a b",
+      "direct a b?",
+      "direct a b? ",
+      "direct a/*x*/b?",
+      "directab?",
+      "direct a b?done",
+      "direct a b? done",
+      "direct a b?done ",
+      "direct a b?/*\ud83d\ude00*/done"
+    ],
+    "named_entries": [
+      "Model",
+      "TightEntry"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Actual EObject semantic node interval when an unassigned child returns current through a caller prefix AND suffix; test endpoints rather than infer from prefix-only source.",
+    "lineage": {
+      "original": {
+        "grammar": "audit.scopes.AvailablePredictionEntry",
+        "file": "audit.scopes.AvailablePredictionEntry.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+          "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+        },
+        "bytes": 698
+      },
+      "original_probe_prefix_unchanged": true,
+      "delta": [
+        {
+          "old": "audit.scopes.AvailablePredictionEntry",
+          "new": "audit.scopes.CallerSuffix"
+        },
+        {
+          "old": "| 'direct' TightEntry;",
+          "new": "| 'direct' TightEntry 'done';"
+        }
+      ],
+      "original_and_attempt2_immutable": true
+    },
+    "execution": "UNEXECUTED; source/generation/runtime success not assumed."
+  }
+}

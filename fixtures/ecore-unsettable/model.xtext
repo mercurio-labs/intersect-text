@@ -1,0 +1,4 @@
+grammar state.Models with org.eclipse.xtext.common.Terminals
+import "urn:state" as s
+Root returns s::Root: 'root' name=ID '{' items+=Item* '}';
+Item returns s::Item: 'item' name=ID ('value' value=STRING)? ('tags' tags+=STRING*)? ('link' link=[s::Item|ID])? ';';

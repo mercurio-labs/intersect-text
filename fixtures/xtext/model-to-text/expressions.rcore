@@ -1,0 +1,5 @@
+rcore 1; package calc version "1"; metamodel "urn:general-text" prefix c {
+      class Root { ref expr: Expr [1,1] containment; } abstract class Expr {}
+      class Number extends Expr { attr value: Int32 [1,1]; }
+      class Add extends Expr { ref left: Expr [1,1] containment; ref right: Expr [1,1] containment; }
+    }

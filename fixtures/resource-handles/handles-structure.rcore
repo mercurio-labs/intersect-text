@@ -1,0 +1,14 @@
+rcore 1;
+package `handles` version "1";
+metamodel "urn:intersect:handles" prefix `handles` {
+  datatype `Resource` instanceClass "org.eclipse.emf.ecore.resource.Resource" nonserializable {  }
+  datatype `ResourceSet` instanceClass "org.eclipse.emf.ecore.resource.ResourceSet" nonserializable {  }
+  class `Catalog` {
+    attr `name`: EString [0,1];
+    attr `resource`: external "http://www.eclipse.org/emf/2002/Ecore#//EResource" [0,1];
+    attr `resources`: external "http://www.eclipse.org/emf/2002/Ecore#//EResourceSet" [0,1];
+    attr `localResource`: external "#//@eClassifiers.1" [0,1];
+    attr `localSet`: external "#//@eClassifiers.2" [0,1];
+    op `choose`(`resources`: external "http://www.eclipse.org/emf/2002/Ecore#//EResourceSet" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//EResource" [0,1];
+  }
+}

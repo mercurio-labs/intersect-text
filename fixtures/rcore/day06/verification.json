@@ -1,0 +1,98 @@
+{
+  "checkpoint": "R06",
+  "hosts": [
+    "native",
+    "WASM"
+  ],
+  "native_wasm_comparisons": 30,
+  "source_ids": [
+    {
+      "uri": "fixture:rcore/web/specialization.rcore",
+      "sha256": "ee08c26b070d5c62d93ac66367f25be5b40d5466ec43c023f1f3608478a992b8"
+    },
+    {
+      "uri": "fixture:rcore/web/specialization.generated.ecore",
+      "sha256": "04411be10528bd85e87f01c8a655f5b2f2e82b9aa76f79629df7f8436714035d"
+    },
+    {
+      "uri": "fixture:rcore/web/specialization.xtext",
+      "sha256": "3c27ea0d0817a039c2bf9ba60db82925807c8f20492c265170a3f39f08f06674"
+    },
+    {
+      "uri": "fixture:rcore/web/scoping.semdef",
+      "sha256": "25a0309dd54bc836cb31c3e9a66846fa2de317622eac519e32ade12a375002eb"
+    },
+    {
+      "uri": "fixture:rcore/web/specialization-behavior.rcore",
+      "sha256": "a332d8c2131b0a6be8e080568cdde820dced3b5a3a2054891743231677059813"
+    }
+  ],
+  "cases": [
+    {
+      "name": "chain",
+      "expected": [
+        "A",
+        "B",
+        "C"
+      ],
+      "elements": 8,
+      "references": 4,
+      "semantic_reads": 10
+    },
+    {
+      "name": "edited-chain",
+      "expected": [
+        "A",
+        "B",
+        "D"
+      ],
+      "elements": 8,
+      "references": 4,
+      "semantic_reads": 10
+    },
+    {
+      "name": "diamond",
+      "expected": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "elements": 10,
+      "references": 8,
+      "semantic_reads": 16
+    },
+    {
+      "name": "cycle",
+      "expected": [
+        "A",
+        "B"
+      ],
+      "elements": 8,
+      "references": 4,
+      "semantic_reads": 8
+    },
+    {
+      "name": "duplicate-edges",
+      "expected": [
+        "A",
+        "B",
+        "C"
+      ],
+      "elements": 9,
+      "references": 6,
+      "semantic_reads": 12
+    },
+    {
+      "name": "isolated",
+      "expected": [
+        "A"
+      ],
+      "elements": 6,
+      "references": 0,
+      "semantic_reads": 2
+    }
+  ],
+  "provenance_differences": "Text retains document resources and byte ranges; direct materialization retains memory:materialized and zero ranges.",
+  "qualification": "Bounded named specialization projection; full KerML/Xtext/Ecore and complete dependency observations remain unqualified."
+}

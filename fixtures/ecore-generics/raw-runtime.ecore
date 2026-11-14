@@ -1,0 +1,27 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="raw" nsURI="urn:raw">
+<eClassifiers x:type="e:EClass" name="Value"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="new"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child" eSuperTypes="#//Value"/>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EClass" name="Box">
+ <eTypeParameters name="T"><eBounds eClassifier="#//Value"/></eTypeParameters>
+ <eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Box/T"/></eStructuralFeatures>
+ <eOperations name="get"><eGenericType eTypeParameter="#//Box/T"/></eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Holder">
+ <eStructuralFeatures x:type="e:EReference" name="rawBox" eType="#//Box"/>
+ <eStructuralFeatures x:type="e:EReference" name="childBox"><eGenericType eClassifier="#//Box"><eTypeArguments eClassifier="#//Child"/></eGenericType></eStructuralFeatures>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Derived">
+ <eTypeParameters name="U"><eBounds eClassifier="#//Value"/></eTypeParameters>
+ <eGenericSuperTypes eClassifier="#//Box"><eTypeArguments eTypeParameter="#//Derived/U"/></eGenericSuperTypes>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Both" eSuperTypes="#//Value #//Other"/>
+<eClassifiers x:type="e:EClass" name="Intersection">
+ <eTypeParameters name="T"><eBounds eClassifier="#//Value"/><eBounds eClassifier="#//Other"/></eTypeParameters>
+ <eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Intersection/T"/></eStructuralFeatures>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Narrow">
+ <eTypeParameters name="U"><eBounds eClassifier="#//Child"/></eTypeParameters>
+ <eGenericSuperTypes eClassifier="#//Box"><eTypeArguments eTypeParameter="#//Narrow/U"/></eGenericSuperTypes>
+</eClassifiers>
+</e:EPackage>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="library" nsURI="urn:intersect:example:library:1" nsPrefix="lib">
+  <eClassifiers xsi:type="ecore:EClass" name="Named" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"><eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/></eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library"><eGenericSuperTypes eClassifier="#//Named"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copies" upperBound="-1" containment="true" eOpposite="#//BookCopy/library"><eGenericType eClassifier="#//BookCopy"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1" containment="true"><eGenericType eClassifier="#//Member"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loans" upperBound="-1" containment="true"><eGenericType eClassifier="#//Loan"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyCount" derived="true"><eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/></eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BookCopy"><eGenericSuperTypes eClassifier="#//Named"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title"><eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edition" defaultValueLiteral="1"><eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="library" eOpposite="#//Library/copies"><eGenericType eClassifier="#//Library"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="available" derived="true"><eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/></eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member"><eGenericSuperTypes eClassifier="#//Named"/></eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loan"><eGenericSuperTypes eClassifier="#//Named"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copy" lowerBound="1"><eGenericType eClassifier="#//BookCopy"/></eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" lowerBound="1"><eGenericType eClassifier="#//Member"/></eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

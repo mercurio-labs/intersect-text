@@ -1,0 +1,26 @@
+module Generate
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+var rootPath = "."
+Workflow {
+  bean = org.eclipse.emf.mwe.utils.StandaloneSetup { registerGenModelFile = "file:///D:/dev/repos/mercurio-labs/intersect/target/rcore-xtext-support-evidence/full-until-call-continuations-v1/calls-record/provider-726b2116570f/provider.genmodel" }
+  component = XtextGenerator {
+    configuration = {
+      project = StandardProjectConfig {
+        baseName = "fragment-runtime-oracle"
+        rootPath = rootPath
+        runtime = { name = "fragment-runtime-oracle" root = rootPath }
+        mavenLayout = false
+      }
+      code = { encoding = "UTF-8" lineDelimiter = "\n" preferXtendStubs = false }
+    }
+    language = StandardLanguage {
+      name = "audit.UntilCallsOrdinaryFragmentSuffixC"
+      fileExtensions = "lexicaltest"
+      referencedResource = "file:///D:/dev/repos/mercurio-labs/intersect/target/rcore-xtext-support-evidence/full-until-call-continuations-v1/calls-record/provider-726b2116570f/provider.genmodel"
+      serializer = { generateStub = false }
+      validator = { generateDeprecationValidation = false }
+    }
+
+  }
+}

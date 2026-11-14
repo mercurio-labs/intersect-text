@@ -1,0 +1,260 @@
+{
+  "schema": "intersect.native-pilot.bench-cases.v1",
+  "pilot_commit": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "manifest_sha256": "3f177d78f58c0de39963d00fffde572964b3c582d96182b0c92604324bfd32d8",
+  "setup_safety_seconds": 120,
+  "max_observer_events": 4000000,
+  "max_json_events": 512,
+  "profile": {
+    "request_work": 256000000000,
+    "preparation_work": 100000000,
+    "logical_storage_bytes": 68719476736,
+    "resources": 256
+  },
+  "cases": [
+    {
+      "id": "tiny",
+      "libraries": [],
+      "controls": [
+        {
+          "source_uri": "control/tiny-reference.kerml",
+          "resource_uri": "pilot:/control/tiny-reference.kerml",
+          "language": "kerml",
+          "text": "package Tiny { class Target; feature selected : Target; }\n",
+          "sha256": "490a6b1497a5e7b08b1acb3c47b5128b808ef8d7464edaad25939e4ad9b8060b"
+        },
+        {
+          "source_uri": "control/native-bench.sysml",
+          "resource_uri": "pilot:/control/native-bench.sysml",
+          "language": "sysml",
+          "text": "package NativeBenchSystems;\n",
+          "sha256": "a24d54abd33520a1922fdc22d04db470a7970dcb1a5bf42942304894dd11980e"
+        }
+      ],
+      "model_seconds": 15
+    },
+    {
+      "id": "foundations",
+      "libraries": [
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      ],
+      "controls": [
+        {
+          "source_uri": "control/native-foundations.kerml",
+          "resource_uri": "pilot:/control/native-foundations.kerml",
+          "language": "kerml",
+          "text": "package NativeFoundations { datatype Count specializes ScalarValues::Integer; feature amount : Count; }\n",
+          "sha256": "c362b9328fb6aad23cc576ebb1655e3f1ceef6245cded635ad8a77515e0fd96a"
+        },
+        {
+          "source_uri": "control/native-foundations.sysml",
+          "resource_uri": "pilot:/control/native-foundations.sysml",
+          "language": "sysml",
+          "text": "package NativeFoundationsSystems;\n",
+          "sha256": "3e68c493d7bab818c659b7a1bbe92d584127c03a11dd1c722ec1a87bb8b2f234"
+        }
+      ],
+      "model_seconds": 60
+    },
+    {
+      "id": "parent-ends",
+      "libraries": [
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      ],
+      "controls": [
+        {
+          "source_uri": "control/native-parent-ends.kerml",
+          "resource_uri": "pilot:/control/native-parent-ends.kerml",
+          "language": "kerml",
+          "text": "standard library package NativeParentEnds { private import Base::*; type Parent :> Anything { end feature alpha : Anything[1]; end feature beta : Anything[1]; } feature parentGroup : Parent; feature parents : Parent subsets parentGroup { end feature alpha : Anything redefines Parent::alpha; end feature beta : Anything redefines Parent::beta; } }",
+          "sha256": "5b80886e3c8de73d656dc3655e77e20a6f035bd98a23d8f353f1ef9d3eded34f"
+        },
+        {
+          "source_uri": "control/native-bench.sysml",
+          "resource_uri": "pilot:/control/native-bench.sysml",
+          "language": "sysml",
+          "text": "package NativeBenchSystems;\n",
+          "sha256": "a24d54abd33520a1922fdc22d04db470a7970dcb1a5bf42942304894dd11980e"
+        }
+      ],
+      "model_seconds": 15
+    },
+    {
+      "id": "kernel-links",
+      "libraries": [
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml"
+      ],
+      "controls": [
+        {
+          "source_uri": "control/native-bench.sysml",
+          "resource_uri": "pilot:/control/native-bench.sysml",
+          "language": "sysml",
+          "text": "package NativeBenchSystems;\n",
+          "sha256": "a24d54abd33520a1922fdc22d04db470a7970dcb1a5bf42942304894dd11980e"
+        }
+      ],
+      "model_seconds": 60
+    },
+    {
+      "id": "mixed-attributes",
+      "libraries": [
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml",
+        "sysml.library/Systems Library/Attributes.sysml"
+      ],
+      "controls": [],
+      "model_seconds": 60
+    },
+    {
+      "id": "kernel36-attributes",
+      "libraries": [
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/Collections.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/VectorValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/BaseFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/BooleanFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/CollectionFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ComplexFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ControlFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/DataFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/IntegerFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/NaturalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/NumericalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/OccurrenceFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/RationalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/RealFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ScalarFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/SequenceFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/StringFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/TrigFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/VectorFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Clocks.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/ControlPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/FeatureReferencingPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/KerML.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Metaobjects.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Objects.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Observation.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Occurrences.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Performances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/SpatialFrames.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/StatePerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Transfers.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/TransitionPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Triggers.kerml",
+        "sysml.library/Systems Library/Attributes.sysml"
+      ],
+      "controls": [],
+      "model_seconds": 60
+    },
+    {
+      "id": "all94",
+      "libraries": [
+        "sysml.library/Domain Libraries/Analysis/AnalysisTooling.sysml",
+        "sysml.library/Domain Libraries/Analysis/SampledFunctions.sysml",
+        "sysml.library/Domain Libraries/Analysis/StateSpaceRepresentation.sysml",
+        "sysml.library/Domain Libraries/Analysis/TradeStudies.sysml",
+        "sysml.library/Domain Libraries/Cause and Effect/CausationConnections.sysml",
+        "sysml.library/Domain Libraries/Cause and Effect/CauseAndEffect.sysml",
+        "sysml.library/Domain Libraries/Geometry/ShapeItems.sysml",
+        "sysml.library/Domain Libraries/Geometry/SpatialItems.sysml",
+        "sysml.library/Domain Libraries/Metadata/ImageMetadata.sysml",
+        "sysml.library/Domain Libraries/Metadata/ModelingMetadata.sysml",
+        "sysml.library/Domain Libraries/Metadata/ParametersOfInterestMetadata.sysml",
+        "sysml.library/Domain Libraries/Metadata/RiskMetadata.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQ.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQAcoustics.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQAtomicNuclear.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQBase.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQCharacteristicNumbers.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQChemistryMolecular.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQCondensedMatter.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQInformation.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQLight.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQMechanics.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQSpaceTime.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/ISQThermodynamics.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/MeasurementRefCalculations.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/MeasurementReferences.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/Quantities.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/QuantityCalculations.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/SI.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/SIPrefixes.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/TensorCalculations.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/Time.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/USCustomaryUnits.sysml",
+        "sysml.library/Domain Libraries/Quantities and Units/VectorCalculations.sysml",
+        "sysml.library/Domain Libraries/Requirement Derivation/DerivationConnections.sysml",
+        "sysml.library/Domain Libraries/Requirement Derivation/RequirementDerivation.sysml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/Collections.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Data Type Library/VectorValues.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/BaseFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/BooleanFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/CollectionFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ComplexFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ControlFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/DataFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/IntegerFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/NaturalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/NumericalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/OccurrenceFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/RationalFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/RealFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/ScalarFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/SequenceFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/StringFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/TrigFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Function Library/VectorFunctions.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Clocks.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/ControlPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/FeatureReferencingPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/KerML.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Metaobjects.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Objects.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Observation.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Occurrences.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Performances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/SpatialFrames.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/StatePerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Transfers.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/TransitionPerformances.kerml",
+        "sysml.library/Kernel Libraries/Kernel Semantic Library/Triggers.kerml",
+        "sysml.library/Systems Library/Actions.sysml",
+        "sysml.library/Systems Library/Allocations.sysml",
+        "sysml.library/Systems Library/AnalysisCases.sysml",
+        "sysml.library/Systems Library/Attributes.sysml",
+        "sysml.library/Systems Library/Calculations.sysml",
+        "sysml.library/Systems Library/Cases.sysml",
+        "sysml.library/Systems Library/Connections.sysml",
+        "sysml.library/Systems Library/Constraints.sysml",
+        "sysml.library/Systems Library/Flows.sysml",
+        "sysml.library/Systems Library/Interfaces.sysml",
+        "sysml.library/Systems Library/Items.sysml",
+        "sysml.library/Systems Library/Metadata.sysml",
+        "sysml.library/Systems Library/Parts.sysml",
+        "sysml.library/Systems Library/Ports.sysml",
+        "sysml.library/Systems Library/Requirements.sysml",
+        "sysml.library/Systems Library/StandardViewDefinitions.sysml",
+        "sysml.library/Systems Library/States.sysml",
+        "sysml.library/Systems Library/SysML.sysml",
+        "sysml.library/Systems Library/UseCases.sysml",
+        "sysml.library/Systems Library/VerificationCases.sysml",
+        "sysml.library/Systems Library/Views.sysml"
+      ],
+      "controls": [],
+      "model_seconds": 60
+    }
+  ],
+  "closure_scope": "Explicit original source selections, not inferred whole-language semantic closure. Actual native linking, strict ResourceSet admission and selected binding checks determine success."
+}

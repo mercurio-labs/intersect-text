@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "source_evidence": "../day01/kerml-provenance.json",
+  "upstream_sha256": "07f47c9aabedbf5561e1cb31986c8cedc707d05cf1eada4370c062d55dd9791a",
+  "upstream_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "projection_namespace": "urn:intersect:rcore:web-specialization",
+  "identity_policy": "New generated identities; this correspondence does not admit the full actual metamodel.",
+  "correspondence": [
+    {
+      "class": "Type",
+      "generated_path": [
+        1
+      ],
+      "upstream_path": [
+        16
+      ]
+    },
+    {
+      "class": "Specialization",
+      "generated_path": [
+        2
+      ],
+      "upstream_path": [
+        17
+      ]
+    },
+    {
+      "feature": "Specialization.general",
+      "generated_path": [
+        2,
+        1
+      ],
+      "upstream_path": [
+        17,
+        0
+      ]
+    },
+    {
+      "feature": "Specialization.specific",
+      "generated_path": [
+        2,
+        2
+      ],
+      "upstream_path": [
+        17,
+        1
+      ]
+    }
+  ],
+  "synthetic": [
+    "Model",
+    "Model.name",
+    "Model.types",
+    "Model.specializations",
+    "Type.name",
+    "Specialization.name",
+    "Type.allGenerals"
+  ],
+  "exclusions": [
+    "all inherited Element/Namespace/Relationship features and constraints",
+    "derived owningType/ownedSpecialization",
+    "implicit specialization and standard-library semantics",
+    "full KerML conformance"
+  ],
+  "ordering": "Traversal uses the explicit immutable fixture model view; no normative ordering of unordered KerML relationships is claimed."
+}

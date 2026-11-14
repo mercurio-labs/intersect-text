@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="semanticSpansV71" nsURI="urn:intersect:oracle:semantic-object-spans-v71" nsPrefix="semanticSpansV71">
+  <eClassifiers xsi:type="e:EClass" name="Node" abstract="true"/>
+  <eClassifiers xsi:type="e:EClass" name="Root" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="e:EReference" name="previous" eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="e:EReference" name="child" eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="e:EAttribute" name="value" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="e:EClass" name="Leaf" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="e:EClass" name="Empty" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="e:EClass" name="Middle" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="e:EReference" name="child" eType="#//Node" containment="true"/>
+  </eClassifiers>
+</e:EPackage>

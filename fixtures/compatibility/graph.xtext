@@ -1,0 +1,5 @@
+grammar compatibility.Graph with org.eclipse.xtext.common.Terminals
+import "urn:intersect:compatibility:graph" as g
+Graph returns g::Graph: 'graph' name=ID '{' (nodes+=Node | edges+=Edge)* '}';
+Node returns g::Node: 'node' name=ID ('count' count=INT)? ('label' labels+=STRING)* ('peer' peer=[g::Node|ID])? ('link' links+=[g::Node|ID])* ';';
+Edge returns g::Edge: 'edge' name=ID source=[g::Node|ID] 'to' target=[g::Node|ID] ('weight' weight=INT)? ';';

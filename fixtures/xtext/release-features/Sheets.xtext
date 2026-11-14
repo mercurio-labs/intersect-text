@@ -1,0 +1,81 @@
+/* Release 1 Xtext feature fixture (gate G1, decision D1): the entry grammar.
+ * Written for this repository; not derived from KerML or SysML. It extends
+ * Formulas.xtext, inherits its hidden terminals, calls and overrides its
+ * rules, and uses enums, fragments, cross references with a data type rule,
+ * `=>` and `->` predicates in the shapes the pinned grammars use them. */
+grammar fixture.release.Sheets with fixture.release.Formulas
+
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+import "urn:intersect:fixture:release-sheets:1" as sh
+
+Workbook returns sh::Workbook :
+	{sh::Workbook} ( imports += Import | sheets += Sheet )*
+;
+
+Import returns sh::Import :
+	'use' importedNamespace = ImportPath ';'
+;
+
+ImportPath :
+	Path ( '.' '*' )?
+;
+
+Sheet returns sh::Sheet :
+	SheetPrefix 'sheet' name = Name ( 'extends' base = [sh::Sheet | Path] )?
+	( ';' | '{' => SheetItem* '}' )
+;
+
+fragment SheetPrefix returns sh::Sheet :
+	access = Access? ( locked ?= 'locked' )?
+;
+
+fragment SheetItem returns sh::Sheet :
+	=> imports += Import
+	| cells += Cell
+;
+
+enum Access returns sh::Access :
+	public = 'public' | private = 'private'
+;
+
+Cell returns sh::Cell :
+	CellKeyword name = Name CellSpecializationPart? ( '=' formula = Formula )? ';'
+;
+
+CellKeyword :
+	'cell' | 'value'
+;
+
+fragment CellSpecializationPart returns sh::Cell :
+	( -> CellSpecialization )+ UnitPart? CellSpecialization*
+	| UnitPart CellSpecialization*
+;
+
+fragment CellSpecialization returns sh::Cell :
+	KindPart | SourcesPart
+;
+
+fragment KindPart returns sh::Cell :
+	':' kind = Kind
+;
+
+fragment SourcesPart returns sh::Cell :
+	'<-' sources += [sh::Cell | Path] ( ',' sources += [sh::Cell | Path] )*
+;
+
+fragment UnitPart returns sh::Cell :
+	'[' unit = ( 'cm' | 'mm' | 'kg' ) ']'
+;
+
+enum Kind returns sh::Kind :
+	input = 'in' | output = 'out'
+;
+
+@Override
+Literal returns sh::Expr :
+	NumberLit | RealLit | BoolLit | TextLit | EmptyLit
+;
+
+EmptyLit returns sh::Expr :
+	{sh::EmptyLit} 'empty'
+;

@@ -1,0 +1,225 @@
+[
+  {
+    "id": "typed_basic",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "origin_case": "typed_basic",
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "alpha"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_basic",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "origin_case": "wildcard_basic",
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "m alpha"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_typed_call",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardTypedCall",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardTypedCall hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_typed_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: Common;\nfragment Common: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "origin_case": "wildcard_typed_call",
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "alpha"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.WildcardOverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardOverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:wildcard_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.WildcardOverride.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.WildcardOverride.Child with inference.fragments.WildcardOverride.Parent\ngenerate child \"urn:inference:fragments:wildcard_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: name=ID ('tag' tag=ID)?;\n"
+      }
+    ],
+    "origin_case": "wildcard_override",
+    "runs": []
+  },
+  {
+    "id": "wildcard_override_lowercase",
+    "derived_from": "wildcard_override",
+    "source_changes": "Only the grammar namespace identifiers and matching with reference use lowercase wildcardoverride; rule bodies and metamodel URIs are unchanged.",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.wildcardoverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.wildcardoverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:wildcard_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.wildcardoverride.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.wildcardoverride.Child with inference.fragments.wildcardoverride.Parent\ngenerate child \"urn:inference:fragments:wildcard_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: name=ID ('tag' tag=ID)?;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "alpha"
+      },
+      {
+        "entry": "resource",
+        "text": "alpha tag beta"
+      },
+      {
+        "entry": "Root",
+        "text": "r alpha"
+      },
+      {
+        "entry": "Root",
+        "text": "r alpha tag beta"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_override_reachable",
+    "derived_from": "wildcard_override_lowercase",
+    "source_changes": "A new child grammar uses Holder: node=Root so the inherited Root path is emitted. Existing parent source, rule body and metamodel URIs stay exact.",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.wildcardoverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.wildcardoverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:wildcard_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.wildcardoverride.Reachable",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.wildcardoverride.Reachable with inference.fragments.wildcardoverride.Parent\ngenerate child \"urn:inference:fragments:wildcard_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nHolder: node=Root;\nfragment Fields*: name=ID ('tag' tag=ID)?;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "r alpha"
+      },
+      {
+        "entry": "resource",
+        "text": "r alpha tag beta"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_typed_compatible",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.runtime.Compatible",
+        "dependencies": [],
+        "source": "grammar inference.fragments.runtime.Compatible hidden(WS)\ngenerate runtime \"urn:inference:fragment-runtime:wildcard_typed_compatible\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' name=ID Fields;\nfragment Fields*: Common;\nfragment Common: name=ID;\nterminal ID: ('a'..'z')+;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "m alpha beta"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_typed_incompatible",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.runtime.Incompatible",
+        "dependencies": [],
+        "source": "grammar inference.fragments.runtime.Incompatible hidden(WS)\ngenerate runtime \"urn:inference:fragment-runtime:wildcard_typed_incompatible\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' name=INT Fields;\nfragment Fields*: Common;\nfragment Common: name=ID;\nterminal ID: ('a'..'z')+;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "m 42 alpha"
+      }
+    ]
+  },
+  {
+    "id": "unused_assigned_fragment",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.runtime.UnusedAssigned",
+        "dependencies": [],
+        "source": "grammar inference.fragments.runtime.UnusedAssigned hidden(WS)\ngenerate runtime \"urn:inference:fragment-runtime:unused_assigned_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID;\nfragment Fields*: bad=Common;\nfragment Common: name=ID;\nterminal ID: ('a'..'z')+;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "alpha"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_numeric_string",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.runtime.NumericString",
+        "dependencies": [],
+        "source": "grammar inference.fragments.runtime.NumericString hidden(WS)\ngenerate runtime \"urn:inference:fragment-runtime:wildcard_numeric_string\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Root} Fields;\nOther returns Root: number=Count;\nfragment Fields*: Generic;\nfragment Generic: number=WORD;\nterminal Count returns ecore::EInt: 'i' ('0'..'9')+;\nterminal WORD: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "42"
+      }
+    ]
+  }
+]

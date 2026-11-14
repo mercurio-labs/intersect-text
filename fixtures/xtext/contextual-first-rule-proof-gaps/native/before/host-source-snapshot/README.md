@@ -1,0 +1,1 @@
+Verification-only exact byte copies of the candidate pure project transport and its static dependencies. No production code imports this snapshot. Portable replay validates historical observed recipes; the actual Node consumer drafts import the live Toolkit modules separately. No browser lifecycle qualification.

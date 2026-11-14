@@ -1,0 +1,56 @@
+{
+  "state": "same exact generated sources under separated signed-parent/generated-child loaders recorded and freshly replayed",
+  "graphs": 2,
+  "observations_per_run": 17,
+  "successful_control_observations_per_run": 8,
+  "newly_observable_original_simple_requests_per_run": 9,
+  "whitelist_negative_controls": [
+    {
+      "id": "wrong-digest",
+      "exit_code": 1,
+      "specification": {
+        "bytes": 26159,
+        "sha256": "baf60796a25a199d5e8b70aa264076c16c4fa95c5f5d43c2601c99820a5901a3"
+      }
+    },
+    {
+      "id": "duplicate-resource",
+      "exit_code": 1,
+      "specification": {
+        "bytes": 26260,
+        "sha256": "a1c04a318763655fbf6ec4be3872c446bdcd0aeb17a77f83b110f3d9bfbfbe1e"
+      }
+    },
+    {
+      "id": "unlisted-owned-file",
+      "exit_code": 1,
+      "specification": {
+        "bytes": 26058,
+        "sha256": "f7cd6c2637d859a8e33bac9b93e4efdcaacc3841c9ce6bf2101ba50521962e5a"
+      }
+    },
+    {
+      "id": "path-escape",
+      "exit_code": 1,
+      "specification": {
+        "bytes": 26155,
+        "sha256": "84c1a4f22829b5545fef78e6afce27ed080dbd6e62a37bcc59921404aaae01e8"
+      }
+    }
+  ],
+  "commands": {
+    "bytes": 331459,
+    "sha256": "27136f7e86da41fe76a2feb7da03a29c56d82b8c008b731e433a7cc1733a7968"
+  },
+  "observations": {
+    "bytes": 2506805,
+    "sha256": "4663f3a0e09dd6dc3fef99300f0c4cf095b4c9cbc6c4e81d1cf4918f98a58a37"
+  },
+  "preexecution": {
+    "bytes": 1553909,
+    "sha256": "03126160ba9b35297673f40ce60e10b37db6698ca53b198df7e8cb837ea8acf5"
+  },
+  "original_security_failure": "xnca1 all9 simple runtime exit1/noJSON retained; no reclassification",
+  "comparison_exceptions": [],
+  "gate_closures": []
+}

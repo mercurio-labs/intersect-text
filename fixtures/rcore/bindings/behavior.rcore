@@ -1,0 +1,7 @@
+rcore 1;
+package binding.behavior version "1";
+import model "urn:intersect:bindings" as m;
+
+// Reference behavior supplies independently testable semantic specifications.
+fn twice(value:Int64)->Int64 { value + value }
+fn doubled(meter:m.Meter)->Int64 { meter.value + meter.value }

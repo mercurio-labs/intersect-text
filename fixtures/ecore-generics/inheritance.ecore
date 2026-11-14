@@ -1,0 +1,9 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EClass" name="Value"/>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EClass" name="Base"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Left"><eTypeParameters name="U"/><eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eTypeParameter="#//Left/U"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Right"><eTypeParameters name="V"/><eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eTypeParameter="#//Right/V"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Diamond"><eTypeParameters name="W"/><eGenericSuperTypes eClassifier="#//Left"><eTypeArguments eTypeParameter="#//Diamond/W"/></eGenericSuperTypes><eGenericSuperTypes eClassifier="#//Right"><eTypeArguments eTypeParameter="#//Diamond/W"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Use"><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eClassifier="#//Diamond"><eTypeArguments eClassifier="#//Value"/></eGenericType></eStructuralFeatures></eClassifiers>
+</e:EPackage>

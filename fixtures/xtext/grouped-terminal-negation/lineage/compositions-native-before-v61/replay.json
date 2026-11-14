@@ -1,0 +1,1001 @@
+{
+  "transcript": [
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext",
+                  "sha256": "b57e37dc59ded4c27cc28ed1dcc1d1cd8fe34ce941745b28ecbc6f2aadcb2c81"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.NestedInlineMulti hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(!('ab'|'x'));\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext",
+            "sha256": "b57e37dc59ded4c27cc28ed1dcc1d1cd8fe34ce941745b28ecbc6f2aadcb2c81"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext",
+                  "sha256": "b57e37dc59ded4c27cc28ed1dcc1d1cd8fe34ce941745b28ecbc6f2aadcb2c81"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.NestedInlineMulti hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(!('ab'|'x'));\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext",
+            "sha256": "b57e37dc59ded4c27cc28ed1dcc1d1cd8fe34ce941745b28ecbc6f2aadcb2c81"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.nested_inline_multi",
+          "release": "1",
+          "display_name": "nested_inline_multi",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/nested_inline_multi/audit.NestedInlineMulti.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext",
+                  "sha256": "981e1b8a72333f25aebdfb8d58451f3701f94e018cbd84f86172262b056a2671"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.InlineMultiCall hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(PAIR|'x');\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext",
+            "sha256": "981e1b8a72333f25aebdfb8d58451f3701f94e018cbd84f86172262b056a2671"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext",
+                  "sha256": "981e1b8a72333f25aebdfb8d58451f3701f94e018cbd84f86172262b056a2671"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.InlineMultiCall hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(PAIR|'x');\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext",
+            "sha256": "981e1b8a72333f25aebdfb8d58451f3701f94e018cbd84f86172262b056a2671"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.inline_multi_call",
+          "release": "1",
+          "display_name": "inline_multi_call",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/inline_multi_call/audit.InlineMultiCall.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext",
+                  "sha256": "1d2b578f467718f62d8317506956bccb267814331b75645d9336af8be8cffa79"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.NestedMultiCall hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !PAIR;\nterminal fragment PAIR:INNER;\nterminal fragment INNER:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext",
+            "sha256": "1d2b578f467718f62d8317506956bccb267814331b75645d9336af8be8cffa79"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext",
+                  "sha256": "1d2b578f467718f62d8317506956bccb267814331b75645d9336af8be8cffa79"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.NestedMultiCall hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !PAIR;\nterminal fragment PAIR:INNER;\nterminal fragment INNER:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext",
+            "sha256": "1d2b578f467718f62d8317506956bccb267814331b75645d9336af8be8cffa79"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.nested_multi_call",
+          "release": "1",
+          "display_name": "nested_multi_call",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/nested_multi_call/audit.NestedMultiCall.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentBase.xtext",
+                  "sha256": "c78b5dd35a0f8d58edc44c48bf93cbe3b0f0df53661a2285216fd8146ddb8125"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiFragmentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:'p';\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext",
+                  "sha256": "a814eaac66f2eb0f58f363ce8f2812f455db7615be8e073aa5c46afc0e4c6cce"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiFragmentChild with audit.MultiFragmentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !PAIR;\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentBase.xtext",
+                    "sha256": "c78b5dd35a0f8d58edc44c48bf93cbe3b0f0df53661a2285216fd8146ddb8125"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext",
+            "sha256": "a814eaac66f2eb0f58f363ce8f2812f455db7615be8e073aa5c46afc0e4c6cce"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentBase.xtext",
+                  "sha256": "c78b5dd35a0f8d58edc44c48bf93cbe3b0f0df53661a2285216fd8146ddb8125"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiFragmentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:'p';\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext",
+                  "sha256": "a814eaac66f2eb0f58f363ce8f2812f455db7615be8e073aa5c46afc0e4c6cce"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiFragmentChild with audit.MultiFragmentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !PAIR;\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentBase.xtext",
+                    "sha256": "c78b5dd35a0f8d58edc44c48bf93cbe3b0f0df53661a2285216fd8146ddb8125"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext",
+            "sha256": "a814eaac66f2eb0f58f363ce8f2812f455db7615be8e073aa5c46afc0e4c6cce"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.inherited_multi_fragment",
+          "release": "1",
+          "display_name": "inherited_multi_fragment",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/inherited_multi_fragment/audit.MultiFragmentChild.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiBase.xtext",
+                  "sha256": "b68de02fa21cf83d8c886bebbcb577ec058985aecc3882916f8b1a943600262d"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ExplicitMultiBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:'p';\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext",
+                  "sha256": "55c16c4b5e32bb1211ccb7311f87eb526acd02725f880568e8bebc261274568a"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ExplicitMultiChild with audit.ExplicitMultiBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !super::PAIR;\nterminal fragment PAIR:'x';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiBase.xtext",
+                    "sha256": "b68de02fa21cf83d8c886bebbcb577ec058985aecc3882916f8b1a943600262d"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext",
+            "sha256": "55c16c4b5e32bb1211ccb7311f87eb526acd02725f880568e8bebc261274568a"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiBase.xtext",
+                  "sha256": "b68de02fa21cf83d8c886bebbcb577ec058985aecc3882916f8b1a943600262d"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ExplicitMultiBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:'p';\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext",
+                  "sha256": "55c16c4b5e32bb1211ccb7311f87eb526acd02725f880568e8bebc261274568a"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ExplicitMultiChild with audit.ExplicitMultiBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !super::PAIR;\nterminal fragment PAIR:'x';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiBase.xtext",
+                    "sha256": "b68de02fa21cf83d8c886bebbcb577ec058985aecc3882916f8b1a943600262d"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext",
+            "sha256": "55c16c4b5e32bb1211ccb7311f87eb526acd02725f880568e8bebc261274568a"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.explicit_parent_multi",
+          "release": "1",
+          "display_name": "explicit_parent_multi",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/explicit_parent_multi/audit.ExplicitMultiChild.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext",
+                  "sha256": "41f5741292c5166dec78a636e6ac3ed4c2bc1725707be608b66630aa372a790b"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiProgramBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:!PAIR;\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramChild.xtext",
+                  "sha256": "411b355bddb8c9c04d1fc1d8fbababc2bf669c523609315d070567afcb2f9f80"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiProgramChild with audit.MultiProgramBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal fragment PAIR:'x';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext",
+                    "sha256": "41f5741292c5166dec78a636e6ac3ed4c2bc1725707be608b66630aa372a790b"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramChild.xtext",
+            "sha256": "411b355bddb8c9c04d1fc1d8fbababc2bf669c523609315d070567afcb2f9f80"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported",
+            "source": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext",
+                  "sha256": "41f5741292c5166dec78a636e6ac3ed4c2bc1725707be608b66630aa372a790b"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiProgramBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString:!PAIR;\nterminal fragment PAIR:'ab';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramChild.xtext",
+                  "sha256": "411b355bddb8c9c04d1fc1d8fbababc2bf669c523609315d070567afcb2f9f80"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.MultiProgramChild with audit.MultiProgramBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal fragment PAIR:'x';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  },
+                  {
+                    "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext",
+                    "sha256": "41f5741292c5166dec78a636e6ac3ed4c2bc1725707be608b66630aa372a790b"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:negation-combinations-before/inherited_program_override/audit.MultiProgramChild.xtext",
+            "sha256": "411b355bddb8c9c04d1fc1d8fbababc2bf669c523609315d070567afcb2f9f80"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61",
+        "metadata": {
+          "package_id": "negation.before.inherited_program_override",
+          "release": "1",
+          "display_name": "inherited_program_override",
+          "description": "Immutable V61 original full generated lexical BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:negation-combinations-before/inherited_program_override/audit.MultiProgramBase.xtext\", start: 0, end: 1, message: \"Terminal negation operand must match exactly one UTF-16 unit; empty and multi-unit literals are unsupported\" }]"
+      }
+    }
+  ],
+  "fresh_instances": 12
+}

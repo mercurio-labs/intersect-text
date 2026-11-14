@@ -1,0 +1,217 @@
+package document.provider.parser.antlr.internal;
+
+// Hack: Use our own Lexer superclass by means of import. 
+// Currently there is no other way to specify the superclass for the lexer.
+import org.eclipse.xtext.parser.antlr.Lexer;
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class InternalNestedLexicalCollectionLexer extends Lexer {
+    public static final int RULE_COLOR_TOKEN=4;
+    public static final int T__6=6;
+    public static final int RULE_WS=5;
+    public static final int EOF=-1;
+
+    // delegates
+    // delegators
+
+    public InternalNestedLexicalCollectionLexer() {;} 
+    public InternalNestedLexicalCollectionLexer(CharStream input) {
+        this(input, new RecognizerSharedState());
+    }
+    public InternalNestedLexicalCollectionLexer(CharStream input, RecognizerSharedState state) {
+        super(input,state);
+
+    }
+    public String getGrammarFileName() { return "InternalNestedLexicalCollection.g"; }
+
+    // $ANTLR start "T__6"
+    public final void mT__6() throws RecognitionException {
+        try {
+            int _type = T__6;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalNestedLexicalCollection.g:11:6: ( 'paint' )
+            // InternalNestedLexicalCollection.g:11:8: 'paint'
+            {
+            match("paint"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__6"
+
+    // $ANTLR start "RULE_COLOR_TOKEN"
+    public final void mRULE_COLOR_TOKEN() throws RecognitionException {
+        try {
+            int _type = RULE_COLOR_TOKEN;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalNestedLexicalCollection.g:156:18: ( '#' ( '0' .. '9' | 'a' .. 'f' )+ )
+            // InternalNestedLexicalCollection.g:156:20: '#' ( '0' .. '9' | 'a' .. 'f' )+
+            {
+            match('#'); 
+            // InternalNestedLexicalCollection.g:156:24: ( '0' .. '9' | 'a' .. 'f' )+
+            int cnt1=0;
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
+
+                if ( ((LA1_0>='0' && LA1_0<='9')||(LA1_0>='a' && LA1_0<='f')) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // InternalNestedLexicalCollection.g:
+            	    {
+            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+                }
+                cnt1++;
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_COLOR_TOKEN"
+
+    // $ANTLR start "RULE_WS"
+    public final void mRULE_WS() throws RecognitionException {
+        try {
+            int _type = RULE_WS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalNestedLexicalCollection.g:158:9: ( ( ' ' )+ )
+            // InternalNestedLexicalCollection.g:158:11: ( ' ' )+
+            {
+            // InternalNestedLexicalCollection.g:158:11: ( ' ' )+
+            int cnt2=0;
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( (LA2_0==' ') ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // InternalNestedLexicalCollection.g:158:11: ' '
+            	    {
+            	    match(' '); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt2 >= 1 ) break loop2;
+                        EarlyExitException eee =
+                            new EarlyExitException(2, input);
+                        throw eee;
+                }
+                cnt2++;
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_WS"
+
+    public void mTokens() throws RecognitionException {
+        // InternalNestedLexicalCollection.g:1:8: ( T__6 | RULE_COLOR_TOKEN | RULE_WS )
+        int alt3=3;
+        switch ( input.LA(1) ) {
+        case 'p':
+            {
+            alt3=1;
+            }
+            break;
+        case '#':
+            {
+            alt3=2;
+            }
+            break;
+        case ' ':
+            {
+            alt3=3;
+            }
+            break;
+        default:
+            NoViableAltException nvae =
+                new NoViableAltException("", 3, 0, input);
+
+            throw nvae;
+        }
+
+        switch (alt3) {
+            case 1 :
+                // InternalNestedLexicalCollection.g:1:10: T__6
+                {
+                mT__6(); 
+
+                }
+                break;
+            case 2 :
+                // InternalNestedLexicalCollection.g:1:15: RULE_COLOR_TOKEN
+                {
+                mRULE_COLOR_TOKEN(); 
+
+                }
+                break;
+            case 3 :
+                // InternalNestedLexicalCollection.g:1:32: RULE_WS
+                {
+                mRULE_WS(); 
+
+                }
+                break;
+
+        }
+
+    }
+
+
+ 
+
+}

@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "state": "separate_clean_full_source_composition_record_and_fresh_replay_baseline_only",
+  "input_freeze": {
+    "bytes": 4618,
+    "sha256": "160429b5ed0a3920151dfdb26e3c14e02daf954b491d8cff218e2b9243ad99bd"
+  },
+  "producer": {
+    "bytes": 7611,
+    "sha256": "f1f9300df94b2300d6d705d915e32bd877b543adc8d2ec56a71d5f6498ce60d9"
+  },
+  "verifier": {
+    "bytes": 4660,
+    "sha256": "e18a64ed11d9d83a191495bca5ca4c544db93b76c1fd2a4fa42694b7f5f2ee91"
+  },
+  "full_oracle_receipt": {
+    "bytes": 4401,
+    "sha256": "601eda4b2c8ff70c5d669f42377778d390e70a660e6943a3eae52d8655a316a4"
+  },
+  "native_v61_before_receipt": {
+    "bytes": 669,
+    "sha256": "11b91624db6bc6cbfff477dc4911afa7cbde5759ae3127d291e994e2b4d4fa8f"
+  },
+  "raw_record_manifest": {
+    "bytes": 75887,
+    "sha256": "4fedbb88d2845426cc61ca9d2ba2d63390db7656babdaccb45b22ae08d278bba"
+  },
+  "raw_replay_manifest": {
+    "bytes": 75887,
+    "sha256": "fbe27e77145b1a4ecae69ac7865b29658a164f827316bf5df5e934b421db1b72"
+  },
+  "record_artifacts": 565,
+  "replay_artifacts": 565,
+  "graphs": 6,
+  "planned_inputs_per_run": 54,
+  "actual_inputs_per_run": 54,
+  "accepted": 19,
+  "rejected": 35,
+  "rejected_partials": 21,
+  "cases": [
+    {
+      "id": "nested_inline_multi",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.NestedInlineMulti",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.NestedInlineMulti",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.NestedInlineMulti::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.NestedInlineMulti",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.NestedInlineMulti::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(~(('ab'|'x')))"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "x"
+      ],
+      "rejected": 8,
+      "rejected_partials": 1
+    },
+    {
+      "id": "inline_multi_call",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.InlineMultiCall",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.InlineMultiCall",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.InlineMultiCall::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.InlineMultiCall::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.InlineMultiCall",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.InlineMultiCall::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~((RULE_PAIR|'x'))"
+          },
+          {
+            "source_rule": "audit.InlineMultiCall::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c"
+      ],
+      "rejected": 6,
+      "rejected_partials": 4
+    },
+    {
+      "id": "nested_multi_call",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.NestedMultiCall",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.NestedMultiCall",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.NestedMultiCall::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.NestedMultiCall::PAIR",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.NestedMultiCall::INNER",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.NestedMultiCall",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.NestedMultiCall::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.NestedMultiCall::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "RULE_INNER"
+          },
+          {
+            "source_rule": "audit.NestedMultiCall::INNER",
+            "name": "RULE_INNER",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ],
+      "rejected": 5,
+      "rejected_partials": 4
+    },
+    {
+      "id": "inherited_multi_fragment",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.MultiFragmentBase",
+            "errors": []
+          },
+          {
+            "source": "audit.MultiFragmentChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.MultiFragmentBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.MultiFragmentChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.MultiFragmentChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.MultiFragmentChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.MultiFragmentBase::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.MultiFragmentBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.MultiFragmentChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 193,
+                "length": 5,
+                "message": "This rule overrides Model in audit.MultiFragmentBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 238,
+                "length": 5,
+                "message": "This rule overrides VALUE in audit.MultiFragmentBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.MultiFragmentChild::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.MultiFragmentBase::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ],
+      "rejected": 5,
+      "rejected_partials": 4
+    },
+    {
+      "id": "explicit_parent_multi",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.ExplicitMultiBase",
+            "errors": []
+          },
+          {
+            "source": "audit.ExplicitMultiChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ExplicitMultiBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ExplicitMultiChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.ExplicitMultiChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ExplicitMultiChild::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ExplicitMultiBase::PAIR",
+                "proxy": false,
+                "explicit": true
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ExplicitMultiBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.ExplicitMultiChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 193,
+                "length": 5,
+                "message": "This rule overrides Model in audit.ExplicitMultiBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 238,
+                "length": 5,
+                "message": "This rule overrides VALUE in audit.ExplicitMultiBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 300,
+                "length": 4,
+                "message": "This rule overrides PAIR in audit.ExplicitMultiBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ExplicitMultiChild::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(SUPER_PAIR)"
+          },
+          {
+            "source_rule": "audit.ExplicitMultiChild::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'x'"
+          },
+          {
+            "source_rule": "audit.ExplicitMultiBase::PAIR",
+            "name": "SUPER_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ],
+      "rejected": 5,
+      "rejected_partials": 4
+    },
+    {
+      "id": "inherited_program_override",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.MultiProgramBase",
+            "errors": []
+          },
+          {
+            "source": "audit.MultiProgramChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.MultiProgramBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.MultiProgramBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.MultiProgramChild::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.MultiProgramChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.MultiProgramBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.MultiProgramBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.MultiProgramChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 191,
+                "length": 5,
+                "message": "This rule overrides Model in audit.MultiProgramBase and thus should be annotated with @Override."
+              },
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 245,
+                "length": 4,
+                "message": "This rule overrides PAIR in audit.MultiProgramBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.MultiProgramChild::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'x'"
+          },
+          {
+            "source_rule": "audit.MultiProgramBase::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c"
+      ],
+      "rejected": 6,
+      "rejected_partials": 4
+    }
+  ],
+  "existing_v62_production_broadened": false,
+  "old_original_five_and_seven_unchanged": true,
+  "native_award": false,
+  "gate_closures": []
+}

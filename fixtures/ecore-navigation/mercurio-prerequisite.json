@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "provenance": {
+    "source_assertions_fixture": "mercurio-closure.json",
+    "revision": "32750d7c7799970d7d494e0e8e6e0bf1daae4689",
+    "upstream_test": "definition_redefinition_closure_cache_preserves_failures_and_edit_invalidation",
+    "excerpt_file": "mercurio-closure-source.rs.txt",
+    "excerpt_sha256": "706119f0290a534c8cc8f6a05a0034b72014cc25c80ec07d41f39b5bedd7a939",
+    "evidence_kind": "required-endpoint assertions transcribed from the pinned upstream test; no fresh upstream execution claimed"
+  },
+  "projection": "Explicit owned Redefinition relationships and their required endpoints. Upstream rejects the absent redefined_feature during its typed query; Intersect rejects it during whole-snapshot admission before the closure callback. This compares prerequisite rejection and repaired/reloaded membership, not diagnostic wording, failure timing, canonical readiness, computed redefinitions, filler KIR objects or cache behavior. Mercurio returns a set; ordering is not compared.",
+  "seed": "view_feature0",
+  "features": [
+    {"id": "view_feature0", "owned_relationship": ["cache_relation"]},
+    {"id": "view_feature1", "owned_relationship": []}
+  ],
+  "relationship": {"id": "cache_relation", "redefining_feature": "view_feature0"},
+  "missing_endpoint": "redefined_feature",
+  "rejected_attempts": 2,
+  "expected_native_error": "Multiplicity violation: Redefinition.redefined_feature",
+  "repairs": [
+    {"redefined_feature": "view_feature1", "expected_membership": ["view_feature0", "view_feature1"]},
+    {"redefined_feature": "view_feature0", "expected_membership": ["view_feature0"]}
+  ]
+}

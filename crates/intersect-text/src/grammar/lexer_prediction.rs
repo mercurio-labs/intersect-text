@@ -1,0 +1,917 @@
+//! Native token prediction from retained terminal programs and grammar keywords.
+//! Prediction commits when only one alternative remains; selected body recognition
+//! stays in terminals.rs. Until patterns use an unconstrained prediction loop,
+//! while body recognition stops at the first delimiter. This distinction matches
+//! the pinned independent lexer controls; no exported decision tables are loaded.
+use super::{
+    Grammar,
+    terminals::{Expression, Operation},
+};
+use intersect_model::definitions::conversion::InvocationContext;
+use serde::{Deserialize, Serialize};
+use std::borrow::Cow;
+use std::collections::{BTreeMap, BTreeSet, VecDeque};
+#[path = "lexer_initial_prepared.rs"]
+mod initial_prepared;
+pub use initial_prepared::PreparedLexicalInitial;
+pub(super) use initial_prepared::terminal_initials::PreparedTerminalInitials;
+
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+pub enum Alternative {
+    Keyword(String),
+    Terminal(String),
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct Edge {
+    low: u16,
+    high: u16,
+    target: usize,
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct State {
+    owner: usize,
+    accepting: bool,
+    epsilon: Vec<usize>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    eof: Vec<usize>,
+    edges: Vec<Edge>,
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct LexerPrediction {
+    alternatives: Vec<Alternative>,
+    states: Vec<State>,
+    roots: Vec<usize>,
+}
+#[derive(Default)]
+struct ReachabilityStats {
+    closures: usize,
+    transitions: usize,
+    transition_work: usize,
+    closure_work: usize,
+    eof_work: usize,
+    pruned: usize,
+}
+impl LexerPrediction {
+    pub(super) fn compile(grammar: &Grammar) -> Result<Self, String> {
+        let mut decision = Self {
+            alternatives: Vec::new(),
+            states: Vec::new(),
+            roots: Vec::new(),
+        };
+        for keyword in grammar.keywords() {
+            let owner = decision.alternatives.len();
+            decision
+                .alternatives
+                .push(Alternative::Keyword(keyword.clone()));
+            let (start, end) = decision.root(owner)?;
+            decision.literal(
+                &keyword.encode_utf16().collect::<Vec<_>>(),
+                start,
+                end,
+                owner,
+            )?;
+        }
+        // Xtext declaration order is the tie breaker after keyword priority.
+        let mut terminals: Vec<_> = grammar
+            .terminals
+            .iter()
+            .filter(|(_, t)| !t.fragment)
+            .collect();
+        terminals.sort_by_key(|(name, terminal)| {
+            (
+                grammar
+                    .terminal_order
+                    .iter()
+                    .position(|candidate| candidate == *name),
+                terminal.start,
+            )
+        });
+        for (name, terminal) in terminals {
+            let owner = decision.alternatives.len();
+            decision
+                .alternatives
+                .push(Alternative::Terminal(name.clone()));
+            let (start, end) = decision.root(owner)?;
+            decision.expression(&terminal.body, start, end, owner)?;
+        }
+        Ok(decision)
+    }
+    /// Reuse the token decision engine for alternatives within one terminal.
+    pub(super) fn terminal_choices(items: &[Expression]) -> Result<Self, String> {
+        let mut decision = Self {
+            alternatives: Vec::new(),
+            states: Vec::new(),
+            roots: Vec::new(),
+        };
+        for (owner, item) in items.iter().enumerate() {
+            decision
+                .alternatives
+                .push(Alternative::Terminal(owner.to_string()));
+            let (start, end) = decision.root(owner)?;
+            decision.expression(item, start, end, owner)?;
+        }
+        Ok(decision)
+    }
+    fn state(&mut self, owner: usize) -> Result<usize, String> {
+        if self.states.len() >= 10_000 {
+            return Err("Grammar prediction budget exceeded".into());
+        }
+        let index = self.states.len();
+        self.states.push(State {
+            owner,
+            accepting: false,
+            epsilon: Vec::new(),
+            eof: Vec::new(),
+            edges: Vec::new(),
+        });
+        Ok(index)
+    }
+    fn root(&mut self, owner: usize) -> Result<(usize, usize), String> {
+        let start = self.state(owner)?;
+        let end = self.state(owner)?;
+        self.roots.push(start);
+        self.states[end].accepting = true;
+        Ok((start, end))
+    }
+    fn epsilon(&mut self, start: usize, end: usize) {
+        self.states[start].epsilon.push(end);
+    }
+    fn edge(&mut self, start: usize, end: usize, low: u16, high: u16) {
+        self.states[start].edges.push(Edge {
+            low,
+            high,
+            target: end,
+        });
+    }
+    fn literal(
+        &mut self,
+        text: &[u16],
+        mut start: usize,
+        end: usize,
+        owner: usize,
+    ) -> Result<(), String> {
+        if text.is_empty() {
+            self.epsilon(start, end);
+        }
+        for (index, &unit) in text.iter().enumerate() {
+            let target = if index + 1 == text.len() {
+                end
+            } else {
+                self.state(owner)?
+            };
+            self.edge(start, target, unit, unit);
+            start = target;
+        }
+        Ok(())
+    }
+    fn expression(
+        &mut self,
+        expr: &Expression,
+        start: usize,
+        end: usize,
+        owner: usize,
+    ) -> Result<(), String> {
+        let inner_start = self.state(owner)?;
+        let inner_end = self.state(owner)?;
+        self.epsilon(start, inner_start);
+        self.epsilon(inner_end, end);
+        if matches!(expr.cardinality, '?' | '*') {
+            self.epsilon(start, end);
+        }
+        if matches!(expr.cardinality, '*' | '+') {
+            self.epsilon(inner_end, inner_start);
+        }
+        match &expr.kind {
+            Operation::Literal(text) => self.literal(text, inner_start, inner_end, owner)?,
+            Operation::Range(low, high) => self.edge(inner_start, inner_end, *low, *high),
+            Operation::Wildcard => self.edge(inner_start, inner_end, 0, u16::MAX),
+            Operation::Eof => self.states[inner_start].eof.push(inner_end),
+            Operation::NotCharacters(_) | Operation::Negated { .. } => {
+                for &(low, high) in &expr.first {
+                    self.edge(inner_start, inner_end, low, high);
+                }
+            }
+            Operation::Until(delimiter) => {
+                self.edge(inner_start, inner_start, 0, u16::MAX);
+                self.literal(delimiter, inner_start, inner_end, owner)?;
+            }
+            Operation::UntilOperand { operand, .. } => {
+                // Prediction overapproximates the loop; the separate local
+                // nongreedy decision governs committed body recognition.
+                self.edge(inner_start, inner_start, 0, u16::MAX);
+                self.expression(operand, inner_start, inner_end, owner)?;
+            }
+            Operation::Call { name, body } => {
+                let target = body
+                    .as_ref()
+                    .ok_or_else(|| format!("Unresolved terminal call {name}"))?;
+                self.expression(target, inner_start, inner_end, owner)?;
+            }
+            Operation::Alternative(items) => {
+                for item in items {
+                    self.expression(item, inner_start, inner_end, owner)?;
+                }
+            }
+            Operation::Sequence(items) => {
+                let mut cursor = inner_start;
+                for (index, item) in items.iter().enumerate() {
+                    let target = if index + 1 == items.len() {
+                        inner_end
+                    } else {
+                        self.state(owner)?
+                    };
+                    self.expression(item, cursor, target, owner)?;
+                    cursor = target;
+                }
+                if items.is_empty() {
+                    self.epsilon(inner_start, inner_end);
+                }
+            }
+        }
+        Ok(())
+    }
+    pub fn alternative(&self, index: usize) -> Result<&Alternative, String> {
+        self.alternatives
+            .get(index)
+            .ok_or_else(|| "Invalid lexical alternative".into())
+    }
+    fn consume(work: &mut Option<usize>) -> Result<(), String> {
+        if let Some(remaining) = work {
+            if *remaining == 0 {
+                return Err("Execution step budget exceeded during lexical prediction".into());
+            }
+            *remaining -= 1;
+        }
+        Ok(())
+    }
+    fn consume_observed(
+        work: &mut Option<usize>,
+        observation: Option<&InvocationContext<'_>>,
+    ) -> Result<(), String> {
+        // A finite local clamp never resets the SAME observer's remaining pool.
+        // Precharge before each existing canonical work unit.
+        if work.is_some_and(|left| left == 0) {
+            return Self::consume(work);
+        }
+        if let Some(observation) = observation {
+            observation.work(1)?;
+        }
+        Self::consume(work)
+    }
+    fn closure(
+        &self,
+        initial: impl IntoIterator<Item = usize>,
+        work: &mut Option<usize>,
+    ) -> Result<BTreeSet<usize>, String> {
+        self.closure_observed(initial, work, None)
+    }
+    fn closure_observed(
+        &self,
+        initial: impl IntoIterator<Item = usize>,
+        work: &mut Option<usize>,
+        observation: Option<&InvocationContext<'_>>,
+    ) -> Result<BTreeSet<usize>, String> {
+        let mut result: BTreeSet<_> = initial.into_iter().collect();
+        let mut pending: Vec<_> = result.iter().copied().collect();
+        while let Some(index) = pending.pop() {
+            Self::consume_observed(work, observation)?;
+            let state = self
+                .states
+                .get(index)
+                .ok_or("Invalid lexical prediction state")?;
+            for &next in &state.epsilon {
+                Self::consume_observed(work, observation)?;
+                if result.insert(next) {
+                    pending.push(next);
+                }
+            }
+        }
+        Ok(result)
+    }
+    /// The same decision, with an explicit unselected-input observation. A
+    /// selected alternative still commits; body failure never falls back.
+    pub(crate) fn predict_document(
+        &self,
+        input: &str,
+        work: &mut Option<usize>,
+    ) -> Result<LexicalDecision, String> {
+        self.predict_units_with_policy(input.encode_utf16(), work, false)
+    }
+    pub(crate) fn predict_document_units(
+        &self,
+        input: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+    ) -> Result<LexicalDecision, String> {
+        self.predict_units_with_policy(input, work, false)
+    }
+
+    pub fn predict(&self, input: &str, work: &mut Option<usize>) -> Result<usize, String> {
+        self.predict_units(input.encode_utf16(), work)
+    }
+    /// Explore the existing prediction graph, including early commitment and
+    /// EOF. A selectable alternative is only potentially recognizable by its
+    /// body; a never-selectable terminal is provably unreachable.
+    pub(super) fn unreachable_terminal(&self) -> Result<Option<&str>, String> {
+        self.unreachable_with_budget(10_000)
+    }
+    fn unreachable_with_budget(&self, budget: usize) -> Result<Option<&str>, String> {
+        let mut stats = ReachabilityStats::default();
+        self.unreachable_measured(budget, &mut stats).map_err(|message| {
+            if message == "Execution step budget exceeded during lexical prediction" {
+                format!("Lexical reachability analysis budget exceeded (inconclusive): {} states, {} closures, {} interval transitions, {} pruned; transition work {}, successor closure work {}, EOF work {}", self.states.len(), stats.closures, stats.transitions, stats.pruned, stats.transition_work, stats.closure_work, stats.eof_work)
+            } else {
+                message
+            }
+        })
+    }
+    fn unreachable_measured(
+        &self,
+        budget: usize,
+        stats: &mut ReachabilityStats,
+    ) -> Result<Option<&str>, String> {
+        let mut work = Some(budget);
+        let mut possible = BTreeSet::new();
+        let initial = self.closure(self.roots.iter().copied(), &mut work)?;
+        let mut seen = BTreeSet::from([initial.clone()]);
+        let mut pending = VecDeque::from([initial]);
+        while let Some(current) = pending.pop_front() {
+            stats.closures += 1;
+            let mut owners = BTreeSet::new();
+            let mut accepting = BTreeSet::new();
+            for &index in &current {
+                Self::consume(&mut work)?;
+                let state = self
+                    .states
+                    .get(index)
+                    .ok_or("Invalid lexical prediction state")?;
+                owners.insert(state.owner);
+                if state.accepting {
+                    accepting.insert(state.owner);
+                }
+            }
+            if owners.len() == 1 {
+                possible.extend(owners);
+            } else if owners.iter().all(|owner| {
+                possible.contains(owner)
+                    || matches!(self.alternatives.get(*owner), Some(Alternative::Keyword(_)))
+            }) {
+                // Every NFA edge preserves its token owner. This branch cannot
+                // reach an unproven terminal, even if it can select keywords.
+                stats.pruned += 1;
+            } else {
+                let mut at_eof = current.clone();
+                let before = work.unwrap_or(0);
+                let result = self.close_eof(&mut at_eof, &mut work);
+                stats.eof_work += before - work.unwrap_or(0);
+                result?;
+                let mut eof_owner = None;
+                for &index in &at_eof {
+                    Self::consume(&mut work)?;
+                    let state = self
+                        .states
+                        .get(index)
+                        .ok_or("Invalid lexical prediction state")?;
+                    if state.accepting {
+                        eof_owner = Some(
+                            eof_owner.map_or(state.owner, |owner: usize| owner.min(state.owner)),
+                        );
+                    }
+                }
+                possible.extend(eof_owner);
+                // Every UTF-16 unit in an interval has the same outgoing edges.
+                // Including surrogate units overapproximates possible inputs;
+                // it cannot create a false unreachability conclusion.
+                let before = work.unwrap_or(0);
+                let result = self.interval_targets(&current, &mut work, stats);
+                stats.transition_work += before - work.unwrap_or(0);
+                for (_, targets) in result? {
+                    if targets.is_empty() {
+                        possible.extend(accepting.first().copied());
+                    } else {
+                        let before = work.unwrap_or(0);
+                        let result = self.closure(targets, &mut work);
+                        stats.closure_work += before - work.unwrap_or(0);
+                        let next = result?;
+                        if seen.insert(next.clone()) {
+                            pending.push_back(next);
+                        }
+                    }
+                }
+            }
+            if self
+                .alternatives
+                .iter()
+                .enumerate()
+                .all(|(index, alternative)| {
+                    !matches!(alternative, Alternative::Terminal(_)) || possible.contains(&index)
+                })
+            {
+                return Ok(None);
+            }
+        }
+        Ok(self.alternatives.iter().enumerate().find_map(
+            |(index, alternative)| match alternative {
+                Alternative::Terminal(name) if !possible.contains(&index) => Some(name.as_str()),
+                _ => None,
+            },
+        ))
+    }
+    /// Sweep inclusive edge ranges once instead of rescanning every edge for
+    /// each character interval. Reference counts retain overlapping edges to
+    /// the same target. This partitions the same graph used by `advance`.
+    fn interval_targets(
+        &self,
+        current: &BTreeSet<usize>,
+        work: &mut Option<usize>,
+        stats: &mut ReachabilityStats,
+    ) -> Result<Vec<(u16, BTreeSet<usize>)>, String> {
+        self.interval_targets_observed(current, work, stats, None)
+    }
+    fn interval_targets_observed(
+        &self,
+        current: &BTreeSet<usize>,
+        work: &mut Option<usize>,
+        stats: &mut ReachabilityStats,
+        observation: Option<&InvocationContext<'_>>,
+    ) -> Result<Vec<(u16, BTreeSet<usize>)>, String> {
+        let mut events: BTreeMap<u32, Vec<(usize, bool)>> = BTreeMap::new();
+        events.entry(0).or_default();
+        for &index in current {
+            let state = self
+                .states
+                .get(index)
+                .ok_or("Invalid lexical prediction state")?;
+            for edge in &state.edges {
+                Self::consume_observed(work, observation)?;
+                events
+                    .entry(u32::from(edge.low))
+                    .or_default()
+                    .push((edge.target, true));
+                events
+                    .entry(u32::from(edge.high) + 1)
+                    .or_default()
+                    .push((edge.target, false));
+            }
+        }
+        let mut active: BTreeMap<usize, usize> = BTreeMap::new();
+        let mut intervals = Vec::new();
+        for (low, changes) in events {
+            if low == 65_536 {
+                break;
+            }
+            for (target, entering) in changes {
+                Self::consume_observed(work, observation)?;
+                if entering {
+                    *active.entry(target).or_default() += 1;
+                } else {
+                    let count = active
+                        .get_mut(&target)
+                        .ok_or("Invalid lexical interval boundary")?;
+                    *count -= 1;
+                    if *count == 0 {
+                        active.remove(&target);
+                    }
+                }
+            }
+            Self::consume_observed(work, observation)?;
+            stats.transitions += 1;
+            let mut targets = BTreeSet::new();
+            for &target in active.keys() {
+                Self::consume_observed(work, observation)?;
+                targets.insert(target);
+            }
+            intervals.push((low as u16, targets));
+        }
+        Ok(intervals)
+    }
+    fn close_eof(
+        &self,
+        current: &mut BTreeSet<usize>,
+        work: &mut Option<usize>,
+    ) -> Result<(), String> {
+        let mut pending: Vec<_> = current.iter().copied().collect();
+        while let Some(index) = pending.pop() {
+            Self::consume(work)?;
+            let state = self
+                .states
+                .get(index)
+                .ok_or("Invalid lexical prediction state")?;
+            for &target in state.eof.iter().chain(&state.epsilon) {
+                Self::consume(work)?;
+                if current.insert(target) {
+                    pending.push(target);
+                }
+            }
+        }
+        Ok(())
+    }
+    fn advance(
+        &self,
+        current: &BTreeSet<usize>,
+        unit: u16,
+        work: &mut Option<usize>,
+    ) -> Result<BTreeSet<usize>, String> {
+        let mut targets = BTreeSet::new();
+        for &index in current {
+            let state = self
+                .states
+                .get(index)
+                .ok_or("Invalid lexical prediction state")?;
+            for edge in &state.edges {
+                Self::consume(work)?;
+                if edge.low <= unit && unit <= edge.high {
+                    targets.insert(edge.target);
+                }
+            }
+        }
+        Ok(targets)
+    }
+    pub(super) fn predict_units(
+        &self,
+        units: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+    ) -> Result<usize, String> {
+        self.predict_units_with_policy(units, work, false)?
+            .selected()
+    }
+    /// A local nongreedy Until loop prefers an actually accepting exit at the
+    /// containing rule's EOT; this is distinct from physical EOF closure.
+    pub(super) fn predict_nongreedy_units(
+        &self,
+        units: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+    ) -> Result<usize, String> {
+        self.predict_units_with_policy(units, work, true)?
+            .selected()
+    }
+    /// Reuse only complete input-independent first-frontier facts. All input,
+    /// transitions, commitment, EOF and terminal-body work remains canonical.
+    pub(crate) fn predict_document_units_with_prepared_initial(
+        &self,
+        input: impl Iterator<Item = u16>,
+        prepared: &PreparedLexicalInitial<'_>,
+        work: &mut Option<usize>,
+    ) -> Result<LexicalDecision, String> {
+        self.predict_units_with_initial::<true>(input, work, false, Some(prepared))
+    }
+    fn frontier_owners(
+        &self,
+        current: &BTreeSet<usize>,
+        work: &mut Option<usize>,
+    ) -> Result<(BTreeSet<usize>, BTreeSet<usize>), String> {
+        self.frontier_owners_observed(current, work, None)
+    }
+    fn frontier_owners_observed(
+        &self,
+        current: &BTreeSet<usize>,
+        work: &mut Option<usize>,
+        observation: Option<&InvocationContext<'_>>,
+    ) -> Result<(BTreeSet<usize>, BTreeSet<usize>), String> {
+        let mut owners = BTreeSet::new();
+        let mut accepting = BTreeSet::new();
+        for &index in current {
+            Self::consume_observed(work, observation)?;
+            let state = self
+                .states
+                .get(index)
+                .ok_or("Invalid lexical prediction state")?;
+            owners.insert(state.owner);
+            if state.accepting {
+                accepting.insert(state.owner);
+            }
+        }
+        Ok((owners, accepting))
+    }
+    fn predict_units_with_policy(
+        &self,
+        units: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+        nongreedy: bool,
+    ) -> Result<LexicalDecision, String> {
+        self.predict_units_with_initial::<false>(units, work, nongreedy, None)
+    }
+    fn predict_units_with_initial<const PREPARED: bool>(
+        &self,
+        mut units: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+        nongreedy: bool,
+        prepared: Option<&PreparedLexicalInitial<'_>>,
+    ) -> Result<LexicalDecision, String> {
+        let mut offset = 0usize;
+        let mut first = if PREPARED {
+            Some(
+                prepared
+                    .ok_or("Missing prepared lexical initial frontier")?
+                    .seed(self, work)?,
+            )
+        } else {
+            None
+        };
+        let mut current = match first {
+            Some((initial, _, _)) => Cow::Borrowed(initial),
+            None => Cow::Owned(self.closure(self.roots.iter().copied(), work)?),
+        };
+        loop {
+            let (owners, mut accepting) = match first.take() {
+                Some((_, owners, accepting)) => (Cow::Borrowed(owners), Cow::Borrowed(accepting)),
+                None => {
+                    let (owners, accepting) = self.frontier_owners(&current, work)?;
+                    (Cow::Owned(owners), Cow::Owned(accepting))
+                }
+            };
+            if owners.len() == 1
+                && let Some(&owner) = owners.first()
+            {
+                self.alternative(owner)?;
+                return Ok(LexicalDecision::Selected(owner));
+            }
+            if nongreedy && let Some(&owner) = accepting.last() {
+                self.alternative(owner)?;
+                return Ok(LexicalDecision::Selected(owner));
+            }
+            let Some(unit) = units.next() else {
+                // EOF is a zero-width condition, never an unconditional epsilon.
+                // Close EOF edges only after the input iterator is exhausted.
+                if current.iter().any(|&index| {
+                    self.states
+                        .get(index)
+                        .is_some_and(|state| !state.eof.is_empty())
+                }) {
+                    // Copy only when an EOF branch actually mutates a borrowed
+                    // first frontier; charge each copied record on this call.
+                    if matches!(current, Cow::Borrowed(_)) {
+                        for _ in current.iter() {
+                            Self::consume(work)?;
+                        }
+                    }
+                    if matches!(accepting, Cow::Borrowed(_)) {
+                        for _ in accepting.iter() {
+                            Self::consume(work)?;
+                        }
+                    }
+                    self.close_eof(current.to_mut(), work)?;
+                    for index in current.iter() {
+                        let state = self
+                            .states
+                            .get(*index)
+                            .ok_or("Invalid lexical prediction state")?;
+                        if state.accepting {
+                            accepting.to_mut().insert(state.owner);
+                        }
+                    }
+                }
+                return Ok(accepting.first().copied().map_or(
+                    LexicalDecision::Unselected {
+                        utf16_lookahead: offset,
+                        unit: None,
+                    },
+                    LexicalDecision::Selected,
+                ));
+            };
+            let prepared_step = if PREPARED && offset == 0 {
+                prepared
+                    .ok_or("Missing prepared lexical initial frontier")?
+                    .first_step(unit, work)?
+            } else {
+                None
+            };
+            if let Some((initial, owners, next_accepting)) = prepared_step {
+                if initial.is_empty() {
+                    return Ok(accepting.first().copied().map_or(
+                        LexicalDecision::Unselected {
+                            utf16_lookahead: offset,
+                            unit: Some(unit),
+                        },
+                        LexicalDecision::Selected,
+                    ));
+                }
+                offset = offset
+                    .checked_add(1)
+                    .ok_or("Lexical lookahead offset overflow")?;
+                current = Cow::Borrowed(initial);
+                first = Some((initial, owners, next_accepting));
+                continue;
+            }
+            let targets = self.advance(&current, unit, work)?;
+            if targets.is_empty() {
+                return Ok(accepting.first().copied().map_or(
+                    LexicalDecision::Unselected {
+                        utf16_lookahead: offset,
+                        unit: Some(unit),
+                    },
+                    LexicalDecision::Selected,
+                ));
+            }
+            offset = offset
+                .checked_add(1)
+                .ok_or("Lexical lookahead offset overflow")?;
+            current = Cow::Owned(self.closure(targets, work)?);
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub enum LexicalDecision {
+    Selected(usize),
+    Unselected {
+        utf16_lookahead: usize,
+        unit: Option<u16>,
+    },
+}
+impl LexicalDecision {
+    fn selected(self) -> Result<usize, String> {
+        match self {
+            Self::Selected(index) => Ok(index),
+            Self::Unselected { .. } => Err("No viable lexical alternative".into()),
+        }
+    }
+}
+
+#[cfg(test)]
+mod reachability_tests {
+    use super::*;
+    fn expr(kind: Operation) -> Expression {
+        Expression {
+            kind,
+            cardinality: '1',
+            first: vec![],
+            nullable: false,
+            decision: None,
+            cardinality_decision: None,
+        }
+    }
+    fn literal(text: &str) -> Expression {
+        expr(Operation::Literal(text.encode_utf16().collect()))
+    }
+    #[test]
+    fn ranges_repetition_and_keyword_priority_have_distinct_witnesses() {
+        let mut letters = expr(Operation::Range(u16::from(b'a'), u16::from(b'z')));
+        letters.cardinality = '+';
+        let mut prediction = LexerPrediction::terminal_choices(&[literal("if"), letters]).unwrap();
+        prediction.alternatives[0] = Alternative::Keyword("if".into());
+        assert_eq!(prediction.unreachable_terminal().unwrap(), None);
+        assert_eq!(prediction.predict("if", &mut None).unwrap(), 0);
+        assert_eq!(prediction.predict("iff", &mut None).unwrap(), 1);
+        let mut shadow =
+            LexerPrediction::terminal_choices(&[literal("if"), literal("if")]).unwrap();
+        shadow.alternatives[0] = Alternative::Keyword("if".into());
+        assert_eq!(shadow.unreachable_terminal().unwrap(), Some("1"));
+    }
+    #[test]
+    fn eof_is_conditional_and_priority_is_not_shorter_fallback() {
+        let eof_a = expr(Operation::Sequence(vec![
+            literal("a"),
+            expr(Operation::Eof),
+        ]));
+        let prediction = LexerPrediction::terminal_choices(&[eof_a, literal("ab")]).unwrap();
+        assert_eq!(prediction.unreachable_terminal().unwrap(), None);
+        assert_eq!(prediction.predict("a", &mut None).unwrap(), 0);
+        assert_eq!(prediction.predict("ab", &mut None).unwrap(), 1);
+        assert!(prediction.predict("ac", &mut None).is_err());
+        let prediction =
+            LexerPrediction::terminal_choices(&[literal("ab"), literal("ab")]).unwrap();
+        assert_eq!(prediction.unreachable_terminal().unwrap(), Some("1"));
+        assert!(prediction.predict("ac", &mut None).is_err());
+    }
+    #[test]
+    fn until_analysis_is_selectability_not_body_equivalence() {
+        let prediction = LexerPrediction::terminal_choices(&[
+            expr(Operation::Until(vec![u16::from(b'!')])),
+            literal("!a"),
+        ])
+        .unwrap();
+        assert_eq!(prediction.unreachable_terminal().unwrap(), None);
+        assert_eq!(prediction.predict("!a", &mut None).unwrap(), 1);
+        assert_eq!(prediction.predict("!a!", &mut None).unwrap(), 0);
+        // The until body stops at the first !; reachability does not certify
+        // that the body consumes the whole prediction witness.
+    }
+    #[test]
+    fn exhausted_proof_never_returns_an_unreachable_declaration() {
+        let prediction = LexerPrediction::terminal_choices(&[literal("a"), literal("a")]).unwrap();
+        assert!(prediction.unreachable_with_budget(0).is_err());
+        assert_eq!(
+            prediction.unreachable_with_budget(10_000).unwrap(),
+            Some("1")
+        );
+    }
+
+    #[test]
+    fn interval_sweep_matches_runtime_edges_for_every_utf16_unit() {
+        let mut prediction = LexerPrediction::terminal_choices(&[literal("a")]).unwrap();
+        prediction.states[0].edges = vec![
+            Edge {
+                low: 0,
+                high: 10,
+                target: 1,
+            },
+            Edge {
+                low: 5,
+                high: 15,
+                target: 1,
+            },
+            Edge {
+                low: 15,
+                high: u16::MAX,
+                target: 2,
+            },
+            Edge {
+                low: u16::MAX,
+                high: u16::MAX,
+                target: 1,
+            },
+        ];
+        let current = BTreeSet::from([0]);
+        let intervals = prediction
+            .interval_targets(
+                &current,
+                &mut Some(10_000),
+                &mut ReachabilityStats::default(),
+            )
+            .unwrap();
+        let mut selected = 0;
+        for unit in 0..=u16::MAX {
+            while intervals
+                .get(selected + 1)
+                .is_some_and(|(low, _)| *low <= unit)
+            {
+                selected += 1;
+            }
+            assert_eq!(
+                intervals[selected].1,
+                prediction.advance(&current, unit, &mut None).unwrap(),
+                "unit {unit}"
+            );
+        }
+    }
+
+    #[test]
+    fn reachability_matches_exhaustive_literal_prediction_witnesses() {
+        let words = ["a", "aa", "ab", "b", "ba", "bb"];
+        let mut inputs = vec![String::new()];
+        let mut frontier = vec![String::new()];
+        // Maximum literal length plus one; x represents every other character.
+        for _ in 0..3 {
+            frontier = frontier
+                .iter()
+                .flat_map(|prefix| ['a', 'b', 'x'].map(|c| format!("{prefix}{c}")))
+                .collect();
+            inputs.extend(frontier.clone());
+        }
+        for first in words {
+            for second in words {
+                for third in words {
+                    for keyword in [false, true] {
+                        let mut prediction = LexerPrediction::terminal_choices(&[
+                            literal(first),
+                            literal(second),
+                            literal(third),
+                        ])
+                        .unwrap();
+                        if keyword {
+                            prediction.alternatives[0] = Alternative::Keyword(first.into());
+                        }
+                        let selected: BTreeSet<_> = inputs
+                            .iter()
+                            .filter_map(|text| prediction.predict(text, &mut None).ok())
+                            .collect();
+                        let expected = (usize::from(keyword)..3)
+                            .find(|owner| !selected.contains(owner))
+                            .map(|owner| owner.to_string());
+                        assert_eq!(
+                            prediction.unreachable_terminal().unwrap(),
+                            expected.as_deref(),
+                            "{first}/{second}/{third}, keyword={keyword}"
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn known_terminal_keyword_branches_are_pruned_without_changing_priority() {
+        let keywords: Vec<_> = (0..24).map(|index| format!("word{index:02}")).collect();
+        let mut items: Vec<_> = keywords.iter().map(|word| literal(word)).collect();
+        let mut identifier = expr(Operation::Alternative(vec![
+            expr(Operation::Range(u16::from(b'a'), u16::from(b'z'))),
+            expr(Operation::Range(u16::from(b'0'), u16::from(b'9'))),
+        ]));
+        identifier.cardinality = '+';
+        items.push(identifier);
+        items.push(literal("zzzz@"));
+        let mut prediction = LexerPrediction::terminal_choices(&items).unwrap();
+        for (index, keyword) in keywords.into_iter().enumerate() {
+            prediction.alternatives[index] = Alternative::Keyword(keyword);
+        }
+        let mut stats = ReachabilityStats::default();
+        assert_eq!(
+            prediction.unreachable_measured(10_000, &mut stats).unwrap(),
+            None
+        );
+        assert!(stats.pruned > 0);
+        assert_eq!(prediction.predict("word00", &mut None).unwrap(), 0);
+        assert_eq!(prediction.predict("word00x", &mut None).unwrap(), 24);
+        assert_eq!(prediction.predict("zzzz@", &mut None).unwrap(), 25);
+    }
+}

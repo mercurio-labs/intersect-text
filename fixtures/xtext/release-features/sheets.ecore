@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="sheets" nsURI="urn:intersect:fixture:release-sheets:1" nsPrefix="sh">
+  <eClassifiers xsi:type="ecore:EClass" name="Workbook">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1" containment="true" eType="#//Import"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sheets" upperBound="-1" containment="true" eType="#//Sheet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sheet" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//Access"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//Sheet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1" containment="true" eType="#//Import"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1" containment="true" eType="#//Cell"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cell" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Kind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1" eType="#//Cell"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" containment="true" eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expr" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Binary" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operands" upperBound="-1" containment="true" eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Negate" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" containment="true" eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberLit" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RealLit" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoolLit" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextLit" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmptyLit" eSuperTypes="#//Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CellRef" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cell" eType="#//Cell"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Access">
+    <eLiterals name="public"/>
+    <eLiterals name="private" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Kind">
+    <eLiterals name="input"/>
+    <eLiterals name="output" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,34 @@
+grammar naryPrediction hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+Root returns k::Expression: Branch0 | Branch1 | Branch2 | Branch3 | Branch4 | Branch5 | Branch6 | Branch7 | Branch8 | Branch9;
+Branch0 returns k::OperatorExpression: Head0? operator='branch0';
+Branch1 returns k::OperatorExpression: Head0? operator='branch1';
+Branch2 returns k::OperatorExpression: Head0? operator='branch2';
+Branch3 returns k::OperatorExpression: Head0? operator='branch3';
+Branch4 returns k::OperatorExpression: Head0? operator='branch4';
+Branch5 returns k::OperatorExpression: Head0? operator='branch5';
+Branch6 returns k::OperatorExpression: Head0? operator='branch6';
+Branch7 returns k::OperatorExpression: Head0? operator='branch7';
+Branch8 returns k::OperatorExpression: Head0? 'shared' operator='branch8';
+Branch9 returns k::OperatorExpression: Head0? 'shared' operator='branch9';
+fragment Head0 returns k::OperatorExpression: ('x' Head1 | 'y' Head1);
+fragment Head1 returns k::OperatorExpression: ('x' Head2 | 'y' Head2);
+fragment Head2 returns k::OperatorExpression: ('x' Head3 | 'y' Head3);
+fragment Head3 returns k::OperatorExpression: ('x' Head4 | 'y' Head4);
+fragment Head4 returns k::OperatorExpression: ('x' Head5 | 'y' Head5);
+fragment Head5 returns k::OperatorExpression: ('x' Head6 | 'y' Head6);
+fragment Head6 returns k::OperatorExpression: ('x' Head7 | 'y' Head7);
+fragment Head7 returns k::OperatorExpression: ('x' Head8 | 'y' Head8);
+fragment Head8 returns k::OperatorExpression: ('x' Head9 | 'y' Head9);
+fragment Head9 returns k::OperatorExpression: ('x' Tail0 | 'y' Tail0);
+fragment Tail0 returns k::OperatorExpression: Tail1;
+fragment Tail1 returns k::OperatorExpression: Tail2;
+fragment Tail2 returns k::OperatorExpression: Tail3;
+fragment Tail3 returns k::OperatorExpression: Tail4;
+fragment Tail4 returns k::OperatorExpression: Tail5;
+fragment Tail5 returns k::OperatorExpression: Tail6;
+fragment Tail6 returns k::OperatorExpression: Tail7;
+fragment Tail7 returns k::OperatorExpression: Tail8;
+fragment Tail8 returns k::OperatorExpression: Tail9;
+fragment Tail9 returns k::OperatorExpression: '$'? '::' ('n' | 'm');
+terminal WS: ' '+;

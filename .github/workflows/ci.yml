@@ -1,0 +1,154 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      browser_acceptance:
+        description: Run the Playwright browser acceptance suites
+        type: boolean
+        default: false
+      milestone:
+        description: 'Run full workspace, examples and browser milestone checks'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GH_TOKEN: ${{ secrets.INTERSECT_READ_TOKEN || github.token }}
+  CARGO_PROFILE_DEV_OPT_LEVEL: 1
+  CARGO_INCREMENTAL: 0
+  CARGO_PROFILE_DEV_DEBUG: 0
+  CARGO_PROFILE_TEST_DEBUG: 0
+  RUSTUP_TOOLCHAIN: '1.99.1'
+  INTERSECT_TEST_REPORTS: ${{ github.workspace }}/target/test-reports
+
+jobs:
+  msrv:
+    name: Minimum Rust 1.88 libraries
+    runs-on: ubuntu-latest
+    env:
+      RUSTUP_TOOLCHAIN: '1.88.0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Configure private Model read access
+        run: gh auth setup-git
+      - name: Install minimum Rust
+        run: rustup toolchain install 1.88.0 --profile minimal --target wasm32-unknown-unknown
+      - name: Check native library features
+        run: cargo check --workspace --lib --all-features --locked
+      - name: Check WASM libraries
+        run: cargo check --workspace --lib --target wasm32-unknown-unknown --locked
+
+  scoped:
+    name: ${{ matrix.scope }} native/WASM (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        scope: [text, host]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Free disk space
+        if: runner.os == 'Linux'
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
+          df -h /
+      - name: Enable long paths
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Configure private Model read access
+        run: gh auth setup-git
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.99.1 --profile minimal --component rustfmt --component clippy --target wasm32-unknown-unknown
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.15.1'
+      - name: Scoped qualification
+        run: python -B tools/qualify_support.py --scope ${{ matrix.scope }} --lane all --toolchain 1.99.1 --network online --output target/qualification/${{ matrix.scope }}
+      - name: Check reviewed API contracts (Windows baseline)
+        if: runner.os == 'Windows' && matrix.scope == 'text'
+        env:
+          # Only rustdoc's JSON inventory uses this; release builds stay stable.
+          RUSTC_BOOTSTRAP: '1'
+          RUSTDOCFLAGS: '-D warnings'
+        run: |
+          python -B -m unittest discover -s tools -p "test_api*.py"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cargo rustdoc -p intersect-text --lib --locked -- -Z unstable-options --output-format json --document-private-items --document-hidden-items
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B tools/api_surface.py target/doc/intersect_text.json --check tests/api-surface/default.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B tools/api_contracts.py target/doc/intersect_text.json --check tests/api-surface/contracts-default.json
+      - name: Retain scoped evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: qualification-${{ matrix.scope }}-${{ matrix.os }}-${{ github.run_attempt }}
+          path: |
+            target/qualification/${{ matrix.scope }}/
+            target/test-reports/
+          if-no-files-found: warn
+          retention-days: 14
+
+  milestone:
+    if: github.event_name == 'workflow_dispatch' && inputs.milestone
+    name: Full milestone (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Free disk space
+        if: runner.os == 'Linux'
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
+          df -h /
+      - name: Enable long paths
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Configure private Model read access
+        run: gh auth setup-git
+      - name: Install Rust
+        run: rustup toolchain install 1.99.1 --profile minimal --component rustfmt --component clippy --target wasm32-unknown-unknown
+      - name: Fast-first Rust qualification
+        run: python -B tools/qualify_support.py --scope workspace --lane preflight --toolchain 1.99.1 --network online --output target/qualification/ci
+      - name: Full native milestone
+        run: python -B tools/test_report.py run -- --profile test-fast --workspace --locked --no-fail-fast --features intersect-web/milestone-tests,intersect-text-acceptance/milestone-tests
+      - name: Workspace WASM libraries
+        run: cargo +1.99.1 build --workspace --lib --target wasm32-unknown-unknown --locked
+      - name: Native examples
+        run: |
+          cargo +1.99.1 run -p intersect-text-acceptance --example model_api --locked
+      - name: Qualification terminal evidence
+        if: always()
+        run: python -c "from pathlib import Path; p = Path('target/qualification/ci/terminal.json'); print(p.read_text(encoding='utf-8') if p.exists() else 'Qualification did not start; see the preceding step.')"
+      - name: Retain qualification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: qualification-${{ matrix.os }}-${{ github.run_attempt }}
+          path: |
+            target/qualification/ci/
+            target/test-reports/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "state": "proposal_only_awaiting_root_review_before_production_edits",
+  "checkpoint": "91a98cdfbea19337318e278396d88508e56a5c89",
+  "baseline": {
+    "bytes": 37080,
+    "sha256": "980a91d13e8416a4110bb54cd2b2eda262242c4cb21bc5849162539de35c8a4f"
+  },
+  "original7_baseline": {
+    "bytes": 35127,
+    "sha256": "092983ec5b896b555e333fa5e989a0c03d239edda4090234bb5d852411a84332"
+  },
+  "proposed_explicit_profile": "NativeV62 (subject to root allocation; NativeV1-V61/default inference unchanged)",
+  "semantic_scope": {
+    "admit_new_frozen_cases": [
+      "grouped_multichar",
+      "fragment_multichar",
+      "mixed_group"
+    ],
+    "retain_exact_unsupported_cases": {
+      "original_sequence": "Actual successful javac/runtime is accompanied by ANTLR buildnfa error(100), expecting EOA after first set element. Prefix exclusion is recovered generator output, not a complete sequence-language proof. Preserve all4actual runtimes/partial models and historical adapter timeout.",
+      "fragment_mixed": "Actual successful javac/runtime is accompanied by ANTLR error(100), invalid char literal:<INVALID>. Preserve all9actual runtimes/partials; do not claim clean generation or admit merely because generated predicate coincides with mixed_group."
+    },
+    "preserve_old_one_unit_negation": true,
+    "new_lowering": "Explicit source-profile-qualified lexer exclusion-set projection, NOT complement of operand language and NOT FIRST set. Every original resolved operand/call identity stays retained."
+  },
+  "grounded_mechanics": [
+    "Pinned Xtext TerminalRuleToLexerBody.caseNegatedToken emits ~(operand); caseGroup recursively emits children; caseTerminalRule/caseRuleCall preserve RULE_* references.",
+    "Clean full generation of grouped multi-unit keyword and literal-bodied fragment emits LA(1) in0..65535, consuming one UTF16 unit. Multi-unit literal contributes no singleton exclusion.",
+    "Clean mixed inline alternative ab|x emits ranges excluding exactly x. Singleton/range alternatives contribute genuine exclusion ranges; a multi-unit keyword is not replaced with its FIRST character.",
+    "ANTLR TreeToNFAConverter.set consumes exactly one setElement then expects EOA per alternative; original_sequence adds a then reports extra b, retaining partial set before recovery. This is why general multi-element sequence admission must remain explicit unsupported.",
+    "All observed raw UTF16 tokens, parser/resource diagnostics, rejectedpartial models and node leaves remain intact; native strings still require valid UTF8 endpoints."
+  ],
+  "proposed_shared_implementation": {
+    "semantic_file": "crates/intersect-model/src/definitions/grammar/terminals.rs",
+    "old_unit_domain": "Leave unchanged and retain its exact one-unit proof for NativeV58-V61.",
+    "new_projector": "Add a separately named bounded source-profile-qualified exclusion-set projector for NativeV62. Require cardinality1 and nonempty literal programs. Literal one-unit=>singleton; literal multi-unit=>empty exclusion; Range=>range; old proved one-unit Negated/NotCharacters/Wildcard domains unchanged; one-element Sequence wrappers recurse; inline Alternative merges child exclusions; resolved Call traverses retained body with fragment-body eligibility context.",
+    "eligibility": "Reject every multi-element Sequence, nullable/repeated/EOF/Until/unresolved/cyclic operand exactly/explicitly. At any resolved Call body, reject a subtree combining multi-unit keywords and Alternative (the frozen fragment_mixed diagnostic case); preserve previously supported entirely-one-unit fragment alternatives. Do not use failed unit_domain as a budget-consuming probe: return structural eligibility/domain summary in one bounded traversal.",
+    "budget": "Every visited node consumes existing prediction budget; use existing depth64/resolution-cycle constraints, no new unbounded recursion or source clone. Analyze/validate the complete operand before projecting; never skip unsupported suffixes.",
+    "runtime": "Reuse existing Operation::Negated excluded intervals, FIRST/decision generation, shared lexer matcher and model constructor. No new runtime opcode, Java, generated table or outcome lookup.",
+    "archive_authority": "Retain entire authored operand, resolved Call identity/body and source IDs; normal source recompilation regenerates exclusions and rejects rehashed cached operand/exclusion changes, including execution-equivalent source tampering.",
+    "profile_files": "Mechanical NativeV62 propagation through grammar profile enum/capabilities/as_str, shared compiler matching, explicit native/JSON profile decoder, archive source rebuild and ordinary project profile admission. Inferred-v1 stays V56/V57; V61 contextual source admission is inherited unchanged."
+  },
+  "frozen_verification_plan": {
+    "legacy": "Replay exact complete immutable03bf original7 native requests181 and all305 newcase V1-V61 compile requests; no old hashes/expectations rebased. Keep old V58/V59/V60/V61 terminal tests.",
+    "positive_consumers": "For all3 newly eligible exactgraphs/all27inputs, actual native+JSON/directWASM compilation/evaluation + source replay + archive export/import. Compare acceptance and successful stored Model class,name,members,source/span against raw full oracle; raw rejectedpartial/error streams remain separate and unqualified.",
+    "negative_scope": "Keep original_sequence and fragment_mixed as exact unsupported source graphs despite actual generated recovery outputs; reject nullable/repeated/EOF/cycles/unknown/Until/newmulti-sequence forms with complete source identities.",
+    "source_and_archive": "Test source-regenerated grouped/Call exclusions, retained callee identities, parameterization and source spans; rehash and reject executable exclusion/operand/call-identity corruption and invalid source bundle while retaining published model.",
+    "budgets": "Prediction budget exact/short boundary controls and host ceilings through shared new-profile path; preserve legacy budget/error bytes.",
+    "before_broadening_combinations": "Before admitting nested multi-unit calls or mixed inline alternatives containing multi-unit Calls beyond observed graph shapes, obtain separate clean full-source oracle companions; do not infer clean generator eligibility from a scalar model alone. Parent/explicit-parent multi-unit call identities require focused separate full-source proof or remain unchanged/unqualified.",
+    "builds_after_approval": "Only NEW isolated native/WASM targets from exact91a plaincopy. Focused native tests, rustfmt/scopedClippy, model-only+wasm32 checks and actual freshzeroimport JSON artifact; no shared/public artifact changes."
+  },
+  "remaining_plan": [
+    "Preserve original_sequence all4actual runtime outputs plus exact generator error/controlflow in portable evidence. A later explicit recovery-policy increment must model the real set-walker error/recovery traversal, with alternatives, sequence tails, nested calls and caller suffix controls; never approximate by FIRST.",
+    "Preserve fragment_mixed all9actual runtime outputs and invalidcharliteral diagnostic. Obtain clean generation for a separately authored equivalent fragment shape or explicitly define a source-profile recovery policy before admission; do not repair its original source.",
+    "Broader invalid-token consumption, upstream rejectedpartial model publication, UTF16-to-UTF8 boundary behavior and full X05/X06 remain open."
+  ],
+  "production_edits_performed": false,
+  "native_support_award": false,
+  "gate_closures": []
+}

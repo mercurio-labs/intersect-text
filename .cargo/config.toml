@@ -1,0 +1,16 @@
+# Build-only settings; they change how fast things compile and link, not
+# what is compiled.
+
+# The LLVM linker shipped with the Rust toolchain links the many large test
+# binaries much faster than MSVC link.exe.
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+
+[env]
+# Deep recursive descent in the parser and binding compiler needs large
+# thread stacks in unoptimized test builds; every session already set this.
+RUST_MIN_STACK = "67108864"
+
+[net]
+# Private Model dependencies use the configured Git credential provider.
+git-fetch-with-cli = true

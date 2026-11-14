@@ -1,0 +1,213 @@
+[
+  {
+    "id": "nested_negated",
+    "syntax": [
+      {
+        "source": "audit.Exploratory0",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Exploratory0",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Exploratory0::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Exploratory0",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Exploratory0::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(~('a'))"
+      }
+    ],
+    "translation_failure": null,
+    "generation_exit": 0,
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ],
+    "generation_diagnostic": ""
+  },
+  {
+    "id": "negated_fragment",
+    "syntax": [
+      {
+        "source": "audit.Exploratory1",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Exploratory1",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Exploratory1::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.Exploratory1::LETTER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Exploratory1",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Exploratory1::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_LETTER)"
+      },
+      {
+        "source_rule": "audit.Exploratory1::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "~('a')"
+      }
+    ],
+    "translation_failure": null,
+    "generation_exit": 0,
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ],
+    "generation_diagnostic": ""
+  }
+]

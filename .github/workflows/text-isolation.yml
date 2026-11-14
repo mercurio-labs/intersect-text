@@ -1,0 +1,88 @@
+name: Text package isolation
+
+on:
+  push:
+    branches: [main, develop, codex/xtext-separation]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xtext-isolation-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GH_TOKEN: ${{ secrets.INTERSECT_READ_TOKEN || github.token }}
+  RUSTUP_TOOLCHAIN: '1.99.1'
+  CARGO_BUILD_JOBS: '2'
+
+jobs:
+  stage:
+    name: Package explicit inputs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Configure private Model read access
+        run: gh auth setup-git
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.99.1 --profile minimal
+      - name: Fetch locked registry inputs
+        run: cargo fetch --manifest-path tests/text-only/Cargo.toml --locked
+      - name: Packaging boundary controls
+        run: |
+          python -B tools/test_stage_text_packages.py
+          python -B tools/test_verify_text_stage.py
+          python -B tools/test_text_separation_guard.py
+          python -B tools/test_text_release_contract.py
+          python -B tools/check_text_release_contract.py
+      - name: Stage standalone packages and consumers
+        run: python -B tools/stage_text_packages.py --output target/xtext-stage --vendor
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: xtext-stage-${{ github.sha }}
+          path: target/xtext-stage/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+
+  consume:
+    name: No-checkout native and WASM (${{ matrix.os }}, Rust ${{ matrix.rust }})
+    needs: stage
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        rust: ['1.88.0', '1.99.1']
+    env:
+      RUSTUP_TOOLCHAIN: ${{ matrix.rust }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      # Deliberately no checkout: the original source repository is unavailable.
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: xtext-stage-${{ github.sha }}
+          path: stage
+      - name: Install pinned Rust and WASM target
+        run: rustup toolchain install ${{ matrix.rust }} --profile minimal --component clippy --target wasm32-unknown-unknown
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.15.1'
+      - name: Execute isolated public consumers
+        run: python -B stage/verification/verify_text_stage.py --stage stage --output stage/evidence/ci --require-original-unavailable
+      - name: Retain terminal evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: xtext-isolation-${{ matrix.os }}-${{ matrix.rust }}-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            stage/staging-receipt.json
+            stage/evidence/
+            stage/reports/
+            stage/metadata/
+          if-no-files-found: warn
+          retention-days: 14

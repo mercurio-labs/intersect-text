@@ -1,0 +1,620 @@
+{
+  "version": 1,
+  "state": "Actual public NativeV61 authored-helper baseline independently compared against complete pinned source-loaded oracle classifications/validators.",
+  "scope": "No production/profile/inferred changes. Source admission only; preserve earlier package/generator/runtime failures and all unexecuted inputs.",
+  "source_commit": "91a98cdfbea19337318e278396d88508e56a5c89",
+  "graphs": 5,
+  "helper_admitted": 3,
+  "helper_rejected": 2,
+  "fresh_process_complete_equality": true,
+  "coverage": [
+    {
+      "id": "wildcard_original_control",
+      "helper_result": {
+        "ok": true
+      },
+      "resolved_classification_and_used_closure": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "inference.fragments.WildcardBasic",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:inference:fragments:wildcard_basic",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "Fields",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": false,
+                  "classifier": null
+                },
+                {
+                  "name": "ID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "WS",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "upstream_validation": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "upstream_generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "upstream_javac": {
+        "exit_code": 0
+      },
+      "upstream_runtime_inputs": 5,
+      "original_native_package": {
+        "diagnostics": [
+          {
+            "end": 54,
+            "message": "Unsupported Xtext declaration generate",
+            "source": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext",
+            "start": 53
+          }
+        ],
+        "ok": false
+      },
+      "coverage": "Helper source admission matches every loaded upstream grammar having no validator errors. No package/generation/runtime award."
+    },
+    {
+      "id": "wildcard_first_null",
+      "helper_result": {
+        "diagnostic": {
+          "end": 178,
+          "message": "The first rule must not be a fragment",
+          "source": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext",
+          "start": 169
+        },
+        "ok": false,
+        "origin": {
+          "kind": "source",
+          "source": {
+            "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+            "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+          },
+          "span": {
+            "end": 178,
+            "source": {
+              "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+              "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+            },
+            "start": 169
+          }
+        }
+      },
+      "resolved_classification_and_used_closure": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "inference.fragments.WildcardBasic",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Fields",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": false,
+                  "classifier": null
+                },
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:inference:fragments:wildcard_basic",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "ID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "WS",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "upstream_validation": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": "org.eclipse.xtext.grammar.InvalidFragmentFirstRule",
+              "start": 169,
+              "length": 8,
+              "message": "The first rule must not be a fragment"
+            }
+          ],
+          "failure": null
+        }
+      ],
+      "upstream_generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "upstream_javac": null,
+      "upstream_runtime_inputs": 0,
+      "original_native_package": {
+        "diagnostics": [
+          {
+            "end": 54,
+            "message": "Unsupported Xtext declaration generate",
+            "source": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext",
+            "start": 53
+          }
+        ],
+        "ok": false
+      },
+      "matched_upstream_issue": {
+        "severity": "ERROR",
+        "code": "org.eclipse.xtext.grammar.InvalidFragmentFirstRule",
+        "start": 169,
+        "length": 8,
+        "message": "The first rule must not be a fragment"
+      },
+      "native_owned_span_text": "fragment ",
+      "native_span_equals_upstream_issue": false,
+      "coverage": "Native fail-fast helper rejection matches source grammar and actual upstream issue message; exact native transient source revision/owned span verified. Not all diagnostics or span parity."
+    },
+    {
+      "id": "scalar_fragment_library",
+      "helper_result": {
+        "ok": true
+      },
+      "resolved_classification_and_used_closure": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofScalarFragmentLibrary",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Text",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": true,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "upstream_validation": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "upstream_generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "upstream_javac": null,
+      "upstream_runtime_inputs": 0,
+      "original_native_package": {
+        "diagnostics": [
+          {
+            "end": 129,
+            "message": "Datatype parser fragments are unsupported",
+            "source": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext",
+            "start": 128
+          }
+        ],
+        "ok": false
+      },
+      "coverage": "Helper source admission matches every loaded upstream grammar having no validator errors. No package/generation/runtime award."
+    },
+    {
+      "id": "scalar_fragment_model_child",
+      "helper_result": {
+        "ok": true
+      },
+      "resolved_classification_and_used_closure": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofScalarFragmentLibrary",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Text",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": true,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofScalarFragmentChild",
+              "used": [
+                {
+                  "name": "audit.ProofScalarFragmentLibrary",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofScalarFragmentLibrary.xtext#XtextFragmentProvider_audit.ProofScalarFragmentLibrary"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                    "resource_fragment": "//Model"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "upstream_validation": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "issues": [],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofScalarFragmentChild",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "upstream_generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "upstream_javac": null,
+      "upstream_runtime_inputs": 0,
+      "original_native_package": {
+        "diagnostics": [
+          {
+            "end": 129,
+            "message": "Datatype parser fragments are unsupported",
+            "source": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext",
+            "start": 128
+          }
+        ],
+        "ok": false
+      },
+      "coverage": "Helper source admission matches every loaded upstream grammar having no validator errors. No package/generation/runtime award."
+    },
+    {
+      "id": "syntax_clean_object_three_level",
+      "helper_result": {
+        "diagnostic": {
+          "end": 72,
+          "message": "The first rule must be a parser rule.",
+          "source": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext",
+          "start": 69
+        },
+        "ok": false,
+        "origin": {
+          "kind": "source",
+          "source": {
+            "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+            "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+          },
+          "span": {
+            "end": 72,
+            "source": {
+              "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+              "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+            },
+            "start": 69
+          }
+        }
+      },
+      "resolved_classification_and_used_closure": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofObjectBase",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofObjectMiddle",
+              "used": [
+                {
+                  "name": "audit.ProofObjectBase",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofObjectBase.xtext#XtextFragmentProvider_audit.ProofObjectBase"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "MID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofObjectChild",
+              "used": [
+                {
+                  "name": "audit.ProofObjectMiddle",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofObjectMiddle.xtext#XtextFragmentProvider_audit.ProofObjectMiddle"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "FIRST",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "upstream_validation": [
+        {
+          "source": "audit.ProofObjectBase",
+          "issues": [],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofObjectMiddle",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": null,
+              "start": 69,
+              "length": 3,
+              "message": "The first rule must be a parser rule."
+            }
+          ],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofObjectChild",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": null,
+              "start": 70,
+              "length": 5,
+              "message": "The first rule must be a parser rule."
+            }
+          ],
+          "failure": null
+        }
+      ],
+      "upstream_generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "upstream_javac": null,
+      "upstream_runtime_inputs": 0,
+      "original_native_package": {
+        "diagnostics": [
+          {
+            "end": 72,
+            "message": "The first rule must be a parser rule.",
+            "source": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext",
+            "start": 69
+          }
+        ],
+        "ok": false
+      },
+      "matched_upstream_issue": {
+        "severity": "ERROR",
+        "code": null,
+        "start": 69,
+        "length": 3,
+        "message": "The first rule must be a parser rule."
+      },
+      "native_owned_span_text": "MID",
+      "native_span_equals_upstream_issue": true,
+      "coverage": "Native fail-fast helper rejection matches source grammar and actual upstream issue message; exact native transient source revision/owned span verified. Not all diagnostics or span parity."
+    }
+  ],
+  "explicit_boundaries": [
+    "Null Fields classifier genuinely null, not missing-return guess; helper reaches actual fragment issue. Native169..178 includes trailing whitespace; upstream169length8, so no exact diagnostic span award.",
+    "Scalar fragment resolves actual Ecore EDataType EString; helper admits standalone and child, while complete ordinary NativeV61 still rejects Datatype parser fragments and upstream generator failures remain.",
+    "Three-level graph is syntax-clean but not validator-clean: helper reports actual Middle issue during source-closure traversal; both upstream Middle+Child diagnostics retained and no all-diagnostic parity claimed.",
+    "Original wildcard helper/source admission is distinct from inferred-v1 runtime under frozen56 default.",
+    "No full first-rule universal qualification or X03/X05/X06/full Xtext gate closure."
+  ],
+  "pins": {
+    "pre-helper-oracle-coverage": {
+      "bytes": 19137,
+      "sha256": "3cfa3a397ff94becb63ec4e680487f51011d2c06abc6dc990820888354528ccc"
+    },
+    "helper-execution": {
+      "bytes": 4529,
+      "sha256": "ea14ae2856794e38e59545dd0c0cf6121c50873651b5d3976b5766d54966b9a1"
+    },
+    "helper-record": {
+      "bytes": 46777,
+      "sha256": "99e065d78214a57bdfc4e5c239516a278a6da4b6bbf665c91d41fa158853ee2a"
+    },
+    "helper-replay": {
+      "bytes": 46777,
+      "sha256": "99e065d78214a57bdfc4e5c239516a278a6da4b6bbf665c91d41fa158853ee2a"
+    },
+    "old-native-before": {
+      "bytes": 9608,
+      "sha256": "5b21305dc2601bef2e98a177993ed7a5e5f944c4ef7da52f6193d2dc1d1a2c98"
+    },
+    "oracle-full-final": {
+      "bytes": 33646,
+      "sha256": "b8a5dc21d564c1a5da8ce15c32c1f5ca51ddbfc2291255c92095d8a7865c63dc"
+    },
+    "original20-cases": {
+      "bytes": 22409,
+      "sha256": "71311b1910d27bae0c266ec68cf785bb22b9d64099c3199b56e725f91b326feb"
+    }
+  }
+}

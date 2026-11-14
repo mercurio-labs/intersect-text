@@ -1,0 +1,10 @@
+--- crates/intersect-web/src/lib.rs
++++ crates/intersect-web/src/lib.rs
+@@ -483,6 +483,7 @@
+                 &semantic_bindings::Derived::new(&package),
+             )))
+         }
++        "package/import_with_conversions" => conversions::import(&request),
+         "package/import" => {
+             let files = serde_json::from_value(
+                 request

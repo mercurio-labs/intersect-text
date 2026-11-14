@@ -1,0 +1,28 @@
+rcore 1;
+package intersect.kerml.featureNaming version "1";
+
+// FeatureUtil.isNameSet includes a null counterpart and an empty declared name.
+pub fn has_declared_label(name: Option<String>, short: Option<String>) -> Bool {
+    match name { Some(_) => true, None => match short { Some(_) => true, None => false } }
+}
+
+pub fn declared_label(name: Option<String>, short: Option<String>, use_short: Bool) -> Option<String> {
+    if use_short { short } else { name }
+}
+
+// None proves the existing empty-computed branch. Some explains unsupported
+// context; collecting these flags and directed parameter traversal are adapters.
+fn empty_computed_context(
+    assignment: Bool, specialized: Bool, end: Bool, directed: Bool,
+    constructor: Bool, transition: Bool, multiplicity: Bool
+) -> Option<String> {
+    if specialized { Some("Unsupported specialized computed Feature naming adapter") }
+    else {
+        if assignment { Some("Unsupported assignment-context computed Feature naming") }
+        else {
+            if !multiplicity && (end || directed || constructor || transition) {
+                Some("Unsupported parameter/end/constructor/transition computed Feature naming")
+            } else { None }
+        }
+    }
+}

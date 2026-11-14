@@ -1,0 +1,17 @@
+[package]
+name="intersect-scalar-comparison-qualification"
+version="0.0.0"
+edition="2024"
+[workspace]
+[dependencies]
+intersect-web={path="../../../crates/intersect-web"}
+intersect-model={path="../../../crates/intersect-model",features=["allocation-profile"]}
+serde_json="=1.0.151"
+[profile.dev]
+opt-level=1
+debug=0
+incremental=false
+
+[[bin]]
+name="ordinary-scalar-comparison"
+path="../ordinary/main.rs"

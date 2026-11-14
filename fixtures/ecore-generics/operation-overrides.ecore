@@ -1,0 +1,16 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="operations" nsURI="urn:operations">
+  <eClassifiers x:type="e:EDataType" name="A" instanceClassName="java.lang.String"/>
+  <eClassifiers x:type="e:EDataType" name="B" instanceTypeName="java.lang.String"/>
+  <eClassifiers x:type="e:EClass" name="Base">
+    <eTypeParameters name="T"><eBounds eClassifier="#//A"/></eTypeParameters>
+    <eOperations name="f"><eParameters name="original"><eGenericType eTypeParameter="#//Base/T"/></eParameters></eOperations>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Derived">
+    <eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eClassifier="#//B"/></eGenericSuperTypes>
+    <eOperations name="f" eType="#//B">
+      <eTypeParameters name="U"><eBounds eClassifier="#//B"/></eTypeParameters>
+      <eParameters name="renamed"><eGenericType eTypeParameter="#//Derived/f/U"/></eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Unrelated"><eOperations name="f"><eParameters name="p" eType="#//A"/></eOperations></eClassifiers>
+</e:EPackage>

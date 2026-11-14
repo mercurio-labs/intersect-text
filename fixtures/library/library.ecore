@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="library" nsURI="urn:intersect:example:library:1" nsPrefix="lib">
+  <eClassifiers xsi:type="ecore:EClass" name="Named" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//Named">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copies" upperBound="-1" containment="true" eType="#//BookCopy" eOpposite="#//BookCopy/library"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1" containment="true" eType="#//Member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loans" upperBound="-1" containment="true" eType="#//Loan"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyCount" derived="true" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BookCopy" eSuperTypes="#//Named">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edition" defaultValueLiteral="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="library" eType="#//Library" eOpposite="#//Library/copies"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="available" derived="true" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//Named"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Loan" eSuperTypes="#//Named">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="copy" lowerBound="1" eType="#//BookCopy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" lowerBound="1" eType="#//Member"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,217 @@
+{
+  "generation": [
+    {
+      "name": "Visible",
+      "exit": 0,
+      "diagnostic_codes": [],
+      "hidden_by_actions": false
+    },
+    {
+      "name": "AfterAction",
+      "exit": 1,
+      "diagnostic_codes": [
+        [
+          "warning",
+          "200"
+        ],
+        [
+          "error",
+          "201"
+        ]
+      ],
+      "hidden_by_actions": true
+    },
+    {
+      "name": "AfterToken",
+      "exit": 1,
+      "diagnostic_codes": [
+        [
+          "warning",
+          "200"
+        ],
+        [
+          "error",
+          "201"
+        ]
+      ],
+      "hidden_by_actions": false
+    },
+    {
+      "name": "InsideCall",
+      "exit": 1,
+      "diagnostic_codes": [
+        [
+          "warning",
+          "200"
+        ],
+        [
+          "error",
+          "201"
+        ]
+      ],
+      "hidden_by_actions": false
+    },
+    {
+      "name": "EntryCommit",
+      "exit": 0,
+      "diagnostic_codes": [],
+      "hidden_by_actions": false
+    }
+  ],
+  "decisions": [
+    {
+      "parser": "Visible",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "Visible",
+      "text": "a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "Visible",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "EntryCommit",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    }
+  ]
+}

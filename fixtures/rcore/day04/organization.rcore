@@ -1,0 +1,8 @@
+rcore 1;
+package organization version "1";
+metamodel "urn:intersect:rcore:organization" prefix org {
+  class Node {
+    ref links: Node [0,*] nonunique;
+    op reachable() -> Node [0,*];
+  }
+}

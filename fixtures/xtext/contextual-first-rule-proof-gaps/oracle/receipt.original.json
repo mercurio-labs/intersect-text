@@ -1,0 +1,99 @@
+{
+  "state": "full_original_five_graph_record_replay_and_additive_metadata_v2_pass",
+  "frozen_input_preexecution": {
+    "bytes": 4376,
+    "sha256": "8e3f4663ee09c5edc82005f9679014eb5a8c1ccb9d59bbfebfbdf6eb2e5191d8"
+  },
+  "wrapper": {
+    "bytes": 3851,
+    "sha256": "3e7ac0a16e172370cd4d2d04ac0a5f2968fb7e9602d5eab4420978528a4b7d46"
+  },
+  "producer": {
+    "bytes": 8072,
+    "sha256": "fa87cf4a62e1e9495558b3438a609cd0257bdabcec6e070ebbdcdb3cbd1944aa"
+  },
+  "original_verifier": {
+    "bytes": 4148,
+    "sha256": "4fae2266bbb288d355ba6b75d1880b8e15c871fd072359e41ada5989b0474ebc"
+  },
+  "metadata_path_adapter": {
+    "bytes": 2506,
+    "sha256": "088e3bded1efbbf8e4b4ddb359e2f260e6c2fe414ba2e1706d7132292a048546"
+  },
+  "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\produce.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "stdout": "record.stdout.log",
+      "stderr": "record.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\produce.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\replay",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "stdout": "replay.stdout.log",
+      "stderr": "replay.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\verify-original.py",
+        "--record",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record",
+        "--replay",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\replay",
+        "--receipt",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\full-replay-receipt.json"
+      ],
+      "exit_code": 0,
+      "stdout": "verify-full.stdout.log",
+      "stderr": "verify-full.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\metadata-v2-pair-explicit.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\metadata-addendum",
+        "--original-record",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "stdout": "metadata-v2-pair.stdout.log",
+      "stderr": "metadata-v2-pair.stderr.log"
+    }
+  ],
+  "native_support_award": false,
+  "gate_closures": [],
+  "full_replay_receipt": {
+    "bytes": 18382,
+    "sha256": "71aaa3cd605a9cef8f8a34c709c18e67b8f4f49010a83060ad2233972db00f01"
+  },
+  "metadata_v2_receipt": {
+    "bytes": 2024,
+    "sha256": "aa75f6e2b7494f51d3ae4a1e225d8c2c1fcbdaf1c0c1913726ec9e1050037dd0"
+  },
+  "source_inputs_unchanged": true
+}

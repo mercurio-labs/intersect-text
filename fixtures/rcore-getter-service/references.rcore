@@ -1,0 +1,29 @@
+rcore 1;
+package reference.getters version "1";
+metamodel "urn:reference-getters" prefix m {
+  class Node {
+    attr label: String [0,1];
+    ref next: Node [0,1];
+    ref peers: Node [0,3];
+    ref repeats: Node [0,*] nonunique;
+    ref selected: Node [0,1] derived;
+    ref optional: Node [0,1] derived;
+    ref required: Node [1,1] derived;
+    ref ordered: Node [0,3] derived;
+    ref occurrences: Node [0,*] nonunique derived;
+  }
+  class Child extends Node {}
+}
+behavior {
+  import model "urn:reference-getters" as m;
+  derive m.Node.selected(self) -> Option<m.Node> = select_node(self);
+  fn select_node(self:m.Node) -> Option<m.Node> = find(self.peers, |node| node.label == Some("chosen"));
+  derive m.Node.optional(self) -> m.Node[0,1] = next_node(self);
+  fn next_node(self:m.Node) -> m.Node[0,1] = self.next;
+  derive m.Node.required(self) -> m.Node[1,1] = identity(self);
+  fn identity(self:m.Node) -> m.Node[1,1] = self;
+  derive m.Node.ordered(self) -> m.Node[0,3] = ordered_nodes(self);
+  fn ordered_nodes(self:m.Node) -> m.Node[0,3] = self.peers;
+  derive m.Node.occurrences(self) -> m.Node[0,*] nonunique = repeated_nodes(self);
+  fn repeated_nodes(self:m.Node) -> m.Node[0,*] nonunique = self.repeats;
+}

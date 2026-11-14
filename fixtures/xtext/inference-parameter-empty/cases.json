@@ -1,0 +1,46 @@
+[
+  {
+    "id": "forward_empty",
+    "entry": "main",
+    "sources": [
+      {
+        "id": "main",
+        "grammar": "oracle.parameters.empty.forward_empty.Language",
+        "dependencies": [],
+        "source": "grammar oracle.parameters.empty.forward_empty.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-empty:forward_empty\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Model} 'm' child=Forward<false>; Forward<Flag>: <Flag | !Flag> Node<Flag>; Node<Flag>: 'node' (<Flag> name=ID)?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "m node"
+      },
+      {
+        "entry": "resource",
+        "text": "m node alpha"
+      }
+    ]
+  },
+  {
+    "id": "root_empty",
+    "entry": "main",
+    "sources": [
+      {
+        "id": "main",
+        "grammar": "oracle.parameters.empty.root_empty.Language",
+        "dependencies": [],
+        "source": "grammar oracle.parameters.empty.root_empty.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-empty:root_empty\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Forward<false>; Forward<Flag>: <Flag | !Flag> Node<Flag>; Node<Flag>: 'node' (<Flag> name=ID)?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+      }
+    ],
+    "runs": [
+      {
+        "entry": "resource",
+        "text": "node"
+      },
+      {
+        "entry": "resource",
+        "text": "node alpha"
+      }
+    ]
+  }
+]

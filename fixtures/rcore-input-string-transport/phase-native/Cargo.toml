@@ -1,0 +1,15 @@
+[package]
+name="s09-input-string-phase-witness-v1"
+version="0.0.0"
+edition="2024"
+[workspace]
+[[bin]]
+name="input-string-phase-witness"
+path="../phase-witness.rs"
+[dependencies]
+intersect-model={path="../../../crates/intersect-model",features=["allocation-profile"]}
+serde_json="1.0.149"
+
+[[bin]]
+name="input-string-q1-phase-witness"
+path="../phase-witness-q1.rs"

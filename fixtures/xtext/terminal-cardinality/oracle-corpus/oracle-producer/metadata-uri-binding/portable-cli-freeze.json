@@ -1,0 +1,23 @@
+{
+  "state": "new_portable_cli_frozen_path_discovery_only",
+  "original_producer": {
+    "bytes": 5979,
+    "sha256": "b6bdd1ac1793c1aaf626e38252de0eb299719585f0832bad57be07fb88de4efb"
+  },
+  "original_copy": {
+    "bytes": 5979,
+    "sha256": "b6bdd1ac1793c1aaf626e38252de0eb299719585f0832bad57be07fb88de4efb"
+  },
+  "portable_producer": {
+    "bytes": 6237,
+    "sha256": "cf85054b7cea59375122879c5020c62d8b9782593faaf93456c11269dc42c4d7"
+  },
+  "exact_replacement": {
+    "old": "HERE = Path(__file__).resolve().parent\nCORPUS = HERE / 'portable-terminal-cardinality-v1'\nADD = CORPUS / 'oracle-producer/metadata-uri-binding'\nOUT = HERE / 'metadata-binding-attempt1'\nJDK = Path('D:/dev/jdks/jdk21')\nCACHE = Path('C:/Users/MarkPetrotta/.m2/repository')\nOUT.mkdir(exist_ok=False)",
+    "new": "import argparse\nADD = Path(__file__).resolve().parent\nCORPUS = ADD.parent.parent\nparser = argparse.ArgumentParser(description=__doc__)\nparser.add_argument('--output', type=Path, required=True)\nparser.add_argument('--jdk', type=Path, required=True)\nparser.add_argument('--maven-cache', type=Path, required=True)\nargs = parser.parse_args()\nOUT = args.output.resolve()\nJDK = args.jdk.resolve()\nCACHE = args.maven_cache.resolve()\nassert OUT != CORPUS and CORPUS not in OUT.parents, 'Output must be NEW and outside immutable corpus'\nOUT.mkdir(exist_ok=False)"
+  },
+  "baseline_metadata_unchanged": true,
+  "normalization": null,
+  "execution": "Original external workflow completed24fresh processes exact; this CLI adaptation awaits separate optional replay",
+  "cli": "python -B oracle-producer/metadata-uri-binding/replay.py --output NEW_EXTERNAL --jdk JDK21 --maven-cache MAVEN_CACHE"
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "scope": "Read-only proof-path plan; no helper execution/build or support award. Native before17 requests unchanged.",
+  "production_helper": {
+    "path": "crates/intersect-xtext/src/ordinary.rs",
+    "symbol": "intersect_xtext::ordinary::validate_authored_program",
+    "behavior": "Fresh sources::prepare_with_profile(bundle, entry, limits, NativeV61), discard prepared result. Trusted in-process language callback; not executable package/runtime admission.",
+    "pin": {
+      "bytes": 9090,
+      "sha256": "6ac9cc27d75b07b5a90c71e03d1731de58be2df4085f3235d8bff45ab0bd82e5"
+    }
+  },
+  "existing_executable_boundary": {
+    "test": "crates/intersect-web/tests/contextual_program_adapter.rs",
+    "pin": {
+      "bytes": 6138,
+      "sha256": "edba19c7164c10dddd0575d1c453baecac5ec5c7e318f0799eb368d0b0407884"
+    },
+    "observation": "Uses include_str! of existing parameter-cases, not dynamic external graph input. No current public JSON/WASM method exposes arbitrary validate_authored_program. Do not rebuild during joint source freeze."
+  },
+  "after_checkpoint_control_plan": {
+    "input": "Exact existing five frozen proof-gap native-cases compilations and entry SourceIds, no source repairs.",
+    "call": "For each graph call ordinary::validate_authored_program(&compilation.bundle, &compilation.xtext, unchanged SourceLimits); retain complete Result/source spans/identities.",
+    "predicted_not_observed": [
+      "Wildcard original may admit as original generated graph; first-null must resolve actual null and reject fragment-first, not merely rely on legacy inferred rejection.",
+      "Scalar-fragment-only library and child may admit contextual source checks even though executable compiler rejects datatype fragments. Preserve that difference.",
+      "Three-level graph may fail at Middle during source closure, so it does not emit all Child upstream diagnostics. Preserve fail-fast diagnostic boundary rather than manufacture a child-native outcome."
+    ],
+    "no_new_profile": "If existing helper matches pinned validator admission, add qualification tests only; no reason for NativeV62. A mismatch requires a separate explicit design and frozen current results.",
+    "runtime_boundary": "Never treat helper Ok as package generation, executable parser entry, model success, Ecore support or full Xtext closure."
+  },
+  "before_receipt": {
+    "bytes": 9608,
+    "sha256": "5b21305dc2601bef2e98a177993ed7a5e5f944c4ef7da52f6193d2dc1d1a2c98"
+  }
+}

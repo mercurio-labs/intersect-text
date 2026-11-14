@@ -1,0 +1,787 @@
+//! Owned, language-neutral source trees. A document is never a valid model.
+//! Languages supply node roles, associations, trivia classification and recovery.
+//! Limits bound logical records/payloads, not allocator capacity or all process memory.
+use super::resources::{ResourceRecord, SourceCorrespondence, validate_resource_uri};
+use crate::definitions::bundle::SourceId;
+use serde::Serialize;
+use std::mem::size_of;
+use std::sync::Arc;
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+pub struct TextRange {
+    pub start: usize,
+    pub end: usize,
+}
+impl TextRange {
+    fn contains(self, other: Self) -> bool {
+        self.start <= other.start && other.start <= other.end && other.end <= self.end
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+#[serde(transparent)]
+pub struct NodeId(pub usize);
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum NodeKind {
+    Composite,
+    Leaf,
+}
+
+/// Indices refer to the containing language snapshot's checked association tables.
+/// No integer here authorizes a model edit, grammar execution or provider call.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize)]
+pub struct NodeData {
+    pub origin: Option<usize>,
+    pub semantic_object: Option<usize>,
+    pub direct_semantic_association: bool,
+    pub hidden: bool,
+    pub syntax_error: Option<usize>,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+pub struct Node {
+    pub parent: Option<NodeId>,
+    pub kind: NodeKind,
+    /// Significant range, using UTF-16 boundaries supplied by the language.
+    pub range: TextRange,
+    /// Full range, including source-bearing trivia owned by this node.
+    pub total_range: TextRange,
+    pub data: NodeData,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct NodeHandle {
+    #[serde(skip)]
+    owner: Arc<()>,
+    pub source: SourceId,
+    #[serde(serialize_with = "serialize_revision")]
+    pub resource_revision: u64,
+    pub node: NodeId,
+}
+fn serialize_revision<S: serde::Serializer>(value: &u64, serializer: S) -> Result<S::Ok, S::Error> {
+    serializer.serialize_str(&value.to_string())
+}
+
+/// Immutable owned input and node arena. There is deliberately no Deserialize
+/// implementation or ModelStore facade: serialized nodes are observations.
+#[derive(Debug, Serialize)]
+pub struct TextDocument {
+    #[serde(skip)]
+    owner: Arc<()>,
+    source: SourceId,
+    #[serde(serialize_with = "serialize_revision")]
+    resource_revision: u64,
+    text: String,
+    utf16_len: usize,
+    nodes: Vec<Node>,
+}
+impl TextDocument {
+    pub fn source(&self) -> &SourceId {
+        &self.source
+    }
+    pub fn resource_revision(&self) -> u64 {
+        self.resource_revision
+    }
+    pub fn text(&self) -> &str {
+        &self.text
+    }
+    pub fn utf16_len(&self) -> usize {
+        self.utf16_len
+    }
+    pub fn nodes(&self) -> &[Node] {
+        &self.nodes
+    }
+    pub fn source_correspondence(&self) -> SourceCorrespondence {
+        SourceCorrespondence {
+            uri: self.source.uri.clone(),
+            revision: self.source.sha256.clone(),
+        }
+    }
+    /// Bind the final resource revision only after exact source correspondence
+    /// was installed by the shared model lifecycle. No serialized nodes enter.
+    pub fn bind_resource(mut self,resource:&ResourceRecord)->Result<Self,String>{
+        if resource.uri!=self.source.uri || resource.source.as_ref().is_none_or(|s|s.uri!=self.source.uri||s.revision!=self.source.sha256){return Err("Document resource lacks exact source correspondence".into())}
+        self.resource_revision=resource.content_revision;Ok(self)
+    }
+    pub fn check_resource(&self, resource: &ResourceRecord) -> Result<(), String> {
+        if resource.uri != self.source.uri
+            || resource.content_revision != self.resource_revision
+            || resource.source.as_ref().is_none_or(|source| {
+                source.uri != self.source.uri || source.revision != self.source.sha256
+            })
+        {
+            return Err("Document links require the exact source and resource revision".into());
+        }
+        Ok(())
+    }
+    pub fn handle(&self, node: NodeId) -> Result<NodeHandle, String> {
+        self.nodes.get(node.0).ok_or("Unknown document node")?;
+        Ok(NodeHandle {
+            owner: Arc::clone(&self.owner),
+            source: self.source.clone(),
+            resource_revision: self.resource_revision,
+            node,
+        })
+    }
+    pub fn node(&self, handle: &NodeHandle) -> Result<&Node, String> {
+        if !Arc::ptr_eq(&handle.owner,&self.owner) || handle.source != self.source || handle.resource_revision != self.resource_revision {
+            return Err("Stale document node handle".into());
+        }
+        self.nodes
+            .get(handle.node.0)
+            .ok_or_else(|| "Unknown document node".into())
+    }
+    pub fn children(
+        &self,
+        parent: NodeId,
+    ) -> Result<impl Iterator<Item = (NodeId, &Node)>, String> {
+        self.nodes.get(parent.0).ok_or("Unknown document parent")?;
+        Ok(self
+            .nodes
+            .iter()
+            .enumerate()
+            .filter_map(move |(index, node)| {
+                (node.parent == Some(parent)).then_some((NodeId(index), node))
+            }))
+    }
+    /// None is an actual UTF-16 boundary inside a scalar, never a widened range.
+    /// This scan allocates no replacement string or independent token stream.
+    pub fn utf8_range(&self, range: TextRange) -> Result<Option<TextRange>, String> {
+        if range.start > range.end || range.end > self.utf16_len {
+            return Err("Document range is outside its source".into());
+        }
+        let mut units = 0usize;
+        let mut start = None;
+        let mut end = None;
+        for (byte, ch) in self.text.char_indices() {
+            if units == range.start {
+                start = Some(byte);
+            }
+            if units == range.end {
+                end = Some(byte);
+            }
+            units += ch.len_utf16();
+        }
+        if units == range.start {
+            start = Some(self.text.len());
+        }
+        if units == range.end {
+            end = Some(self.text.len());
+        }
+        Ok(start.zip(end).map(|(start, end)| TextRange { start, end }))
+    }
+    pub fn text_in(&self, range: TextRange) -> Result<Option<&str>, String> {
+        self.utf8_range(range)?
+            .map(|range| {
+                self.text
+                    .get(range.start..range.end)
+                    .ok_or_else(|| "Invalid source boundary".into())
+            })
+            .transpose()
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub struct DocumentLimits {
+    pub source_bytes: usize,
+    pub nodes: usize,
+    pub logical_storage_bytes: usize,
+    pub operations: usize,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+pub struct DocumentUsage {
+    pub nodes: usize,
+    pub operations: usize,
+    pub peak_logical_storage_bytes: usize,
+}
+
+/// LIFO token; it cannot inspect or supply any source/model authority.
+#[derive(Debug)]
+pub struct DocumentMark {
+    // Capability ownership only; never serialized or used as a source identity.
+    owner: Arc<()>,
+    serial: u64,
+}
+#[derive(Clone, Copy)]
+struct Mark {
+    serial: u64,
+    nodes: usize,
+    open: usize,
+    journal: usize,
+    leaf_end: usize,
+}
+#[derive(Clone, Copy)]
+enum Undo {
+    Opened(NodeId),
+    Closed(NodeId, Node),
+    Changed(NodeId, Node),
+}
+
+/// Construction is private to a parse invocation. Marks couple to the caller's
+/// existing parser/model savepoints; prediction need not construct a tree.
+pub struct DocumentBuilder {
+    document: TextDocument,
+    limits: DocumentLimits,
+    base_storage: usize,
+    operations: usize,
+    peak_storage: usize,
+    serial: u64,
+    owner: Arc<()>,
+    leaf_end: usize,
+    open: Vec<NodeId>,
+    marks: Vec<Mark>,
+    journal: Vec<Undo>,
+}
+impl DocumentBuilder {
+    /// Borrowed source admission happens before its owned text/identity copy.
+    pub fn from_source(uri:&str,text:&str,revision:u64,limits:DocumentLimits)->Result<Self,String>{
+        validate_resource_uri(uri)?;
+        if text.len()>limits.source_bytes { return Err("Document source byte budget exceeded".into()); }
+        let bytes=text.len().checked_add(uri.len()).and_then(|n|n.checked_add(64))
+            .and_then(|n|n.checked_add(size_of::<Self>()))
+            .and_then(|n|n.checked_add(2*size_of::<usize>())).ok_or("Document storage size overflow")?;
+        if bytes>limits.logical_storage_bytes { return Err("Document logical storage budget exceeded".into()); }
+        Self::new(uri.to_owned(),text.to_owned(),revision,limits)
+    }
+    pub fn last_node(&self)->Option<NodeId>{self.document.nodes.len().checked_sub(1).map(NodeId)}
+    pub fn node_data(&self,id:NodeId)->Result<NodeData,String>{self.document.nodes.get(id.0).map(|n|n.data).ok_or_else(||"Unknown document node".into())}
+    pub fn close_from_children(&mut self,id:NodeId,fallback:usize)->Result<(),String>{
+        if self.open.last()!=Some(&id){return Err("Document composites require LIFO closure".into())}
+        let mut total:Option<TextRange>=None;let mut significant:Option<TextRange>=None;
+        for index in 0..self.document.nodes.len(){
+            self.operation()?;
+            if self.document.nodes[index].kind!=NodeKind::Leaf{continue}
+            let mut parent=self.document.nodes[index].parent;let mut depth=0;
+            while let Some(at)=parent{self.operation()?;depth+=1;if depth>self.document.nodes.len(){return Err("Cyclic document parent links".into())}if at==id{break}parent=self.document.nodes.get(at.0).ok_or("Unknown document ancestor")?.parent;}
+            if parent!=Some(id){continue}
+            let node=&self.document.nodes[index];
+            total=Some(total.map_or(node.total_range,|r|TextRange{start:r.start,end:node.total_range.end}));
+            if !node.data.hidden {significant=Some(significant.map_or(node.range,|r|TextRange{start:r.start,end:node.range.end}));}
+        }
+        let total=total.unwrap_or(TextRange{start:fallback,end:fallback});
+        let significant=significant.unwrap_or(total);
+        self.close(id,significant,total)
+    }
+    pub fn attach_final_error(&mut self,error:usize)->Result<(),String>{
+        let mut target=None;
+        for index in (0..self.document.nodes.len()).rev(){self.operation()?;let n=&self.document.nodes[index];if n.kind==NodeKind::Leaf{target=Some(index);break}}
+        if target.is_none()&&!self.document.nodes.is_empty(){target=Some(self.document.nodes.len()-1)}
+        // The final parser error cannot overwrite an already attached lexer or
+        // parser error. The original node remains the error's source owner.
+        if let Some(index)=target{let mut data=self.document.nodes[index].data;if data.syntax_error.is_none(){data.syntax_error=Some(error);self.set_data(NodeId(index),data)?;}}
+        Ok(())
+    }
+    pub fn new(
+        uri: String,
+        text: String,
+        resource_revision: u64,
+        limits: DocumentLimits,
+    ) -> Result<Self, String> {
+        validate_resource_uri(&uri)?;
+        if text.len() > limits.source_bytes {
+            return Err("Document source byte budget exceeded".into());
+        }
+        let base_storage = text
+            .len()
+            .checked_add(uri.len())
+            .and_then(|n| n.checked_add(64))
+            .and_then(|n| n.checked_add(size_of::<Self>()))
+            .and_then(|n| n.checked_add(2 * size_of::<usize>()))
+            .ok_or("Document storage size overflow")?;
+        if base_storage > limits.logical_storage_bytes {
+            return Err("Document logical storage budget exceeded".into());
+        }
+        let utf16_len = text.encode_utf16().count();
+        let source = SourceId::for_text(uri, &text);
+        let owner=Arc::new(());
+        Ok(Self {
+            document: TextDocument {
+                owner:Arc::clone(&owner),
+                source,
+                resource_revision,
+                text,
+                utf16_len,
+                nodes: Vec::new(),
+            },
+            limits,
+            base_storage,
+            operations: 0,
+            peak_storage: base_storage,
+            serial: 0,
+            owner,
+            leaf_end: 0,
+            open: Vec::new(),
+            marks: Vec::new(),
+            journal: Vec::new(),
+        })
+    }
+    fn operation(&mut self) -> Result<(), String> {
+        if self.operations >= self.limits.operations {
+            return Err("Document operation budget exceeded".into());
+        }
+        self.operations += 1;
+        Ok(())
+    }
+    fn admit(
+        &mut self,
+        nodes: usize,
+        open: usize,
+        marks: usize,
+        journal: usize,
+    ) -> Result<(), String> {
+        self.operation()?;
+        let nodes = self
+            .document
+            .nodes
+            .len()
+            .checked_add(nodes)
+            .ok_or("Document node size overflow")?;
+        if nodes > self.limits.nodes {
+            return Err("Document node budget exceeded".into());
+        }
+        let mut bytes = self.base_storage;
+        for (count, unit) in [
+            (nodes, size_of::<Node>()),
+            (
+                self.open
+                    .len()
+                    .checked_add(open)
+                    .ok_or("Document frame size overflow")?,
+                size_of::<NodeId>(),
+            ),
+            (
+                self.marks
+                    .len()
+                    .checked_add(marks)
+                    .ok_or("Document mark size overflow")?,
+                size_of::<Mark>() + size_of::<DocumentMark>(),
+            ),
+            (
+                self.journal
+                    .len()
+                    .checked_add(journal)
+                    .ok_or("Document undo size overflow")?,
+                size_of::<Undo>(),
+            ),
+        ] {
+            bytes = bytes
+                .checked_add(
+                    count
+                        .checked_mul(unit)
+                        .ok_or("Document storage size overflow")?,
+                )
+                .ok_or("Document storage size overflow")?;
+        }
+        if bytes > self.limits.logical_storage_bytes {
+            return Err("Document logical storage budget exceeded".into());
+        }
+        self.peak_storage = self.peak_storage.max(bytes);
+        Ok(())
+    }
+    fn range(&self, range: TextRange) -> Result<(), String> {
+        if range.start > range.end || range.end > self.document.utf16_len {
+            return Err("Document range is outside its source".into());
+        }
+        Ok(())
+    }
+    pub fn mark(&mut self) -> Result<DocumentMark, String> {
+        let serial = self
+            .serial
+            .checked_add(1)
+            .ok_or("Document mark identity exhausted")?;
+        self.admit(0, 0, 1, 0)?;
+        self.marks.push(Mark {
+            serial,
+            nodes: self.document.nodes.len(),
+            open: self.open.len(),
+            journal: self.journal.len(),
+            leaf_end: self.leaf_end,
+        });
+        self.serial = serial;
+        Ok(DocumentMark {
+            owner: Arc::clone(&self.owner),
+            serial,
+        })
+    }
+    pub fn check_mark(&self, mark: &DocumentMark) -> Result<(), String> {
+        if !Arc::ptr_eq(&mark.owner, &self.owner)
+            || self
+                .marks
+                .last()
+                .is_none_or(|current| current.serial != mark.serial)
+        {
+            return Err("Document savepoints require the current LIFO mark".into());
+        }
+        Ok(())
+    }
+    pub fn commit(&mut self, mark: DocumentMark) -> Result<(), String> {
+        self.check_mark(&mark)?;
+        self.marks.pop();
+        if self.marks.is_empty() {
+            self.journal.clear();
+        }
+        Ok(())
+    }
+    pub fn rollback(&mut self, mark: DocumentMark) -> Result<(), String> {
+        self.check_mark(&mark)?;
+        let previous = self.marks.pop().ok_or("Missing document mark")?;
+        while self.journal.len() > previous.journal {
+            match self.journal.pop().ok_or("Missing document undo entry")? {
+                Undo::Opened(id) => {
+                    if self.open.pop() != Some(id) {
+                        return Err("Invalid document frame undo".into());
+                    }
+                }
+                Undo::Closed(id, node) => {
+                    *self
+                        .document
+                        .nodes
+                        .get_mut(id.0)
+                        .ok_or("Missing document frame")? = node;
+                    self.open.push(id);
+                }
+                Undo::Changed(id, node) => {
+                    *self
+                        .document
+                        .nodes
+                        .get_mut(id.0)
+                        .ok_or("Missing document node")? = node
+                }
+            }
+        }
+        self.document.nodes.truncate(previous.nodes);
+        self.leaf_end = previous.leaf_end;
+        if self.open.len() != previous.open {
+            return Err("Invalid document savepoint frame depth".into());
+        }
+        Ok(())
+    }
+    pub fn begin(&mut self, at: usize, data: NodeData) -> Result<NodeId, String> {
+        let range = TextRange { start: at, end: at };
+        self.range(range)?;
+        self.admit(1, 1, 0, usize::from(!self.marks.is_empty()))?;
+        let id = NodeId(self.document.nodes.len());
+        self.document.nodes.push(Node {
+            parent: self.open.last().copied(),
+            kind: NodeKind::Composite,
+            range,
+            total_range: range,
+            data,
+        });
+        self.open.push(id);
+        if !self.marks.is_empty() {
+            self.journal.push(Undo::Opened(id));
+        }
+        Ok(id)
+    }
+    /// Wrap the currently open composite without copying its source or children.
+    /// Node IDs remain private builder locators until final preorder publication.
+    pub fn wrap_open(&mut self,id:NodeId,data:NodeData)->Result<NodeId,String>{
+        let before=*self.document.nodes.get(id.0).ok_or("Unknown document frame")?;
+        self.close_from_children(id,before.total_range.start)?;
+        let parent=self.begin(before.total_range.start,data)?;
+        let before=*self.document.nodes.get(id.0).ok_or("Missing wrapped document frame")?;
+        self.admit(0,0,0,usize::from(!self.marks.is_empty()))?;
+        if !self.marks.is_empty(){self.journal.push(Undo::Changed(id,before));}
+        self.document.nodes[id.0].parent=Some(parent);Ok(parent)
+    }
+    pub fn leaf(&mut self, range: TextRange, data: NodeData) -> Result<NodeId, String> {
+        self.range(range)?;
+        if range.start < self.leaf_end {
+            return Err("Document leaves require ordered nonoverlapping source ranges".into());
+        }
+        self.admit(1, 0, 0, 0)?;
+        let id = NodeId(self.document.nodes.len());
+        self.document.nodes.push(Node {
+            parent: self.open.last().copied(),
+            kind: NodeKind::Leaf,
+            range,
+            total_range: range,
+            data,
+        });
+        self.leaf_end = range.end;
+        Ok(id)
+    }
+    pub fn set_data(&mut self, id: NodeId, data: NodeData) -> Result<(), String> {
+        let before = *self
+            .document
+            .nodes
+            .get(id.0)
+            .ok_or("Unknown document node")?;
+        self.admit(0, 0, 0, usize::from(!self.marks.is_empty()))?;
+        if !self.marks.is_empty() {
+            self.journal.push(Undo::Changed(id, before));
+        }
+        self.document.nodes[id.0].data = data;
+        Ok(())
+    }
+    pub fn close(
+        &mut self,
+        id: NodeId,
+        range: TextRange,
+        total_range: TextRange,
+    ) -> Result<(), String> {
+        if self.open.last() != Some(&id) {
+            return Err("Document composites require LIFO closure".into());
+        }
+        self.range(total_range)?;
+        if !total_range.contains(range) {
+            return Err("Document significant range escapes total range".into());
+        }
+        for index in 0..self.document.nodes.len() {
+            self.operation()?;
+            let child = &self.document.nodes[index];
+            if child.parent != Some(id) {
+                continue;
+            }
+            if !total_range.contains(child.total_range) {
+                return Err("Document child escapes its composite".into());
+            }
+        }
+        let before = *self
+            .document
+            .nodes
+            .get(id.0)
+            .ok_or("Unknown document composite")?;
+        self.admit(0, 0, 0, usize::from(!self.marks.is_empty()))?;
+        if !self.marks.is_empty() {
+            self.journal.push(Undo::Closed(id, before));
+        }
+        self.open.pop();
+        self.document.nodes[id.0].range = range;
+        self.document.nodes[id.0].total_range = total_range;
+        Ok(())
+    }
+    pub fn usage(&self) -> DocumentUsage {
+        DocumentUsage {
+            nodes: self.document.nodes.len(),
+            operations: self.operations,
+            peak_logical_storage_bytes: self.peak_storage,
+        }
+    }
+    pub fn finish(self) -> Result<TextDocument, String> {Ok(self.finish_with_remapping()?.0)}
+    /// Publish stable preorder IDs after source-bearing parent insertion. The
+    /// optional map updates language-owned association locators before exposure.
+    pub fn finish_with_remapping(mut self)->Result<(TextDocument,DocumentUsage,Option<NodeRemapping>),String>{
+        if !self.open.is_empty()||!self.marks.is_empty(){return Err("Document contains unfinished composites or savepoints".into())}
+        let reorder=self.document.nodes.iter().enumerate().any(|(i,n)|n.parent.is_some_and(|p|p.0>=i));
+        if !reorder{let usage=self.usage();return Ok((self.document,usage,None))}
+        let n=self.document.nodes.len();
+        let extra=n.checked_mul(4).and_then(|v|v.checked_add(1)).and_then(|v|v.checked_mul(size_of::<usize>())).ok_or("Document index storage overflow")?;
+        self.admit(0,0,0,0)?;
+        let bytes=self.base_storage.checked_add(n.checked_mul(size_of::<Node>()).ok_or("Document storage overflow")?).and_then(|v|v.checked_add(extra)).ok_or("Document storage overflow")?;
+        if bytes>self.limits.logical_storage_bytes{return Err("Document logical storage budget exceeded".into())}
+        self.peak_storage=self.peak_storage.max(bytes);
+        for _ in 0..n.checked_mul(4).and_then(|v|v.checked_add(1)).ok_or("Document operation overflow")?{self.operation()?;}
+        let absent=usize::MAX;let mut first=vec![absent;n+1];let mut next=vec![absent;n];let mut order=Vec::with_capacity(n);let mut positions=vec![absent;n];
+        for index in (0..n).rev(){self.operation()?;let parent=self.document.nodes[index].parent.map_or(n,|p|p.0);if parent>n||parent==index{return Err("Invalid document parent".into())}next[index]=first[parent];first[parent]=index;}
+        let mut at=first[n];
+        while at!=absent{
+            self.operation()?;if positions[at]!=absent{return Err("Cyclic document preorder".into())}positions[at]=order.len();order.push(at);
+            if first[at]!=absent{at=first[at];continue}
+            loop{self.operation()?;if next[at]!=absent{at=next[at];break}if let Some(parent)=self.document.nodes[at].parent{at=parent.0}else{at=absent;break}}
+        }
+        if order.len()!=n{return Err("Unreachable document nodes".into())}
+        order.copy_from_slice(&positions);
+        for index in 0..n{while order[index]!=index{self.operation()?;let target=order[index];self.document.nodes.swap(index,target);order.swap(index,target);}}
+        for index in 0..n{self.operation()?;if let Some(parent)=self.document.nodes[index].parent{self.document.nodes[index].parent=Some(NodeId(positions[parent.0]));}}
+        let usage=self.usage();Ok((self.document,usage,Some(NodeRemapping{positions})))
+    }
+}
+
+/// Builder-only to published locator mapping; not source or model authority.
+pub struct NodeRemapping {positions:Vec<usize>}
+impl NodeRemapping {pub fn node(&self,old:NodeId)->Result<NodeId,String>{self.positions.get(old.0).copied().map(NodeId).ok_or_else(||"Unknown prepublication document locator".into())}}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn limits() -> DocumentLimits {
+        DocumentLimits {
+            source_bytes: 1024,
+            nodes: 128,
+            logical_storage_bytes: 64_000,
+            operations: 1024,
+        }
+    }
+    fn builder(text: &str) -> DocumentBuilder {
+        DocumentBuilder::new("memory:/document.model".into(), text.into(), 2, limits()).unwrap()
+    }
+    fn range(start: usize, end: usize) -> TextRange {
+        TextRange { start, end }
+    }
+    #[test]
+    fn nested_frame_and_association_rollback_retains_one_owned_source() {
+        let mut b = builder(" a😀b ");
+        let root = b.begin(0, NodeData::default()).unwrap();
+        b.leaf(
+            range(0, 1),
+            NodeData {
+                hidden: true,
+                ..NodeData::default()
+            },
+        )
+        .unwrap();
+        let child = b.begin(1, NodeData::default()).unwrap();
+        let mark = b.mark().unwrap();
+        b.leaf(range(1, 2), NodeData::default()).unwrap();
+        b.close(child, range(1, 2), range(1, 2)).unwrap();
+        b.set_data(
+            child,
+            NodeData {
+                semantic_object: Some(99),
+                ..NodeData::default()
+            },
+        )
+        .unwrap();
+        b.close(root, range(1, 2), range(0, 2)).unwrap();
+        b.rollback(mark).unwrap();
+        assert_eq!(b.usage().nodes, 3);
+        b.leaf(range(1, 5), NodeData::default()).unwrap();
+        b.set_data(
+            child,
+            NodeData {
+                semantic_object: Some(0),
+                direct_semantic_association: true,
+                ..NodeData::default()
+            },
+        )
+        .unwrap();
+        b.close(child, range(1, 5), range(1, 5)).unwrap();
+        b.leaf(
+            range(5, 6),
+            NodeData {
+                hidden: true,
+                ..NodeData::default()
+            },
+        )
+        .unwrap();
+        b.close(root, range(1, 5), range(0, 6)).unwrap();
+        let doc = b.finish().unwrap();
+        assert_eq!(doc.text(), " a😀b ");
+        assert_eq!(doc.nodes().len(), 5);
+        assert_eq!(doc.nodes()[child.0].data.semantic_object, Some(0));
+        assert_eq!(
+            doc.children(root)
+                .unwrap()
+                .map(|(id, _)| id.0)
+                .collect::<Vec<_>>(),
+            [1, 2, 4]
+        );
+        assert_eq!(doc.text_in(range(2, 4)).unwrap(), Some("😀"));
+        assert_eq!(doc.text_in(range(2, 3)).unwrap(), None);
+        assert!(doc.text_in(range(6, 7)).is_err());
+    }
+    #[test]
+    fn node_links_require_exact_input_and_resource_revision() {
+        let mut b = builder("a");
+        let id = b.leaf(range(0, 1), NodeData::default()).unwrap();
+        let doc = b.finish().unwrap();
+        let handle = doc.handle(id).unwrap();
+        let other = DocumentBuilder::new("memory:/document.model".into(), "a".into(), 3, limits())
+            .unwrap()
+            .finish()
+            .unwrap();
+        assert!(other.node(&handle).unwrap_err().contains("Stale"));
+        let changed = builder("b").finish().unwrap();
+        assert!(changed.node(&handle).unwrap_err().contains("Stale"));
+        let mut resource = ResourceRecord::new("memory:/document.model").unwrap();
+        resource.content_revision = 2;
+        resource.source = Some(doc.source_correspondence());
+        doc.check_resource(&resource).unwrap();
+        resource.touch().unwrap();
+        assert!(doc.check_resource(&resource).is_err());
+    }
+    #[test]
+    fn foreign_savepoint_rejects_without_mutating_the_receiving_builder() {
+        let mut a = builder("a");
+        let mut b = builder("a");
+        let foreign = a.mark().unwrap();
+        let own = b.mark().unwrap();
+        assert!(b.rollback(foreign).unwrap_err().contains("LIFO"));
+        b.rollback(own).unwrap();
+        assert!(b.finish().is_ok());
+        assert!(a.finish().is_err());
+    }
+    fn tiny(limits: DocumentLimits) -> Result<DocumentUsage, String> {
+        let mut b = DocumentBuilder::new("memory:/document.model".into(), "a".into(), 2, limits)?;
+        let root = b.begin(0, NodeData::default())?;
+        b.leaf(range(0, 1), NodeData::default())?;
+        b.close(root, range(0, 1), range(0, 1))?;
+        let usage = b.usage();
+        b.finish()?;
+        Ok(usage)
+    }
+    #[test]
+    fn exact_and_one_short_limits_deny_before_node_or_frame_mutation() {
+        let measured = tiny(limits()).unwrap();
+        let exact = DocumentLimits {
+            nodes: measured.nodes,
+            operations: measured.operations,
+            logical_storage_bytes: measured.peak_logical_storage_bytes,
+            ..limits()
+        };
+        assert_eq!(tiny(exact).unwrap(), measured);
+        assert!(
+            tiny(DocumentLimits {
+                nodes: exact.nodes - 1,
+                ..exact
+            })
+            .unwrap_err()
+            .contains("node budget")
+        );
+        assert!(
+            tiny(DocumentLimits {
+                operations: exact.operations - 1,
+                ..exact
+            })
+            .unwrap_err()
+            .contains("operation budget")
+        );
+        assert!(
+            tiny(DocumentLimits {
+                logical_storage_bytes: exact.logical_storage_bytes - 1,
+                ..exact
+            })
+            .unwrap_err()
+            .contains("storage budget")
+        );
+        let mut b = DocumentBuilder::new(
+            "memory:/document.model".into(),
+            "ab".into(),
+            2,
+            DocumentLimits {
+                nodes: 1,
+                ..limits()
+            },
+        )
+        .unwrap();
+        let mark = b.mark().unwrap();
+        b.leaf(range(0, 1), NodeData::default()).unwrap();
+        assert!(b.leaf(range(1, 2), NodeData::default()).is_err());
+        b.rollback(mark).unwrap();
+        assert_eq!(b.usage().nodes, 0);
+        assert!(b.finish().is_ok());
+    }
+    #[test]
+    fn identical_source_revision_cannot_alias_another_owned_parse_tree(){
+        let mut a=builder("a");let id=a.leaf(range(0,1),NodeData::default()).unwrap();let a=a.finish().unwrap();let handle=a.handle(id).unwrap();
+        let mut b=builder("a");b.leaf(range(0,1),NodeData::default()).unwrap();let b=b.finish().unwrap();assert!(b.node(&handle).unwrap_err().contains("Stale"));assert!(a.node(&handle).is_ok());
+    }
+    fn wrapped(limits:DocumentLimits)->Result<(TextDocument,DocumentUsage),String>{
+        let mut b=DocumentBuilder::from_source("memory:/document.model","ab",2,limits)?;let root=b.begin(0,NodeData::default())?;let child=b.begin(0,NodeData::default())?;b.leaf(range(0,1),NodeData::default())?;let wrapper=b.wrap_open(child,NodeData{semantic_object:Some(1),direct_semantic_association:true,..NodeData::default()})?;b.leaf(range(1,2),NodeData::default())?;b.close_from_children(wrapper,0)?;b.close_from_children(root,0)?;let(d,u,map)=b.finish_with_remapping()?;assert!(map.is_some());Ok((d,u))
+    }
+    #[test]
+    fn action_parent_insertion_publishes_preorder_and_has_exact_scratch_limits(){
+        let(d,u)=wrapped(limits()).unwrap();assert_eq!(d.nodes.iter().map(|n|n.parent.map(|p|p.0)).collect::<Vec<_>>(),[None,Some(0),Some(1),Some(2),Some(1)]);assert_eq!(d.nodes[1].data.semantic_object,Some(1));
+        let exact=DocumentLimits{nodes:u.nodes,logical_storage_bytes:u.peak_logical_storage_bytes,operations:u.operations,..limits()};assert_eq!(wrapped(exact).unwrap().1,u);
+        assert!(wrapped(DocumentLimits{logical_storage_bytes:exact.logical_storage_bytes-1,..exact}).unwrap_err().contains("storage budget"));assert!(wrapped(DocumentLimits{operations:exact.operations-1,..exact}).unwrap_err().contains("operation budget"));
+    }
+    #[test]
+    fn wrapped_frame_and_final_error_rollback_restore_original_open_scope(){
+        let mut b=builder("ab");let root=b.begin(0,NodeData::default()).unwrap();let mark=b.mark().unwrap();let child=b.begin(0,NodeData::default()).unwrap();b.leaf(range(0,1),NodeData{syntax_error:Some(3),..NodeData::default()}).unwrap();let wrapper=b.wrap_open(child,NodeData::default()).unwrap();b.close_from_children(wrapper,0).unwrap();b.attach_final_error(4).unwrap();assert_eq!(b.document.nodes[2].data.syntax_error,Some(3));b.rollback(mark).unwrap();assert_eq!(b.open,[root]);assert_eq!(b.document.nodes.len(),1);b.leaf(range(0,2),NodeData::default()).unwrap();b.close_from_children(root,0).unwrap();assert!(b.finish().is_ok());
+    }
+
+}

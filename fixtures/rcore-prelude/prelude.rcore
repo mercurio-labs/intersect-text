@@ -1,0 +1,52 @@
+rcore 1;
+package prelude.checks version "1";
+metamodel "urn:rcore-prelude" prefix m {
+  class Node {
+    attr raw: String [0,1];
+    ref peers: Node [0,*];
+    attr kind: String [0,1] derived;
+    attr fallback: String [0,1] derived;
+    ref leafPeers: Leaf [0,*] derived;
+    ref firstLeaf: Leaf [0,1] derived;
+    attr nonLeafCount: Int64 [1,1] derived;
+    attr otherCount: Int64 [1,1] derived;
+    attr hasPeers: Bool [1,1] derived;
+    attr isLeaf: Bool [1,1] derived;
+  }
+  class Leaf extends Node { attr detail: String [0,1]; }
+  class LeafChild extends Leaf {}
+  class Sibling extends Node {}
+}
+behavior {
+  import model "urn:rcore-prelude" as m;
+
+  // Type-switch: the first arm whose kind matches wins; `_` catches the rest.
+  derive m.Node.kind(self) -> Option<String> = kind(self);
+  fn kind(node:m.Node) -> Option<String> = match node {
+    _: m.LeafChild => Some("child"),
+    leaf: m.Leaf => leaf.detail,
+    _: m.Sibling => Some("sibling"),
+    _ => Some("node")
+  };
+  // A binding catch-all names the original value.
+  derive m.Node.fallback(self) -> Option<String> = fallback(self);
+  fn fallback(node:m.Node) -> Option<String> = match node {
+    _: m.Leaf => None,
+    other => other.raw
+  };
+  derive m.Node.leafPeers(self) -> m.Leaf[0,*] = leaf_peers(self);
+  fn leaf_peers(node:m.Node) -> m.Leaf[0,*] =
+    OrderedSet(node.peers.selectByKind::<m.Leaf>());
+  derive m.Node.firstLeaf(self) -> Option<m.Leaf> = first_leaf(self);
+  fn first_leaf(node:m.Node) -> Option<m.Leaf> =
+    node.peers.selectByKind::<m.Leaf>().first();
+  derive m.Node.nonLeafCount(self) -> Int64 = non_leaf_count(self);
+  fn non_leaf_count(node:m.Node) -> Int64 =
+    node.peers.reject(|peer| peer.oclIsKindOf::<m.Leaf>()).size();
+  derive m.Node.otherCount(self) -> Int64 = other_count(self);
+  fn other_count(node:m.Node) -> Int64 = node.peers.excluding(node).size();
+  derive m.Node.hasPeers(self) -> Bool = has_peers(self);
+  fn has_peers(node:m.Node) -> Bool = node.peers.notEmpty();
+  derive m.Node.isLeaf(self) -> Bool = is_leaf(self);
+  fn is_leaf(node:m.Node) -> Bool = oclIsKindOf::<m.Leaf>(node);
+}

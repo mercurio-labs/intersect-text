@@ -1,0 +1,15 @@
+// Resolution fixture; v2 execution is not yet implemented.
+rcore 1;
+package example.library version "1";
+import model "urn:intersect:example:library:1" as lib;
+import package example.library.rules version "1" as rules;
+
+pub derive lib.Library.copyCount(self) -> Int = self.copies.size();
+pub derive lib.BookCopy.available(self) -> Bool =
+    incoming::<lib.Loan>(self, lib.Loan.copy).isEmpty();
+
+pub validate lib.Loan.singleLoan(self) {
+    require rules.atMostOne(incoming::<lib.Loan>(self.copy, lib.Loan.copy).size())
+        code "library.single-loan"
+        message "A book copy cannot have more than one active loan.";
+}

@@ -1,0 +1,2093 @@
+{
+  "version": 1,
+  "profile": "intersect.xtext.native.v60",
+  "scope": "BEFORE only; original exact source graphs and identities, structural Rcore migration transport. No Ecore/semantic qualification.",
+  "cases": [
+    {
+      "id": "terminal_only_library",
+      "entry": "audit.FirstRuleTerminalOnly",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_only_library/audit.FirstRuleTerminalOnly.xtext",
+                "sha256": "d56568e95bf50336d364313705aa12b6b7dcf9da463838885d8ef06df48127a8"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalOnly\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal_only_library/audit.FirstRuleTerminalOnly.xtext",
+          "sha256": "d56568e95bf50336d364313705aa12b6b7dcf9da463838885d8ef06df48127a8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleTerminalOnly",
+          "file": "audit.FirstRuleTerminalOnly.xtext",
+          "source_id": {
+            "uri": "memory:terminal_only_library/audit.FirstRuleTerminalOnly.xtext",
+            "sha256": "d56568e95bf50336d364313705aa12b6b7dcf9da463838885d8ef06df48127a8"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_only_library\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "datatype_only_library",
+      "entry": "audit.FirstRuleDatatypeOnly",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_only_library/audit.FirstRuleDatatypeOnly.xtext",
+                "sha256": "87ebc6f930c5402b40563bf01c0548fa48b3ae839a129447769022b2724f341a"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeOnly\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'a';\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:datatype_only_library/audit.FirstRuleDatatypeOnly.xtext",
+          "sha256": "87ebc6f930c5402b40563bf01c0548fa48b3ae839a129447769022b2724f341a"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDatatypeOnly",
+          "file": "audit.FirstRuleDatatypeOnly.xtext",
+          "source_id": {
+            "uri": "memory:datatype_only_library/audit.FirstRuleDatatypeOnly.xtext",
+            "sha256": "87ebc6f930c5402b40563bf01c0548fa48b3ae839a129447769022b2724f341a"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_only_library\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "terminal_library_model_child",
+      "entry": "audit.FirstRuleTerminalLibraryChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryBase.xtext",
+                "sha256": "c5f85be04e2efc5de0903a44204738490037d7b1963093515e7a70342e336cb4"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalLibraryBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryChild.xtext",
+                "sha256": "c5f662c855a3ace801b99057972929dc2f5f0a53f6e5147c0067f1f9b88b9e45"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalLibraryChild with audit.FirstRuleTerminalLibraryBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryBase.xtext",
+                  "sha256": "c5f85be04e2efc5de0903a44204738490037d7b1963093515e7a70342e336cb4"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryChild.xtext",
+          "sha256": "c5f662c855a3ace801b99057972929dc2f5f0a53f6e5147c0067f1f9b88b9e45"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleTerminalLibraryBase",
+          "file": "audit.FirstRuleTerminalLibraryBase.xtext",
+          "source_id": {
+            "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryBase.xtext",
+            "sha256": "c5f85be04e2efc5de0903a44204738490037d7b1963093515e7a70342e336cb4"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleTerminalLibraryChild",
+          "file": "audit.FirstRuleTerminalLibraryChild.xtext",
+          "source_id": {
+            "uri": "memory:terminal_library_model_child/audit.FirstRuleTerminalLibraryChild.xtext",
+            "sha256": "c5f662c855a3ace801b99057972929dc2f5f0a53f6e5147c0067f1f9b88b9e45"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_library_model_child\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "datatype_library_model_child",
+      "entry": "audit.FirstRuleDatatypeLibraryChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryBase.xtext",
+                "sha256": "250a0b7a86269f9be0418e99d4517d8e5d9ea53c0d0bef2d7f3efb515c8c6e51"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeLibraryBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryChild.xtext",
+                "sha256": "8f0032fe6d026ed58588216bb5cd007c7cb5d64e25fe9d71e7834a0500d3d271"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeLibraryChild with audit.FirstRuleDatatypeLibraryBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=Text;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryBase.xtext",
+                  "sha256": "250a0b7a86269f9be0418e99d4517d8e5d9ea53c0d0bef2d7f3efb515c8c6e51"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryChild.xtext",
+          "sha256": "8f0032fe6d026ed58588216bb5cd007c7cb5d64e25fe9d71e7834a0500d3d271"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDatatypeLibraryBase",
+          "file": "audit.FirstRuleDatatypeLibraryBase.xtext",
+          "source_id": {
+            "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryBase.xtext",
+            "sha256": "250a0b7a86269f9be0418e99d4517d8e5d9ea53c0d0bef2d7f3efb515c8c6e51"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDatatypeLibraryChild",
+          "file": "audit.FirstRuleDatatypeLibraryChild.xtext",
+          "source_id": {
+            "uri": "memory:datatype_library_model_child/audit.FirstRuleDatatypeLibraryChild.xtext",
+            "sha256": "8f0032fe6d026ed58588216bb5cd007c7cb5d64e25fe9d71e7834a0500d3d271"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_library_model_child\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "terminal_before_local_model",
+      "entry": "audit.FirstRuleTerminalBeforeModel",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_before_local_model/audit.FirstRuleTerminalBeforeModel.xtext",
+                "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal VALUE: 'a';\nModel returns k::Model: name=VALUE;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal_before_local_model/audit.FirstRuleTerminalBeforeModel.xtext",
+          "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleTerminalBeforeModel",
+          "file": "audit.FirstRuleTerminalBeforeModel.xtext",
+          "source_id": {
+            "uri": "memory:terminal_before_local_model/audit.FirstRuleTerminalBeforeModel.xtext",
+            "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_before_local_model\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "datatype_before_local_model",
+      "entry": "audit.FirstRuleDatatypeBeforeModel",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_before_local_model/audit.FirstRuleDatatypeBeforeModel.xtext",
+                "sha256": "139e476051621fd623392f7733d976bef44311369cf93e28bd94303f69296fca"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'a';\nModel returns k::Model: name=Text;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:datatype_before_local_model/audit.FirstRuleDatatypeBeforeModel.xtext",
+          "sha256": "139e476051621fd623392f7733d976bef44311369cf93e28bd94303f69296fca"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDatatypeBeforeModel",
+          "file": "audit.FirstRuleDatatypeBeforeModel.xtext",
+          "source_id": {
+            "uri": "memory:datatype_before_local_model/audit.FirstRuleDatatypeBeforeModel.xtext",
+            "sha256": "139e476051621fd623392f7733d976bef44311369cf93e28bd94303f69296fca"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_before_local_model\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "terminal_child_over_model_parent",
+      "entry": "audit.FirstRuleTerminalChildChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildBase.xtext",
+                "sha256": "d21dd1af44327b90a69602b79793d0dfa22f37a3af53ebba3f307327f3732a55"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalChildBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildChild.xtext",
+                "sha256": "7153ba38c673e493238b417aa1ff7b1f3148a3f52d5eafe36ebb71c6b8184435"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalChildChild with audit.FirstRuleTerminalChildBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal OTHER: 'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildBase.xtext",
+                  "sha256": "d21dd1af44327b90a69602b79793d0dfa22f37a3af53ebba3f307327f3732a55"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildChild.xtext",
+          "sha256": "7153ba38c673e493238b417aa1ff7b1f3148a3f52d5eafe36ebb71c6b8184435"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleTerminalChildBase",
+          "file": "audit.FirstRuleTerminalChildBase.xtext",
+          "source_id": {
+            "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildBase.xtext",
+            "sha256": "d21dd1af44327b90a69602b79793d0dfa22f37a3af53ebba3f307327f3732a55"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleTerminalChildChild",
+          "file": "audit.FirstRuleTerminalChildChild.xtext",
+          "source_id": {
+            "uri": "memory:terminal_child_over_model_parent/audit.FirstRuleTerminalChildChild.xtext",
+            "sha256": "7153ba38c673e493238b417aa1ff7b1f3148a3f52d5eafe36ebb71c6b8184435"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_child_over_model_parent\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "datatype_child_over_model_parent",
+      "entry": "audit.FirstRuleDatatypeChildChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildBase.xtext",
+                "sha256": "ca076ae71c7c3e06b59961f2b5bd676d939cbaad6b6a1e1cdbc76751bb400259"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeChildBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildChild.xtext",
+                "sha256": "bb1a0733bb0c2c9f383d34c15f6e082871db14743cc7f22b880967c7794fc2a2"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDatatypeChildChild with audit.FirstRuleDatatypeChildBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildBase.xtext",
+                  "sha256": "ca076ae71c7c3e06b59961f2b5bd676d939cbaad6b6a1e1cdbc76751bb400259"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildChild.xtext",
+          "sha256": "bb1a0733bb0c2c9f383d34c15f6e082871db14743cc7f22b880967c7794fc2a2"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDatatypeChildBase",
+          "file": "audit.FirstRuleDatatypeChildBase.xtext",
+          "source_id": {
+            "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildBase.xtext",
+            "sha256": "ca076ae71c7c3e06b59961f2b5bd676d939cbaad6b6a1e1cdbc76751bb400259"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDatatypeChildChild",
+          "file": "audit.FirstRuleDatatypeChildChild.xtext",
+          "source_id": {
+            "uri": "memory:datatype_child_over_model_parent/audit.FirstRuleDatatypeChildChild.xtext",
+            "sha256": "bb1a0733bb0c2c9f383d34c15f6e082871db14743cc7f22b880967c7794fc2a2"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_child_over_model_parent\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "fragment_class_first",
+      "entry": "audit.FirstRuleClassFragment",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+                "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleClassFragment\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment First returns k::Model: name=VALUE;\nModel returns k::Model: First;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+          "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleClassFragment",
+          "file": "audit.FirstRuleClassFragment.xtext",
+          "source_id": {
+            "uri": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+            "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_class_first\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "fragment_untyped_first",
+      "entry": "audit.FirstRuleUntypedFragment",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:fragment_untyped_first/audit.FirstRuleUntypedFragment.xtext",
+                "sha256": "21f6b63599502688844fcee28846d975e81b409b88d61e064c10054b6a849eb8"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleUntypedFragment\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment First: 'a';\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:fragment_untyped_first/audit.FirstRuleUntypedFragment.xtext",
+          "sha256": "21f6b63599502688844fcee28846d975e81b409b88d61e064c10054b6a849eb8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleUntypedFragment",
+          "file": "audit.FirstRuleUntypedFragment.xtext",
+          "source_id": {
+            "uri": "memory:fragment_untyped_first/audit.FirstRuleUntypedFragment.xtext",
+            "sha256": "21f6b63599502688844fcee28846d975e81b409b88d61e064c10054b6a849eb8"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_untyped_first\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "terminal_first_three_level_object_closure",
+      "entry": "audit.FirstRuleDeepObjectChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectBase.xtext",
+                "sha256": "3899dcb23dd99b16f53482d70da0190ddf51d4f2a525fe051aa15f7fdd9f03cd"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepObjectBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectMiddle.xtext",
+                "sha256": "616e55b08f6c553426463fd3c63a4f46410a73d07ed569b4f7d8b39f68c0ba60"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepObjectMiddle with audit.FirstRuleDeepObjectBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectBase.xtext",
+                  "sha256": "3899dcb23dd99b16f53482d70da0190ddf51d4f2a525fe051aa15f7fdd9f03cd"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectChild.xtext",
+                "sha256": "efd13e91a883fafa349459c9ba23e5fa965d1a1c4957fa312ec3b150abf55491"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepObjectChild with audit.FirstRuleDeepObjectMiddle\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal OTHER: 'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectMiddle.xtext",
+                  "sha256": "616e55b08f6c553426463fd3c63a4f46410a73d07ed569b4f7d8b39f68c0ba60"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectChild.xtext",
+          "sha256": "efd13e91a883fafa349459c9ba23e5fa965d1a1c4957fa312ec3b150abf55491"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDeepObjectBase",
+          "file": "audit.FirstRuleDeepObjectBase.xtext",
+          "source_id": {
+            "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectBase.xtext",
+            "sha256": "3899dcb23dd99b16f53482d70da0190ddf51d4f2a525fe051aa15f7fdd9f03cd"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDeepObjectMiddle",
+          "file": "audit.FirstRuleDeepObjectMiddle.xtext",
+          "source_id": {
+            "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectMiddle.xtext",
+            "sha256": "616e55b08f6c553426463fd3c63a4f46410a73d07ed569b4f7d8b39f68c0ba60"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDeepObjectChild",
+          "file": "audit.FirstRuleDeepObjectChild.xtext",
+          "source_id": {
+            "uri": "memory:terminal_first_three_level_object_closure/audit.FirstRuleDeepObjectChild.xtext",
+            "sha256": "efd13e91a883fafa349459c9ba23e5fa965d1a1c4957fa312ec3b150abf55491"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_first_three_level_object_closure\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "datatype_first_three_level_scalar_closure",
+      "entry": "audit.FirstRuleDeepScalarChild",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarBase.xtext",
+                "sha256": "d73e22c80dcc0f30f49f032f8642bd98bfde27a7a7451a1819a4745449362c72"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepScalarBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarMiddle.xtext",
+                "sha256": "ef514ef6302997e7ca526f874da8d99a5fdb81f71fcc74594b5501bb73d44172"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepScalarMiddle with audit.FirstRuleDeepScalarBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal OTHER: 'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarBase.xtext",
+                  "sha256": "d73e22c80dcc0f30f49f032f8642bd98bfde27a7a7451a1819a4745449362c72"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarChild.xtext",
+                "sha256": "66b362adaf2890e7253ab75140635a8ba0cfac7b2bc1955fbca7b08aa99476c9"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleDeepScalarChild with audit.FirstRuleDeepScalarMiddle\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nMore returns ecore::EString: 'c';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarMiddle.xtext",
+                  "sha256": "ef514ef6302997e7ca526f874da8d99a5fdb81f71fcc74594b5501bb73d44172"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarChild.xtext",
+          "sha256": "66b362adaf2890e7253ab75140635a8ba0cfac7b2bc1955fbca7b08aa99476c9"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleDeepScalarBase",
+          "file": "audit.FirstRuleDeepScalarBase.xtext",
+          "source_id": {
+            "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarBase.xtext",
+            "sha256": "d73e22c80dcc0f30f49f032f8642bd98bfde27a7a7451a1819a4745449362c72"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDeepScalarMiddle",
+          "file": "audit.FirstRuleDeepScalarMiddle.xtext",
+          "source_id": {
+            "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarMiddle.xtext",
+            "sha256": "ef514ef6302997e7ca526f874da8d99a5fdb81f71fcc74594b5501bb73d44172"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleDeepScalarChild",
+          "file": "audit.FirstRuleDeepScalarChild.xtext",
+          "source_id": {
+            "uri": "memory:datatype_first_three_level_scalar_closure/audit.FirstRuleDeepScalarChild.xtext",
+            "sha256": "66b362adaf2890e7253ab75140635a8ba0cfac7b2bc1955fbca7b08aa99476c9"
+          }
+        }
+      ],
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_first_three_level_scalar_closure\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "enum_before_local_model",
+      "entry": "audit.FirstRuleEnumBeforeModel",
+      "inputs": [
+        "x",
+        "a",
+        "",
+        "xx",
+        "x🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                "uri": "memory:contextual-first-rule/identity/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:enum_before_local_model/audit.FirstRuleEnumBeforeModel.xtext",
+                "sha256": "690c0a44cf24f53881efa26e5836d3e6055ce18beb662922e8a8a122a574bfc4"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleEnumBeforeModel\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nenum Choice returns k::Choice: A='a' | B='b';\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'x';\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+          "uri": "memory:contextual-first-rule/identity/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:first-rule:identity:1",
+        "xtext": {
+          "uri": "memory:enum_before_local_model/audit.FirstRuleEnumBeforeModel.xtext",
+          "sha256": "690c0a44cf24f53881efa26e5836d3e6055ce18beb662922e8a8a122a574bfc4"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleEnumBeforeModel",
+          "file": "audit.FirstRuleEnumBeforeModel.xtext",
+          "source_id": {
+            "uri": "memory:enum_before_local_model/audit.FirstRuleEnumBeforeModel.xtext",
+            "sha256": "690c0a44cf24f53881efa26e5836d3e6055ce18beb662922e8a8a122a574bfc4"
+          }
+        }
+      ],
+      "provider_cohort": "separate_authored_identity_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_before_local_model\\imported.ecore",
+        "bytes": 1497,
+        "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+      },
+      "structural_selection": "exact complete migration report.converted unchanged"
+    },
+    {
+      "id": "enum_library_model_child",
+      "entry": "audit.FirstRuleEnumLibraryChild",
+      "inputs": [
+        "x",
+        "a",
+        "",
+        "xx",
+        "x🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                "uri": "memory:contextual-first-rule/identity/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryBase.xtext",
+                "sha256": "b383f27f271bc99d0a11ba377b768bf21183c736e1c811e4fc76600c75652a71"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleEnumLibraryBase\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nenum Choice returns k::Choice: A='a' | B='b';\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryChild.xtext",
+                "sha256": "c53d6111977d6fecee2ef8e70c41f92ad53cd3297f7ec438ea1bb8d40c2ed216"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleEnumLibraryChild with audit.FirstRuleEnumLibraryBase\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'x';\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                },
+                {
+                  "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryBase.xtext",
+                  "sha256": "b383f27f271bc99d0a11ba377b768bf21183c736e1c811e4fc76600c75652a71"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+          "uri": "memory:contextual-first-rule/identity/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:first-rule:identity:1",
+        "xtext": {
+          "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryChild.xtext",
+          "sha256": "c53d6111977d6fecee2ef8e70c41f92ad53cd3297f7ec438ea1bb8d40c2ed216"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleEnumLibraryBase",
+          "file": "audit.FirstRuleEnumLibraryBase.xtext",
+          "source_id": {
+            "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryBase.xtext",
+            "sha256": "b383f27f271bc99d0a11ba377b768bf21183c736e1c811e4fc76600c75652a71"
+          }
+        },
+        {
+          "grammar": "audit.FirstRuleEnumLibraryChild",
+          "file": "audit.FirstRuleEnumLibraryChild.xtext",
+          "source_id": {
+            "uri": "memory:enum_library_model_child/audit.FirstRuleEnumLibraryChild.xtext",
+            "sha256": "c53d6111977d6fecee2ef8e70c41f92ad53cd3297f7ec438ea1bb8d40c2ed216"
+          }
+        }
+      ],
+      "provider_cohort": "separate_authored_identity_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_library_model_child\\imported.ecore",
+        "bytes": 1497,
+        "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+      },
+      "structural_selection": "exact complete migration report.converted unchanged"
+    },
+    {
+      "id": "same_name_class_first",
+      "entry": "audit.FirstRuleIdentityClass",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                "uri": "memory:contextual-first-rule/identity/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:same_name_class_first/audit.FirstRuleIdentityClass.xtext",
+                "sha256": "533eb878d87597047ea8232c2020dd0dd87ad1f8c094cc16e08f549e4284f17c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleIdentityClass\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::EString: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+          "uri": "memory:contextual-first-rule/identity/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:first-rule:identity:1",
+        "xtext": {
+          "uri": "memory:same_name_class_first/audit.FirstRuleIdentityClass.xtext",
+          "sha256": "533eb878d87597047ea8232c2020dd0dd87ad1f8c094cc16e08f549e4284f17c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleIdentityClass",
+          "file": "audit.FirstRuleIdentityClass.xtext",
+          "source_id": {
+            "uri": "memory:same_name_class_first/audit.FirstRuleIdentityClass.xtext",
+            "sha256": "533eb878d87597047ea8232c2020dd0dd87ad1f8c094cc16e08f549e4284f17c"
+          }
+        }
+      ],
+      "provider_cohort": "separate_authored_identity_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_class_first\\imported.ecore",
+        "bytes": 1497,
+        "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+      },
+      "structural_selection": "exact complete migration report.converted unchanged"
+    },
+    {
+      "id": "same_name_datatype_first",
+      "entry": "audit.FirstRuleIdentityDatatype",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                "uri": "memory:contextual-first-rule/identity/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:same_name_datatype_first/audit.FirstRuleIdentityDatatype.xtext",
+                "sha256": "34b5f35dd5bb4eea664b1b72b1fa9612843e0f9c74739b3808440163968a516c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleIdentityDatatype\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nText returns ecore::EString: 'a';\nModel returns k::EString: name=Text;\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+          "uri": "memory:contextual-first-rule/identity/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:first-rule:identity:1",
+        "xtext": {
+          "uri": "memory:same_name_datatype_first/audit.FirstRuleIdentityDatatype.xtext",
+          "sha256": "34b5f35dd5bb4eea664b1b72b1fa9612843e0f9c74739b3808440163968a516c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.FirstRuleIdentityDatatype",
+          "file": "audit.FirstRuleIdentityDatatype.xtext",
+          "source_id": {
+            "uri": "memory:same_name_datatype_first/audit.FirstRuleIdentityDatatype.xtext",
+            "sha256": "34b5f35dd5bb4eea664b1b72b1fa9612843e0f9c74739b3808440163968a516c"
+          }
+        }
+      ],
+      "provider_cohort": "separate_authored_identity_provider",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_datatype_first\\imported.ecore",
+        "bytes": 1497,
+        "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+      },
+      "structural_selection": "exact complete migration report.converted unchanged"
+    },
+    {
+      "id": "inherited_operand_override",
+      "entry": "audit.UntilContextInheritedOperandOverrideChild",
+      "inputs": [
+        "",
+        "@",
+        "@ab",
+        "@abc",
+        "@abx",
+        "@abca",
+        "@aabc",
+        "@ababa",
+        "@acb",
+        "@xabc",
+        "@abcabc",
+        "@aba@aba"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideBase.xtext",
+                "sha256": "c42d8c02df2ff6d19d81f19673051590d23211c3c0f4597e8f4e4d4b34ffa562"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilContextInheritedOperandOverrideBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->END;\nterminal fragment END: 'abc'|'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideChild.xtext",
+                "sha256": "abadddb2cdb11c1d742f70179d506392ef93db9eeb1635855d515664b2378cae"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilContextInheritedOperandOverrideChild with audit.UntilContextInheritedOperandOverrideBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal fragment END: 'ab'|'abc';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideBase.xtext",
+                  "sha256": "c42d8c02df2ff6d19d81f19673051590d23211c3c0f4597e8f4e4d4b34ffa562"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideChild.xtext",
+          "sha256": "abadddb2cdb11c1d742f70179d506392ef93db9eeb1635855d515664b2378cae"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.UntilContextInheritedOperandOverrideBase",
+          "file": "audit.UntilContextInheritedOperandOverrideBase.xtext",
+          "source_id": {
+            "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideBase.xtext",
+            "sha256": "c42d8c02df2ff6d19d81f19673051590d23211c3c0f4597e8f4e4d4b34ffa562"
+          }
+        },
+        {
+          "grammar": "audit.UntilContextInheritedOperandOverrideChild",
+          "file": "audit.UntilContextInheritedOperandOverrideChild.xtext",
+          "source_id": {
+            "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideChild.xtext",
+            "sha256": "abadddb2cdb11c1d742f70179d506392ef93db9eeb1635855d515664b2378cae"
+          }
+        }
+      ],
+      "provider_cohort": "original_full_until_corpus",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\inherited_operand_override\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "explicit_parent_operand",
+      "entry": "audit.UntilContextExplicitParentOperandChild",
+      "inputs": [
+        "",
+        "@",
+        "@ab",
+        "@abc",
+        "@abx",
+        "@abca",
+        "@aabc",
+        "@ababa",
+        "@acb",
+        "@xabc",
+        "@abcabc",
+        "@aba@aba"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandBase.xtext",
+                "sha256": "f23a2bdd67cb892928f0f31fb975f01dc16c7e56fb625c57f126d93bba092a67"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilContextExplicitParentOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->END;\nterminal fragment END: 'abc'|'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandChild.xtext",
+                "sha256": "f32c01485ce0a29458228af9414d5c7f9d21ea51fcdbe6f07b7706f0cb3a496c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilContextExplicitParentOperandChild with audit.UntilContextExplicitParentOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal VALUE returns ecore::EString: '@' ->super::END;\nterminal fragment END: 'ab'|'abc';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandBase.xtext",
+                  "sha256": "f23a2bdd67cb892928f0f31fb975f01dc16c7e56fb625c57f126d93bba092a67"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandChild.xtext",
+          "sha256": "f32c01485ce0a29458228af9414d5c7f9d21ea51fcdbe6f07b7706f0cb3a496c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.UntilContextExplicitParentOperandBase",
+          "file": "audit.UntilContextExplicitParentOperandBase.xtext",
+          "source_id": {
+            "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandBase.xtext",
+            "sha256": "f23a2bdd67cb892928f0f31fb975f01dc16c7e56fb625c57f126d93bba092a67"
+          }
+        },
+        {
+          "grammar": "audit.UntilContextExplicitParentOperandChild",
+          "file": "audit.UntilContextExplicitParentOperandChild.xtext",
+          "source_id": {
+            "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandChild.xtext",
+            "sha256": "f32c01485ce0a29458228af9414d5c7f9d21ea51fcdbe6f07b7706f0cb3a496c"
+          }
+        }
+      ],
+      "provider_cohort": "original_full_until_corpus",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\explicit_parent_operand\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "valid_inherited_operand_override",
+      "entry": "audit.UntilValidInheritedOperandChild",
+      "inputs": [
+        "",
+        "@",
+        "@ab",
+        "@abc",
+        "@abx",
+        "@abca",
+        "@aabc",
+        "@ababa",
+        "@acb",
+        "@xabc",
+        "@abcabc",
+        "@aba@aba"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandBase.xtext",
+                "sha256": "06573c0e481aacfd344bdf386764cd895b8547d9151431a05d125d9c55562fc1"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilValidInheritedOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->END;\nterminal fragment END: 'abc'|'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandChild.xtext",
+                "sha256": "63e5385384b09ac64b22a78fec0ac7164095541c4e05103ffc339ec84727fbba"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilValidInheritedOperandChild with audit.UntilValidInheritedOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal fragment END: 'ab'|'abc';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandBase.xtext",
+                  "sha256": "06573c0e481aacfd344bdf386764cd895b8547d9151431a05d125d9c55562fc1"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandChild.xtext",
+          "sha256": "63e5385384b09ac64b22a78fec0ac7164095541c4e05103ffc339ec84727fbba"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.UntilValidInheritedOperandBase",
+          "file": "audit.UntilValidInheritedOperandBase.xtext",
+          "source_id": {
+            "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandBase.xtext",
+            "sha256": "06573c0e481aacfd344bdf386764cd895b8547d9151431a05d125d9c55562fc1"
+          }
+        },
+        {
+          "grammar": "audit.UntilValidInheritedOperandChild",
+          "file": "audit.UntilValidInheritedOperandChild.xtext",
+          "source_id": {
+            "uri": "memory:valid_inherited_operand_override/audit.UntilValidInheritedOperandChild.xtext",
+            "sha256": "63e5385384b09ac64b22a78fec0ac7164095541c4e05103ffc339ec84727fbba"
+          }
+        }
+      ],
+      "provider_cohort": "original_full_until_corpus",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_inherited_operand_override\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    },
+    {
+      "id": "valid_explicit_parent_operand",
+      "entry": "audit.UntilValidExplicitParentOperandChild",
+      "inputs": [
+        "",
+        "@",
+        "@ab",
+        "@abc",
+        "@abx",
+        "@abca",
+        "@aabc",
+        "@ababa",
+        "@acb",
+        "@xabc",
+        "@abcabc",
+        "@aba@aba"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandBase.xtext",
+                "sha256": "a395586f1bf509ace43382880fd5df4843db7db0fb55cbd5a21f9f06f62ed619"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilValidExplicitParentOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->END;\nterminal fragment END: 'abc'|'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandChild.xtext",
+                "sha256": "d7ca88634c53077d5b0867e3e3a9e5cbf01fe3238eff2e8c26b56422382da32b"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilValidExplicitParentOperandChild with audit.UntilValidExplicitParentOperandBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->super::END;\nterminal fragment END: 'ab'|'abc';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandBase.xtext",
+                  "sha256": "a395586f1bf509ace43382880fd5df4843db7db0fb55cbd5a21f9f06f62ed619"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandChild.xtext",
+          "sha256": "d7ca88634c53077d5b0867e3e3a9e5cbf01fe3238eff2e8c26b56422382da32b"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "source_pins": [
+        {
+          "grammar": "audit.UntilValidExplicitParentOperandBase",
+          "file": "audit.UntilValidExplicitParentOperandBase.xtext",
+          "source_id": {
+            "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandBase.xtext",
+            "sha256": "a395586f1bf509ace43382880fd5df4843db7db0fb55cbd5a21f9f06f62ed619"
+          }
+        },
+        {
+          "grammar": "audit.UntilValidExplicitParentOperandChild",
+          "file": "audit.UntilValidExplicitParentOperandChild.xtext",
+          "source_id": {
+            "uri": "memory:valid_explicit_parent_operand/audit.UntilValidExplicitParentOperandChild.xtext",
+            "sha256": "d7ca88634c53077d5b0867e3e3a9e5cbf01fe3238eff2e8c26b56422382da32b"
+          }
+        }
+      ],
+      "provider_cohort": "original_full_until_corpus",
+      "original_ecore": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_explicit_parent_operand\\imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter"
+    }
+  ]
+}

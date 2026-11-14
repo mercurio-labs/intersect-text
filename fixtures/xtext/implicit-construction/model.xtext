@@ -1,0 +1,10 @@
+grammar implicit hidden(WS)
+import "urn:intersect:compatibility:graph" as g
+Root returns g::Graph: name=ID '{' nodes+=Node* '}';
+Node returns g::Node: (
+  'implicit' name=ID
+ | 'bool' active?='on' name=ID
+ | 'ref' peer=[g::Node|ID] name=ID
+ | {g::Node} 'explicit' name=ID) 'in' graph=[g::Graph|ID];
+terminal ID: ('a'..'z')+;
+terminal WS: (' '|'\n')+;

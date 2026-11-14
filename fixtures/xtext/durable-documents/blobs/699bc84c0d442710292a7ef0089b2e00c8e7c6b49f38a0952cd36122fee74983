@@ -1,0 +1,57 @@
+from pathlib import Path
+import argparse,base64,hashlib,json,os,subprocess
+HERE=Path(__file__).resolve().parent;N=HERE.parent;T=N.parent
+def pin(p):b=Path(p).read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def read(p):return json.loads(Path(p).read_text(encoding='utf-8'))
+def save(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+def b64(s):return base64.b64encode(str(s).encode('utf-8')).decode('ascii')
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);a=p.parse_args();out=a.output.resolve();out.mkdir(exist_ok=False)
+ frozen=read(HERE/'preexecution.json');assert pin(HERE/'OwnedGeneratedLauncher.java')==frozen['launcher'];assert pin(__file__)==frozen['producer']
+ stack=read(N/'construction-addenda-oracle-helper-v1/inputs/stack.json');jars=[Path('C:/Users/MarkPetrotta/.m2/repository')/j['path']for j in stack['jars']];assert len(jars)==60
+ for j,c in zip(jars,stack['jars']):assert pin(j)['sha256']==c['sha256']
+ java=Path('D:/dev/jdks/jdk21/bin/java.exe');javac=java.with_name('javac.exe');plans=[]
+ for label in ['record','replay']:
+  root=T/('xnca1-'+label);rows=read(root/'observations.json');old=read(root/'commands.json')
+  for row in rows:
+   commands=[c for c in old if 'intersect.oracle.NodeSnapshotRuntime'in c['command']and c['command'][c['command'].index('intersect.oracle.NodeSnapshotRuntime')+2]==row['entry']]
+   assert len(commands)==len(row['runtime'])
+   for c,r in zip(commands,row['runtime']):
+    cmd=c['command'];i=cmd.index('intersect.oracle.NodeSnapshotRuntime');assert base64.b64decode(cmd[i+3]).decode('utf-8')==r['text'];cp=cmd[cmd.index('-cp')+1].split(os.pathsep);owned=[]
+    for s in cp:
+     q=Path(s).resolve()
+     if q.suffix=='.jar':assert q in jars
+     elif q not in owned:owned.append(q)
+    plans.append({'run':label,'case':row['id'],'text':r['text'],'entry':r.get('entry',''),'owned_roots':[str(x)for x in owned],'arguments':cmd[i+1:],'old_runtime':r,'original_command':c})
+ save(out/'preexecution.json',{'state':'before compilation or JVM probes','helper_freeze':pin(HERE/'preexecution.json'),'plan':plans,'java':pin(java),'javac':pin(javac),'jars':stack['jars'],'comparison_exceptions':[],'scope':'same prior independently generated/compiled source classes; new class-loader workflow only; original failures unchanged'})
+ commands=[];observations=[]
+ def run(command,deadline=15):
+  try:r=subprocess.run(command,capture_output=True,timeout=deadline)
+  except subprocess.TimeoutExpired as e:r=subprocess.CompletedProcess(command,124,e.stdout or b'',e.stderr or b'')
+  number=len(commands)+1;stdout=out/(str(number).zfill(3)+'.stdout.log');stderr=out/(str(number).zfill(3)+'.stderr.log');stdout.write_bytes(r.stdout);stderr.write_bytes(r.stderr);commands.append({'command':command,'exit_code':r.returncode,'timeout_seconds':deadline if r.returncode==124 else None,'raw_stdout':{'file':stdout.name,**pin(stdout)},'raw_stderr':{'file':stderr.name,**pin(stderr)}});save(out/'commands.json',commands);return r.returncode,r.stdout.decode('utf-8',errors='strict'),r.stderr.decode('utf-8',errors='strict')
+ try:
+  launcher=out/'launcher';launcher.mkdir();code,stdout,stderr=run([str(javac),'-encoding','UTF-8','--release','17','-d',str(launcher),str(HERE/'OwnedGeneratedLauncher.java')],30);assert code==0,stderr
+  specs={}
+  for item in plans:
+   key=(item['run'],item['case'])
+   if key not in specs:
+    lines=['format\t1','launcher\t'+b64(launcher)];lines.extend('jar\t'+b64(j)+'\t'+c['sha256']for j,c in zip(jars,stack['jars']));names=set()
+    for index,folder in enumerate(item['owned_roots']):
+     root=Path(folder);lines.append('root\t'+b64(root))
+     for f in sorted(root.rglob('*')):
+      if not f.is_file():continue
+      name=f.relative_to(root).as_posix();assert name not in names,('ambiguous owned resource',name);names.add(name);lines.append('file\t'+str(index)+'\t'+b64(name)+'\t'+pin(f)['sha256'])
+    spec=out/(item['run']+'-'+item['case']+'.tsv');spec.write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n');specs[key]=spec
+   cmd=[str(java),'-Dstdout.encoding=UTF-8','-Dstderr.encoding=UTF-8','-cp',os.pathsep.join([str(launcher),*map(str,jars)]),'intersect.oracle.OwnedGeneratedLauncher',str(specs[key]),'intersect.oracle.NodeSnapshotRuntime',*item['arguments']]
+   code,stdout,stderr=run(cmd);values=[json.loads(s)for s in stdout.splitlines()if s.startswith('{')];o=values[0]if len(values)==1 else None
+   row={'run':item['run'],'case':item['case'],'text':item['text'],'entry':item['entry'],'exit_code':code,'timeout_seconds':15 if code==124 else None,'observation':o};observations.append(row);save(out/'observations.json',observations)
+   assert code==0 and o is not None,(item['case'],code,stderr)
+   if item['case']=='grouped_objects_namespace_companion':assert row['observation']==item['old_runtime']['observation'],'Existing successful complete node/model observation changed'
+  record=[{k:v for k,v in r.items()if k!='run'}for r in observations if r['run']=='record'];replay=[{k:v for k,v in r.items()if k!='run'}for r in observations if r['run']=='replay'];assert record==replay
+  first=plans[0];lines=next(iter(specs.values())).read_text(encoding='utf-8').splitlines();index=next(i for i,s in enumerate(lines)if s.startswith('file\t'));row=lines[index].split('\t');bad=row.copy();bad[3]='0'*64;escape=row.copy();escape[2]=b64('../outside.class');trials=[('wrong-digest',lines[:index]+['\t'.join(bad)]+lines[index+1:]),('duplicate-resource',lines+[lines[index]]),('unlisted-owned-file',lines[:index]+lines[index+1:]),('path-escape',lines[:index]+['\t'.join(escape)]+lines[index+1:])];negatives=[]
+  for label,content in trials:
+   target=out/('negative-'+label+'.tsv');target.write_text('\n'.join(content)+'\n',encoding='utf-8',newline='\n');cmd=[str(java),'-Dstdout.encoding=UTF-8','-Dstderr.encoding=UTF-8','-cp',os.pathsep.join([str(launcher),*map(str,jars)]),'intersect.oracle.OwnedGeneratedLauncher',str(target),'intersect.oracle.NodeSnapshotRuntime',*first['arguments']];code,stdout,stderr=run(cmd);assert code!=0 and not any(s.startswith('{')for s in stdout.splitlines()),label;negatives.append({'id':label,'exit_code':code,'specification':pin(target)})
+  save(out/'receipt.json',{'state':'same exact generated sources under separated signed-parent/generated-child loaders recorded and freshly replayed','graphs':2,'observations_per_run':len(record),'successful_control_observations_per_run':8,'newly_observable_original_simple_requests_per_run':9,'whitelist_negative_controls':negatives,'commands':pin(out/'commands.json'),'observations':pin(out/'observations.json'),'preexecution':pin(out/'preexecution.json'),'original_security_failure':'xnca1 all9 simple runtime exit1/noJSON retained; no reclassification','comparison_exceptions':[],'gate_closures':[]});print(json.dumps({'receipt':str(out/'receipt.json'),**pin(out/'receipt.json')}))
+ except BaseException as e:
+  save(out/'failure.json',{'state':'new loader attempt failed and preserved','class':type(e).__name__,'message':str(e),'completed_runtime_invocations':len(observations),'commands':len(commands),'preexecution':pin(out/'preexecution.json')});raise
+if __name__=='__main__':main()

@@ -1,0 +1,11 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ownership" nsURI="urn:intersect:ownership" nsPrefix="own">
+  <eClassifiers xsi:type="ecore:EClass" name="Base">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zChildren" containment="true" upperBound="-1" eType="#//Base"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aChild" containment="true" eType="#//Base"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Diamond" eSuperTypes="#//Base"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//Base"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="#//Diamond">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="local" containment="true" upperBound="-1" eType="#//Base"/>
+  </eClassifiers>
+</ecore:EPackage>

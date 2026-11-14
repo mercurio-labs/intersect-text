@@ -1,0 +1,2900 @@
+{
+  "pass": "replay",
+  "cohort": "private-v65-current-import-context",
+  "request": {
+    "method": "evaluate",
+    "package": {
+      "compilation": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+                "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.GrammarHiddenControl hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4",
+                "uri": "memory:hidden-scope/namespace_grammar_hidden_control/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "ecore": {
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+          "uri": "memory:terminal-negation/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "rcore_behavior": {
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4",
+          "uri": "memory:hidden-scope/namespace_grammar_hidden_control/behavior.rcore"
+        },
+        "xtext": {
+          "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+          "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+        }
+      },
+      "grammar": {
+        "declaration_sources": {
+          "ID": {
+            "end": 287,
+            "source": {
+              "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+              "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+            },
+            "start": 230
+          },
+          "ML_COMMENT": {
+            "end": 403,
+            "source": {
+              "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+              "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+            },
+            "start": 347
+          },
+          "Model": {
+            "end": 229,
+            "source": {
+              "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+              "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+            },
+            "start": 197
+          },
+          "SL_COMMENT": {
+            "end": 481,
+            "source": {
+              "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+              "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+            },
+            "start": 404
+          },
+          "WS": {
+            "end": 346,
+            "source": {
+              "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7",
+              "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext"
+            },
+            "start": 288
+          }
+        },
+        "entry": "Model",
+        "hidden": [
+          "WS",
+          "ML_COMMENT",
+          "SL_COMMENT"
+        ],
+        "lexical_prediction": {
+          "alternatives": [
+            {
+              "Terminal": "ID"
+            },
+            {
+              "Terminal": "WS"
+            },
+            {
+              "Terminal": "ML_COMMENT"
+            },
+            {
+              "Terminal": "SL_COMMENT"
+            }
+          ],
+          "roots": [
+            0,
+            10,
+            24,
+            37
+          ],
+          "states": [
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                2
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": true,
+              "edges": [],
+              "epsilon": [],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                4
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                1,
+                2
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                6,
+                8
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                3
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 122,
+                  "low": 97,
+                  "target": 7
+                }
+              ],
+              "epsilon": [],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                5
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 233,
+                  "low": 233,
+                  "target": 9
+                }
+              ],
+              "epsilon": [],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                5
+              ],
+              "owner": 0
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                12
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": true,
+              "edges": [],
+              "epsilon": [],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                14
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                11,
+                12
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                16,
+                18,
+                20,
+                22
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                13
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 32,
+                  "low": 32,
+                  "target": 17
+                }
+              ],
+              "epsilon": [],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                15
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 9,
+                  "low": 9,
+                  "target": 19
+                }
+              ],
+              "epsilon": [],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                15
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 13,
+                  "low": 13,
+                  "target": 21
+                }
+              ],
+              "epsilon": [],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                15
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 10,
+                  "low": 10,
+                  "target": 23
+                }
+              ],
+              "epsilon": [],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                15
+              ],
+              "owner": 1
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                26
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": true,
+              "edges": [],
+              "epsilon": [],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                29
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                25
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                32
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 47,
+                  "low": 47,
+                  "target": 31
+                }
+              ],
+              "epsilon": [],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                28
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 42,
+                  "low": 42,
+                  "target": 30
+                }
+              ],
+              "epsilon": [],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 65535,
+                  "low": 0,
+                  "target": 32
+                }
+              ],
+              "epsilon": [
+                34
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                27
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 42,
+                  "low": 42,
+                  "target": 36
+                }
+              ],
+              "epsilon": [],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                33
+              ],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 47,
+                  "low": 47,
+                  "target": 35
+                }
+              ],
+              "epsilon": [],
+              "owner": 2
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                39
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": true,
+              "edges": [],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                42
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                38
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                46,
+                45
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 47,
+                  "low": 47,
+                  "target": 44
+                }
+              ],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                41
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 47,
+                  "low": 47,
+                  "target": 43
+                }
+              ],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                48,
+                40
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 9,
+                  "low": 0,
+                  "target": 47
+                },
+                {
+                  "high": 12,
+                  "low": 11,
+                  "target": 47
+                },
+                {
+                  "high": 65535,
+                  "low": 14,
+                  "target": 47
+                }
+              ],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                45,
+                46
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                50
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                40
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                53,
+                52
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                49
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                55
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 13,
+                  "low": 13,
+                  "target": 54
+                }
+              ],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                52
+              ],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "high": 10,
+                  "low": 10,
+                  "target": 56
+                }
+              ],
+              "epsilon": [],
+              "owner": 3
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "epsilon": [
+                51
+              ],
+              "owner": 3
+            }
+          ]
+        },
+        "name": "audit.scopes.GrammarHiddenControl",
+        "parser_prediction": {
+          "decisions": {},
+          "first_guards": {},
+          "rules": {
+            "Model": [
+              0,
+              1
+            ]
+          },
+          "states": [
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "Token": [
+                    {
+                      "Terminal": "ID"
+                    },
+                    1
+                  ]
+                }
+              ],
+              "follow": [],
+              "rule_stop": false
+            },
+            {
+              "accepting": false,
+              "edges": [],
+              "follow": [
+                2
+              ],
+              "rule_stop": true
+            },
+            {
+              "accepting": false,
+              "edges": [
+                {
+                  "Token": [
+                    "End",
+                    3
+                  ]
+                }
+              ],
+              "follow": [],
+              "rule_stop": false
+            },
+            {
+              "accepting": true,
+              "edges": [],
+              "follow": [],
+              "rule_stop": false
+            }
+          ]
+        },
+        "profile": "intersect.xtext.native.v63",
+        "rules": {
+          "Model": {
+            "body": {
+              "cardinality": "1",
+              "kind": {
+                "Assign": {
+                  "feature": "name",
+                  "many": false,
+                  "value": {
+                    "cardinality": "1",
+                    "kind": {
+                      "Call": "ID"
+                    }
+                  }
+                }
+              }
+            },
+            "class": "Model"
+          }
+        },
+        "terminal_order": [
+          "ID",
+          "WS",
+          "ML_COMMENT",
+          "SL_COMMENT"
+        ],
+        "terminals": {
+          "ID": {
+            "body": {
+              "cardinality": "+",
+              "cardinality_decision": {
+                "alternatives": [
+                  {
+                    "Terminal": "0"
+                  },
+                  {
+                    "Terminal": "1"
+                  }
+                ],
+                "roots": [
+                  0,
+                  21
+                ],
+                "states": [
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      2
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": true,
+                    "edges": [],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      5
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      1
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      13,
+                      3
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      7
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      4
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      9,
+                      11
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      6
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 122,
+                        "low": 97,
+                        "target": 10
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 233,
+                        "low": 233,
+                        "target": 12
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      15
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      3,
+                      13
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      17,
+                      19
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      14
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 122,
+                        "low": 97,
+                        "target": 18
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      16
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 233,
+                        "low": 233,
+                        "target": 20
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      16
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      23
+                    ],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": true,
+                    "edges": [],
+                    "epsilon": [],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      24
+                    ],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      22
+                    ],
+                    "owner": 1
+                  }
+                ]
+              },
+              "first": [
+                [
+                  97,
+                  122
+                ],
+                [
+                  233,
+                  233
+                ]
+              ],
+              "kind": {
+                "Sequence": [
+                  {
+                    "cardinality": "1",
+                    "first": [
+                      [
+                        97,
+                        122
+                      ],
+                      [
+                        233,
+                        233
+                      ]
+                    ],
+                    "kind": {
+                      "Alternative": [
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              97,
+                              122
+                            ]
+                          ],
+                          "kind": {
+                            "Range": [
+                              97,
+                              122
+                            ]
+                          },
+                          "nullable": false
+                        },
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              233,
+                              233
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              233
+                            ]
+                          },
+                          "nullable": false
+                        }
+                      ]
+                    },
+                    "nullable": false
+                  }
+                ]
+              },
+              "nullable": false
+            },
+            "datatype": "EString",
+            "end": 287,
+            "identity": "audit.scopes.GrammarHiddenControl::ID",
+            "start": 230
+          },
+          "ML_COMMENT": {
+            "body": {
+              "cardinality": "1",
+              "first": [
+                [
+                  47,
+                  47
+                ]
+              ],
+              "kind": {
+                "Sequence": [
+                  {
+                    "cardinality": "1",
+                    "first": [
+                      [
+                        47,
+                        47
+                      ]
+                    ],
+                    "kind": {
+                      "Literal": [
+                        47,
+                        42
+                      ]
+                    },
+                    "nullable": false
+                  },
+                  {
+                    "cardinality": "1",
+                    "first": [
+                      [
+                        0,
+                        65535
+                      ]
+                    ],
+                    "kind": {
+                      "UntilOperand": {
+                        "decision": {
+                          "alternatives": [
+                            {
+                              "Terminal": "0"
+                            },
+                            {
+                              "Terminal": "1"
+                            }
+                          ],
+                          "roots": [
+                            0,
+                            13
+                          ],
+                          "states": [
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                2
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": true,
+                              "edges": [],
+                              "epsilon": [],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                5
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                1
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                8,
+                                7
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 65535,
+                                  "low": 0,
+                                  "target": 6
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                4
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                10
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 65535,
+                                  "low": 0,
+                                  "target": 9
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                7,
+                                8
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 42,
+                                  "low": 42,
+                                  "target": 12
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                3
+                              ],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 47,
+                                  "low": 47,
+                                  "target": 11
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 0
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                15
+                              ],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": true,
+                              "edges": [],
+                              "epsilon": [],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                17
+                              ],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                14
+                              ],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 42,
+                                  "low": 42,
+                                  "target": 19
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [],
+                              "epsilon": [
+                                16
+                              ],
+                              "owner": 1
+                            },
+                            {
+                              "accepting": false,
+                              "edges": [
+                                {
+                                  "high": 47,
+                                  "low": 47,
+                                  "target": 18
+                                }
+                              ],
+                              "epsilon": [],
+                              "owner": 1
+                            }
+                          ]
+                        },
+                        "operand": {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              42,
+                              42
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              42,
+                              47
+                            ]
+                          },
+                          "nullable": false
+                        }
+                      }
+                    },
+                    "nullable": false
+                  }
+                ]
+              },
+              "nullable": false
+            },
+            "datatype": "EString",
+            "end": 403,
+            "identity": "audit.scopes.GrammarHiddenControl::ML_COMMENT",
+            "start": 347
+          },
+          "SL_COMMENT": {
+            "body": {
+              "cardinality": "1",
+              "first": [
+                [
+                  47,
+                  47
+                ]
+              ],
+              "kind": {
+                "Sequence": [
+                  {
+                    "cardinality": "1",
+                    "first": [
+                      [
+                        47,
+                        47
+                      ]
+                    ],
+                    "kind": {
+                      "Literal": [
+                        47,
+                        47
+                      ]
+                    },
+                    "nullable": false
+                  },
+                  {
+                    "cardinality": "*",
+                    "cardinality_decision": {
+                      "alternatives": [
+                        {
+                          "Terminal": "0"
+                        },
+                        {
+                          "Terminal": "1"
+                        }
+                      ],
+                      "roots": [
+                        0,
+                        19
+                      ],
+                      "states": [
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            2
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": true,
+                          "edges": [],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            5
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            1
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            8,
+                            7
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 9,
+                              "low": 0,
+                              "target": 6
+                            },
+                            {
+                              "high": 12,
+                              "low": 11,
+                              "target": 6
+                            },
+                            {
+                              "high": 65535,
+                              "low": 14,
+                              "target": 6
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            4
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            10,
+                            3
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 9,
+                              "low": 0,
+                              "target": 9
+                            },
+                            {
+                              "high": 12,
+                              "low": 11,
+                              "target": 9
+                            },
+                            {
+                              "high": 65535,
+                              "low": 14,
+                              "target": 9
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            7,
+                            8
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            12
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            3
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            15,
+                            14
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            11
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            17
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 13,
+                              "low": 13,
+                              "target": 16
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            14
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 10,
+                              "low": 10,
+                              "target": 18
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            13
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            21
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": true,
+                          "edges": [],
+                          "epsilon": [],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            23,
+                            22
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            20
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            25
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            22
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            28,
+                            27
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            24
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            30
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 13,
+                              "low": 13,
+                              "target": 29
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            27
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 10,
+                              "low": 10,
+                              "target": 31
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            26
+                          ],
+                          "owner": 1
+                        }
+                      ]
+                    },
+                    "first": [
+                      [
+                        0,
+                        9
+                      ],
+                      [
+                        11,
+                        12
+                      ],
+                      [
+                        14,
+                        65535
+                      ]
+                    ],
+                    "kind": {
+                      "Negated": {
+                        "excluded": [
+                          [
+                            10,
+                            10
+                          ],
+                          [
+                            13,
+                            13
+                          ]
+                        ],
+                        "operand": {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              10,
+                              10
+                            ],
+                            [
+                              13,
+                              13
+                            ]
+                          ],
+                          "kind": {
+                            "Sequence": [
+                              {
+                                "cardinality": "1",
+                                "first": [
+                                  [
+                                    10,
+                                    10
+                                  ],
+                                  [
+                                    13,
+                                    13
+                                  ]
+                                ],
+                                "kind": {
+                                  "Alternative": [
+                                    {
+                                      "cardinality": "1",
+                                      "first": [
+                                        [
+                                          10,
+                                          10
+                                        ]
+                                      ],
+                                      "kind": {
+                                        "Literal": [
+                                          10
+                                        ]
+                                      },
+                                      "nullable": false
+                                    },
+                                    {
+                                      "cardinality": "1",
+                                      "first": [
+                                        [
+                                          13,
+                                          13
+                                        ]
+                                      ],
+                                      "kind": {
+                                        "Literal": [
+                                          13
+                                        ]
+                                      },
+                                      "nullable": false
+                                    }
+                                  ]
+                                },
+                                "nullable": false
+                              }
+                            ]
+                          },
+                          "nullable": false
+                        }
+                      }
+                    },
+                    "nullable": true
+                  },
+                  {
+                    "cardinality": "?",
+                    "cardinality_decision": {
+                      "alternatives": [
+                        {
+                          "Terminal": "0"
+                        },
+                        {
+                          "Terminal": "1"
+                        }
+                      ],
+                      "roots": [
+                        0,
+                        13
+                      ],
+                      "states": [
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            2
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": true,
+                          "edges": [],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            4
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            1
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            6
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            3
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            9,
+                            8
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            5
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            11
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 13,
+                              "low": 13,
+                              "target": 10
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            8
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [
+                            {
+                              "high": 10,
+                              "low": 10,
+                              "target": 12
+                            }
+                          ],
+                          "epsilon": [],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            7
+                          ],
+                          "owner": 0
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            15
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": true,
+                          "edges": [],
+                          "epsilon": [],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            16
+                          ],
+                          "owner": 1
+                        },
+                        {
+                          "accepting": false,
+                          "edges": [],
+                          "epsilon": [
+                            14
+                          ],
+                          "owner": 1
+                        }
+                      ]
+                    },
+                    "first": [
+                      [
+                        10,
+                        10
+                      ],
+                      [
+                        13,
+                        13
+                      ]
+                    ],
+                    "kind": {
+                      "Sequence": [
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              10,
+                              10
+                            ],
+                            [
+                              13,
+                              13
+                            ]
+                          ],
+                          "kind": {
+                            "Sequence": [
+                              {
+                                "cardinality": "?",
+                                "cardinality_decision": {
+                                  "alternatives": [
+                                    {
+                                      "Terminal": "0"
+                                    },
+                                    {
+                                      "Terminal": "1"
+                                    }
+                                  ],
+                                  "roots": [
+                                    0,
+                                    9
+                                  ],
+                                  "states": [
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        2
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": true,
+                                      "edges": [],
+                                      "epsilon": [],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        5
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        1
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        7
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [
+                                        {
+                                          "high": 13,
+                                          "low": 13,
+                                          "target": 6
+                                        }
+                                      ],
+                                      "epsilon": [],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        4
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [
+                                        {
+                                          "high": 10,
+                                          "low": 10,
+                                          "target": 8
+                                        }
+                                      ],
+                                      "epsilon": [],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        3
+                                      ],
+                                      "owner": 0
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        11
+                                      ],
+                                      "owner": 1
+                                    },
+                                    {
+                                      "accepting": true,
+                                      "edges": [],
+                                      "epsilon": [],
+                                      "owner": 1
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        13
+                                      ],
+                                      "owner": 1
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        10
+                                      ],
+                                      "owner": 1
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [
+                                        {
+                                          "high": 10,
+                                          "low": 10,
+                                          "target": 14
+                                        }
+                                      ],
+                                      "epsilon": [],
+                                      "owner": 1
+                                    },
+                                    {
+                                      "accepting": false,
+                                      "edges": [],
+                                      "epsilon": [
+                                        12
+                                      ],
+                                      "owner": 1
+                                    }
+                                  ]
+                                },
+                                "first": [
+                                  [
+                                    13,
+                                    13
+                                  ]
+                                ],
+                                "kind": {
+                                  "Literal": [
+                                    13
+                                  ]
+                                },
+                                "nullable": true
+                              },
+                              {
+                                "cardinality": "1",
+                                "first": [
+                                  [
+                                    10,
+                                    10
+                                  ]
+                                ],
+                                "kind": {
+                                  "Literal": [
+                                    10
+                                  ]
+                                },
+                                "nullable": false
+                              }
+                            ]
+                          },
+                          "nullable": false
+                        }
+                      ]
+                    },
+                    "nullable": true
+                  }
+                ]
+              },
+              "nullable": false
+            },
+            "datatype": "EString",
+            "end": 481,
+            "identity": "audit.scopes.GrammarHiddenControl::SL_COMMENT",
+            "start": 404
+          },
+          "WS": {
+            "body": {
+              "cardinality": "+",
+              "cardinality_decision": {
+                "alternatives": [
+                  {
+                    "Terminal": "0"
+                  },
+                  {
+                    "Terminal": "1"
+                  }
+                ],
+                "roots": [
+                  0,
+                  29
+                ],
+                "states": [
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      2
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": true,
+                    "edges": [],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      5
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      1
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      17,
+                      3
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      7
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      4
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      9,
+                      11,
+                      13,
+                      15
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      6
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 32,
+                        "low": 32,
+                        "target": 10
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 9,
+                        "low": 9,
+                        "target": 12
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 13,
+                        "low": 13,
+                        "target": 14
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 10,
+                        "low": 10,
+                        "target": 16
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      8
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      19
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      3,
+                      17
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      21,
+                      23,
+                      25,
+                      27
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      18
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 32,
+                        "low": 32,
+                        "target": 22
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      20
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 9,
+                        "low": 9,
+                        "target": 24
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      20
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 13,
+                        "low": 13,
+                        "target": 26
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      20
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [
+                      {
+                        "high": 10,
+                        "low": 10,
+                        "target": 28
+                      }
+                    ],
+                    "epsilon": [],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      20
+                    ],
+                    "owner": 0
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      31
+                    ],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": true,
+                    "edges": [],
+                    "epsilon": [],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      32
+                    ],
+                    "owner": 1
+                  },
+                  {
+                    "accepting": false,
+                    "edges": [],
+                    "epsilon": [
+                      30
+                    ],
+                    "owner": 1
+                  }
+                ]
+              },
+              "first": [
+                [
+                  9,
+                  10
+                ],
+                [
+                  13,
+                  13
+                ],
+                [
+                  32,
+                  32
+                ]
+              ],
+              "kind": {
+                "Sequence": [
+                  {
+                    "cardinality": "1",
+                    "first": [
+                      [
+                        9,
+                        10
+                      ],
+                      [
+                        13,
+                        13
+                      ],
+                      [
+                        32,
+                        32
+                      ]
+                    ],
+                    "kind": {
+                      "Alternative": [
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              32,
+                              32
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              32
+                            ]
+                          },
+                          "nullable": false
+                        },
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              9,
+                              9
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              9
+                            ]
+                          },
+                          "nullable": false
+                        },
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              13,
+                              13
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              13
+                            ]
+                          },
+                          "nullable": false
+                        },
+                        {
+                          "cardinality": "1",
+                          "first": [
+                            [
+                              10,
+                              10
+                            ]
+                          ],
+                          "kind": {
+                            "Literal": [
+                              10
+                            ]
+                          },
+                          "nullable": false
+                        }
+                      ]
+                    },
+                    "nullable": false
+                  }
+                ]
+              },
+              "nullable": false
+            },
+            "datatype": "EString",
+            "end": 346,
+            "identity": "audit.scopes.GrammarHiddenControl::WS",
+            "start": 288
+          }
+        }
+      },
+      "schema": {
+        "classes": {
+          "Element": {
+            "abstract_type": true,
+            "feature_declarations": {
+              "name": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "feature_order": [
+              "name"
+            ],
+            "features": {
+              "name": {
+                "containment": false,
+                "default": null,
+                "derived": false,
+                "lower": 0,
+                "name": "name",
+                "opposite": null,
+                "ordered": true,
+                "reference": false,
+                "target": "EString",
+                "unique": true,
+                "unsettable": true,
+                "upper": 1
+              }
+            },
+            "name": "Element",
+            "parents": []
+          },
+          "Feature": {
+            "abstract_type": false,
+            "feature_declarations": {
+              "target": {
+                "path": [
+                  3,
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "feature_order": [
+              "target"
+            ],
+            "features": {
+              "target": {
+                "containment": false,
+                "default": null,
+                "derived": false,
+                "lower": 0,
+                "name": "target",
+                "opposite": null,
+                "ordered": true,
+                "reference": true,
+                "target": "Type",
+                "unique": true,
+                "unsettable": true,
+                "upper": 1
+              }
+            },
+            "name": "Feature",
+            "parents": [
+              "Element"
+            ]
+          },
+          "Model": {
+            "abstract_type": false,
+            "feature_declarations": {
+              "members": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "name": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "feature_order": [
+              "name",
+              "members"
+            ],
+            "features": {
+              "members": {
+                "containment": true,
+                "default": [],
+                "derived": false,
+                "lower": 0,
+                "name": "members",
+                "opposite": null,
+                "ordered": true,
+                "reference": true,
+                "target": "Element",
+                "unique": true,
+                "upper": -1
+              },
+              "name": {
+                "containment": false,
+                "default": null,
+                "derived": false,
+                "lower": 0,
+                "name": "name",
+                "opposite": null,
+                "ordered": true,
+                "reference": false,
+                "target": "EString",
+                "unique": true,
+                "upper": 1
+              }
+            },
+            "name": "Model",
+            "parents": []
+          },
+          "Type": {
+            "abstract_type": false,
+            "feature_declarations": {
+              "isAbstract": {
+                "path": [
+                  2,
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "feature_order": [
+              "isAbstract"
+            ],
+            "features": {
+              "isAbstract": {
+                "containment": false,
+                "default": false,
+                "derived": false,
+                "lower": 0,
+                "name": "isAbstract",
+                "opposite": null,
+                "ordered": true,
+                "reference": false,
+                "target": "EBoolean",
+                "unique": true,
+                "unsettable": true,
+                "upper": 1
+              }
+            },
+            "name": "Type",
+            "parents": [
+              "Element"
+            ]
+          }
+        },
+        "declarations": {
+          "Element": {
+            "name": "Element",
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "path": [
+              1
+            ],
+            "source": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            }
+          },
+          "Feature": {
+            "name": "Feature",
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "path": [
+              3
+            ],
+            "source": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            }
+          },
+          "Model": {
+            "name": "Model",
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "path": [
+              0
+            ],
+            "source": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            }
+          },
+          "Type": {
+            "name": "Type",
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "path": [
+              2
+            ],
+            "source": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            }
+          }
+        },
+        "name": "terminalSpellings",
+        "reference_top": {
+          "path": [
+            10
+          ],
+          "source": {
+            "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+            "uri": "http://www.eclipse.org/emf/2002/Ecore"
+          }
+        },
+        "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+        "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+      },
+      "semantics": {
+        "derived": [],
+        "scope": "unique_names",
+        "validations": [],
+        "version": 1
+      },
+      "sources": {
+        "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+        "rcore_behavior": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+        "xtext": "grammar audit.scopes.GrammarHiddenControl hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n"
+      },
+      "version": 2
+    },
+    "sources": [
+      {
+        "uri": "memory:hidden-before/namespace_grammar_hidden_control.model",
+        "text": "a\tb"
+      }
+    ]
+  },
+  "native_stdout": "{\"derived\":{},\"diagnostics\":[],\"model\":{\"elements\":[{\"class\":\"Model\",\"end\":1,\"id\":\"memory:hidden-before/namespace_grammar_hidden_control.model#0\",\"resource\":\"memory:hidden-before/namespace_grammar_hidden_control.model\",\"start\":0,\"type_identity\":\"memory:terminal-negation/model.rcore@19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193#0\",\"values\":{\"members\":[],\"name\":\"a\"}}],\"resources\":{\"memory:hidden-before/namespace_grammar_hidden_control.model\":{\"content_revision\":\"4\",\"diagnostics\":[],\"load_state\":\"Loaded\",\"roots\":[\"memory:hidden-before/namespace_grammar_hidden_control.model#0\"],\"source\":{\"revision\":\"894891f8b78a9945b0aa07e70d5f71f10b1f1990af127de561cc0ac36024c188\",\"uri\":\"memory:hidden-before/namespace_grammar_hidden_control.model\"},\"uri\":\"memory:hidden-before/namespace_grammar_hidden_control.model\"}},\"schema_revision\":\"e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41\"},\"references\":[]}\n",
+  "native_stderr": "",
+  "native": {
+    "derived": {},
+    "diagnostics": [],
+    "model": {
+      "elements": [
+        {
+          "class": "Model",
+          "end": 1,
+          "id": "memory:hidden-before/namespace_grammar_hidden_control.model#0",
+          "resource": "memory:hidden-before/namespace_grammar_hidden_control.model",
+          "start": 0,
+          "type_identity": "memory:terminal-negation/model.rcore@19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193#0",
+          "values": {
+            "members": [],
+            "name": "a"
+          }
+        }
+      ],
+      "resources": {
+        "memory:hidden-before/namespace_grammar_hidden_control.model": {
+          "content_revision": "4",
+          "diagnostics": [],
+          "load_state": "Loaded",
+          "roots": [
+            "memory:hidden-before/namespace_grammar_hidden_control.model#0"
+          ],
+          "source": {
+            "revision": "894891f8b78a9945b0aa07e70d5f71f10b1f1990af127de561cc0ac36024c188",
+            "uri": "memory:hidden-before/namespace_grammar_hidden_control.model"
+          },
+          "uri": "memory:hidden-before/namespace_grammar_hidden_control.model"
+        }
+      },
+      "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+    },
+    "references": []
+  },
+  "wasm": {
+    "derived": {},
+    "diagnostics": [],
+    "model": {
+      "elements": [
+        {
+          "class": "Model",
+          "end": 1,
+          "id": "memory:hidden-before/namespace_grammar_hidden_control.model#0",
+          "resource": "memory:hidden-before/namespace_grammar_hidden_control.model",
+          "start": 0,
+          "type_identity": "memory:terminal-negation/model.rcore@19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193#0",
+          "values": {
+            "members": [],
+            "name": "a"
+          }
+        }
+      ],
+      "resources": {
+        "memory:hidden-before/namespace_grammar_hidden_control.model": {
+          "content_revision": "4",
+          "diagnostics": [],
+          "load_state": "Loaded",
+          "roots": [
+            "memory:hidden-before/namespace_grammar_hidden_control.model#0"
+          ],
+          "source": {
+            "revision": "894891f8b78a9945b0aa07e70d5f71f10b1f1990af127de561cc0ac36024c188",
+            "uri": "memory:hidden-before/namespace_grammar_hidden_control.model"
+          },
+          "uri": "memory:hidden-before/namespace_grammar_hidden_control.model"
+        }
+      },
+      "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+    },
+    "references": []
+  }
+}

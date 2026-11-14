@@ -1,0 +1,16 @@
+rcore 1;
+package `dispatch` version "1";
+metamodel "urn:intersect:xtext:mini-kerml:dispatch:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    ref `members`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  abstract class `Element` {
+    attr `name`: EString [0,1];
+  }
+  class `Type` extends external "#//@eClassifiers.1" {
+    attr `isAbstract`: EBoolean [0,1] unsettable;
+  }
+  class `Feature` extends external "#//@eClassifiers.1" {
+  }
+}

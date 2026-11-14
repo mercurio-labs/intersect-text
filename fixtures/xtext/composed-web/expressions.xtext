@@ -1,0 +1,21 @@
+// Authored KerML-shaped construction example, not the actual pinned grammar.
+grammar example.ExpressionComposed hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Model returns k::Model: name=ID Equals value=Expression End;
+Expression returns k::Expression: Primary ({k::OperatorExpression.operand += current} operator=AdditiveOperator TailOperand)*;
+Primary returns k::Expression: Literal | Group | Applied;
+Group returns k::Expression: '(' Expression ')';
+Applied returns k::OperatorExpression: All Extra;
+All returns k::OperatorExpression:
+ operator='all' operand+=(Literal | Group)
+ | {k::OperatorExpression} operator='all' 'of' '(' operand+=(Literal | Group) (',' operand+=(Literal | Group))* ')';
+fragment Extra returns k::OperatorExpression: ('with' operand+=(Literal | Group))*;
+fragment TailOperand returns k::OperatorExpression: operand+=(Literal | Group | Applied);
+Literal returns k::Literal: value=INT;
+AdditiveOperator: '+' | '-';
+Equals returns Ecore::EString: '=';
+End returns Ecore::EString: ';';
+terminal ID: ('a'..'z'|'A'..'Z')+;
+terminal INT returns Ecore::EInt: ('0'..'9')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;

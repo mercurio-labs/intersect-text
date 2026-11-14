@@ -1,0 +1,35 @@
+{
+  "repository": "text",
+  "definition_ledger": "text_definition_ledger.py",
+  "host_wasm_controls": [
+    [
+      "resource-lifecycle",
+      "test_resource_lifecycle_wasm.mjs",
+      "intersect_resource_lifecycle_tests.wasm"
+    ],
+    [
+      "resource-interchange",
+      "test_resource_interchange_wasm.mjs",
+      "intersect_web.wasm"
+    ]
+  ],
+  "scoped_packages": {
+    "text": [
+      "intersect-text"
+    ],
+    "host": [
+      "intersect-library",
+      "intersect-web",
+      "intersect-text-acceptance",
+      "intersect-resource-lifecycle-tests",
+      "intersect-model-text-tests"
+    ]
+  },
+  "feature_controls": [],
+  "examples": [
+    [
+      "intersect-text-acceptance",
+      "model_api"
+    ]
+  ]
+}

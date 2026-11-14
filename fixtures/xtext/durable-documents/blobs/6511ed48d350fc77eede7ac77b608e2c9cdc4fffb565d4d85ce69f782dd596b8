@@ -1,0 +1,6 @@
+package intersect.oracle;
+import java.util.*;
+public final class RgbCalibration {
+ public static void main(String[] args){var parse=new ArrayList<>();for(String text:new String[]{"#010203","#123abc","#ABCDEF","#000000","#ffffff","010203","#bad","#0102030","#１２３４５６","#00000G"}){try{var v=RgbService.parse(text);parse.add(TerminalNegationOracle.fields("text",text,"value",v,"formatted",RgbService.format(v),"failure",null));}catch(IllegalArgumentException e){parse.add(TerminalNegationOracle.fields("text",text,"value",null,"failure",e.getMessage()));}}
+ var format=new ArrayList<>();for(Object value:new Object[]{Map.of("red",1,"green",2,"blue",3),Map.of("red",18,"green",58,"blue",188),Map.of("red",256,"green",2,"blue",3),Map.of("red",-1,"green",2,"blue",3),Map.of("red",1.0,"green",2,"blue",3),Map.of("red",1,"green",2,"blue",3,"extra",4),Map.of("red",1,"green",2),null}){try{format.add(TerminalNegationOracle.fields("value",value,"formatted",RgbService.format(value),"failure",null));}catch(IllegalArgumentException e){format.add(TerminalNegationOracle.fields("value",value,"formatted",null,"failure",e.getMessage()));}}System.out.println(TerminalNegationOracle.json(TerminalNegationOracle.fields("provider",TerminalNegationOracle.fields("name","example.rgb","version","1"),"parse",parse,"format",format)));}
+}

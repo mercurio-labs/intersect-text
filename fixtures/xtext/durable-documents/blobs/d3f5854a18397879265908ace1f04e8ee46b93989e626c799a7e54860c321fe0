@@ -1,0 +1,190 @@
+[
+  {
+    "id": "nested_nominal_depth3",
+    "request": {
+      "method": "compile_bundle",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `documentPaint` version \"1\";\nmetamodel \"urn:document-provider:paint:no-default:1\" prefix `paint` {\n  class `Paint` {\n    attr `color`: external \"http://www.eclipse.org/emf/2002/Ecore#//EJavaObject\" [0,1];\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:document-provider-nested-depth-mixed-v1/nested_nominal_depth3.xtext",
+                "sha256": "eaadff046f2fd04d99d8b881e84ad8893bdf615ffa3647adc0376b9f6c214340"
+              },
+              "kind": "xtext",
+              "text": "grammar document.provider.NestedNominalDepthThree hidden(WS)\nimport \"urn:document-provider:paint:no-default:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=WrappedColor?;\nWrappedColor returns ecore::EJavaObject: MiddleColor;\nMiddleColor returns ecore::EJavaObject: Color;\nColor returns ecore::EJavaObject: COLOR_TOKEN;\nterminal COLOR_TOKEN returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+              "dependencies": [
+                {
+                  "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                  "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:document-provider-typed-native-before/nodefault_companion/typed_rule_nodefault_companion/empty.rcore",
+                "sha256": "bdc80c06de3ee252fb7860d983d0ba5e32085b64eddabc065331aa5db81414d2"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package providerBefore version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                  "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+          "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+        },
+        "namespace": "urn:document-provider:paint:no-default:1",
+        "xtext": {
+          "uri": "memory:document-provider-nested-depth-mixed-v1/nested_nominal_depth3.xtext",
+          "sha256": "eaadff046f2fd04d99d8b881e84ad8893bdf615ffa3647adc0376b9f6c214340"
+        },
+        "rcore_behavior": {
+          "uri": "memory:document-provider-typed-native-before/nodefault_companion/typed_rule_nodefault_companion/empty.rcore",
+          "sha256": "bdc80c06de3ee252fb7860d983d0ba5e32085b64eddabc065331aa5db81414d2"
+        },
+        "materialized_types": []
+      },
+      "xtext_profile": "intersect.xtext.native.v65",
+      "conversions": [
+        {
+          "datatype": {
+            "source": {
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+            },
+            "path": [
+              39
+            ]
+          },
+          "provider": {
+            "name": "example.rgb",
+            "version": "1"
+          },
+          "serializable": true
+        }
+      ]
+    },
+    "probes": [
+      "paint",
+      "paint #010203",
+      "paint #123abc",
+      "paint #bad",
+      "paint #",
+      "paint #010203 trailing",
+      "paint  #010203",
+      "paint #010203 "
+    ]
+  },
+  {
+    "id": "nested_mixed_estring",
+    "request": {
+      "method": "compile_bundle",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `documentPaint` version \"1\";\nmetamodel \"urn:document-provider:paint:no-default:1\" prefix `paint` {\n  class `Paint` {\n    attr `color`: external \"http://www.eclipse.org/emf/2002/Ecore#//EJavaObject\" [0,1];\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:document-provider-nested-depth-mixed-v1/nested_mixed_estring.xtext",
+                "sha256": "1a370e5858ddf94b5d1062ee9a527e1a5d63e436f829eb67098b91fa0817a097"
+              },
+              "kind": "xtext",
+              "text": "grammar document.provider.NestedMixedEString hidden(WS)\nimport \"urn:document-provider:paint:no-default:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=WrappedColor?;\nWrappedColor returns ecore::EJavaObject: TextColor;\nTextColor returns ecore::EString: Color;\nColor returns ecore::EJavaObject: COLOR_TOKEN;\nterminal COLOR_TOKEN returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+              "dependencies": [
+                {
+                  "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                  "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:document-provider-typed-native-before/nodefault_companion/typed_rule_nodefault_companion/empty.rcore",
+                "sha256": "bdc80c06de3ee252fb7860d983d0ba5e32085b64eddabc065331aa5db81414d2"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package providerBefore version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+                  "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "a43194ba33a5c9cf84608fba42e7e978bec4c89054b22140d476655dffdf14d9",
+          "uri": "memory:document-provider-typed-native-before/nodefault_companion/model.rcore"
+        },
+        "namespace": "urn:document-provider:paint:no-default:1",
+        "xtext": {
+          "uri": "memory:document-provider-nested-depth-mixed-v1/nested_mixed_estring.xtext",
+          "sha256": "1a370e5858ddf94b5d1062ee9a527e1a5d63e436f829eb67098b91fa0817a097"
+        },
+        "rcore_behavior": {
+          "uri": "memory:document-provider-typed-native-before/nodefault_companion/typed_rule_nodefault_companion/empty.rcore",
+          "sha256": "bdc80c06de3ee252fb7860d983d0ba5e32085b64eddabc065331aa5db81414d2"
+        },
+        "materialized_types": []
+      },
+      "xtext_profile": "intersect.xtext.native.v65",
+      "conversions": [
+        {
+          "datatype": {
+            "source": {
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+            },
+            "path": [
+              39
+            ]
+          },
+          "provider": {
+            "name": "example.rgb",
+            "version": "1"
+          },
+          "serializable": true
+        }
+      ]
+    },
+    "probes": [
+      "paint",
+      "paint #010203",
+      "paint #123abc",
+      "paint #bad",
+      "paint #",
+      "paint #010203 trailing",
+      "paint  #010203",
+      "paint #010203 "
+    ]
+  }
+]

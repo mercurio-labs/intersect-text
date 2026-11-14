@@ -1,0 +1,263 @@
+[
+  {
+    "id": "int8-overflow",
+    "mode": "binary",
+    "op": "Add",
+    "left": {
+      "ty": {
+        "Scalar": "Int8"
+      },
+      "payload": 127
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Int8"
+      },
+      "payload": 1
+    },
+    "literal_result": null,
+    "literal_error": "overflow"
+  },
+  {
+    "id": "uint8-underflow",
+    "mode": "binary",
+    "op": "Subtract",
+    "left": {
+      "ty": {
+        "Scalar": "UInt8"
+      },
+      "payload": 0
+    },
+    "right": {
+      "ty": {
+        "Scalar": "UInt8"
+      },
+      "payload": 1
+    },
+    "literal_result": null,
+    "literal_error": "overflow"
+  },
+  {
+    "id": "int64-divzero",
+    "mode": "binary",
+    "op": "Divide",
+    "left": {
+      "ty": {
+        "Scalar": "Int64"
+      },
+      "payload": {
+        "kind": "int64",
+        "value": "7"
+      }
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Int64"
+      },
+      "payload": {
+        "kind": "int64",
+        "value": "0"
+      }
+    },
+    "literal_result": null,
+    "literal_error": "division_by_zero"
+  },
+  {
+    "id": "int64-negate-min",
+    "mode": "unary",
+    "op": "Negate",
+    "left": {
+      "ty": {
+        "Scalar": "Int64"
+      },
+      "payload": {
+        "kind": "int64",
+        "value": "-9223372036854775808"
+      }
+    },
+    "right": null,
+    "literal_result": null,
+    "literal_error": "overflow"
+  },
+  {
+    "id": "decimal-nonterminating",
+    "mode": "binary",
+    "op": "Divide",
+    "left": {
+      "ty": {
+        "Scalar": "Decimal"
+      },
+      "payload": {
+        "kind": "decimal",
+        "coefficient": "1",
+        "scale": 0
+      }
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Decimal"
+      },
+      "payload": {
+        "kind": "decimal",
+        "coefficient": "3",
+        "scale": 0
+      }
+    },
+    "literal_result": null,
+    "literal_error": "non_terminating_decimal"
+  },
+  {
+    "id": "decimal-exact",
+    "mode": "binary",
+    "op": "Add",
+    "left": {
+      "ty": {
+        "Scalar": "Decimal"
+      },
+      "payload": {
+        "kind": "decimal",
+        "coefficient": "12",
+        "scale": 1
+      }
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Decimal"
+      },
+      "payload": {
+        "kind": "decimal",
+        "coefficient": "3",
+        "scale": 1
+      }
+    },
+    "literal_result": {
+      "ty": {
+        "Scalar": "Decimal"
+      },
+      "payload": {
+        "kind": "decimal",
+        "coefficient": "15",
+        "scale": 1
+      }
+    },
+    "literal_error": null
+  },
+  {
+    "id": "bigint-product",
+    "mode": "binary",
+    "op": "Multiply",
+    "left": {
+      "ty": {
+        "Scalar": "BigInt"
+      },
+      "payload": {
+        "kind": "bigint",
+        "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+      }
+    },
+    "right": {
+      "ty": {
+        "Scalar": "BigInt"
+      },
+      "payload": {
+        "kind": "bigint",
+        "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+      }
+    },
+    "literal_result": {
+      "ty": {
+        "Scalar": "BigInt"
+      },
+      "payload": {
+        "kind": "bigint",
+        "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      }
+    },
+    "literal_error": null
+  },
+  {
+    "id": "bool-not",
+    "mode": "unary",
+    "op": "Not",
+    "left": {
+      "ty": {
+        "Scalar": "Bool"
+      },
+      "payload": true
+    },
+    "right": null,
+    "literal_result": {
+      "ty": {
+        "Scalar": "Bool"
+      },
+      "payload": false
+    },
+    "literal_error": null
+  },
+  {
+    "id": "unit-equal",
+    "mode": "binary",
+    "op": "Equal",
+    "left": {
+      "ty": {
+        "Scalar": "Unit"
+      },
+      "payload": {
+        "kind": "unit"
+      }
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Unit"
+      },
+      "payload": {
+        "kind": "unit"
+      }
+    },
+    "literal_result": {
+      "ty": {
+        "Scalar": "Bool"
+      },
+      "payload": true
+    },
+    "literal_error": null
+  },
+  {
+    "id": "type-mismatch",
+    "mode": "binary",
+    "op": "Add",
+    "left": {
+      "ty": {
+        "Scalar": "Int8"
+      },
+      "payload": 1
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Int16"
+      },
+      "payload": 1
+    },
+    "literal_result": null,
+    "literal_error": "type_mismatch"
+  },
+  {
+    "id": "malformed-before-type",
+    "mode": "binary",
+    "op": "Add",
+    "left": {
+      "ty": {
+        "Scalar": "String"
+      },
+      "payload": true
+    },
+    "right": {
+      "ty": {
+        "Scalar": "Int16"
+      },
+      "payload": 1
+    },
+    "literal_result": null,
+    "literal_error": "invalid_value"
+  }
+]

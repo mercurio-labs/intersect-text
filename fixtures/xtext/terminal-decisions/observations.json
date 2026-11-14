@@ -1,0 +1,200 @@
+[
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ab",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ac",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ab0",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ac9",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@a",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ad",
+    "accepted": false,
+    "errors": 2
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ab/",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('ab' | 'ac') ('0'..'9')?",
+    "text": "@ac:",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'ab') 'b'",
+    "text": "@ab",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'ab') 'b'",
+    "text": "@abb",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'ab') 'b'",
+    "text": "@a",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'ab') 'b'",
+    "text": "@aba",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'abx') 'b'",
+    "text": "@ab",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'abx') 'b'",
+    "text": "@abxb",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'abx') 'b'",
+    "text": "@abx",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'abx') 'b'",
+    "text": "@abxy",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'ab' 'c')",
+    "text": "@a",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'ab' 'c')",
+    "text": "@abc",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' | 'ab' 'c')",
+    "text": "@ab",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' | 'ab' 'c')",
+    "text": "@abx",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' (('ab')? | 'c')",
+    "text": "@",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' (('ab')? | 'c')",
+    "text": "@ab",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' (('ab')? | 'c')",
+    "text": "@c",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' (('ab')? | 'c')",
+    "text": "@a",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' (('ab')? | 'c')",
+    "text": "@ac",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' . EOF",
+    "text": "@a",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' . EOF",
+    "text": "@\n",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' . EOF",
+    "text": "@",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' . EOF",
+    "text": "@ab",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' EOF | 'ab')",
+    "text": "@a",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' EOF | 'ab')",
+    "text": "@ab",
+    "accepted": true,
+    "errors": 0
+  },
+  {
+    "body": "'@' ('a' EOF | 'ab')",
+    "text": "@ac",
+    "accepted": false,
+    "errors": 1
+  },
+  {
+    "body": "'@' ('a' EOF | 'ab')",
+    "text": "@abc",
+    "accepted": false,
+    "errors": 1
+  }
+]

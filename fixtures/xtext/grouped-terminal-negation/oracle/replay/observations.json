@@ -1,0 +1,3574 @@
+[
+  {
+    "id": "original_sequence",
+    "entry": "audit.Sequence",
+    "original_inputs": [
+      "a",
+      "b",
+      "ab",
+      "ac"
+    ],
+    "source_pins": {
+      "audit.Sequence.xtext": "f0fe667706a9369837f459ee3ccbc54fa48fe940866a9b5a93a1068a293eed07",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\grouped-negation-full-oracle-v1\\replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.Sequence",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.Sequence",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.Sequence::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.Sequence",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.Sequence::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~('a' 'b')"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "a",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "b",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "b",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": "mismatched character 'a' expecting set null"
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ac",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ac",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": "mismatched character 'a' expecting set null"
+              },
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'a' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "grouped_multichar",
+    "entry": "audit.GroupedMultiNegation",
+    "original_inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "x",
+      "ab",
+      "xy",
+      "ac",
+      "\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.GroupedMultiNegation.xtext": "396f12fe358fa5439bf9fba86e3db18154f36c6e591be3d0b974b5757931460c",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\grouped-negation-full-oracle-v1\\replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.GroupedMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~('ab')"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "a",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "a",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "b",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "b",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "c",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "c",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "x",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "x",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'b' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "xy",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "xy",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "y",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'y' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "y",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'y' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'y' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ac",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ac",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'c' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "\ud83c\udf0d",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\ud83c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\udf0d",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "\ud83c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "\udf0d",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input '\udf0d' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fragment_multichar",
+    "entry": "audit.FragmentMultiNegation",
+    "original_inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "x",
+      "ab",
+      "xy",
+      "ac",
+      "\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.FragmentMultiNegation.xtext": "8ef5897884b3eccaf2f9a8d68bf82920917494c90e47d9b88a0484d9bcce6350",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\grouped-negation-full-oracle-v1\\replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.FragmentMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.FragmentMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.FragmentMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.FragmentMultiNegation::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.FragmentMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.FragmentMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.FragmentMultiNegation::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "a",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "a",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "b",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "b",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "c",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "c",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "x",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "x",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'b' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "xy",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "xy",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "y",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'y' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "y",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'y' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'y' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "x",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ac",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ac",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'c' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "\ud83c\udf0d",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\ud83c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\udf0d",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "\ud83c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "\udf0d",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input '\udf0d' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mixed_group",
+    "entry": "audit.MixedMultiNegation",
+    "original_inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "x",
+      "ab",
+      "xy",
+      "ac",
+      "\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.MixedMultiNegation.xtext": "0cebd2819a3d72868190b8ae0f32f07daf1d976caba599760b68e3444bf69489",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\grouped-negation-full-oracle-v1\\replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.MixedMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.MixedMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.MixedMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.MixedMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.MixedMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(('ab'|'x'))"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "a",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "a",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "b",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "b",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "c",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "c",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "x",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "x",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'b' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "xy",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "xy",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "y",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "y",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": true,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": "mismatched character 'x' expecting set null"
+              },
+              {
+                "text": "y",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "y",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ac",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ac",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'c' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "\ud83c\udf0d",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\ud83c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\udf0d",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "\ud83c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "\udf0d",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input '\udf0d' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fragment_mixed",
+    "entry": "audit.FragmentMixedNegation",
+    "original_inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "x",
+      "ab",
+      "xy",
+      "ac",
+      "\ud83c\udf0d"
+    ],
+    "source_pins": {
+      "audit.FragmentMixedNegation.xtext": "37a37d04c3969a12b21dedf31ddf9022dfe418b672802a7914509c786afa77b2",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\grouped-negation-full-oracle-v1\\replay\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.FragmentMixedNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.FragmentMixedNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.FragmentMixedNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.FragmentMixedNegation::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.FragmentMixedNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.FragmentMixedNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.FragmentMixedNegation::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "('ab'|'x')"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "",
+          "lexer": {
+            "tokens": [
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+                "utf16_start": 0,
+                "utf16_end": 0
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "a",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "a",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "b",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "b",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "b",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "c",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "c",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "x",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "x",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": null,
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ab",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ab",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "b",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "b",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'b' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'b' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "xy",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "xy",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 0,
+                "name": null,
+                "text": "x",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 99
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "y",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "line": 1,
+                "column": 1
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "y",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "x",
+                "hidden": true,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": "mismatched character 'x' expecting set null"
+              },
+              {
+                "text": "y",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "mismatched character 'x' expecting set null",
+                "utf16_start": 0,
+                "utf16_end": 1
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "y",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "ac",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "ac",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "a",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "c",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "a",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "c",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input 'c' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input 'c' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "a",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "\ud83c\udf0d",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\ud83c",
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_VALUE",
+                "text": "\udf0d",
+                "utf16_start": 1,
+                "utf16_stop": 1,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "\ud83c",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 1,
+                "syntax_error": null
+              },
+              {
+                "text": "\udf0d",
+                "hidden": false,
+                "utf16_start": 1,
+                "utf16_end": 2,
+                "syntax_error": "extraneous input '\udf0d' expecting EOF"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "extraneous input '\udf0d' expecting EOF",
+                "utf16_start": 1,
+                "utf16_end": 2
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                "values": {
+                  "name": "\ud83c",
+                  "members": []
+                }
+              }
+            ],
+            "failure": null
+          }
+        }
+      }
+    ]
+  }
+]

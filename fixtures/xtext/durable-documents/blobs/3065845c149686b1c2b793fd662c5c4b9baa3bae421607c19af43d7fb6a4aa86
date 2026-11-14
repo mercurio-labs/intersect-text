@@ -1,0 +1,93 @@
+{
+  "id": "simple_actions_same_source_library_workflow_addendum",
+  "original_recipe": {
+    "id": "simple_actions_original",
+    "sources": [
+      {
+        "file": "model.xtext",
+        "source_id": {
+          "uri": "memory:node-recovery/original/simple_actions_original/model.xtext",
+          "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8"
+        },
+        "original_authored_fixture": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-candidate-v64joined-v1\\workspace\\fixtures\\xtext\\simple-actions\\model.xtext"
+      },
+      {
+        "file": "Terminals.xtext",
+        "source_id": {
+          "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext",
+          "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a"
+        },
+        "original_authored_fixture": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-candidate-v64joined-v1\\workspace\\fixtures\\xtext\\terminal-parents\\Terminals.xtext"
+      }
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1424,
+      "sha256": "df531766fb529692971f7fe27c4797ccd31a71e853952f4ec00ce885675e8c90"
+    },
+    "native_structure_adapter": {
+      "file": "model-structure.rcore",
+      "bytes": 588,
+      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+      "scope": "byte-exact original fixture migration structure, separate from native Ecore import"
+    },
+    "native_behavior": {
+      "file": "model-behavior.rcore",
+      "bytes": 207,
+      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b"
+    },
+    "inputs": [
+      "package Demo {\n  type Vehicle origin \"authored\";\n  type Wheel;\n  feature wheel : Wheel;\n}\n",
+      "package M { type A; feature f:A; }",
+      "package M { type A origin \"x\"; }",
+      "package M { type A; feature f:; }",
+      "package M { type A; feature f:Missing; }",
+      "package M { type A;",
+      "package M { type ; }",
+      "package M { \ud83d\ude00 }",
+      "/*lead*/package M { type A; }//tail"
+    ],
+    "named_entries": [],
+    "interpretation": "original authored grammar/provider text unchanged; new explicit source envelope and additional input probes, no syntax/generation/runtime validity assumed",
+    "original_example": {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xtext-node-recovery-candidate-v64joined-v1\\workspace\\fixtures\\xtext\\simple-actions\\example.kerml",
+      "bytes": 90,
+      "sha256": "41cdb5d13708865179b99bb21144aaf931b279f9e8c11481af7cc638181acb2c"
+    }
+  },
+  "source_URI_digest_provider_probes_unchanged": true,
+  "old_failure": {
+    "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\xnc1-record",
+    "command_stdout": "025.stdout.log",
+    "kind": "all-StandardLanguage attempts to generate parser for terminal-only library and hits no-production-rules exception; secondary JUnit classifier cast error retained"
+  },
+  "proposed_generator_only_delta": {
+    "parent": {
+      "language": "XtextGeneratorLanguage",
+      "fragments": [
+        "org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2",
+        "org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2",
+        "org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2"
+      ],
+      "serializer_generateStub": false
+    },
+    "child": {
+      "language": "StandardLanguage",
+      "validator_generateDeprecationValidation": false,
+      "validator_inheritImplementation": false,
+      "serializer_generateStub": false
+    },
+    "other_workflow_changes": "none; preserve any actual first attempt failure instead of adding guessed fragments or disabling checks"
+  },
+  "prior_same_source_workflow_proof": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-inherited-library-workflow-addendum-v1\\final-receipt.json",
+    "bytes": 37779,
+    "sha256": "dc9fa6eef270a808ec1311c2c502469886d8e25f592eb1d3df3146e662f92ebd"
+  },
+  "qualification": "new workflow, not source repair or reclassification of original failed workflow; no runtime/gate award before exact record/fresh replay",
+  "prior_successful_workflow_producer": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-inherited-library-workflow-addendum-v1\\produce-attempt4.py",
+    "bytes": 8107,
+    "sha256": "9a41afbfa6e222d7a5254afdda40bf1d7867d8f8deed4ad61548e8a1bb14e708"
+  }
+}

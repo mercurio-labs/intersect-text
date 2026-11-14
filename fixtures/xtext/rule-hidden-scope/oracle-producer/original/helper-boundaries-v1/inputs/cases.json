@@ -1,0 +1,145 @@
+[
+  {
+    "id": "enter_old_policy",
+    "entry": "audit.scopes.EnterOldPolicy",
+    "sources": [
+      {
+        "grammar": "audit.scopes.EnterOldPolicy",
+        "file": "audit.scopes.EnterOldPolicy.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/enter_old_policy/audit.scopes.EnterOldPolicy.xtext",
+          "sha256": "8a189d112549aafe5dab6feebcfe4b033247fdc94c718896e4f261565f9a6628"
+        },
+        "bytes": 535
+      }
+    ],
+    "inputs": [
+      "[a]done",
+      "[ a]done",
+      "[a ]done",
+      "[ a ]done",
+      "[/*\ud83d\ude00*/a]done",
+      "[a/*x*/]done",
+      "[a]/*\ud83d\ude00*/done",
+      "[a] done",
+      "[a]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Entering empty child scope skips under old caller policy; LT1/raw cursor advancement and leading/trailing text boundaries.",
+    "lineage": "Separate original authored controls prompted by pinned XtextTokenStream source mechanics. No prior source repaired or outcomes assumed.",
+    "execution": "UNEXECUTED; all generation failures and rejected partial models must remain."
+  },
+  {
+    "id": "restore_child_policy",
+    "entry": "audit.scopes.RestoreChildPolicy",
+    "sources": [
+      {
+        "grammar": "audit.scopes.RestoreChildPolicy",
+        "file": "audit.scopes.RestoreChildPolicy.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/restore_child_policy/audit.scopes.RestoreChildPolicy.xtext",
+          "sha256": "db72b910e4daf2a28378229a9d5d9a38908dcca5af7dd12e9963e6adc9822218"
+        },
+        "bytes": 531
+      }
+    ],
+    "inputs": [
+      "[a] done",
+      "[ a] done",
+      "[a ] done",
+      "[a/*\ud83d\ude00*/] done",
+      "[a]done",
+      "[a ]done",
+      "[a] /*x*/done",
+      "[a]  done",
+      "[a] "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Restoration first skips child-policy trivia before installing empty parent policy; significant parent WS must still be consumed.",
+    "lineage": "Separate original authored controls prompted by pinned XtextTokenStream source mechanics. No prior source repaired or outcomes assumed.",
+    "execution": "UNEXECUTED; all generation failures and rejected partial models must remain."
+  },
+  {
+    "id": "prediction_marker_scope",
+    "entry": "audit.scopes.PredictionMarkerScope",
+    "sources": [
+      {
+        "grammar": "audit.scopes.PredictionMarkerScope",
+        "file": "audit.scopes.PredictionMarkerScope.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/prediction_marker_scope/audit.scopes.PredictionMarkerScope.xtext",
+          "sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135"
+        },
+        "bytes": 673
+      }
+    ],
+    "inputs": [
+      "ab!",
+      "a b!",
+      "a/*x*/b!",
+      "ab?",
+      "a b?",
+      " a b?",
+      "a  b?",
+      "a b? ",
+      "a b"
+    ],
+    "named_entries": [
+      "Model",
+      "TightEntry"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Actual generated decision marker/rewind and current-policy lookahead versus later explicit callee scope. TightEntry is a separate direct-call object entry; no prediction-policy generalization assumed.",
+    "lineage": "Separate original authored controls prompted by pinned XtextTokenStream source mechanics. No prior source repaired or outcomes assumed.",
+    "execution": "UNEXECUTED; all generation failures and rejected partial models must remain."
+  },
+  {
+    "id": "nested_error_scope_restore",
+    "entry": "audit.scopes.NestedErrorScopeRestore",
+    "sources": [
+      {
+        "grammar": "audit.scopes.NestedErrorScopeRestore",
+        "file": "audit.scopes.NestedErrorScopeRestore.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/nested_error_scope_restore/audit.scopes.NestedErrorScopeRestore.xtext",
+          "sha256": "c16ddc0e9a15f5b7d2ff7331f9a2e240dc234ef9265efa87ad76d0d535d38fe5"
+        },
+        "bytes": 607
+      }
+    ],
+    "inputs": [
+      "[ab:c]done",
+      "[a b : c]done",
+      "[ab c]done",
+      "[ab]done",
+      "[ab:/*x*/c]done",
+      "[ab:c]/*\ud83d\ude00*/done",
+      "[ab c]/*\ud83d\ude00*/done",
+      "[ab:] done",
+      "[ab:c]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Nested scope/error recovery finally restoration, complete errors/partials/root leaves; no equivalence of native atomic rejection with recovered upstream models.",
+    "lineage": "Separate original authored controls prompted by pinned XtextTokenStream source mechanics. No prior source repaired or outcomes assumed.",
+    "execution": "UNEXECUTED; all generation failures and rejected partial models must remain."
+  }
+]

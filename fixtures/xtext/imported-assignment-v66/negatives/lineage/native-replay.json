@@ -1,0 +1,2094 @@
+{
+  "version": 1,
+  "profile": "intersect.xtext.native.v64",
+  "artifact_sha256": "34e3bd2da628d87f60be7fc2933419592411842dcc09eeef485df7085463a425",
+  "transcript": [
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_wrong_target/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Other\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Other\"/>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+      },
+      "result": {
+        "ok": true,
+        "report": {
+          "converted": {
+            "dependencies": [],
+            "id": {
+              "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+              "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.2\" [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n  class `Other` {\n  }\n}\n"
+          },
+          "correspondence": [
+            {
+              "converted": {
+                "path": [],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 350,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 47
+              },
+              "original": {
+                "path": [],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 942,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 39
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 273,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 125
+              },
+              "original": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 644,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 311
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 206,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 145
+              },
+              "original": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 496,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 367
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 269,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 211
+              },
+              "original": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 626,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 501
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 326,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 276
+              },
+              "original": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 869,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 647
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 322,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 295
+              },
+              "original": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 851,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 702
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 348,
+                "source": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "start": 329
+              },
+              "original": {
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 924,
+                "source": {
+                  "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+                  "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+                },
+                "start": 872
+              }
+            }
+          ],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.2\" [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n  class `Other` {\n  }\n}\n",
+          "issues": [],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+              "uri": "memory:imported_refs_negative_wrong_target/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Other\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Other\"/>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.2\" [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n  class `Other` {\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                    "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_target/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                    "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+            "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_wrong_target/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 242,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext",
+            "start": 224
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                  "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.2\" [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n  class `Other` {\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                    "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_target/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+                    "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "c692ea77eb0834a94e92fc3983c97900b47eff57a840527cbcfdd9b0bcbce414",
+            "uri": "memory:imported_refs_negative_wrong_target/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_wrong_target/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64",
+        "metadata": {
+          "package_id": "imported-unique-before.imported_refs_negative_wrong_target",
+          "release": "1",
+          "display_name": "imported_refs_negative_wrong_target",
+          "description": "Immutable original V64 BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:imported_refs_negative_wrong_target/audit.ImportedUnique.xtext\", start: 224, end: 242, message: \"Grammar assignment conflicts with the imported feature\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"1\" eType=\"#//Node\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+      },
+      "result": {
+        "ok": true,
+        "report": {
+          "converted": {
+            "dependencies": [],
+            "id": {
+              "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+              "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,1] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+          },
+          "correspondence": [
+            {
+              "converted": {
+                "path": [],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 328,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 47
+              },
+              "original": {
+                "path": [],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 885,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 39
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 273,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 125
+              },
+              "original": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 642,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 311
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 206,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 145
+              },
+              "original": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 496,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 367
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 269,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 211
+              },
+              "original": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 624,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 501
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 326,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 276
+              },
+              "original": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 867,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 645
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 322,
+                "source": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "start": 295
+              },
+              "original": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 849,
+                "source": {
+                  "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+                },
+                "start": 700
+              }
+            }
+          ],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,1] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "issues": [],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+              "uri": "memory:imported_refs_negative_wrong_cardinality/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"1\" eType=\"#//Node\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,1] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                    "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                    "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+            "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_wrong_cardinality/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 242,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext",
+            "start": 224
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,1] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                    "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_wrong_cardinality/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+                    "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "11e3b7a89385dc625c2708a06e18a9b0389f9efa1b3c8bca5e5af8e104c83a59",
+            "uri": "memory:imported_refs_negative_wrong_cardinality/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_wrong_cardinality/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64",
+        "metadata": {
+          "package_id": "imported-unique-before.imported_refs_negative_wrong_cardinality",
+          "release": "1",
+          "display_name": "imported_refs_negative_wrong_cardinality",
+          "description": "Immutable original V64 BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:imported_refs_negative_wrong_cardinality/audit.ImportedUnique.xtext\", start: 224, end: 242, message: \"Grammar assignment conflicts with the imported feature\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_wrong_containment/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"false\" containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_wrong_containment/model.rcore"
+      },
+      "result": {
+        "ok": false,
+        "report": {
+          "converted": null,
+          "correspondence": [],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] nonunique containment;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "issues": [
+            {
+              "blocks_conversion": true,
+              "code": "invalid_original",
+              "message": "Containment or bidirectional reference must be unique when upper bound differs from 1: Model.refs",
+              "span": {
+                "end": 362,
+                "source": {
+                  "sha256": "b4afa77dec1505f7706dc1b6d16c3a742fcb23e5b32393419feb41123db7d49d",
+                  "uri": "memory:imported_refs_negative_wrong_containment/imported.ecore"
+                },
+                "start": 311
+              }
+            }
+          ],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "b4afa77dec1505f7706dc1b6d16c3a742fcb23e5b32393419feb41123db7d49d",
+              "uri": "memory:imported_refs_negative_wrong_containment/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"false\" containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_not_changeable/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"false\" changeable=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+      },
+      "result": {
+        "ok": true,
+        "report": {
+          "converted": {
+            "dependencies": [],
+            "id": {
+              "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+              "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] nonunique readonly;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+          },
+          "correspondence": [
+            {
+              "converted": {
+                "path": [],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 337,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 47
+              },
+              "original": {
+                "path": [],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 905,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 39
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 282,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 125
+              },
+              "original": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 662,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 311
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 206,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 145
+              },
+              "original": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 496,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 367
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 278,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 211
+              },
+              "original": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 644,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 501
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 335,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 285
+              },
+              "original": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 887,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 665
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 331,
+                "source": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "start": 304
+              },
+              "original": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 869,
+                "source": {
+                  "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+                  "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+                },
+                "start": 720
+              }
+            }
+          ],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] nonunique readonly;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "issues": [],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+              "uri": "memory:imported_refs_negative_not_changeable/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"false\" changeable=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] nonunique readonly;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                    "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_not_changeable/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                    "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+            "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_not_changeable/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 273,
+            "message": "Cannot assign non-changeable feature Model.refs",
+            "source": "memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext",
+            "start": 148
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                  "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] nonunique readonly;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                    "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_not_changeable/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+                    "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "dd3889bb24f5f109c0a52d5acd10e882fcad83f2bc86d3ac5cd979bb1fa1807b",
+            "uri": "memory:imported_refs_negative_not_changeable/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_not_changeable/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64",
+        "metadata": {
+          "package_id": "imported-unique-before.imported_refs_negative_not_changeable",
+          "release": "1",
+          "display_name": "imported_refs_negative_not_changeable",
+          "description": "Immutable original V64 BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:imported_refs_negative_not_changeable/audit.ImportedUnique.xtext\", start: 148, end: 273, message: \"Cannot assign non-changeable feature Model.refs\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+      },
+      "result": {
+        "ok": true,
+        "report": {
+          "converted": {
+            "dependencies": [],
+            "id": {
+              "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+              "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    attr `refs`: EString [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+          },
+          "correspondence": [
+            {
+              "converted": {
+                "path": [],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 307,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 47
+              },
+              "original": {
+                "path": [],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 942,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 39
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 252,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 125
+              },
+              "original": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 699,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 311
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 206,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 145
+              },
+              "original": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 496,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 367
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 248,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 211
+              },
+              "original": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 681,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 501
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 305,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 255
+              },
+              "original": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 924,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 702
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 301,
+                "source": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "start": 274
+              },
+              "original": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 906,
+                "source": {
+                  "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+                },
+                "start": 757
+              }
+            }
+          ],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    attr `refs`: EString [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "issues": [],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+              "uri": "memory:imported_refs_negative_attribute_not_reference/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\" unique=\"false\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    attr `refs`: EString [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                    "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                    "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+            "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_attribute_not_reference/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 242,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext",
+            "start": 224
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    attr `refs`: EString [1,*] nonunique;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                    "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_attribute_not_reference/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+                    "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "3d31d0d0fef59560dee9557c0b584c3f01dd2e1bb97961d6e22962c1beeb1017",
+            "uri": "memory:imported_refs_negative_attribute_not_reference/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_attribute_not_reference/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64",
+        "metadata": {
+          "package_id": "imported-unique-before.imported_refs_negative_attribute_not_reference",
+          "release": "1",
+          "display_name": "imported_refs_negative_attribute_not_reference",
+          "description": "Immutable original V64 BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:imported_refs_negative_attribute_not_reference/audit.ImportedUnique.xtext\", start: 224, end: 242, message: \"Grammar assignment conflicts with the imported feature\" }]"
+      }
+    },
+    {
+      "request": {
+        "method": "ecore/migrate",
+        "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"true\" containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "target_uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+      },
+      "result": {
+        "ok": true,
+        "report": {
+          "converted": {
+            "dependencies": [],
+            "id": {
+              "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+              "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] containment;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+          },
+          "correspondence": [
+            {
+              "converted": {
+                "path": [],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 330,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 47
+              },
+              "original": {
+                "path": [],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 904,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 39
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 275,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 125
+              },
+              "original": {
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 661,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 311
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 206,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 145
+              },
+              "original": {
+                "path": [
+                  0,
+                  0
+                ],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 496,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 367
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 271,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 211
+              },
+              "original": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 643,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 501
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 328,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 278
+              },
+              "original": {
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 886,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 664
+              }
+            },
+            {
+              "converted": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                }
+              },
+              "converted_span": {
+                "end": 324,
+                "source": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "start": 297
+              },
+              "original": {
+                "path": [
+                  1,
+                  0
+                ],
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                }
+              },
+              "original_span": {
+                "end": 868,
+                "source": {
+                  "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+                },
+                "start": 719
+              }
+            }
+          ],
+          "draft": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] containment;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n",
+          "issues": [],
+          "original": {
+            "dependencies": [],
+            "id": {
+              "sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+              "uri": "memory:imported_refs_negative_valid_unique_containment/imported.ecore"
+            },
+            "kind": "ecore",
+            "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"importedUnique\" nsURI=\"urn:intersect:xtext:imported-unique:1\" nsPrefix=\"importedUnique\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"nodes\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" containment=\"true\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"refs\" lowerBound=\"1\" upperBound=\"-1\" eType=\"#//Node\" unique=\"true\" containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n"
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] containment;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                    "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                    "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+            "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_valid_unique_containment/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64"
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 242,
+            "message": "Grammar assignment conflicts with the imported feature",
+            "source": "memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext",
+            "start": 224
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "request": {
+        "method": "package/export",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `importedUnique` version \"1\";\nmetamodel \"urn:intersect:xtext:imported-unique:1\" prefix `importedUnique` {\n  class `Model` {\n    ref `nodes`: external \"#//@eClassifiers.1\" [1,*] containment;\n    ref `refs`: external \"#//@eClassifiers.1\" [1,*] containment;\n  }\n  class `Node` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext",
+                  "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ImportedUnique hidden(WS)\nimport \"urn:intersect:xtext:imported-unique:1\" as u\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns u::Model:\n  'nodes' nodes+=Node (',' nodes+=Node)* ';' 'refs' refs+=[u::Node|ID] (',' refs+=[u::Node|ID])* ';';\nNode returns u::Node: name=ID;\nterminal ID returns ecore::EString: ('a'..'z')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": [
+                  {
+                    "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                    "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:imported_refs_negative_valid_unique_containment/behavior.rcore",
+                  "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage imported_unique_behavior version \"1\";\n",
+                "dependencies": [
+                  {
+                    "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+                    "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "sha256": "fd1203b4ffa3b753bb484f579addfb03228219af4f9ae544793bcf4638dd7271",
+            "uri": "memory:imported_refs_negative_valid_unique_containment/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:imported-unique:1",
+          "xtext": {
+            "uri": "memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext",
+            "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+          },
+          "rcore_behavior": {
+            "uri": "memory:imported_refs_negative_valid_unique_containment/behavior.rcore",
+            "sha256": "46f1af2d1e1b587cd26707931d134ff5c4c77b6e19c0aa14bd99d20d0956c7d0"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v64",
+        "metadata": {
+          "package_id": "imported-unique-before.imported_refs_negative_valid_unique_containment",
+          "release": "1",
+          "display_name": "imported_refs_negative_valid_unique_containment",
+          "description": "Immutable original V64 BEFORE"
+        }
+      },
+      "result": {
+        "error": "Cannot compile ordinary archive sources: [Diagnostic { source: \"memory:imported_refs_negative_valid_unique_containment/audit.ImportedUnique.xtext\", start: 224, end: 242, message: \"Grammar assignment conflicts with the imported feature\" }]"
+      }
+    }
+  ]
+}

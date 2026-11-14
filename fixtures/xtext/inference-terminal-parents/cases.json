@@ -1,0 +1,454 @@
+[
+  {
+    "id": "authored_no_ecore_import",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.AuthoredNoEcoreImport.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.AuthoredNoEcoreImport.Tokens hidden(WS)\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.AuthoredNoEcoreImport.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.AuthoredNoEcoreImport.Child with oracle.AuthoredNoEcoreImport.Tokens\ngenerate model \"urn:intersect:inference:terminals:authored_no_ecore_import\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "authored_explicit_types",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.AuthoredExplicitTypes.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.AuthoredExplicitTypes.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal INT returns ecore::EInt: ('0'..'9')+;"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.AuthoredExplicitTypes.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.AuthoredExplicitTypes.Child with oracle.AuthoredExplicitTypes.Tokens\ngenerate model \"urn:intersect:inference:terminals:authored_explicit_types\"\nModel: name=ID count=INT;"
+      }
+    ]
+  },
+  {
+    "id": "common_scalars",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonScalars.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonScalars.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_scalars\"\nModel: name=ID count=INT title=STRING;"
+      }
+    ]
+  },
+  {
+    "id": "common_no_local_import",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonNoLocalImport.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonNoLocalImport.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_no_local_import\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "common_references",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonReferences.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonReferences.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_references\"\nModel: nodes+=Node* ('use' uses+=[Node|ID])*; Node: 'node' name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "common_datatype_wrapper",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonDatatypeWrapper.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonDatatypeWrapper.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_datatype_wrapper\"\nModel: title=Text; Text: STRING;"
+      }
+    ]
+  },
+  {
+    "id": "common_ws_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonWsOverride.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonWsOverride.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_ws_override\"\nModel: 'model' name=ID; @Override terminal WS: '~'+;"
+      }
+    ]
+  },
+  {
+    "id": "common_hidden_policy",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonHiddenPolicy.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonHiddenPolicy.Child with org.eclipse.xtext.common.Terminals hidden(WS)\ngenerate model \"urn:intersect:inference:terminals:common_hidden_policy\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "common_id_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonIdOverride.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonIdOverride.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_id_override\"\nModel: name=ID; @Override terminal ID: '@' ('a'..'z')+;"
+      }
+    ]
+  },
+  {
+    "id": "common_explicit_super",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonExplicitSuper.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonExplicitSuper.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_explicit_super\"\nModel: 'model' original=super::ID custom=ID; @Override terminal ID: '@' ('a'..'z')+;"
+      }
+    ]
+  },
+  {
+    "id": "terminal_return_change",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.TerminalReturnChange.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.TerminalReturnChange.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:terminal_return_change\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: count=INT; @Override terminal INT returns ecore::EString: ('0'..'9')+;"
+      }
+    ]
+  },
+  {
+    "id": "three_level_terminal",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "middle",
+        "grammar": "oracle.ThreeLevelTerminal.Middle",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ThreeLevelTerminal.Middle with org.eclipse.xtext.common.Terminals\nterminal WORD: 'word';"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ThreeLevelTerminal.Child",
+        "dependencies": [
+          "middle"
+        ],
+        "source": "grammar oracle.ThreeLevelTerminal.Child with oracle.ThreeLevelTerminal.Middle\ngenerate model \"urn:intersect:inference:terminals:three_level_terminal\"\nModel: word=WORD;"
+      }
+    ]
+  },
+  {
+    "id": "three_level_generated",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "middle",
+        "grammar": "oracle.ThreeLevelGenerated.Middle",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ThreeLevelGenerated.Middle with org.eclipse.xtext.common.Terminals\ngenerate middle \"urn:intersect:inference:terminals:middle\"\nRecord: name=ID;"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ThreeLevelGenerated.Child",
+        "dependencies": [
+          "middle"
+        ],
+        "source": "grammar oracle.ThreeLevelGenerated.Child with oracle.ThreeLevelGenerated.Middle\ngenerate model \"urn:intersect:inference:terminals:three_level_generated\"\nModel: value=Record;"
+      }
+    ]
+  },
+  {
+    "id": "common_enumeration",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CommonEnumeration.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CommonEnumeration.Child with org.eclipse.xtext.common.Terminals\ngenerate model \"urn:intersect:inference:terminals:common_enumeration\"\nModel: shade=Shade; enum Shade: RED='red' | BLUE='blue';"
+      }
+    ]
+  },
+  {
+    "id": "invalid_parent_return",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.InvalidParentReturn.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.InvalidParentReturn.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal VALUE returns ecore::Missing: 'v';"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.InvalidParentReturn.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.InvalidParentReturn.Child with oracle.InvalidParentReturn.Tokens\ngenerate model \"urn:intersect:inference:terminals:invalid_parent_return\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "malformed_parent_body",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.MalformedParentBody.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.MalformedParentBody.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal BAD: ('a';"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.MalformedParentBody.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.MalformedParentBody.Child with oracle.MalformedParentBody.Tokens\ngenerate model \"urn:intersect:inference:terminals:malformed_parent_body\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "undeclared_parent_alias",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.UndeclaredParentAlias.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.UndeclaredParentAlias.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal VALUE returns missing::Text: 'v';"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.UndeclaredParentAlias.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.UndeclaredParentAlias.Child with oracle.UndeclaredParentAlias.Tokens\ngenerate model \"urn:intersect:inference:terminals:undeclared_parent_alias\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "terminal_fragments",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.TerminalFragments.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.TerminalFragments.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal fragment LETTER: 'a'..'z'; terminal ID: LETTER+; terminal WS: ' '+;"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.TerminalFragments.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.TerminalFragments.Child with oracle.TerminalFragments.Tokens\ngenerate model \"urn:intersect:inference:terminals:terminal_fragments\"\nModel: name=ID;"
+      }
+    ]
+  },
+  {
+    "id": "custom_quoted",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.CustomQuoted.Tokens",
+        "dependencies": [],
+        "source": "grammar oracle.CustomQuoted.Tokens hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal ID: ('a'..'z'|'A'..'Z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal QUOTED: '\"' ('a'..'z')* '\"';"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.CustomQuoted.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.CustomQuoted.Child with oracle.CustomQuoted.Tokens\ngenerate model \"urn:intersect:inference:terminals:custom_quoted\"\nModel: title=QUOTED;"
+      }
+    ]
+  },
+  {
+    "id": "three_level_scalar",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "middle",
+        "grammar": "oracle.ThreeLevelScalar.Middle",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ThreeLevelScalar.Middle with org.eclipse.xtext.common.Terminals\nText: ID ('.' ID)*;"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ThreeLevelScalar.Child",
+        "dependencies": [
+          "middle"
+        ],
+        "source": "grammar oracle.ThreeLevelScalar.Child with oracle.ThreeLevelScalar.Middle\ngenerate model \"urn:intersect:inference:terminals:three_level_scalar\"\nModel: name=Text;"
+      }
+    ]
+  },
+  {
+    "id": "three_level_fragments",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "org.eclipse.xtext.common.Terminals",
+        "dependencies": [],
+        "source": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n"
+      },
+      {
+        "id": "middle",
+        "grammar": "oracle.ThreeLevelFragments.Middle",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ThreeLevelFragments.Middle with org.eclipse.xtext.common.Terminals\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal fragment DIGIT: '0'..'9'; @Override terminal INT returns ecore::EInt: DIGIT+;"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ThreeLevelFragments.Child",
+        "dependencies": [
+          "middle"
+        ],
+        "source": "grammar oracle.ThreeLevelFragments.Child with oracle.ThreeLevelFragments.Middle\ngenerate model \"urn:intersect:inference:terminals:three_level_fragments\"\nModel: count=INT;"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+// Authored composition example; unchanged Library metamodel and domain semantics.
+grammar example.LibraryComposed hidden(WS)
+import "urn:intersect:example:library:1" as lib
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Library returns lib::Library: 'library' name=Name '{' (copies+=(BookCopy | GroupCopy) | members+=Member | loans+=Loan)* '}';
+BookCopy returns lib::BookCopy: (DetailedCopy | ShortCopy) CopySuffix End;
+GroupCopy returns lib::BookCopy: '(' BookCopy ')';
+DetailedCopy returns lib::BookCopy: 'copy' Identity ':' (title=Name | title=STRING);
+ShortCopy returns lib::BookCopy: {lib::BookCopy} 'copy' Identity title='untitled';
+fragment CopySuffix returns lib::BookCopy: ('edition' edition=INT)?;
+fragment Identity returns lib::Named: name=Name;
+Member returns lib::Member: 'member' Identity End;
+Loan returns lib::Loan: 'loan' Identity 'copy' copy=[lib::BookCopy|Name] 'to' member=[lib::Member|Name] End;
+Name: ID;
+End returns Ecore::EString: ';';
+terminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
+terminal INT returns Ecore::EInt: ('0'..'9')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;
+
+terminal STRING: '"' ('\\' . | !('\\' | '"'))* '"';

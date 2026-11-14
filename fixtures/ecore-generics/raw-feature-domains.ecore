@@ -1,0 +1,20 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="domains" nsURI="urn:raw-domains">
+ <eClassifiers x:type="e:EClass" name="Base"/>
+ <eClassifiers x:type="e:EClass" name="A" eSuperTypes="#//Base"/>
+ <eClassifiers x:type="e:EClass" name="B" eSuperTypes="#//Base"/>
+ <eClassifiers x:type="e:EClass" name="Other"/>
+ <eClassifiers x:type="e:EClass" name="Pair"><eTypeParameters name="L"/><eTypeParameters name="R"/></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Holder"><eTypeParameters name="T"><eBounds eClassifier="#//Base"/></eTypeParameters><eStructuralFeatures x:type="e:EReference" name="pair"><eGenericType eClassifier="#//Pair"><eTypeArguments eTypeParameter="#//Holder/T"/><eTypeArguments eTypeParameter="#//Holder/T"/></eGenericType></eStructuralFeatures></eClassifiers>
+ <eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+ <eClassifiers x:type="e:EDataType" name="Number" instanceClassName="java.lang.Integer"/>
+ <eClassifiers x:type="e:EClass" name="AttrBase"><eTypeParameters name="T"><eBounds eClassifier="#//Text"/></eTypeParameters><eStructuralFeatures x:type="e:EAttribute" name="value"><eGenericType eTypeParameter="#//AttrBase/T"/></eStructuralFeatures></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="AttrChild"><eTypeParameters name="U"><eBounds eClassifier="#//Text"/></eTypeParameters><eGenericSuperTypes eClassifier="#//AttrBase"><eTypeArguments eTypeParameter="#//AttrChild/U"/></eGenericSuperTypes></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Marker" interface="true"/>
+ <eClassifiers x:type="e:EClass" name="Both" eSuperTypes="#//Base #//Marker"/>
+ <eClassifiers x:type="e:EClass" name="Intersection"><eTypeParameters name="T"><eBounds eClassifier="#//Base"/><eBounds eClassifier="#//Marker"/></eTypeParameters><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Intersection/T"/></eStructuralFeatures></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Node"><eTypeParameters name="T"/></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Self"><eGenericSuperTypes eClassifier="#//Node"><eTypeArguments eClassifier="#//Self"/></eGenericSuperTypes></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="FHolder"><eTypeParameters name="T"><eBounds eClassifier="#//Node"><eTypeArguments eTypeParameter="#//FHolder/T"/></eBounds></eTypeParameters><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//FHolder/T"/></eStructuralFeatures></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Nested"><eTypeParameters name="T"><eBounds eClassifier="#//Base"/></eTypeParameters><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eClassifier="#//Pair"><eTypeArguments eClassifier="#//Pair"><eTypeArguments eTypeParameter="#//Nested/T"/><eTypeArguments eTypeParameter="#//Nested/T"/></eTypeArguments><eTypeArguments eTypeParameter="#//Nested/T"/></eGenericType></eStructuralFeatures></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Dependent"><eTypeParameters name="U"><eBounds eClassifier="#//Base"/></eTypeParameters><eTypeParameters name="T"><eBounds eTypeParameter="#//Dependent/U"/></eTypeParameters><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Dependent/T"/></eStructuralFeatures></eClassifiers>
+</e:EPackage>

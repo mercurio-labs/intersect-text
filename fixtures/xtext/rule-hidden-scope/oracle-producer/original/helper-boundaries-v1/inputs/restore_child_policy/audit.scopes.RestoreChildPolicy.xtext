@@ -1,0 +1,9 @@
+grammar audit.scopes.RestoreChildPolicy hidden()
+import "urn:intersect:xtext:mini-kerml:terminal-spellings:1" as k
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+Model returns k::Model: '[' name=Word ']' WS 'done';
+Word returns ecore::EString hidden(WS,ML_COMMENT): ID;
+terminal ID returns ecore::EString: ('a'..'z'|'\u00e9')+;
+terminal WS returns ecore::EString: (' '|'\t'|'\r'|'\n')+;
+terminal ML_COMMENT returns ecore::EString: '/*' ->'*/';
+terminal SL_COMMENT returns ecore::EString: '//' !('\n'|'\r')* ('\r'? '\n')?;

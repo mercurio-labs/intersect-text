@@ -1,0 +1,128 @@
+[
+  {
+    "literal": "\"Alpha\"",
+    "value": {
+      "utf16": [
+        65,
+        108,
+        112,
+        104,
+        97
+      ]
+    }
+  },
+  {
+    "literal": "'Alpha'",
+    "value": {
+      "utf16": [
+        65,
+        108,
+        112,
+        104,
+        97
+      ]
+    }
+  },
+  {
+    "literal": "\"\"",
+    "value": {
+      "utf16": []
+    }
+  },
+  {
+    "literal": "''",
+    "value": {
+      "utf16": []
+    }
+  },
+  {
+    "literal": "\"B\\tC\"",
+    "value": {
+      "utf16": [
+        66,
+        9,
+        67
+      ]
+    }
+  },
+  {
+    "literal": "\"\\b\\f\\n\\r\\t\\\"\\'\\\\\"",
+    "value": {
+      "utf16": [
+        8,
+        12,
+        10,
+        13,
+        9,
+        34,
+        39,
+        92
+      ]
+    }
+  },
+  {
+    "literal": "\"\\u0041\"",
+    "value": {
+      "utf16": [
+        65
+      ]
+    }
+  },
+  {
+    "literal": "\"\\uD83D\\uDE00\"",
+    "value": {
+      "utf16": [
+        55357,
+        56832
+      ]
+    }
+  },
+  {
+    "literal": "\"\\uD800\"",
+    "value": {
+      "utf16": [
+        55296
+      ]
+    }
+  },
+  {
+    "literal": "\"\\uu0041\"",
+    "error": "ValueConverterWithValueException",
+    "message": "Invalid unicode"
+  },
+  {
+    "literal": "\"\\u12G4\"",
+    "error": "ValueConverterWithValueException",
+    "message": "Invalid unicode"
+  },
+  {
+    "literal": "\"\\123\"",
+    "error": "ValueConverterWithValueException",
+    "message": "Invalid escape sequence (valid ones are  \\b  \\t  \\n  \\f  \\r  \\\"  \\'  \\\\ )"
+  },
+  {
+    "literal": "\"\\q\"",
+    "error": "ValueConverterWithValueException",
+    "message": "Invalid escape sequence (valid ones are  \\b  \\t  \\n  \\f  \\r  \\\"  \\'  \\\\ )"
+  },
+  {
+    "literal": "\"unclosed",
+    "error": "ValueConverterWithValueException",
+    "message": "String literal is not properly closed"
+  },
+  {
+    "literal": "\"",
+    "error": "ValueConverterWithValueException",
+    "message": "String literal is not properly closed"
+  },
+  {
+    "literal": "\"\u00e9\ud83d\ude00\"",
+    "value": {
+      "utf16": [
+        233,
+        55357,
+        56832
+      ]
+    }
+  }
+]

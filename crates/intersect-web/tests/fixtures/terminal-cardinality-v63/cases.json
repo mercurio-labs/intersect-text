@@ -1,0 +1,4299 @@
+{
+  "version": 1,
+  "scope": "private verification-only scalar-safe view; raw source/stages/UTF16 observations remain immutable in lineage",
+  "lineage": [
+    {
+      "group": "original8",
+      "inputs": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\frozen-inputs-v1",
+        "bytes": 5205,
+        "sha256": "3a10333494816835570fcebf3fcb012baddb85b978f7efc9720c67b956d7c906"
+      },
+      "native_cases": {
+        "bytes": 26735,
+        "sha256": "8deeb681b03f03c9c90cd37b5a1953092a58a039c9b1424c2cad512d23d36156"
+      },
+      "full_oracle": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tc-full-oracle-v1",
+        "bytes": 8714,
+        "sha256": "e858f76db3cfd53e22fa29671d72e263c5271da8a4f6287a1f3ab7f801bf3eb4"
+      }
+    },
+    {
+      "group": "typed8",
+      "inputs": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\typed-companion-inputs-v1",
+        "bytes": 5248,
+        "sha256": "5115f5294afdb43e64f0fe982b393ef6dd8cd0ca0f6e451ece766866a6fa64be"
+      },
+      "native_cases": {
+        "bytes": 27685,
+        "sha256": "cbc2a7f041e193d9fb572012c4e980a36239a346795acebf67ca8c2df224c272"
+      },
+      "full_oracle": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tct-oracle-v1",
+        "bytes": 8229,
+        "sha256": "6ac01199f028cd800a69efcce93c0711581bea4db601dd1814f134617d10d8a1"
+      }
+    },
+    {
+      "group": "fragment2",
+      "inputs": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\fragment-header-companion-inputs-v1",
+        "bytes": 3249,
+        "sha256": "f63b3ae4e1633f9406b2a33b4312cb8ad606b8dc5fcd948c22dc6c9de4d594d1"
+      },
+      "native_cases": {
+        "bytes": 7469,
+        "sha256": "fedb9b2a86e1b564f3a6ebfea71ec907782a6baae445071d7c92e6af9bc45ca7"
+      },
+      "full_oracle": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tcf-oracle-v1",
+        "bytes": 4428,
+        "sha256": "e4cee5621f1e5112230f939a6f97f9410d40d16f51ad94de237e97a11f3f1923"
+      }
+    },
+    {
+      "group": "returns12",
+      "inputs": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-return-identity-after-v62-v1\\frozen-inputs-v1",
+        "bytes": 13336,
+        "sha256": "7b5bef60d4f14ae85928feec65380042b93bb248a27e3a62292bfb89173575cb"
+      },
+      "native_cases": {
+        "bytes": 79686,
+        "sha256": "52441a29d73eecc51c6388e382f9a5d79e4ee86503520d5250f5501eaf17f371"
+      },
+      "full_oracle": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\trm-oracle-v1",
+        "bytes": 10702,
+        "sha256": "f0a4f9b89d2ed46d7947c0287b12eba9c8b5c91bfeffd930ae8ed05df94faf26"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "group": "original8",
+      "id": "inline_optional_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/inline_optional_follow/audit.NextInlineOptionalFollow.xtext",
+                "sha256": "39b7514e2f39809cf81b695d6c2f60f9756519114028434a428ee3947bc1aa3b"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineOptionalFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'? 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/inline_optional_follow/audit.NextInlineOptionalFollow.xtext",
+          "sha256": "39b7514e2f39809cf81b695d6c2f60f9756519114028434a428ee3947bc1aa3b"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "abc",
+        "aba",
+        "x",
+        "a\ud83c\udf0db"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "inline_star_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/inline_star_follow/audit.NextInlineStarFollow.xtext",
+                "sha256": "a81c66e91facc13ab013a68f30e07797a2936e609dc2b3c6fd4085ab3bc4c27f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'* 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/inline_star_follow/audit.NextInlineStarFollow.xtext",
+          "sha256": "a81c66e91facc13ab013a68f30e07797a2936e609dc2b3c6fd4085ab3bc4c27f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aba",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "inline_plus_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/inline_plus_follow/audit.NextInlinePlusFollow.xtext",
+                "sha256": "13e9ff611d1579c8b95e69d73ae0658b0bfb91a9d33d057f58481fefdc4444f1"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlinePlusFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'+ 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/inline_plus_follow/audit.NextInlinePlusFollow.xtext",
+          "sha256": "13e9ff611d1579c8b95e69d73ae0658b0bfb91a9d33d057f58481fefdc4444f1"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aabc",
+        "aba",
+        "x"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "grouped_star_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/grouped_star_follow/audit.NextGroupedStarFollow.xtext",
+                "sha256": "1918e9f374e60c0ca39bb3b54862a8730252ce89507e8e9f23ee101f14f1c500"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextGroupedStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('ab')* 'ac';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/grouped_star_follow/audit.NextGroupedStarFollow.xtext",
+          "sha256": "1918e9f374e60c0ca39bb3b54862a8730252ce89507e8e9f23ee101f14f1c500"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ac",
+        "abac",
+        "ababac",
+        "ab",
+        "aba",
+        "ababc",
+        "abaca"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "fragment_star_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/fragment_star_follow/audit.NextFragmentStarFollow.xtext",
+                "sha256": "6786bf1f1bd0c52bd725e2c384de4b67a8190c4f3fbbeef2ba6341554e635512"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: BODY 'ab';\nterminal fragment BODY: 'a'*;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/fragment_star_follow/audit.NextFragmentStarFollow.xtext",
+          "sha256": "6786bf1f1bd0c52bd725e2c384de4b67a8190c4f3fbbeef2ba6341554e635512"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aba",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "choice_star_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/choice_star_follow/audit.NextChoiceStarFollow.xtext",
+                "sha256": "f0765217fc78ca32143f92af5f362d0c1b9c364b788c56216503c6a2438f032a"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextChoiceStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('a'|'ab')* 'ac';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/choice_star_follow/audit.NextChoiceStarFollow.xtext",
+          "sha256": "f0765217fc78ca32143f92af5f362d0c1b9c364b788c56216503c6a2438f032a"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ac",
+        "aac",
+        "abac",
+        "aabac",
+        "ababac",
+        "ab",
+        "abaca"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "inline_until_repeat",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/inline_until_repeat/audit.NextInlineUntilRepeat.xtext",
+                "sha256": "78829009792b648b2e9821ee87d497a281f40745ee6310ea53eeada367a2b2d6"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineUntilRepeat hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('@' ->'ab')+ 'c';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/inline_until_repeat/audit.NextInlineUntilRepeat.xtext",
+          "sha256": "78829009792b648b2e9821ee87d497a281f40745ee6310ea53eeada367a2b2d6"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "@abc",
+        "@ab@abc",
+        "@abxabc",
+        "@ababc",
+        "@abcabc",
+        "@ab",
+        "@ab@ab",
+        "@ab@abxabc"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "original8",
+      "id": "fragment_until_repeat",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:next-terminal-continuations-v1/fragment_until_repeat/audit.NextFragmentUntilRepeat.xtext",
+                "sha256": "8eb82ab5cf2ff0be225926727f8f532775ff63f3c3d4a00a2afbadb13cef012f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentUntilRepeat hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: BLOCK+ 'c';\nterminal fragment BLOCK: '@' ->'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:next-terminal-continuations-v1/fragment_until_repeat/audit.NextFragmentUntilRepeat.xtext",
+          "sha256": "8eb82ab5cf2ff0be225926727f8f532775ff63f3c3d4a00a2afbadb13cef012f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "@abc",
+        "@ab@abc",
+        "@abxabc",
+        "@ababc",
+        "@abcabc",
+        "@ab",
+        "@ab@ab",
+        "@ab@abxabc"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "typed8",
+      "id": "inline_optional_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/inline_optional_follow_typed/audit.NextInlineOptionalFollowTyped.xtext",
+                "sha256": "2e0c486d8d1ba9051929ebc3410ec8003b1bf8284274ee85fe131f94b3d51c21"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineOptionalFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: 'a'? 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/inline_optional_follow_typed/audit.NextInlineOptionalFollowTyped.xtext",
+          "sha256": "2e0c486d8d1ba9051929ebc3410ec8003b1bf8284274ee85fe131f94b3d51c21"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "abc",
+        "aba",
+        "x",
+        "a\ud83c\udf0db"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 2,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "abc",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aba",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "x",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "a\ud83c\udf0db",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "inline_star_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/inline_star_follow_typed/audit.NextInlineStarFollowTyped.xtext",
+                "sha256": "3f8d419dbe1df610bceee519d2bea4755f02873c9767fa212811f309fcc6784d"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineStarFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: 'a'* 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/inline_star_follow_typed/audit.NextInlineStarFollowTyped.xtext",
+          "sha256": "3f8d419dbe1df610bceee519d2bea4755f02873c9767fa212811f309fcc6784d"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aba",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 2,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aaab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaaab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaaab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aaaab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 5,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaaab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aba",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aabc",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "x",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "inline_plus_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/inline_plus_follow_typed/audit.NextInlinePlusFollowTyped.xtext",
+                "sha256": "34014a0f640adc6336124527d3bccb15a804009f42da559aeca037037fc891f2"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlinePlusFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: 'a'+ 'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/inline_plus_follow_typed/audit.NextInlinePlusFollowTyped.xtext",
+          "sha256": "34014a0f640adc6336124527d3bccb15a804009f42da559aeca037037fc891f2"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aabc",
+        "aba",
+        "x"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aaab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaaab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaaab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aaaab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 5,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aaaab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aabc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "aba",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "x",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "grouped_star_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/grouped_star_follow_typed/audit.NextGroupedStarFollowTyped.xtext",
+                "sha256": "95a6e78cc372df8d08f1f080c2d36a8f52cca0098b1df390a6e5ad73bedb7832"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextGroupedStarFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: ('ab')* 'ac';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/grouped_star_follow_typed/audit.NextGroupedStarFollowTyped.xtext",
+          "sha256": "95a6e78cc372df8d08f1f080c2d36a8f52cca0098b1df390a6e5ad73bedb7832"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ac",
+        "abac",
+        "ababac",
+        "ab",
+        "aba",
+        "ababc",
+        "abaca"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 2,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "abac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "abac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "abac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "abac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ababac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ababac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ababac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 6,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ababac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aba",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ababc",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "abaca",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "fragment_star_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/fragment_star_follow_typed/audit.NextFragmentStarFollowTyped.xtext",
+                "sha256": "58b05be5bb26ab6203e8a0532946cc9abd56b2f40be9c01ada91c593278d43cb"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentStarFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BODY 'ab';\nterminal fragment BODY returns ecore::EString: 'a'*;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/fragment_star_follow_typed/audit.NextFragmentStarFollowTyped.xtext",
+          "sha256": "58b05be5bb26ab6203e8a0532946cc9abd56b2f40be9c01ada91c593278d43cb"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aba",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "typed8",
+      "id": "choice_star_follow_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/choice_star_follow_typed/audit.NextChoiceStarFollowTyped.xtext",
+                "sha256": "217261fbb066e28a1b5e50a9e83fd8991abc3d753ca99ec44121dc559984751a"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextChoiceStarFollowTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: ('a'|'ab')* 'ac';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/choice_star_follow_typed/audit.NextChoiceStarFollowTyped.xtext",
+          "sha256": "217261fbb066e28a1b5e50a9e83fd8991abc3d753ca99ec44121dc559984751a"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ac",
+        "aac",
+        "abac",
+        "aabac",
+        "ababac",
+        "ab",
+        "abaca"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 2,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "abac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "abac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "abac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "abac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aabac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aabac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aabac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 5,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aabac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ababac",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ababac",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ababac",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 6,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ababac",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "abaca",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "inline_until_repeat_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/inline_until_repeat_typed/audit.NextInlineUntilRepeatTyped.xtext",
+                "sha256": "e385b1b17d72e353b34868504af309a31ace9c4a6e513b04b7674be7ed1f0c9f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextInlineUntilRepeatTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: ('@' ->'ab')+ 'c';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/inline_until_repeat_typed/audit.NextInlineUntilRepeatTyped.xtext",
+          "sha256": "e385b1b17d72e353b34868504af309a31ace9c4a6e513b04b7674be7ed1f0c9f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "@abc",
+        "@ab@abc",
+        "@abxabc",
+        "@ababc",
+        "@abcabc",
+        "@ab",
+        "@ab@ab",
+        "@ab@abxabc"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@abc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@abc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@abc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@ab@abc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 7,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@abxabc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abxabc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@abxabc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 7,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abxabc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ababc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ababc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@ababc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 6,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ababc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@abcabc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "@ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@abxabc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abxabc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@ab@abxabc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 10,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abxabc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "typed8",
+      "id": "fragment_until_repeat_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-typed-v1/fragment_until_repeat_typed/audit.NextFragmentUntilRepeatTyped.xtext",
+                "sha256": "ddf4dd659a736b4d6032c8e0676fa998536537b51689b9ade9f72cb552edced0"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentUntilRepeatTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BLOCK+ 'c';\nterminal fragment BLOCK returns ecore::EString: '@' ->'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-typed-v1/fragment_until_repeat_typed/audit.NextFragmentUntilRepeatTyped.xtext",
+          "sha256": "ddf4dd659a736b4d6032c8e0676fa998536537b51689b9ade9f72cb552edced0"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "@abc",
+        "@ab@abc",
+        "@abxabc",
+        "@ababc",
+        "@abcabc",
+        "@ab",
+        "@ab@ab",
+        "@ab@abxabc"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "fragment2",
+      "id": "fragment_star_follow_fragment_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_star_follow_fragment_typed/audit.NextFragmentStarFollowFragmentTyped.xtext",
+                "sha256": "1e760c07944b62731fe3db6348e119fb6ccf80caa1c15bc231cad63e256d08df"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentStarFollowFragmentTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BODY 'ab';\nterminal fragment BODY: 'a'*;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_star_follow_fragment_typed/audit.NextFragmentStarFollowFragmentTyped.xtext",
+          "sha256": "1e760c07944b62731fe3db6348e119fb6ccf80caa1c15bc231cad63e256d08df"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aaaab",
+        "aba",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaaab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aba",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aabc",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "x",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "fragment2",
+      "id": "fragment_until_repeat_fragment_typed",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_until_repeat_fragment_typed/audit.NextFragmentUntilRepeatFragmentTyped.xtext",
+                "sha256": "67071b6af1689478e8b9508a88a7f1ea8ed27244f8d334c69d3f624b62bf470d"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.NextFragmentUntilRepeatFragmentTyped hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BLOCK+ 'c';\nterminal fragment BLOCK: '@' ->'ab';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_until_repeat_fragment_typed/audit.NextFragmentUntilRepeatFragmentTyped.xtext",
+          "sha256": "67071b6af1689478e8b9508a88a7f1ea8ed27244f8d334c69d3f624b62bf470d"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "@abc",
+        "@ab@abc",
+        "@abxabc",
+        "@ababc",
+        "@abcabc",
+        "@ab",
+        "@ab@ab",
+        "@ab@abxabc"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@abc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@abc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 4,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@abc",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "@ab@abc",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 7,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "@ab@abc",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@abxabc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "@ababc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "@abcabc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        },
+        {
+          "text": "@ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "@ab@abxabc",
+          "upstream_complete": false,
+          "upstream_accepted": null,
+          "positive": null,
+          "original_exit": 124,
+          "original_timeout": 15
+        }
+      ]
+    },
+    {
+      "group": "returns12",
+      "id": "imported_only_implicit",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/imported_only_implicit/audit.ReturnMatrixImportedOnlyImplicit.xtext",
+                "sha256": "3974837cbcee8dd1cd4391b632c590d47d35eda4aa3080f292649d94d3d1802f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixImportedOnlyImplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/imported_only_implicit/audit.ReturnMatrixImportedOnlyImplicit.xtext",
+          "sha256": "3974837cbcee8dd1cd4391b632c590d47d35eda4aa3080f292649d94d3d1802f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "ecore_aliased_implicit",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/ecore_aliased_implicit/audit.ReturnMatrixEcoreAliasedImplicit.xtext",
+                "sha256": "7015151e8a96bfe3cb8fdb889ee0d9a6c0156676bb957212b62bcf156509d792"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixEcoreAliasedImplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/ecore_aliased_implicit/audit.ReturnMatrixEcoreAliasedImplicit.xtext",
+          "sha256": "7015151e8a96bfe3cb8fdb889ee0d9a6c0156676bb957212b62bcf156509d792"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "a",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "a",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 1,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aa",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "b",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "\ud83c\udf0d",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "returns12",
+      "id": "ecore_unaliased_implicit",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/ecore_unaliased_implicit/audit.ReturnMatrixEcoreUnaliasedImplicit.xtext",
+                "sha256": "51dfd1a8725066dfef1d2189db1f1ad73d63216ca01d42c6d36781b0fcd6f21d"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixEcoreUnaliasedImplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\"\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/ecore_unaliased_implicit/audit.ReturnMatrixEcoreUnaliasedImplicit.xtext",
+          "sha256": "51dfd1a8725066dfef1d2189db1f1ad73d63216ca01d42c6d36781b0fcd6f21d"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "a",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "a",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 1,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aa",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "b",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "\ud83c\udf0d",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "returns12",
+      "id": "explicit_aliased_estring",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/explicit_aliased_estring/audit.ReturnMatrixExplicitAliasedEstring.xtext",
+                "sha256": "64f0e46f4860aeb8e29fbee33978599aa5bdb57858ad6f27f4752c66bf908ae3"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixExplicitAliasedEstring hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as valueTypes\nModel returns k::Model: name=VALUE;\nterminal VALUE returns valueTypes::EString: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/explicit_aliased_estring/audit.ReturnMatrixExplicitAliasedEstring.xtext",
+          "sha256": "64f0e46f4860aeb8e29fbee33978599aa5bdb57858ad6f27f4752c66bf908ae3"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "a",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "a",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 1,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "a",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aa",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "b",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "\ud83c\udf0d",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "returns12",
+      "id": "generated_default_implicit",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/generated_default_implicit/audit.ReturnMatrixGeneratedDefaultImplicit.xtext",
+                "sha256": "0a62f6433323843033c1f9ace9e46936d13c20f269abe3f45ad6510edf7ce850"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixGeneratedDefaultImplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\ngenerate own \"urn:intersect:xtext:terminal-return-matrix:generated:1\"\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/generated_default_implicit/audit.ReturnMatrixGeneratedDefaultImplicit.xtext",
+          "sha256": "0a62f6433323843033c1f9ace9e46936d13c20f269abe3f45ad6510edf7ce850"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "generated_and_aliased_ecore_implicit",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/generated_and_aliased_ecore_implicit/audit.ReturnMatrixGeneratedAndAliasedEcoreImplicit.xtext",
+                "sha256": "558723ca7b44cd450e25170a3e03d36ac6ea42f5d2e6d83a0635d203ef52cc4a"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixGeneratedAndAliasedEcoreImplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\ngenerate own \"urn:intersect:xtext:terminal-return-matrix:generated-ecore:1\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/generated_and_aliased_ecore_implicit/audit.ReturnMatrixGeneratedAndAliasedEcoreImplicit.xtext",
+          "sha256": "558723ca7b44cd450e25170a3e03d36ac6ea42f5d2e6d83a0635d203ef52cc4a"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "inherited_explicit_terminal",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+                "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnIdentityBase hidden()\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as baseTypes\nterminal VALUE returns baseTypes::EString: 'a';\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/inherited_explicit_terminal/audit.ReturnMatrixInheritedExplicitTerminal.xtext",
+                "sha256": "c426903c2b05da2a97fc7c0a3bcc5f9c833b6968a9509ce91d53c734114c4dad"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixInheritedExplicitTerminal with audit.ReturnIdentityBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+                  "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/inherited_explicit_terminal/audit.ReturnMatrixInheritedExplicitTerminal.xtext",
+          "sha256": "c426903c2b05da2a97fc7c0a3bcc5f9c833b6968a9509ce91d53c734114c4dad"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "inherited_implicit_override",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+                "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnIdentityBase hidden()\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as baseTypes\nterminal VALUE returns baseTypes::EString: 'a';\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/inherited_implicit_override/audit.ReturnMatrixInheritedImplicitOverride.xtext",
+                "sha256": "81fecf178513c0d10b9c9452ad2cfd9b7c13e656d5470660b1c227f1ccaf6804"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixInheritedImplicitOverride with audit.ReturnIdentityBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'b';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+                  "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/inherited_implicit_override/audit.ReturnMatrixInheritedImplicitOverride.xtext",
+          "sha256": "81fecf178513c0d10b9c9452ad2cfd9b7c13e656d5470660b1c227f1ccaf6804"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "explicit_wrong_classifier_kind",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/explicit_wrong_classifier_kind/audit.ReturnMatrixExplicitWrongClassifierKind.xtext",
+                "sha256": "8dd3d48c83bf9438c99438f33de6189d8f8eb8b04d52fb9c81436600a71bd23d"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixExplicitWrongClassifierKind hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE returns k::Model: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/explicit_wrong_classifier_kind/audit.ReturnMatrixExplicitWrongClassifierKind.xtext",
+          "sha256": "8dd3d48c83bf9438c99438f33de6189d8f8eb8b04d52fb9c81436600a71bd23d"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "explicit_unknown_alias",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/explicit_unknown_alias/audit.ReturnMatrixExplicitUnknownAlias.xtext",
+                "sha256": "c936e7ad5e47081eb5a31508192002610710016b0a120a6040f1943702015340"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ReturnMatrixExplicitUnknownAlias hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as known\nModel returns k::Model: name=VALUE;\nterminal VALUE returns missing::EString: 'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/explicit_unknown_alias/audit.ReturnMatrixExplicitUnknownAlias.xtext",
+          "sha256": "c936e7ad5e47081eb5a31508192002610710016b0a120a6040f1943702015340"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "clean_upstream_generation": false,
+      "runtime": []
+    },
+    {
+      "group": "returns12",
+      "id": "nullable_fragment_disjoint_follow",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/nullable_fragment_disjoint_follow/audit.CardinalityNullableFragmentDisjointFollow.xtext",
+                "sha256": "c14530a35ce7ea9493d666475d97f2c21670bb13595480288d49f0d4ed8bf2dd"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.CardinalityNullableFragmentDisjointFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BODY 'b';\nterminal fragment BODY: 'a'*;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/nullable_fragment_disjoint_follow/audit.CardinalityNullableFragmentDisjointFollow.xtext",
+          "sha256": "c14530a35ce7ea9493d666475d97f2c21670bb13595480288d49f0d4ed8bf2dd"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "b",
+        "ab",
+        "aab",
+        "",
+        "a",
+        "ba",
+        "x"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "b",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "b",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "b",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 1,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "b",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "ab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 2,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "ab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "a",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ba",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "x",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    },
+    {
+      "group": "returns12",
+      "id": "nullable_fragment_optional_local_eot",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-return-identity-matrix-v1/nullable_fragment_optional_local_eot/audit.CardinalityNullableFragmentOptionalLocalEot.xtext",
+                "sha256": "87049125a9a23b8dc78c39d7160bc9111498af6648dae56ae583275fdc37d1eb"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.CardinalityNullableFragmentOptionalLocalEot hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BODY 'ab';\nterminal fragment BODY: 'a'?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:terminal-return-identity-matrix-v1/nullable_fragment_optional_local_eot/audit.CardinalityNullableFragmentOptionalLocalEot.xtext",
+          "sha256": "87049125a9a23b8dc78c39d7160bc9111498af6648dae56ae583275fdc37d1eb"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "all_probes": [
+        "",
+        "ab",
+        "aab",
+        "aaab",
+        "aabc",
+        "x"
+      ],
+      "clean_upstream_generation": true,
+      "runtime": [
+        {
+          "text": "",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "ab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aab",
+          "upstream_complete": true,
+          "upstream_accepted": true,
+          "positive": {
+            "resource": {
+              "accepted": true,
+              "errors": [],
+              "warnings": [],
+              "resource_contents": 1,
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "leaves": [
+                {
+                  "text": "aab",
+                  "hidden": false,
+                  "utf16_start": 0,
+                  "utf16_end": 3,
+                  "syntax_error": null
+                }
+              ],
+              "failure": null
+            },
+            "parser": {
+              "accepted": true,
+              "errors": [],
+              "model": [
+                {
+                  "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+                  "values": {
+                    "name": "aab",
+                    "members": []
+                  }
+                }
+              ],
+              "failure": null
+            }
+          },
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aaab",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "aabc",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        },
+        {
+          "text": "x",
+          "upstream_complete": true,
+          "upstream_accepted": false,
+          "positive": null,
+          "original_exit": 0,
+          "original_timeout": null
+        }
+      ]
+    }
+  ]
+}

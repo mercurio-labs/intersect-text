@@ -1,0 +1,3488 @@
+{
+  "cases": [
+    {
+      "id": "grammar_hidden_control",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/grammar_hidden_control/audit.hidden.GrammarHiddenControl.xtext",
+                "sha256": "10efa3920a49657a11ffbce013a0a606370f6aed96f771db0aea5661b1b62722"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.GrammarHiddenControl hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/grammar_hidden_control/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/grammar_hidden_control/audit.hidden.GrammarHiddenControl.xtext",
+          "sha256": "10efa3920a49657a11ffbce013a0a606370f6aed96f771db0aea5661b1b62722"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/grammar_hidden_control/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "grammar_empty_control",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/grammar_empty_control/audit.hidden.GrammarEmptyControl.xtext",
+                "sha256": "4f3eaec9aebc3cb99abe2a60c806139f32e7d611cb59cede22536f067498a02e"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.GrammarEmptyControl hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/grammar_empty_control/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/grammar_empty_control/audit.hidden.GrammarEmptyControl.xtext",
+          "sha256": "4f3eaec9aebc3cb99abe2a60c806139f32e7d611cb59cede22536f067498a02e"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/grammar_empty_control/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "model_empty_scope",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/model_empty_scope/audit.hidden.ModelEmptyScope.xtext",
+                "sha256": "089f722e117e48f8162ac1bd5176787de87264d3161e1e7f62e01593e7a3b891"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.ModelEmptyScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/model_empty_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/model_empty_scope/audit.hidden.ModelEmptyScope.xtext",
+          "sha256": "089f722e117e48f8162ac1bd5176787de87264d3161e1e7f62e01593e7a3b891"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/model_empty_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "model_adds_scope",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/model_adds_scope/audit.hidden.ModelAddsScope.xtext",
+                "sha256": "8901e987417d71afba16d799c0430ee9591149eabfa589dece79cdd16083e3a8"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.ModelAddsScope hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(WS,ML_COMMENT,SL_COMMENT): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/model_adds_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/model_adds_scope/audit.hidden.ModelAddsScope.xtext",
+          "sha256": "8901e987417d71afba16d799c0430ee9591149eabfa589dece79cdd16083e3a8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/model_adds_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "nested_restore",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/nested_restore/audit.hidden.NestedRestore.xtext",
+                "sha256": "c737cdc0573839523b5ffd58862af85d0fefb4a2f4098874e420e3e02c64a1f3"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.NestedRestore hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: '[' name=Outer ']' 'done';\nOuter returns ecore::EString hidden(): 'a' Inner 'c';\nInner returns ecore::EString hidden(WS): 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/nested_restore/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/nested_restore/audit.hidden.NestedRestore.xtext",
+          "sha256": "c737cdc0573839523b5ffd58862af85d0fefb4a2f4098874e420e3e02c64a1f3"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/nested_restore/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "same_callee_two_contexts",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/same_callee_two_contexts/audit.hidden.SameCalleeTwoContexts.xtext",
+                "sha256": "4eb742875cf4be09871936819dc16db94d11497a87eaefa5b6d20df3606cfdbd"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.SameCalleeTwoContexts hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: 'loose' name=Loose | 'tight' name=Tight;\nLoose returns ecore::EString hidden(WS,ML_COMMENT): Word;\nTight returns ecore::EString hidden(): Word;\nWord returns ecore::EString: 'a' 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/same_callee_two_contexts/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/same_callee_two_contexts/audit.hidden.SameCalleeTwoContexts.xtext",
+          "sha256": "4eb742875cf4be09871936819dc16db94d11497a87eaefa5b6d20df3606cfdbd"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/same_callee_two_contexts/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "fragment_empty_scope",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/fragment_empty_scope/audit.hidden.FragmentEmptyScope.xtext",
+                "sha256": "893854acb7cda71527f839f2f6232610c16510cf9254b4bf8331e2ad3ac862e9"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.FragmentEmptyScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: {k::Model} '[' Fields ']' 'done';\nfragment Fields returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/fragment_empty_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/fragment_empty_scope/audit.hidden.FragmentEmptyScope.xtext",
+          "sha256": "893854acb7cda71527f839f2f6232610c16510cf9254b4bf8331e2ad3ac862e9"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/fragment_empty_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "significant_ws_datatype",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/significant_ws_datatype/audit.hidden.SignificantWsDatatype.xtext",
+                "sha256": "724ba0f4a4f3f0d371ff137cf8152eb967264c0b77e37013f2193fa3796b5d77"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.SignificantWsDatatype hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Word;\nWord returns ecore::EString hidden(): ID WS ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/significant_ws_datatype/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/significant_ws_datatype/audit.hidden.SignificantWsDatatype.xtext",
+          "sha256": "724ba0f4a4f3f0d371ff137cf8152eb967264c0b77e37013f2193fa3796b5d77"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/significant_ws_datatype/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "significant_comment_datatype",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/significant_comment_datatype/audit.hidden.SignificantCommentDatatype.xtext",
+                "sha256": "7ddb4232234718e97021f419d80c4fb004e2d9448e86f677267d853483f8f2e6"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.SignificantCommentDatatype hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Word;\nWord returns ecore::EString: ID ML_COMMENT ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/significant_comment_datatype/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/significant_comment_datatype/audit.hidden.SignificantCommentDatatype.xtext",
+          "sha256": "7ddb4232234718e97021f419d80c4fb004e2d9448e86f677267d853483f8f2e6"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/significant_comment_datatype/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "named_entry_policy",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/named_entry_policy/audit.hidden.NamedEntryPolicy.xtext",
+                "sha256": "6580de1d521ba2babc85c0b7a49325e58a80fb9f0bb16a318baa575664ffa24b"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.NamedEntryPolicy hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nTight returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/named_entry_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/named_entry_policy/audit.hidden.NamedEntryPolicy.xtext",
+          "sha256": "6580de1d521ba2babc85c0b7a49325e58a80fb9f0bb16a318baa575664ffa24b"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/named_entry_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "keyword_hidden_shadow",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/keyword_hidden_shadow/audit.hidden.KeywordHiddenShadow.xtext",
+                "sha256": "e37d79171e47bf8fdf0ace16aa0e48ad0f01ca35fd12a89138befc78e485b33f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.KeywordHiddenShadow hidden(WS,NOTE)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: 'note' name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\nterminal NOTE returns ecore::EString: 'note';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/keyword_hidden_shadow/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/keyword_hidden_shadow/audit.hidden.KeywordHiddenShadow.xtext",
+          "sha256": "e37d79171e47bf8fdf0ace16aa0e48ad0f01ca35fd12a89138befc78e485b33f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/keyword_hidden_shadow/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "child_empty_policy",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyBase.xtext",
+                "sha256": "b67eb429dddd0548e5b6777f21acbf30a6a19bfb253c36fa69c5afc553ba9229"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.ParentPolicyBase hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyChild.xtext",
+                "sha256": "b23dcec8ee09a4c505237ef727f13b56ebffa5d542023e9ace0a27438c877bed"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.ParentPolicyChild with audit.hidden.ParentPolicyBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model: Model;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyBase.xtext",
+                  "sha256": "b67eb429dddd0548e5b6777f21acbf30a6a19bfb253c36fa69c5afc553ba9229"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/child_empty_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyChild.xtext",
+          "sha256": "b23dcec8ee09a4c505237ef727f13b56ebffa5d542023e9ace0a27438c877bed"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/child_empty_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "inherited_terminal_override",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenBase.xtext",
+                "sha256": "7929b3af7bb008973a7b39cf249153d183ef3aa7e53412984c35b8aec85b6f51"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.OverrideTokenBase hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenChild.xtext",
+                "sha256": "2d4858d61816088c8f191a9bfd85f5a33da30037cd234889261641669698a4f3"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.OverrideTokenChild with audit.hidden.OverrideTokenBase\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model: Model;\n@Override terminal WS returns ecore::EString: '~'+;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenBase.xtext",
+                  "sha256": "7929b3af7bb008973a7b39cf249153d183ef3aa7e53412984c35b8aec85b6f51"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_terminal_override/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenChild.xtext",
+          "sha256": "2d4858d61816088c8f191a9bfd85f5a33da30037cd234889261641669698a4f3"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/inherited_terminal_override/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "inherited_rule_override",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleBase.xtext",
+                "sha256": "3095cbf6821110ae251d8813aef4e50d65c8f8849a818b5f93b831fd36a0a131"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.OverrideRuleBase hidden(WS,ML_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(WS): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleChild.xtext",
+                "sha256": "bccc8ea6ed513092a1c83c3ca481ebac2c3312d9a1c5becf569b351cae3da3e7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.OverrideRuleChild with audit.hidden.OverrideRuleBase\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n@Override Model returns k::Model hidden(): name=ID '!';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleBase.xtext",
+                  "sha256": "3095cbf6821110ae251d8813aef4e50d65c8f8849a818b5f93b831fd36a0a131"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/inherited_rule_override/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleChild.xtext",
+          "sha256": "bccc8ea6ed513092a1c83c3ca481ebac2c3312d9a1c5becf569b351cae3da3e7"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/inherited_rule_override/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "unknown_hidden_target",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/unknown_hidden_target/audit.hidden.UnknownHiddenTarget.xtext",
+                "sha256": "4da163840126b5dacc9962610ce9e93fff6f4d9b97799d9feaa8427b5523dc1a"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.UnknownHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(MISSING): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/unknown_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/unknown_hidden_target/audit.hidden.UnknownHiddenTarget.xtext",
+          "sha256": "4da163840126b5dacc9962610ce9e93fff6f4d9b97799d9feaa8427b5523dc1a"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/unknown_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "fragment_hidden_target",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/fragment_hidden_target/audit.hidden.FragmentHiddenTarget.xtext",
+                "sha256": "0a424d4b785782a96d8a78245f3fce25d531f39cc830b537d6312239642b420c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.FragmentHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(PART): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\nterminal fragment PART: ' ';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/fragment_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/fragment_hidden_target/audit.hidden.FragmentHiddenTarget.xtext",
+          "sha256": "0a424d4b785782a96d8a78245f3fce25d531f39cc830b537d6312239642b420c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/fragment_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "parser_hidden_target",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/parser_hidden_target/audit.hidden.ParserHiddenTarget.xtext",
+                "sha256": "835d380e1906be554794b727496fe8a6c65687601380524014ff5a970f973c92"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.hidden.ParserHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(Word): name=ID;\nWord returns ecore::EString: ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/parser_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/parser_hidden_target/audit.hidden.ParserHiddenTarget.xtext",
+          "sha256": "835d380e1906be554794b727496fe8a6c65687601380524014ff5a970f973c92"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/parser_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_absent_root",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_absent_root/example.Colors.xtext",
+                "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_absent_root/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_absent_root/example.Colors.xtext",
+          "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_absent_root/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_empty_root",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_empty_root/example.Colors.xtext",
+                "sha256": "bcc24d356965833debb6a7948c7d826f9d442eaf6f29376f983b73ef4b1fe8f3"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors hidden()\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_empty_root/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_empty_root/example.Colors.xtext",
+          "sha256": "bcc24d356965833debb6a7948c7d826f9d442eaf6f29376f983b73ef4b1fe8f3"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_empty_root/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_hidden_root",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_hidden_root/example.Colors.xtext",
+                "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors hidden(WS)\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_hidden_root/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_hidden_root/example.Colors.xtext",
+          "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_hidden_root/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_inherited_absent",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_absent/example.Colors.xtext",
+                "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_absent/example.ChildColors.xtext",
+                "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+              },
+              "kind": "xtext",
+              "text": "grammar example.ChildColors with example.Colors\nimport \"urn:intersect:xtext:enum-composition:1\" as p\n@Override enum Choice returns p::Shade: Red='warm' | Blue='cool';\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                },
+                {
+                  "uri": "memory:hidden-scope/legacy_inherited_absent/example.Colors.xtext",
+                  "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_absent/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_inherited_absent/example.ChildColors.xtext",
+          "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_inherited_absent/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_inherited_hidden",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_hidden/example.Colors.xtext",
+                "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors hidden(WS)\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_hidden/example.ChildColors.xtext",
+                "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+              },
+              "kind": "xtext",
+              "text": "grammar example.ChildColors with example.Colors\nimport \"urn:intersect:xtext:enum-composition:1\" as p\n@Override enum Choice returns p::Shade: Red='warm' | Blue='cool';\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                },
+                {
+                  "uri": "memory:hidden-scope/legacy_inherited_hidden/example.Colors.xtext",
+                  "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_inherited_hidden/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_inherited_hidden/example.ChildColors.xtext",
+          "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_inherited_hidden/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "legacy_child_empty",
+      "cohort": "original23",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `colors` version \"1\";\nmetamodel \"urn:intersect:xtext:enum-composition:1\" prefix `colors` {\n  class `Model` {\n    attr `shade`: external \"#//@eClassifiers.1\" [0,1];\n  }\n  enum `Shade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n  enum `OtherShade` {\n    `Red` = 1 literal \"red\";\n    `Blue` = 2 literal \"blue\";\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_child_empty/example.Colors.xtext",
+                "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+              },
+              "kind": "xtext",
+              "text": "grammar example.Colors hidden(WS)\nimport \"urn:intersect:xtext:enum-composition:1\" as p\nModel returns p::Model: 'color' shade=Choice ';';\nenum Choice returns p::Shade: Red='red' | Blue='blue';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_child_empty/example.ChildColors.xtext",
+                "sha256": "28f0398f3e5e5b18b485b9250cc63d9c69b40d14cf7d6166708fe7695dc7896b"
+              },
+              "kind": "xtext",
+              "text": "grammar example.ChildColors with example.Colors hidden()\nimport \"urn:intersect:xtext:enum-composition:1\" as p\n@Override enum Choice returns p::Shade: Red='warm' | Blue='cool';\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                },
+                {
+                  "uri": "memory:hidden-scope/legacy_child_empty/example.Colors.xtext",
+                  "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/legacy_child_empty/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+                  "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "1e400cfc88ff3a280b80e7fb16d9d4cc39eb63441e72e379a1460a34af0d5a96",
+          "uri": "memory:hidden-scope/legacy-colors/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:enum-composition:1",
+        "xtext": {
+          "uri": "memory:hidden-scope/legacy_child_empty/example.ChildColors.xtext",
+          "sha256": "28f0398f3e5e5b18b485b9250cc63d9c69b40d14cf7d6166708fe7695dc7896b"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/legacy_child_empty/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "namespace_grammar_hidden_control",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext",
+                "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.GrammarHiddenControl hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_grammar_hidden_control/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext",
+          "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_grammar_hidden_control/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_grammar_empty_control",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_grammar_empty_control/audit.scopes.GrammarEmptyControl.xtext",
+                "sha256": "ac8f6a1eebbc4458423cdf671a0f0ce513ef5cb5921aca32b696d04afefae4d9"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.GrammarEmptyControl hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_grammar_empty_control/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_grammar_empty_control/audit.scopes.GrammarEmptyControl.xtext",
+          "sha256": "ac8f6a1eebbc4458423cdf671a0f0ce513ef5cb5921aca32b696d04afefae4d9"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_grammar_empty_control/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_model_empty_scope",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_model_empty_scope/audit.scopes.ModelEmptyScope.xtext",
+                "sha256": "1256dc9093f7986652c8005fbf98c46bb1be523003badc8b3eaf56e52f260921"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ModelEmptyScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_model_empty_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_model_empty_scope/audit.scopes.ModelEmptyScope.xtext",
+          "sha256": "1256dc9093f7986652c8005fbf98c46bb1be523003badc8b3eaf56e52f260921"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_model_empty_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_model_adds_scope",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_model_adds_scope/audit.scopes.ModelAddsScope.xtext",
+                "sha256": "cc018747cfc44cf95d06da24ab5aba288539d91ffa026f57b90d5855ce81f135"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ModelAddsScope hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(WS,ML_COMMENT,SL_COMMENT): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_model_adds_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_model_adds_scope/audit.scopes.ModelAddsScope.xtext",
+          "sha256": "cc018747cfc44cf95d06da24ab5aba288539d91ffa026f57b90d5855ce81f135"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_model_adds_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_nested_restore",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_nested_restore/audit.scopes.NestedRestore.xtext",
+                "sha256": "6081a73809fbea6234196aff32052d43fb27a4724e5f74884157ee75c1809ea2"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.NestedRestore hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: '[' name=Outer ']' 'done';\nOuter returns ecore::EString hidden(): 'a' Inner 'c';\nInner returns ecore::EString hidden(WS): 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_nested_restore/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_nested_restore/audit.scopes.NestedRestore.xtext",
+          "sha256": "6081a73809fbea6234196aff32052d43fb27a4724e5f74884157ee75c1809ea2"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_nested_restore/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_same_callee_two_contexts",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_same_callee_two_contexts/audit.scopes.SameCalleeTwoContexts.xtext",
+                "sha256": "d1f3d09e2c3ab469f8a0ccc052f0b3e49e4a1319461be73ee943eb1686d9ceb2"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.SameCalleeTwoContexts hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: 'loose' name=Loose | 'tight' name=Tight;\nLoose returns ecore::EString hidden(WS,ML_COMMENT): Word;\nTight returns ecore::EString hidden(): Word;\nWord returns ecore::EString: 'a' 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_same_callee_two_contexts/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_same_callee_two_contexts/audit.scopes.SameCalleeTwoContexts.xtext",
+          "sha256": "d1f3d09e2c3ab469f8a0ccc052f0b3e49e4a1319461be73ee943eb1686d9ceb2"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_same_callee_two_contexts/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_fragment_empty_scope",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_fragment_empty_scope/audit.scopes.FragmentEmptyScope.xtext",
+                "sha256": "94d32367b0bc4887b0154496a4e19cb6eaabc9c4a8a6025d8b28c671f534e1f6"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.FragmentEmptyScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: {k::Model} '[' Fields ']' 'done';\nfragment Fields returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_fragment_empty_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_fragment_empty_scope/audit.scopes.FragmentEmptyScope.xtext",
+          "sha256": "94d32367b0bc4887b0154496a4e19cb6eaabc9c4a8a6025d8b28c671f534e1f6"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_fragment_empty_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_significant_ws_datatype",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_significant_ws_datatype/audit.scopes.SignificantWsDatatype.xtext",
+                "sha256": "3312bb7e435e824274bd574d438fd10d1912ba35fa71d7d9a63bea363ebd9c89"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.SignificantWsDatatype hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Word;\nWord returns ecore::EString hidden(): ID WS ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_significant_ws_datatype/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_significant_ws_datatype/audit.scopes.SignificantWsDatatype.xtext",
+          "sha256": "3312bb7e435e824274bd574d438fd10d1912ba35fa71d7d9a63bea363ebd9c89"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_significant_ws_datatype/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_significant_comment_datatype",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_significant_comment_datatype/audit.scopes.SignificantCommentDatatype.xtext",
+                "sha256": "2987ea4ce30828501f62cbe6178fb6e30d82fb8e0194d1f956fd37b23f8ae8b7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.SignificantCommentDatatype hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Word;\nWord returns ecore::EString: ID ML_COMMENT ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_significant_comment_datatype/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_significant_comment_datatype/audit.scopes.SignificantCommentDatatype.xtext",
+          "sha256": "2987ea4ce30828501f62cbe6178fb6e30d82fb8e0194d1f956fd37b23f8ae8b7"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_significant_comment_datatype/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_named_entry_policy",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_named_entry_policy/audit.scopes.NamedEntryPolicy.xtext",
+                "sha256": "bc297fe09b3c4e13ebbbfae08716a071b68b49d44f1f6868134aa806a5285e77"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.NamedEntryPolicy hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nTight returns k::Model hidden(): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_named_entry_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_named_entry_policy/audit.scopes.NamedEntryPolicy.xtext",
+          "sha256": "bc297fe09b3c4e13ebbbfae08716a071b68b49d44f1f6868134aa806a5285e77"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_named_entry_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_keyword_hidden_shadow",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_keyword_hidden_shadow/audit.scopes.KeywordHiddenShadow.xtext",
+                "sha256": "394b20bc1ceaca177fb0ef81894b7256eb904a9e685dbf0d563d995f57da6add"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.KeywordHiddenShadow hidden(WS,NOTE)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: 'note' name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\nterminal NOTE returns ecore::EString: 'note';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_keyword_hidden_shadow/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_keyword_hidden_shadow/audit.scopes.KeywordHiddenShadow.xtext",
+          "sha256": "394b20bc1ceaca177fb0ef81894b7256eb904a9e685dbf0d563d995f57da6add"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_keyword_hidden_shadow/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "namespace_child_empty_policy",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyBase.xtext",
+                "sha256": "bd3fcc5171a51f437c899caa62ffa7e5976e7c1ed739d21e7a08213c3417470b"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ParentPolicyBase hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyChild.xtext",
+                "sha256": "08b55311f91489aa588dbced3aa9f3a41f2e70bf5b70a37d5a119a8db93ae017"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ParentPolicyChild with audit.scopes.ParentPolicyBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model: Model;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyBase.xtext",
+                  "sha256": "bd3fcc5171a51f437c899caa62ffa7e5976e7c1ed739d21e7a08213c3417470b"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_child_empty_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyChild.xtext",
+          "sha256": "08b55311f91489aa588dbced3aa9f3a41f2e70bf5b70a37d5a119a8db93ae017"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_child_empty_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_inherited_terminal_override",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenBase.xtext",
+                "sha256": "f5a71fd5c222cd5520cb7ca0a97188745dd4f269a47dd17fd683e1ab78aaa324"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.OverrideTokenBase hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenChild.xtext",
+                "sha256": "2a4ddbafc6892babf823546672f6ed59a9104e789d9fbef796b1bc2f9efe02d2"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.OverrideTokenChild with audit.scopes.OverrideTokenBase\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model: Model;\n@Override terminal WS returns ecore::EString: '~'+;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenBase.xtext",
+                  "sha256": "f5a71fd5c222cd5520cb7ca0a97188745dd4f269a47dd17fd683e1ab78aaa324"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_inherited_terminal_override/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenChild.xtext",
+          "sha256": "2a4ddbafc6892babf823546672f6ed59a9104e789d9fbef796b1bc2f9efe02d2"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_inherited_terminal_override/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_inherited_rule_override",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleBase.xtext",
+                "sha256": "4c52b4b1d5c8469c01f045af27e7b0120cf81167cea701206888929e49aae271"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.OverrideRuleBase hidden(WS,ML_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(WS): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleChild.xtext",
+                "sha256": "b36165ebbb4718fd70a589c792f47c5418ce38c99f745c2be0feca82de2ecb53"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.OverrideRuleChild with audit.scopes.OverrideRuleBase\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n@Override Model returns k::Model hidden(): name=ID '!';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleBase.xtext",
+                  "sha256": "4c52b4b1d5c8469c01f045af27e7b0120cf81167cea701206888929e49aae271"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_inherited_rule_override/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleChild.xtext",
+          "sha256": "b36165ebbb4718fd70a589c792f47c5418ce38c99f745c2be0feca82de2ecb53"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_inherited_rule_override/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "namespace_unknown_hidden_target",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_unknown_hidden_target/audit.scopes.UnknownHiddenTarget.xtext",
+                "sha256": "c67bb0d7a1f2725db371d2a9b5ec95208e26e626c8630c10c9dd00b5d11b9079"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.UnknownHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(MISSING): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_unknown_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_unknown_hidden_target/audit.scopes.UnknownHiddenTarget.xtext",
+          "sha256": "c67bb0d7a1f2725db371d2a9b5ec95208e26e626c8630c10c9dd00b5d11b9079"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_unknown_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "namespace_fragment_hidden_target",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_fragment_hidden_target/audit.scopes.FragmentHiddenTarget.xtext",
+                "sha256": "c9dcde02534e0522e6db42255a87aa456311a3fd3190b5f14beb0ff0f082f588"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.FragmentHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(PART): name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\nterminal fragment PART: ' ';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_fragment_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_fragment_hidden_target/audit.scopes.FragmentHiddenTarget.xtext",
+          "sha256": "c9dcde02534e0522e6db42255a87aa456311a3fd3190b5f14beb0ff0f082f588"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_fragment_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "namespace_parser_hidden_target",
+      "cohort": "namespace17",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope-companion/namespace_parser_hidden_target/audit.scopes.ParserHiddenTarget.xtext",
+                "sha256": "adc4b829b74e3ad0fd4d2f0faa48b9f61718d2f39d18089832e443a9f2fc7332"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ParserHiddenTarget hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model hidden(Word): name=ID;\nWord returns ecore::EString: ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/namespace_parser_hidden_target/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-scope-companion/namespace_parser_hidden_target/audit.scopes.ParserHiddenTarget.xtext",
+          "sha256": "adc4b829b74e3ad0fd4d2f0faa48b9f61718d2f39d18089832e443a9f2fc7332"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/namespace_parser_hidden_target/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "enter_old_policy",
+      "cohort": "boundary4",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-boundaries/enter_old_policy/audit.scopes.EnterOldPolicy.xtext",
+                "sha256": "8a189d112549aafe5dab6feebcfe4b033247fdc94c718896e4f261565f9a6628"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.EnterOldPolicy hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: '[' name=Word ']' 'done';\nWord returns ecore::EString hidden(): ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/enter_old_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-boundaries/enter_old_policy/audit.scopes.EnterOldPolicy.xtext",
+          "sha256": "8a189d112549aafe5dab6feebcfe4b033247fdc94c718896e4f261565f9a6628"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/enter_old_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "restore_child_policy",
+      "cohort": "boundary4",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-boundaries/restore_child_policy/audit.scopes.RestoreChildPolicy.xtext",
+                "sha256": "db72b910e4daf2a28378229a9d5d9a38908dcca5af7dd12e9963e6adc9822218"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.RestoreChildPolicy hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: '[' name=Word ']' WS 'done';\nWord returns ecore::EString hidden(WS,ML_COMMENT): ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/restore_child_policy/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-boundaries/restore_child_policy/audit.scopes.RestoreChildPolicy.xtext",
+          "sha256": "db72b910e4daf2a28378229a9d5d9a38908dcca5af7dd12e9963e6adc9822218"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/restore_child_policy/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "prediction_marker_scope",
+      "cohort": "boundary4",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-boundaries/prediction_marker_scope/audit.scopes.PredictionMarkerScope.xtext",
+                "sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.PredictionMarkerScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Loose '!' | name=Tight '?';\nTightEntry returns k::Model hidden(): name=Tight '?';\nLoose returns ecore::EString hidden(WS,ML_COMMENT): 'a' 'b';\nTight returns ecore::EString hidden(): 'a' WS 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/prediction_marker_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-boundaries/prediction_marker_scope/audit.scopes.PredictionMarkerScope.xtext",
+          "sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/prediction_marker_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "nested_error_scope_restore",
+      "cohort": "boundary4",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-boundaries/nested_error_scope_restore/audit.scopes.NestedErrorScopeRestore.xtext",
+                "sha256": "c16ddc0e9a15f5b7d2ff7331f9a2e240dc234ef9265efa87ad76d0d535d38fe5"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.NestedErrorScopeRestore hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: '[' name=Outer ']' 'done';\nOuter returns ecore::EString hidden(): 'a' Inner 'c';\nInner returns ecore::EString hidden(WS): 'b' ':';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/nested_error_scope_restore/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-boundaries/nested_error_scope_restore/audit.scopes.NestedErrorScopeRestore.xtext",
+          "sha256": "c16ddc0e9a15f5b7d2ff7331f9a2e240dc234ef9265efa87ad76d0d535d38fe5"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/nested_error_scope_restore/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "fragment_internal_significance",
+      "cohort": "discriminator2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-discriminators/fragment_internal_significance/audit.scopes.FragmentInternalSignificance.xtext",
+                "sha256": "c3df3c8ec5026447b97ce9c47f08b5994e974f5626dbf3b34752ec3e8d842335"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.FragmentInternalSignificance hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: {k::Model} '[' Fields ']' 'done';\nfragment Fields returns k::Model hidden(): name=ID ':' ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/fragment_internal_significance/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-discriminators/fragment_internal_significance/audit.scopes.FragmentInternalSignificance.xtext",
+          "sha256": "c3df3c8ec5026447b97ce9c47f08b5994e974f5626dbf3b34752ec3e8d842335"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/fragment_internal_significance/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "reachable_named_prediction_entry",
+      "cohort": "discriminator2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+                "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.AvailablePredictionEntry hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Loose '!' | name=Tight '?' | 'direct' TightEntry;\nTightEntry returns k::Model hidden(): name=Tight '?';\nLoose returns ecore::EString hidden(WS,ML_COMMENT): 'a' 'b';\nTight returns ecore::EString hidden(): 'a' WS 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/reachable_named_prediction_entry/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+          "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/reachable_named_prediction_entry/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "qualified_grammar_hidden",
+      "cohort": "qualified2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.QualifiedGrammarHiddenBase hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+                "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.QualifiedGrammarHiddenChild with audit.scopes.QualifiedGrammarHiddenBase hidden(super::WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model: Model;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/qualified_grammar_hidden/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+          "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/qualified_grammar_hidden/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "qualified_rule_hidden_override",
+      "cohort": "qualified2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.QualifiedRuleHiddenOverrideBase hidden(WS)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.QualifiedRuleHiddenOverrideChild with audit.scopes.QualifiedRuleHiddenOverrideBase\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns k::Model hidden(super::WS): Model;\n@Override terminal WS returns ecore::EString: '~'+;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                {
+                  "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/qualified_rule_hidden_override/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+          "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/qualified_rule_hidden_override/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": false
+    },
+    {
+      "id": "reference_adds_scope",
+      "cohort": "reference2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-references/reference_adds_scope/audit.scopes.ReferenceAddsScope.xtext",
+                "sha256": "69f9d0ec59636ba1ad8effe6b3d1365813372f94eca32739995a5429190c4ad7"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ReferenceAddsScope hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: members+=Type members+=Feature;\nType returns k::Type: 'type' ':' name=ID ';';\nFeature returns k::Feature: 'use' ':' name=ID '=' target=[k::Type|QName] ';';\nQName returns ecore::EString hidden(WS,ML_COMMENT,SL_COMMENT): ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/reference_adds_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-references/reference_adds_scope/audit.scopes.ReferenceAddsScope.xtext",
+          "sha256": "69f9d0ec59636ba1ad8effe6b3d1365813372f94eca32739995a5429190c4ad7"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/reference_adds_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "reference_empty_scope",
+      "cohort": "reference2",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-references/reference_empty_scope/audit.scopes.ReferenceEmptyScope.xtext",
+                "sha256": "657a6af18077986fa9b0a0f2ac15580b5788397e51154391314c962a7e014b49"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.ReferenceEmptyScope hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: members+=Type members+=Feature;\nType returns k::Type: 'type' ':' name=ID ';';\nFeature returns k::Feature: 'use' ':' name=ID '=' target=[k::Type|QName] ';';\nQName returns ecore::EString hidden(): ID;\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/reference_empty_scope/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-references/reference_empty_scope/audit.scopes.ReferenceEmptyScope.xtext",
+          "sha256": "657a6af18077986fa9b0a0f2ac15580b5788397e51154391314c962a7e014b49"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/reference_empty_scope/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    },
+    {
+      "id": "caller_suffix",
+      "cohort": "suffix1",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-delegation/caller_suffix/audit.scopes.CallerSuffix.xtext",
+                "sha256": "cde69dcd723e30ebb4e09fc6ed3d17168a44f0c1ee5c981a6c3538b3f693a49d"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.scopes.CallerSuffix hidden(WS,ML_COMMENT,SL_COMMENT)\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=Loose '!' | name=Tight '?' | 'direct' TightEntry 'done';\nTightEntry returns k::Model hidden(): name=Tight '?';\nLoose returns ecore::EString hidden(WS,ML_COMMENT): 'a' 'b';\nTight returns ecore::EString hidden(): 'a' WS 'b';\nterminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;\nterminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ML_COMMENT returns ecore::EString: '/*' ->'*/';\nterminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:hidden-scope/caller_suffix/behavior.rcore",
+                "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage hiddenScopeProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:hidden-delegation/caller_suffix/audit.scopes.CallerSuffix.xtext",
+          "sha256": "cde69dcd723e30ebb4e09fc6ed3d17168a44f0c1ee5c981a6c3538b3f693a49d"
+        },
+        "rcore_behavior": {
+          "uri": "memory:hidden-scope/caller_suffix/behavior.rcore",
+          "sha256": "f437ee5f3ba34ebdd7f5fdbc59409e1d73d57f583c5c46640ba35dd29ca78bc4"
+        }
+      },
+      "clean_upstream_generation": true
+    }
+  ],
+  "original_inputs": [
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\native-before-attempt1\\complete-case-views.json",
+      "bytes": 87816,
+      "sha256": "1a3f26805a331f12e36a1b6c12d559e39769683778c91de746af071e69d5a790"
+    },
+    {
+      "path": "target\\hsv2r\\observations.json",
+      "bytes": 84450,
+      "sha256": "1d46f0b1d670d60a6123b0e856b25e3fb0ba3269df7015c6db3d2ca91a50a378"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\namespace-native-before-attempt1\\complete-case-views.json",
+      "bytes": 194574,
+      "sha256": "b1a291714aeac3353eaede9317847f0fad7c86735b9993d956c604657ae7e53e"
+    },
+    {
+      "path": "target\\hsv4r\\observations.json",
+      "bytes": 1254612,
+      "sha256": "23efd61dfcf2e1a62a42dddec95f595845b6917c54b4e478271b5b37d17aee8e"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\boundary-native-before-attempt1\\complete-case-views.json",
+      "bytes": 15320,
+      "sha256": "b8f0239abe3c09f3fc95bb9929d000c5409724da11247c9cd36261746fdb0c4a"
+    },
+    {
+      "path": "target\\hsv5r\\observations.json",
+      "bytes": 412814,
+      "sha256": "c5df387bef5cd9e096eb8661616d73af04b8169685891eaae1db172aa055427a"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\discriminator-native-before-attempt1\\complete-case-views.json",
+      "bytes": 7989,
+      "sha256": "f704cdd4d9d3cb19f9305bbde2bf09de4d00cfdea7b7f9f1182e42ea08d059d7"
+    },
+    {
+      "path": "target\\hsv6r\\observations.json",
+      "bytes": 349533,
+      "sha256": "3042750dcaee28b7a78081043d8aff356b310aa2f898151fdf74255356db2eec"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\qualified-target-native-before-attempt1\\complete-case-views.json",
+      "bytes": 9641,
+      "sha256": "48fe8144bf6e381136a917d8a246e94c38d9944391c07d594c1b0793826068f0"
+    },
+    {
+      "path": "target\\hsv7r\\observations.json",
+      "bytes": 41167,
+      "sha256": "4c42722824f15160202280d955589d1f16b431447524139980f6d9b6aaeb24d4"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\reference-native-before-attempt1\\complete-case-views.json",
+      "bytes": 8185,
+      "sha256": "d4c2b2bb0de04da0e4c1b4c4e1bb4ececf66d3d3963d636dbcee610092f6cb9c"
+    },
+    {
+      "path": "target\\hsv8r\\observations.json",
+      "bytes": 893555,
+      "sha256": "7ec3d3c5177ee8208ea7f01f05bd94140e667a98e33fe8720b353b8ffa2eaf1e"
+    },
+    {
+      "path": "target\\hidden-scope-after-v63-v1\\delegation-span-native-before-attempt1\\complete-case-views.json",
+      "bytes": 4072,
+      "sha256": "6df77e1e0c2e67f4feb3c5f93b089a5eadc36b570524ddcde36380f423d035ef"
+    },
+    {
+      "path": "target\\hsv9r\\observations.json",
+      "bytes": 362607,
+      "sha256": "edd52479c96cb42e96ca98f9139c515097da48ec0889aa15c837f637af67722b"
+    }
+  ],
+  "scope": "Exact compilation transport; canonical Rcore adapter is distinct from upstream original Ecore. Native test expectations do not replace full raw observations."
+}

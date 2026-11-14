@@ -1,0 +1,16 @@
+<!-- Generated minimal static shape projection. Full selected metadata: mercurio-shapes.json. -->
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="sysml_shapes" nsURI="https://www.omg.org/spec/SysML/20250201">
+  <eClassifiers x:type="e:EClass" name="ActionUsage">
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Expression">
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="ReferenceUsage">
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="ActionDefinition">
+    <eStructuralFeatures x:type="e:EReference" name="action" eType="#//ActionUsage" lowerBound="0" upperBound="-1" ordered="true" unique="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="AcceptActionUsage">
+    <eStructuralFeatures x:type="e:EReference" name="payloadArgument" eType="#//Expression" lowerBound="0" upperBound="1" ordered="false" unique="true" derived="true"/>
+    <eStructuralFeatures x:type="e:EReference" name="payloadParameter" eType="#//ReferenceUsage" lowerBound="1" upperBound="1" ordered="false" unique="true" derived="true"/>
+  </eClassifiers>
+</e:EPackage>

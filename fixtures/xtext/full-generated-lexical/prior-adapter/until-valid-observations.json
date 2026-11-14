@@ -1,0 +1,893 @@
+[
+  {
+    "id": "alternatives_companion",
+    "companion_xtext_source_id": {
+      "uri": "memory:alternatives_companion.xtext",
+      "sha256": "8455e633766bad59938101475f30a4d9c47b00ac9cc36e008d8d58faac3e4125"
+    },
+    "metadata_exit_code": 0,
+    "syntax": [
+      {
+        "source": "audit.FiniteUntilAlternativesCompanion",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.FiniteUntilAlternativesCompanion",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.FiniteUntilAlternativesCompanion::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.FiniteUntilAlternativesCompanion",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.FiniteUntilAlternativesCompanion::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "'@' ( options {greedy=false;} : . )*('END'|'STOP')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar FiniteUntilAudit0;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: '@' ( options {greedy=false;} : . )*('END'|'STOP');\n",
+      "grammar_sha256": "e77295d8d3eee9eef8ed8a4e905175f8a6c7b3c5e362034bbc8a794700f816f6",
+      "java_canonical_sha256": "ae65653a42dd75c3b610b169b3e3afda4183646928d50728a1d260d2cce2e805",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@END",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@END",
+            "utf16_start": 0,
+            "utf16_stop": 3,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@STOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STOP",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@xEND",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@xEND",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@xSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@xSTOP",
+            "utf16_start": 0,
+            "utf16_stop": 5,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@STOPxEND",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STOP",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 4,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@ENDxSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@END",
+            "utf16_start": 0,
+            "utf16_stop": 3,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 5,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@EEND",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@EEND",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@ENEND",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@ENEND",
+            "utf16_start": 0,
+            "utf16_stop": 5,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@SSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@SSTOP",
+            "utf16_start": 0,
+            "utf16_stop": 5,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@STSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STSTOP",
+            "utf16_start": 0,
+            "utf16_stop": 6,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@STOSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STOSTOP",
+            "utf16_start": 0,
+            "utf16_stop": 7,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@xENDSTOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@xEND",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 4,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@EN",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@STO",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@missing",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@ENDx",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@END",
+            "utf16_start": 0,
+            "utf16_stop": 3,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@STOPx",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STOP",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@END@STOP",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@END",
+            "utf16_start": 0,
+            "utf16_stop": 3,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@STOP",
+            "utf16_start": 4,
+            "utf16_stop": 8,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@\nEND",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@\nEND",
+            "utf16_start": 0,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "x@END",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "@END",
+            "utf16_start": 1,
+            "utf16_stop": 4,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "fragment_companion",
+    "companion_xtext_source_id": {
+      "uri": "memory:fragment_companion.xtext",
+      "sha256": "7a720d13fcffe327367454d91095b0a641a430504f0f115e8646b8b2e0ee1c9f"
+    },
+    "metadata_exit_code": 0,
+    "syntax": [
+      {
+        "source": "audit.FiniteUntilFragmentCompanion",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.FiniteUntilFragmentCompanion",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.FiniteUntilFragmentCompanion::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.FiniteUntilFragmentCompanion::END",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.FiniteUntilFragmentCompanion",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.FiniteUntilFragmentCompanion::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "'@' ( options {greedy=false;} : . )*RULE_END"
+      },
+      {
+        "source_rule": "audit.FiniteUntilFragmentCompanion::END",
+        "name": "RULE_END",
+        "fragment": true,
+        "body": "'!'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar FiniteUntilAudit1;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: '@' ( options {greedy=false;} : . )*RULE_END;\nfragment RULE_END: '!';\n",
+      "grammar_sha256": "21c841b45fce29c03d77cb902bdb4b86bac7c4b24a975c729ba7c5c9f22c57de",
+      "java_canonical_sha256": "66b5d7ae6fe923a52255d307e8dfda05bb69b5d90514285241bee82059ba8851",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@x!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@x!",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@@!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@@!",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "@!!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@!x",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@x!y!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@x!",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 2,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@missing",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@!@!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 2,
+            "utf16_stop": 3,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "@\n!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@\n!",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "x@!",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "@!",
+            "utf16_start": 1,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  }
+]

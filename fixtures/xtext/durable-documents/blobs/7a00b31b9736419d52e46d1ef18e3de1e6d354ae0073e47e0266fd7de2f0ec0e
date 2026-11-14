@@ -1,0 +1,80 @@
+// Verification-only class-loader separation. Signed dependencies stay in the
+// ordinary parent URL loader; exact newly generated classes/resources are owned
+// by a child. No signed JAR is rewritten, stripped, or redefined by this helper.
+package intersect.oracle;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+
+public final class OwnedGeneratedLauncher {
+ static String sha(byte[] bytes)throws Exception{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes));}
+ static String decode(String value){return new String(Base64.getDecoder().decode(value),StandardCharsets.UTF_8);}
+ static Path file(String encoded)throws Exception{return Path.of(decode(encoded)).toAbsolutePath().normalize().toRealPath();}
+ static void require(boolean condition,String message){if(!condition)throw new IllegalArgumentException(message);}
+ static final class Owned extends URLClassLoader {
+  final Map<String,Path> resources;
+  final Map<String,String> hashes;
+  final Set<String> classes;
+  Owned(List<Path> roots,Map<String,Path> resources,Map<String,String> hashes,Set<String> classes)throws Exception{
+   super(roots.stream().map(p->{try{return p.toUri().toURL();}catch(Exception e){throw new IllegalArgumentException(e);}}).toArray(URL[]::new),ClassLoader.getSystemClassLoader());
+   this.resources=resources;this.hashes=hashes;this.classes=classes;
+  }
+  @Override protected Class<?> loadClass(String name,boolean resolve)throws ClassNotFoundException{
+   synchronized(getClassLoadingLock(name)){
+    Class<?> loaded=findLoadedClass(name);
+    if(loaded==null){
+     if(classes.contains(name)){
+      String resource=name.replace('.','/')+".class";
+      try{require(sha(Files.readAllBytes(resources.get(resource))).equals(hashes.get(resource)),"Changed owned class before loading: "+name);}catch(Exception e){throw new ClassNotFoundException("Changed owned class",e);}
+      loaded=findClass(name);
+     }else loaded=getParent().loadClass(name);
+    }
+    if(resolve&&loaded.getClassLoader()==this)resolveClass(loaded);
+    if(name.equals("org.eclipse.xtext.common.services.DefaultTerminalConverters")||name.endsWith("GrammarAccess")||name.endsWith("StandaloneSetup")||name.equals("intersect.oracle.NodeSnapshotRuntime")){
+     var source=loaded.getProtectionDomain().getCodeSource();var certs=source==null?null:source.getCertificates();
+     System.err.println("CLASS_BINDING\t"+name+"\t"+(loaded.getClassLoader()==this?"owned-generated":"parent-signed-stack")+"\t"+(source==null?"null":source.getLocation().toString())+"\tcertificates="+(certs==null?0:certs.length));
+    }
+    return loaded;
+   }
+  }
+  @Override public URL getResource(String name){
+   Path owned=resources.get(name);
+   if(owned!=null){try{return owned.toUri().toURL();}catch(Exception e){throw new IllegalArgumentException(e);}}
+   return getParent().getResource(name);
+  }
+  @Override public Enumeration<URL> getResources(String name)throws IOException{
+   URL owned=resources.containsKey(name)?getResource(name):null;
+   return owned==null?getParent().getResources(name):Collections.enumeration(Collections.singletonList(owned));
+  }
+ }
+ public static void main(String[] args)throws Throwable{
+  require(args.length>=2&&args[1].equals("intersect.oracle.SourceNodeBindings"),"Only the frozen source node binding observer main is permitted");
+  Path specification=Path.of(args[0]).toAbsolutePath().normalize().toRealPath();List<Path> roots=new ArrayList<>(),jars=new ArrayList<>();Map<String,Path> resources=new LinkedHashMap<>();Map<String,String> hashes=new LinkedHashMap<>();Set<String> classes=new LinkedHashSet<>();Path launcher=null;long total=0;
+  for(String line:Files.readAllLines(specification,StandardCharsets.UTF_8)){
+   String[] v=line.split("\t",-1);
+   if(v[0].equals("format")){require(v.length==2&&v[1].equals("1"),"Unknown loader specification");continue;}
+   if(v[0].equals("launcher")){require(v.length==2&&launcher==null,"Invalid launcher root");launcher=file(v[1]);continue;}
+   if(v[0].equals("jar")){
+    require(v.length==3&&v[2].matches("[0-9a-f]{64}"),"Invalid pinned JAR row");Path p=file(v[1]);require(!jars.contains(p)&&p.toString().endsWith(".jar"),"Ambiguous parent JAR");require(sha(Files.readAllBytes(p)).equals(v[2]),"Parent JAR mismatch");jars.add(p);continue;
+   }
+   if(v[0].equals("root")){require(v.length==2&&roots.size()<16,"Invalid owned root");Path p=file(v[1]);require(Files.isDirectory(p)&&!roots.contains(p),"Ambiguous owned root");roots.add(p);continue;}
+   require(v[0].equals("file")&&v.length==4&&v[3].matches("[0-9a-f]{64}"),"Invalid owned-file row");int index=Integer.parseInt(v[1]);require(index>=0&&index<roots.size(),"Unknown owned root");String relative=decode(v[2]);require(!relative.startsWith("/")&&!relative.contains("\\")&&!Arrays.asList(relative.split("/",-1)).contains(".."),"Escaping resource");Path p=roots.get(index).resolve(relative).normalize().toRealPath();require(p.startsWith(roots.get(index))&&Files.isRegularFile(p),"Escaping owned file");byte[] bytes=Files.readAllBytes(p);total+=bytes.length;require(total<=100_000_000&&resources.size()<10_000,"Owned verification payload ceiling exceeded");require(sha(bytes).equals(v[3]),"Owned-file digest mismatch");require(resources.put(relative,p)==null,"Ambiguous owned resource: "+relative);hashes.put(relative,v[3]);if(relative.endsWith(".class"))classes.add(relative.substring(0,relative.length()-6).replace('/','.'));
+  }
+  require(launcher!=null&&jars.size()==60&&!roots.isEmpty()&&classes.contains(args[1]),"Incomplete frozen loader specification");
+  List<Path> expected=new ArrayList<>();expected.add(launcher);expected.addAll(jars);List<Path> actual=new ArrayList<>();for(String p:System.getProperty("java.class.path").split(java.util.regex.Pattern.quote(File.pathSeparator)))actual.add(Path.of(p).toAbsolutePath().normalize().toRealPath());require(actual.equals(expected),"Parent classpath differs from frozen signed stack");
+  Set<Path> actualFiles=new HashSet<>();for(Path root:roots)try(var stream=Files.walk(root)){for(Path p:(Iterable<Path>)stream.filter(Files::isRegularFile)::iterator)actualFiles.add(p.toRealPath());}require(actualFiles.equals(new HashSet<>(resources.values())),"Owned resource inventory differs from frozen whitelist");
+  ClassLoader previous=Thread.currentThread().getContextClassLoader();
+  try(Owned owned=new Owned(roots,resources,hashes,classes)){
+   Thread.currentThread().setContextClassLoader(owned);
+   String converter="org.eclipse.xtext.common.services.DefaultTerminalConverters";
+   require(!classes.contains(converter),"A dependency converter cannot be substituted by generated ownership");
+   Class<?> dependency=owned.loadClass(converter);var code=dependency.getProtectionDomain().getCodeSource();
+   require(dependency.getClassLoader()==ClassLoader.getSystemClassLoader()&&code!=null&&code.getCertificates()!=null&&code.getCertificates().length>0,"Dependency must retain its original signed parent-loader provenance");
+   try{owned.loadClass(args[1]).getMethod("main",String[].class).invoke(null,(Object)Arrays.copyOfRange(args,2,args.length));}catch(InvocationTargetException failure){throw failure.getCause();}
+  }finally{Thread.currentThread().setContextClassLoader(previous);}
+ }
+}

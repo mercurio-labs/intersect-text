@@ -1,0 +1,12 @@
+rcore 1;
+package `diagnostics` version "1";
+metamodel "urn:intersect:diagnostics" prefix `diagnostics` {
+  datatype `Chain` instanceClass "org.eclipse.emf.common.util.DiagnosticChain" nonserializable {  }
+  class `Report` {
+    attr `name`: EString [0,1];
+    attr `diagnostics`: external "http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain" [0,1];
+    attr `history`: external "http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain" [0,*];
+    attr `localDiagnostics`: external "#//@eClassifiers.1" [0,1];
+    op `identity`(`diagnostics`: external "http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain" [0,1];
+  }
+}

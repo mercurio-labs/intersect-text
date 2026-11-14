@@ -1,0 +1,18 @@
+from pathlib import Path
+import gzip,json,hashlib,io
+N=Path(__file__).resolve().parent;O=N/'portable-v65-evidence-v1';B=N.parent/'rcore-xtext-support-evidence/string-v64-actual-public-v2';entries={}
+def pin(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def add(data,name,role):
+    q=pin(data);dest=O/'blobs'/q['sha256']
+    if not dest.exists():dest.open('xb').write(data)
+    else:assert dest.read_bytes()==data
+    entries[name]={**q,'blob':'blobs/'+q['sha256'],'role':role}
+raw=(B/'record.jsonl').read_bytes();out=io.BytesIO()
+with gzip.GzipFile(fileobj=out,mode='wb',filename='',mtime=0,compresslevel=9)as f:f.write(raw)
+packed=out.getvalue();assert gzip.decompress(packed)==raw
+add(packed,'baseline-original/original2147.jsonl.gz','lossless-new-storage-of-unchanged-original-native-baseline')
+for name in ['receipt.json','preexecution.json']:add((B/name).read_bytes(),'baseline-original/'+name,'unchanged-original-baseline-provenance')
+add(Path(__file__).read_bytes(),'producer-original/add-portable-v65-original2147-baseline-v1.py','verification-storage-adapter')
+for name,value in [('origins-addendum-v3.json',entries),('original2147-storage.json',{'source_original_relative_lineage':'rcore-xtext-support-evidence/string-v64-actual-public-v2/record.jsonl','raw':pin(raw),'gzip':pin(packed),'origin':'baseline-original/original2147.jsonl.gz','storage_only':'New deterministic gzip, filename empty/mtime0; decompress to exact unchanged complete original50MB native baseline. No request/result/identity/order normalization.'})]:
+    with(O/name).open('x',encoding='utf-8',newline='\n')as f:f.write(json.dumps(value,ensure_ascii=True,indent=2)+'\n')
+print(json.dumps({'raw':pin(raw),'gzip':pin(packed)}))

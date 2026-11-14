@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "baseline": "e61308ba847b8a9bd0193f16ba7b3e4cc898ed6e",
+  "status": "authored_preimplementation_source_correspondence_controls",
+  "qualification": "Native source correspondence controls; not independent upstream semantic observations. Full parameter/provider/resource/X03/X07/X10/S09 gates remain OPEN.",
+  "contract": [
+    "Preserve generated text, package authority and legacy diagnostic DTO exactly.",
+    "Map complete generated diagnostic intervals to the narrowest containing authored AST scope, retaining exact producer digests and all equal narrowest correspondences.",
+    "Track nested AST scopes through calls, condition rewrites, guards and specialization; erased syntax must not acquire executable locations.",
+    "Keep whole-declaration diagnostics whole; context failures stay contextual.",
+    "Exercise real compiler failures, UTF-8/CRLF, inherited exact same-URI revision, native/fresh-WASM and actual browser markers."
+  ],
+  "cases": [
+    {
+      "id": "range",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.falsecall.Language",
+          "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('z'..'a')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "uri": "memory:parameter-origins/range/entry.xtext",
+          "sha256": "a3b9d949f77aa2bf5c5adb2bbd7fa282f1d7d465a2a6fc3bb0571fcf2e9d51c6"
+        }
+      ],
+      "expected_source": "entry",
+      "expected_original_text": "('z'..'a')",
+      "message": "Invalid UTF-16 terminal character range",
+      "expected_original": {
+        "start": 257,
+        "end": 267
+      }
+    },
+    {
+      "id": "range_utf8_crlf",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.falsecall.Language",
+          "source": "// café 😀 source identity\r\ngrammar oracle.parameters.matrix.falsecall.Language hidden(WS)\r\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\r\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\r\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\r\nterminal ID: ('z'..'a')+;\r\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\r\nterminal ANY_OTHER: .;\r\n",
+          "dependencies": [],
+          "uri": "memory:parameter-origins/range_utf8_crlf/entry.xtext",
+          "sha256": "5eccb96899f5fec9019019f705175232c013211ceacd7e94b706dfd211ebf90d"
+        }
+      ],
+      "expected_source": "entry",
+      "expected_original_text": "('z'..'a')",
+      "message": "Invalid UTF-16 terminal character range",
+      "expected_original": {
+        "start": 292,
+        "end": 302
+      }
+    },
+    {
+      "id": "predicate",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.falsecall.Language",
+          "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> => b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "uri": "memory:parameter-origins/predicate/entry.xtext",
+          "sha256": "b90f27c8b3c5bc5dde4a296a2268e84f251e39d37285024264e2533184079fa3"
+        }
+      ],
+      "expected_source": "entry",
+      "expected_original_text": "b=ID",
+      "message": "Unsupported Xtext construct '='",
+      "expected_original": {
+        "start": 241,
+        "end": 245
+      }
+    },
+    {
+      "id": "parent_range_revision",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "unselected",
+          "grammar": "oracle.parameters.matrix.inheritedparameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.inheritedparameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:inherited_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "uri": "memory:parameter-origins/parent_range_revision/parent.xtext",
+          "sha256": "8c0e355aba84808253317c1765e3d0cbccddb818270ec5cbfdd786ec3f95b295"
+        },
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.inheritedparameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.inheritedparameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:inherited_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('z'..'a')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "uri": "memory:parameter-origins/parent_range_revision/parent.xtext",
+          "sha256": "0fb54b169483d9993b31644d92cbf053e489349b23d6b94cb21a7e46bb3939b6"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.inheritedparameters.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.inheritedparameters.Child with oracle.parameters.matrix.inheritedparameters.Parent\ngenerate child \"urn:intersect:parameter-matrix:inherited_parameters:child\"\nimport \"urn:intersect:parameter-matrix:inherited_parameters:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>;\n",
+          "uri": "memory:parameter-origins/parent_range_revision/child.xtext",
+          "sha256": "0016b7866e34f175b4a012ca8c8872c0708decce372768a3755fe8e2db4a2344"
+        }
+      ],
+      "expected_source": "parent",
+      "expected_original_text": "('z'..'a')",
+      "message": "Invalid UTF-16 terminal character range",
+      "expected_original": {
+        "start": 281,
+        "end": 291
+      }
+    }
+  ]
+}

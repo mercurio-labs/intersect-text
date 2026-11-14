@@ -1,0 +1,15 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="colors" nsURI="urn:colors">
+  <eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EClass" name="Holder">
+    <eTypeParameters name="T"><eBounds eClassifier="#//RGB"/></eTypeParameters>
+    <eStructuralFeatures x:type="e:EAttribute" name="color" defaultValueLiteral="#123ABC">
+      <eGenericType eTypeParameter="#//Holder/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Use">
+    <eStructuralFeatures x:type="e:EReference" name="holder">
+      <eGenericType eClassifier="#//Holder"><eTypeArguments eClassifier="#//Alias"/></eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+</e:EPackage>

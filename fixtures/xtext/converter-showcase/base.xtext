@@ -1,0 +1,82 @@
+/*****************************************************************************
+ * SysML 2 Pilot Implementation
+ * Copyright (c) 2018-2025 Model Driven Solutions, Inc.
+ * Copyright (c) 2018 IncQuery Labs Ltd.
+ * Copyright (c) 2019 Mgnite Inc.
+ *    
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the Eclipse Public License as published by
+ * the Eclipse Foundation, version 2 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * Eclipse Public License for more details.
+ *
+ * You should have received a copy of the Eclipse Public License
+ * along with this program.  If not, see <https://www.eclipse.org/legal/epl-2.0/>.
+ *
+ * @license EPL-2.0 <http://spdx.org/licenses/EPL-2.0>
+ * 
+ * Contributors:
+ *  Ed Seidewitz, MDS
+ *  Zoltan Kiss, IncQuery
+ *  Balazs Grill, IncQuery
+ *  Hisashi Miyashita, Mgnite
+ * 
+ *****************************************************************************/
+// Independently authored parser; terminal declarations below retain their pinned source.
+grammar mini.ConverterShowcaseBase hidden(WS, ML_NOTE, SL_NOTE)
+import "urn:intersect:xtext:mini-kerml:converters:1" as k
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Model returns k::Model: 'package' name=Name (documentation=REGULAR_COMMENT)? '{' members+=Member* '}';
+Member returns k::Element: Type | Feature;
+Type returns k::Element: {k::Type} 'type' Identification ';';
+Feature returns k::Element: {k::Feature} 'feature' Identification ':' target=[k::Type|QualifiedName] ';';
+fragment Identification returns k::Element: name=QualifiedName;
+QualifiedName: Name ('::' Name)*;
+Name: Spelling;
+Spelling: ID | UNRESTRICTED_NAME;
+Number: DECIMAL_VALUE | EXP_VALUE;
+
+terminal DECIMAL_VALUE returns Ecore::EInt:
+	'0'..'9' ('0'..'9')*;
+
+terminal EXP_VALUE:
+	DECIMAL_VALUE ('e' | 'E') ('+' | '-')? DECIMAL_VALUE;
+
+terminal ID:
+	('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+
+terminal UNRESTRICTED_NAME returns Ecore::EString:
+	'\'' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | '"' | "'" | '\\') | !('\\' | '\''))* '\'';
+
+terminal STRING_VALUE returns Ecore::EString:
+	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | '"' | "'" | '\\') | !('\\' | '"'))* '"';
+
+terminal REGULAR_COMMENT:
+	'/*' ->'*/';
+
+terminal ML_NOTE:
+	'//*'->'*/';
+
+terminal SL_NOTE:
+	'//' (!('\n' | '\r') !('\n' | '\r')*)? ('\r'? '\n')?;
+
+terminal WS:
+	(' ' | '\t' | '\r' | '\n')+;
+
+ConditionalOperator: 'if';
+
+enum VisibilityIndicator returns k::VisibilityKind: public='public' | private='private' | protected='protected';
+enum FilterPackageMemberVisibility returns k::VisibilityKind: private='[';
+enum FeatureDirection returns k::FeatureDirectionKind: in='in' | out='out' | inout='inout';
+
+fragment Modifiers returns k::Feature: isOrdered?='ordered' (isUnique=Nonunique)? | isUnique=Nonunique (isOrdered?='ordered')?;
+Nonunique returns Ecore::EBoolean :
+	// Note: A value converter converts the value of this keyword to "false".
+	'nonunique'
+;
+BooleanValue returns Ecore::EBoolean :
+	'true' | 'false'
+;

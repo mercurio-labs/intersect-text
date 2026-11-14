@@ -1,0 +1,4 @@
+grammar example.Settings with org.eclipse.xtext.common.Terminals
+import "urn:settings" as s
+Model returns s::Model: 'model' name=ID '{' items+=Item* '}';
+Item returns s::Item: 'item' name=ID;

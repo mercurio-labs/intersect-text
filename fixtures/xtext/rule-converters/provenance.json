@@ -1,0 +1,168 @@
+{
+  "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "sources": {
+    "grammar": {
+      "path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "sha256": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa"
+    },
+    "expressions": {
+      "path": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "sha256": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8"
+    },
+    "converter": {
+      "path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/conversion/NonuniqueValueConverter.xtend",
+      "sha256": "d5599cd7c966afd138e10917dc4312390c9de40b853cdf5f40ce7ce742ebc614"
+    },
+    "service": {
+      "path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/conversion/KerMLValueConverterService.xtend",
+      "sha256": "3b63048fdee4f470eb1ff3473f51d0794f176100e38a1eace3491ea725ff6bc8"
+    },
+    "module": {
+      "path": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerMLRuntimeModule.xtend",
+      "sha256": "dfce65e9d1ae20a1a18139383d4b690f873860b80c56d7847df463d418248749"
+    },
+    "ecore": {
+      "path": "org.omg.sysml/model/SysML.ecore",
+      "sha256": "22719934c65588180fc19658f8a7c891cb209458e4027bf90ddf005c80ddc17f"
+    }
+  },
+  "rules": [
+    {
+      "source": "grammar",
+      "name": "Nonunique",
+      "start": 15758,
+      "end": 15886,
+      "sha256": "8424035410a2a0020a4515a08448127796e1350f44d6df739ad1e080feca97df",
+      "text": "Nonunique returns Ecore::EBoolean :\r\n\t// Note: A value converter converts the value of this keyword to \"false\".\r\n\t'nonunique'\r\n;"
+    },
+    {
+      "source": "expressions",
+      "name": "BooleanValue",
+      "start": 13854,
+      "end": 13914,
+      "sha256": "1e22878eb3c9e5fcdb4fff2af7621afb24fa54e3f08f00685f48ecda4fd5b5bf",
+      "text": "BooleanValue returns Ecore::EBoolean :\r\n\t'true' | 'false'\r\n;"
+    }
+  ],
+  "feature": {
+    "namespace": "https://www.omg.org/spec/SysML/20250201",
+    "classifier_index": 58,
+    "feature_index": 12,
+    "attributes": {
+      "{http://www.w3.org/2001/XMLSchema-instance}type": "ecore:EAttribute",
+      "name": "isUnique",
+      "ordered": "false",
+      "lowerBound": "1",
+      "eType": "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+      "defaultValueLiteral": "true"
+    }
+  },
+  "mercurio": {
+    "revision": "32750d7c7799970d7d494e0e8e6e0bf1daae4689",
+    "sources": [
+      {
+        "path": "crates/mercurio-sysml/src/xtext_fragment.rs",
+        "sha256": "4baccf9df354707d97072743f27f38ba4878cdf71252213c356e9732f843d3b1"
+      },
+      {
+        "path": "crates/mercurio-sysml/src/xtext_value_dispatch_generated.rs",
+        "sha256": "fa6944a74f2f12ae3133dbd81e8364a4b263a7f32bad6da4ce6d12e698887b8f"
+      },
+      {
+        "path": "crates/mercurio-sysml/resources/metamodels/sysml-2.0-pilot-2026-08/value-converter-dispatch.extract.json",
+        "sha256": "e6fd5571b0a48065e83adefbad74b156d6982d4b26d24750f7065e341018b8c5"
+      }
+    ]
+  },
+  "cached_oracle": {
+    "source_path": "crates/mercurio-sysml/resources/metamodels/sysml-2.0-pilot-2026-08/value-converter-dispatch.extract.json",
+    "provenance": {
+      "driver_sha256": "b1602b3fb4ee0e7bf8ade29ba0b48599a573acc7e7567d535bccbf5e43bf4fc5",
+      "ecore_sha256": "7c4290959d5687e5245ee7d4c6b018ab337d950d3552402e18977252541fb8dd",
+      "grammar_sha256": "3d4796dfd30ae84bd4ebdd56f46163fa5e9d9c741b0530ebb1a9d08f9d1e0db1",
+      "helper_sha256": "4dcc158e8c855a7bad5995addedda75937ba174474f210aaa0f9c5146d6e3ca0",
+      "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+      "runtime_sha256": "4512852638fc799505fe676955e8c78fedef1f3ce44ec90b57b34c05c31e6945",
+      "source_sha256": {
+        "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerMLRuntimeModule.xtend": "6af5a7dad3636f094210ce44146ae62e0bb81e60f478cd4d09660a4b310c7b58",
+        "org.omg.kerml.xtext/src/org/omg/kerml/xtext/conversion/KerMLValueConverterService.xtend": "86c72e36de0efb3b1b7678f83a767963a430655ddf29a6dc846e8199e59be301",
+        "org.omg.kerml.xtext/src/org/omg/kerml/xtext/conversion/NonuniqueValueConverter.xtend": "15b4ae07414ccefb92a2c84767149bd1f3a9003d453c5a0003c3bef55236f5c8",
+        "org.omg.sysml.xtext/src/org/omg/sysml/xtext/SysMLRuntimeModule.xtend": "a4eeb3ea4c91d5a777f32cb2ddf9db9e022ff6702d3e476e8a7c288c138bff99"
+      }
+    },
+    "bindings": [
+      {
+        "context": "org.omg.kerml.xtext.KerML",
+        "converter": "org.eclipse.xtext.conversion.impl.EFactoryValueConverter",
+        "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "service": "org.omg.kerml.xtext.conversion.KerMLValueConverterService"
+      },
+      {
+        "context": "org.omg.kerml.xtext.KerML",
+        "converter": "org.omg.kerml.xtext.conversion.NonuniqueValueConverter",
+        "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+        "rule": "org.omg.kerml.xtext.KerML::Nonunique",
+        "service": "org.omg.kerml.xtext.conversion.KerMLValueConverterService"
+      },
+      {
+        "context": "org.omg.sysml.xtext.SysML",
+        "converter": "org.eclipse.xtext.conversion.impl.EFactoryValueConverter",
+        "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "service": "org.omg.kerml.xtext.conversion.KerMLValueConverterService"
+      },
+      {
+        "context": "org.omg.sysml.xtext.SysML",
+        "converter": "org.omg.kerml.xtext.conversion.NonuniqueValueConverter",
+        "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+        "rule": "org.omg.sysml.xtext.SysML::Nonunique",
+        "service": "org.omg.kerml.xtext.conversion.KerMLValueConverterService"
+      }
+    ],
+    "controls": [
+      {
+        "context": "org.omg.kerml.xtext.KerML",
+        "input": "nonunique",
+        "outcome": "value",
+        "rule": "org.omg.kerml.xtext.KerML::Nonunique",
+        "value": false
+      },
+      {
+        "context": "org.omg.kerml.xtext.KerML",
+        "input": "true",
+        "outcome": "value",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "value": true
+      },
+      {
+        "context": "org.omg.kerml.xtext.KerML",
+        "input": "false",
+        "outcome": "value",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "value": false
+      },
+      {
+        "context": "org.omg.sysml.xtext.SysML",
+        "input": "nonunique",
+        "outcome": "value",
+        "rule": "org.omg.sysml.xtext.SysML::Nonunique",
+        "value": false
+      },
+      {
+        "context": "org.omg.sysml.xtext.SysML",
+        "input": "true",
+        "outcome": "value",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "value": true
+      },
+      {
+        "context": "org.omg.sysml.xtext.SysML",
+        "input": "false",
+        "outcome": "value",
+        "rule": "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "value": false
+      }
+    ]
+  }
+}

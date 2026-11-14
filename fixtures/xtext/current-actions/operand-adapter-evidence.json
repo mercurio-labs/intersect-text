@@ -1,0 +1,48 @@
+{
+  "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "status": "Read-only implementation trace; no actual KerML operand execution claim",
+  "sources": [
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/delegate/setting/InvocationExpression_operand_SettingDelegate.java",
+      "sha256": "0cbea677bc0ccfc8b4e59bb9ab97c100ea9766fa7ea4a49bb07781921f825ad0",
+      "license": "EPL-2.0"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/adapter/InvocationExpressionAdapter.java",
+      "sha256": "9a284c0bb706af9768ff7bb203388516abd04bbf9cd1401c6b7ac185017bbd7a",
+      "license": "EPL-2.0"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/ExpressionUtil.java",
+      "sha256": "8803815a3359be8d2b08817a97c2ed9031edaadd670aa44369dac08bf3c43c65",
+      "license": "EPL-2.0"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/OperandEList.java",
+      "sha256": "ce453540ec316f31e4863523a1a01a89690df0a218ad9cbc840b4b280ef02807",
+      "license": "EPL-2.0"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/TypeUtil.java",
+      "sha256": "22305319e299ccf35c62c1a1054c5552d615a93e660faa4b8fa67765fae44358",
+      "license": "EPL-2.0"
+    },
+    {
+      "path": "org.omg.sysml.logic/src/main/java/org/omg/sysml/util/FeatureUtil.java",
+      "sha256": "47f9aff7295fd0eed4fcd32e5784deb5f64b13015c6b3c282f17468cebc77178",
+      "license": "EPL-2.0"
+    }
+  ],
+  "observations": [
+    "InvocationExpression_operand_SettingDelegate.basicGet delegates to ExpressionUtil.getOperandsOf and InvocationExpressionAdapter.getOperand.",
+    "InvocationExpressionAdapter documents operand as an Xtext parsing workaround outside normative abstract syntax; it returns OperandEList.",
+    "OperandEList.addUnique calls TypeUtil.addOwnedParameterTo and sets PRIVATE visibility. Its read methods expose an empty list; callers use argument for readback.",
+    "TypeUtil.addOwnedParameterTo creates a ParameterMembership via addBoundFeatureTo, creates a Feature with FeatureValue for the operand, attaches membership to ownedRelationship and sets IN direction."
+  ],
+  "shared_intersect_boundary": {
+    "path": "crates/intersect-model/src/core/storage/setting.rs",
+    "existing": "ComputedSettings applies language-owned SettingValues plans atomically, checks revision/type/budget and derives readback.",
+    "gap": "SettingEdit currently supports Set and Unset only. Actual adapter needs owned object construction and operand insertion semantics; do not erase feature flags or store a fake derived operand list."
+  },
+  "qualification": "Pinned Pilot behavior is comparative evidence. Normative semantic qualification and independent execution observations remain open."
+}

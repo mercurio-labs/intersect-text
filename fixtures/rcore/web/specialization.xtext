@@ -1,0 +1,7 @@
+grammar demo.Specialization with org.eclipse.xtext.common.Terminals
+import "urn:intersect:rcore:web-specialization" as demo
+Model returns demo::Model:
+  'model' name=ID '{' (types+=Type | specializations+=Specialization)* '}';
+Type returns demo::Type: 'type' name=ID ';';
+Specialization returns demo::Specialization:
+  'specialization' name=ID specific=[demo::Type|ID] 'to' general=[demo::Type|ID] ';';

@@ -1,0 +1,19 @@
+rcore 1;
+package `collections` version "1";
+metamodel "urn:intersect:collections" prefix `collections` {
+  datatype `LocalList` instanceClass "org.eclipse.emf.common.util.EList" nonserializable {  }
+  datatype `LocalMap` instanceClass "java.util.Map" nonserializable {  }
+  datatype `Count` instanceClass "int" {  }
+  enum `Mode` {
+    `First` = 7;
+    `Alias` = 7;
+  }
+  class `Catalog` {
+    attr `name`: EString [0,1];
+    attr `list`: external "http://www.eclipse.org/emf/2002/Ecore#//EEList" [0,1];
+    attr `map`: external "http://www.eclipse.org/emf/2002/Ecore#//EMap" [0,1];
+    attr `localList`: external "#//@eClassifiers.2" [0,1];
+    attr `localMap`: external "#//@eClassifiers.3" [0,1];
+    op `echo`(`value`: external "http://www.eclipse.org/emf/2002/Ecore#//EMap" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//EEList" [0,1];
+  }
+}

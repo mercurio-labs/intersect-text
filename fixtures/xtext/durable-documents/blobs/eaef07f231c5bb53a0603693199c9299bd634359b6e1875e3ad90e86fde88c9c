@@ -1,0 +1,47 @@
+from pathlib import Path
+import json,hashlib,zipfile,os
+N=Path(__file__).resolve().parent;O=N/'portable-v65-evidence-v1';R=Path('C:/Users/MarkPetrotta/.codex/worktrees/rcore-xtext-support/intersect');M=Path('C:/Users/MarkPetrotta/.m2/repository')
+def pin(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+origins={}
+for name in ['origins.json','origins-addendum-v1.json']:origins.update(json.loads((O/name).read_text(encoding='utf-8')))
+extra={}
+def disk(p):
+    return Path('\\\\?\\'+str(p.resolve()))if os.name=='nt'else p
+def add(b,name,role):
+    assert name not in origins and name not in extra
+    q=pin(b);dest=O/'blobs'/q['sha256']
+    if not dest.exists():dest.open('xb').write(b)
+    else:assert dest.read_bytes()==b
+    extra[name]={**q,'blob':'blobs/'+q['sha256'],'role':role}
+for root in ['pd65r','pd65p','pdn65r','pdn65p','prgb65r','prgb65p']:
+    for p in sorted((N.parent/root).rglob('*')):
+        if p.is_file():
+            assert p.suffix!='.jar';add(p.read_bytes(),'generated/'+root+'/'+p.relative_to(N.parent/root).as_posix(),'unchanged-original-source-generation-and-failures')
+for root in ['no-document-offset-native-attempt1','no-document-offset-wasm-attempt1','original2147-no-document-offset-attempt1']:
+    for p in sorted((N/root).rglob('*')):
+        if p.is_file()and p.suffix not in ['.exe','.wasm']:
+            add(p.read_bytes(),'final-proof/'+root+'/'+p.relative_to(N/root).as_posix(),'complete-latest-source-qualified-proof')
+# Bind the actual committed corpus NAME, not the historical candidate directory.
+base='fixtures/xtext/rule-hidden-scope'
+manifest=disk(R/base/'extraction-manifest.json').read_bytes()
+bindings=json.loads((N/'node-observer-review-packet-v1/generated-root-bindings.json').read_text(encoding='utf-8'))
+assert all(pin(manifest)==x['portable_corpus_extraction_manifest']for x in bindings)
+add(manifest,'dependency/'+base+'/extraction-manifest.json','existing-committed-generation-corpus')
+dependencies=[]
+for x in bindings:
+    path=base+'/'+x['immutable_portable_manifest_path'];b=disk(R/path).read_bytes();assert pin(b)==x['original_artifact_manifest']
+    add(b,'dependency/'+path,'existing-committed-original-generated-root-manifest')
+    dependencies.append({'repository_path':path,**pin(b)})
+extra_notices=[]
+for jar in json.loads((N.parent/'pncl65r/toolchain.json').read_text(encoding='utf-8'))['jars']:
+    p=M/jar['path'];b=p.read_bytes();assert pin(b)['sha256']==jar['sha256']
+    with zipfile.ZipFile(p)as z:
+        for name in sorted(z.namelist()):
+            low=name.lower();logical='upstream-notices/'+jar['sha256']+'/'+name
+            if not name.endswith('/')and logical not in origins and any(x in low for x in ['epl-','epl_','apache-','mpl-','bsd-license','copyright']):
+                data=z.read(name);add(data,logical,'exact-additional-upstream-license-text')
+                extra_notices.append({'artifact':jar['path'],'jar_sha256':jar['sha256'],'entry':name,'origin':logical,**pin(data)})
+add(Path(__file__).read_bytes(),'producer-original/complete-portable-v65-evidence-inputs-v1.py','verification-extractor')
+for name,value in [('origins-addendum-v2.json',extra),('existing-corpus-dependencies.json',{'repository_corpus':base,'manifest':pin(manifest),'root_manifests':dependencies,'historical_plan_path_correction':'Earlier private plan called this fixtures/xtext/hidden-scope; actual committed name is rule-hidden-scope. Original plan unchanged; this exact pinned path addendum is authoritative.','comparison_exceptions':[]}),('additional-upstream-license-notices.json',extra_notices)]:
+    with(O/name).open('x',encoding='utf-8',newline='\n')as f:f.write(json.dumps(value,ensure_ascii=True,indent=2)+'\n')
+print(json.dumps({'origins':len(extra),'dependencies':len(dependencies),'extra_license_entries':len(extra_notices),'pin':pin((O/'origins-addendum-v2.json').read_bytes())}))

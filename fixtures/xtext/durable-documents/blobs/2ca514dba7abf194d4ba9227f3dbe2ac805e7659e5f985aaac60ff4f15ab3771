@@ -1,0 +1,68 @@
+"""Verification-only node addendum over exact independently generated source graphs.
+
+Uses the fresh record/replay generations made by the immutable portable V64
+producer. It never changes their source, class, command or observation files.
+"""
+from pathlib import Path
+import argparse,base64,hashlib,json,os,subprocess
+HERE=Path(__file__).resolve().parent;T=HERE.parent
+def disk(p):p=Path(p).resolve();return Path('\\\\?\\'+str(p))if os.name=='nt' and not str(p).startswith('\\\\?\\')else p
+def raw(p):return disk(p).read_bytes()
+def pin(p):b=raw(p);return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def read(p):return json.loads(raw(p).decode('utf-8'))
+def save(p,v):disk(p).write_text(json.dumps(v,indent=2,ensure_ascii=True)+'\n',encoding='utf-8',newline='\n')
+SOURCE_ROOTS={'namespace17':('hsv4r','hsv4p'),'discriminator2':('hsv6r','hsv6p'),'reference2':('hsv8r','hsv8p'),'suffix1':('hsv9r','hsv9p')}
+SELECTED={'namespace17':['namespace_nested_restore','namespace_significant_comment_datatype','namespace_inherited_terminal_override'],'discriminator2':['fragment_internal_significance','reachable_named_prediction_entry'],'reference2':['reference_adds_scope','reference_empty_scope'],'suffix1':['caller_suffix']}
+def main():
+ a=argparse.ArgumentParser();a.add_argument('--generations',required=True,type=Path);a.add_argument('--output',required=True,type=Path);a.add_argument('--jdk',required=True,type=Path);a.add_argument('--maven-cache',required=True,type=Path);args=a.parse_args();out=args.output.resolve();out.mkdir(exist_ok=False)
+ root=args.generations.resolve();completion=read(T/'hidden-scope-candidate-v63joined-v1/portable-hidden-scope-v2/extraction-manifest.json');assert len(completion['cohorts'])==7
+ source=HERE/'helper-addendum-v1/NodeSnapshotRuntime.java';helper_freeze=read(HERE/'helper-addendum-v1/preexecution.json');assert pin(source)==helper_freeze['helper']
+ portable=T/'hidden-scope-candidate-v63joined-v1/portable-hidden-scope-v2';stack=read(portable/'oracle-producer/original/helper-references-v1/inputs/stack.json');jars=[]
+ for entry in stack['jars']:
+  p=args.maven_cache.resolve()/entry['path'];assert pin(p)['sha256']==entry['sha256'];jars.append(str(p))
+ suffix='.exe'if os.name=='nt'else'';java=args.jdk.resolve()/'bin'/('java'+suffix);javac=args.jdk.resolve()/'bin'/('javac'+suffix)
+ plan=[]
+ for run in ['record','replay']:
+  reference=root/SOURCE_ROOTS['reference2'][0 if run=='record'else 1]/'adapter'
+  for cohort,ids in SELECTED.items():
+   generated=root/SOURCE_ROOTS[cohort][0 if run=='record'else 1];artifacts=read(generated/'artifacts-sha256.json');actual={p.relative_to(disk(generated)).as_posix()for p in disk(generated).rglob('*')if p.is_file()}-{'artifacts-sha256.json'};assert actual==set(artifacts)
+   for name,h in artifacts.items():assert pin(generated/name)['sha256']==h,name
+   old_rows=read(generated/'observations.json');commands=read(generated/'commands.json')
+   for c in old_rows:
+    if c['id']not in ids:continue
+    assert c['generation']['exit_code']==c['compilation']['exit_code']==0,c['id']
+    selected=[]
+    for command in commands:
+     cmd=command['command'];runtime=next((i for i,arg in enumerate(cmd)if arg in ['intersect.oracle.HiddenScopeRuntime','intersect.oracle.ReferenceScopeRuntime']),None)
+     if runtime is None or cmd[runtime+2]!=c['entry']:continue
+     selected.append(command)
+    expected=[*c['runtime'],*c['named_runtime']];assert len(selected)==len(expected),(c['id'],len(selected),len(expected))
+    for cmd,old in zip(selected,expected):
+     parts=cmd['command'];i=next(i for i,p in enumerate(parts)if p in ['intersect.oracle.HiddenScopeRuntime','intersect.oracle.ReferenceScopeRuntime']);assert base64.b64decode(parts[i+3]).decode('utf-8')==old['text'];assert parts[i+4]==old.get('entry','')
+    plan.append({'run':run,'cohort':cohort,'case':c['id'],'reference_adapter':str(reference),'generation':str(generated),'artifact_manifest':pin(generated/'artifacts-sha256.json'),'source_pins':c['source_pins'],'old_rows':expected,'original_runtime_commands':selected})
+ save(out/'preexecution.json',{'state':'before javac or runtime invocation','producer':pin(__file__),'helper':pin(source),'helper_addendum':pin(HERE/'helper-addendum-v1/preexecution.json'),'original_qualified_generation_corpus':pin(portable/'extraction-manifest.json'),'generation_root_bindings':SOURCE_ROOTS,'failed_optional_regeneration':'hsp1 terminalFAIL retained; this independent helper uses pinned original separately generated record/replay artifacts','java':pin(java),'javac':pin(javac),'jars':stack['jars'],'plan':plan,'exception_policy':'No additional URI normalization; raw grammar element/source URIs must match independent replay','stage_scope':'new helper observation over original pinned separately generated record/replay artifacts; no source or generation repair; not an hsp1 full-regeneration PASS'})
+ commands=[];rows=[]
+ def run(command,timeout=30):
+  n=len(commands)+1
+  try:p=subprocess.run(command,capture_output=True,timeout=timeout)
+  except subprocess.TimeoutExpired as error:p=subprocess.CompletedProcess(command,124,error.stdout or b'',error.stderr or b'')
+  stdout=out/(str(n).zfill(4)+'.stdout.log');stderr=out/(str(n).zfill(4)+'.stderr.log');stdout.write_bytes(p.stdout);stderr.write_bytes(p.stderr)
+  commands.append({'command':command,'exit_code':p.returncode,'timeout_seconds':timeout,'stdout':pin(stdout),'stderr':pin(stderr),'raw_stdout_file':stdout.name,'raw_stderr_file':stderr.name});save(out/'commands.json',commands)
+  # Store bytes before any strict decoding, including nonzero exits/timeouts.
+  return p.returncode,p.stdout.decode('utf-8',errors='strict'),p.stderr.decode('utf-8',errors='strict')
+ try:
+  adapters={}
+  for label in ['record','replay']:
+   dest=out/('node-adapter-'+label);dest.mkdir();reference=root/SOURCE_ROOTS['reference2'][0 if label=='record'else 1]/'adapter';cp=os.pathsep.join([str(reference),*jars]);arguments=['-encoding','UTF-8','--release','17','-cp',cp,'-d',str(dest),str(source)];argfile=out/('javac-'+label+'.args');argfile.write_text('\n'.join('"'+s.replace('\\','/').replace('"','\\"')+'"'for s in arguments)+'\n',encoding='utf-8',newline='\n');code,stdout,stderr=run([str(javac),'@'+str(argfile)]);assert code==0,(label,code,stderr);adapters[label]=dest
+  for item in plan:
+   for original,expected in zip(item['original_runtime_commands'],item['old_rows']):
+    cmd=list(original['command']);cmd[0]=str(java);i=next(i for i,p in enumerate(cmd)if p in ['intersect.oracle.HiddenScopeRuntime','intersect.oracle.ReferenceScopeRuntime']);cmd[i]='intersect.oracle.NodeSnapshotRuntime';cp=cmd.index('-cp')+1;cmd[cp]=os.pathsep.join([str(adapters[item['run']]),item['reference_adapter'],cmd[cp]])
+    code,stdout,stderr=run(cmd,15);values=[json.loads(line)for line in stdout.splitlines()if line.startswith('{')];observation=values[0]if len(values)==1 else None
+    row={'run':item['run'],'cohort':item['cohort'],'case':item['case'],'text':expected['text'],'entry':expected.get('entry',''),'exit_code':code,'timeout_seconds':15 if code==124 else None,'observation':observation};rows.append(row);save(out/'observations.json',rows)
+    assert code==expected['exit_code'] and observation is not None,(item['case'],code,stderr)
+    projection={k:v for k,v in observation.items()if k not in ['resource_node_snapshot','parser_node_snapshot'] and (k in expected['observation']or k not in ['references_before_resolution','references_after_resolution'])};assert projection==expected['observation'],(item['case'],row['entry'],'original complete runtime fields differ')
+  record=[{k:v for k,v in row.items()if k!='run'}for row in rows if row['run']=='record'];replay=[{k:v for k,v in row.items()if k!='run'}for row in rows if row['run']=='replay'];assert record==replay,'Raw full node observations differ; no new normalization allowed'
+  save(out/'receipt.json',{'state':'complete new node helper over original independently generated record/replay artifacts exact and all old fields equal','graphs_per_run':8,'observations_per_run':len(record),'fresh_JVM_runtime_invocations':len(rows),'preexecution':pin(out/'preexecution.json'),'observations':pin(out/'observations.json'),'commands':pin(out/'commands.json'),'node_helper_only':True,'original_source_generation_and_workflow':'unchanged separately generated original record/replay; all artifact hashes checked before execution','gate_closures':[]});print(json.dumps({'receipt':str(out/'receipt.json'),**pin(out/'receipt.json')}))
+ except BaseException as error:
+  save(out/'failure.json',{'state':'failed new helper attempt preserved; no source/old helper repair','class':type(error).__name__,'message':str(error),'observations':len(rows),'commands':len(commands),'preexecution':pin(out/'preexecution.json')});raise
+if __name__=='__main__':main()

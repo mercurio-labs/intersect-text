@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "qualification": "Native unified authored Rcore behavior selection companion. Original four source graphs unchanged; no JVM or full provider-project qualification.",
+  "inference": {
+    "version": 1,
+    "bundle": {
+      "version": 1,
+      "sources": [
+        {
+          "id": {
+            "uri": "memory:provider-selection/unified.rcore",
+            "sha256": "79d67287d8ccd1af90dc96ad5f56e3a9f7c48b2ec29789e777fd106d9bd71763"
+          },
+          "kind": "rcore",
+          "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n\nbehavior {\nimport model \"urn:inferred:settings\" as p; projection p.Item.computed from backing writable;\n}\n",
+          "dependencies": []
+        },
+        {
+          "id": {
+            "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+            "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+          },
+          "kind": "xtext",
+          "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [
+            {
+              "uri": "memory:provider-selection/unified.rcore",
+              "sha256": "79d67287d8ccd1af90dc96ad5f56e3a9f7c48b2ec29789e777fd106d9bd71763"
+            }
+          ]
+        }
+      ],
+      "namespaces": [
+        {
+          "namespace": "urn:inferred:settings",
+          "source": {
+            "uri": "memory:provider-selection/unified.rcore",
+            "sha256": "79d67287d8ccd1af90dc96ad5f56e3a9f7c48b2ec29789e777fd106d9bd71763"
+          }
+        }
+      ]
+    },
+    "grammar": {
+      "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+      "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+    }
+  },
+  "provider_selection": {
+    "version": 1,
+    "behavior": {
+      "uri": "memory:provider-selection/unified.rcore",
+      "sha256": "79d67287d8ccd1af90dc96ad5f56e3a9f7c48b2ec29789e777fd106d9bd71763"
+    },
+    "computed_settings": [
+      {
+        "source": {
+          "uri": "memory:provider-selection/unified.rcore",
+          "sha256": "79d67287d8ccd1af90dc96ad5f56e3a9f7c48b2ec29789e777fd106d9bd71763"
+        },
+        "namespace": "urn:inferred:settings",
+        "class": "Item",
+        "feature": "computed",
+        "provider": {
+          "name": "rcore.projection",
+          "version": "1"
+        },
+        "operations": [
+          "set",
+          "unset"
+        ]
+      }
+    ]
+  },
+  "model_text": "alpha"
+}

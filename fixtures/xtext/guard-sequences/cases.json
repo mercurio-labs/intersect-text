@@ -1,0 +1,2498 @@
+{
+  "version": 1,
+  "ordinary": [
+    {
+      "id": "mandatory_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.mandatoryfalse.Language",
+          "source": "grammar oracle.guards.mandatoryfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<false> child=Node<false>) 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "fa5a0a311c3eaf2c93b4414162ad1bc79e2646df97fd37884e1e5dd65eccc71e",
+          "uri": "memory:/ordinary-parameters/mandatory_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent mandatory-guard sequence boundary; no native implementation participation",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/mandatory_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "mandatory_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.mandatorytrue.Language",
+          "source": "grammar oracle.guards.mandatorytrue.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<true> child=Node<false>) 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "87ca1d1d6cc5bf352cbc9f1697ebb772969689eba05e19354473a0746711aaf9",
+          "uri": "memory:/ordinary-parameters/mandatory_true/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent mandatory-guard sequence boundary; no native implementation participation",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/mandatory_true/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "optional_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.optionalfalse.Language",
+          "source": "grammar oracle.guards.optionalfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<false> child=Node<false>)? 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "e1ba0851ca45153445f5f203eac1f5c42e96e45e2eb5b6933a0d44d1a212aed3",
+          "uri": "memory:/ordinary-parameters/optional_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/optional_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "star_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.starfalse.Language",
+          "source": "grammar oracle.guards.starfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<false> child=Node<false>)* 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "7c087f0aee95ba476aeb81e9765d053670b246e16ffd6d11996d283d693b8219",
+          "uri": "memory:/ordinary-parameters/star_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/star_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "plus_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.plusfalse.Language",
+          "source": "grammar oracle.guards.plusfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<false> child=Node<false>)+ 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "5d0417d73f8f733f70db86bbc91765c4513a454236bef744d2c9bada4535c525",
+          "uri": "memory:/ordinary-parameters/plus_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/plus_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "nested_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.nestedfalse.Language",
+          "source": "grammar oracle.guards.nestedfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' ((<false> child=Node<false>)) 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "f751585fe03aa06a02142844bb36eeceb096a3a69e880c310772ce2bfa40884b",
+          "uri": "memory:/ordinary-parameters/nested_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/nested_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "alternatives_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.alternativesfalse.Language",
+          "source": "grammar oracle.guards.alternativesfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' ((<false> child=Node<false>) | 'skip') 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "06f07880d33a5a0a4a2e6027a102b16c6491587c06ea2db7a97facc64357fee9",
+          "uri": "memory:/ordinary-parameters/alternatives_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/alternatives_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "all_false_nested",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.allfalsenested.Language",
+          "source": "grammar oracle.guards.allfalsenested.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' ((<false> child=Node<false>) | (<false> child=Node<true>)) 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "bc5af5a454040fad652daa7b17516b9b908f280275546713e0c404837408a70a",
+          "uri": "memory:/ordinary-parameters/all_false_nested/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/all_false_nested/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "parameter_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.parameterfalse.Language",
+          "source": "grammar oracle.guards.parameterfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' child=Wrapper<false> 'post'; Wrapper<Flag> returns model::Node: {model::Node} (<Flag> a=ID) b=ID; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "059907037a347f0baa782452bebd6e396229f461851c198efd7c33bb05881180",
+          "uri": "memory:/ordinary-parameters/parameter_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/parameter_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "parameter_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.parametertrue.Language",
+          "source": "grammar oracle.guards.parametertrue.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' child=Wrapper<true> 'post'; Wrapper<Flag> returns model::Node: {model::Node} (<Flag> a=ID) b=ID; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "488878b3dfccafe9e9a20f36ac1ab86f63f0045f97a8e0be89856a1efb1d0187",
+          "uri": "memory:/ordinary-parameters/parameter_true/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/parameter_true/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "fragment_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.fragmentfalse.Language",
+          "source": "grammar oracle.guards.fragmentfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' child=Node<false> 'post'; fragment Fields<Flag> returns model::Node: (<Flag> a=ID) b=ID; Node<Flag> returns model::Node: {model::Node} 'left' Fields<Flag>;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "f3fdeedf257e1b580781b524338f081db2beb7d72b4319bf46e0db67f957fecb",
+          "uri": "memory:/ordinary-parameters/fragment_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/fragment_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "dead_arity_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.deadarityfalse.Language",
+          "source": "grammar oracle.guards.deadarityfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (<false> child=Node<true,false>) 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "2af81883a56c1147da50916d67e71d6c3ecf52793d25c5a756693b9dcfe8c402",
+          "uri": "memory:/ordinary-parameters/dead_arity_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "New independent guarded-sequence context, before native correction; exact original false_call provider",
+      "author_expected_metadata_acceptance": false,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/dead_arity_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "root_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.rootfalse.Language",
+          "source": "grammar oracle.guards.rootfalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: <false> {model::Model} 'word'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "2a419da4751056c3d52732db1ac31c523b7c9a813605c16f5197fb62400ce46f",
+          "uri": "memory:/ordinary-parameters/root_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "Additional preimplementation root/empty-compound boundary; requests remain pending until independently executed",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/root_false/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "empty_sequence",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.emptysequence.Language",
+          "source": "grammar oracle.guards.emptysequence.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: (<false> {model::Model} 'a') (<false> {model::Model} 'b'); Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "e9241d679f5b7a67104540004080cddb9e5453b53db10e18971900320f102c11",
+          "uri": "memory:/ordinary-parameters/empty_sequence/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "Additional preimplementation root/empty-compound boundary; requests remain pending until independently executed",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/empty_sequence/Language.ecore"
+        }
+      ]
+    },
+    {
+      "id": "nested_choice_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.nestedchoicefalse.Language",
+          "source": "grammar oracle.guards.nestedchoicefalse.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:false_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: {model::Model} 'pre' (((<false> child=Node<false>)) | 'skip') 'post'; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "97aa13bd99ba06c171e43a73c228af38b61748f4949a17bbc0466ac1571e515c",
+          "uri": "memory:/ordinary-parameters/nested_choice_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "word"
+        },
+        {
+          "entry": "resource",
+          "text": "a"
+        },
+        {
+          "entry": "resource",
+          "text": "b"
+        },
+        {
+          "entry": "resource",
+          "text": "a b"
+        },
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "false_call",
+      "classification": "Additional preimplementation root/empty-compound boundary; requests remain pending until independently executed",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "false_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.falsecall.Language",
+              "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:false_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:false_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "e0b601fa52397af194ecfbf6b1bf5d8236cdbf1950898b62a851e85143f30962",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/nested_choice_false/Language.ecore"
+        }
+      ]
+    }
+  ],
+  "inferred": [
+    {
+      "id": "inferred_mandatory_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.inferredmandatoryfalse.Language",
+          "source": "grammar oracle.guards.inferredmandatoryfalse.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Model} 'pre' (<false> child=Node<false>) 'post'; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "3cc68412e3d9cdf38d5126247b20c855d525f98ca4a6253c63d0958bbf9dc672"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "classification": "New independent inferred guarded-sequence counterpart before native correction"
+    },
+    {
+      "id": "inferred_mandatory_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.inferredmandatorytrue.Language",
+          "source": "grammar oracle.guards.inferredmandatorytrue.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Model} 'pre' (<true> child=Node<false>) 'post'; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "5db3aa15037e9df8d5cd58c91d061cb35dcd28532ec3179ba33685ac6184a335"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "classification": "New independent inferred guarded-sequence counterpart before native correction"
+    },
+    {
+      "id": "inferred_parameter_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.inferredparameterfalse.Language",
+          "source": "grammar oracle.guards.inferredparameterfalse.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Model} 'pre' child=Wrapper<false> 'post'; Wrapper<Flag> returns Node: {Node} (<Flag> a=ID) b=ID; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "5a56c8868551b9bf00ad1e78e71e82a4eb9fae23afe4cede59f506cfc4a71d9f"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "classification": "New independent inferred guarded-sequence counterpart before native correction"
+    },
+    {
+      "id": "inferred_parameter_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.guards.inferredparametertrue.Language",
+          "source": "grammar oracle.guards.inferredparametertrue.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Model} 'pre' child=Wrapper<true> 'post'; Wrapper<Flag> returns Node: {Node} (<Flag> a=ID) b=ID; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "e9259fa288fbe7b85c82832e210ab0edaaed125a30b62d8b5b1fd544a35a2b04"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "pre post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre alpha beta post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre skip post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre left alpha post"
+        },
+        {
+          "entry": "resource",
+          "text": "pre"
+        },
+        {
+          "entry": "resource",
+          "text": "post"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        },
+        {
+          "entry": "resource",
+          "text": "pre post tail"
+        }
+      ],
+      "classification": "New independent inferred guarded-sequence counterpart before native correction"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+rcore 1;
+package `library` version "1";
+metamodel "urn:intersect:example:library:1" prefix `lib` {
+  abstract class `Named` {
+    attr `name`: String [1,1];
+  }
+  class `Library` extends `Named` {
+    ref `copies`: `BookCopy` [0,*] containment opposite `BookCopy`.`library`;
+    ref `members`: `Member` [0,*] containment;
+    ref `loans`: `Loan` [0,*] containment;
+    attr `copyCount`: Int32 [0,1] derived;
+  }
+  class `BookCopy` extends `Named` {
+    attr `title`: String [0,1];
+    attr `edition`: Int32 [0,1] default "1";
+    ref `library`: `Library` [0,1] opposite `Library`.`copies`;
+    attr `available`: Bool [0,1] derived;
+  }
+  class `Member` extends `Named` {
+  }
+  class `Loan` extends `Named` {
+    ref `copy`: `BookCopy` [1,1];
+    ref `member`: `Member` [1,1];
+  }
+}

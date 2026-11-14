@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "namespaces": [
+    {
+      "namespace": "urn:a:inner",
+      "source": {
+        "uri": "file:///models/a.ecore",
+        "sha256": "7e008ff579c4b987424e37225a94c3c4bdd0675c41009fe54f93244ac57d752a"
+      }
+    },
+    {
+      "namespace": "urn:b",
+      "source": {
+        "uri": "file:///models/other.ecore",
+        "sha256": "00cbd1262074c8acd0410e00f47de537ff4965dcf8950a3500a12cd0285fba22"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": {
+        "uri": "file:///models/other.ecore",
+        "sha256": "00cbd1262074c8acd0410e00f47de537ff4965dcf8950a3500a12cd0285fba22"
+      },
+      "kind": "ecore",
+      "text": "<e:EPackage xmlns:e=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:x=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"b\" nsURI=\"urn:b\"><eClassifiers x:type=\"e:EClass\" name=\"Node\"><eStructuralFeatures x:type=\"e:EReference\" name=\"nested\" eType=\"a.ecore#innerNode\"/></eClassifiers></e:EPackage>",
+      "dependencies": [
+        {
+          "uri": "file:///models/a.ecore",
+          "sha256": "7e008ff579c4b987424e37225a94c3c4bdd0675c41009fe54f93244ac57d752a"
+        }
+      ]
+    },
+    {
+      "id": {
+        "uri": "file:///models/a.ecore",
+        "sha256": "7e008ff579c4b987424e37225a94c3c4bdd0675c41009fe54f93244ac57d752a"
+      },
+      "kind": "ecore",
+      "text": "<xmi:XMI xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:e=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:x=\"http://www.w3.org/2001/XMLSchema-instance\"><e:EPackage name=\"a\" nsURI=\"urn:a\" xmi:id=\"aPkg\"><eSubpackages name=\"inner\" nsURI=\"urn:a:inner\" xmi:id=\"innerPkg\"><eClassifiers x:type=\"e:EClass\" name=\"Node\" xmi:id=\"innerNode\"/></eSubpackages><eClassifiers x:type=\"e:EClass\" name=\"Node\" xmi:id=\"outerNode\" eSuperTypes=\"other.ecore#//Node\"/><f:opaque xmlns:f=\"urn:foreign\" xmi:id=\"foreign\"><f:nested/></f:opaque></e:EPackage><e:EPackage name=\"peer\" nsURI=\"urn:a:peer\" xmi:id=\"peerPkg\"><eClassifiers x:type=\"e:EClass\" name=\"Node\"/></e:EPackage></xmi:XMI>",
+      "dependencies": [
+        {
+          "uri": "file:///models/other.ecore",
+          "sha256": "00cbd1262074c8acd0410e00f47de537ff4965dcf8950a3500a12cd0285fba22"
+        }
+      ]
+    }
+  ]
+}

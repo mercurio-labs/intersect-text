@@ -1,0 +1,45 @@
+{
+  "schema": "intersect.xtext.native-prediction-replay.v1",
+  "implementation_revision": "55f7285ef5b5567be20978e0b9cca6236d6892a1",
+  "profile": "intersect.xtext.native.v52",
+  "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "program": {
+    "path": "crates/intersect-model/assets/fixtures/xtext/connector-prediction/program.json",
+    "sha256": "c1206e3c6817f35a891dfa1f19c3ab5f26e436baebdcd79a7f63fb8cc0d87aab",
+    "bytes": 183196,
+    "states": 1710,
+    "rules": 273,
+    "decisions": 298,
+    "first_guards": 2
+  },
+  "decision": "rule/Connector/s2/s0/choice",
+  "entries": [768, 774],
+  "source_span": {
+    "uri": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+    "start": 21912,
+    "end": 22061
+  },
+  "source_digests": {
+    "org.omg.sysml/model/SysML.ecore": "22719934c65588180fc19658f8a7c891cb209458e4027bf90ddf005c80ddc17f",
+    "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8",
+    "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa"
+  },
+  "generation": "Serialize the shared native ParserPrediction immediately after the original relative proof fails; temporary trace output only, no analysis or source-limit change.",
+  "trace_source_sha256": {
+    "crates/intersect-model/src/definitions/grammar.rs": "73e11e6f29964e76b2cfb623441c4dc56e59f353fac600cea4955450b79491de",
+    "crates/intersect-model/src/definitions/grammar/parser_prediction/disjoint.rs": "c5f87d54e5b02eb7ecb1d772b7ae4d59b572ec21a9dcc13a75518d350db7e272"
+  },
+  "proof_work_limit": 10000,
+  "proof_call_depth_limit": 64,
+  "expected_error": "Grammar prediction budget exceeded",
+  "failure": {
+    "closure_state": 221,
+    "call_frames": 14,
+    "completed_exact_closures": 314,
+    "completed_relative_templates": 106,
+    "remaining_work": 0
+  },
+  "native_extraction": true,
+  "executable_support_awarded": false,
+  "domain_semantics_verified": false
+}

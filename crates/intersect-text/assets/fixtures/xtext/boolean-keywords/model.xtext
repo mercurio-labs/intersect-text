@@ -1,0 +1,4 @@
+grammar mini.BooleanKeywords with org.eclipse.xtext.common.Terminals
+import "urn:intersect:xtext:mini-kerml:boolean:1" as k
+Model returns k::Model: 'package' name=ID '{' types+=Type* '}';
+Type returns k::Type: isAbstract?='abstract'? 'type' name=ID isStandard?='standard'? ';';

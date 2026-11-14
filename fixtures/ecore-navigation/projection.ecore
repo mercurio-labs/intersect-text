@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="navigation" nsURI="urn:intersect:navigation" nsPrefix="nav">
+  <eClassifiers xsi:type="ecore:EClass" name="Base">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="seed"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1" eType="#//Base"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="computed" derived="true" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Left" eSuperTypes="#//Base"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Right" eSuperTypes="#//Base"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Diamond" eSuperTypes="#//Left #//Right"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Other">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

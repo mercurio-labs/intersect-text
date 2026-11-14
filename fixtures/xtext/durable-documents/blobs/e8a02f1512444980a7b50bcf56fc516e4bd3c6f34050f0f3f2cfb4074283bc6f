@@ -1,0 +1,313 @@
+Exception in thread "main" com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) [Guice/MissingImplementation]: No implementation for IValueConverterService was bound.
+
+Requested by:
+1  : NodeModelStreamer.valueConverter(NodeModelStreamer.java:38)
+      \_ for field valueConverter
+     at INodeModelStreamer.class(INodeModelStreamer.java:1)
+     at DefaultNodeModelFormatter.nodeModelStreamer(DefaultNodeModelFormatter.java:35)
+      \_ for field nodeModelStreamer
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+2  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at CrossReferenceSerializer.diagnostics(CrossReferenceSerializer.java:41)
+      \_ for field diagnostics
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+3  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at EnumLiteralSerializer.diagnosticProvider(EnumLiteralSerializer.java:29)
+      \_ for field diagnosticProvider
+     at IEnumLiteralSerializer.class(IEnumLiteralSerializer.java:1)
+     at AssignmentFinder.enumLiteralSerializer(AssignmentFinder.java:46)
+      \_ for field enumLiteralSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+4  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at CrossReferenceSerializer.diagnostics(CrossReferenceSerializer.java:41)
+      \_ for field diagnostics
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at SequenceFeeder$Provider.crossRefSerializer(SequenceFeeder.java:47)
+      \_ for field crossRefSerializer
+     at AbstractSemanticSequencer.feederProvider(AbstractSemanticSequencer.java:26)
+      \_ for field feederProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+5  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at CrossReferenceSerializer.diagnostics(CrossReferenceSerializer.java:41)
+      \_ for field diagnostics
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at Serializer.contextFinder(Serializer.java:57)
+      \_ for field contextFinder
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+6  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at EnumLiteralSerializer.diagnosticProvider(EnumLiteralSerializer.java:29)
+      \_ for field diagnosticProvider
+     at IEnumLiteralSerializer.class(IEnumLiteralSerializer.java:1)
+     at AssignmentFinder.enumLiteralSerializer(AssignmentFinder.java:46)
+      \_ for field enumLiteralSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at Serializer.contextFinder(Serializer.java:57)
+      \_ for field contextFinder
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+7  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at DefaultLinkingService.linkingHelper(DefaultLinkingService.java:37)
+      \_ for field linkingHelper
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+8  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at LazyLinkingResource.linkingHelper(LazyLinkingResource.java:476)
+      \_ for field linkingHelper
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+9  : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at CrossReferenceSerializer.diagnostics(CrossReferenceSerializer.java:41)
+      \_ for field diagnostics
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at DefaultRuntimeModule.configureGenericSemanticSequencer(DefaultRuntimeModule.java:241)
+10 : LinkingHelper.valueConverter(LinkingHelper.java:33)
+      \_ for field valueConverter
+     at TokenDiagnosticProvider.linkingHelper(TokenDiagnosticProvider.java:32)
+      \_ for field linkingHelper
+     at ITokenDiagnosticProvider.class(ITokenDiagnosticProvider.java:1)
+     at EnumLiteralSerializer.diagnosticProvider(EnumLiteralSerializer.java:29)
+      \_ for field diagnosticProvider
+     at IEnumLiteralSerializer.class(IEnumLiteralSerializer.java:1)
+     at AssignmentFinder.enumLiteralSerializer(AssignmentFinder.java:46)
+      \_ for field enumLiteralSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at DefaultRuntimeModule.configureGenericSemanticSequencer(DefaultRuntimeModule.java:241)
+11 : DefaultEcoreElementFactory.converterService(DefaultEcoreElementFactory.java:46)
+      \_ for field converterService
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+12 : impl.ValueSerializer.converter(ValueSerializer.java:27)
+      \_ for field converter
+     at ITokenSerializer$IValueSerializer.class(ITokenSerializer.java:1)
+     at AssignmentQuantityAllocator.valueSerializer(AssignmentQuantityAllocator.java:43)
+      \_ for field valueSerializer
+     at IAssignmentQuantityAllocator.class(IAssignmentQuantityAllocator.java:1)
+     at ConcreteSyntaxDiagnosticProvider.quantityAllocator(ConcreteSyntaxDiagnosticProvider.java:43)
+      \_ for field quantityAllocator
+     at IConcreteSyntaxDiagnosticProvider.class(IConcreteSyntaxDiagnosticProvider.java:1)
+     at ConcreteSyntaxValidator.diagnosticProvider(ConcreteSyntaxValidator.java:45)
+      \_ for field diagnosticProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+13 : CrossReferenceSerializer.valueConverter(CrossReferenceSerializer.java:41)
+      \_ for field valueConverter
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+14 : CrossReferenceSerializer.valueConverter(CrossReferenceSerializer.java:41)
+      \_ for field valueConverter
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at SequenceFeeder$Provider.crossRefSerializer(SequenceFeeder.java:47)
+      \_ for field crossRefSerializer
+     at AbstractSemanticSequencer.feederProvider(AbstractSemanticSequencer.java:26)
+      \_ for field feederProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+15 : CrossReferenceSerializer.valueConverter(CrossReferenceSerializer.java:41)
+      \_ for field valueConverter
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at Serializer.contextFinder(Serializer.java:57)
+      \_ for field contextFinder
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+16 : CrossReferenceSerializer.valueConverter(CrossReferenceSerializer.java:41)
+      \_ for field valueConverter
+     at ICrossReferenceSerializer.class(ICrossReferenceSerializer.java:1)
+     at AssignmentFinder.crossRefSerializer(AssignmentFinder.java:46)
+      \_ for field crossRefSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at DefaultRuntimeModule.configureGenericSemanticSequencer(DefaultRuntimeModule.java:241)
+17 : tokens.ValueSerializer.converter(ValueSerializer.java:28)
+      \_ for field converter
+     at IValueSerializer.class(IValueSerializer.java:1)
+     at AssignmentFinder.valueSerializer(AssignmentFinder.java:46)
+      \_ for field valueSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+18 : tokens.ValueSerializer.converter(ValueSerializer.java:28)
+      \_ for field converter
+     at IValueSerializer.class(IValueSerializer.java:1)
+     at AssignmentFinder.valueSerializer(AssignmentFinder.java:46)
+      \_ for field valueSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at Serializer.contextFinder(Serializer.java:57)
+      \_ for field contextFinder
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+19 : tokens.ValueSerializer.converter(ValueSerializer.java:28)
+      \_ for field converter
+     at IValueSerializer.class(IValueSerializer.java:1)
+     at AssignmentFinder.valueSerializer(AssignmentFinder.java:46)
+      \_ for field valueSerializer
+     at IAssignmentFinder.class(IAssignmentFinder.java:1)
+     at ContextFinder.assignmentFinder(ContextFinder.java:49)
+      \_ for field assignmentFinder
+     at IContextFinder.class(IContextFinder.java:1)
+     at SequencerDiagnosticProvider.contextFinder(SequencerDiagnosticProvider.java:41)
+      \_ for field contextFinder
+     at ISemanticSequencerDiagnosticProvider.class(ISemanticSequencerDiagnosticProvider.java:1)
+     at AbstractSemanticSequencer.diagnosticProvider(AbstractSemanticSequencer.java:26)
+      \_ for field diagnosticProvider
+     at DefaultRuntimeModule.configureGenericSemanticSequencer(DefaultRuntimeModule.java:241)
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+AbstractSemanticSequencer:            "org.eclipse.xtext.serializer.sequencer.AbstractSemanticSequencer"
+AssignmentFinder:                     "org.eclipse.xtext.serializer.sequencer.AssignmentFinder"
+AssignmentQuantityAllocator:          "org.eclipse.xtext.validation.impl.AssignmentQuantityAllocator"
+ConcreteSyntaxDiagnosticProvider:     "org.eclipse.xtext.validation.impl.ConcreteSyntaxDiagnosticProvider"
+ConcreteSyntaxValidator:              "org.eclipse.xtext.validation.impl.ConcreteSyntaxValidator"
+ContextFinder:                        "org.eclipse.xtext.serializer.sequencer.ContextFinder"
+CrossReferenceSerializer:             "org.eclipse.xtext.serializer.tokens.CrossReferenceSerializer"
+DefaultEcoreElementFactory:           "org.eclipse.xtext.parser.DefaultEcoreElementFactory"
+DefaultLinkingService:                "org.eclipse.xtext.linking.impl.DefaultLinkingService"
+DefaultNodeModelFormatter:            "org.eclipse.xtext.formatting.impl.DefaultNodeModelFormatter"
+DefaultRuntimeModule:                 "org.eclipse.xtext.service.DefaultRuntimeModule"
+EnumLiteralSerializer:                "org.eclipse.xtext.serializer.tokens.EnumLiteralSerializer"
+IAssignmentFinder:                    "org.eclipse.xtext.serializer.sequencer.IAssignmentFinder"
+IAssignmentQuantityAllocator:         "org.eclipse.xtext.validation.IAssignmentQuantityAllocator"
+IConcreteSyntaxDiagnosticProvider:    "org.eclipse.xtext.validation.IConcreteSyntaxDiagnosticProvider"
+IContextFinder:                       "org.eclipse.xtext.serializer.sequencer.IContextFinder"
+ICrossReferenceSerializer:            "org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer"
+IEnumLiteralSerializer:               "org.eclipse.xtext.serializer.tokens.IEnumLiteralSerializer"
+INodeModelStreamer:                   "org.eclipse.xtext.formatting.INodeModelStreamer"
+ISemanticSequencerDiagnosticProvider: "org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider"
+ITokenDiagnosticProvider:             "org.eclipse.xtext.serializer.diagnostic.ITokenDiagnosticProvider"
+ITokenSerializer$IValueSerializer:    "org.eclipse.xtext.parsetree.reconstr.ITokenSerializer$IValueSerializer"
+IValueConverterService:               "org.eclipse.xtext.conversion.IValueConverterService"
+IValueSerializer:                     "org.eclipse.xtext.serializer.tokens.IValueSerializer"
+LazyLinkingResource:                  "org.eclipse.xtext.linking.lazy.LazyLinkingResource"
+LinkingHelper:                        "org.eclipse.xtext.linking.impl.LinkingHelper"
+MethodBasedModule:                    "org.eclipse.xtext.service.MethodBasedModule"
+NodeModelStreamer:                    "org.eclipse.xtext.formatting.impl.NodeModelStreamer"
+SequenceFeeder$Provider:              "org.eclipse.xtext.serializer.acceptor.SequenceFeeder$Provider"
+SequencerDiagnosticProvider:          "org.eclipse.xtext.serializer.diagnostic.SequencerDiagnosticProvider"
+Serializer:                           "org.eclipse.xtext.serializer.impl.Serializer"
+TokenDiagnosticProvider:              "org.eclipse.xtext.serializer.diagnostic.TokenDiagnosticProvider"
+impl.ValueSerializer:                 "org.eclipse.xtext.parsetree.reconstr.impl.ValueSerializer"
+tokens.ValueSerializer:               "org.eclipse.xtext.serializer.tokens.ValueSerializer"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:589)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:163)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:69)
+	at com.google.inject.Guice.createInjector(Guice.java:59)
+	at org.eclipse.xtext.common.TerminalsStandaloneSetupGenerated.createInjector(TerminalsStandaloneSetupGenerated.java:40)
+	at org.eclipse.xtext.common.TerminalsStandaloneSetupGenerated.createInjectorAndDoEMFRegistration(TerminalsStandaloneSetupGenerated.java:34)
+	at org.eclipse.xtext.common.TerminalsStandaloneSetup.doSetup(TerminalsStandaloneSetup.java:13)
+	at mini.SimpleActionsStandaloneSetupGenerated.createInjectorAndDoEMFRegistration(SimpleActionsStandaloneSetupGenerated.java:19)
+	at intersect.oracle.NodeSnapshotRuntime.main(NodeSnapshotRuntime.java:40)

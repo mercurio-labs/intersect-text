@@ -1,0 +1,99 @@
+/* Release 1 Xtext feature fixture (gate G1, decision D1): the parent grammar.
+ * Written for this repository; not derived from KerML or SysML. It owns the
+ * hidden terminals, the terminal rules and a left-recursive formula language
+ * built with tree-rewrite actions. Sheets.xtext extends it. */
+grammar fixture.release.Formulas hidden(WS, NOTE, LINE_NOTE)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+import "urn:intersect:fixture:release-sheets:1" as sh
+
+Formula returns sh::Expr :
+	Sum
+;
+
+Sum returns sh::Expr :
+	Product ( {sh::Binary.operands += current} op = AddOp operands += Product )*
+;
+
+Product returns sh::Expr :
+	Unary ( {sh::Binary.operands += current} op = ( '*' | '/' ) operands += Unary )*
+;
+
+Unary returns sh::Expr :
+	{sh::Negate} '-' operand = Unary
+	| Primary
+;
+
+Primary returns sh::Expr :
+	'(' Sum ')'
+	| Literal
+	| CellRef
+;
+
+Literal returns sh::Expr :
+	NumberLit | RealLit | BoolLit | TextLit
+;
+
+NumberLit returns sh::NumberLit :
+	value = INT_VALUE
+;
+
+RealLit returns sh::RealLit :
+	value = Real
+;
+
+BoolLit returns sh::BoolLit :
+	value = Bool
+;
+
+TextLit returns sh::TextLit :
+	value = TEXT
+;
+
+CellRef returns sh::CellRef :
+	cell = [sh::Cell | Path]
+;
+
+AddOp :
+	'+' | '-'
+;
+
+Real returns Ecore::EDouble :
+	INT_VALUE? '.' ( INT_VALUE | EXP_VALUE ) | EXP_VALUE
+;
+
+Bool returns Ecore::EBoolean :
+	'true' | 'false'
+;
+
+Path :
+	Name ( '.' Name )*
+;
+
+Name :
+	ID | QUOTED
+;
+
+terminal INT_VALUE returns Ecore::EInt :
+	'0'..'9' ('0'..'9')*;
+
+terminal EXP_VALUE :
+	INT_VALUE ('e' | 'E') ('+' | '-')? INT_VALUE;
+
+terminal ID :
+	('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+
+terminal QUOTED returns Ecore::EString :
+	'\'' ('\\' ('n' | 't' | '\'' | '\\') | !('\\' | '\''))* '\'';
+
+terminal TEXT returns Ecore::EString :
+	'"' ('\\' ('n' | 't' | '"' | '\\') | !('\\' | '"'))* '"';
+
+terminal NOTE :
+	'/*' -> '*/';
+
+terminal LINE_NOTE :
+	'//' (!('\n' | '\r') !('\n' | '\r')*)? ('\r'? '\n')?;
+
+terminal WS :
+	(' ' | '\t' | '\r' | '\n')+;

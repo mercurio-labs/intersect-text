@@ -1,0 +1,11 @@
+rcore 1;
+package demo.kerml_specialization version "1";
+import model "urn:intersect:rcore:kerml-specialization-demo" as m;
+
+fn main(node:m.Type)->OrderedSet<m.Type> {
+  closure([node], |t| directGenerals(t))
+}
+
+fn directGenerals(t:m.Type)->Sequence<m.Type> {
+  Sequence(map(incoming::<m.Specialization>(t, "specific"), |s| s.general))
+}

@@ -1,0 +1,386 @@
+[
+  {
+    "id": "literal",
+    "entry": "audit.Literal",
+    "sources": [
+      {
+        "name": "audit.Literal",
+        "text": "grammar audit.Literal hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !'a';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "b",
+      "ab",
+      "\ud83c\udf0d",
+      "\n"
+    ]
+  },
+  {
+    "id": "range",
+    "entry": "audit.Range",
+    "sources": [
+      {
+        "name": "audit.Range",
+        "text": "grammar audit.Range hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !('a'..'z');\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "z",
+      "A",
+      "0",
+      "\ud83c\udf0d"
+    ]
+  },
+  {
+    "id": "alternatives",
+    "entry": "audit.Alternatives",
+    "sources": [
+      {
+        "name": "audit.Alternatives",
+        "text": "grammar audit.Alternatives hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !('a'|'x'|'z');\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "x",
+      "z",
+      "b",
+      "\ud83c\udf0d"
+    ]
+  },
+  {
+    "id": "nested_groups",
+    "entry": "audit.NestedGroups",
+    "sources": [
+      {
+        "name": "audit.NestedGroups",
+        "text": "grammar audit.NestedGroups hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(('a'..'c')|('x'|'z'));\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "c",
+      "x",
+      "z",
+      "d",
+      "y"
+    ]
+  },
+  {
+    "id": "fragment",
+    "entry": "audit.Fragment",
+    "sources": [
+      {
+        "name": "audit.Fragment",
+        "text": "grammar audit.Fragment hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !LETTER;\nterminal fragment LETTER: 'a'..'z';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "z",
+      "A",
+      "0"
+    ]
+  },
+  {
+    "id": "fragment_alternatives",
+    "entry": "audit.FragmentAlternatives",
+    "sources": [
+      {
+        "name": "audit.FragmentAlternatives",
+        "text": "grammar audit.FragmentAlternatives hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !(LETTER|'0');\nterminal fragment LETTER: 'a'..'z';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "0",
+      "A",
+      "1"
+    ]
+  },
+  {
+    "id": "fragment_nested",
+    "entry": "audit.FragmentNested",
+    "sources": [
+      {
+        "name": "audit.FragmentNested",
+        "text": "grammar audit.FragmentNested hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !OUTER;\nterminal fragment OUTER: INNER|'x';\nterminal fragment INNER: 'a';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "x",
+      "b"
+    ]
+  },
+  {
+    "id": "nullable",
+    "entry": "audit.Nullable",
+    "sources": [
+      {
+        "name": "audit.Nullable",
+        "text": "grammar audit.Nullable hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !('a'?);\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "multichar",
+    "entry": "audit.Multichar",
+    "sources": [
+      {
+        "name": "audit.Multichar",
+        "text": "grammar audit.Multichar hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !'ab';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "ab",
+      "ac"
+    ]
+  },
+  {
+    "id": "sequence",
+    "entry": "audit.Sequence",
+    "sources": [
+      {
+        "name": "audit.Sequence",
+        "text": "grammar audit.Sequence hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !('a' 'b');\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "b",
+      "ab",
+      "ac"
+    ]
+  },
+  {
+    "id": "eof",
+    "entry": "audit.Eof",
+    "sources": [
+      {
+        "name": "audit.Eof",
+        "text": "grammar audit.Eof hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !EOF;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "\ud83c\udf0d"
+    ]
+  },
+  {
+    "id": "wildcard",
+    "entry": "audit.Wildcard",
+    "sources": [
+      {
+        "name": "audit.Wildcard",
+        "text": "grammar audit.Wildcard hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !.;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "\ud83c\udf0d"
+    ]
+  },
+  {
+    "id": "cyclic_fragment",
+    "entry": "audit.CyclicFragment",
+    "sources": [
+      {
+        "name": "audit.CyclicFragment",
+        "text": "grammar audit.CyclicFragment hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !A;\nterminal fragment A: B;\nterminal fragment B: A;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a"
+    ]
+  },
+  {
+    "id": "unknown_fragment",
+    "entry": "audit.UnknownFragment",
+    "sources": [
+      {
+        "name": "audit.UnknownFragment",
+        "text": "grammar audit.UnknownFragment hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !MISSING;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a"
+    ]
+  },
+  {
+    "id": "astral_literal",
+    "entry": "audit.AstralLiteral",
+    "sources": [
+      {
+        "name": "audit.AstralLiteral",
+        "text": "grammar audit.AstralLiteral hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !'\ud83c\udf0d';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "a",
+      "\ud83c\udf0d",
+      "\ud83c\udf0e"
+    ]
+  },
+  {
+    "id": "astral_range",
+    "entry": "audit.AstralRange",
+    "sources": [
+      {
+        "name": "audit.AstralRange",
+        "text": "grammar audit.AstralRange hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !('\ud83c\udf0d'..'\ud83c\udf0e');\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "\ud83c\udf0d",
+      "\ud83c\udf0e",
+      "\ud83c\udf0f"
+    ]
+  },
+  {
+    "id": "committed_failure",
+    "entry": "audit.CommittedFailure",
+    "sources": [
+      {
+        "name": "audit.CommittedFailure",
+        "text": "grammar audit.CommittedFailure hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: 'a' !'b';\nterminal SHORT: 'a';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "ab",
+      "ac",
+      "aba",
+      "acb"
+    ]
+  },
+  {
+    "id": "negated_repeat",
+    "entry": "audit.NegatedRepeat",
+    "sources": [
+      {
+        "name": "audit.NegatedRepeat",
+        "text": "grammar audit.NegatedRepeat hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: (!('a'..'z'))+;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "",
+      "A",
+      "ABC",
+      "AbC",
+      "123"
+    ]
+  },
+  {
+    "id": "inherited_override",
+    "entry": "audit.NegationChildOverride",
+    "sources": [
+      {
+        "name": "audit.NegationBaseOverride",
+        "text": "grammar audit.NegationBaseOverride\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal fragment LETTER: 'a';\n"
+      },
+      {
+        "name": "audit.NegationChildOverride",
+        "text": "grammar audit.NegationChildOverride with audit.NegationBaseOverride hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !LETTER;\nterminal fragment LETTER: 'b';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "explicit_parent",
+    "entry": "audit.NegationChildExplicit",
+    "sources": [
+      {
+        "name": "audit.NegationBaseExplicit",
+        "text": "grammar audit.NegationBaseExplicit\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal fragment LETTER: 'a';\n"
+      },
+      {
+        "name": "audit.NegationChildExplicit",
+        "text": "grammar audit.NegationChildExplicit with audit.NegationBaseExplicit hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !super::LETTER;\nterminal fragment LETTER: 'b';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "inherited_program_override",
+    "entry": "audit.NegationProgramChild",
+    "sources": [
+      {
+        "name": "audit.NegationProgramBase",
+        "text": "grammar audit.NegationProgramBase\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nterminal VALUE returns ecore::EString: !LETTER;\nterminal fragment LETTER: 'a';\n"
+      },
+      {
+        "name": "audit.NegationProgramChild",
+        "text": "grammar audit.NegationProgramChild with audit.NegationProgramBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal fragment LETTER: 'b';\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": "committed_path",
+    "entry": "audit.CommittedPath",
+    "sources": [
+      {
+        "name": "audit.CommittedPath",
+        "text": "grammar audit.CommittedPath hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: 'a' !'b' 'c';\nterminal SHORT: 'a';\nterminal REST: .;\n"
+      }
+    ],
+    "terminal": "VALUE",
+    "inputs": [
+      "a",
+      "ad",
+      "adc",
+      "ac",
+      "abc"
+    ]
+  }
+]

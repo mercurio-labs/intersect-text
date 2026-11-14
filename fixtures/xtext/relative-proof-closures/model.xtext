@@ -1,0 +1,38 @@
+grammar relativeProofClosures hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+Root returns k::Expression: Left | Right;
+Left returns k::OperatorExpression: Head0 operator='left';
+Right returns k::OperatorExpression: Head0 operator='right';
+fragment Head0 returns k::OperatorExpression: ('x' Head1 | 'y' Head1);
+fragment Head1 returns k::OperatorExpression: ('x' Head2 | 'y' Head2);
+fragment Head2 returns k::OperatorExpression: ('x' Head3 | 'y' Head3);
+fragment Head3 returns k::OperatorExpression: ('x' Head4 | 'y' Head4);
+fragment Head4 returns k::OperatorExpression: ('x' Head5 | 'y' Head5);
+fragment Head5 returns k::OperatorExpression: ('x' Tail0 | 'y' Tail0);
+fragment Tail0 returns k::OperatorExpression: Tail1;
+fragment Tail1 returns k::OperatorExpression: Tail2;
+fragment Tail2 returns k::OperatorExpression: Tail3;
+fragment Tail3 returns k::OperatorExpression: Tail4;
+fragment Tail4 returns k::OperatorExpression: Tail5;
+fragment Tail5 returns k::OperatorExpression: Tail6;
+fragment Tail6 returns k::OperatorExpression: Tail7;
+fragment Tail7 returns k::OperatorExpression: Tail8;
+fragment Tail8 returns k::OperatorExpression: Tail9;
+fragment Tail9 returns k::OperatorExpression: Tail10;
+fragment Tail10 returns k::OperatorExpression: Tail11;
+fragment Tail11 returns k::OperatorExpression: Tail12;
+fragment Tail12 returns k::OperatorExpression: Tail13;
+fragment Tail13 returns k::OperatorExpression: Tail14;
+fragment Tail14 returns k::OperatorExpression: Tail15;
+fragment Tail15 returns k::OperatorExpression: Tail16;
+fragment Tail16 returns k::OperatorExpression: Tail17;
+fragment Tail17 returns k::OperatorExpression: Tail18;
+fragment Tail18 returns k::OperatorExpression: Tail19;
+fragment Tail19 returns k::OperatorExpression: Tail20;
+fragment Tail20 returns k::OperatorExpression: Tail21;
+fragment Tail21 returns k::OperatorExpression: Tail22;
+fragment Tail22 returns k::OperatorExpression: Tail23;
+fragment Tail23 returns k::OperatorExpression: Tail24;
+fragment Tail24 returns k::OperatorExpression: Tail25;
+fragment Tail25 returns k::OperatorExpression: 'p';
+terminal WS: ' '+;

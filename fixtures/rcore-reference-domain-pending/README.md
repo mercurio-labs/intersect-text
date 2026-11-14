@@ -1,0 +1,11 @@
+# Reference-domain cancellation prefixes
+
+This additive fixture preserves the exact native request emitted by the original large-domain browser test after its existing Ecore-to-Rcore migration. The original authored graph, migration recipe and source-compilation path remain in that test; these native envelopes do not qualify native Ecore execution.
+
+The original first dispatched q256 slice remains responsive to an authoring probe. Its complete Cancelled result has zero installed reference domains. A separate worker control withholds the second actual Pending response, verifies both q256 requests and observed job identities, then checks the complete Cancelled result with one installed domain. Both retain exact program, counters, one delivery, stale denial and successful recovery. No runtime limits or fee expectations are relaxed.
+
+Original failed suite/trace and subsequent harness-only token-filter/polling-delay failures remain preserved in the qualification evidence. Native and zero-import public WASM record/replay establish the two complete prefix results. Pending topology is scheduling evidence, not a cross-revision semantic guarantee. Full S09 and cleanup obligations remain open.
+
+A separate direct replay confirms the previous b616 and current 34e3 artifacts both produce the same complete first-slice cancellation result with zero domains. The unchanged full large request reaches its original step limit; its complete ResourceExhausted outcome, program and counters agree across both artifacts and current native execution. This is not a successful large-result claim. The test repair therefore does not attribute the stale assertion to this continuation.
+
+Regenerated 2026-11-10 after two engine changes. Ecore migration now writes bare Rcore names (`definitions/rcore_names.rs`), which changes the migrated source text and digest in the request. Retained-storage accounting now uses fixed logical sizes instead of target-dependent `size_of` (`logical_size!`), so native and WASM agree. The request is the one emitted by the unchanged authored test. Both cancellation outcomes come from the native function-job host replaying the worker schedule (start, one or two q256 resumes, cancel). The WASM worker's first-slice cancellation matched the native result exactly, and the recovery results are unchanged.

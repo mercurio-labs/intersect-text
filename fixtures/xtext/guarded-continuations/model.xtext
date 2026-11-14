@@ -1,0 +1,7 @@
+grammar guardedContinuations hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+Root returns k::OperatorExpression:
+  {k::OperatorExpression} (Prefix 'from')? operand+=Atom 'to' operand+=Atom;
+fragment Prefix returns k::OperatorExpression: -> operator='a' | operator='b';
+Atom returns k::OperatorExpression: operator=('a'|'b');
+terminal WS: ' '+;

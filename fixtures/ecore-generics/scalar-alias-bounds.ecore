@@ -1,0 +1,7 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EDataType" name="A" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="B" instanceTypeName="java.lang.String"/>
+<eClassifiers x:type="e:EClass" name="Holder"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Box"><eTypeParameters name="T"><eBounds eClassifier="#//Holder"><eTypeArguments eClassifier="#//B"/></eBounds></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Use"><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eClassifier="#//Box"><eTypeArguments eClassifier="#//Holder"><eTypeArguments eClassifier="#//A"/></eTypeArguments></eGenericType></eStructuralFeatures></eClassifiers>
+</e:EPackage>

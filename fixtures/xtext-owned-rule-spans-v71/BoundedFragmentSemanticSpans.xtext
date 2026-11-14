@@ -1,0 +1,14 @@
+grammar intersect.oracle.BoundedFragmentSemanticSpans hidden(WS, COMMENT)
+import "urn:intersect:oracle:semantic-object-spans-v71" as m
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+Root returns m::Node: FragmentLate | FragmentConsuming | DelegatedCapture;
+FragmentLate returns m::Root: 'frag' Shared;
+fragment Shared returns m::Root: name=Name ';';
+FragmentConsuming returns m::Node: 'consume' {m::Leaf} name=Name {m::Root.previous=current} value=Name SharedTail;
+fragment SharedTail returns m::Node: ';';
+DelegatedCapture returns m::Node: 'via' Empty {m::Root.previous=current} name=Name ';';
+Empty returns m::Empty: {m::Empty};
+Name returns ecore::EString: ID;
+terminal ID returns ecore::EString: ('a'..'z')+;
+terminal WS returns ecore::EString: (' '|'\t'|'\r'|'\n')+;
+terminal COMMENT returns ecore::EString: '/*' -> '*/';

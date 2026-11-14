@@ -1,0 +1,1325 @@
+{
+  "version": 3,
+  "actual_source_freeze_sha256": "9a6814b735cbae4b1e471852b4e6e3225fdac6a62c89dc527c7e3ceddf3efd11",
+  "normal_wasm": {
+    "bytes": 19226763,
+    "sha256": "34e3bd2da628d87f60be7fc2933419592411842dcc09eeef485df7085463a425"
+  },
+  "same_tested_spec": {
+    "bytes": 9120,
+    "sha256": "ca46aaebde1eff19f552d77222e1bbea0da16f124326a19a6dbfd4fc9fe1ca02"
+  },
+  "same_tested_observer": {
+    "bytes": 3234,
+    "sha256": "5f1f6580979b94b7050aa2ee40e6c1a74b770e124cda14b3c8cc8b6e7b702339"
+  },
+  "same_tested_plan": {
+    "bytes": 1180358,
+    "sha256": "42fb4f1465080b7cfcf71ca6bf96e72e7cfd81936f90f4c24eec03011b5f3070"
+  },
+  "reports": {
+    "dev": {
+      "report": {
+        "bytes": 83430087,
+        "sha256": "91cf535bac84b14a0928c2ffcea104d2b34298c916208377e528d7caa0f41241"
+      },
+      "terminal": {
+        "bytes": 2799,
+        "sha256": "84d1fec9e8b870b1985c7da3441c9ed7b824833a4f2f914c309f65ae49f4778f"
+      },
+      "trace_review": {
+        "bytes": 5092,
+        "sha256": "246bd4cff23cca0d0e02dfacde833950b32530f67fff0cb1c56a24e354598af9"
+      },
+      "original_tests": 441,
+      "new_numeric_tests": 3,
+      "skipped": 0,
+      "flaky": 0,
+      "unexpected": 1,
+      "qualification": "Original development inventory retains one first-slice cancellation scheduling assertion failure; exact corrected original test and separately witnessed installed-domain control passed externally. This report is not represented as an initial all-green run."
+    },
+    "production": {
+      "report": {
+        "bytes": 70036109,
+        "sha256": "02d3c8f0fc94e24b4fa935d1cade1abb214999d46ee5858d14f6e8f45f1aabfc"
+      },
+      "terminal": {
+        "bytes": 2910,
+        "sha256": "4d9cd3dd82f7645b3452f6a9bdc1794a1403cae0ed1f5750bd958854d0fc326d"
+      },
+      "trace_review": {
+        "bytes": 5106,
+        "sha256": "db8081cb9d18e7857b09e959c4e0c2785d06347eb8463014f9ca4360ba993048"
+      },
+      "original_tests": 139,
+      "new_numeric_tests": 3,
+      "skipped": 0,
+      "flaky": 0,
+      "unexpected": 0,
+      "qualification": "Full original+numeric production inventory passed."
+    }
+  },
+  "preserved_first_slice_failure": {
+    "bytes": 3265,
+    "sha256": "726f857e4fa8cff2efa908537aa1342a86850b8b62720e67687e8bf633a5ffd6"
+  },
+  "qualified_test_bridge": {
+    "bytes": 7378,
+    "sha256": "7a3678ea18f3eb62d5cc7514f8fd496bd7e1d2f6dd60a4104fcafabe48eaba84"
+  },
+  "source_and_poll_witnesses": [
+    {
+      "id": "string_equal_240000",
+      "entry": {
+        "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+        "uri": "memory:s09-intermediate-string.rcore"
+      },
+      "selection": {
+        "arguments": [],
+        "symbol": {
+          "declaration": 0,
+          "source": {
+            "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+            "uri": "memory:s09-intermediate-string.rcore"
+          }
+        },
+        "types": []
+      },
+      "original_sources": [
+        {
+          "id": {
+            "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+            "uri": "memory:s09-intermediate-string.rcore"
+          },
+          "kind": "rcore_behavior",
+          "dependencies": [],
+          "text_utf8_bytes": 86
+        }
+      ],
+      "input_payload_utf8_bytes": 240000,
+      "input_payload_utf8_sha256": "1355cbb3b9e9f33c8b99564f2f10a5b62f9702c6b819f3bae2e3860ae941e412",
+      "witnesses": [
+        {
+          "target": "left-measure",
+          "resumes": 17,
+          "actual_numeric_phase": [
+            "left",
+            [
+              "measure",
+              143618,
+              0
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            1441578,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 1441578,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 84,
+                "source": {
+                  "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                  "uri": "memory:s09-intermediate-string.rcore"
+                },
+                "start": 82
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                "uri": "memory:s09-intermediate-string.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 84,
+                            "source": {
+                              "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                              "uri": "memory:s09-intermediate-string.rcore"
+                            },
+                            "start": 82
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 86,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        },
+                        "start": 48
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                    "uri": "memory:s09-intermediate-string.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "String"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "target": "right-measure",
+          "resumes": 21,
+          "actual_numeric_phase": [
+            "right",
+            [
+              "measure",
+              164098,
+              0
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            1441578,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 240039,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 1441578,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 84,
+                "source": {
+                  "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                  "uri": "memory:s09-intermediate-string.rcore"
+                },
+                "start": 82
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                "uri": "memory:s09-intermediate-string.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 84,
+                            "source": {
+                              "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                              "uri": "memory:s09-intermediate-string.rcore"
+                            },
+                            "start": 82
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 86,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        },
+                        "start": 48
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                    "uri": "memory:s09-intermediate-string.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "String"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        }
+      ]
+    },
+    {
+      "id": "string_escaped_unicode",
+      "entry": {
+        "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+        "uri": "memory:s09-intermediate-string.rcore"
+      },
+      "selection": {
+        "arguments": [],
+        "symbol": {
+          "declaration": 0,
+          "source": {
+            "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+            "uri": "memory:s09-intermediate-string.rcore"
+          }
+        },
+        "types": []
+      },
+      "original_sources": [
+        {
+          "id": {
+            "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+            "uri": "memory:s09-intermediate-string.rcore"
+          },
+          "kind": "rcore_behavior",
+          "dependencies": [],
+          "text_utf8_bytes": 86
+        }
+      ],
+      "input_payload_utf8_bytes": 44000,
+      "input_payload_utf8_sha256": "f183edb79412055d361cb58c79bbe2fd9918e4068c410d448847415ef52a4749",
+      "witnesses": [
+        {
+          "target": "left-measure",
+          "resumes": 3,
+          "actual_numeric_phase": [
+            "left",
+            [
+              "measure",
+              14438,
+              0
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            457578,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 457578,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 84,
+                "source": {
+                  "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                  "uri": "memory:s09-intermediate-string.rcore"
+                },
+                "start": 82
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                "uri": "memory:s09-intermediate-string.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 84,
+                            "source": {
+                              "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                              "uri": "memory:s09-intermediate-string.rcore"
+                            },
+                            "start": 82
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 86,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        },
+                        "start": 48
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                    "uri": "memory:s09-intermediate-string.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "String"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "target": "right-measure",
+          "resumes": 4,
+          "actual_numeric_phase": [
+            "right",
+            [
+              "measure",
+              47650,
+              0
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            457578,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 76039,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 457578,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 84,
+                "source": {
+                  "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                  "uri": "memory:s09-intermediate-string.rcore"
+                },
+                "start": 82
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                "uri": "memory:s09-intermediate-string.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 84,
+                            "source": {
+                              "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                              "uri": "memory:s09-intermediate-string.rcore"
+                            },
+                            "start": 82
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 86,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        },
+                        "start": 48
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                          "uri": "memory:s09-intermediate-string.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 86,
+                    "source": {
+                      "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                      "uri": "memory:s09-intermediate-string.rcore"
+                    },
+                    "start": 48
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "aa201e708d296f28fe4915fb72c64d770d551fefd47e1eee0dbbea59b3751e6e",
+                    "uri": "memory:s09-intermediate-string.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "String"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bytes_equal_240000",
+      "entry": {
+        "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+        "uri": "memory:s09-intermediate-bytes.rcore"
+      },
+      "selection": {
+        "arguments": [],
+        "symbol": {
+          "declaration": 0,
+          "source": {
+            "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+            "uri": "memory:s09-intermediate-bytes.rcore"
+          }
+        },
+        "types": []
+      },
+      "original_sources": [
+        {
+          "id": {
+            "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+            "uri": "memory:s09-intermediate-bytes.rcore"
+          },
+          "kind": "rcore_behavior",
+          "dependencies": [],
+          "text_utf8_bytes": 83
+        }
+      ],
+      "input_payload_utf8_bytes": 240000,
+      "input_payload_utf8_sha256": "af5b22e0a8b5da52a0e69953d9abf05109bb4222d103a181717b136e64d5f6a7",
+      "witnesses": [
+        {
+          "target": "left-measure",
+          "resumes": 28,
+          "actual_numeric_phase": [
+            "left",
+            [
+              "measure",
+              118041,
+              2
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            1441710,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 0,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 1441710,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 81,
+                "source": {
+                  "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                  "uri": "memory:s09-intermediate-bytes.rcore"
+                },
+                "start": 79
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 83,
+                    "source": {
+                      "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                      "uri": "memory:s09-intermediate-bytes.rcore"
+                    },
+                    "start": 47
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                "uri": "memory:s09-intermediate-bytes.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 81,
+                            "source": {
+                              "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                              "uri": "memory:s09-intermediate-bytes.rcore"
+                            },
+                            "start": 79
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 83,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        },
+                        "start": 47
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 83,
+                    "source": {
+                      "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                      "uri": "memory:s09-intermediate-bytes.rcore"
+                    },
+                    "start": 47
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                    "uri": "memory:s09-intermediate-bytes.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "Bytes"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        },
+        {
+          "target": "right-measure",
+          "resumes": 36,
+          "actual_numeric_phase": [
+            "right",
+            [
+              "measure",
+              154905,
+              2
+            ],
+            2,
+            4
+          ],
+          "actual_arena": [
+            1441710,
+            2,
+            0,
+            0,
+            0
+          ],
+          "cancel_result": {
+            "failure": {
+              "arithmetic_kind": null,
+              "consumed": {
+                "captures": 0,
+                "closures": 0,
+                "collection_comparisons": 1,
+                "context_bytes": 0,
+                "membership_checks": 0,
+                "model_contexts": 0,
+                "model_elements": 0,
+                "model_storage_bytes": 0,
+                "numeric_work": 240061,
+                "provider_evidence_bytes": 0,
+                "provider_invocations": 0,
+                "provider_work": 0,
+                "reference_domains": 0,
+                "steps": 1,
+                "value_bytes": 1441710,
+                "value_nodes": 2
+              },
+              "consumed_providers": [],
+              "kind": "Cancelled",
+              "message": "Evaluation cancelled by host",
+              "provider_evidence_truncated": false,
+              "selected_providers": [],
+              "span": {
+                "end": 81,
+                "source": {
+                  "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                  "uri": "memory:s09-intermediate-bytes.rcore"
+                },
+                "start": 79
+              },
+              "trace": [
+                {
+                  "call_site": null,
+                  "definition": {
+                    "end": 83,
+                    "source": {
+                      "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                      "uri": "memory:s09-intermediate-bytes.rcore"
+                    },
+                    "start": 47
+                  },
+                  "function": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  }
+                }
+              ],
+              "trace_truncated": false
+            },
+            "ok": false,
+            "program": {
+              "entry": 0,
+              "entry_source": {
+                "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                "uri": "memory:s09-intermediate-bytes.rcore"
+              },
+              "functions": [
+                {
+                  "blocks": [
+                    {
+                      "instructions": [
+                        {
+                          "kind": {
+                            "Binary": {
+                              "left": {
+                                "Parameter": 0
+                              },
+                              "op": "Equal",
+                              "right": {
+                                "Parameter": 1
+                              }
+                            }
+                          },
+                          "span": {
+                            "end": 81,
+                            "source": {
+                              "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                              "uri": "memory:s09-intermediate-bytes.rcore"
+                            },
+                            "start": 79
+                          },
+                          "ty": 1
+                        }
+                      ],
+                      "parameters": [
+                        0,
+                        0
+                      ],
+                      "span": {
+                        "end": 83,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        },
+                        "start": 47
+                      },
+                      "terminator": {
+                        "Return": {
+                          "Register": 0
+                        }
+                      }
+                    }
+                  ],
+                  "captures": [],
+                  "identity": {
+                    "Named": {
+                      "symbol": {
+                        "declaration": 0,
+                        "source": {
+                          "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                          "uri": "memory:s09-intermediate-bytes.rcore"
+                        }
+                      },
+                      "type_arguments": []
+                    }
+                  },
+                  "parameters": [
+                    0,
+                    0
+                  ],
+                  "result": 1,
+                  "span": {
+                    "end": 83,
+                    "source": {
+                      "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                      "uri": "memory:s09-intermediate-bytes.rcore"
+                    },
+                    "start": 47
+                  }
+                }
+              ],
+              "policies": {
+                "applied": [],
+                "constructors": [],
+                "conversions": []
+              },
+              "sources": [
+                {
+                  "source": {
+                    "sha256": "bc9a75bc54e778b2cc4e8b0870365631845714361356cff1117b803809e03be6",
+                    "uri": "memory:s09-intermediate-bytes.rcore"
+                  }
+                }
+              ],
+              "types": [
+                {
+                  "Scalar": "Bytes"
+                },
+                {
+                  "Scalar": "Bool"
+                }
+              ],
+              "version": 2
+            },
+            "source_backed": true,
+            "stage": "function_execution"
+          }
+        }
+      ]
+    }
+  ],
+  "exact_preparation_route_source": {
+    "bytes": 4286,
+    "sha256": "28b9d801c6f7da21b82d034a510ebc80f97f98904132ce40e981f58705517deb"
+  },
+  "exact_preparation_route_receipt": {
+    "bytes": 3797,
+    "sha256": "894048c7586a9dd602f4492ed3aba6e1d1e3121acdc207e0e5025e79877ad292"
+  },
+  "post_source_guards": {
+    "bytes": 3088,
+    "sha256": "510f2499b8eb0ceee9e2731ff7b6375ef42add992b29dae9a04b2d750d624b87"
+  },
+  "authority": "Original source bundle and fresh native compilation. Historical output paths retained inside the raw plan are evidence lineage only and are never opened by the portable tests. Report and source identities above are content pins, not output-location authority.",
+  "scope": "Default scalar validation/measurement only. No equality/kernel, foreign callback, complete context/source ownership, cleanup or full S09/W1-W6 closure."
+}

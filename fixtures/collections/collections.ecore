@@ -1,0 +1,14 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="collections" nsURI="urn:intersect:collections">
+  <eClassifiers xsi:type="ecore:EDataType" name="LocalList" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="LocalMap" instanceClassName="java.util.Map" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Count" instanceClassName="int"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Mode"><eLiterals name="First" value="7"/><eLiterals name="Alias" value="7"/></eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalog">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="list" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="map" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localList" eType="#//LocalList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localMap" eType="#//LocalMap"/>
+    <eOperations name="echo" eType="http://www.eclipse.org/emf/2002/Ecore#//EEList"><eParameters name="value" eType="http://www.eclipse.org/emf/2002/Ecore#//EMap"/></eOperations>
+  </eClassifiers>
+</ecore:EPackage>

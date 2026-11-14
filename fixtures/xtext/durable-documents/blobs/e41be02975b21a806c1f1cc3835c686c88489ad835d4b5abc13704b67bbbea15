@@ -1,0 +1,151 @@
+{
+  "status": "PASS corrected read-only exact structured JSON comparison; initial comparison failures preserved",
+  "verifier": {
+    "bytes": 3359,
+    "sha256": "d4a3e86c6cdfa07043017d6f6045724f1d06ec22b14aec4380db4cd528010563"
+  },
+  "record": {
+    "bytes": 49428,
+    "sha256": "75ef859040bd579109b0ae488f47bf512ad976428bfdeb4d654e2875420231ba"
+  },
+  "replay": {
+    "bytes": 49428,
+    "sha256": "4bd3673a57086ade9addab819c06060762722750afb9820beb0b4971ed11802e"
+  },
+  "commands": {
+    "bytes": 366266,
+    "sha256": "2eed701ba73ccde8e2eb1b2a7959fd9b05ac7bc38402f57cb14ded48f92a7ab3"
+  },
+  "all26freshJVMexecutions_exit0": true,
+  "original_artifacts_unchanged": 169,
+  "initial_wrapper_failure": {
+    "bytes": 382,
+    "sha256": "845d55023a0f2ceb5f6492c8a13497b434a6222c6f4190c07a64e7dd6b3efe3f"
+  },
+  "additional_review_failure": "Initial additive check wrongly asserted raw JSON byte equality; structured full JSON equal. Only calibration Map.of object-key serialization order differs between JVMs, original raw files/hash retained; all twelve runtime observations preserve key order as well. No values/arrays/source/URI/model/node fields normalized.",
+  "all12runtime_rows_record_replay_exact": true,
+  "only_v1_v2_changed_fields": [
+    {
+      "index": 0,
+      "text": "paint",
+      "exact_changes": []
+    },
+    {
+      "index": 1,
+      "text": "paint #010203",
+      "exact_changes": []
+    },
+    {
+      "index": 2,
+      "text": "paint #123abc",
+      "exact_changes": []
+    },
+    {
+      "index": 3,
+      "text": "paint #bad",
+      "exact_changes": [
+        [
+          "/resource/errors/0/message",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/resource/leaves/2/syntax_error",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/parser/errors/0/message",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/converter_calls/0/failure",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/converter_calls/1/failure",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ]
+      ]
+    },
+    {
+      "index": 4,
+      "text": "paint #",
+      "exact_changes": []
+    },
+    {
+      "index": 5,
+      "text": "paint #010203 trailing",
+      "exact_changes": []
+    },
+    {
+      "index": 6,
+      "text": "paint",
+      "exact_changes": []
+    },
+    {
+      "index": 7,
+      "text": "paint #010203",
+      "exact_changes": []
+    },
+    {
+      "index": 8,
+      "text": "paint #123abc",
+      "exact_changes": []
+    },
+    {
+      "index": 9,
+      "text": "paint #bad",
+      "exact_changes": [
+        [
+          "/resource/errors/0/message",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/parser/errors/0/message",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/converter_calls/0/failure",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ],
+        [
+          "/converter_calls/1/failure",
+          "RGB text requires #RRGGBB",
+          "RGB text requires six ASCII hexadecimal digits"
+        ]
+      ]
+    },
+    {
+      "index": 10,
+      "text": "paint #",
+      "exact_changes": []
+    },
+    {
+      "index": 11,
+      "text": "paint #010203 trailing",
+      "exact_changes": []
+    }
+  ],
+  "calibration_exact_changes": [
+    [
+      "/parse/6/failure",
+      "RGB text requires #RRGGBB",
+      "RGB text requires six ASCII hexadecimal digits"
+    ],
+    [
+      "/parse/7/failure",
+      "RGB text requires #RRGGBB",
+      "RGB text requires six ASCII hexadecimal digits"
+    ]
+  ],
+  "generation_scope": "Original169source/generated artifacts reused explicitly; helperjavac+fresh runtime replay only",
+  "converter_context": "Explicit user-supplied verification example.rgb/v1 adapter; never default-JVM converter or native equivalence",
+  "gate_closures": []
+}

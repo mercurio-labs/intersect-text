@@ -1,0 +1,241 @@
+{
+  "state": "additive_readonly_emitted_source_excerpts",
+  "producer_role": "verification only; no Java copied into production",
+  "claim": "Entry wrapper and rule wrapper both install explicit hidden clauses; entry policy covers EOF before restoration. Original raw files and outcomes unchanged.",
+  "cases": [
+    {
+      "id": "namespace_model_empty_scope",
+      "generated_java": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv4r\\namespace_model_empty_scope\\src-gen\\audit\\scopes\\parser\\antlr\\internal\\InternalModelEmptyScopeParser.java",
+        "sha256": "21c2aca2540b072836a4d96d23b6f5b46c49416b0538daae30755b3994fb5ea9",
+        "bytes": 5236
+      },
+      "source_pins": {
+        "audit.scopes.ModelEmptyScope.xtext": "1256dc9093f7986652c8005fbf98c46bb1be523003badc8b3eaf56e52f260921",
+        "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+        "uri-bindings.tsv": "2f4efb119c6afb7e0f95b4f8f6411ea42299a25e7b618546a817149873d22e26"
+      },
+      "methods": [
+        {
+          "method": "entryRuleModel",
+          "byte_start": 2358,
+          "byte_end": 3256,
+          "sha256": "5a65260801e6df03adbc51e7f3e6db9cf03adc48ff73f34a4bb990cda6195bfe",
+          "utf8": " entryRuleModel() throws RecognitionException {\n        EObject current = null;\n\n        EObject iv_ruleModel = null;\n\n\n\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();\n\n        try {\n            // InternalModelEmptyScope.g:66:2: (iv_ruleModel= ruleModel EOF )\n            // InternalModelEmptyScope.g:67:2: iv_ruleModel= ruleModel EOF\n            {\n             newCompositeNode(grammarAccess.getModelRule()); \n            pushFollow(FOLLOW_1);\n            iv_ruleModel=ruleModel();\n\n            state._fsp--;\n\n             current =iv_ruleModel; \n            match(input,EOF,FOLLOW_2); \n\n            }\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        },
+        {
+          "method": "ruleModel",
+          "byte_start": 3457,
+          "byte_end": 5005,
+          "sha256": "ae65ba8db39323bc700835b660cc0f9e663d712c68ed4c156ae355365c41b3b5",
+          "utf8": " ruleModel() throws RecognitionException {\n        EObject current = null;\n\n        Token lv_name_0_0=null;\n\n\n        \tenterRule();\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();\n\n        try {\n            // InternalModelEmptyScope.g:83:2: ( ( (lv_name_0_0= RULE_ID ) ) )\n            // InternalModelEmptyScope.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            {\n            // InternalModelEmptyScope.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            // InternalModelEmptyScope.g:85:3: (lv_name_0_0= RULE_ID )\n            {\n            // InternalModelEmptyScope.g:85:3: (lv_name_0_0= RULE_ID )\n            // InternalModelEmptyScope.g:86:4: lv_name_0_0= RULE_ID\n            {\n            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); \n\n            \t\t\t\tnewLeafNode(lv_name_0_0, grammarAccess.getModelAccess().getNameIDTerminalRuleCall_0());\n            \t\t\t\n\n            \t\t\t\tif (current==null) {\n            \t\t\t\t\tcurrent = createModelElement(grammarAccess.getModelRule());\n            \t\t\t\t}\n            \t\t\t\tsetWithLastConsumed(\n            \t\t\t\t\tcurrent,\n            \t\t\t\t\t\"name\",\n            \t\t\t\t\tlv_name_0_0,\n            \t\t\t\t\t\"audit.scopes.ModelEmptyScope.ID\");\n            \t\t\t\n\n            }\n\n\n            }\n\n\n            }\n\n\n            \tleaveRule();\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        }
+      ],
+      "resource_cases": [
+        {
+          "text": "a",
+          "accepted": true
+        },
+        {
+          "text": " a ",
+          "accepted": false
+        },
+        {
+          "text": "a\tb",
+          "accepted": false
+        },
+        {
+          "text": "a\r\nb",
+          "accepted": false
+        },
+        {
+          "text": "a/*x*/",
+          "accepted": false
+        },
+        {
+          "text": "/*x*/a",
+          "accepted": true
+        },
+        {
+          "text": "a//x\n",
+          "accepted": false
+        },
+        {
+          "text": "a//x",
+          "accepted": false
+        },
+        {
+          "text": "a/*\ud83d\ude00*/",
+          "accepted": false
+        },
+        {
+          "text": "a\u00e9",
+          "accepted": true
+        },
+        {
+          "text": "\u00a0a",
+          "accepted": false
+        },
+        {
+          "text": "a/*",
+          "accepted": false
+        },
+        {
+          "text": "a@",
+          "accepted": false
+        },
+        {
+          "text": "",
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "id": "namespace_model_adds_scope",
+      "generated_java": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv4r\\namespace_model_adds_scope\\src-gen\\audit\\scopes\\parser\\antlr\\internal\\InternalModelAddsScopeParser.java",
+        "sha256": "2e8e9213a5e596c542456e8d281fa56118ef2ca38b6f9109f67e31c5ab05f7a2",
+        "bytes": 5309
+      },
+      "source_pins": {
+        "audit.scopes.ModelAddsScope.xtext": "cc018747cfc44cf95d06da24ab5aba288539d91ffa026f57b90d5855ce81f135",
+        "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+        "uri-bindings.tsv": "5ef8d2ca8c100bcdaec369e051fff40f4db552440f9948a9ca41df0a257541e2"
+      },
+      "methods": [
+        {
+          "method": "entryRuleModel",
+          "byte_start": 2347,
+          "byte_end": 3290,
+          "sha256": "029765f39d2cec306738af258f47bd7da22686be79d7c912504557774acb4195",
+          "utf8": " entryRuleModel() throws RecognitionException {\n        EObject current = null;\n\n        EObject iv_ruleModel = null;\n\n\n\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens(\"RULE_WS\", \"RULE_ML_COMMENT\", \"RULE_SL_COMMENT\");\n\n        try {\n            // InternalModelAddsScope.g:66:2: (iv_ruleModel= ruleModel EOF )\n            // InternalModelAddsScope.g:67:2: iv_ruleModel= ruleModel EOF\n            {\n             newCompositeNode(grammarAccess.getModelRule()); \n            pushFollow(FOLLOW_1);\n            iv_ruleModel=ruleModel();\n\n            state._fsp--;\n\n             current =iv_ruleModel; \n            match(input,EOF,FOLLOW_2); \n\n            }\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        },
+        {
+          "method": "ruleModel",
+          "byte_start": 3490,
+          "byte_end": 5078,
+          "sha256": "fe292261fdf4f4407c2fb28d4ea582e1e57cf6470ca08fa26de7731b379d5f7e",
+          "utf8": " ruleModel() throws RecognitionException {\n        EObject current = null;\n\n        Token lv_name_0_0=null;\n\n\n        \tenterRule();\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens(\"RULE_WS\", \"RULE_ML_COMMENT\", \"RULE_SL_COMMENT\");\n\n        try {\n            // InternalModelAddsScope.g:83:2: ( ( (lv_name_0_0= RULE_ID ) ) )\n            // InternalModelAddsScope.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            {\n            // InternalModelAddsScope.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            // InternalModelAddsScope.g:85:3: (lv_name_0_0= RULE_ID )\n            {\n            // InternalModelAddsScope.g:85:3: (lv_name_0_0= RULE_ID )\n            // InternalModelAddsScope.g:86:4: lv_name_0_0= RULE_ID\n            {\n            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); \n\n            \t\t\t\tnewLeafNode(lv_name_0_0, grammarAccess.getModelAccess().getNameIDTerminalRuleCall_0());\n            \t\t\t\n\n            \t\t\t\tif (current==null) {\n            \t\t\t\t\tcurrent = createModelElement(grammarAccess.getModelRule());\n            \t\t\t\t}\n            \t\t\t\tsetWithLastConsumed(\n            \t\t\t\t\tcurrent,\n            \t\t\t\t\t\"name\",\n            \t\t\t\t\tlv_name_0_0,\n            \t\t\t\t\t\"audit.scopes.ModelAddsScope.ID\");\n            \t\t\t\n\n            }\n\n\n            }\n\n\n            }\n\n\n            \tleaveRule();\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        }
+      ],
+      "resource_cases": [
+        {
+          "text": "a",
+          "accepted": true
+        },
+        {
+          "text": " a ",
+          "accepted": true
+        },
+        {
+          "text": "a\tb",
+          "accepted": false
+        },
+        {
+          "text": "a\r\nb",
+          "accepted": false
+        },
+        {
+          "text": "a/*x*/",
+          "accepted": true
+        },
+        {
+          "text": "/*x*/a",
+          "accepted": true
+        },
+        {
+          "text": "a//x\n",
+          "accepted": true
+        },
+        {
+          "text": "a//x",
+          "accepted": true
+        },
+        {
+          "text": "a/*\ud83d\ude00*/",
+          "accepted": true
+        },
+        {
+          "text": "a\u00e9",
+          "accepted": true
+        },
+        {
+          "text": "\u00a0a",
+          "accepted": false
+        },
+        {
+          "text": "a/*",
+          "accepted": false
+        },
+        {
+          "text": "a@",
+          "accepted": false
+        },
+        {
+          "text": "",
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "id": "namespace_inherited_rule_override",
+      "generated_java": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv4r\\namespace_inherited_rule_override\\src-gen\\audit\\scopes\\parser\\antlr\\internal\\InternalOverrideRuleBaseParser.java",
+        "sha256": "7cc00245d38fdde6e3f4479dd4bbdb49cbe712a2c05e832b97eb063c230fcee9",
+        "bytes": 5275
+      },
+      "source_pins": {
+        "audit.scopes.OverrideRuleBase.xtext": "4c52b4b1d5c8469c01f045af27e7b0120cf81167cea701206888929e49aae271",
+        "audit.scopes.OverrideRuleChild.xtext": "b36165ebbb4718fd70a589c792f47c5418ce38c99f745c2be0feca82de2ecb53",
+        "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+        "uri-bindings.tsv": "38fd4eeaadcba366efcbcd7aa882d08e0f70f738ca17ca0405a5cc5beb038c71"
+      },
+      "methods": [
+        {
+          "method": "entryRuleModel",
+          "byte_start": 2369,
+          "byte_end": 3278,
+          "sha256": "5d506dd2a5704b7c7623bc123bc97283d9fa1f8fbf424abdf13ecec7a393369c",
+          "utf8": " entryRuleModel() throws RecognitionException {\n        EObject current = null;\n\n        EObject iv_ruleModel = null;\n\n\n\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens(\"RULE_WS\");\n\n        try {\n            // InternalOverrideRuleBase.g:66:2: (iv_ruleModel= ruleModel EOF )\n            // InternalOverrideRuleBase.g:67:2: iv_ruleModel= ruleModel EOF\n            {\n             newCompositeNode(grammarAccess.getModelRule()); \n            pushFollow(FOLLOW_1);\n            iv_ruleModel=ruleModel();\n\n            state._fsp--;\n\n             current =iv_ruleModel; \n            match(input,EOF,FOLLOW_2); \n\n            }\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        },
+        {
+          "method": "ruleModel",
+          "byte_start": 3480,
+          "byte_end": 5044,
+          "sha256": "55634d4504b355a283eba632b592248de60a74684ab4e244d18ab7498c40302d",
+          "utf8": " ruleModel() throws RecognitionException {\n        EObject current = null;\n\n        Token lv_name_0_0=null;\n\n\n        \tenterRule();\n        \tHiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens(\"RULE_WS\");\n\n        try {\n            // InternalOverrideRuleBase.g:83:2: ( ( (lv_name_0_0= RULE_ID ) ) )\n            // InternalOverrideRuleBase.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            {\n            // InternalOverrideRuleBase.g:84:2: ( (lv_name_0_0= RULE_ID ) )\n            // InternalOverrideRuleBase.g:85:3: (lv_name_0_0= RULE_ID )\n            {\n            // InternalOverrideRuleBase.g:85:3: (lv_name_0_0= RULE_ID )\n            // InternalOverrideRuleBase.g:86:4: lv_name_0_0= RULE_ID\n            {\n            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); \n\n            \t\t\t\tnewLeafNode(lv_name_0_0, grammarAccess.getModelAccess().getNameIDTerminalRuleCall_0());\n            \t\t\t\n\n            \t\t\t\tif (current==null) {\n            \t\t\t\t\tcurrent = createModelElement(grammarAccess.getModelRule());\n            \t\t\t\t}\n            \t\t\t\tsetWithLastConsumed(\n            \t\t\t\t\tcurrent,\n            \t\t\t\t\t\"name\",\n            \t\t\t\t\tlv_name_0_0,\n            \t\t\t\t\t\"audit.scopes.OverrideRuleBase.ID\");\n            \t\t\t\n\n            }\n\n\n            }\n\n\n            }\n\n\n            \tleaveRule();\n\n        }\n\n            catch (RecognitionException re) {\n                recover(input,re);\n                appendSkippedTokens();\n            }\n        finally {\n\n            \tmyHiddenTokenState.restore();\n\n        }\n        return current;\n    }\n    "
+        }
+      ],
+      "resource_cases": [
+        {
+          "text": "a!",
+          "accepted": true
+        },
+        {
+          "text": " a!",
+          "accepted": true
+        },
+        {
+          "text": "a !",
+          "accepted": false
+        },
+        {
+          "text": "a! ",
+          "accepted": false
+        },
+        {
+          "text": "a/*x*/!",
+          "accepted": false
+        },
+        {
+          "text": "a",
+          "accepted": false
+        },
+        {
+          "text": "a\u00e9!",
+          "accepted": true
+        }
+      ]
+    }
+  ]
+}

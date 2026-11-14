@@ -1,0 +1,90 @@
+[
+  {
+    "id": "qualified_grammar_hidden",
+    "entry": "audit.scopes.QualifiedGrammarHiddenChild",
+    "sources": [
+      {
+        "grammar": "audit.scopes.QualifiedGrammarHiddenBase",
+        "file": "audit.scopes.QualifiedGrammarHiddenBase.xtext",
+        "source_id": {
+          "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+          "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+        },
+        "bytes": 466
+      },
+      {
+        "grammar": "audit.scopes.QualifiedGrammarHiddenChild",
+        "file": "audit.scopes.QualifiedGrammarHiddenChild.xtext",
+        "source_id": {
+          "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+          "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+        },
+        "bytes": 265
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "\ta",
+      "a/*x*/",
+      "a\u00e9",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Determine actual hidden-reference scope versus ordinary explicit RuleCall scope before reusing binding(super::WS); validate source/target/effective override identities without guessed qualifier projection.",
+    "execution": "UNEXECUTED; syntax/link/generation validity and runtime behavior unknown; all failures remain."
+  },
+  {
+    "id": "qualified_rule_hidden_override",
+    "entry": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+    "sources": [
+      {
+        "grammar": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+        "file": "audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+        "source_id": {
+          "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+          "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+        },
+        "bytes": 471
+      },
+      {
+        "grammar": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+        "file": "audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+        "source_id": {
+          "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+          "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+        },
+        "bytes": 327
+      }
+    ],
+    "inputs": [
+      "a",
+      "~a~",
+      " a ",
+      "~ a ~",
+      "a~",
+      "a ",
+      "a/*x*/",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Determine actual hidden-reference scope versus ordinary explicit RuleCall scope before reusing binding(super::WS); validate source/target/effective override identities without guessed qualifier projection.",
+    "execution": "UNEXECUTED; syntax/link/generation validity and runtime behavior unknown; all failures remain."
+  }
+]

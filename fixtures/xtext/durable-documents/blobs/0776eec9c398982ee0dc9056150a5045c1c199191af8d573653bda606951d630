@@ -1,0 +1,45 @@
+{
+  "producer": {
+    "bytes": 2550,
+    "sha256": "aa8102420104cd2053f1bbe51c5f1316916778987e1aaab2cf8a3aec12f87c52"
+  },
+  "source_freeze": {
+    "bytes": 102036,
+    "sha256": "8983042e5c81857d6f4539a74b655a3a3c24757588e1383fc2eb1013ecb58af0"
+  },
+  "steps": [
+    {
+      "label": "public-web",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "intersect-web",
+        "--lib",
+        "--release",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "label": "shared-controls",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "intersect-web",
+        "--example",
+        "durable_document_controls_probe",
+        "--release",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--locked",
+        "--offline"
+      ]
+    }
+  ],
+  "scope": "Private normal zero-import WASM web JSON and identical shared controls; explicit root callback WASM cache lease, includes exact original V63 trailing-token rejection fixture including exact5 source archive contexts and34 full analyses; no actual source/cache/public mutation",
+  "gate_closures": []
+}

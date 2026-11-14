@@ -1,0 +1,17 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="lexical" nsURI="urn:lexical">
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="Wide" instanceClassName="java.lang.Long"/>
+<eClassifiers x:type="e:EDataType" name="Sequence" instanceClassName="intersect.Sequence"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Holder">
+<eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="texts" defaultValueLiteral="[&quot;initial&quot;]"><eGenericType eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Text"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="numbers"><eGenericType eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Wide"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="nested"><eGenericType eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Text"/></eTypeArguments></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="many" upperBound="-1"><eGenericType eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Text"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="wide" eType="#//Wide"/>
+<eStructuralFeatures x:type="e:EAttribute" name="word" eType="#//Text"/>
+</eClassifiers>
+<eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+<eClassifiers x:type="e:EEnum" name="Color"><eLiterals name="Red" value="0" literal="red"/><eLiterals name="Blue" value="1" literal="blue"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="List" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+</e:EPackage>

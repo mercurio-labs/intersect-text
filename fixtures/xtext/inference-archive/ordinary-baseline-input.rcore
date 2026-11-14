@@ -1,0 +1,24 @@
+rcore 1;
+package `graph` version "1";
+metamodel "urn:intersect:compatibility:graph" prefix `g` {
+  abstract class `Named` {
+    attr `name`: EString [1,1];
+  }
+  class `Graph` extends external "#//@eClassifiers.0" {
+    ref `nodes`: external "#//@eClassifiers.2" [0,*] containment opposite external "#//@eClassifiers.2/@eStructuralFeatures.5";
+    ref `edges`: external "#//@eClassifiers.3" [0,*] containment;
+  }
+  class `Node` extends external "#//@eClassifiers.0" {
+    attr `count`: EInt [0,1] default "7";
+    attr `active`: EBoolean [0,1] default "true";
+    attr `labels`: EString [0,*] nonunique;
+    ref `peer`: external "#//@eClassifiers.2" [0,1];
+    ref `links`: external "#//@eClassifiers.2" [0,*] nonunique;
+    ref `graph`: external "#//@eClassifiers.1" [0,1] opposite external "#//@eClassifiers.1/@eStructuralFeatures.0";
+  }
+  class `Edge` extends external "#//@eClassifiers.0" {
+    ref `source`: external "#//@eClassifiers.2" [1,1];
+    ref `target`: external "#//@eClassifiers.2" [1,1];
+    attr `weight`: EInt [0,1];
+  }
+}

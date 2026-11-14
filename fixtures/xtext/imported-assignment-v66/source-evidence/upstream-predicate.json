@@ -1,0 +1,382 @@
+{
+  "source_archive": {
+    "path": "C:\\Users\\MarkPetrotta\\.m2\\repository\\org\\eclipse\\xtext\\org.eclipse.xtext\\2.38.0\\org.eclipse.xtext-2.38.0-sources.jar",
+    "bytes": 1443309,
+    "sha256": "aa3811517807cb0f55dcea62c5f85d7dcc3423262f8d5fa6a2fabe9c3e72a47b"
+  },
+  "entry": "org/eclipse/xtext/xtext/ecoreInference/EClassifierInfo.java",
+  "raw_entry": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\source-evidence\\EClassifierInfo.java.raw",
+    "bytes": 20067,
+    "sha256": "ec0fd9f5eb691ae58900b4c752e99c646895a105efbf848802f6c0d3c9400224"
+  },
+  "decoding_note": "UTF-8 inspection failed at non-ASCII source byte0xf6; raw bytes preserved. Latin-1 inspection used only to extract the ASCII predicate/comment lines without changing originals.",
+  "imported_compatibility_lines_195_267": [
+    {
+      "line": 195,
+      "text": "\t\tpublic boolean containsCompatibleFeature("
+    },
+    {
+      "line": 196,
+      "text": "\t\t\t\tString name, "
+    },
+    {
+      "line": 197,
+      "text": "\t\t\t\tboolean isMulti, "
+    },
+    {
+      "line": 198,
+      "text": "\t\t\t\tboolean isContainment,"
+    },
+    {
+      "line": 199,
+      "text": "\t\t\t\tEClassifier expectedType,"
+    },
+    {
+      "line": 200,
+      "text": "\t\t\t\tStringBuilder errorMessage) {"
+    },
+    {
+      "line": 201,
+      "text": "\t\t\tEStructuralFeature assignedExistingFeature = getEClass().getEStructuralFeature(name);"
+    },
+    {
+      "line": 202,
+      "text": "\t\t\tif (assignedExistingFeature != null) {"
+    },
+    {
+      "line": 203,
+      "text": "\t\t\t\tif (!assignedExistingFeature.isChangeable()) {"
+    },
+    {
+      "line": 204,
+      "text": "\t\t\t\t\terrorMessage.append(\"The existing feature '\" + name + \"' is not changeable.\");"
+    },
+    {
+      "line": 205,
+      "text": "\t\t\t\t\treturn false;"
+    },
+    {
+      "line": 206,
+      "text": "\t\t\t\t} else {"
+    },
+    {
+      "line": 207,
+      "text": "\t\t\t\t\tboolean many = assignedExistingFeature.isMany();"
+    },
+    {
+      "line": 208,
+      "text": "\t\t\t\t\tif (many == isMulti) {"
+    },
+    {
+      "line": 209,
+      "text": "\t\t\t\t\t\tif (expectedType instanceof EClass && assignedExistingFeature.getEType() instanceof EClass) {"
+    },
+    {
+      "line": 210,
+      "text": "\t\t\t\t\t\t\tEClass castedExpectedType = (EClass) expectedType;"
+    },
+    {
+      "line": 211,
+      "text": "\t\t\t\t\t\t\tEClass castedExistingType = (EClass) assignedExistingFeature.getEType();"
+    },
+    {
+      "line": 212,
+      "text": "\t\t\t\t\t\t\tboolean result = isAssignableFrom(castedExistingType, castedExpectedType);"
+    },
+    {
+      "line": 213,
+      "text": "\t\t\t\t\t\t\tif (!result) {"
+    },
+    {
+      "line": 214,
+      "text": "\t\t\t\t\t\t\t\tif (isAssignableByID(castedExistingType, castedExpectedType)) {"
+    },
+    {
+      "line": 215,
+      "text": "\t\t\t\t\t\t\t\t\terrorMessage.append(\"The type \" + classifierToString(castedExistingType) + \" used in the reference '\" + name + \"' is inconsistent. \" +"
+    },
+    {
+      "line": 216,
+      "text": "\t\t\t\t\t\t\t\t\t\t\t\"Probably this is due to an unsupported kind of metamodel hierarchy.\");"
+    },
+    {
+      "line": 217,
+      "text": "\t\t\t\t\t\t\t\t} else if (castedExistingType instanceof InternalEObject && castedExistingType.eIsProxy()) {"
+    },
+    {
+      "line": 218,
+      "text": "\t\t\t\t\t\t\t\t\tURI proxyURI = ((InternalEObject) castedExistingType).eProxyURI();"
+    },
+    {
+      "line": 219,
+      "text": "\t\t\t\t\t\t\t\t\terrorMessage.append(\"The type of the reference '\" + name + \"' could not be resolved. The URI is \" + proxyURI);"
+    },
+    {
+      "line": 220,
+      "text": "\t\t\t\t\t\t\t\t} else {"
+    },
+    {
+      "line": 221,
+      "text": "\t\t\t\t\t\t\t\t\terrorMessage.append(\"The existing reference '\" + name + \"' has an incompatible type \" + classifierToString(castedExistingType) + \". \" +"
+    },
+    {
+      "line": 222,
+      "text": "\t\t\t\t\t\t\t\t\t\t\t\"The expected type is \" + classifierToString(castedExpectedType) + \".\");"
+    },
+    {
+      "line": 223,
+      "text": "\t\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 224,
+      "text": "\t\t\t\t\t\t\t\treturn result;"
+    },
+    {
+      "line": 225,
+      "text": "\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 226,
+      "text": "\t\t\t\t\t\t\tresult &= isContainment == ((EReference) assignedExistingFeature).isContainment();"
+    },
+    {
+      "line": 227,
+      "text": "\t\t\t\t\t\t\tif (!result) {"
+    },
+    {
+      "line": 228,
+      "text": "\t\t\t\t\t\t\t\tif (isContainment)"
+    },
+    {
+      "line": 229,
+      "text": "\t\t\t\t\t\t\t\t\terrorMessage.append(\"The existing reference '\" + name + \"' is not a containment reference.\");"
+    },
+    {
+      "line": 230,
+      "text": "\t\t\t\t\t\t\t\telse"
+    },
+    {
+      "line": 231,
+      "text": "\t\t\t\t\t\t\t\t\terrorMessage.append(\"The existing reference '\" + name + \"' is a containment reference.\");"
+    },
+    {
+      "line": 232,
+      "text": "\t\t\t\t\t\t\t\treturn result;"
+    },
+    {
+      "line": 233,
+      "text": "\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 234,
+      "text": "\t\t\t\t\t\t\tresult &= !((EReference) assignedExistingFeature).isContainer();"
+    },
+    {
+      "line": 235,
+      "text": "\t\t\t\t\t\t\tif (!result) {"
+    },
+    {
+      "line": 236,
+      "text": "\t\t\t\t\t\t\t\terrorMessage.append(\"The existing reference '\" + name + \"' is a container reference.\");"
+    },
+    {
+      "line": 237,
+      "text": "\t\t\t\t\t\t\t\treturn result;"
+    },
+    {
+      "line": 238,
+      "text": "\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 239,
+      "text": "\t\t\t\t\t\t\treturn result;"
+    },
+    {
+      "line": 240,
+      "text": "\t\t\t\t\t\t} else if (expectedType instanceof EDataType && assignedExistingFeature.getEType() instanceof EDataType) {"
+    },
+    {
+      "line": 241,
+      "text": "\t\t\t\t\t\t\tEDataType castedExpectedType = (EDataType) expectedType;"
+    },
+    {
+      "line": 242,
+      "text": "\t\t\t\t\t\t\tEDataType castedExistingType = (EDataType) assignedExistingFeature.getEType();"
+    },
+    {
+      "line": 243,
+      "text": "\t\t\t\t\t\t\tClass<?> expectedInstanceClass = ReflectionUtil.getObjectType(castedExpectedType.getInstanceClass());"
+    },
+    {
+      "line": 244,
+      "text": "\t\t\t\t\t\t\tClass<?> existingInstanceClass = ReflectionUtil.getObjectType(castedExistingType.getInstanceClass());"
+    },
+    {
+      "line": 245,
+      "text": "\t\t\t\t\t\t\tboolean result = castedExistingType.equals(castedExpectedType) || expectedInstanceClass != null && existingInstanceClass != null"
+    },
+    {
+      "line": 246,
+      "text": "\t\t\t\t\t\t\t\t\t&& existingInstanceClass.isAssignableFrom(expectedInstanceClass);"
+    },
+    {
+      "line": 247,
+      "text": "\t\t\t\t\t\t\tif (!result) {"
+    },
+    {
+      "line": 248,
+      "text": "\t\t\t\t\t\t\t\terrorMessage.append(\"The existing attribute '\" + name + \"' has an incompatible type \" + classifierToString(castedExistingType) + \". \" +"
+    },
+    {
+      "line": 249,
+      "text": "\t\t\t\t\t\t\t\t\t\t\"The expected type is \" + classifierToString(castedExpectedType) + \".\");"
+    },
+    {
+      "line": 250,
+      "text": "\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 251,
+      "text": "\t\t\t\t\t\t\treturn result;"
+    },
+    {
+      "line": 252,
+      "text": "\t\t\t\t\t\t} else {"
+    },
+    {
+      "line": 253,
+      "text": "\t\t\t\t\t\t\tString msgPart = \" has no type.\";"
+    },
+    {
+      "line": 254,
+      "text": "\t\t\t\t\t\t\tif (assignedExistingFeature.getEType() != null)"
+    },
+    {
+      "line": 255,
+      "text": "\t\t\t\t\t\t\t\tmsgPart = \" has an incompatible type \" + classifierToString(assignedExistingFeature.getEType())+ \". \" +"
+    },
+    {
+      "line": 256,
+      "text": "\t\t\t\t\t\t\t\t\t\t\"The expected type is \" + classifierToString(expectedType) + \".\";"
+    },
+    {
+      "line": 257,
+      "text": "\t\t\t\t\t\t\terrorMessage.append(\"The existing feature '\" + name + \"'\" + msgPart);"
+    },
+    {
+      "line": 258,
+      "text": "\t\t\t\t\t\t}"
+    },
+    {
+      "line": 259,
+      "text": "\t\t\t\t\t} else {\t"
+    },
+    {
+      "line": 260,
+      "text": "\t\t\t\t\t\terrorMessage.append(\"The existing feature '\" + name + \"' has a different cardinality.\");"
+    },
+    {
+      "line": 261,
+      "text": "\t\t\t\t\t}"
+    },
+    {
+      "line": 262,
+      "text": "\t\t\t\t}"
+    },
+    {
+      "line": 263,
+      "text": "\t\t\t} else {"
+    },
+    {
+      "line": 264,
+      "text": "\t\t\t\terrorMessage.append(\"The type '\" + getEClass().getName() + \"' does not have a feature '\" + name + \"'.\");"
+    },
+    {
+      "line": 265,
+      "text": "\t\t\t}"
+    },
+    {
+      "line": 266,
+      "text": "\t\t\treturn false;"
+    },
+    {
+      "line": 267,
+      "text": "\t\t}"
+    }
+  ],
+  "new_feature_creation_lines_440_457": [
+    {
+      "line": 440,
+      "text": "\t\t\t\tboolean isMultivalue, boolean isContainment) {"
+    },
+    {
+      "line": 441,
+      "text": "\t\t\tEStructuralFeature newFeature;"
+    },
+    {
+      "line": 442,
+      "text": ""
+    },
+    {
+      "line": 443,
+      "text": "\t\t\tif (featureClassifier instanceof EClass) {"
+    },
+    {
+      "line": 444,
+      "text": "\t\t\t\tEReference reference = EcoreFactory.eINSTANCE.createEReference();"
+    },
+    {
+      "line": 445,
+      "text": "\t\t\t\treference.setContainment(isContainment);"
+    },
+    {
+      "line": 446,
+      "text": "\t\t\t\tnewFeature = reference;"
+    },
+    {
+      "line": 447,
+      "text": "\t\t\t} else {"
+    },
+    {
+      "line": 448,
+      "text": "\t\t\t\tnewFeature = EcoreFactory.eINSTANCE.createEAttribute();"
+    },
+    {
+      "line": 449,
+      "text": "\t\t\t}"
+    },
+    {
+      "line": 450,
+      "text": "\t\t\tnewFeature.setName(featureName);"
+    },
+    {
+      "line": 451,
+      "text": "\t\t\tnewFeature.setEType(featureClassifier);"
+    },
+    {
+      "line": 452,
+      "text": "\t\t\tnewFeature.setLowerBound(0);"
+    },
+    {
+      "line": 453,
+      "text": "\t\t\tnewFeature.setUpperBound(isMultivalue ? -1 : 1);"
+    },
+    {
+      "line": 454,
+      "text": "\t\t\tnewFeature.setUnique(!isMultivalue || (isContainment && featureClassifier instanceof EClass));"
+    },
+    {
+      "line": 455,
+      "text": "\t\t\tif (newFeature.getEType() instanceof EEnum) {"
+    },
+    {
+      "line": 456,
+      "text": "\t\t\t\tnewFeature.setDefaultValue(null);"
+    },
+    {
+      "line": 457,
+      "text": "\t\t\t}"
+    }
+  ]
+}

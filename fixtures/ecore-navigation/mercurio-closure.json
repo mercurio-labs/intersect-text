@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "provenance": {
+    "repository": "https://github.com/mercurio-labs/mercurio-sysml",
+    "revision": "32750d7c7799970d7d494e0e8e6e0bf1daae4689",
+    "path": "crates/mercurio-sysml/src/language_frontend/lowering/emit/operand_construction.rs",
+    "source_blob_sha256": "fb42f6708339558166890b55d568869f96b21df9318c8506733aba2d87ada2c2",
+    "excerpt_file": "mercurio-closure-source.rs.txt",
+    "excerpt_sha256": "706119f0290a534c8cc8f6a05a0034b72014cc25c80ec07d41f39b5bedd7a939",
+    "excerpts": [
+      {
+        "symbol": "materialized_redefinition_closure_typed_query",
+        "first_line": 5757,
+        "last_line": 5777,
+        "sha256": "b672f86759cd016d21903413a5c6f99380ece74a62c801bfdc84e824486f3d39"
+      },
+      {
+        "symbol": "definition_redefinition_closure_cache_reuses_only_canonical_success",
+        "first_line": 11688,
+        "last_line": 11705,
+        "sha256": "bde72fd99706befa50aa2d219da5cb895e345f67f5ab5229ad0574cc5b724dc0"
+      },
+      {
+        "symbol": "definition_redefinition_closure_cache_preserves_failures_and_edit_invalidation",
+        "first_line": 11708,
+        "last_line": 11735,
+        "sha256": "73d82b8241655dc84264afc07a29760357d360269aa0ff50661bc6966f679c2c"
+      }
+    ],
+    "license": "../definition-conformance/mercurio/LICENSE-Mercurio",
+    "evidence_kind": "assertions transcribed from pinned upstream tests; no fresh upstream execution claimed"
+  },
+  "projection": "Explicit feature redefinition endpoints only. Owner/membership/filler KIR objects, computed redefinitions, prerequisites and immutable-view cache behavior are outside this projection. Mercurio returns a set; ordering is not compared.",
+  "cases": [
+    {
+      "name": "isolated_seed",
+      "upstream_test": "definition_redefinition_closure_cache_reuses_only_canonical_success",
+      "seed": "view_feature0",
+      "features": [
+        {
+          "id": "view_feature0",
+          "redefined": []
+        },
+        {
+          "id": "view_feature1",
+          "redefined": []
+        }
+      ],
+      "expected_membership": [
+        "view_feature0"
+      ]
+    },
+    {
+      "name": "explicit_redefinition",
+      "upstream_test": "definition_redefinition_closure_cache_preserves_failures_and_edit_invalidation",
+      "seed": "view_feature0",
+      "features": [
+        {
+          "id": "view_feature0",
+          "redefined": [
+            "view_feature1"
+          ]
+        },
+        {
+          "id": "view_feature1",
+          "redefined": []
+        }
+      ],
+      "expected_membership": [
+        "view_feature0",
+        "view_feature1"
+      ]
+    },
+    {
+      "name": "self_redefinition",
+      "upstream_test": "definition_redefinition_closure_cache_preserves_failures_and_edit_invalidation",
+      "seed": "view_feature0",
+      "features": [
+        {
+          "id": "view_feature0",
+          "redefined": [
+            "view_feature0"
+          ]
+        },
+        {
+          "id": "view_feature1",
+          "redefined": []
+        }
+      ],
+      "expected_membership": [
+        "view_feature0"
+      ]
+    }
+  ]
+}

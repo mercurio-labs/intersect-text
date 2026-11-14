@@ -1,0 +1,40 @@
+rcore 1;
+package library version "1";
+metamodel "urn:intersect:example:library:1" prefix lib {
+  // The first literal is also the implicit enum default.
+  enum BookCondition { GOOD = 0; WORN = 1; DAMAGED = 2; }
+  abstract class Named { attr name: String [1,1]; }
+  class Library extends Named {
+    ref copies: BookCopy [0,*] containment opposite BookCopy.library;
+    ref members: Member [0,*] containment;
+    ref loans: Loan [0,*] containment;
+    attr copyCount: Int64 [1,1] derived;
+  }
+  class BookCopy extends Named {
+    attr title: String [0,1];
+    attr edition: Int32 [0,1] default 1;
+    attr condition: BookCondition [0,1] default BookCondition.GOOD;
+    ref library: Library [0,1] opposite Library.copies;
+    attr available: Bool [1,1] derived;
+  }
+  class Member extends Named {}
+  class Loan extends Named {
+    ref copy: BookCopy [1,1];
+    ref member: Member [1,1];
+  }
+}
+
+// Typed providers activate through the shared model-rule evaluator.
+behavior {
+  import model "urn:intersect:example:library:1" as lib;
+
+  pub derive lib.Library.copyCount(self) -> Int = size(self.copies);
+  pub derive lib.BookCopy.available(self) -> Bool =
+    isEmpty(incoming::<lib.Loan>(self, "copy"));
+
+  pub validate lib.Loan.singleLoan(self) {
+    require size(incoming::<lib.Loan>(self.copy, "copy")) <= 1
+      code "library.single-loan"
+      message "A book copy cannot have more than one active loan.";
+  }
+}

@@ -1,0 +1,10 @@
+grammar example.Prediction hidden(WS)
+import "urn:prediction" as p
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Model returns p::Model: 'model' '{' entries+=Entry* '}';
+Entry returns p::Entry: ->Left | Right;
+Left returns p::Left: 'a' 'b' number=INT ';';
+Right returns p::Right: 'a' 'b' raw=RawInt ';';
+RawInt returns Ecore::EString: INT;
+terminal INT returns Ecore::EInt: ('0'..'9')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;

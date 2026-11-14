@@ -1,0 +1,289 @@
+{
+  "fresh_zero_import_instances": 8,
+  "rows": [
+    {
+      "id": "direct_until_suffix_c",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:direct_until_suffix_c/audit.UntilCallsDirectUntilSuffixC.xtext",
+                  "sha256": "d7da27578a2c35606bec24ebc2c7c49904fb1c0bd8cc7a407b5e81a3e1b87827"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.UntilCallsDirectUntilSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->('ab'|'abc') 'c';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:direct_until_suffix_c/audit.UntilCallsDirectUntilSuffixC.xtext",
+            "sha256": "d7da27578a2c35606bec24ebc2c7c49904fb1c0bd8cc7a407b5e81a3e1b87827"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      },
+      "independent_fresh_instance_replay": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      }
+    },
+    {
+      "id": "until_fragment_operand_suffix_c",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:until_fragment_operand_suffix_c/audit.UntilCallsUntilFragmentOperandSuffixC.xtext",
+                  "sha256": "842b0c7e6138fc377a9afdf2296dde8483da4095db35491b005240f86ded36d6"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.UntilCallsUntilFragmentOperandSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->END 'c';\nterminal fragment END: 'ab'|'abc';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:until_fragment_operand_suffix_c/audit.UntilCallsUntilFragmentOperandSuffixC.xtext",
+            "sha256": "842b0c7e6138fc377a9afdf2296dde8483da4095db35491b005240f86ded36d6"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      },
+      "independent_fresh_instance_replay": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      }
+    },
+    {
+      "id": "ordinary_fragment_suffix_c",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:ordinary_fragment_suffix_c/audit.UntilCallsOrdinaryFragmentSuffixC.xtext",
+                  "sha256": "80f8a3ad6e9945d6b0fb96d2fbb96a60457351cb96a3a4f847c37ccb186346c6"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.UntilCallsOrdinaryFragmentSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' END 'c';\nterminal fragment END: 'ab'|'abc';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:ordinary_fragment_suffix_c/audit.UntilCallsOrdinaryFragmentSuffixC.xtext",
+            "sha256": "80f8a3ad6e9945d6b0fb96d2fbb96a60457351cb96a3a4f847c37ccb186346c6"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      },
+      "independent_fresh_instance_replay": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      }
+    },
+    {
+      "id": "block_until_fragment_suffix_c",
+      "request": {
+        "method": "compile_bundle",
+        "compilation": {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:block_until_fragment_suffix_c/audit.UntilCallsBlockUntilFragmentSuffixC.xtext",
+                  "sha256": "10bd75f1461b5bc5112df5f682cdf8463551692531f1298e468b8a17eb971838"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.UntilCallsBlockUntilFragmentSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: BLOCK 'c';\nterminal fragment BLOCK: '@' ->('ab'|'abc');\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "ecore": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "xtext": {
+            "uri": "memory:block_until_fragment_suffix_c/audit.UntilCallsBlockUntilFragmentSuffixC.xtext",
+            "sha256": "10bd75f1461b5bc5112df5f682cdf8463551692531f1298e468b8a17eb971838"
+          },
+          "rcore_behavior": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v60"
+      },
+      "result": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      },
+      "independent_fresh_instance_replay": {
+        "error": "Invalid Xtext profile: unknown variant `intersect.xtext.native.v60`, expected one of `intersect.workbench.v1`, `intersect.xtext.native.v1`, `intersect.xtext.native.v2`, `intersect.xtext.native.v3`, `intersect.xtext.native.v4`, `intersect.xtext.native.v5`, `intersect.xtext.native.v6`, `intersect.xtext.native.v7`, `intersect.xtext.native.v8`, `intersect.xtext.native.v9`, `intersect.xtext.native.v10`, `intersect.xtext.native.v11`, `intersect.xtext.native.v12`, `intersect.xtext.native.v13`, `intersect.xtext.native.v14`, `intersect.xtext.native.v15`, `intersect.xtext.native.v16`, `intersect.xtext.native.v17`, `intersect.xtext.native.v18`, `intersect.xtext.native.v19`, `intersect.xtext.native.v20`, `intersect.xtext.native.v21`, `intersect.xtext.native.v22`, `intersect.xtext.native.v23`, `intersect.xtext.native.v24`, `intersect.xtext.native.v25`, `intersect.xtext.native.v26`, `intersect.xtext.native.v27`, `intersect.xtext.native.v28`, `intersect.xtext.native.v29`, `intersect.xtext.native.v30`, `intersect.xtext.native.v31`, `intersect.xtext.native.v32`, `intersect.xtext.native.v33`, `intersect.xtext.native.v34`, `intersect.xtext.native.v35`, `intersect.xtext.native.v36`, `intersect.xtext.native.v37`, `intersect.xtext.native.v38`, `intersect.xtext.native.v39`, `intersect.xtext.native.v40`, `intersect.xtext.native.v41`, `intersect.xtext.native.v42`, `intersect.xtext.native.v43`, `intersect.xtext.native.v44`, `intersect.xtext.native.v45`, `intersect.xtext.native.v46`, `intersect.xtext.native.v47`, `intersect.xtext.native.v48`, `intersect.xtext.native.v49`, `intersect.xtext.native.v50`, `intersect.xtext.native.v51`, `intersect.xtext.native.v52`, `intersect.xtext.native.v53`, `intersect.xtext.native.v54`, `intersect.xtext.native.v55`, `intersect.xtext.native.v56`, `intersect.xtext.native.v57`, `intersect.xtext.native.v58`, `intersect.xtext.native.v59`"
+      }
+    }
+  ]
+}

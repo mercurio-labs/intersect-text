@@ -1,0 +1,9 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="prerequisiteProjection" nsURI="urn:intersect:mercurio-prerequisite-projection" nsPrefix="projection">
+  <eClassifiers xsi:type="ecore:EClass" name="Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owned_relationship" upperBound="-1" containment="true" eType="#//Redefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Redefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="redefining_feature" lowerBound="1" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="redefined_feature" lowerBound="1" eType="#//Feature"/>
+  </eClassifiers>
+</ecore:EPackage>

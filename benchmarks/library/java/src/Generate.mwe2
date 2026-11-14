@@ -1,0 +1,23 @@
+module Generate
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+var rootPath = "."
+Workflow {
+  component = XtextGenerator {
+    configuration = {
+      project = StandardProjectConfig {
+        baseName = "library-benchmark"
+        rootPath = rootPath
+        runtime = { name = "library-benchmark" root = rootPath }
+        mavenLayout = false
+      }
+      code = { encoding = "UTF-8" lineDelimiter = "\n" preferXtendStubs = false }
+    }
+    language = StandardLanguage {
+      name = "example.Library"
+      fileExtensions = "library"
+      serializer = { generateStub = false }
+      validator = { generateDeprecationValidation = false }
+    }
+  }
+}

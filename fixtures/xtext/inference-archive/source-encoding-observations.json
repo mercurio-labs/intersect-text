@@ -1,0 +1,1236 @@
+[
+  {
+    "id": "archive_plain",
+    "entry": "model",
+    "accepted": true,
+    "all_sources_accepted": true,
+    "initial": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": true,
+        "error_count": 0,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 195,
+                          "end": 202
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 163,
+            "end": 177,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 170,
+                "end": 176
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 178,
+            "end": 203,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 200,
+                "end": 202
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 204,
+            "end": 229,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 230,
+            "end": 265,
+            "calls": []
+          }
+        ],
+        "diagnostics": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": true,
+        "error_count": 0,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 195,
+                          "end": 202
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 163,
+            "end": 177,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 170,
+                "end": 176
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 178,
+            "end": 203,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 200,
+                "end": 202
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 204,
+            "end": 229,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 230,
+            "end": 265,
+            "calls": []
+          }
+        ],
+        "diagnostics": []
+      }
+    ],
+    "parent_snapshots": [],
+    "imported_unchanged": true,
+    "imported_package": {
+      "name": "external",
+      "uri": "urn:intersect:inference:imported",
+      "prefix": "external",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "External",
+          "identity": "urn:intersect:inference:imported#//External",
+          "kind": "EClass",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Shade",
+          "identity": "urn:intersect:inference:imported#//Shade",
+          "kind": "EEnum",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "serializable": true,
+          "literals": [
+            {
+              "name": "RED",
+              "literal": "red",
+              "value": 0,
+              "origins": []
+            },
+            {
+              "name": "BLUE",
+              "literal": "blue",
+              "value": 1,
+              "origins": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "archive_bom",
+    "entry": "model",
+    "accepted": false,
+    "all_sources_accepted": false,
+    "initial": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": false,
+        "error_count": 1,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 196,
+                          "end": 203
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 164,
+            "end": 178,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 171,
+                "end": 177
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 179,
+            "end": 204,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 201,
+                "end": 203
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 205,
+            "end": 230,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 231,
+            "end": 266,
+            "calls": []
+          }
+        ],
+        "diagnostics": [
+          {
+            "severity": "ERROR",
+            "code": "org.eclipse.xtext.diagnostics.Diagnostic.Syntax",
+            "start": 0,
+            "length": 1,
+            "message": "extraneous input '\ufeff' expecting 'grammar'"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": false,
+        "error_count": 1,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 196,
+                          "end": 203
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 164,
+            "end": 178,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 171,
+                "end": 177
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 179,
+            "end": 204,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 201,
+                "end": 203
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 205,
+            "end": 230,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 231,
+            "end": 266,
+            "calls": []
+          }
+        ],
+        "diagnostics": [
+          {
+            "severity": "ERROR",
+            "code": "org.eclipse.xtext.diagnostics.Diagnostic.Syntax",
+            "start": 0,
+            "length": 1,
+            "message": "extraneous input '\ufeff' expecting 'grammar'"
+          }
+        ]
+      }
+    ],
+    "parent_snapshots": [],
+    "imported_unchanged": true,
+    "imported_package": {
+      "name": "external",
+      "uri": "urn:intersect:inference:imported",
+      "prefix": "external",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "External",
+          "identity": "urn:intersect:inference:imported#//External",
+          "kind": "EClass",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Shade",
+          "identity": "urn:intersect:inference:imported#//Shade",
+          "kind": "EEnum",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "serializable": true,
+          "literals": [
+            {
+              "name": "RED",
+              "literal": "red",
+              "value": 0,
+              "origins": []
+            },
+            {
+              "name": "BLUE",
+              "literal": "blue",
+              "value": 1,
+              "origins": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "archive_unicode",
+    "entry": "model",
+    "accepted": true,
+    "all_sources_accepted": true,
+    "initial": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": true,
+        "error_count": 0,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 195,
+                          "end": 202
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 163,
+            "end": 177,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 170,
+                "end": 176
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 178,
+            "end": 203,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 200,
+                "end": 202
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 204,
+            "end": 229,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 230,
+            "end": 265,
+            "calls": []
+          }
+        ],
+        "diagnostics": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "accepted": true,
+        "error_count": 0,
+        "parents": [],
+        "metamodels": [
+          {
+            "generated": true,
+            "alias": null,
+            "namespace": "urn:inference:fragments:typed_basic",
+            "package": {
+              "name": "fragments",
+              "uri": "urn:inference:fragments:typed_basic",
+              "prefix": "fragments",
+              "annotations": [],
+              "classifiers": [
+                {
+                  "name": "Model",
+                  "identity": "urn:inference:fragments:typed_basic#//Model",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [
+                    "urn:inference:fragments:typed_basic#//Fields"
+                  ],
+                  "features": []
+                },
+                {
+                  "name": "Fields",
+                  "identity": "urn:inference:fragments:typed_basic#//Fields",
+                  "kind": "EClass",
+                  "instance_class": null,
+                  "instance_type": null,
+                  "annotations": [],
+                  "origins": [],
+                  "abstract": false,
+                  "interface": false,
+                  "super_types": [],
+                  "features": [
+                    {
+                      "name": "name",
+                      "kind": "EAttribute",
+                      "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "lower": 0,
+                      "upper": 1,
+                      "ordered": true,
+                      "unique": true,
+                      "changeable": true,
+                      "volatile": false,
+                      "transient": false,
+                      "derived": false,
+                      "unsettable": false,
+                      "default_literal": null,
+                      "annotations": [],
+                      "origins": [
+                        {
+                          "grammar": "inference.fragments.TypedBasic",
+                          "kind": "Assignment",
+                          "start": 195,
+                          "end": 202
+                        }
+                      ],
+                      "id": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "generated": false,
+            "alias": "ecore",
+            "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+            "package": {
+              "name": "ecore",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore",
+              "prefix": "ecore"
+            }
+          }
+        ],
+        "rules": [
+          {
+            "name": "Model",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Model",
+            "fragment": false,
+            "wildcard": false,
+            "start": 163,
+            "end": 177,
+            "calls": [
+              {
+                "target": {
+                  "name": "Fields",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "ParserRule",
+                  "type": "urn:inference:fragments:typed_basic#//Fields",
+                  "fragment": true,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 170,
+                "end": 176
+              }
+            ]
+          },
+          {
+            "name": "Fields",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "ParserRule",
+            "type": "urn:inference:fragments:typed_basic#//Fields",
+            "fragment": true,
+            "wildcard": false,
+            "start": 178,
+            "end": 203,
+            "calls": [
+              {
+                "target": {
+                  "name": "ID",
+                  "grammar": "inference.fragments.TypedBasic",
+                  "kind": "TerminalRule",
+                  "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                  "fragment": false,
+                  "wildcard": false
+                },
+                "explicit": false,
+                "proxy": false,
+                "synthetic": false,
+                "start": 200,
+                "end": 202
+              }
+            ]
+          },
+          {
+            "name": "ID",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 204,
+            "end": 229,
+            "calls": []
+          },
+          {
+            "name": "WS",
+            "grammar": "inference.fragments.TypedBasic",
+            "kind": "TerminalRule",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "fragment": false,
+            "wildcard": false,
+            "start": 230,
+            "end": 265,
+            "calls": []
+          }
+        ],
+        "diagnostics": []
+      }
+    ],
+    "parent_snapshots": [],
+    "imported_unchanged": true,
+    "imported_package": {
+      "name": "external",
+      "uri": "urn:intersect:inference:imported",
+      "prefix": "external",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "External",
+          "identity": "urn:intersect:inference:imported#//External",
+          "kind": "EClass",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Shade",
+          "identity": "urn:intersect:inference:imported#//Shade",
+          "kind": "EEnum",
+          "instance_class": null,
+          "instance_type": null,
+          "annotations": [],
+          "origins": [],
+          "serializable": true,
+          "literals": [
+            {
+              "name": "RED",
+              "literal": "red",
+              "value": 0,
+              "origins": []
+            },
+            {
+              "name": "BLUE",
+              "literal": "blue",
+              "value": 1,
+              "origins": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

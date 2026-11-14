@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "scope": "New native consumer companions; no independent full-generated oracle qualification. Exact same-name parameter failure retained alongside canonical control.",
+  "cases": [
+    {
+      "id": "identity_parameter_before",
+      "entry": "audit.FirstRuleIdentityClass",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                "uri": "memory:contextual-first-rule/identity/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `firstRuleIdentity` version \"1\";\nmetamodel \"urn:intersect:xtext:first-rule:identity:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n  class `EString` extends external \"#//@eClassifiers.0\" {\n  }\n  enum `Choice` {\n    `A` = 0;\n    `B` = 1;\n  }\n}\n"
+            },
+            {
+              "id": {
+                "uri": "memory:contextual-first-rule/parameterized.xtext",
+                "sha256": "08b5f49b43316014bbe23223c3bf7341cb5b9c53c5cb558401445f6d64cc043c"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleIdentityClass\n\nimport \"urn:intersect:xtext:first-rule:identity:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::EString: Item<true>;\nItem<Enabled> returns k::EString: <Enabled> name=VALUE;\nterminal VALUE:'a';\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+                  "uri": "memory:contextual-first-rule/identity/model.rcore"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5",
+          "uri": "memory:contextual-first-rule/identity/model.rcore"
+        },
+        "namespace": "urn:intersect:xtext:first-rule:identity:1",
+        "xtext": {
+          "uri": "memory:contextual-first-rule/parameterized.xtext",
+          "sha256": "08b5f49b43316014bbe23223c3bf7341cb5b9c53c5cb558401445f6d64cc043c"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "provider_cohort": "separate_authored_identity_provider",
+      "original_ecore": {
+        "path": "inputs/same_name_class_first/imported.ecore",
+        "bytes": 1497,
+        "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+      },
+      "structural_selection": "exact complete migration report.converted unchanged",
+      "source_pins_original_lineage": [
+        {
+          "grammar": "audit.FirstRuleIdentityClass",
+          "file": "audit.FirstRuleIdentityClass.xtext",
+          "source_id": {
+            "uri": "memory:same_name_class_first/audit.FirstRuleIdentityClass.xtext",
+            "sha256": "533eb878d87597047ea8232c2020dd0dd87ad1f8c094cc16e08f549e4284f17c"
+          }
+        }
+      ],
+      "native_companion_origin_case": "same_name_class_first"
+    },
+    {
+      "id": "canonical_parameter",
+      "entry": "audit.FirstRuleTerminalBeforeModel",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:contextual-first-rule/canonical_parameter.xtext",
+                "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\nterminal VALUE:'a';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:contextual-first-rule/canonical_parameter.xtext",
+          "sha256": "72fb73111dd78d775f105d8db0056666ef72ed02b275b04efedb47d3e19728bf"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "inputs/terminal_before_local_model/imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter",
+      "source_pins_original_lineage": [
+        {
+          "grammar": "audit.FirstRuleTerminalBeforeModel",
+          "file": "audit.FirstRuleTerminalBeforeModel.xtext",
+          "source_id": {
+            "uri": "memory:terminal_before_local_model/audit.FirstRuleTerminalBeforeModel.xtext",
+            "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+          }
+        }
+      ],
+      "native_companion_origin_case": "terminal_before_local_model"
+    },
+    {
+      "id": "terminal_first_parameter",
+      "entry": "audit.FirstRuleTerminalBeforeModel",
+      "inputs": [
+        "a",
+        "b",
+        "",
+        "ab",
+        "a🌍"
+      ],
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext",
+                "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.FirstRuleTerminalBeforeModel\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\n\nterminal VALUE:'a';\nModel returns k::Model: Item<true>;\nItem<Enabled> returns k::Model: <Enabled> name=VALUE;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:contextual-first-rule/terminal_first_parameter.xtext",
+          "sha256": "b8689f44a9e22c62631aebc51c10976728620990f40430a49804896849a6850f"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "provider_cohort": "unchanged_original_provider",
+      "original_ecore": {
+        "path": "inputs/terminal_before_local_model/imported.ecore",
+        "bytes": 1283,
+        "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+      },
+      "structural_selection": "unchanged canonical full7 structure migration adapter",
+      "source_pins_original_lineage": [
+        {
+          "grammar": "audit.FirstRuleTerminalBeforeModel",
+          "file": "audit.FirstRuleTerminalBeforeModel.xtext",
+          "source_id": {
+            "uri": "memory:terminal_before_local_model/audit.FirstRuleTerminalBeforeModel.xtext",
+            "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+          }
+        }
+      ],
+      "native_companion_origin_case": "terminal_before_local_model"
+    }
+  ]
+}

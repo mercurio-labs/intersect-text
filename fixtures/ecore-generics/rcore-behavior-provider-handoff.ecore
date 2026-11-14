@@ -1,0 +1,8 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="handoff" nsURI="urn:rcore-behavior-provider-handoff">
+  <eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EClass" name="Box">
+    <eTypeParameters name="T"><eBounds eClassifier="#//RGB"/></eTypeParameters>
+    <eStructuralFeatures x:type="e:EAttribute" name="value" lowerBound="1"><eGenericType eTypeParameter="#//Box/T"/></eStructuralFeatures>
+  </eClassifiers>
+</e:EPackage>

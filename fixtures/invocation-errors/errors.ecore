@@ -1,0 +1,12 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="errors" nsURI="urn:intersect:errors" nsPrefix="errors">
+  <eClassifiers xsi:type="ecore:EDataType" name="InvocationError" instanceClassName="java.lang.reflect.InvocationTargetException" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attempt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="history" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localFailure" eType="#//InvocationError"/>
+    <eOperations name="identity" eType="http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException">
+      <eParameters name="failure" eType="http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

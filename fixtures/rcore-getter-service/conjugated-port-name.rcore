@@ -1,0 +1,11 @@
+rcore 1;
+package intersect.kerml.conjugatedPortName version "1";
+
+// Pilot ConjugatedPortDefinition.effectiveName. The language read adapter
+// supplies the checked original PortDefinition's effective long name.
+fn conjugated_port_name(original_name: Option<String>) -> Option<String> {
+    match original_name {
+        Some(name) => Some("~" + name),
+        None => None
+    }
+}

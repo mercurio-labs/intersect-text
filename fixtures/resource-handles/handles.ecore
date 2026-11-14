@@ -1,0 +1,12 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="handles" nsURI="urn:intersect:handles">
+  <eClassifiers xsi:type="ecore:EDataType" name="Resource" instanceClassName="org.eclipse.emf.ecore.resource.Resource" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalog">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resources" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResourceSet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localResource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localSet" eType="#//ResourceSet"/>
+    <eOperations name="choose" eType="http://www.eclipse.org/emf/2002/Ecore#//EResource"><eParameters name="resources" eType="http://www.eclipse.org/emf/2002/Ecore#//EResourceSet"/></eOperations>
+  </eClassifiers>
+</ecore:EPackage>

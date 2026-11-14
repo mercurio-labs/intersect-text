@@ -1,0 +1,102 @@
+{
+  "bundle": {
+    "namespaces": [],
+    "sources": [
+      {
+        "dependencies": [],
+        "id": {
+          "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+          "uri": "memory:generic.ecore.rcore"
+        },
+        "kind": "rcore",
+        "text": "rcore 1;\npackage `g` version \"1\";\nmetamodel \"urn:g\" prefix `g` {\n  class `Value` {\n    attr `name`: EString [0,1] default \"new\";\n  }\n  class `Other` {\n  }\n  class `Box`<`T`> {\n    ref `value`: generic parameter \"#//@eClassifiers.2/@eTypeParameters.0\" [0,1];\n    op `accept`(`input`: generic parameter \"#//@eClassifiers.2/@eTypeParameters.0\" [0,1]) -> void;\n  }\n  class `ValueBox` extends generic external \"#//@eClassifiers.2\"<external \"#//@eClassifiers.0\"> {\n  }\n  class `Root` {\n    ref `values`: external \"#//@eClassifiers.0\" [0,*] containment;\n    ref `boxes`: external \"#//@eClassifiers.3\" [0,*] containment;\n    attr `valueCount`: EInt [0,1] derived;\n  }\n}\n"
+      },
+      {
+        "dependencies": [
+          {
+            "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+            "uri": "memory:generic.ecore.rcore"
+          }
+        ],
+        "id": {
+          "sha256": "c7f876f692b14bca0251e4fb83397b3342b07bb274660483c4c2c2357ad0f90f",
+          "uri": "memory:generic.xtext"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Generic import \"urn:g\" as g\nRoot returns g::Root: 'root' '{' (values+=Value | boxes+=ValueBox)* '}';\nValue returns g::Value: 'value' name=ID ';';\nValueBox returns g::ValueBox: 'box' value=[g::Value|ID] ';';\n"
+      },
+      {
+        "dependencies": [
+          {
+            "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+            "uri": "memory:generic.ecore.rcore"
+          }
+        ],
+        "id": {
+          "sha256": "2b3c8027151d5a464e738715daba30893059f24622757533e9091bd6167d1d8e",
+          "uri": "memory:generic-behavior.rcore"
+        },
+        "kind": "rcore_behavior",
+        "text": "rcore 1;\npackage fixtureProviders version \"1\";\nimport model \"urn:g\" as m;\nderive m.`Root`.`valueCount` using count(`values`);\n"
+      }
+    ],
+    "version": 1
+  },
+  "ecore": {
+    "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+    "uri": "memory:generic.ecore.rcore"
+  },
+  "materialized_types": [
+    {
+      "arguments": [],
+      "declaration": {
+        "path": [
+          0
+        ],
+        "source": {
+          "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+          "uri": "memory:generic.ecore.rcore"
+        }
+      },
+      "kind": "classifier",
+      "raw": false
+    },
+    {
+      "arguments": [],
+      "declaration": {
+        "path": [
+          3
+        ],
+        "source": {
+          "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+          "uri": "memory:generic.ecore.rcore"
+        }
+      },
+      "kind": "classifier",
+      "raw": false
+    },
+    {
+      "arguments": [],
+      "declaration": {
+        "path": [
+          4
+        ],
+        "source": {
+          "sha256": "9c55f9faf2ed02c8a122250efd9ab80ba39bbd86161cbe01e6d63d5c587db418",
+          "uri": "memory:generic.ecore.rcore"
+        }
+      },
+      "kind": "classifier",
+      "raw": false
+    }
+  ],
+  "namespace": "urn:g",
+  "rcore_behavior": {
+    "sha256": "2b3c8027151d5a464e738715daba30893059f24622757533e9091bd6167d1d8e",
+    "uri": "memory:generic-behavior.rcore"
+  },
+  "xtext": {
+    "sha256": "c7f876f692b14bca0251e4fb83397b3342b07bb274660483c4c2c2357ad0f90f",
+    "uri": "memory:generic.xtext"
+  }
+}

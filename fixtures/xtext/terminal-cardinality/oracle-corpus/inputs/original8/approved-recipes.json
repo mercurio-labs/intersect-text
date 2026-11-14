@@ -1,0 +1,164 @@
+[
+  {
+    "id": "inline_optional_follow",
+    "proposed_entry": "audit.NextInlineOptionalFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/inline_optional_follow/audit.NextInlineOptionalFollow.xtext",
+      "sha256": "39b7514e2f39809cf81b695d6c2f60f9756519114028434a428ee3947bc1aa3b",
+      "text": "grammar audit.NextInlineOptionalFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'? 'ab';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ab",
+      "aab",
+      "aaab",
+      "abc",
+      "aba",
+      "x",
+      "a\ud83c\udf0db"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "inline_star_follow",
+    "proposed_entry": "audit.NextInlineStarFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/inline_star_follow/audit.NextInlineStarFollow.xtext",
+      "sha256": "a81c66e91facc13ab013a68f30e07797a2936e609dc2b3c6fd4085ab3bc4c27f",
+      "text": "grammar audit.NextInlineStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'* 'ab';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ab",
+      "aab",
+      "aaab",
+      "aaaab",
+      "aba",
+      "aabc",
+      "x"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "inline_plus_follow",
+    "proposed_entry": "audit.NextInlinePlusFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/inline_plus_follow/audit.NextInlinePlusFollow.xtext",
+      "sha256": "13e9ff611d1579c8b95e69d73ae0658b0bfb91a9d33d057f58481fefdc4444f1",
+      "text": "grammar audit.NextInlinePlusFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a'+ 'ab';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ab",
+      "aab",
+      "aaab",
+      "aaaab",
+      "aabc",
+      "aba",
+      "x"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "grouped_star_follow",
+    "proposed_entry": "audit.NextGroupedStarFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/grouped_star_follow/audit.NextGroupedStarFollow.xtext",
+      "sha256": "1918e9f374e60c0ca39bb3b54862a8730252ce89507e8e9f23ee101f14f1c500",
+      "text": "grammar audit.NextGroupedStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('ab')* 'ac';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ac",
+      "abac",
+      "ababac",
+      "ab",
+      "aba",
+      "ababc",
+      "abaca"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "fragment_star_follow",
+    "proposed_entry": "audit.NextFragmentStarFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/fragment_star_follow/audit.NextFragmentStarFollow.xtext",
+      "sha256": "6786bf1f1bd0c52bd725e2c384de4b67a8190c4f3fbbeef2ba6341554e635512",
+      "text": "grammar audit.NextFragmentStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: BODY 'ab';\nterminal fragment BODY: 'a'*;\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ab",
+      "aab",
+      "aaab",
+      "aaaab",
+      "aba",
+      "aabc",
+      "x"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "choice_star_follow",
+    "proposed_entry": "audit.NextChoiceStarFollow",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/choice_star_follow/audit.NextChoiceStarFollow.xtext",
+      "sha256": "f0765217fc78ca32143f92af5f362d0c1b9c364b788c56216503c6a2438f032a",
+      "text": "grammar audit.NextChoiceStarFollow hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('a'|'ab')* 'ac';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "ac",
+      "aac",
+      "abac",
+      "aabac",
+      "ababac",
+      "ab",
+      "abaca"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "inline_until_repeat",
+    "proposed_entry": "audit.NextInlineUntilRepeat",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/inline_until_repeat/audit.NextInlineUntilRepeat.xtext",
+      "sha256": "78829009792b648b2e9821ee87d497a281f40745ee6310ea53eeada367a2b2d6",
+      "text": "grammar audit.NextInlineUntilRepeat hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: ('@' ->'ab')+ 'c';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "@abc",
+      "@ab@abc",
+      "@abxabc",
+      "@ababc",
+      "@abcabc",
+      "@ab",
+      "@ab@ab",
+      "@ab@abxabc"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  },
+  {
+    "id": "fragment_until_repeat",
+    "proposed_entry": "audit.NextFragmentUntilRepeat",
+    "proposed_source": {
+      "uri": "memory:next-terminal-continuations-v1/fragment_until_repeat/audit.NextFragmentUntilRepeat.xtext",
+      "sha256": "8eb82ab5cf2ff0be225926727f8f532775ff63f3c3d4a00a2afbadb13cef012f",
+      "text": "grammar audit.NextFragmentUntilRepeat hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\nterminal VALUE: BLOCK+ 'c';\nterminal fragment BLOCK: '@' ->'ab';\n"
+    },
+    "proposed_inputs": [
+      "",
+      "@abc",
+      "@ab@abc",
+      "@abxabc",
+      "@ababc",
+      "@abcabc",
+      "@ab",
+      "@ab@ab",
+      "@ab@abxabc"
+    ],
+    "execution_status": "NOT_FROZEN_OR_EXECUTED; recipe for review only, no predicted upstream admission or runtime result"
+  }
+]

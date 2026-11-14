@@ -1,0 +1,50 @@
+{
+  "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext": {
+    "name": "org.omg.kerml.expressions.xtext.KerMLExpressions",
+    "parent": null,
+    "header_text": "grammar org.omg.kerml.expressions.xtext.KerMLExpressions hidden(WS, ML_NOTE, SL_NOTE)",
+    "imports": [
+      {
+        "uri": "http://www.eclipse.org/emf/2002/Ecore",
+        "alias": "Ecore"
+      },
+      {
+        "uri": "https://www.omg.org/spec/SysML/20250201",
+        "alias": "SysML"
+      }
+    ],
+    "scope": "Header text inventory only, not native AST extraction or resolved import proof."
+  },
+  "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext": {
+    "name": "org.omg.kerml.xtext.KerML",
+    "parent": "org.omg.kerml.expressions.xtext.KerMLExpressions",
+    "header_text": "grammar org.omg.kerml.xtext.KerML with org.omg.kerml.expressions.xtext.KerMLExpressions",
+    "imports": [
+      {
+        "uri": "http://www.eclipse.org/emf/2002/Ecore",
+        "alias": "Ecore"
+      },
+      {
+        "uri": "https://www.omg.org/spec/SysML/20250201",
+        "alias": "SysML"
+      }
+    ],
+    "scope": "Header text inventory only, not native AST extraction or resolved import proof."
+  },
+  "org.omg.sysml.xtext/src/org/omg/sysml/xtext/SysML.xtext": {
+    "name": "org.omg.sysml.xtext.SysML",
+    "parent": "org.omg.kerml.expressions.xtext.KerMLExpressions",
+    "header_text": "grammar org.omg.sysml.xtext.SysML with org.omg.kerml.expressions.xtext.KerMLExpressions",
+    "imports": [
+      {
+        "uri": "http://www.eclipse.org/emf/2002/Ecore",
+        "alias": "Ecore"
+      },
+      {
+        "uri": "https://www.omg.org/spec/SysML/20250201",
+        "alias": "SysML"
+      }
+    ],
+    "scope": "Header text inventory only, not native AST extraction or resolved import proof."
+  }
+}

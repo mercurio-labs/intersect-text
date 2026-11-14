@@ -1,0 +1,964 @@
+[
+  {
+    "id": "qualified_grammar_hidden",
+    "entry": "audit.scopes.QualifiedGrammarHiddenChild",
+    "original_inputs": [
+      "a",
+      " a ",
+      "\ta",
+      "a/*x*/",
+      "a\u00e9",
+      ""
+    ],
+    "source_pins": {
+      "audit.scopes.QualifiedGrammarHiddenBase.xtext": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07",
+      "audit.scopes.QualifiedGrammarHiddenChild.xtext": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "uri-bindings.tsv": "85055891184e3e8af8610df754675629c4e16f501507f9232b3e4e870b569424"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsp2\\qualified2-record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenBase",
+            "errors": []
+          },
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.scopes.QualifiedGrammarHiddenBase::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenChild",
+            "errors": [
+              {
+                "line": 1,
+                "column": 102,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.scopes.QualifiedGrammarHiddenBase::Model",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.scopes.QualifiedGrammarHiddenChild",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "start": 101,
+                "length": 9,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.scopes.QualifiedGrammarHiddenBase::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z'|'\\u00E9')+"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedGrammarHiddenBase::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedGrammarHiddenBase::ML_COMMENT",
+            "name": "RULE_ML_COMMENT",
+            "fragment": false,
+            "body": "'/*' ( options {greedy=false;} : . )*'*/'"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedGrammarHiddenBase::SL_COMMENT",
+            "name": "RULE_SL_COMMENT",
+            "fragment": false,
+            "body": "'//' ~(('\\n'|'\\r'))* ('\\r'? '\\n')?"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "named_runtime": [],
+    "hidden_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "entry": "audit.scopes.QualifiedGrammarHiddenChild",
+        "syntax": [
+          {
+            "grammar": "audit.scopes.QualifiedGrammarHiddenBase",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "errors": []
+          },
+          {
+            "grammar": "audit.scopes.QualifiedGrammarHiddenChild",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+              "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+            },
+            "errors": []
+          }
+        ],
+        "resolve_failure": null,
+        "grammars": [
+          {
+            "grammar": "audit.scopes.QualifiedGrammarHiddenBase",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "grammar_hidden": {
+              "defines_hidden_tokens": true,
+              "resolved_hidden_tokens": [
+                {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::WS",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "WS",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 272,
+                    "utf16_end": 330,
+                    "text": "terminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;"
+                  }
+                }
+              ]
+            },
+            "used_grammars": [],
+            "declared_rules": [
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::Model",
+                  "proxy": false,
+                  "kind": "ParserRule",
+                  "name": "Model",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 181,
+                    "utf16_end": 213,
+                    "text": "Model returns k::Model: name=ID;"
+                  }
+                },
+                "authored_hidden": {
+                  "defines_hidden_tokens": false,
+                  "resolved_hidden_tokens": []
+                }
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::ID",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "ID",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 214,
+                    "utf16_end": 271,
+                    "text": "terminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::WS",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "WS",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 272,
+                    "utf16_end": 330,
+                    "text": "terminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::ML_COMMENT",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "ML_COMMENT",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 331,
+                    "utf16_end": 387,
+                    "text": "terminal ML_COMMENT returns ecore::EString: '/*' ->'*/';"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenBase::SL_COMMENT",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "SL_COMMENT",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                    "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "node": {
+                    "utf16_start": 388,
+                    "utf16_end": 465,
+                    "text": "terminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;"
+                  }
+                },
+                "authored_hidden": null
+              }
+            ],
+            "errors": [],
+            "warnings": [],
+            "validation": [],
+            "validation_failure": null
+          },
+          {
+            "grammar": "audit.scopes.QualifiedGrammarHiddenChild",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+              "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+            "grammar_hidden": {
+              "defines_hidden_tokens": true,
+              "resolved_hidden_tokens": []
+            },
+            "used_grammars": [
+              {
+                "name": "audit.scopes.QualifiedGrammarHiddenBase",
+                "proxy": false,
+                "source": {
+                  "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+                  "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+                },
+                "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext"
+              }
+            ],
+            "declared_rules": [
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedGrammarHiddenChild::Entry",
+                  "proxy": false,
+                  "kind": "ParserRule",
+                  "name": "Entry",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+                    "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+                  "node": {
+                    "utf16_start": 234,
+                    "utf16_end": 264,
+                    "text": "Entry returns k::Model: Model;"
+                  }
+                },
+                "authored_hidden": {
+                  "defines_hidden_tokens": false,
+                  "resolved_hidden_tokens": []
+                }
+              }
+            ],
+            "errors": [
+              {
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'.",
+                "line": 1,
+                "column": 102
+              }
+            ],
+            "warnings": [],
+            "validation": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "utf16_start": 101,
+                "length": 9,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'.",
+                "uri_to_problem": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext#XtextFragmentProvider_audit.scopes.QualifiedGrammarHiddenChild"
+              }
+            ],
+            "validation_failure": null
+          }
+        ],
+        "effective_rules": [
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenChild::Entry",
+            "proxy": false,
+            "kind": "ParserRule",
+            "name": "Entry",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+              "sha256": "46f8ae2211a18b6b0069b41fcb662fd0b47e7ae5c09980d4bffc96ac2cbea329"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenChild.xtext",
+            "node": {
+              "utf16_start": 234,
+              "utf16_end": 264,
+              "text": "Entry returns k::Model: Model;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenBase::Model",
+            "proxy": false,
+            "kind": "ParserRule",
+            "name": "Model",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "node": {
+              "utf16_start": 181,
+              "utf16_end": 213,
+              "text": "Model returns k::Model: name=ID;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenBase::ID",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "ID",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "node": {
+              "utf16_start": 214,
+              "utf16_end": 271,
+              "text": "terminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenBase::WS",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "WS",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "node": {
+              "utf16_start": 272,
+              "utf16_end": 330,
+              "text": "terminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenBase::ML_COMMENT",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "ML_COMMENT",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "node": {
+              "utf16_start": 331,
+              "utf16_end": 387,
+              "text": "terminal ML_COMMENT returns ecore::EString: '/*' ->'*/';"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedGrammarHiddenBase::SL_COMMENT",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "SL_COMMENT",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+              "sha256": "8257a14ee9c69488c5964a13c85dfec6490add9daf3037a992d484ca85d5cc07"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_grammar_hidden/audit.scopes.QualifiedGrammarHiddenBase.xtext",
+            "node": {
+              "utf16_start": 388,
+              "utf16_end": 465,
+              "text": "terminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;"
+            }
+          }
+        ],
+        "effective_failure": null,
+        "provider": {
+          "logical_resource_uri": "memory:/hidden-scope/providers/726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734/imported.ecore",
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+        }
+      }
+    }
+  },
+  {
+    "id": "qualified_rule_hidden_override",
+    "entry": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+    "original_inputs": [
+      "a",
+      "~a~",
+      " a ",
+      "~ a ~",
+      "a~",
+      "a ",
+      "a/*x*/",
+      ""
+    ],
+    "source_pins": {
+      "audit.scopes.QualifiedRuleHiddenOverrideBase.xtext": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459",
+      "audit.scopes.QualifiedRuleHiddenOverrideChild.xtext": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b",
+      "imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "uri-bindings.tsv": "8e20f54924d046c5e4684459525922964dd27505d239ac5ed86e2c7962b443b6"
+    },
+    "provider": {
+      "ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.terminalSpellings.TerminalSpellingsPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsp2\\qualified2-record\\provider-726b2116570f\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+            "errors": []
+          },
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.scopes.QualifiedRuleHiddenOverrideBase::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+            "errors": [
+              {
+                "line": 4,
+                "column": 31,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.scopes.QualifiedRuleHiddenOverrideBase::Model",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "start": 256,
+                "length": 9,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.scopes.QualifiedRuleHiddenOverrideChild::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "'~'+"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedRuleHiddenOverrideBase::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z'|'\\u00E9')+"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedRuleHiddenOverrideBase::ML_COMMENT",
+            "name": "RULE_ML_COMMENT",
+            "fragment": false,
+            "body": "'/*' ( options {greedy=false;} : . )*'*/'"
+          },
+          {
+            "source_rule": "audit.scopes.QualifiedRuleHiddenOverrideBase::SL_COMMENT",
+            "name": "RULE_SL_COMMENT",
+            "fragment": false,
+            "body": "'//' ~(('\\n'|'\\r'))* ('\\r'? '\\n')?"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "named_runtime": [],
+    "hidden_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "entry": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+        "syntax": [
+          {
+            "grammar": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "errors": []
+          },
+          {
+            "grammar": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+              "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+            },
+            "errors": []
+          }
+        ],
+        "resolve_failure": null,
+        "grammars": [
+          {
+            "grammar": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+            "grammar_hidden": {
+              "defines_hidden_tokens": true,
+              "resolved_hidden_tokens": [
+                {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideChild::WS",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "WS",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                    "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                  "node": {
+                    "utf16_start": 275,
+                    "utf16_end": 326,
+                    "text": "@Override terminal WS returns ecore::EString: '~'+;"
+                  }
+                }
+              ]
+            },
+            "used_grammars": [],
+            "declared_rules": [
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::Model",
+                  "proxy": false,
+                  "kind": "ParserRule",
+                  "name": "Model",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                    "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "node": {
+                    "utf16_start": 186,
+                    "utf16_end": 218,
+                    "text": "Model returns k::Model: name=ID;"
+                  }
+                },
+                "authored_hidden": {
+                  "defines_hidden_tokens": false,
+                  "resolved_hidden_tokens": []
+                }
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::ID",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "ID",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                    "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "node": {
+                    "utf16_start": 219,
+                    "utf16_end": 276,
+                    "text": "terminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::WS",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "WS",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                    "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "node": {
+                    "utf16_start": 277,
+                    "utf16_end": 335,
+                    "text": "terminal WS returns ecore::EString: (' '|'\\t'|'\\r'|'\\n')+;"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::ML_COMMENT",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "ML_COMMENT",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                    "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "node": {
+                    "utf16_start": 336,
+                    "utf16_end": 392,
+                    "text": "terminal ML_COMMENT returns ecore::EString: '/*' ->'*/';"
+                  }
+                },
+                "authored_hidden": null
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::SL_COMMENT",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "SL_COMMENT",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                    "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "node": {
+                    "utf16_start": 393,
+                    "utf16_end": 470,
+                    "text": "terminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;"
+                  }
+                },
+                "authored_hidden": null
+              }
+            ],
+            "errors": [],
+            "warnings": [],
+            "validation": [],
+            "validation_failure": null
+          },
+          {
+            "grammar": "audit.scopes.QualifiedRuleHiddenOverrideChild",
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+              "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+            "grammar_hidden": {
+              "defines_hidden_tokens": false,
+              "resolved_hidden_tokens": []
+            },
+            "used_grammars": [
+              {
+                "name": "audit.scopes.QualifiedRuleHiddenOverrideBase",
+                "proxy": false,
+                "source": {
+                  "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+                  "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+                },
+                "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext"
+              }
+            ],
+            "declared_rules": [
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideChild::Entry",
+                  "proxy": false,
+                  "kind": "ParserRule",
+                  "name": "Entry",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                    "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                  "node": {
+                    "utf16_start": 226,
+                    "utf16_end": 274,
+                    "text": "Entry returns k::Model hidden(super::WS): Model;"
+                  }
+                },
+                "authored_hidden": {
+                  "defines_hidden_tokens": true,
+                  "resolved_hidden_tokens": []
+                }
+              },
+              {
+                "rule": {
+                  "identity": "audit.scopes.QualifiedRuleHiddenOverrideChild::WS",
+                  "proxy": false,
+                  "kind": "TerminalRule",
+                  "name": "WS",
+                  "fragment": false,
+                  "source": {
+                    "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                    "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+                  },
+                  "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+                  "node": {
+                    "utf16_start": 275,
+                    "utf16_end": 326,
+                    "text": "@Override terminal WS returns ecore::EString: '~'+;"
+                  }
+                },
+                "authored_hidden": null
+              }
+            ],
+            "errors": [
+              {
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'.",
+                "line": 4,
+                "column": 31
+              }
+            ],
+            "warnings": [],
+            "validation": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.diagnostics.Diagnostic.Linking",
+                "utf16_start": 256,
+                "length": 9,
+                "message": "Couldn't resolve reference to AbstractRule 'super.WS'.",
+                "uri_to_problem": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext#XtextFragmentProvider_audit.scopes.QualifiedRuleHiddenOverrideChild/Entry"
+              }
+            ],
+            "validation_failure": null
+          }
+        ],
+        "effective_rules": [
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideChild::Entry",
+            "proxy": false,
+            "kind": "ParserRule",
+            "name": "Entry",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+              "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+            "node": {
+              "utf16_start": 226,
+              "utf16_end": 274,
+              "text": "Entry returns k::Model hidden(super::WS): Model;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideChild::WS",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "WS",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+              "sha256": "1ac8d47749cac1ab5bc7f07b20df1f56be4911b64c85e2c4771599739e244f4b"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideChild.xtext",
+            "node": {
+              "utf16_start": 275,
+              "utf16_end": 326,
+              "text": "@Override terminal WS returns ecore::EString: '~'+;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::Model",
+            "proxy": false,
+            "kind": "ParserRule",
+            "name": "Model",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+            "node": {
+              "utf16_start": 186,
+              "utf16_end": 218,
+              "text": "Model returns k::Model: name=ID;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::ID",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "ID",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+            "node": {
+              "utf16_start": 219,
+              "utf16_end": 276,
+              "text": "terminal ID returns ecore::EString: ('a'..'z'|'\\u00e9')+;"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::ML_COMMENT",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "ML_COMMENT",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+            "node": {
+              "utf16_start": 336,
+              "utf16_end": 392,
+              "text": "terminal ML_COMMENT returns ecore::EString: '/*' ->'*/';"
+            }
+          },
+          {
+            "identity": "audit.scopes.QualifiedRuleHiddenOverrideBase::SL_COMMENT",
+            "proxy": false,
+            "kind": "TerminalRule",
+            "name": "SL_COMMENT",
+            "fragment": false,
+            "source": {
+              "uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+              "sha256": "c3593af8ac43228087b7c280d425aaf5b491317e89b0229beb44a6c26cce3459"
+            },
+            "resource_uri": "memory:hidden-qualified/qualified_rule_hidden_override/audit.scopes.QualifiedRuleHiddenOverrideBase.xtext",
+            "node": {
+              "utf16_start": 393,
+              "utf16_end": 470,
+              "text": "terminal SL_COMMENT returns ecore::EString: '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;"
+            }
+          }
+        ],
+        "effective_failure": null,
+        "provider": {
+          "logical_resource_uri": "memory:/hidden-scope/providers/726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734/imported.ecore",
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+        }
+      }
+    }
+  }
+]

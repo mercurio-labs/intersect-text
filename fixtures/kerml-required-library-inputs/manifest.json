@@ -1,0 +1,636 @@
+{
+  "schema": "intersect.kerml.required-library-source-inputs.v1",
+  "status": "imported_sources_only_not_consumed_or_semantically_verified",
+  "pilot_commit": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "upstream_repository": "https://github.com/Systems-Modeling/SysML-v2-Pilot-Implementation.git",
+  "roots": [
+    "Base",
+    "ScalarValues",
+    "ScalarFunctions"
+  ],
+  "file_count": 22,
+  "source_bytes": 136529,
+  "new_source_files": 20,
+  "reused_source_files": 2,
+  "checked_in_full_library_manifest": {
+    "path": "fixtures/basic-systems/v1/upstream-standard-library-manifest.json",
+    "bytes": 18146,
+    "sha256": "7909f7eaf402a85138499ff35ebdd1e6e43ff910e3787fd334ddfc611e57b1d6"
+  },
+  "license": {
+    "path": "fixtures/kerml-required-library-inputs/UPSTREAM-LICENSE",
+    "upstream_path": "LICENSE",
+    "identifier": "EPL-2.0",
+    "bytes": 14474,
+    "sha256": "22b203a3f2bfa35ff272ed57702d154aed8966ea0978c44ceca6658f2c60bc51",
+    "upstream_git_blob": {
+      "bytes": 14198,
+      "sha256": "0becf16567beb77fa252b7664631dd177c8f9a1889e48995b45379c7130e5303"
+    },
+    "checkout_matches_git_blob_after_CRLF_to_LF_only": true
+  },
+  "source_identity_policy": "SourceId URI is the exact original upstream path, including spaces; SHA-256 is over unchanged UTF-8 bytes. Fixture asset paths are storage locations, never source-identity rewrites.",
+  "dependency_scope": "Existing textual explicit-qualified-package full-file inventory; not a proven native implicit/dynamic dependency closure.",
+  "capability_status": {
+    "imported": true,
+    "consumed": false,
+    "semantically_verified": false,
+    "native_library_context_installed": false
+  },
+  "files": [
+    {
+      "package": "Base",
+      "fixture_path": "fixtures/kerml-base-scalar-input/Base.kerml",
+      "disposition": "reuse_existing_fixture",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+        "sha256": "0a684334290742602432b9e8cf44203fa9b3fd61d04888863923b80223fcfd2e"
+      },
+      "bytes": 2432,
+      "sha256": "0a684334290742602432b9e8cf44203fa9b3fd61d04888863923b80223fcfd2e",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Base.kerml",
+      "upstream_git_blob": {
+        "bytes": 2338,
+        "sha256": "56df84cda67f62c63d4e79e2786fc26046cfa361a958c4fcf0843d32a5707e09"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Anything"
+      ]
+    },
+    {
+      "package": "ScalarValues",
+      "fixture_path": "fixtures/kerml-base-scalar-input/ScalarValues.kerml",
+      "disposition": "reuse_existing_fixture",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+        "sha256": "399ab6eea810f3cd9ea7b6f03b7b45cccebe9000069e6f8ac12c76e922157398"
+      },
+      "bytes": 885,
+      "sha256": "399ab6eea810f3cd9ea7b6f03b7b45cccebe9000069e6f8ac12c76e922157398",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml",
+      "upstream_git_blob": {
+        "bytes": 862,
+        "sha256": "4db25ce00dd170fd67261f6e7e21a2616bda15d233579dc5fb3193aaf61fa5a5"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "ScalarFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/ScalarFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/ScalarFunctions.kerml",
+        "sha256": "4432f9d2eb9d871934e467d89b9a657ab9139897c85baf6ae60e971341e1de98"
+      },
+      "bytes": 2627,
+      "sha256": "4432f9d2eb9d871934e467d89b9a657ab9139897c85baf6ae60e971341e1de98",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/ScalarFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2595,
+        "sha256": "3a6baf3962079a395304f0a811f3b58da09f18f91aaf76ceef5f81ebeae7a258"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "DataFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "DataFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/DataFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/DataFunctions.kerml",
+        "sha256": "8c219a2becac038dcbf101ddf64eee57b568dcd95b204be26c2ed3a83ec510af"
+      },
+      "bytes": 2383,
+      "sha256": "8c219a2becac038dcbf101ddf64eee57b568dcd95b204be26c2ed3a83ec510af",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/DataFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2341,
+        "sha256": "896b81cd660948084efd0ee9ebc9125a1588b1e2d360bdebb03430d0317b7b5b"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "BaseFunctions",
+        "ControlFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "BaseFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/BaseFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/BaseFunctions.kerml",
+        "sha256": "728420cf580a119310f319b142e7d38932e556745a2508e6ce9453d243bc6a54"
+      },
+      "bytes": 2123,
+      "sha256": "728420cf580a119310f319b142e7d38932e556745a2508e6ce9453d243bc6a54",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/BaseFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2044,
+        "sha256": "c7700f36c786ff25796eb37d321a7a85f5f67b785e08a548c1cf4cd207c8b27f"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "KerML",
+        "Metaobjects",
+        "Objects",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "ControlFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/ControlFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/ControlFunctions.kerml",
+        "sha256": "dd66d4577d44750707b4017d789345295fce6c2d1d03fc10e0c47459ddd18d6a"
+      },
+      "bytes": 3719,
+      "sha256": "dd66d4577d44750707b4017d789345295fce6c2d1d03fc10e0c47459ddd18d6a",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/ControlFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 3603,
+        "sha256": "bd95a74d3ab9f44cfb1445cbaee8c509d78018feaa1eb408f5d91a6ac969c1b1"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "ScalarFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "KerML",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/KerML.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/KerML.kerml",
+        "sha256": "d01c8994aabaa7f03e0f0968de55c6ea7e836ad41a747b992736e38b7032b216"
+      },
+      "bytes": 21923,
+      "sha256": "d01c8994aabaa7f03e0f0968de55c6ea7e836ad41a747b992736e38b7032b216",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/KerML.kerml",
+      "upstream_git_blob": {
+        "bytes": 21440,
+        "sha256": "8fdf4b7416e981c895cd74b75dc14b18091d13cbcaff7cdded6f9c23e2483d58"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Core",
+        "Kernel",
+        "Root"
+      ]
+    },
+    {
+      "package": "Metaobjects",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Metaobjects.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Metaobjects.kerml",
+        "sha256": "734180605aabb540ceccce28fc157827eb7100c831790aa3635240a6955ac613"
+      },
+      "bytes": 1705,
+      "sha256": "734180605aabb540ceccce28fc157827eb7100c831790aa3635240a6955ac613",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Metaobjects.kerml",
+      "upstream_git_blob": {
+        "bytes": 1648,
+        "sha256": "983dbd85a4b183d8859326ee512fc59d991fb98a115e009e72fad21d1f9d1685"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "KerML",
+        "Objects"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "Objects",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Objects.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Objects.kerml",
+        "sha256": "dd36c193411b21960ce8249694b7156bb27bc9d26270e2f3076f7c1c64c0ff03"
+      },
+      "bytes": 7334,
+      "sha256": "dd36c193411b21960ce8249694b7156bb27bc9d26270e2f3076f7c1c64c0ff03",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Objects.kerml",
+      "upstream_git_blob": {
+        "bytes": 7124,
+        "sha256": "7e6b8a0a8f16a475e6c9290926c85defe9e3e1a1bf70df8ef137f4eec08733e6"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "CollectionFunctions",
+        "Links",
+        "Occurrences",
+        "Performances",
+        "ScalarValues",
+        "SequenceFunctions"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Curve",
+        "Occurrence",
+        "Point",
+        "StructuredSpaceObject",
+        "Surface"
+      ]
+    },
+    {
+      "package": "CollectionFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/CollectionFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/CollectionFunctions.kerml",
+        "sha256": "ab415b60625a953bd078eb0621fc421f85b46c00f859707289604bda34731126"
+      },
+      "bytes": 2526,
+      "sha256": "ab415b60625a953bd078eb0621fc421f85b46c00f859707289604bda34731126",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/CollectionFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2458,
+        "sha256": "c33e76c32d8370fefef123692a93d621f09a4cb944f08dd3543461f1f73c1505"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "BaseFunctions",
+        "Collections",
+        "ControlFunctions",
+        "ScalarValues",
+        "SequenceFunctions"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "Links",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Links.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml",
+        "sha256": "db4b619742a9cc11640a66f92c13a02f11ab97a0c233af6db57d915cc65da189"
+      },
+      "bytes": 2183,
+      "sha256": "db4b619742a9cc11640a66f92c13a02f11ab97a0c233af6db57d915cc65da189",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Links.kerml",
+      "upstream_git_blob": {
+        "bytes": 2117,
+        "sha256": "dcf3c002717cb91f8e16f1890fdf5526f4e178ada898a189621c7d0c24b5ddc0"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Link",
+        "SelfLink",
+        "binaryLinks"
+      ]
+    },
+    {
+      "package": "Occurrences",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Occurrences.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Occurrences.kerml",
+        "sha256": "b3a62ce0bc3a4f7e667102b4c2f68a4928ca8efeda425c6a4c8bdeadfbc9bbc1"
+      },
+      "bytes": 37911,
+      "sha256": "b3a62ce0bc3a4f7e667102b4c2f68a4928ca8efeda425c6a4c8bdeadfbc9bbc1",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Occurrences.kerml",
+      "upstream_git_blob": {
+        "bytes": 37911,
+        "sha256": "b3a62ce0bc3a4f7e667102b4c2f68a4928ca8efeda425c6a4c8bdeadfbc9bbc1"
+      },
+      "checkout_equals_git_blob": true,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "Clocks",
+        "CollectionFunctions",
+        "Collections",
+        "Links",
+        "Performances",
+        "ScalarValues",
+        "SequenceFunctions",
+        "Transfers"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Anything",
+        "BinaryLink",
+        "HappensBefore",
+        "HappensWhile",
+        "binaryLinks"
+      ]
+    },
+    {
+      "package": "Performances",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Performances.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Performances.kerml",
+        "sha256": "52d100591c7bdf455c95b145d54bbc6ea8a68c6f9a0b583a07af337d5f17a1ae"
+      },
+      "bytes": 9217,
+      "sha256": "52d100591c7bdf455c95b145d54bbc6ea8a68c6f9a0b583a07af337d5f17a1ae",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Performances.kerml",
+      "upstream_git_blob": {
+        "bytes": 8925,
+        "sha256": "fd965e184b300737a192530de0c800cdbee236cb6220612f370400da21dfb327"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "Links",
+        "Metaobjects",
+        "Objects",
+        "Occurrences",
+        "ScalarValues",
+        "SequenceFunctions",
+        "Transfers"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Occurrence"
+      ]
+    },
+    {
+      "package": "SequenceFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/SequenceFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/SequenceFunctions.kerml",
+        "sha256": "0d87d2d9569d0009453b09e297dd62e4b3c3655d3223eaad9e261e7373ef7869"
+      },
+      "bytes": 4611,
+      "sha256": "0d87d2d9569d0009453b09e297dd62e4b3c3655d3223eaad9e261e7373ef7869",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/SequenceFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 4501,
+        "sha256": "927237bb8156b6e8c9a6c3444999d7da98b58af00d7d2a63c487c9260165265e"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "BaseFunctions",
+        "ControlFunctions",
+        "Occurrences",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "Collections",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Collections.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Data Type Library/Collections.kerml",
+        "sha256": "eac3be1f2bb63bf7e21bea1972a3c05f2d2a017a5de397836438ee55ace9394e"
+      },
+      "bytes": 6448,
+      "sha256": "eac3be1f2bb63bf7e21bea1972a3c05f2d2a017a5de397836438ee55ace9394e",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Data Type Library/Collections.kerml",
+      "upstream_git_blob": {
+        "bytes": 6272,
+        "sha256": "6caea283ebdb11d0a960615276358abcdc99aaa12c2aa05b42a740e8a73688b1"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "ControlFunctions",
+        "IntegerFunctions",
+        "ScalarValues",
+        "SequenceFunctions"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "Collection",
+        "Map",
+        "OrderedCollection",
+        "UniqueCollection"
+      ]
+    },
+    {
+      "package": "Clocks",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Clocks.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Clocks.kerml",
+        "sha256": "60ed3ef6b165b903d21e871b3671fc7faf0c8437bc54e4322559b4d724c1bf65"
+      },
+      "bytes": 4008,
+      "sha256": "60ed3ef6b165b903d21e871b3671fc7faf0c8437bc54e4322559b4d724c1bf65",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Clocks.kerml",
+      "upstream_git_blob": {
+        "bytes": 3853,
+        "sha256": "960ac0884935e308beea55c78ed11b6946c37a386eb7958ef2c913aa275ae4c7"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "ControlFunctions",
+        "Occurrences",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "Transfers",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/Transfers.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Semantic Library/Transfers.kerml",
+        "sha256": "48c54efa5055ad69edf8657d1f6d69d076f7aac31eb2c291380350303370b9a0"
+      },
+      "bytes": 11096,
+      "sha256": "48c54efa5055ad69edf8657d1f6d69d076f7aac31eb2c291380350303370b9a0",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Semantic Library/Transfers.kerml",
+      "upstream_git_blob": {
+        "bytes": 10816,
+        "sha256": "6697453f40187076ebda9ee475f7f974321eb8b48b93622879fe6560fa14dcf5"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "Base",
+        "Links",
+        "Objects",
+        "Occurrences",
+        "Performances",
+        "ScalarValues",
+        "SequenceFunctions"
+      ],
+      "other_type_or_nested_namespace_prefixes": [
+        "BinaryLink",
+        "FlowTransfer",
+        "FlowTransferBefore",
+        "HappensBefore",
+        "MessageTransfer",
+        "Performance",
+        "SendPerformance",
+        "Transfer",
+        "TransferBefore",
+        "binaryLinks",
+        "flowTransfers",
+        "happensBeforeLinks",
+        "transfers",
+        "transfersBefore"
+      ]
+    },
+    {
+      "package": "IntegerFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/IntegerFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/IntegerFunctions.kerml",
+        "sha256": "a5ba453320ab2bfc780073125461080500a3de6c79eae077e8cd41b78eeec7d6"
+      },
+      "bytes": 2620,
+      "sha256": "a5ba453320ab2bfc780073125461080500a3de6c79eae077e8cd41b78eeec7d6",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/IntegerFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2577,
+        "sha256": "3da7c23ee95290d768dae67e75287122d5512d054c0f9ca57b78a8aab81ee309"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "DataFunctions",
+        "NumericalFunctions",
+        "RationalFunctions",
+        "ScalarFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "NumericalFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/NumericalFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/NumericalFunctions.kerml",
+        "sha256": "702ab0f027b46621c31e316de0d0108538da4b87e959a41fad464ada153acf58"
+      },
+      "bytes": 2829,
+      "sha256": "702ab0f027b46621c31e316de0d0108538da4b87e959a41fad464ada153acf58",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/NumericalFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2787,
+        "sha256": "ac1f12fc2880a2017a2d4caa6e8f839e0b6bc72b92b154a3db13b14fdd0caa93"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "ControlFunctions",
+        "ScalarFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "RationalFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/RationalFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/RationalFunctions.kerml",
+        "sha256": "e3ab60e171c271566878a27984391f57db1b9557cdf0dc9f0ec28d2ac4c0b3a4"
+      },
+      "bytes": 2862,
+      "sha256": "e3ab60e171c271566878a27984391f57db1b9557cdf0dc9f0ec28d2ac4c0b3a4",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/RationalFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2813,
+        "sha256": "a7ef0870a5282f5dc489ab85ef424b66cd8909f5f52b2efe5f14ed1765afc768"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "NumericalFunctions",
+        "RealFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "RealFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/RealFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/RealFunctions.kerml",
+        "sha256": "ef861eb293190368dd4cae24f190e8803a3bb2ac01a31c6d95eda1b71ac0e2ec"
+      },
+      "bytes": 2773,
+      "sha256": "ef861eb293190368dd4cae24f190e8803a3bb2ac01a31c6d95eda1b71ac0e2ec",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/RealFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2717,
+        "sha256": "4b469aafc18d801ae733734066d3e43aa767c44a89e912cf60772933ab568a76"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "ComplexFunctions",
+        "NumericalFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    },
+    {
+      "package": "ComplexFunctions",
+      "fixture_path": "fixtures/kerml-required-library-inputs/sources/ComplexFunctions.kerml",
+      "disposition": "new_exact_upstream_copy",
+      "source_id": {
+        "uri": "sysml.library/Kernel Libraries/Kernel Function Library/ComplexFunctions.kerml",
+        "sha256": "df0347537e6f711f3d60c1798335ef354afc420726bdc5919a80fafa348cc97a"
+      },
+      "bytes": 2314,
+      "sha256": "df0347537e6f711f3d60c1798335ef354afc420726bdc5919a80fafa348cc97a",
+      "upstream_path": "sysml.library/Kernel Libraries/Kernel Function Library/ComplexFunctions.kerml",
+      "upstream_git_blob": {
+        "bytes": 2267,
+        "sha256": "cdb8ab38b5937f3716d66e2c71d6811d2ae7df08c1704f4dce7a815be1c01563"
+      },
+      "checkout_equals_git_blob": false,
+      "checkout_matches_git_blob_after_CRLF_to_LF_only": true,
+      "explicit_qualified_package_dependencies": [
+        "BaseFunctions",
+        "DataFunctions",
+        "NumericalFunctions",
+        "ScalarValues"
+      ],
+      "other_type_or_nested_namespace_prefixes": []
+    }
+  ]
+}

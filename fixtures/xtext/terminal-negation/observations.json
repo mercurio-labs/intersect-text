@@ -1,0 +1,2815 @@
+[
+  {
+    "id": "literal",
+    "syntax": [
+      {
+        "source": "audit.Literal",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Literal",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Literal::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Literal",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Literal::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('a')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit0;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('a');\n",
+      "grammar_sha256": "92780e04f6e34be99a5988af304c1035912989774576a755573dd1f1c9716d92",
+      "java_canonical_sha256": "f5c93715beec4cc5b5b2e04ef7265703f9f4c442a024c1a7fa43f2a5c718be18",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "ab",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "\n",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\n",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "range",
+    "syntax": [
+      {
+        "source": "audit.Range",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Range",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Range::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Range",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Range::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('a'..'z')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit1;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('a'..'z');\n",
+      "grammar_sha256": "a51cfbb8aac372905a86820771bc70741981ca2dbeca60887e1d5dc0bfe2af3b",
+      "java_canonical_sha256": "56917efe6a593c82359d465415ec93a5c1914f50123207dd2cc2b22a5e1dab21",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "z",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "A",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "A",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "0",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "0",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "alternatives",
+    "syntax": [
+      {
+        "source": "audit.Alternatives",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Alternatives",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Alternatives::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Alternatives",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Alternatives::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(('a'|'x'|'z'))"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit2;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(('a'|'x'|'z'));\n",
+      "grammar_sha256": "239af91bbe638fe4d501286293109a2c42b5ddbc68d043efb48fbe59068009ce",
+      "java_canonical_sha256": "a43f7f828140d9a413d5a8cb422be744a88001c27c67592dd4594eb0c947a8d0",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "x",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "z",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "nested_groups",
+    "syntax": [
+      {
+        "source": "audit.NestedGroups",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.NestedGroups",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NestedGroups::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.NestedGroups",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.NestedGroups::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(('a'..'c'|('x'|'z')))"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit3;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(('a'..'c'|('x'|'z')));\n",
+      "grammar_sha256": "deeaabd59652c064983d952b8e915f651dbf918bc4810a866364a508a2b8f78c",
+      "java_canonical_sha256": "fde8ed595163f43afbb7222336cfc73630b70454fe0d916a6c3f85171f7f5d89",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "x",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "z",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "d",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "d",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "y",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "y",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "syntax": [
+      {
+        "source": "audit.Fragment",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Fragment",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Fragment::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.Fragment::LETTER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Fragment",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Fragment::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_LETTER)"
+      },
+      {
+        "source_rule": "audit.Fragment::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "'a'..'z'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit4;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(RULE_LETTER);\nfragment RULE_LETTER: 'a'..'z';\n",
+      "grammar_sha256": "a9e0cba353570005a9d43a2f956c899234638bd4f810d7760e66b46651ba973d",
+      "java_canonical_sha256": "2577f3b12c7d19bfdf5dc768cf8b116be977149a68d696e50d7d161503fffd30",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "z",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "A",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "A",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "0",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "0",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "fragment_alternatives",
+    "syntax": [
+      {
+        "source": "audit.FragmentAlternatives",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.FragmentAlternatives",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.FragmentAlternatives::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.FragmentAlternatives::LETTER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.FragmentAlternatives",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.FragmentAlternatives::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~((RULE_LETTER|'0'))"
+      },
+      {
+        "source_rule": "audit.FragmentAlternatives::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "'a'..'z'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit5;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~((RULE_LETTER|'0'));\nfragment RULE_LETTER: 'a'..'z';\n",
+      "grammar_sha256": "b746df42d1d23b74c2bae7f4cfafa4ff3c631b13113f8a8fe8f2b755958e9b8b",
+      "java_canonical_sha256": "793f60292487e1cb9de002418e96db43d5ea9914809a454866c55d8f8186f8f2",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "0",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "A",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "A",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "1",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "1",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "fragment_nested",
+    "syntax": [
+      {
+        "source": "audit.FragmentNested",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.FragmentNested",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.FragmentNested::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.FragmentNested::OUTER",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.FragmentNested::INNER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.FragmentNested",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.FragmentNested::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_OUTER)"
+      },
+      {
+        "source_rule": "audit.FragmentNested::OUTER",
+        "name": "RULE_OUTER",
+        "fragment": true,
+        "body": "(RULE_INNER|'x')"
+      },
+      {
+        "source_rule": "audit.FragmentNested::INNER",
+        "name": "RULE_INNER",
+        "fragment": true,
+        "body": "'a'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit6;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(RULE_OUTER);\nfragment RULE_OUTER: (RULE_INNER|'x');\nfragment RULE_INNER: 'a';\n",
+      "grammar_sha256": "dbd7f8852e9dd91c446b37cc790a8e6ae6aa91fd6384084ba02ef2a23da04748",
+      "java_canonical_sha256": "7e0fd6babc559a08e52c45172538fa4de2d2905a7fa058cd29e6fc5a10ff5eba",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "x",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "nullable",
+    "syntax": [
+      {
+        "source": "audit.Nullable",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Nullable",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Nullable::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Nullable",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Nullable::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('a'?)"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "error(100): <artifact-dir>\\nullable\\NegationAudit7.g:0:0: syntax error: buildnfa: <AST>:3:15: unexpected AST node: ?\nerror(139): <artifact-dir>\\nullable\\NegationAudit7.g:3:13: set complement is empty\n",
+      "grammar": "lexer grammar NegationAudit7;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('a'?);\n",
+      "grammar_sha256": "4ac899e3eed725ed38192efbbbfb7bbc56122a98201c54fa1eafd22ed357b6c0",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "multichar",
+    "syntax": [
+      {
+        "source": "audit.Multichar",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Multichar",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Multichar::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Multichar",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Multichar::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('ab')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit8;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('ab');\n",
+      "grammar_sha256": "595cca9ffed0de6563e218caec9be075eb0058c55e7426737f8c2af797c69035",
+      "java_canonical_sha256": "b40387abb59f5aac440c1fa6629852c1272c4fb22bf6f1f33b7eb7a23af8e26e",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "ab",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "ac",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "c",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "sequence",
+    "syntax": [
+      {
+        "source": "audit.Sequence",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Sequence",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Sequence::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Sequence",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Sequence::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('a' 'b')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "error(100): <artifact-dir>\\sequence\\NegationAudit9.g:0:0: syntax error: buildnfa: <AST>:3:19: expecting EOA, found ''b''\n",
+      "grammar": "lexer grammar NegationAudit9;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('a' 'b');\n",
+      "grammar_sha256": "d97939bc871d34faef605ccaf4fd820d100c9c9a52506f15429dee18d1b45187",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "eof",
+    "syntax": [
+      {
+        "source": "audit.Eof",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Eof",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Eof::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Eof",
+        "issues": [
+          {
+            "severity": "ERROR",
+            "code": null,
+            "start": 225,
+            "length": 3,
+            "message": "It is not possible to negate EOF"
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Eof::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(EOF)"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "error(154): <artifact-dir>\\eof\\NegationAudit10.g:3:15: Cannot complement rule EOF; not a simple set or element\nerror(139): <artifact-dir>\\eof\\NegationAudit10.g:3:13: set complement is empty\n",
+      "grammar": "lexer grammar NegationAudit10;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(EOF);\n",
+      "grammar_sha256": "d2ab280525d5071a8408f9214f3ea7fa3a4c5ba1ae52b4f382764e1861014171",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "wildcard",
+    "syntax": [
+      {
+        "source": "audit.Wildcard",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.Wildcard",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.Wildcard::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.Wildcard",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.Wildcard::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(.)"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "error(100): <artifact-dir>\\wildcard\\NegationAudit11.g:0:0: syntax error: buildnfa: <AST>:3:15: unexpected AST node: .\nerror(139): <artifact-dir>\\wildcard\\NegationAudit11.g:3:13: set complement is empty\n",
+      "grammar": "lexer grammar NegationAudit11;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(.);\n",
+      "grammar_sha256": "99ae4e09b1c201ef8390bde1f50d69b5ce20e592b4383628c8408f6985ecf916",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "cyclic_fragment",
+    "syntax": [
+      {
+        "source": "audit.CyclicFragment",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.CyclicFragment",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.CyclicFragment::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.CyclicFragment::A",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.CyclicFragment::B",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.CyclicFragment::A",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.CyclicFragment",
+        "issues": [
+          {
+            "severity": "ERROR",
+            "code": null,
+            "start": 257,
+            "length": 1,
+            "message": "The rule 'A' is left recursive."
+          },
+          {
+            "severity": "ERROR",
+            "code": null,
+            "start": 260,
+            "length": 1,
+            "message": "This rule call is part of a left recursive call graph."
+          },
+          {
+            "severity": "ERROR",
+            "code": null,
+            "start": 284,
+            "length": 1,
+            "message": "This rule call is part of a left recursive call graph."
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.CyclicFragment::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_A)"
+      },
+      {
+        "source_rule": "audit.CyclicFragment::A",
+        "name": "RULE_A",
+        "fragment": true,
+        "body": "RULE_B"
+      },
+      {
+        "source_rule": "audit.CyclicFragment::B",
+        "name": "RULE_B",
+        "fragment": true,
+        "body": "RULE_A"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "Exception in thread \"main\" java.lang.StackOverflowError\n\tat java.base/java.lang.String.equals(String.java:1863)\n\tat java.base/java.util.HashMap.getNode(HashMap.java:578)\n\tat java.base/java.util.LinkedHashMap.get(LinkedHashMap.java:536)\n\tat org.antlr.tool.Grammar.getLocallyDefinedRule(Grammar.java:1603)\n\tat org.antlr.tool.CompositeGrammarTree.getRule(CompositeGrammarTree.java:61)\n\tat org.antlr.tool.CompositeGrammar.getRule(CompositeGrammar.java:156)\n\tat org.antlr.tool.Grammar.getRule(Grammar.java:1608)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2595)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetRule(TreeToNFAConverter.java:2794)\n\tat org.antlr.grammar.v2.TreeToNFAConverter.testSetElement(TreeToNFAConverter.java:2600)\n",
+      "grammar": "lexer grammar NegationAudit12;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(RULE_A);\nfragment RULE_A: RULE_B;\nfragment RULE_B: RULE_A;\n",
+      "grammar_sha256": "5017def88e5a1fee06f3fdf7a6938adaf052cb90936cd1d8ffd6c3aeb6b6c820",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "unknown_fragment",
+    "syntax": [
+      {
+        "source": "audit.UnknownFragment",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.UnknownFragment",
+        "errors": [
+          {
+            "line": 5,
+            "column": 41,
+            "message": "MISSING cannot be resolved to a terminal rule"
+          }
+        ],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.UnknownFragment::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": null,
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.UnknownFragment",
+        "issues": [
+          {
+            "severity": "ERROR",
+            "code": "org.eclipse.xtext.grammar.UnresolvedTerminalRule",
+            "start": 237,
+            "length": 7,
+            "message": "MISSING cannot be resolved to a terminal rule"
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [],
+    "translation_failure": {
+      "class": "java.lang.NullPointerException",
+      "message": "Cannot invoke \"org.eclipse.emf.ecore.EObject.eClass()\" because \"eObject\" is null"
+    },
+    "generation": null,
+    "runtime": []
+  },
+  {
+    "id": "astral_literal",
+    "syntax": [
+      {
+        "source": "audit.AstralLiteral",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.AstralLiteral",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.AstralLiteral::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.AstralLiteral",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.AstralLiteral::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('\\uD83C\\uDF0D')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit14;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('\\uD83C\\uDF0D');\n",
+      "grammar_sha256": "4051fd68713bb03d03c0605a7325f80f4fbf4871d700faa639b885b98ec3c6dd",
+      "java_canonical_sha256": "c1d558e6bb88d498aaf0db78915654a31b91bff03eaec85c3ac5df5107298b3a",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "\ud83c\udf0d",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "\ud83c\udf0e",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "\udf0e",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "astral_range",
+    "syntax": [
+      {
+        "source": "audit.AstralRange",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.AstralRange",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.AstralRange::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.AstralRange",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.AstralRange::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('\\uD83C\\uDF0D'..'\\uD83C\\uDF0E')"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 1,
+      "diagnostic": "error(100): <artifact-dir>\\astral_range\\NegationAudit15.g:3:15: syntax error: antlr: <artifact-dir>\\astral_range\\NegationAudit15.g:3:15: unexpected token: '\\uD83C\\uDF0D'\n",
+      "grammar": "lexer grammar NegationAudit15;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('\\uD83C\\uDF0D'..'\\uD83C\\uDF0E');\n",
+      "grammar_sha256": "a6ca542495a0f758b507f7c432f4813816bde7dda4938a29b51fc4dc7f00ab1e",
+      "java_canonical_sha256": null,
+      "compilation_exit_code": null
+    },
+    "runtime": []
+  },
+  {
+    "id": "committed_failure",
+    "syntax": [
+      {
+        "source": "audit.CommittedFailure",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.CommittedFailure",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.CommittedFailure::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.CommittedFailure",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.CommittedFailure::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "'a' ~('b')"
+      },
+      {
+        "source_rule": "audit.CommittedFailure::SHORT",
+        "name": "RULE_SHORT",
+        "fragment": false,
+        "body": "'a'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit16;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: 'a' ~('b');\nRULE_SHORT: 'a';\n",
+      "grammar_sha256": "cd0c587f3fc60bda08936a13d0b2317948c637720a805059acd886e97bf1e578",
+      "java_canonical_sha256": "5b101c5c9b0871687e4051d4d95202cf881c983f668c36517f83e7cb3e893ea4",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "ab",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "ac",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "ac",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "aba",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 2,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "acb",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "ac",
+            "utf16_start": 0,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "negated_repeat",
+    "syntax": [
+      {
+        "source": "audit.NegatedRepeat",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.NegatedRepeat",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NegatedRepeat::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.NegatedRepeat",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.NegatedRepeat::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~('a'..'z')+"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit17;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~('a'..'z')+;\n",
+      "grammar_sha256": "337ededb50bc845dd7e56fa83b39eece144eb4a7df6ba7405171d124ba7513f9",
+      "java_canonical_sha256": "e81d82c25b034b5b403766b24fd26baa362aa78064eaac8656a69f193abb1b12",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "A",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "A",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "ABC",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "ABC",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "AbC",
+        "timeout_seconds": 10,
+        "exit_code": 124
+      },
+      {
+        "text": "123",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "123",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "inherited_override",
+    "syntax": [
+      {
+        "source": "audit.NegationBaseOverride",
+        "errors": []
+      },
+      {
+        "source": "audit.NegationChildOverride",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.NegationBaseOverride",
+        "errors": [],
+        "warnings": [],
+        "calls": []
+      },
+      {
+        "source": "audit.NegationChildOverride",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NegationChildOverride::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.NegationChildOverride::LETTER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.NegationBaseOverride",
+        "issues": [],
+        "failure": null
+      },
+      {
+        "source": "audit.NegationChildOverride",
+        "issues": [
+          {
+            "severity": "WARNING",
+            "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+            "start": 301,
+            "length": 6,
+            "message": "This rule overrides LETTER in audit.NegationBaseOverride and thus should be annotated with @Override."
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.NegationChildOverride::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_LETTER)"
+      },
+      {
+        "source_rule": "audit.NegationChildOverride::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "'b'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit18;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(RULE_LETTER);\nfragment RULE_LETTER: 'b';\n",
+      "grammar_sha256": "dbf08b2413332763bec126b3934438c1dc92168536c969f438eef49390ebb348",
+      "java_canonical_sha256": "ab104ec6cc7f559ed1316fd091f60b082cb9ba11e3f644fb5e564bfd30318e0a",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "explicit_parent",
+    "syntax": [
+      {
+        "source": "audit.NegationBaseExplicit",
+        "errors": []
+      },
+      {
+        "source": "audit.NegationChildExplicit",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.NegationBaseExplicit",
+        "errors": [],
+        "warnings": [],
+        "calls": []
+      },
+      {
+        "source": "audit.NegationChildExplicit",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NegationChildExplicit::VALUE",
+            "proxy": false,
+            "explicit": false
+          },
+          {
+            "target": "audit.NegationBaseExplicit::LETTER",
+            "proxy": false,
+            "explicit": true
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.NegationBaseExplicit",
+        "issues": [],
+        "failure": null
+      },
+      {
+        "source": "audit.NegationChildExplicit",
+        "issues": [
+          {
+            "severity": "WARNING",
+            "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+            "start": 308,
+            "length": 6,
+            "message": "This rule overrides LETTER in audit.NegationBaseExplicit and thus should be annotated with @Override."
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.NegationChildExplicit::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(SUPER_LETTER)"
+      },
+      {
+        "source_rule": "audit.NegationChildExplicit::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "'b'"
+      },
+      {
+        "source_rule": "audit.NegationBaseExplicit::LETTER",
+        "name": "SUPER_LETTER",
+        "fragment": true,
+        "body": "'a'"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit19;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: ~(SUPER_LETTER);\nfragment RULE_LETTER: 'b';\nfragment SUPER_LETTER: 'a';\n",
+      "grammar_sha256": "48b2d48b8899fa88cec0ba93452b6aca08d8c7fd52dd5b7a35d17b529cb063bf",
+      "java_canonical_sha256": "7b49fc62cbf1c129e0e54db31eb7a5484ef2a5b6fba179952001bd67e4aa7e4c",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "inherited_program_override",
+    "syntax": [
+      {
+        "source": "audit.NegationProgramBase",
+        "errors": []
+      },
+      {
+        "source": "audit.NegationProgramChild",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.NegationProgramBase",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NegationProgramChild::LETTER",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      },
+      {
+        "source": "audit.NegationProgramChild",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.NegationProgramBase::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.NegationProgramBase",
+        "issues": [],
+        "failure": null
+      },
+      {
+        "source": "audit.NegationProgramChild",
+        "issues": [
+          {
+            "severity": "WARNING",
+            "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+            "start": 195,
+            "length": 6,
+            "message": "This rule overrides LETTER in audit.NegationProgramBase and thus should be annotated with @Override."
+          }
+        ],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.NegationProgramChild::LETTER",
+        "name": "RULE_LETTER",
+        "fragment": true,
+        "body": "'b'"
+      },
+      {
+        "source_rule": "audit.NegationProgramBase::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "~(RULE_LETTER)"
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit20;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nfragment RULE_LETTER: 'b';\nRULE_VALUE: ~(RULE_LETTER);\n",
+      "grammar_sha256": "1496a7be7a0c98c602cbef38acdd153a4982ee74a87757a9c079cfe6abf63853",
+      "java_canonical_sha256": "e5e21d4e3aaba30723fb39ea7a167aa38d0e3f868ca289c0fdb1d89305be2aa8",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "b",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "c",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_VALUE",
+            "text": "c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      }
+    ]
+  },
+  {
+    "id": "committed_path",
+    "syntax": [
+      {
+        "source": "audit.CommittedPath",
+        "errors": []
+      }
+    ],
+    "linking": [
+      {
+        "source": "audit.CommittedPath",
+        "errors": [],
+        "warnings": [],
+        "calls": [
+          {
+            "target": "audit.CommittedPath::VALUE",
+            "proxy": false,
+            "explicit": false
+          }
+        ]
+      }
+    ],
+    "linking_failure": null,
+    "validation": [
+      {
+        "source": "audit.CommittedPath",
+        "issues": [],
+        "failure": null
+      }
+    ],
+    "translated_rules": [
+      {
+        "source_rule": "audit.CommittedPath::VALUE",
+        "name": "RULE_VALUE",
+        "fragment": false,
+        "body": "'a' ~('b') 'c'"
+      },
+      {
+        "source_rule": "audit.CommittedPath::SHORT",
+        "name": "RULE_SHORT",
+        "fragment": false,
+        "body": "'a'"
+      },
+      {
+        "source_rule": "audit.CommittedPath::REST",
+        "name": "RULE_REST",
+        "fragment": false,
+        "body": "."
+      }
+    ],
+    "translation_failure": null,
+    "generation": {
+      "exit_code": 0,
+      "diagnostic": "",
+      "grammar": "lexer grammar NegationAudit21;\n@members { public int errors=0; @Override public void reportError(RecognitionException e) { errors++; } }\nRULE_VALUE: 'a' ~('b') 'c';\nRULE_SHORT: 'a';\nRULE_REST: .;\n",
+      "grammar_sha256": "c5cd1c3a225776811b17a264434764b5f2992624fce48553b7a4357d1d4db26c",
+      "java_canonical_sha256": "2706c867b6b80f1f2c689e69443953608d53881847a5e95ef670468c1c8e3ec0",
+      "compilation_exit_code": 0,
+      "compilation_diagnostic": ""
+    },
+    "runtime": [
+      {
+        "text": "a",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "ad",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "adc",
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "adc",
+            "utf16_start": 0,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": true,
+        "failure": null
+      },
+      {
+        "text": "ac",
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 1,
+        "complete_single_value": false,
+        "failure": null
+      },
+      {
+        "text": "abc",
+        "tokens": [
+          {
+            "type": 5,
+            "name": "RULE_SHORT",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 6,
+            "name": "RULE_REST",
+            "text": "b",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": 6,
+            "name": "RULE_REST",
+            "text": "c",
+            "utf16_start": 2,
+            "utf16_stop": 2,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "lexer_errors": 0,
+        "complete_single_value": false,
+        "failure": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+grammar nullableContinuations hidden(WS)
+import "urn:intersect:compatibility:graph" as g
+Root returns g::Node: ('one' Prefix 'a' 'c' | 'two' Prefix 'a' 'd') name=ID;
+fragment Prefix returns g::Node: Detail;
+fragment Detail returns g::Node: ('a' labels+='b')*;
+terminal ID: ('a'..'z')+;
+terminal WS: ' '+;

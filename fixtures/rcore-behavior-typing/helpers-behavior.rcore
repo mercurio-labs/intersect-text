@@ -1,0 +1,5 @@
+rcore 1;
+package example.typing.helpers version "1";
+pub fn checkedScore(value: Int32) -> Result<Int32, String> =
+    if value >= 0 { Ok(value) } else { Err("negative score") };
+pub fn label(value: String) -> String = value;

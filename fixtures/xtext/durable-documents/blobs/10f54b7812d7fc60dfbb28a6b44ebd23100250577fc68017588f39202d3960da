@@ -1,0 +1,102 @@
+--- before/crates/intersect-model/src/core/text_document.rs
++++ after/crates/intersect-model/src/core/text_document.rs
+@@ -4,8 +4,28 @@
+ use super::resources::{ResourceRecord, SourceCorrespondence, validate_resource_uri};
+ use crate::definitions::bundle::SourceId;
+ use serde::Serialize;
+-use std::mem::size_of;
+ use std::sync::Arc;
++
++// Portable V65 document logical bytes are fixed per record, independent of
++// target pointer widths. Payload units, operation order and admission precedence
++// are unchanged. These guards bound inline record headers; allocator capacity
++// and uncharged compiler/transient storage remain outside this accounting claim.
++mod logical_debit {
++    use super::*;
++    macro_rules! header {
++        ($name:ident, $ty:ty, $bytes:expr) => {
++            pub(super) const $name: usize = $bytes;
++            const _: () = assert!(std::mem::size_of::<$ty>() <= $name);
++        };
++    }
++    header!(BUILDER, DocumentBuilder, 272);
++    header!(WORD, usize, 8);
++    header!(NODE, Node, 112);
++    header!(NODE_ID, NodeId, 8);
++    header!(MARK, Mark, 40);
++    header!(MARK_TOKEN, DocumentMark, 16);
++    header!(UNDO, Undo, 128);
++}
+ 
+ #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+ pub struct TextRange {
+@@ -273,8 +293,8 @@
+             .len()
+             .checked_add(uri.len())
+             .and_then(|n| n.checked_add(64))
+-            .and_then(|n| n.checked_add(size_of::<Self>()))
+-            .and_then(|n| n.checked_add(2 * size_of::<usize>()))
++            .and_then(|n| n.checked_add(logical_debit::BUILDER))
++            .and_then(|n| n.checked_add(2 * logical_debit::WORD))
+             .ok_or("Document storage size overflow")?;
+         if bytes > limits.logical_storage_bytes {
+             return Err("Document logical storage budget exceeded".into());
+@@ -389,8 +409,8 @@
+             .len()
+             .checked_add(uri.len())
+             .and_then(|n| n.checked_add(64))
+-            .and_then(|n| n.checked_add(size_of::<Self>()))
+-            .and_then(|n| n.checked_add(2 * size_of::<usize>()))
++            .and_then(|n| n.checked_add(logical_debit::BUILDER))
++            .and_then(|n| n.checked_add(2 * logical_debit::WORD))
+             .ok_or("Document storage size overflow")?;
+         if base_storage > limits.logical_storage_bytes {
+             return Err("Document logical storage budget exceeded".into());
+@@ -445,27 +465,27 @@
+         }
+         let mut bytes = self.base_storage;
+         for (count, unit) in [
+-            (nodes, size_of::<Node>()),
++            (nodes, logical_debit::NODE),
+             (
+                 self.open
+                     .len()
+                     .checked_add(open)
+                     .ok_or("Document frame size overflow")?,
+-                size_of::<NodeId>(),
++                logical_debit::NODE_ID,
+             ),
+             (
+                 self.marks
+                     .len()
+                     .checked_add(marks)
+                     .ok_or("Document mark size overflow")?,
+-                size_of::<Mark>() + size_of::<DocumentMark>(),
++                logical_debit::MARK + logical_debit::MARK_TOKEN,
+             ),
+             (
+                 self.journal
+                     .len()
+                     .checked_add(journal)
+                     .ok_or("Document undo size overflow")?,
+-                size_of::<Undo>(),
++                logical_debit::UNDO,
+             ),
+         ] {
+             bytes = bytes
+@@ -699,13 +719,13 @@
+         let extra = n
+             .checked_mul(4)
+             .and_then(|v| v.checked_add(1))
+-            .and_then(|v| v.checked_mul(size_of::<usize>()))
++            .and_then(|v| v.checked_mul(logical_debit::WORD))
+             .ok_or("Document index storage overflow")?;
+         self.admit(0, 0, 0, 0)?;
+         let bytes = self
+             .base_storage
+             .checked_add(
+-                n.checked_mul(size_of::<Node>())
++                n.checked_mul(logical_debit::NODE)
+                     .ok_or("Document storage overflow")?,
+             )
+             .and_then(|v| v.checked_add(extra))

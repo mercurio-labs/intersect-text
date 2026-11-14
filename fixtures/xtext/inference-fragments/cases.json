@@ -1,0 +1,662 @@
+[
+  {
+    "id": "typed_basic",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_explicit",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedExplicit",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedExplicit hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_explicit\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields returns Base: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_optional",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedOptional",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedOptional hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_optional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields?;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_nested",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedNested",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedNested hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_nested\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Outer;\nfragment Outer: Inner;\nfragment Inner: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_after_action",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedAfterAction",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedAfterAction hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_after_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: {Root} Fields;\nfragment Fields returns Root: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_multiple_callers",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedMultipleCallers",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedMultipleCallers hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_multiple_callers\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: things+=(A|B)*;\nA: 'a' Fields;\nB: 'b' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_assigned",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedAssigned",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedAssigned hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_assigned\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: fields=Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_datatype",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedDatatype",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedDatatype hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_datatype\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=Scalar;\nfragment Scalar returns ecore::EString: 'x';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_action_in_fragment",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedActionInFragment",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedActionInFragment hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_action_in_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: {Other} name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_assigned_action",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedAssignedAction",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedAssignedAction hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_assigned_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: {Other.previous=current} name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_keyword_only",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedKeywordOnly",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedKeywordOnly hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_keyword_only\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields: 'field';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_enum",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedEnum",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedEnum hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_enum\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: mode=Mode;\nenum Mode: A='a'|B='b';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_references",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedReferences",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedReferences hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_references\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: things+=Item*;\nItem: 'item' Fields;\nfragment Fields: name=ID ('to' target=[Item])?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_recursive",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedRecursive",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedRecursive hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_recursive\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: 'node' name=ID ('child' Fields)?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_call_then_assignment",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedCallThenAssignment",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedCallThenAssignment hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_call_then_assignment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields 'tag' tag=ID;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_assignment_then_call",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedAssignmentThenCall",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedAssignmentThenCall hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_assignment_then_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'tag' tag=ID Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_basic",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardBasic",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_multiple_callers",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardMultipleCallers",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardMultipleCallers hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_multiple_callers\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: things+=(A|B)*;\nA: 'a' Fields;\nB: 'b' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_nested",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardNested",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardNested hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_nested\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Outer;\nfragment Outer*: Inner;\nfragment Inner*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_typed_call",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardTypedCall",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardTypedCall hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_typed_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: Common;\nfragment Common: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_wildcard_call",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedWildcardCall",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedWildcardCall hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_wildcard_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: Common;\nfragment Common*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_action",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardAction",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardAction hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: {Other} name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_assigned",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardAssigned",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardAssigned hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_assigned\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: fields=Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_unused",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardUnused",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardUnused hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_unused\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm';\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_optional",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardOptional",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardOptional hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_optional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields?;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_many",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardMany",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardMany hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_many\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields*;\nfragment Fields*: names+=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_references",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardReferences",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardReferences hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_references\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: things+=Item*;\nItem: 'item' Fields;\nfragment Fields*: name=ID ('to' target=[Item])?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_conflicting_types",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardConflictingTypes",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardConflictingTypes hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_conflicting_types\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: (value=ID | value=Count);\nterminal Count returns ecore::EInt: ('0'..'9')+;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "inherited_typed",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.InheritedTyped.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.InheritedTyped.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:inherited_typed:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.InheritedTyped.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.InheritedTyped.Child with inference.fragments.InheritedTyped.Parent\ngenerate child \"urn:inference:fragments:inherited_typed:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\n"
+      }
+    ]
+  },
+  {
+    "id": "inherited_wildcard",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.InheritedWildcard.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.InheritedWildcard.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:inherited_wildcard:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.InheritedWildcard.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.InheritedWildcard.Child with inference.fragments.InheritedWildcard.Parent\ngenerate child \"urn:inference:fragments:inherited_wildcard:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_override_same_type",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.TypedOverrideSameType.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedOverrideSameType.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:typed_override_same_type:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.TypedOverrideSameType.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.TypedOverrideSameType.Child with inference.fragments.TypedOverrideSameType.Parent\ngenerate child \"urn:inference:fragments:typed_override_same_type:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:inference:fragments:typed_override_same_type:parent\" as p\nModel: Fields;\nfragment Fields returns p::Fields: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_override_new_type",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.TypedOverrideNewType.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedOverrideNewType.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:typed_override_new_type:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.TypedOverrideNewType.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.TypedOverrideNewType.Child with inference.fragments.TypedOverrideNewType.Parent\ngenerate child \"urn:inference:fragments:typed_override_new_type:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.WildcardOverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardOverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:wildcard_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.WildcardOverride.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.WildcardOverride.Child with inference.fragments.WildcardOverride.Parent\ngenerate child \"urn:inference:fragments:wildcard_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: name=ID ('tag' tag=ID)?;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_to_wildcard_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.TypedToWildcardOverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedToWildcardOverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:typed_to_wildcard_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.TypedToWildcardOverride.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.TypedToWildcardOverride.Child with inference.fragments.TypedToWildcardOverride.Parent\ngenerate child \"urn:inference:fragments:typed_to_wildcard_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields*: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_to_typed_override",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.WildcardToTypedOverride.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardToTypedOverride.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:wildcard_to_typed_override:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.WildcardToTypedOverride.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.WildcardToTypedOverride.Child with inference.fragments.WildcardToTypedOverride.Parent\ngenerate child \"urn:inference:fragments:wildcard_to_typed_override:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "production_to_fragment",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.ProductionToFragment.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.ProductionToFragment.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:production_to_fragment:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: Fields;\nFields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.ProductionToFragment.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.ProductionToFragment.Child with inference.fragments.ProductionToFragment.Parent\ngenerate child \"urn:inference:fragments:production_to_fragment:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "fragment_to_production",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.FragmentToProduction.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.FragmentToProduction.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:fragment_to_production:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.FragmentToProduction.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.FragmentToProduction.Child with inference.fragments.FragmentToProduction.Parent\ngenerate child \"urn:inference:fragments:fragment_to_production:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nFields: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "three_level_wildcard",
+    "entry": "grandchild",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.ThreeLevelWildcard.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.ThreeLevelWildcard.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:three_level_wildcard:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.ThreeLevelWildcard.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.ThreeLevelWildcard.Child with inference.fragments.ThreeLevelWildcard.Parent\ngenerate child \"urn:inference:fragments:three_level_wildcard:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nMiddle: 'm' Fields;\n"
+      },
+      {
+        "id": "grandchild",
+        "grammar": "inference.fragments.ThreeLevelWildcard.Grandchild",
+        "dependencies": [
+          "child"
+        ],
+        "source": "grammar inference.fragments.ThreeLevelWildcard.Grandchild with inference.fragments.ThreeLevelWildcard.Child\ngenerate grandchild \"urn:inference:fragments:three_level_wildcard:grandchild\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'last' Fields;\n"
+      }
+    ]
+  },
+  {
+    "id": "three_level_typed",
+    "entry": "grandchild",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.ThreeLevelTyped.Parent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.ThreeLevelTyped.Parent hidden(WS)\ngenerate parent \"urn:inference:fragments:three_level_typed:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: 'r' Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.ThreeLevelTyped.Child",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.ThreeLevelTyped.Child with inference.fragments.ThreeLevelTyped.Parent\ngenerate child \"urn:inference:fragments:three_level_typed:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nMiddle: 'm' Fields;\n"
+      },
+      {
+        "id": "grandchild",
+        "grammar": "inference.fragments.ThreeLevelTyped.Grandchild",
+        "dependencies": [
+          "child"
+        ],
+        "source": "grammar inference.fragments.ThreeLevelTyped.Grandchild with inference.fragments.ThreeLevelTyped.Child\ngenerate grandchild \"urn:inference:fragments:three_level_typed:grandchild\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'last' Fields;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_datatype_unassigned",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedDatatypeUnassigned",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedDatatypeUnassigned hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_datatype_unassigned\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Scalar name=ID;\nfragment Scalar returns ecore::EString: 'x';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_imported_return",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedImportedReturn",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedImportedReturn hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_imported_return\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:imported\" as ext\nModel: Fields;\nfragment Fields returns ext::External: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_unused_valid",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.WildcardUnusedValid",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardUnusedValid hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_unused_valid\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID;\nfragment Fields*: ignored=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "typed_shared_return",
+    "entry": "model",
+    "sources": [
+      {
+        "id": "model",
+        "grammar": "inference.fragments.TypedSharedReturn",
+        "dependencies": [],
+        "source": "grammar inference.fragments.TypedSharedReturn hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_shared_return\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: First 'then' Second;\nfragment First returns Common: name=ID;\nfragment Second returns Common: tag=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "wildcard_library_parent",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.WildcardLibrary",
+        "dependencies": [],
+        "source": "grammar inference.fragments.WildcardLibrary hidden(WS)\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.WildcardLibraryChild",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.WildcardLibraryChild with inference.fragments.WildcardLibrary\ngenerate child \"urn:inference:fragments:wildcard_library_parent:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\n"
+      }
+    ]
+  },
+  {
+    "id": "invalid_unused_parent",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "parent",
+        "grammar": "inference.fragments.InvalidUnusedParent",
+        "dependencies": [],
+        "source": "grammar inference.fragments.InvalidUnusedParent hidden(WS)\ngenerate parent \"urn:inference:fragments:invalid_unused_parent:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: fields=Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "inference.fragments.InvalidUnusedChild",
+        "dependencies": [
+          "parent"
+        ],
+        "source": "grammar inference.fragments.InvalidUnusedChild with inference.fragments.InvalidUnusedParent\ngenerate child \"urn:inference:fragments:invalid_unused_parent:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: name=ID;\n"
+      }
+    ]
+  }
+]

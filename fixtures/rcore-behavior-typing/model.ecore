@@ -1,0 +1,14 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="typing" nsURI="urn:intersect:typing" nsPrefix="types">
+  <eClassifiers x:type="e:EClass" name="Named" abstract="true">
+    <eStructuralFeatures x:type="e:EAttribute" name="name" lowerBound="1" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Item" eSuperTypes="#//Named">
+    <eStructuralFeatures x:type="e:EAttribute" name="score" lowerBound="1" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures x:type="e:EAttribute" name="label" lowerBound="1" derived="true" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures x:type="e:EReference" name="related" eType="#//Named"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Tagged" abstract="true">
+    <eStructuralFeatures x:type="e:EAttribute" name="tag" lowerBound="1" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Special" eSuperTypes="#//Item #//Tagged"/>
+</e:EPackage>

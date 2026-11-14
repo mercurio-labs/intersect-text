@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": {
+        "uri": "file:///loading/a.ecore",
+        "sha256": "aa96a116f88c52ce27d703492143aa1b291da7c3c860def632129f369b7d693e"
+      },
+      "kind": "ecore",
+      "text": "<e:EPackage xmlns:e='http://www.eclipse.org/emf/2002/Ecore' xmlns:x='http://www.w3.org/2001/XMLSchema-instance' name='a' nsURI='urn:loading:a'><eClassifiers x:type='e:EClass' name='Root'><eStructuralFeatures x:type='e:EAttribute' name='name' eType='e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString'/><eOperations name='ping' eType='e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean'/></eClassifiers><eSubpackages name='inner' nsURI='urn:loading:inner'><eClassifiers x:type='e:EClass' name='Marker'/></eSubpackages><eClassifiers x:type='e:EDataType' name='Text' instanceClassName='java.lang.String'/></e:EPackage>",
+      "dependencies": [
+        {
+          "uri": "file:///loading/b.ecore",
+          "sha256": "76437e70479dd8b4cad2be457d322f4cc14d27a7454134279b7a7330b2423062"
+        }
+      ]
+    },
+    {
+      "id": {
+        "uri": "file:///loading/b.ecore",
+        "sha256": "76437e70479dd8b4cad2be457d322f4cc14d27a7454134279b7a7330b2423062"
+      },
+      "kind": "ecore",
+      "text": "<e:EPackage xmlns:e='http://www.eclipse.org/emf/2002/Ecore' xmlns:x='http://www.w3.org/2001/XMLSchema-instance' name='b' nsURI='urn:loading:b'><eClassifiers x:type='e:EClass' name='Child' eSuperTypes='a.ecore#//Root'><eStructuralFeatures x:type='e:EReference' name='next' eType='#//Child'/></eClassifiers></e:EPackage>",
+      "dependencies": [
+        {
+          "uri": "file:///loading/a.ecore",
+          "sha256": "aa96a116f88c52ce27d703492143aa1b291da7c3c860def632129f369b7d693e"
+        }
+      ]
+    },
+    {
+      "id": {
+        "uri": "file:///loading/unselected.ecore",
+        "sha256": "48d3ab4b025f0370c45a78698dbea68425893b7b214a01109cc08f3d88e1e79c"
+      },
+      "kind": "ecore",
+      "text": "<e:EPackage xmlns:e='http://www.eclipse.org/emf/2002/Ecore' xmlns:x='http://www.w3.org/2001/XMLSchema-instance' name='unused' nsURI='urn:loading:a'><eClassifiers x:type='e:Unknown' name='Unconsumed'/></e:EPackage>",
+      "dependencies": []
+    }
+  ],
+  "namespaces": [
+    {
+      "namespace": "urn:loading:a",
+      "source": {
+        "uri": "file:///loading/a.ecore",
+        "sha256": "aa96a116f88c52ce27d703492143aa1b291da7c3c860def632129f369b7d693e"
+      }
+    }
+  ]
+}

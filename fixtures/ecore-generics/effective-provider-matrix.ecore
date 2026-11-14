@@ -1,0 +1,13 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="providerFeatures" nsURI="urn:generic-provider-features">
+  <eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EDataType" name="RGBAlias" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EClass" name="Record">
+    <eTypeParameters name="T"/>
+    <eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures x:type="e:EAttribute" name="color" defaultValueLiteral="#123ABC"><eGenericType eTypeParameter="#//Record/T"/></eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Left"><eGenericSuperTypes eClassifier="#//Record"><eTypeArguments eClassifier="#//RGB"/></eGenericSuperTypes></eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Right"><eGenericSuperTypes eClassifier="#//Record"><eTypeArguments eClassifier="#//RGB"/></eGenericSuperTypes></eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Diamond" eSuperTypes="#//Left #//Right"/>
+  <eClassifiers x:type="e:EClass" name="OtherRecord"><eGenericSuperTypes eClassifier="#//Record"><eTypeArguments eClassifier="#//RGBAlias"/></eGenericSuperTypes></eClassifiers>
+</e:EPackage>

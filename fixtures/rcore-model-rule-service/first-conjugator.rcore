@@ -1,0 +1,13 @@
+rcore 1;
+package intersect.kerml.firstConjugator version "1";
+import model "urn:intersect:classified-read-protocol" as c;
+
+fn first_conjugator(cursor:c.Cursor) -> Option<Int64> = select_conjugator(cursor.head);
+fn select_conjugator(item:Option<c.Observation>) -> Option<Int64> = match item {
+  None => None,
+  Some(observation) => if observation.matches {
+    Some(observation.position)
+  } else {
+    select_conjugator(observation.next)
+  }
+};

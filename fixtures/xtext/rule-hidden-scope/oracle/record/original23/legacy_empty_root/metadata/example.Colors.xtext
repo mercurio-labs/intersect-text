@@ -1,0 +1,5 @@
+grammar example.Colors hidden()
+import "urn:intersect:xtext:enum-composition:1" as p
+Model returns p::Model: 'color' shade=Choice ';';
+enum Choice returns p::Shade: Red='red' | Blue='blue';
+terminal WS: (' '|'\t'|'\r'|'\n')+;

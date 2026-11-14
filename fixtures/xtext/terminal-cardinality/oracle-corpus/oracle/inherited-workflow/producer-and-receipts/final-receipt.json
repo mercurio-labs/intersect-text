@@ -1,0 +1,1121 @@
+{
+  "scope": "Verification-only SAME-SOURCE library-appropriate generated workflow addendum; not a source repair, implementation change, profile qualification or old workflow reclassification.",
+  "cases": [
+    {
+      "id": "inherited_explicit_terminal",
+      "entry": "audit.ReturnMatrixInheritedExplicitTerminal",
+      "sources": [
+        {
+          "grammar": "audit.ReturnIdentityBase",
+          "file": "audit.ReturnIdentityBase.xtext",
+          "source_id": {
+            "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+            "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+          }
+        },
+        {
+          "grammar": "audit.ReturnMatrixInheritedExplicitTerminal",
+          "file": "audit.ReturnMatrixInheritedExplicitTerminal.xtext",
+          "source_id": {
+            "uri": "memory:terminal-return-identity-matrix-v1/inherited_explicit_terminal/audit.ReturnMatrixInheritedExplicitTerminal.xtext",
+            "sha256": "c426903c2b05da2a97fc7c0a3bcc5f9c833b6968a9509ce91d53c734114c4dad"
+          }
+        }
+      ],
+      "inputs": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "origin": {
+        "approved_proposal": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\review-packet-v1\\proposed-return-identity-matrix.json",
+        "sha256": "1bb744f285f831210ca28adc7360f950443347b1320015764431ef9a1d777a50",
+        "purpose": "Use the exact inherited explicit-return declaration in a model-first child.",
+        "source_text_URI_hash_probe_lists_unchanged": true
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "entry": "audit.ReturnMatrixInheritedImplicitOverride",
+      "sources": [
+        {
+          "grammar": "audit.ReturnIdentityBase",
+          "file": "audit.ReturnIdentityBase.xtext",
+          "source_id": {
+            "uri": "memory:terminal-return-identity-matrix-v1/shared_base/audit.ReturnIdentityBase.xtext",
+            "sha256": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7"
+          }
+        },
+        {
+          "grammar": "audit.ReturnMatrixInheritedImplicitOverride",
+          "file": "audit.ReturnMatrixInheritedImplicitOverride.xtext",
+          "source_id": {
+            "uri": "memory:terminal-return-identity-matrix-v1/inherited_implicit_override/audit.ReturnMatrixInheritedImplicitOverride.xtext",
+            "sha256": "81fecf178513c0d10b9c9452ad2cfd9b7c13e656d5470660b1c227f1ccaf6804"
+          }
+        }
+      ],
+      "inputs": [
+        "",
+        "a",
+        "aa",
+        "b",
+        "\ud83c\udf0d"
+      ],
+      "origin": {
+        "approved_proposal": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\terminal-cardinality-after-v62-v1\\review-packet-v1\\proposed-return-identity-matrix.json",
+        "sha256": "1bb744f285f831210ca28adc7360f950443347b1320015764431ef9a1d777a50",
+        "purpose": "Implicit child override of an explicitly typed parent; preserve owner and effective target identities.",
+        "source_text_URI_hash_probe_lists_unchanged": true
+      }
+    }
+  ],
+  "input_pins_verified": 19,
+  "input_pins_sha256": "7a42d54dc2b8c28e85339f271ff3ea282fa6426f6614514e2848c4075efa8f57",
+  "original_case_subset_exact": true,
+  "original_metadata_complete_equal": true,
+  "original_workflow_failures_retained": {
+    "root": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\trm-oracle-v1",
+    "observation_sha256": "11b3b32ea6d240e59428ae5fe16b5801ecd186e6aac77bb50e0c9667a7294ed0",
+    "meaning": "Both clean source graphs failed all-StandardLanguage generation. This new workflow does not change those failures."
+  },
+  "prior_attempts": [
+    {
+      "attempt": 1,
+      "artifact_pins_verified": 129,
+      "observations_sha256": "2f6b9f4c0e7ba6dc0f2339401a1cf4a7be735d37ad93bb5670b71a89f233f495",
+      "commands_sha256": "ff6be1eb779dbe1588f061dd56019c2533a5cba0db501e5bf629b0e8cfcf5d74",
+      "commands": 10,
+      "row_stage_summary": [
+        {
+          "id": "inherited_explicit_terminal",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 1
+          },
+          "runtime_exit_codes": []
+        },
+        {
+          "id": "inherited_implicit_override",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 1
+          },
+          "runtime_exit_codes": []
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "artifact_pins_verified": 209,
+      "observations_sha256": "1ab91f5c61e11fad853bb52981ed1469c72ef0bdce935c6c082b48187cfebc4f",
+      "commands_sha256": "2046d407d3263307325d820eb2542f2a40018609c0af1e24429b135c1a8b30df",
+      "commands": 20,
+      "row_stage_summary": [
+        {
+          "id": "inherited_explicit_terminal",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "inherited_implicit_override",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "artifact_pins_verified": 217,
+      "observations_sha256": "1ebf9ee2f3effc2dd0426020ade159b2a8ab75730e7bce64dabadc43a9d73478",
+      "commands_sha256": "b0a752ef5a18d2c36907e595803872fa0765699b1e1f5d4a11a7c4814e768ed8",
+      "commands": 20,
+      "row_stage_summary": [
+        {
+          "id": "inherited_explicit_terminal",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "inherited_implicit_override",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "attempt": 4,
+      "artifact_pins_verified": 209,
+      "observations_sha256": "09a7faf27c91d54ac399ce8bc6ffbe47fc29dce8f3bdc37bd965efffeec05e13",
+      "commands_sha256": "a5ddf280cdca36ab4f56c4e06432f5980e0f21e7bdece0d6239d11f5a3b8dae5",
+      "commands": 20,
+      "row_stage_summary": [
+        {
+          "id": "inherited_explicit_terminal",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "inherited_implicit_override",
+          "generation": {
+            "exit_code": 0,
+            "source_unchanged": true
+          },
+          "compilation": {
+            "exit_code": 0
+          },
+          "runtime_exit_codes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "final_workflow": {
+    "producer_sha256": "9a41afbfa6e222d7a5254afdda40bf1d7867d8f8deed4ad61548e8a1bb14e708",
+    "base_fragments": [
+      "GrammarAccessFragment2",
+      "ImportNamespacesScopingFragment2",
+      "SerializerFragment2(generateStub=false)"
+    ],
+    "child": "StandardLanguage unchanged except validator.inheritImplementation=false; generateDeprecationValidation=false retained.",
+    "validator_consequence": "Terminal-only Base has no model productions or authored validation checks. Its unused generated eager empty-EPackage validator is omitted; Child generated validator extends AbstractDeclarativeValidator directly and still registers actual imported model EPackage. Full grammar source syntax/link/validation metadata is unchanged including ExplicitOverrideMissing WARNING. No generated Java edited or handwritten parser/model oracle.",
+    "generated_dependencies": [
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src\\audit\\ReturnIdentityBaseRuntimeModule.java",
+        "sha256": "d3c7d436bfecb17f2acbc5e7cfb809c676d38c8d60e6e6d4e0e4216c96e92d05",
+        "bytes": 256
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src\\audit\\ReturnIdentityBaseStandaloneSetup.java",
+        "sha256": "a328a768b12c020806a728e074be87e31d7206349534ecf4e7f13634a21d628e",
+        "bytes": 362
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src\\audit\\ReturnMatrixInheritedExplicitTerminalStandaloneSetup.java",
+        "sha256": "391dda942d45211fcfa290918aabbb8edd8f397bf71cd19e5da68bbb2cb055bd",
+        "bytes": 419
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src\\audit\\scoping\\ReturnIdentityBaseScopeProvider.java",
+        "sha256": "eefd49fc07f69983493bff2d70721e9c24069cf244da65f13d37cb6d912f634b",
+        "bytes": 330
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src\\audit\\validation\\ReturnMatrixInheritedExplicitTerminalValidator.java",
+        "sha256": "082a8821265d469d68b931d4e61e4e10122dad62d601bc603304e7f838746dc0",
+        "bytes": 699
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\AbstractReturnIdentityBaseRuntimeModule.java",
+        "sha256": "e07044b7faf7350d8ddbba110b5453c644d2f8f9c7adbc9cdb62d8c35e5ab821",
+        "bytes": 3935
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\ReturnIdentityBaseStandaloneSetupGenerated.java",
+        "sha256": "b4549cef54239d354ed645ec3e296f2b797fb9ab9deea26dc64cb405485c96c9",
+        "bytes": 1697
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\ReturnMatrixInheritedExplicitTerminalStandaloneSetupGenerated.java",
+        "sha256": "cf999fb94c77991c3d3135523f6fcd1eb2e5c0fa330a4dc5d6f84c3e3652b5bf",
+        "bytes": 1201
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\scoping\\AbstractReturnIdentityBaseScopeProvider.java",
+        "sha256": "c068a975f9c864fbb5c7c0861a9da27c03b24166608a0b0600d3de378d0033e9",
+        "bytes": 215
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\serializer\\ReturnIdentityBaseSemanticSequencer.java",
+        "sha256": "c623effc51804332d36530c31104d9528bfad209a2b4e563b5c9f976cb4c7101",
+        "bytes": 1135
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\serializer\\ReturnIdentityBaseSyntacticSequencer.java",
+        "sha256": "d3ee40cb5b22043a0fd6bc3f80d4836e34f0f049839cd53cc478c846532bea24",
+        "bytes": 1455
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\services\\ReturnIdentityBaseGrammarAccess.java",
+        "sha256": "2ffb1a6e29d4f2ae2b75987a4a152039aee241f2d9f1e4f82a3be72a24b0f8c4",
+        "bytes": 1421
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_explicit_terminal\\src-gen\\audit\\validation\\AbstractReturnMatrixInheritedExplicitTerminalValidator.java",
+        "sha256": "0a4fcd0f1f78af16ea42f4c66ab24d4ae3ae1a82b2f08f4ff3b5250914888de1",
+        "bytes": 569
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src\\audit\\ReturnIdentityBaseRuntimeModule.java",
+        "sha256": "d3c7d436bfecb17f2acbc5e7cfb809c676d38c8d60e6e6d4e0e4216c96e92d05",
+        "bytes": 256
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src\\audit\\ReturnIdentityBaseStandaloneSetup.java",
+        "sha256": "a328a768b12c020806a728e074be87e31d7206349534ecf4e7f13634a21d628e",
+        "bytes": 362
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src\\audit\\ReturnMatrixInheritedImplicitOverrideStandaloneSetup.java",
+        "sha256": "3f7a73baeab61f491bb8edd9d76ad46af45703af7b784476c0d89825571ae12c",
+        "bytes": 419
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src\\audit\\scoping\\ReturnIdentityBaseScopeProvider.java",
+        "sha256": "eefd49fc07f69983493bff2d70721e9c24069cf244da65f13d37cb6d912f634b",
+        "bytes": 330
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src\\audit\\validation\\ReturnMatrixInheritedImplicitOverrideValidator.java",
+        "sha256": "968fffce7394ed4f651d961a3900c6e58796eea22c7a0fd8cd89033a89f39f2f",
+        "bytes": 699
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\AbstractReturnIdentityBaseRuntimeModule.java",
+        "sha256": "e07044b7faf7350d8ddbba110b5453c644d2f8f9c7adbc9cdb62d8c35e5ab821",
+        "bytes": 3935
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\ReturnIdentityBaseStandaloneSetupGenerated.java",
+        "sha256": "b4549cef54239d354ed645ec3e296f2b797fb9ab9deea26dc64cb405485c96c9",
+        "bytes": 1697
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\ReturnMatrixInheritedImplicitOverrideStandaloneSetupGenerated.java",
+        "sha256": "a0a3d55c0e36e605c166c0a0948c19267c3ff78d3ec242858ed6c26c72ffb0fa",
+        "bytes": 1201
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\scoping\\AbstractReturnIdentityBaseScopeProvider.java",
+        "sha256": "c068a975f9c864fbb5c7c0861a9da27c03b24166608a0b0600d3de378d0033e9",
+        "bytes": 215
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\serializer\\ReturnIdentityBaseSemanticSequencer.java",
+        "sha256": "c623effc51804332d36530c31104d9528bfad209a2b4e563b5c9f976cb4c7101",
+        "bytes": 1135
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\serializer\\ReturnIdentityBaseSyntacticSequencer.java",
+        "sha256": "d3ee40cb5b22043a0fd6bc3f80d4836e34f0f049839cd53cc478c846532bea24",
+        "bytes": 1455
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\services\\ReturnIdentityBaseGrammarAccess.java",
+        "sha256": "2ffb1a6e29d4f2ae2b75987a4a152039aee241f2d9f1e4f82a3be72a24b0f8c4",
+        "bytes": 1421
+      },
+      {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record\\inherited_implicit_override\\src-gen\\audit\\validation\\AbstractReturnMatrixInheritedImplicitOverrideValidator.java",
+        "sha256": "a1baf692d09720b9f9cfbed5733a5135fea8c9dd90d3c090f8f89ecb7b380047",
+        "bytes": 569
+      }
+    ]
+  },
+  "record": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-record",
+    "observations_sha256": "09a7faf27c91d54ac399ce8bc6ffbe47fc29dce8f3bdc37bd965efffeec05e13"
+  },
+  "replay": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\tilw-a4-replay",
+    "observations_sha256": "8a0c32394ce2fb245351c930d76fe56de7ae7013b8e23e0ab972a5a414913e89",
+    "artifact_pins_verified": 209
+  },
+  "equality": "Complete row equality with sole strict absolute owned provider-<EcoreSHA12>/provider.genmodel path exception; forged unrelated path rejected. No token/error/model/span normalization. Toolchain complete equal.",
+  "per_run": {
+    "graphs": 2,
+    "planned": 10,
+    "actual_runtime": 10,
+    "all_runtime_exit_zero": true,
+    "resource_accepted": 2,
+    "resource_rejected": 8,
+    "rejected_partial_models": 1,
+    "timeouts": 0
+  },
+  "runtime": [
+    {
+      "id": "inherited_explicit_terminal",
+      "text": "",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+            "line": 1,
+            "column": 1
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+            "utf16_start": 0,
+            "utf16_end": 0
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_explicit_terminal",
+      "text": "a",
+      "resource_accepted": true,
+      "parser_accepted": true,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": true,
+        "errors": [],
+        "warnings": [],
+        "resource_contents": 1,
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "a",
+              "members": []
+            }
+          }
+        ],
+        "leaves": [
+          {
+            "text": "a",
+            "hidden": false,
+            "utf16_start": 0,
+            "utf16_end": 1,
+            "syntax_error": null
+          }
+        ],
+        "failure": null
+      },
+      "parser": {
+        "accepted": true,
+        "errors": [],
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "a",
+              "members": []
+            }
+          }
+        ],
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_explicit_terminal",
+      "text": "aa",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": true,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "extraneous input 'a' expecting EOF",
+            "line": 1,
+            "column": 2
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 1,
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "a",
+              "members": []
+            }
+          }
+        ],
+        "leaves": [
+          {
+            "text": "a",
+            "hidden": false,
+            "utf16_start": 0,
+            "utf16_end": 1,
+            "syntax_error": null
+          },
+          {
+            "text": "a",
+            "hidden": false,
+            "utf16_start": 1,
+            "utf16_end": 2,
+            "syntax_error": "extraneous input 'a' expecting EOF"
+          }
+        ],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "extraneous input 'a' expecting EOF",
+            "utf16_start": 1,
+            "utf16_end": 2
+          }
+        ],
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "a",
+              "members": []
+            }
+          }
+        ],
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "a",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_explicit_terminal",
+      "text": "b",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'b' expecting 'a'",
+            "line": 1,
+            "column": 1
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'b' expecting 'a'",
+            "utf16_start": 0,
+            "utf16_end": 1
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 0,
+            "name": null,
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 99
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_explicit_terminal",
+      "text": "\ud83c\udf0d",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character '\ud83c' expecting 'a'",
+            "line": 1,
+            "column": 1
+          },
+          {
+            "message": "mismatched character '\udf0d' expecting 'a'",
+            "line": 1,
+            "column": 2
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character '\ud83c' expecting 'a'",
+            "utf16_start": 0,
+            "utf16_end": 1
+          },
+          {
+            "message": "mismatched character '\udf0d' expecting 'a'",
+            "utf16_start": 1,
+            "utf16_end": 2
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 0,
+            "name": null,
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 99
+          },
+          {
+            "type": 0,
+            "name": null,
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 99
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "text": "",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+            "line": 1,
+            "column": 1
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched input '<EOF>' expecting RULE_VALUE",
+            "utf16_start": 0,
+            "utf16_end": 0
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "text": "a",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "line": 1,
+            "column": 1
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "utf16_start": 0,
+            "utf16_end": 1
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 0,
+            "name": null,
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 99
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "text": "aa",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "line": 1,
+            "column": 1
+          },
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "line": 1,
+            "column": 2
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "utf16_start": 0,
+            "utf16_end": 1
+          },
+          {
+            "message": "mismatched character 'a' expecting 'b'",
+            "utf16_start": 1,
+            "utf16_end": 2
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 0,
+            "name": null,
+            "text": "a",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 99
+          },
+          {
+            "type": 0,
+            "name": null,
+            "text": "a",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 99
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "text": "b",
+      "resource_accepted": true,
+      "parser_accepted": true,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": true,
+        "errors": [],
+        "warnings": [],
+        "resource_contents": 1,
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "b",
+              "members": []
+            }
+          }
+        ],
+        "leaves": [
+          {
+            "text": "b",
+            "hidden": false,
+            "utf16_start": 0,
+            "utf16_end": 1,
+            "syntax_error": null
+          }
+        ],
+        "failure": null
+      },
+      "parser": {
+        "accepted": true,
+        "errors": [],
+        "model": [
+          {
+            "class": "urn:intersect:xtext:mini-kerml:terminal-spellings:1#//Model",
+            "values": {
+              "name": "b",
+              "members": []
+            }
+          }
+        ],
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 4,
+            "name": "RULE_VALUE",
+            "text": "b",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    },
+    {
+      "id": "inherited_implicit_override",
+      "text": "\ud83c\udf0d",
+      "resource_accepted": false,
+      "parser_accepted": false,
+      "resource_partial_model": false,
+      "resource": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character '\ud83c' expecting 'b'",
+            "line": 1,
+            "column": 1
+          },
+          {
+            "message": "mismatched character '\udf0d' expecting 'b'",
+            "line": 1,
+            "column": 2
+          }
+        ],
+        "warnings": [],
+        "resource_contents": 0,
+        "model": null,
+        "leaves": [],
+        "failure": null
+      },
+      "parser": {
+        "accepted": false,
+        "errors": [
+          {
+            "message": "mismatched character '\ud83c' expecting 'b'",
+            "utf16_start": 0,
+            "utf16_end": 1
+          },
+          {
+            "message": "mismatched character '\udf0d' expecting 'b'",
+            "utf16_start": 1,
+            "utf16_end": 2
+          }
+        ],
+        "model": null,
+        "failure": null
+      },
+      "lexer": {
+        "tokens": [
+          {
+            "type": 0,
+            "name": null,
+            "text": "\ud83c",
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 99
+          },
+          {
+            "type": 0,
+            "name": null,
+            "text": "\udf0d",
+            "utf16_start": 1,
+            "utf16_stop": 1,
+            "channel": 99
+          },
+          {
+            "type": -1,
+            "name": "EOF",
+            "text": null,
+            "utf16_start": 0,
+            "utf16_stop": 0,
+            "channel": 0
+          }
+        ],
+        "through_eof": true,
+        "antlr_syntax_error_count": 0,
+        "failure": null
+      }
+    }
+  ],
+  "native_boundary": "Separate prior native-context addendum ordinary compile/export positives remain distinct; default inference declaration-library failures remain. This is upstream generated-language evidence only, no native Ecore/support gate award.",
+  "source_pins": {
+    "attempt1-producer.diff": "d676cd263d8e70c936eff7465d246eb0701a9f757a1bdd31f58f971e9f3d7348",
+    "attempt2-producer.diff": "4365203a6d59c2952359f2b3357927277943111fbaa21ad9fa494c017c79ebed",
+    "attempt3-producer.diff": "3687c8e3b7ff208924ae6fb6354d36139618c37928364d30bdc5928096bfd10e",
+    "attempt4-producer.diff": "5236287eaabf45404a77ce8e34029b0d64cbf6b055cc6209a5e5f827bc1a569f",
+    "BuildProvider.java": "40c8797bb2de1b735f7a9009deab8506743d88dd5f4abd01d64519a4aaab2f50",
+    "FullRuntime.java": "b72066a0c46cf2cb9db49c258881a641feb3de0d20b663589f474c2c11295a1a",
+    "inputs/cases.json": "0cda14562d658b322be0abccb46fe0c708be81569381df88f0667d949a9c24ec",
+    "inputs/Generate.mwe2.template": "3338b2b8630f242a3215f17ab70d7dcc35f24b2e66c37dd401447c7ba25b9fef",
+    "inputs/ImportedRuntimeOracle.java": "0abd4f701662801efab097f655b12a24aff31b2d390fa2c93fe2c98940cb213a",
+    "inputs/inherited_explicit_terminal/audit.ReturnIdentityBase.xtext": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7",
+    "inputs/inherited_explicit_terminal/audit.ReturnMatrixInheritedExplicitTerminal.xtext": "c426903c2b05da2a97fc7c0a3bcc5f9c833b6968a9509ce91d53c734114c4dad",
+    "inputs/inherited_explicit_terminal/entry.txt": "2a7bdd235108150850f17c40d5aaf6cc73e3b401a0e532addda1afdba224599d",
+    "inputs/inherited_explicit_terminal/imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+    "inputs/inherited_explicit_terminal/order.txt": "5e2390cb7829eb425aeae86b7985129808f9fae58b73cb8ee588ca3ba43a33cc",
+    "inputs/inherited_explicit_terminal/source-identities.tsv": "20e3b010d00013bbebbe3fe56a053e36814dcc35261485f1341443ed8600f632",
+    "inputs/inherited_implicit_override/audit.ReturnIdentityBase.xtext": "de8db21302a13fd99cb0c09df2ffac31911350838bc3b51251f08ad4fed121d7",
+    "inputs/inherited_implicit_override/audit.ReturnMatrixInheritedImplicitOverride.xtext": "81fecf178513c0d10b9c9452ad2cfd9b7c13e656d5470660b1c227f1ccaf6804",
+    "inputs/inherited_implicit_override/entry.txt": "d26082207089d5040f5dd52084d9f5a917d190fe6c2c60420732c8712ee560c5",
+    "inputs/inherited_implicit_override/imported.ecore": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+    "inputs/inherited_implicit_override/order.txt": "a97f326fdf9caa458ebce994d7981a0fdf0b0d806de6e7f1afed5ce3ed0f0e87",
+    "inputs/inherited_implicit_override/source-identities.tsv": "0efa606a5d7c2d1e28b93dbf808be81b7c5c9eb4118e98a63648f0b6d7338f99",
+    "inputs/MetamodelOracle.java": "1b90b692cbf96439592ebe5d0e449e87c65ce90e4fd9e9cc466fd1033417a98d",
+    "inputs/pins.json": "7a42d54dc2b8c28e85339f271ff3ea282fa6426f6614514e2848c4075efa8f57",
+    "inputs/RuntimeOracle.java": "b4fb77536f9f4a9743a76e92eca31176d1ba33f29042be907b9a525e3f3e84e3",
+    "inputs/stack.json": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304",
+    "inputs/TerminalNegationOracle.java": "9a42efff7e87512ca0c224c4ea4118d33fc5cc1abc1752c7c47ac7075390eb66",
+    "original/produce.py": "f1f9300df94b2300d6d705d915e32bd877b543adc8d2ec56a71d5f6498ce60d9",
+    "preexecution-attempt1.json": "fda53aa9ba7770bfb6e322a509dfffa18c3685c003d02244c8abd58141f7495c",
+    "preexecution-attempt2.json": "4b4758c2641ec76be6b218866d5e1e4e4dd837f47a1c9a6fcd61c2ba30329d71",
+    "preexecution-attempt3.json": "46922da1037f8184948371cfb91db9bd7d56c41668fd508acda96400605b5bd4",
+    "preexecution-attempt4-replay.json": "88d8a2e7a62ee7ac64e190e832179f5ae4e799be11efde8860caf0b9008ba1c5",
+    "preexecution-attempt4.json": "bc6e2937ae966b539dd5b1e1faa4ed607de8432c16866ed72e4597a8e8757393",
+    "produce-attempt1.py": "61644b9645560158a4b23bf232c812437b243c2720571fd2832e75fafc7c858a",
+    "produce-attempt2.py": "012a01de90c041f9387840277750bb12780328624548a36b9d1cdef3f118beed",
+    "produce-attempt3.py": "bf865aa1faacb9d3fbc67b9080a9bfa057dcf620058e118293e204ae4532ad27",
+    "produce-attempt4.py": "9a41afbfa6e222d7a5254afdda40bf1d7867d8f8deed4ad61548e8a1bb14e708",
+    "verify-addendum.py": "2f356c30ace3d8c4b6c0d6c43a1e27ad8e8facfaa0f8b92388befd8f89a7fc52"
+  }
+}

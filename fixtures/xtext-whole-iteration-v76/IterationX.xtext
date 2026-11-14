@@ -1,0 +1,6 @@
+grammar intersect.iteration.oracle.IterationX hidden(WS)
+import "urn:intersect:oracle:WholeIterationGate" as gate
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Root returns gate::Root: {gate::Root} (=> children+=Target)* 'x';
+Target returns gate::Target: {gate::Target} tag='x';
+terminal WS: (' ' | '\t' | '\r' | '\n')+;

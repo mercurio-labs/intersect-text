@@ -1,0 +1,14 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="methods" nsURI="urn:method-providers">
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="Number" instanceClassName="java.lang.Integer"/>
+<eClassifiers x:type="e:EDataType" name="List" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Unused" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+<eClassifiers x:type="e:EDataType" name="RGBAlias" instanceClassName="example.RGB"/>
+<eClassifiers x:type="e:EClass" name="Owner">
+<eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eOperations name="choose"><eTypeParameters name="T"><eBounds eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eBounds></eTypeParameters><eGenericType eTypeParameter="#//Owner/choose/T"/><eParameters name="input"><eGenericType eTypeParameter="#//Owner/choose/T"/></eParameters></eOperations>
+<eOperations name="color"><eTypeParameters name="T"><eBounds eClassifier="#//RGB"/></eTypeParameters><eGenericType eTypeParameter="#//Owner/color/T"/><eParameters name="input"><eGenericType eTypeParameter="#//Owner/color/T"/></eParameters></eOperations>
+</eClassifiers>
+</e:EPackage>

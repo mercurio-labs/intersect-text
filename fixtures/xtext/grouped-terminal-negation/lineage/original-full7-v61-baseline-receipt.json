@@ -1,0 +1,758 @@
+{
+  "state": "original_full7_source_oracle_and_immutable_v61_before_frozen",
+  "commit": "91a98cdfbea19337318e278396d88508e56a5c89",
+  "copy_receipt": {
+    "bytes": 1077062,
+    "sha256": "6bed3a40ffa0aba0a60f5328783faaf7674adeb27a30e37213f0e94daf4886af"
+  },
+  "fixture_files": {
+    "before-v58.json": {
+      "bytes": 664464,
+      "sha256": "9048a03f28b095d7068cf8ce9c08dac0919e5d7d54686937becc9f19634bdc58"
+    },
+    "BuildProvider.java": {
+      "bytes": 2219,
+      "sha256": "40c8797bb2de1b735f7a9009deab8506743d88dd5f4abd01d64519a4aaab2f50"
+    },
+    "emitted-provenance.json": {
+      "bytes": 29190,
+      "sha256": "4370f6a89ed6512a69ebdc3f4758cf95c072184d67f9f230c2ba9d794060961b"
+    },
+    "FullRuntime.java": {
+      "bytes": 4626,
+      "sha256": "b72066a0c46cf2cb9db49c258881a641feb3de0d20b663589f474c2c11295a1a"
+    },
+    "native-cases.json": {
+      "bytes": 22102,
+      "sha256": "f4f75790ae1f0dec1d4ff516803b9f50a09749763123df1ed2dde69009271f27"
+    },
+    "observations.json": {
+      "bytes": 196966,
+      "sha256": "d4d138c82dcd3be5d339d52364853072897b2d3a6550dfbd56fb050c864b8bc5"
+    },
+    "positive-resources.json": {
+      "bytes": 16226,
+      "sha256": "b90b0946f2c372a27bb9a4d9da5b62ab5d7af5933db470856e5527298ecfa903"
+    },
+    "produce.py": {
+      "bytes": 7622,
+      "sha256": "420ce36ab0885da17298316c7dd98727020f8866e7194aa7dc7209f8db00f8dc"
+    },
+    "provenance.json": {
+      "bytes": 27728,
+      "sha256": "928af589eb71014d59611be2e2cd76fca1c11f9a8a3d70ab2b6746c77f91fb08"
+    },
+    "README.md": {
+      "bytes": 2990,
+      "sha256": "3d71e7e646cba4e277fa63c4afd368d60f2ecffc54d443abf984a4674a81090d"
+    },
+    "verify.py": {
+      "bytes": 4762,
+      "sha256": "27e82eea8c13615439af34799eacdc2fae750579dab3f1361cf1b4ea777cdf5d"
+    },
+    "emitted/abc_or_b/src/Generate.mwe2": {
+      "bytes": 1152,
+      "sha256": "612eda7d4bbad698e93928111d330e913640f6c58043f0930f17ff36a306111c"
+    },
+    "emitted/abc_or_b/src/audit/UntilOverlapAbcOrBRuntimeModule.java": {
+      "bytes": 256,
+      "sha256": "d940ee16c5af3071a46d1a81845b4632660036a1b34e6b3d446ab6b3caa91f49"
+    },
+    "emitted/abc_or_b/src/audit/UntilOverlapAbcOrBStandaloneSetup.java": {
+      "bytes": 362,
+      "sha256": "dcf5f2a1453abc05bfc7321afdae2202874a7c52dff534cdfcb52784d5a0db0b"
+    },
+    "emitted/abc_or_b/src/audit/generator/UntilOverlapAbcOrBGenerator.java": {
+      "bytes": 1003,
+      "sha256": "967bc2207eb1269ee70c3641c5c2d864be3068aecb11c6a80ee1754ac99bb631"
+    },
+    "emitted/abc_or_b/src/audit/scoping/UntilOverlapAbcOrBScopeProvider.java": {
+      "bytes": 330,
+      "sha256": "4bbab738c27941215b535e51a299986945f5f87519ae6b66596ec815658d6bac"
+    },
+    "emitted/abc_or_b/src/audit/validation/UntilOverlapAbcOrBValidator.java": {
+      "bytes": 642,
+      "sha256": "6ba1db44fa9e814edb34200cfe0c71d8ab054ffaefb7e6ff2a263e72afb3088f"
+    },
+    "emitted/abc_or_b/src-gen/audit/AbstractUntilOverlapAbcOrBRuntimeModule.java": {
+      "bytes": 8764,
+      "sha256": "b4d248cfe77c8dce49b003e82c62bd99c4275ea5491b7a5bb344b4b075d55a0f"
+    },
+    "emitted/abc_or_b/src-gen/audit/UntilOverlapAbcOrBStandaloneSetupGenerated.java": {
+      "bytes": 2204,
+      "sha256": "35d069221dd77b878700d83c4b879b4337f4cb710ed9428c2d7e91d8d74a3832"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/UntilOverlapAbcOrBAntlrTokenFileProvider.java": {
+      "bytes": 464,
+      "sha256": "fc472afffa5e845dbc5593a7a6a14b1d23c7cb30f994397c736b7e42214569d1"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/UntilOverlapAbcOrBParser.java": {
+      "bytes": 1059,
+      "sha256": "4b0b517fc90a6445793d54c31d29ab57a9f8a42d4b2a5d0101c9b22c9883f46a"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbcOrB.g": {
+      "bytes": 2277,
+      "sha256": "49d702f1857ffe7f93571d127aa6810cc6872d2754f8bf6eede0c47d015ec8c9"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbcOrB.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbcOrBLexer.java": {
+      "bytes": 3718,
+      "sha256": "757aa3d0af08935d012caa7b5d9e21ee7e1a0ce24d85e43ecc74482465ba10df"
+    },
+    "emitted/abc_or_b/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbcOrBParser.java": {
+      "bytes": 4865,
+      "sha256": "4d9793c932f86356df7c1d3c53bae879a462d01cb9f8e2935e411278d9259320"
+    },
+    "emitted/abc_or_b/src-gen/audit/scoping/AbstractUntilOverlapAbcOrBScopeProvider.java": {
+      "bytes": 215,
+      "sha256": "8052aaff0ca713291b57cce4a4e81fe07dbc063f7e4398d0b54c5611b68b6755"
+    },
+    "emitted/abc_or_b/src-gen/audit/serializer/UntilOverlapAbcOrBSemanticSequencer.java": {
+      "bytes": 2320,
+      "sha256": "4a0ad2e7909149d5c7cf8d6a345bf7a981ef5b1961aebf9f6085118432b0ad76"
+    },
+    "emitted/abc_or_b/src-gen/audit/serializer/UntilOverlapAbcOrBSyntacticSequencer.java": {
+      "bytes": 1455,
+      "sha256": "c02c655bff9bdca9620ed8c4fc2f039ea552a05ef60ff58abaf3117ea315bcce"
+    },
+    "emitted/abc_or_b/src-gen/audit/services/UntilOverlapAbcOrBGrammarAccess.java": {
+      "bytes": 2466,
+      "sha256": "8ec864356b79805ad8d013c37281f1b0c60cef16b22f43361610a1f8cf13c71a"
+    },
+    "emitted/abc_or_b/src-gen/audit/validation/AbstractUntilOverlapAbcOrBValidator.java": {
+      "bytes": 550,
+      "sha256": "d17ab59aa69c0b681e496f0e579837f64ae1c760c20c1b02d60eaf223a809d08"
+    },
+    "emitted/ab_or_abc/src/Generate.mwe2": {
+      "bytes": 1153,
+      "sha256": "f58fb7e4339cb1a717a1714c40de14ebe5f1edc9d58882645d3afc49cb7d5fdb"
+    },
+    "emitted/ab_or_abc/src/audit/UntilOverlapAbOrAbcRuntimeModule.java": {
+      "bytes": 258,
+      "sha256": "799815ed4ce85b3aa05b0329115b782b9032bb44d040b9a2f3f1a61f27e44016"
+    },
+    "emitted/ab_or_abc/src/audit/UntilOverlapAbOrAbcStandaloneSetup.java": {
+      "bytes": 365,
+      "sha256": "80d2f1a9f99ffa2fbda047c61c33fe7527f7315f63d41add7f82886c603468e4"
+    },
+    "emitted/ab_or_abc/src/audit/generator/UntilOverlapAbOrAbcGenerator.java": {
+      "bytes": 1004,
+      "sha256": "fccc7ad4484afdc39202efa39fe74004ed2ce5d248369d90d860bff2f39b6145"
+    },
+    "emitted/ab_or_abc/src/audit/scoping/UntilOverlapAbOrAbcScopeProvider.java": {
+      "bytes": 332,
+      "sha256": "27b57ba34755dae4bf9f0e4f8defc32b91d321c2c134191084e13fbca572f38f"
+    },
+    "emitted/ab_or_abc/src/audit/validation/UntilOverlapAbOrAbcValidator.java": {
+      "bytes": 645,
+      "sha256": "283dbe0ec9bceacff88abf7d7647e0e508f656c2382cfd7300cbe23dc9124a20"
+    },
+    "emitted/ab_or_abc/src-gen/audit/AbstractUntilOverlapAbOrAbcRuntimeModule.java": {
+      "bytes": 8792,
+      "sha256": "0f080982e63fb2e130f7561dbdee3274e6a7ee6c9665f216d583587f28b5834f"
+    },
+    "emitted/ab_or_abc/src-gen/audit/UntilOverlapAbOrAbcStandaloneSetupGenerated.java": {
+      "bytes": 2206,
+      "sha256": "0ccc7835fa22da32173468051f1bbdec693b73b520de469856986061cbaf89f6"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/UntilOverlapAbOrAbcAntlrTokenFileProvider.java": {
+      "bytes": 466,
+      "sha256": "0d5c2b2e57d60f409b8846ef5b17f604703b39d10bb599959396c6ef71b6f036"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/UntilOverlapAbOrAbcParser.java": {
+      "bytes": 1067,
+      "sha256": "6ed8fba85e56617dcee5e040ec400621ea16f315c657947c1a5bdd814fd9945d"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbOrAbc.g": {
+      "bytes": 2285,
+      "sha256": "a4305e4737b667b1786b973860108d5d0ad3fc982989ddf49c10f964a79d8f18"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbOrAbc.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbOrAbcLexer.java": {
+      "bytes": 4037,
+      "sha256": "21bf16b4ada85cbdf92b26d4c0d573eba154428c7599f7eb6635a5a30be405b9"
+    },
+    "emitted/ab_or_abc/src-gen/audit/parser/antlr/internal/InternalUntilOverlapAbOrAbcParser.java": {
+      "bytes": 4886,
+      "sha256": "7173918a81dd1fbd9e3212efa6e02e0c7df86d36914f3d098b8f5486544120ca"
+    },
+    "emitted/ab_or_abc/src-gen/audit/scoping/AbstractUntilOverlapAbOrAbcScopeProvider.java": {
+      "bytes": 216,
+      "sha256": "3e8c24bd38ff9ddabb93537330c184d623a1f09d3e8584153f1b678b9d29a0cf"
+    },
+    "emitted/ab_or_abc/src-gen/audit/serializer/UntilOverlapAbOrAbcSemanticSequencer.java": {
+      "bytes": 2323,
+      "sha256": "401411f2399ae5187fa1882cbda8332665a1a76d0dd3d0a70760b37008ede011"
+    },
+    "emitted/ab_or_abc/src-gen/audit/serializer/UntilOverlapAbOrAbcSyntacticSequencer.java": {
+      "bytes": 1459,
+      "sha256": "a957bc844fb0178f2b6a886c9f2bc922d74813009f36dcdac760999ffd1af9b8"
+    },
+    "emitted/ab_or_abc/src-gen/audit/services/UntilOverlapAbOrAbcGrammarAccess.java": {
+      "bytes": 2472,
+      "sha256": "7d5b5f901adbae79df92a867c0fcc22e8eb044029cd867adf5fd6ca0c7bc7b72"
+    },
+    "emitted/ab_or_abc/src-gen/audit/validation/AbstractUntilOverlapAbOrAbcValidator.java": {
+      "bytes": 551,
+      "sha256": "0e1a603d5ce03f1347579c053533afad4165e0567fffa1971923d0cc08faa64d"
+    },
+    "emitted/alternatives_companion/src/Generate.mwe2": {
+      "bytes": 1166,
+      "sha256": "44b03dc7f8b9ff6c86382e8dcf6007b4f6c7bd761e51c085b71d13fc2b72b60d"
+    },
+    "emitted/alternatives_companion/src/audit/FiniteUntilAlternativesCompanionRuntimeModule.java": {
+      "bytes": 284,
+      "sha256": "6813e9e800dbac57beb4151b219174f343145663ef9dae62b00daf86c256d851"
+    },
+    "emitted/alternatives_companion/src/audit/FiniteUntilAlternativesCompanionStandaloneSetup.java": {
+      "bytes": 404,
+      "sha256": "615a99ca153c3eb1aad1ca527ffd7c3450cb9b203d390a557bc17b7188abb1f3"
+    },
+    "emitted/alternatives_companion/src/audit/generator/FiniteUntilAlternativesCompanionGenerator.java": {
+      "bytes": 1017,
+      "sha256": "63c10a7797b67accbb8144a3e6d7be73d6d228a36fe503702b70ef05e9316b75"
+    },
+    "emitted/alternatives_companion/src/audit/scoping/FiniteUntilAlternativesCompanionScopeProvider.java": {
+      "bytes": 358,
+      "sha256": "57063da4412211b5a0c74c56c15bb18112b7212ca324f98584d67884c5e1c61b"
+    },
+    "emitted/alternatives_companion/src/audit/validation/FiniteUntilAlternativesCompanionValidator.java": {
+      "bytes": 684,
+      "sha256": "0fc01728ce4c3dd10bb0ef5991f9923d27087a9d811e34a350c18bd676e59ea0"
+    },
+    "emitted/alternatives_companion/src-gen/audit/AbstractFiniteUntilAlternativesCompanionRuntimeModule.java": {
+      "bytes": 9156,
+      "sha256": "9fcfeb1c6f76e5366b1f59fe7d81022a44bb3c98ee326bcb213b7c8bbd39755f"
+    },
+    "emitted/alternatives_companion/src-gen/audit/FiniteUntilAlternativesCompanionStandaloneSetupGenerated.java": {
+      "bytes": 2232,
+      "sha256": "dee024686162be8048e463afe37be8c5cfd9fee814ae64eea36fcf6ee6403025"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/FiniteUntilAlternativesCompanionAntlrTokenFileProvider.java": {
+      "bytes": 492,
+      "sha256": "c300b2169b6616b65d7f71b2b3906490cc12ed52ac3fcc07be38f75a518f5594"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/FiniteUntilAlternativesCompanionParser.java": {
+      "bytes": 1171,
+      "sha256": "d0ff605d4da6b7af2807017ad06d5e65ec3698082695de38f7a97b2f0b1680e7"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilAlternativesCompanion.g": {
+      "bytes": 2378,
+      "sha256": "14cfcbfb1de7ec1975e51ad68fe61cd9fc1c28e6d46966944138e916283295d6"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilAlternativesCompanion.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilAlternativesCompanionLexer.java": {
+      "bytes": 5138,
+      "sha256": "febc067e94c35befc18dd72838f50cce55f16e7b95d6b84b80de99d0dc1376cf"
+    },
+    "emitted/alternatives_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilAlternativesCompanionParser.java": {
+      "bytes": 5159,
+      "sha256": "e3c73aef0a53efd4e3e80eac6e4a3d8bee4e9784ab70cd7c27f69585e074d0d2"
+    },
+    "emitted/alternatives_companion/src-gen/audit/scoping/AbstractFiniteUntilAlternativesCompanionScopeProvider.java": {
+      "bytes": 229,
+      "sha256": "49cccf70ac3dcabe41bb61d1d24eacdc53955dd29720da1b92615ae7fd10eed5"
+    },
+    "emitted/alternatives_companion/src-gen/audit/serializer/FiniteUntilAlternativesCompanionSemanticSequencer.java": {
+      "bytes": 2362,
+      "sha256": "56146545ca56a39384ef2fe678ce06f7e06b504b336285c7a7a91d08181071ce"
+    },
+    "emitted/alternatives_companion/src-gen/audit/serializer/FiniteUntilAlternativesCompanionSyntacticSequencer.java": {
+      "bytes": 1511,
+      "sha256": "03d1907dea8280b97fb4284e6077705efb639511f64184e56fe6fe8a0fb55e78"
+    },
+    "emitted/alternatives_companion/src-gen/audit/services/FiniteUntilAlternativesCompanionGrammarAccess.java": {
+      "bytes": 2539,
+      "sha256": "13f6ccb234fdd3e87452faa1f83371f1306a2eef12664c6fa98f811fea3c3583"
+    },
+    "emitted/alternatives_companion/src-gen/audit/validation/AbstractFiniteUntilAlternativesCompanionValidator.java": {
+      "bytes": 564,
+      "sha256": "4c1e554691337d2442666bf8935185fe3cb34cf1ca279f47fd8d5584d20e8eb4"
+    },
+    "emitted/astral_literal/src/Generate.mwe2": {
+      "bytes": 1147,
+      "sha256": "bd5fea037b13d20976c3e86ec2681d136f696d61dfead7ad70abc24c8fbebb7e"
+    },
+    "emitted/astral_literal/src/audit/AstralLiteralRuntimeModule.java": {
+      "bytes": 246,
+      "sha256": "9bf4a9b246b71adcfb994f8d792bb3a618038923e7a1ead7a8f67cec40bee64f"
+    },
+    "emitted/astral_literal/src/audit/AstralLiteralStandaloneSetup.java": {
+      "bytes": 347,
+      "sha256": "889cd96e104631e2074526a0903db82c173127c228b88b020850458eeb0d2ae3"
+    },
+    "emitted/astral_literal/src/audit/generator/AstralLiteralGenerator.java": {
+      "bytes": 998,
+      "sha256": "d0f358049e10a336e5216bcb64b536f8963bc51931719737bef45ccccd4c7467"
+    },
+    "emitted/astral_literal/src/audit/scoping/AstralLiteralScopeProvider.java": {
+      "bytes": 320,
+      "sha256": "0b906ee180a6a80c411267d044645787b2956c8c7823e8094c344d97bb0232b0"
+    },
+    "emitted/astral_literal/src/audit/validation/AstralLiteralValidator.java": {
+      "bytes": 627,
+      "sha256": "16a23dfb06dd2b9627b529eca75b1cc4c2b1b83ebf1ef1287a7e13cf4181b7b8"
+    },
+    "emitted/astral_literal/src-gen/audit/AbstractAstralLiteralRuntimeModule.java": {
+      "bytes": 8624,
+      "sha256": "1ea70037b63339dba6e25f2d3ff517c12b8080078602e59ea714fbc01ed36d93"
+    },
+    "emitted/astral_literal/src-gen/audit/AstralLiteralStandaloneSetupGenerated.java": {
+      "bytes": 2194,
+      "sha256": "7b713dfad7aab06dc16807039326c0078487dd4bae02a0bef687c14c2e6f28c5"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/AstralLiteralAntlrTokenFileProvider.java": {
+      "bytes": 454,
+      "sha256": "7447245f8fd755c45919f003907358d758928c69157ea08b3346328e7498f647"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/AstralLiteralParser.java": {
+      "bytes": 1019,
+      "sha256": "79a1ea94d416f65cc8ed460f7c6794c47271db7e9fb15d391d2c36d7f17295cd"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/internal/InternalAstralLiteral.g": {
+      "bytes": 2212,
+      "sha256": "f4d060e4073c899717dab77550296bcfc873d918bf2d7a07e87d678790e1e951"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/internal/InternalAstralLiteral.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/internal/InternalAstralLiteralLexer.java": {
+      "bytes": 1898,
+      "sha256": "0651de7410351eb6b61d8e53e242c1cb91beab1bc2bd3a3753e0d9fc8b91367b"
+    },
+    "emitted/astral_literal/src-gen/audit/parser/antlr/internal/InternalAstralLiteralParser.java": {
+      "bytes": 4760,
+      "sha256": "17adca9063ec5062b7b9af02430cf9ff6228c317b5a1d730ce6dd329d785a68a"
+    },
+    "emitted/astral_literal/src-gen/audit/scoping/AbstractAstralLiteralScopeProvider.java": {
+      "bytes": 210,
+      "sha256": "52495f27689de2e9081ed760c732a188428623aac230c65615eb7e769c46a530"
+    },
+    "emitted/astral_literal/src-gen/audit/serializer/AstralLiteralSemanticSequencer.java": {
+      "bytes": 2305,
+      "sha256": "7fc15294095bc4f838ab38f7d8efadf71a387f02650ee9eb341a8b58a21b4c69"
+    },
+    "emitted/astral_literal/src-gen/audit/serializer/AstralLiteralSyntacticSequencer.java": {
+      "bytes": 1435,
+      "sha256": "a4622ff19379ba0520b23cb655934c4fa5a369174e8d8287fcf9c6a8fdfb78d2"
+    },
+    "emitted/astral_literal/src-gen/audit/services/AstralLiteralGrammarAccess.java": {
+      "bytes": 2431,
+      "sha256": "0d07576b7eaed3f7c396e557f3834cf363c586a82b2b91ba0cff195a47376e50"
+    },
+    "emitted/astral_literal/src-gen/audit/validation/AbstractAstralLiteralValidator.java": {
+      "bytes": 545,
+      "sha256": "cbc5babfc704dc9f497d690ad709baeca90fd9739d57a45789b9f8e2c85cfb55"
+    },
+    "emitted/fragment_companion/src/Generate.mwe2": {
+      "bytes": 1162,
+      "sha256": "5c2bd244fd29928c0f7fa174171f5a2882af699721d28df91497f290d8af2696"
+    },
+    "emitted/fragment_companion/src/audit/FiniteUntilFragmentCompanionRuntimeModule.java": {
+      "bytes": 276,
+      "sha256": "805be07e343002b4fe5656ec02c53bb71385318d3070fa1e721925a955efa4d3"
+    },
+    "emitted/fragment_companion/src/audit/FiniteUntilFragmentCompanionStandaloneSetup.java": {
+      "bytes": 392,
+      "sha256": "3c1e22a296c2bc2c67d812963cd5002583622de2280232fe1d914988adba1349"
+    },
+    "emitted/fragment_companion/src/audit/generator/FiniteUntilFragmentCompanionGenerator.java": {
+      "bytes": 1013,
+      "sha256": "c4fb8e22971ed531a8e3f7751999284ab304e2b9c66e44e32357fa3bf526493f"
+    },
+    "emitted/fragment_companion/src/audit/scoping/FiniteUntilFragmentCompanionScopeProvider.java": {
+      "bytes": 350,
+      "sha256": "cfb21762957002cedaa1065ea2ba6fca17aac085432d6701f870d48ec13384c0"
+    },
+    "emitted/fragment_companion/src/audit/validation/FiniteUntilFragmentCompanionValidator.java": {
+      "bytes": 672,
+      "sha256": "848ec1f802daa71b5497e622d594d2f6741509e2abef309380e41a81404869f4"
+    },
+    "emitted/fragment_companion/src-gen/audit/AbstractFiniteUntilFragmentCompanionRuntimeModule.java": {
+      "bytes": 9044,
+      "sha256": "54515e043e81010a56ff6a81a7adadc8cd767e583aabf3d9a9d3cc92f3ce5d0d"
+    },
+    "emitted/fragment_companion/src-gen/audit/FiniteUntilFragmentCompanionStandaloneSetupGenerated.java": {
+      "bytes": 2224,
+      "sha256": "24f825fa7f2ab623e2287ffe9ad385ecd02e2cb1cd525a5561945ae72b183b7c"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/FiniteUntilFragmentCompanionAntlrTokenFileProvider.java": {
+      "bytes": 484,
+      "sha256": "e3bd61b3d2f62051a0084db285efffbbe6c54416641b076db56fcdb25dbceab9"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/FiniteUntilFragmentCompanionParser.java": {
+      "bytes": 1139,
+      "sha256": "9e2d2d0ce11ad81b58f996871ddb920e959a41c7a17e24ff61530cf3b3e81910"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilFragmentCompanion.g": {
+      "bytes": 2370,
+      "sha256": "c679b28e40f64a3245983e145309e86d49bc54e0e52dd824dd71b191037951f7"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilFragmentCompanion.tokens": {
+      "bytes": 24,
+      "sha256": "778a4e96c579b1ab96742b0d9918f3c3aa9fa3b0edd26f6fb386de0e33d664d7"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilFragmentCompanionLexer.java": {
+      "bytes": 3013,
+      "sha256": "d06fe40a1c909fef51d933506568ce0659ac4bd3a89ee7b517728ed20622a57d"
+    },
+    "emitted/fragment_companion/src-gen/audit/parser/antlr/internal/InternalFiniteUntilFragmentCompanionParser.java": {
+      "bytes": 5127,
+      "sha256": "fb1903bf587674992ba696b7a5cff48792ff76b9ed06bd71937f7cbc586b5d2f"
+    },
+    "emitted/fragment_companion/src-gen/audit/scoping/AbstractFiniteUntilFragmentCompanionScopeProvider.java": {
+      "bytes": 225,
+      "sha256": "9646ffa02f9a3ec51efd6b75134e82104678c5d7ad177f0bfe491d5eb6df3793"
+    },
+    "emitted/fragment_companion/src-gen/audit/serializer/FiniteUntilFragmentCompanionSemanticSequencer.java": {
+      "bytes": 2350,
+      "sha256": "123cf5a3c727e84681a2f4ecbfed411543f1493d71d91340b325fa3a129b7e94"
+    },
+    "emitted/fragment_companion/src-gen/audit/serializer/FiniteUntilFragmentCompanionSyntacticSequencer.java": {
+      "bytes": 1495,
+      "sha256": "6326eb90ae8f4d72d9419fbcf7b99295bec427b55d79243f36077110cc783e0f"
+    },
+    "emitted/fragment_companion/src-gen/audit/services/FiniteUntilFragmentCompanionGrammarAccess.java": {
+      "bytes": 2743,
+      "sha256": "c858ed2f19c6d6d0d717d90c343d2ae2ac0ad00d865f8a0b2fb463c83dd7bc1b"
+    },
+    "emitted/fragment_companion/src-gen/audit/validation/AbstractFiniteUntilFragmentCompanionValidator.java": {
+      "bytes": 560,
+      "sha256": "6cb8a6ee6ea7e8f83b62825ca1e592d7dc662165aeae3d7e95b99e66b811fe53"
+    },
+    "emitted/multichar/src/Generate.mwe2": {
+      "bytes": 1143,
+      "sha256": "902176af812ce39f11625191ef7a28920eef3f4598c385a226d9bb7e49ed2d8d"
+    },
+    "emitted/multichar/src/audit/MulticharRuntimeModule.java": {
+      "bytes": 238,
+      "sha256": "08a302da40e04844f4ad816b76f866a6c05dcfeedc67b9127d1f9bd5da07b44c"
+    },
+    "emitted/multichar/src/audit/MulticharStandaloneSetup.java": {
+      "bytes": 335,
+      "sha256": "13abfbe9138c8509b7576e83a9237475d0fc5d518151cde7d046f81697e7ef35"
+    },
+    "emitted/multichar/src/audit/generator/MulticharGenerator.java": {
+      "bytes": 994,
+      "sha256": "f66fdfb96eca324b522288edbe61038c61d90114e1f8e331e8d8c2b5fe6e76b7"
+    },
+    "emitted/multichar/src/audit/scoping/MulticharScopeProvider.java": {
+      "bytes": 312,
+      "sha256": "54f820af59e3b4d7036b77b523a2afef9619d35cc3f06a9249f0b0acbe509c0f"
+    },
+    "emitted/multichar/src/audit/validation/MulticharValidator.java": {
+      "bytes": 615,
+      "sha256": "7de7df4496e8d6478edfb3d354cbe5e88cfd73f19ac93a7a54aef495849cf992"
+    },
+    "emitted/multichar/src-gen/audit/AbstractMulticharRuntimeModule.java": {
+      "bytes": 8512,
+      "sha256": "6c70d5516c5de2a17b1e506046d3422f2ed56a25b99239fed9d31f9bce78a8bb"
+    },
+    "emitted/multichar/src-gen/audit/MulticharStandaloneSetupGenerated.java": {
+      "bytes": 2186,
+      "sha256": "4bad5bb9b2ff6934e6942f7e7856ca0b4c9d328751af49cb74f7c8b95edf9ecf"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/MulticharAntlrTokenFileProvider.java": {
+      "bytes": 446,
+      "sha256": "801286f092e5630dc87988093ab4a82a237ddc69e9ea5d30df5051d4b35e645d"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/MulticharParser.java": {
+      "bytes": 987,
+      "sha256": "8983945139f23273ef6ed9a15db881dbe8f5e137c3a26b99fadc15c1b213b8b8"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/internal/InternalMultichar.g": {
+      "bytes": 2174,
+      "sha256": "59f85ef38883f4df99bf439575c5b295e760e7f62faae9c29ae2fbc4cf11b9e2"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/internal/InternalMultichar.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/internal/InternalMulticharLexer.java": {
+      "bytes": 1838,
+      "sha256": "61684873aba7b2692be4ac9b1e9abf4d24522360bab20c6cababe0001e1cd796"
+    },
+    "emitted/multichar/src-gen/audit/parser/antlr/internal/InternalMulticharParser.java": {
+      "bytes": 4676,
+      "sha256": "4aaa578b1e742ccefef687cc4ac97ff2acf734ce98901f3eb0484cc5d610de82"
+    },
+    "emitted/multichar/src-gen/audit/scoping/AbstractMulticharScopeProvider.java": {
+      "bytes": 206,
+      "sha256": "cc220518fcf3020c678d6cf152f1dc2b4ecf26c18840dcdb312c766dfc22dc5e"
+    },
+    "emitted/multichar/src-gen/audit/serializer/MulticharSemanticSequencer.java": {
+      "bytes": 2293,
+      "sha256": "6c242de8d5c87ced0ea51b718f517bb78c6f0748d7a53d7a89a9f763ef40bb8f"
+    },
+    "emitted/multichar/src-gen/audit/serializer/MulticharSyntacticSequencer.java": {
+      "bytes": 1419,
+      "sha256": "d0fdcca1e3c377f5a2463116ce577921c33d7308a54c50653c6d4a5b62d39839"
+    },
+    "emitted/multichar/src-gen/audit/services/MulticharGrammarAccess.java": {
+      "bytes": 2409,
+      "sha256": "834624dc917bb18ef4ff6432e0201a02b86278b02d0c90b3100d997bf460c4c3"
+    },
+    "emitted/multichar/src-gen/audit/validation/AbstractMulticharValidator.java": {
+      "bytes": 541,
+      "sha256": "0f7a1bf914a3e742dddc3a88c23690ff6c8aa447265ca34c0cc7b8a675535bd1"
+    },
+    "emitted/nested_groups/src/Generate.mwe2": {
+      "bytes": 1146,
+      "sha256": "36375335c88b0d3bb5ddb890e34a24bee45938f7f393ac752b9596b04745e1ca"
+    },
+    "emitted/nested_groups/src/audit/NestedGroupsRuntimeModule.java": {
+      "bytes": 244,
+      "sha256": "9a1a6f7eae5d130eeaf54026a0d875d45cd2abd284b1f3e6bbd1058dde764544"
+    },
+    "emitted/nested_groups/src/audit/NestedGroupsStandaloneSetup.java": {
+      "bytes": 344,
+      "sha256": "81d91e158c689df79a0da0e504493e634cc8afe635ff686bbff72494d5cdffb0"
+    },
+    "emitted/nested_groups/src/audit/generator/NestedGroupsGenerator.java": {
+      "bytes": 997,
+      "sha256": "70a428e6bdd4820c7eb445c63ca7260d27b681385637f941a768a914e045a087"
+    },
+    "emitted/nested_groups/src/audit/scoping/NestedGroupsScopeProvider.java": {
+      "bytes": 318,
+      "sha256": "3fd82744c0afe8527b7d57a55864598ce0eb53c31b68e9f3d8fd3aaa557366f7"
+    },
+    "emitted/nested_groups/src/audit/validation/NestedGroupsValidator.java": {
+      "bytes": 624,
+      "sha256": "8d3239892dbf547a7888b60c992f1e4ce1373bebd1486fdf12210c52dabb7e5d"
+    },
+    "emitted/nested_groups/src-gen/audit/AbstractNestedGroupsRuntimeModule.java": {
+      "bytes": 8596,
+      "sha256": "c2388f24b3e7a113c190fad15572cf7934d5fd7b8dadaccd22cd84e49587982f"
+    },
+    "emitted/nested_groups/src-gen/audit/NestedGroupsStandaloneSetupGenerated.java": {
+      "bytes": 2192,
+      "sha256": "c0146e530d1f19d5fcd1b9316617794d785b6e5a76ee76ae37a47f1e87eea842"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/NestedGroupsAntlrTokenFileProvider.java": {
+      "bytes": 452,
+      "sha256": "ef1ad21c3a7740644e5e2b73a6a87b2151b1154a0417bb5fbb16e3c0e26b61aa"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/NestedGroupsParser.java": {
+      "bytes": 1011,
+      "sha256": "3c3954aba2b42089efb189d80b1364ae03c94d738b93d083ad7040e022ecb7b5"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/internal/InternalNestedGroups.g": {
+      "bytes": 2211,
+      "sha256": "ed3336bca1f790f4b2111d397f8c57b3b907959ce00f004864296bccb71895d6"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/internal/InternalNestedGroups.tokens": {
+      "bytes": 13,
+      "sha256": "34ab72b3e63a21511bf8bfaa27a7dc63881d525a1c97508b64f544d8531986cf"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/internal/InternalNestedGroupsLexer.java": {
+      "bytes": 2015,
+      "sha256": "2346b82bc48eaced7ba5d521a81354b63ce091746482d2417ef7e99b3968245c"
+    },
+    "emitted/nested_groups/src-gen/audit/parser/antlr/internal/InternalNestedGroupsParser.java": {
+      "bytes": 4739,
+      "sha256": "5926695c4009b2461fdcd53393389524f36f15d46123fbdb23a837e81e4d4061"
+    },
+    "emitted/nested_groups/src-gen/audit/scoping/AbstractNestedGroupsScopeProvider.java": {
+      "bytes": 209,
+      "sha256": "5fcd34b6555a40476fb64e94b6cdc9f4a2ca338903a489e088c797e613d3d160"
+    },
+    "emitted/nested_groups/src-gen/audit/serializer/NestedGroupsSemanticSequencer.java": {
+      "bytes": 2302,
+      "sha256": "159e68c02cc5ad853e30e721e366800d69fa602acd0dbbe79d5359b9841c15fe"
+    },
+    "emitted/nested_groups/src-gen/audit/serializer/NestedGroupsSyntacticSequencer.java": {
+      "bytes": 1431,
+      "sha256": "9460080a222275f72d950411415830a667a972d1fe4938a512c6b95159f43a34"
+    },
+    "emitted/nested_groups/src-gen/audit/services/NestedGroupsGrammarAccess.java": {
+      "bytes": 2442,
+      "sha256": "3c680c8671f1170ea96a58ee0e5c225347806cc92d8e5b067cd4934f5dd1ed48"
+    },
+    "emitted/nested_groups/src-gen/audit/validation/AbstractNestedGroupsValidator.java": {
+      "bytes": 544,
+      "sha256": "6227e371e2a82a7993565d4d34e57edee551dfc645b37dd039d64db42d7d7ec6"
+    },
+    "emitted/provider-726b2116570f/provider.genmodel": {
+      "bytes": 2067,
+      "sha256": "e09f140caf572af1a426825cfad212df4ab2acf70538fb0e1963781ede25badf"
+    },
+    "inputs/cases.json": {
+      "bytes": 3623,
+      "sha256": "bb19b59df37db3503e84889b40bca77aa4d6dfa4fd9f16779e2457b7a9939772"
+    },
+    "inputs/Generate.mwe2.template": {
+      "bytes": 525,
+      "sha256": "3338b2b8630f242a3215f17ab70d7dcc35f24b2e66c37dd401447c7ba25b9fef"
+    },
+    "inputs/ImportedRuntimeOracle.java": {
+      "bytes": 451,
+      "sha256": "0abd4f701662801efab097f655b12a24aff31b2d390fa2c93fe2c98940cb213a"
+    },
+    "inputs/MetamodelOracle.java": {
+      "bytes": 8405,
+      "sha256": "1b90b692cbf96439592ebe5d0e449e87c65ce90e4fd9e9cc466fd1033417a98d"
+    },
+    "inputs/pins.json": {
+      "bytes": 2203,
+      "sha256": "eb653b5cf811f36c50cd2eac6b57539e4fbebbd8ece11ff499f9fb3c2cf52110"
+    },
+    "inputs/RuntimeOracle.java": {
+      "bytes": 4035,
+      "sha256": "b4fb77536f9f4a9743a76e92eca31176d1ba33f29042be907b9a525e3f3e84e3"
+    },
+    "inputs/stack.json": {
+      "bytes": 11732,
+      "sha256": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304"
+    },
+    "inputs/TerminalNegationOracle.java": {
+      "bytes": 6960,
+      "sha256": "9a42efff7e87512ca0c224c4ea4118d33fc5cc1abc1752c7c47ac7075390eb66"
+    },
+    "inputs/abc_or_b/audit.UntilOverlapAbcOrB.xtext": {
+      "bytes": 258,
+      "sha256": "ed6853e8545d20bdcdbe2fc737ebc97fa412297f04d6f95c8ac3f40a966ede0a"
+    },
+    "inputs/abc_or_b/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/ab_or_abc/audit.UntilOverlapAbOrAbc.xtext": {
+      "bytes": 260,
+      "sha256": "b7667c98cc9ee2a49627422549c02f16c4540b6bafa214a00a1c3b20cc3eae5a"
+    },
+    "inputs/ab_or_abc/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/alternatives_companion/audit.FiniteUntilAlternativesCompanion.xtext": {
+      "bytes": 275,
+      "sha256": "8455e633766bad59938101475f30a4d9c47b00ac9cc36e008d8d58faac3e4125"
+    },
+    "inputs/alternatives_companion/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/astral_literal/audit.AstralLiteral.xtext": {
+      "bytes": 243,
+      "sha256": "ffa900c127a77fff77f01e026897e189ba18c774b7b37e7070c3633d4f140be1"
+    },
+    "inputs/astral_literal/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/fragment_companion/audit.FiniteUntilFragmentCompanion.xtext": {
+      "bytes": 288,
+      "sha256": "7a720d13fcffe327367454d91095b0a641a430504f0f115e8646b8b2e0ee1c9f"
+    },
+    "inputs/fragment_companion/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/multichar/audit.Multichar.xtext": {
+      "bytes": 237,
+      "sha256": "2baa499b6f773712c7ed24243cc394b9632f6329439a2c087590b816c5f0a0d9"
+    },
+    "inputs/multichar/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "inputs/nested_groups/audit.NestedGroups.xtext": {
+      "bytes": 258,
+      "sha256": "5fb5b1c60a70f32567e2d8706285ae423ea4ab08bc2597d86cd85773b94bf30b"
+    },
+    "inputs/nested_groups/imported.ecore": {
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "prior-adapter/manifest.json": {
+      "bytes": 953,
+      "sha256": "f28de0657439344d8882d8494ba3d10ce27be439ae2c18b1b2703499b7b6ea01"
+    },
+    "prior-adapter/negation-observations.json": {
+      "bytes": 160760,
+      "sha256": "f8e8e2caa2e32121426dfe354479da25423dd2412da96135b5f70babbcc50999"
+    },
+    "prior-adapter/until-overlap-observations.json": {
+      "bytes": 51239,
+      "sha256": "021e16ea7d674569a4c67f0568cc72af5569093a3a9102a54edcbfb87d4dbbc5"
+    },
+    "prior-adapter/until-valid-observations.json": {
+      "bytes": 21059,
+      "sha256": "1b24d84e9d4d533b350d9e196b16a6555bffc96b15b02e4b6f587aef60de6c6c"
+    }
+  },
+  "original_complete_oracle_runs": {
+    "record": {
+      "manifest": {
+        "bytes": 67822,
+        "sha256": "7d84c0f6ff4e43bb0a76839781f6cf05a00b73252a3aa74e12519dbc54848874"
+      },
+      "observations": {
+        "bytes": 196966,
+        "sha256": "d4d138c82dcd3be5d339d52364853072897b2d3a6550dfbd56fb050c864b8bc5"
+      },
+      "artifact_pins": 552
+    },
+    "replay": {
+      "manifest": {
+        "bytes": 67822,
+        "sha256": "7ff1315c2b5d3b8920eb19ef9cfb2893f662b2216dc3515646dbea5feec6cf29"
+      },
+      "observations": {
+        "bytes": 196966,
+        "sha256": "da92206734bf1c22dc156f31b12d80cddf9acc76ab7fc0c9a0f0a7248eca7318"
+      },
+      "artifact_pins": 552
+    }
+  },
+  "v61_before_receipt": {
+    "bytes": 670,
+    "sha256": "e33e014ea3e13c718f83730c04d81ccfd717d8e86179f560b26c67e5b348b294"
+  },
+  "v61_before_files": {
+    "preexecution.json": {
+      "bytes": 1083,
+      "sha256": "dbd53a14d0ffbe89f2403af18fabb9fa6f0fa67a2a3ba6768bbaabcf81ecea59"
+    },
+    "receipt.json": {
+      "bytes": 670,
+      "sha256": "e33e014ea3e13c718f83730c04d81ccfd717d8e86179f560b26c67e5b348b294"
+    },
+    "record.json": {
+      "bytes": 8829781,
+      "sha256": "eb3b420dca9a2c48dd3d43c6fde89c6497b278fdd2df228505b36276b8d90cd9"
+    },
+    "replay.json": {
+      "bytes": 7518816,
+      "sha256": "d13df16b55007ff2ee82c54c405e95bfcfa4602ee1b06e3d72672982f1042233"
+    }
+  },
+  "counts": {
+    "graphs": 7,
+    "inputs": 80,
+    "upstream_accepted": 27,
+    "upstream_rejected": 53,
+    "upstream_rejected_partials": 29,
+    "native_requests_per_run": 181,
+    "fresh_native_instances": 362,
+    "acceptance_disagreements": []
+  },
+  "limits": [
+    "All80accept/rejectdecisions already agree; no rawinvalid token/error/rejectedpartial model equivalence.",
+    "Existing full7 negation has nested one-unit groups and direct multi-unit/astral literals, not grouped/fragmentmulti-unit qualification.",
+    "Complete original oracle stages/rawUTF16 and native outputs retained; no reduced fixture or source repair.",
+    "No production/library/cache edits or support/gate awards."
+  ],
+  "native_support_award": false,
+  "gate_closures": []
+}

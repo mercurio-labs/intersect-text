@@ -1,0 +1,1 @@
+public final class StdoutEncodingProbe { public static void main(String[] args) { System.out.println("{\"stdout_charset\":\""+System.out.charset().name()+"\",\"stderr_charset\":\""+System.err.charset().name()+"\",\"sample\":\"é\"}"); } }

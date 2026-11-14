@@ -1,0 +1,15 @@
+[package]
+name="intersect-numeric-payload-qualification"
+version="0.0.0"
+edition="2024"
+publish=false
+[workspace]
+[lib]
+crate-type=["rlib","cdylib"]
+[dependencies]
+intersect-model={path="../../../crates/intersect-model",features=["allocation-profile"]}
+serde_json="=1.0.151"
+[profile.dev]
+debug=0
+opt-level=1
+incremental=false

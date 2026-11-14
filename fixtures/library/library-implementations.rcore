@@ -1,0 +1,51 @@
+rcore 1;
+package library version "1";
+metamodel "urn:intersect:example:library:1" prefix lib {
+  enum BookCondition { GOOD = 0; WORN = 1; DAMAGED = 2; }
+  abstract class Named { attr name: String [1,1]; }
+  class Library extends Named {
+    ref copies: BookCopy [0,*] containment opposite BookCopy.library;
+    ref members: Member [0,*] containment;
+    ref loans: Loan [0,*] containment;
+    attr copyCount: Int64 [1,1] derived;
+  }
+  class BookCopy extends Named {
+    attr title: String [0,1];
+    attr edition: Int32 [0,1] default 1;
+    attr condition: BookCondition [0,1] default BookCondition.GOOD;
+    ref library: Library [0,1] opposite Library.copies;
+    attr available: Bool [1,1] derived;
+    attr copyLabel: String [1,1] derived;
+  }
+  class Member extends Named {}
+  class Loan extends Named {
+    // Demo input: edit this stored value through Python to recompute the fee.
+    attr daysLate: Int64 [1,1] default 4;
+    attr overdueFee: Int64 [1,1] derived;
+    ref copy: BookCopy [1,1];
+    ref member: Member [1,1];
+  }
+}
+
+behavior {
+  import model "urn:intersect:example:library:1" as lib;
+
+  // These contracts are implemented in library-implementations.rhai.
+  // Derived properties call them through the shared implementation registry.
+  extern fn overdueFee(daysLate: Int64) -> Int64;
+  extern fn copyLabel(copy: lib.BookCopy) -> String;
+
+  pub derive lib.Loan.overdueFee(self) -> Int64 = overdueFee(self.daysLate);
+  pub derive lib.BookCopy.copyLabel(self) -> String = copyLabel(self);
+
+  // Builtin model rules and external calls share the derived-property path.
+  pub derive lib.Library.copyCount(self) -> Int = size(self.copies);
+  pub derive lib.BookCopy.available(self) -> Bool =
+    isEmpty(incoming::<lib.Loan>(self, "copy"));
+
+  pub validate lib.Loan.singleLoan(self) {
+    require size(incoming::<lib.Loan>(self.copy, "copy")) <= 1
+      code "library.single-loan"
+      message "A book copy cannot have more than one active loan.";
+  }
+}

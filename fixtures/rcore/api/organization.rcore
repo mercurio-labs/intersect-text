@@ -1,0 +1,17 @@
+rcore 1;
+package organization version "1";
+metamodel "urn:intersect:rcore:organization" prefix org {
+  class Node {
+    attr name: String [0,1] default "unnamed";
+    ref links: Node [0,*] nonunique;
+    op reachable() -> Node [0,*];
+    op label(text: String [1,1]) -> String [1,1];
+  }
+}
+behavior {
+  import model "urn:intersect:rcore:organization" as m;
+  fn reachable(node:m.Node)->OrderedSet<m.Node> {
+    closure([node], |n| n.links)
+  }
+  fn label(node:m.Node, text:String)->String { text }
+}

@@ -1,0 +1,6 @@
+grammar independent.Calc with org.eclipse.xtext.common.Terminals
+    import "urn:general-text" as c
+    Root returns c::Root: 'calc' expr=Addition;
+    Addition returns c::Expr: Atom ({c::Add.left=current} '+' right=Atom)*;
+    Atom returns c::Expr: Number | '(' Addition ')';
+    Number returns c::Number: value=INT;

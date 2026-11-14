@@ -1,0 +1,15 @@
+rcore 1;
+package `prediction` version "1";
+metamodel "urn:prediction" prefix `p` {
+  class `Model` {
+    ref `entries`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  abstract class `Entry` {
+  }
+  class `Left` extends external "#//@eClassifiers.1" {
+    attr `number`: EInt [0,1];
+  }
+  class `Right` extends external "#//@eClassifiers.1" {
+    attr `raw`: EString [0,1];
+  }
+}

@@ -1,0 +1,48 @@
+// Authored teaching context; exact pinned Argument declarations follow.
+grammar example.RecursiveArguments hidden(WS)
+import "urn:intersect:xtext:recursive-arguments:1" as SysML
+Model returns SysML::Model: 'model' elements+=Expression*;
+Expression returns SysML::Feature: Call | Atom;
+Call returns SysML::Feature: 'call' name=ID ArgumentList;
+Atom returns SysML::Feature: 'atom' name=ID;
+OwnedExpression returns SysML::Feature: Expression;
+QualifiedName: ID;
+terminal ID: ('a'..'z'|'A'..'Z')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;
+fragment ArgumentList returns SysML::Feature :
+	'(' ( PositionalArgumentList | NamedArgumentList )? ')'
+;
+
+fragment PositionalArgumentList returns SysML::Feature :
+	ownedRelationship += ArgumentMember 
+	( ',' ownedRelationship += ArgumentMember )*
+;
+
+ArgumentMember returns SysML::ParameterMembership :
+	ownedRelatedElement += Argument 
+;
+
+Argument returns SysML::Feature :
+	ownedRelationship += ArgumentValue
+;
+
+fragment NamedArgumentList returns SysML::Feature :
+	ownedRelationship += NamedArgumentMember 
+	( ',' ownedRelationship += NamedArgumentMember )*
+;
+
+NamedArgumentMember returns SysML::ParameterMembership :
+	ownedRelatedElement += NamedArgument 
+;
+
+NamedArgument returns SysML::Feature :
+	ownedRelationship += ParameterRedefinition '=' ownedRelationship += ArgumentValue
+;
+
+ParameterRedefinition returns SysML::Redefinition:
+	redefinedFeature = [SysML::Feature | QualifiedName]
+;
+
+ArgumentValue returns SysML::FeatureValue :
+	ownedRelatedElement += OwnedExpression
+;

@@ -1,0 +1,25 @@
+rcore 1;
+package `library` version "1";
+metamodel "urn:intersect:example:library:1" prefix `lib` {
+  abstract class `Named` {
+    attr `name`: EString [1,1];
+  }
+  class `Library` extends external "#//@eClassifiers.0" {
+    ref `copies`: external "#//@eClassifiers.2" [0,*] containment opposite external "#//@eClassifiers.2/@eStructuralFeatures.2";
+    ref `members`: external "#//@eClassifiers.3" [0,*] containment;
+    ref `loans`: external "#//@eClassifiers.4" [0,*] containment;
+    attr `copyCount`: EInt [0,1] derived;
+  }
+  class `BookCopy` extends external "#//@eClassifiers.0" {
+    attr `title`: EString [0,1];
+    attr `edition`: EInt [0,1] default "1";
+    ref `library`: external "#//@eClassifiers.1" [0,1] opposite external "#//@eClassifiers.1/@eStructuralFeatures.0";
+    attr `available`: EBoolean [0,1] derived;
+  }
+  class `Member` extends external "#//@eClassifiers.0" {
+  }
+  class `Loan` extends external "#//@eClassifiers.0" {
+    ref `copy`: external "#//@eClassifiers.2" [1,1];
+    ref `member`: external "#//@eClassifiers.3" [1,1];
+  }
+}

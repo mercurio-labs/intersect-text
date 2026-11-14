@@ -1,0 +1,12 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="applications" nsURI="urn:applications">
+<eClassifiers x:type="e:EClass" name="Base"/>
+<eClassifiers x:type="e:EClass" name="Child" eSuperTypes="#//Base"/>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EDataType" name="Box"><eTypeParameters name="T"><eBounds eClassifier="#//Base"/></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Pair"><eTypeParameters name="A"/><eTypeParameters name="B"><eBounds eTypeParameter="#//Pair/A"/></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Primitive" instanceClassName="int"/>
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EEnum" name="Choice"><eLiterals name="one"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Envelope"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="BoxAlias"><eTypeParameters name="T"><eBounds eClassifier="#//Base"/></eTypeParameters></eClassifiers>
+</e:EPackage>

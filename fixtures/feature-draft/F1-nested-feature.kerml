@@ -1,0 +1,1 @@
+package P { feature outer { feature inner; } }

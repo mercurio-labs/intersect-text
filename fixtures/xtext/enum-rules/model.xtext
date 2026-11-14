@@ -1,0 +1,6 @@
+grammar example.EnumRules hidden(WS)
+import "urn:intersect:xtext:enum-rules:1" as p
+Model returns p::Model: 'visibility' visibility=VisibilityIndicator ';';
+enum VisibilityIndicator returns p::VisibilityKind: public='public' | private='[' | protected='protected';
+terminal ID: ('a'..'z')+;
+terminal WS: (' '|'\t'|'\r'|'\n')+;

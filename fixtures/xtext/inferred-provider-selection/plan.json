@@ -1,0 +1,970 @@
+{
+  "version": 1,
+  "baseline": "89b5ef67a46b72fac5424b23a8c5fbed31619aea",
+  "qualification": "Native authored provider-selection and contextual preview prerequisite only. Structural candidates are not semantic qualification. Full provider/project/X03/S09 obligations remain open.",
+  "requirements": [
+    "Keep original InferenceRequest v1 and all context-free/versioned-context rejection contracts unchanged.",
+    "Resolve exact original authored Rcore source revision, namespace, class and direct derived member without JS-authored internal class keys or contracts.",
+    "Validate installed rcore.projection v1 selection through fresh native inference/prepared schema, full contextual compilation and existing RcoreProjection checks.",
+    "Reject stale, missing, duplicate, ambiguous, generated, inherited, generic, unsupported and unused selectors; max sixteen selected members.",
+    "Prove selector consumption by shared compiler omission checks, without a second grammar or behavior implementation.",
+    "Rebuild contextual generated structure preview from original sources; reject stale generated source selections and cached metadata authority.",
+    "Execute actual backing and computed values using newly selected contracts; retain all original source graphs, diagnostics and previous-release requests."
+  ],
+  "cases": [
+    {
+      "id": "scalar_computed_settings_behavior_entries_explicit",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package settings_read version \"1\"; import model \"urn:inferred:settings\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.xtext",
+                "sha256": "eb49d3d80ea7cc3852c2c0bc5ffc36a0fc1daf91336a15b04049e36ed0fe13da"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'computed' child=Item<true> | 'stored' child=Item<false>;\nItem<Flag> returns p::Item: <Flag> computed=ID | <!Flag> backing=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                },
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+                  "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.xtext",
+          "sha256": "eb49d3d80ea7cc3852c2c0bc5ffc36a0fc1daf91336a15b04049e36ed0fe13da"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+          "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+              "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+            },
+            "namespace": "urn:inferred:settings",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_context": {
+        "behavior": {
+          "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6",
+          "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore"
+        },
+        "computed_settings": [
+          {
+            "class": "__type_intersect_generic_1_fec9c9a7e131c3d2ba2711f7413b456e276926e1a27fa6ac64050994d79193fb",
+            "class_identity": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore@4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41#0",
+            "feature": "computed",
+            "member": {
+              "declaration": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41",
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore"
+                }
+              },
+              "kind": "source"
+            },
+            "operations": [
+              "set"
+            ],
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "schema_revision": "d42ffa6595bd1fcada67ef9be92cab75e0f6b9b32ccf47dd38cea426da2735aa",
+            "sources": [
+              {
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41",
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore"
+              },
+              {
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6",
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore"
+              },
+              {
+                "sha256": "eb49d3d80ea7cc3852c2c0bc5ffc36a0fc1daf91336a15b04049e36ed0fe13da",
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.xtext"
+              }
+            ],
+            "version": 1
+          }
+        ],
+        "version": 2
+      },
+      "model_text": "computed alpha"
+    },
+    {
+      "id": "scalar_computed_settings_plain_behavior_entries_explicit",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package settings_read version \"1\"; import model \"urn:inferred:settings\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+                "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                },
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+                  "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+          "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+          "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+              "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+            },
+            "namespace": "urn:inferred:settings",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_context": {
+        "behavior": {
+          "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6",
+          "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore"
+        },
+        "computed_settings": [
+          {
+            "class": "__type_intersect_generic_1_cf95b62b6b87d10430187a6fe27a2e53d894c2117e85c50a51c095a5e017c302",
+            "class_identity": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore@4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41#0",
+            "feature": "computed",
+            "member": {
+              "declaration": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41",
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore"
+                }
+              },
+              "kind": "source"
+            },
+            "operations": [
+              "set"
+            ],
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "schema_revision": "d9362be8890475a07249cd70508ed7f5d891d5a033447854543f8ccd3e5658c8",
+            "sources": [
+              {
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41",
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore"
+              },
+              {
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6",
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore"
+              },
+              {
+                "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a",
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext"
+              }
+            ],
+            "version": 1
+          }
+        ],
+        "version": 2
+      },
+      "model_text": "alpha"
+    },
+    {
+      "id": "collection_plain",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,3] nonunique unsettable; attr computed: String [0,3] nonunique derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+                "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed+=ID (',' computed+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+          "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+          "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+              "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+            },
+            "namespace": "urn:inferred:collections",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set",
+              "append",
+              "unset"
+            ]
+          }
+        ]
+      },
+      "expected_context": {
+        "behavior": {
+          "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b",
+          "uri": "memory:inferred-collection-contexts/plain/behavior.rcore"
+        },
+        "computed_settings": [
+          {
+            "class": "__type_intersect_generic_1_4c3eb279d9934c004f26f3e260273642e34fbba3ad82833e567b32b8e36d65cc",
+            "class_identity": "memory:inferred-collection-contexts/plain/model.rcore@46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38#0",
+            "feature": "computed",
+            "member": {
+              "declaration": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38",
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore"
+                }
+              },
+              "kind": "source"
+            },
+            "operations": [
+              "set",
+              "append",
+              "unset"
+            ],
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "schema_revision": "809ab5273a0605c2891ef3888622e8f6738c30728fea3ecd429a1599f9c034d7",
+            "sources": [
+              {
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38",
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore"
+              },
+              {
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b",
+                "uri": "memory:inferred-collection-contexts/plain/behavior.rcore"
+              },
+              {
+                "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610",
+                "uri": "memory:inferred-collection-contexts/plain/model.xtext"
+              }
+            ],
+            "version": 1
+          }
+        ],
+        "version": 2
+      },
+      "model_text": "alpha,beta"
+    },
+    {
+      "id": "collection_parameterized",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,3] nonunique unsettable; attr computed: String [0,3] nonunique derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+                "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item<true>;\nItem<Flag> returns p::Item: <Flag> computed+=ID (',' computed+=ID)* | <!Flag> backing+=ID (',' backing+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+          "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+          "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+              "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38"
+            },
+            "namespace": "urn:inferred:collections",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set",
+              "append",
+              "unset"
+            ]
+          }
+        ]
+      },
+      "expected_context": {
+        "behavior": {
+          "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b",
+          "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore"
+        },
+        "computed_settings": [
+          {
+            "class": "__type_intersect_generic_1_e34682e4f9b882cf347cd0c3cf588124c486d29e0b67708060a8570310f13c60",
+            "class_identity": "memory:inferred-collection-contexts/parameterized/model.rcore@46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38#0",
+            "feature": "computed",
+            "member": {
+              "declaration": {
+                "path": [
+                  0,
+                  1
+                ],
+                "source": {
+                  "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38",
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore"
+                }
+              },
+              "kind": "source"
+            },
+            "operations": [
+              "set",
+              "append",
+              "unset"
+            ],
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "schema_revision": "9d864742c9da4086701e1943444d0a6c7757145d5550cb1f806400b5c40eddc2",
+            "sources": [
+              {
+                "sha256": "46b86df4902a31b4c6e636df758e7e7b6489e72c96360027f5c3eff17bbc3c38",
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore"
+              },
+              {
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b",
+                "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore"
+              },
+              {
+                "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585",
+                "uri": "memory:inferred-collection-contexts/parameterized/model.xtext"
+              }
+            ],
+            "version": 1
+          }
+        ],
+        "version": 2
+      },
+      "model_text": "alpha,beta"
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "inherited",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:provider-selection/inherited/model.rcore",
+                "sha256": "6b0f29f14bfd30ccca1902d97c0a37e61792accaa0e442ddeabdcb7414b1098c"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package selectors version \"1\"; metamodel \"urn:provider:selection\" prefix p { class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; } class Child extends Item {} }\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/inherited/behavior.rcore",
+                "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package selectors_read version \"1\"; import model \"urn:provider:selection\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/inherited/model.rcore",
+                  "sha256": "6b0f29f14bfd30ccca1902d97c0a37e61792accaa0e442ddeabdcb7414b1098c"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/inherited/model.xtext",
+                "sha256": "7bbe430fb1e9ebbf8950ff73a63476791f0dc76bc8b3a05728cefeca32c1f59b"
+              },
+              "kind": "xtext",
+              "text": "grammar selectors.Language hidden(WS)\ngenerate model \"urn:selectors:generated\"\nimport \"urn:provider:selection\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Child; Child returns p::Child: computed=ID;\nterminal ID: ('a'..'z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+; terminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/inherited/model.rcore",
+                  "sha256": "6b0f29f14bfd30ccca1902d97c0a37e61792accaa0e442ddeabdcb7414b1098c"
+                },
+                {
+                  "uri": "memory:provider-selection/inherited/behavior.rcore",
+                  "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:provider:selection",
+              "source": {
+                "uri": "memory:provider-selection/inherited/model.rcore",
+                "sha256": "6b0f29f14bfd30ccca1902d97c0a37e61792accaa0e442ddeabdcb7414b1098c"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:provider-selection/inherited/model.xtext",
+          "sha256": "7bbe430fb1e9ebbf8950ff73a63476791f0dc76bc8b3a05728cefeca32c1f59b"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:provider-selection/inherited/behavior.rcore",
+          "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:provider-selection/inherited/model.rcore",
+              "sha256": "6b0f29f14bfd30ccca1902d97c0a37e61792accaa0e442ddeabdcb7414b1098c"
+            },
+            "namespace": "urn:provider:selection",
+            "class": "Child",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_message": "direct authored"
+    },
+    {
+      "id": "unused",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:provider-selection/unused/model.rcore",
+                "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package selectors version \"1\"; metamodel \"urn:provider:selection\" prefix p { class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; attr unused: String [0,1] derived; } }\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/unused/behavior.rcore",
+                "sha256": "af3b9af994205b3ee5396cca3187c7ea26fc87464dae711e73ff83afccd00f7f"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package selectors_read version \"1\"; import model \"urn:provider:selection\" as p; projection p.Item.computed from backing writable; projection p.Item.unused from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/unused/model.rcore",
+                  "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/unused/model.xtext",
+                "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+              },
+              "kind": "xtext",
+              "text": "grammar selectors.Language hidden(WS)\ngenerate model \"urn:selectors:generated\"\nimport \"urn:provider:selection\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item; Item returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+; terminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/unused/model.rcore",
+                  "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+                },
+                {
+                  "uri": "memory:provider-selection/unused/behavior.rcore",
+                  "sha256": "af3b9af994205b3ee5396cca3187c7ea26fc87464dae711e73ff83afccd00f7f"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:provider:selection",
+              "source": {
+                "uri": "memory:provider-selection/unused/model.rcore",
+                "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:provider-selection/unused/model.xtext",
+          "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:provider-selection/unused/behavior.rcore",
+          "sha256": "af3b9af994205b3ee5396cca3187c7ea26fc87464dae711e73ff83afccd00f7f"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:provider-selection/unused/model.rcore",
+              "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+            },
+            "namespace": "urn:provider:selection",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          },
+          {
+            "source": {
+              "uri": "memory:provider-selection/unused/model.rcore",
+              "sha256": "823c5e1832c0719de15109d57ece8632485dbae12710f5140b68431b03da67b6"
+            },
+            "namespace": "urn:provider:selection",
+            "class": "Item",
+            "feature": "unused",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_message": "Unused"
+    },
+    {
+      "id": "generic",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:provider-selection/generic/model.rcore",
+                "sha256": "34240d7901c4200c12357094461d20a033e8d31b42d429dd101e33fdc05e564e"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package selectors version \"1\"; metamodel \"urn:provider:selection\" prefix p { class Item<T> { attr backing: String [0,1]; attr computed: String [0,1] derived; } }\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/generic/behavior.rcore",
+                "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package selectors_read version \"1\"; import model \"urn:provider:selection\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/generic/model.rcore",
+                  "sha256": "34240d7901c4200c12357094461d20a033e8d31b42d429dd101e33fdc05e564e"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/generic/model.xtext",
+                "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+              },
+              "kind": "xtext",
+              "text": "grammar selectors.Language hidden(WS)\ngenerate model \"urn:selectors:generated\"\nimport \"urn:provider:selection\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item; Item returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+; terminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/generic/model.rcore",
+                  "sha256": "34240d7901c4200c12357094461d20a033e8d31b42d429dd101e33fdc05e564e"
+                },
+                {
+                  "uri": "memory:provider-selection/generic/behavior.rcore",
+                  "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:provider:selection",
+              "source": {
+                "uri": "memory:provider-selection/generic/model.rcore",
+                "sha256": "34240d7901c4200c12357094461d20a033e8d31b42d429dd101e33fdc05e564e"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:provider-selection/generic/model.xtext",
+          "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:provider-selection/generic/behavior.rcore",
+          "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:provider-selection/generic/model.rcore",
+              "sha256": "34240d7901c4200c12357094461d20a033e8d31b42d429dd101e33fdc05e564e"
+            },
+            "namespace": "urn:provider:selection",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_message": "generic"
+    },
+    {
+      "id": "ambiguous",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:provider-selection/ambiguous/model.rcore",
+                "sha256": "5554e023c9099badc380a54fbf41e6de1438ed39df8da40700ec4ae2d42265a5"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package selectors version \"1\"; metamodel \"urn:provider:selection\" prefix p { class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; } class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; } }\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/ambiguous/behavior.rcore",
+                "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package selectors_read version \"1\"; import model \"urn:provider:selection\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/ambiguous/model.rcore",
+                  "sha256": "5554e023c9099badc380a54fbf41e6de1438ed39df8da40700ec4ae2d42265a5"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:provider-selection/ambiguous/model.xtext",
+                "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+              },
+              "kind": "xtext",
+              "text": "grammar selectors.Language hidden(WS)\ngenerate model \"urn:selectors:generated\"\nimport \"urn:provider:selection\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item; Item returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+; terminal WS: (' '|'\\t'|'\\r'|'\\n')+; terminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:provider-selection/ambiguous/model.rcore",
+                  "sha256": "5554e023c9099badc380a54fbf41e6de1438ed39df8da40700ec4ae2d42265a5"
+                },
+                {
+                  "uri": "memory:provider-selection/ambiguous/behavior.rcore",
+                  "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:provider:selection",
+              "source": {
+                "uri": "memory:provider-selection/ambiguous/model.rcore",
+                "sha256": "5554e023c9099badc380a54fbf41e6de1438ed39df8da40700ec4ae2d42265a5"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:provider-selection/ambiguous/model.xtext",
+          "sha256": "b5c15afe39a6e34b5dd8242fe3b0b1567c39b34843353480b791db00ca120f45"
+        }
+      },
+      "provider_selection": {
+        "version": 1,
+        "behavior": {
+          "uri": "memory:provider-selection/ambiguous/behavior.rcore",
+          "sha256": "0edcc05830e5012d1fe619946f0c6788a425ae82ad96b2a2f336d66e6d1936e4"
+        },
+        "computed_settings": [
+          {
+            "source": {
+              "uri": "memory:provider-selection/ambiguous/model.rcore",
+              "sha256": "5554e023c9099badc380a54fbf41e6de1438ed39df8da40700ec4ae2d42265a5"
+            },
+            "namespace": "urn:provider:selection",
+            "class": "Item",
+            "feature": "computed",
+            "provider": {
+              "name": "rcore.projection",
+              "version": "1"
+            },
+            "operations": [
+              "set"
+            ]
+          }
+        ]
+      },
+      "expected_message": ""
+    }
+  ]
+}

@@ -1,0 +1,651 @@
+[
+  {
+    "id": "inherited_model_call",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.InheritedModelCall.Base",
+        "dependencies": [],
+        "source": "grammar oracle.InheritedModelCall.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:inherited_model_call:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.InheritedModelCall.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.InheritedModelCall.Child with oracle.InheritedModelCall.Base\ngenerate child \"urn:intersect:inference:composition:inherited_model_call:child\"\nimport \"urn:intersect:inference:composition:inherited_model_call:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: 'entry' items+=Node*;\n"
+      }
+    ]
+  },
+  {
+    "id": "inherited_call_without_import",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.InheritedCallWithoutImport.Base",
+        "dependencies": [],
+        "source": "grammar oracle.InheritedCallWithoutImport.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:inherited_call_without_import:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.InheritedCallWithoutImport.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.InheritedCallWithoutImport.Child with oracle.InheritedCallWithoutImport.Base\ngenerate child \"urn:intersect:inference:composition:inherited_call_without_import:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: 'entry' items+=Node*;\n"
+      }
+    ]
+  },
+  {
+    "id": "reuse_parent_return",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ReuseParentReturn.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ReuseParentReturn.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:reuse_parent_return:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ReuseParentReturn.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ReuseParentReturn.Child with oracle.ReuseParentReturn.Base\ngenerate child \"urn:intersect:inference:composition:reuse_parent_return:child\"\nimport \"urn:intersect:inference:composition:reuse_parent_return:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns b::Model: 'entry' nodes+=Node*;\nAnchor: 'anchor' key=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "sealed_parent_new_feature",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SealedParentNewFeature.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SealedParentNewFeature.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:sealed_parent_new_feature:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SealedParentNewFeature.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SealedParentNewFeature.Child with oracle.SealedParentNewFeature.Base\ngenerate child \"urn:intersect:inference:composition:sealed_parent_new_feature:child\"\nimport \"urn:intersect:inference:composition:sealed_parent_new_feature:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns b::Model: 'entry' extra=ID;\nAnchor: 'anchor' key=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "sealed_parent_new_supertype",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SealedParentNewSupertype.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SealedParentNewSupertype.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:sealed_parent_new_supertype:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SealedParentNewSupertype.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SealedParentNewSupertype.Child with oracle.SealedParentNewSupertype.Base\ngenerate child \"urn:intersect:inference:composition:sealed_parent_new_supertype:child\"\nimport \"urn:intersect:inference:composition:sealed_parent_new_supertype:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: Node;\n"
+      }
+    ]
+  },
+  {
+    "id": "override_explicit_parent_type",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideExplicitParentType.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideExplicitParentType.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_explicit_parent_type:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideExplicitParentType.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideExplicitParentType.Child with oracle.OverrideExplicitParentType.Base\ngenerate child \"urn:intersect:inference:composition:override_explicit_parent_type:child\"\nimport \"urn:intersect:inference:composition:override_explicit_parent_type:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: 'entry' item=Node; @Override Node returns b::Node: 'item' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "override_implicit_child_type",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideImplicitChildType.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideImplicitChildType.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_implicit_child_type:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideImplicitChildType.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideImplicitChildType.Child with oracle.OverrideImplicitChildType.Base\ngenerate child \"urn:intersect:inference:composition:override_implicit_child_type:child\"\nimport \"urn:intersect:inference:composition:override_implicit_child_type:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n@Override Node: 'item' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "new_subclass_of_parent",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.NewSubclassOfParent.Base",
+        "dependencies": [],
+        "source": "grammar oracle.NewSubclassOfParent.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:new_subclass_of_parent:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.NewSubclassOfParent.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.NewSubclassOfParent.Child with oracle.NewSubclassOfParent.Base\ngenerate child \"urn:intersect:inference:composition:new_subclass_of_parent:child\"\nimport \"urn:intersect:inference:composition:new_subclass_of_parent:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns b::Node: {Special} 'special' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "subclass_with_new_feature",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SubclassWithNewFeature.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SubclassWithNewFeature.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:subclass_with_new_feature:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SubclassWithNewFeature.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SubclassWithNewFeature.Child with oracle.SubclassWithNewFeature.Base\ngenerate child \"urn:intersect:inference:composition:subclass_with_new_feature:child\"\nimport \"urn:intersect:inference:composition:subclass_with_new_feature:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns b::Node: {Special} 'special' name=ID extra=INT;\n"
+      }
+    ]
+  },
+  {
+    "id": "explicit_super_model_call",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ExplicitSuperModelCall.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ExplicitSuperModelCall.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:explicit_super_model_call:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ExplicitSuperModelCall.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ExplicitSuperModelCall.Child with oracle.ExplicitSuperModelCall.Base\ngenerate child \"urn:intersect:inference:composition:explicit_super_model_call:child\"\nimport \"urn:intersect:inference:composition:explicit_super_model_call:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: 'entry' item=super::Node; @Override Node returns b::Node: 'item' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "inherited_enum",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.InheritedEnum.Base",
+        "dependencies": [],
+        "source": "grammar oracle.InheritedEnum.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:inherited_enum:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: shade=Shade; enum Shade: RED='red' | BLUE='blue';\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.InheritedEnum.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.InheritedEnum.Child with oracle.InheritedEnum.Base\ngenerate child \"urn:intersect:inference:composition:inherited_enum:child\"\nimport \"urn:intersect:inference:composition:inherited_enum:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: shade=Shade;\n"
+      }
+    ]
+  },
+  {
+    "id": "override_imported_enum",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideImportedEnum.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideImportedEnum.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_imported_enum:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: shade=Shade; enum Shade: RED='red' | BLUE='blue';\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideImportedEnum.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideImportedEnum.Child with oracle.OverrideImportedEnum.Base\ngenerate child \"urn:intersect:inference:composition:override_imported_enum:child\"\nimport \"urn:intersect:inference:composition:override_imported_enum:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: shade=Shade; @Override enum Shade returns b::Shade: RED='warm' | BLUE='cool';\n"
+      }
+    ]
+  },
+  {
+    "id": "override_imported_enum_new_literal",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideImportedEnumNewLiteral.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideImportedEnumNewLiteral.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_imported_enum_new_literal:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: shade=Shade; enum Shade: RED='red' | BLUE='blue';\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideImportedEnumNewLiteral.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideImportedEnumNewLiteral.Child with oracle.OverrideImportedEnumNewLiteral.Base\ngenerate child \"urn:intersect:inference:composition:override_imported_enum_new_literal:child\"\nimport \"urn:intersect:inference:composition:override_imported_enum_new_literal:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: shade=Shade; @Override enum Shade returns b::Shade: GREEN='green';\n"
+      }
+    ]
+  },
+  {
+    "id": "override_terminal",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideTerminal.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideTerminal.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_terminal:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideTerminal.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideTerminal.Child with oracle.OverrideTerminal.Base\ngenerate child \"urn:intersect:inference:composition:override_terminal:child\"\nimport \"urn:intersect:inference:composition:override_terminal:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: name=ID; @Override terminal ID: '@' ('a'..'z')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "override_terminal_type_change",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.OverrideTerminalTypeChange.Base",
+        "dependencies": [],
+        "source": "grammar oracle.OverrideTerminalTypeChange.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:override_terminal_type_change:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.OverrideTerminalTypeChange.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.OverrideTerminalTypeChange.Child with oracle.OverrideTerminalTypeChange.Base\ngenerate child \"urn:intersect:inference:composition:override_terminal_type_change:child\"\nimport \"urn:intersect:inference:composition:override_terminal_type_change:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: value=INT; @Override terminal INT returns ecore::EString: ('0'..'9')+;\n"
+      }
+    ]
+  },
+  {
+    "id": "duplicate_generated_namespace",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.DuplicateGeneratedNamespace.Base",
+        "dependencies": [],
+        "source": "grammar oracle.DuplicateGeneratedNamespace.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:duplicate_generated_namespace:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.DuplicateGeneratedNamespace.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.DuplicateGeneratedNamespace.Child with oracle.DuplicateGeneratedNamespace.Base\ngenerate child \"urn:intersect:inference:composition:duplicate_generated_namespace:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "import_only_child",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ImportOnlyChild.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ImportOnlyChild.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:import_only_child:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ImportOnlyChild.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ImportOnlyChild.Child with oracle.ImportOnlyChild.Base\nimport \"urn:intersect:inference:composition:import_only_child:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns b::Model: 'entry' nodes+=Node*;\n"
+      }
+    ]
+  },
+  {
+    "id": "declaration_free_child",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.DeclarationFreeChild.Base",
+        "dependencies": [],
+        "source": "grammar oracle.DeclarationFreeChild.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:declaration_free_child:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.DeclarationFreeChild.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.DeclarationFreeChild.Child with oracle.DeclarationFreeChild.Base\n"
+      }
+    ]
+  },
+  {
+    "id": "three_level_generated_packages",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ThreeLevelGeneratedPackages.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ThreeLevelGeneratedPackages.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:three_level_generated_packages:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "middle",
+        "grammar": "oracle.ThreeLevelGeneratedPackages.Middle",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ThreeLevelGeneratedPackages.Middle with oracle.ThreeLevelGeneratedPackages.Base\ngenerate middle \"urn:intersect:inference:composition:three_level_generated_packages:middle\"\nimport \"urn:intersect:inference:composition:three_level_generated_packages:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPart: 'part' name=ID;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ThreeLevelGeneratedPackages.Child",
+        "dependencies": [
+          "middle"
+        ],
+        "source": "grammar oracle.ThreeLevelGeneratedPackages.Child with oracle.ThreeLevelGeneratedPackages.Middle\ngenerate child \"urn:intersect:inference:composition:three_level_generated_packages:child\"\nimport \"urn:intersect:inference:composition:three_level_generated_packages:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:composition:three_level_generated_packages:middle\" as m\nEntry: nodes+=Node* parts+=Part*;\n"
+      }
+    ]
+  },
+  {
+    "id": "same_short_classifier_names",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SameShortClassifierNames.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SameShortClassifierNames.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:same_short_classifier_names:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SameShortClassifierNames.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SameShortClassifierNames.Child with oracle.SameShortClassifierNames.Base\ngenerate child \"urn:intersect:inference:composition:same_short_classifier_names:child\"\nimport \"urn:intersect:inference:composition:same_short_classifier_names:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: inherited=super::Node own=Node; Node: 'own' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "shared_import_alias",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SharedImportAlias.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SharedImportAlias.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:shared_import_alias:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SharedImportAlias.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SharedImportAlias.Child with oracle.SharedImportAlias.Base\ngenerate child \"urn:intersect:inference:composition:shared_import_alias:child\" as c\nimport \"urn:intersect:inference:composition:shared_import_alias:base\" as c\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns c::Root: item=Node;\n"
+      }
+    ]
+  },
+  {
+    "id": "aliased_generated_only",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.AliasedGeneratedOnly.Base",
+        "dependencies": [],
+        "source": "grammar oracle.AliasedGeneratedOnly.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:aliased_generated_only:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.AliasedGeneratedOnly.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.AliasedGeneratedOnly.Child with oracle.AliasedGeneratedOnly.Base\ngenerate child \"urn:intersect:inference:composition:aliased_generated_only:child\" as c\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns c::Root: item=Node;\n"
+      }
+    ]
+  },
+  {
+    "id": "two_parents",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.TwoParents.Base",
+        "dependencies": [],
+        "source": "grammar oracle.TwoParents.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:two_parents:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "other",
+        "grammar": "oracle.TwoParents.Other",
+        "dependencies": [],
+        "source": "grammar oracle.TwoParents.Other hidden(WS)\ngenerate other \"urn:intersect:inference:composition:two_parents:other\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nOtherModel: part=Part; Part: 'part' label=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.TwoParents.Child",
+        "dependencies": [
+          "base",
+          "other"
+        ],
+        "source": "grammar oracle.TwoParents.Child with oracle.TwoParents.Base, oracle.TwoParents.Other\ngenerate child \"urn:intersect:inference:composition:two_parents:child\"\nimport \"urn:intersect:inference:composition:two_parents:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:composition:two_parents:other\" as o\nEntry: item=Node part=Part;\n"
+      }
+    ]
+  },
+  {
+    "id": "ambiguous_parent_rule",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.AmbiguousParentRule.Base",
+        "dependencies": [],
+        "source": "grammar oracle.AmbiguousParentRule.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:ambiguous_parent_rule:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "other",
+        "grammar": "oracle.AmbiguousParentRule.Other",
+        "dependencies": [],
+        "source": "grammar oracle.AmbiguousParentRule.Other hidden(WS)\ngenerate other \"urn:intersect:inference:composition:ambiguous_parent_rule:other\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nOtherModel: item=Node; Node: 'other' label=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.AmbiguousParentRule.Child",
+        "dependencies": [
+          "base",
+          "other"
+        ],
+        "source": "grammar oracle.AmbiguousParentRule.Child with oracle.AmbiguousParentRule.Base, oracle.AmbiguousParentRule.Other\ngenerate child \"urn:intersect:inference:composition:ambiguous_parent_rule:child\"\nimport \"urn:intersect:inference:composition:ambiguous_parent_rule:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nimport \"urn:intersect:inference:composition:ambiguous_parent_rule:other\" as o\nEntry: item=Node;\n"
+      }
+    ]
+  },
+  {
+    "id": "unaliased_import_collision",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.UnaliasedImportCollision.Base",
+        "dependencies": [],
+        "source": "grammar oracle.UnaliasedImportCollision.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:unaliased_import_collision:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "other",
+        "grammar": "oracle.UnaliasedImportCollision.Other",
+        "dependencies": [],
+        "source": "grammar oracle.UnaliasedImportCollision.Other hidden(WS)\ngenerate other \"urn:intersect:inference:composition:unaliased_import_collision:other\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nOtherModel: item=Node; Node: 'other' label=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.UnaliasedImportCollision.Child",
+        "dependencies": [
+          "base",
+          "other"
+        ],
+        "source": "grammar oracle.UnaliasedImportCollision.Child with oracle.UnaliasedImportCollision.Base, oracle.UnaliasedImportCollision.Other\ngenerate child \"urn:intersect:inference:composition:unaliased_import_collision:child\"\nimport \"urn:intersect:inference:composition:unaliased_import_collision:base\"\nimport \"urn:intersect:inference:composition:unaliased_import_collision:other\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: item=Node;\n"
+      }
+    ]
+  },
+  {
+    "id": "new_cross_reference_to_parent",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.NewCrossReferenceToParent.Base",
+        "dependencies": [],
+        "source": "grammar oracle.NewCrossReferenceToParent.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:new_cross_reference_to_parent:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.NewCrossReferenceToParent.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.NewCrossReferenceToParent.Child with oracle.NewCrossReferenceToParent.Base\ngenerate child \"urn:intersect:inference:composition:new_cross_reference_to_parent:child\"\nimport \"urn:intersect:inference:composition:new_cross_reference_to_parent:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: items+=Node* ('use' uses+=[b::Node|ID])*;\n"
+      }
+    ]
+  },
+  {
+    "id": "child_action_hierarchy",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ChildActionHierarchy.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ChildActionHierarchy.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:child_action_hierarchy:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: nodes+=Node*; Node: 'node' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ChildActionHierarchy.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ChildActionHierarchy.Child with oracle.ChildActionHierarchy.Base\ngenerate child \"urn:intersect:inference:composition:child_action_hierarchy:child\"\nimport \"urn:intersect:inference:composition:child_action_hierarchy:base\" as b\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: Node | Special; Special: {Special} 'special' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "parent_imports_external",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ParentImportsExternal.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ParentImportsExternal.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:parent_imports_external:base\"\nimport \"urn:intersect:inference:imported\" as x\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: values+=External*; External returns x::External: 'ext' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ParentImportsExternal.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ParentImportsExternal.Child with oracle.ParentImportsExternal.Base\ngenerate child \"urn:intersect:inference:composition:parent_imports_external:child\"\nimport \"urn:intersect:inference:composition:parent_imports_external:base\" as b\nimport \"urn:intersect:inference:imported\" as x\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: values+=External*;\n"
+      }
+    ]
+  },
+  {
+    "id": "child_subclasses_original_import",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.ChildSubclassesOriginalImport.Base",
+        "dependencies": [],
+        "source": "grammar oracle.ChildSubclassesOriginalImport.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:child_subclasses_original_import:base\"\nimport \"urn:intersect:inference:imported\" as x\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: values+=External*; External returns x::External: 'ext' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.ChildSubclassesOriginalImport.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.ChildSubclassesOriginalImport.Child with oracle.ChildSubclassesOriginalImport.Base\ngenerate child \"urn:intersect:inference:composition:child_subclasses_original_import:child\"\nimport \"urn:intersect:inference:composition:child_subclasses_original_import:base\" as b\nimport \"urn:intersect:inference:imported\" as x\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns x::External: {Special} 'special' name=ID extra=INT;\n"
+      }
+    ]
+  },
+  {
+    "id": "same_name_imports_explicit_aliases",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SameNameImportsExplicitAliases.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SameNameImportsExplicitAliases.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:same_name_imports_explicit_aliases:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: values+=External*; External: 'base' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SameNameImportsExplicitAliases.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SameNameImportsExplicitAliases.Child with oracle.SameNameImportsExplicitAliases.Base\ngenerate child \"urn:intersect:inference:composition:same_name_imports_explicit_aliases:child\"\nimport \"urn:intersect:inference:composition:same_name_imports_explicit_aliases:base\" as b\nimport \"urn:intersect:inference:imported\" as x\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry: base=External original=Original; Original returns x::External: 'original' name=ID;\n"
+      }
+    ]
+  },
+  {
+    "id": "same_name_imports_unqualified",
+    "entry": "child",
+    "sources": [
+      {
+        "id": "base",
+        "grammar": "oracle.SameNameImportsUnqualified.Base",
+        "dependencies": [],
+        "source": "grammar oracle.SameNameImportsUnqualified.Base hidden(WS)\ngenerate base \"urn:intersect:inference:composition:same_name_imports_unqualified:base\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: values+=External*; External: 'base' name=ID;\nterminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal WS: (' '|'\\t'|'\\n'|'\\r')+;\n"
+      },
+      {
+        "id": "child",
+        "grammar": "oracle.SameNameImportsUnqualified.Child",
+        "dependencies": [
+          "base"
+        ],
+        "source": "grammar oracle.SameNameImportsUnqualified.Child with oracle.SameNameImportsUnqualified.Base\ngenerate child \"urn:intersect:inference:composition:same_name_imports_unqualified:child\"\nimport \"urn:intersect:inference:composition:same_name_imports_unqualified:base\"\nimport \"urn:intersect:inference:imported\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nEntry returns External: 'entry' name=ID; Anchor: 'anchor' key=ID;\n"
+      }
+    ]
+  }
+]

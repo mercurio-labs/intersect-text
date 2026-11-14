@@ -1,0 +1,18 @@
+rcore 1;
+package `actions` version "1";
+metamodel "urn:intersect:xtext:mini-kerml:actions:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    ref `members`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  abstract class `Element` {
+    attr `name`: EString [0,1] unsettable;
+  }
+  class `Type` extends external "#//@eClassifiers.1" {
+    attr `origin`: EString [0,1] unsettable;
+    attr `isAbstract`: EBoolean [0,1] unsettable;
+  }
+  class `Feature` extends external "#//@eClassifiers.1" {
+    ref `target`: external "#//@eClassifiers.1" [0,1] unsettable;
+  }
+}

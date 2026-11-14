@@ -1,0 +1,27 @@
+0    [main] INFO  xt.xtext.generator.StandardLanguage  - Skipping registration of Xbase genmodel. Xbase is not on the classpath.
+4    [main] INFO  xt.xtext.generator.StandardLanguage  - Skipping registration of Xbase genmodel. Xbase is not on the classpath.
+5    [main] INFO  xt.xtext.generator.StandardLanguage  - Skipping registration of Xbase genmodel. Xbase is not on the classpath.
+7    [main] INFO  text.xtext.generator.XtextGenerator  - Initializing Xtext generator
+480  [main] ERROR xt.generator.XtextGeneratorLanguage  - [XtextSyntaxDiagnostic: null:4 required (...)+ loop did not match anything at input '<EOF>']
+481  [main] ERROR mf.mwe2.launch.runtime.Mwe2Launcher  - Problems running workflow Generate: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/rcore-xtext-support-evidence/contextual-first-rule-v1/replay/terminal_first_three_level_object_closure/src/audit/FirstRuleDeepObjectMiddle.xtext':
+XtextSyntaxDiagnostic: null:4 required (...)+ loop did not match anything at input '<EOF>'
+java.lang.RuntimeException: Problems running workflow Generate: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/rcore-xtext-support-evidence/contextual-first-rule-v1/replay/terminal_first_three_level_object_closure/src/audit/FirstRuleDeepObjectMiddle.xtext':
+XtextSyntaxDiagnostic: null:4 required (...)+ loop did not match anything at input '<EOF>'
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:105)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+Caused by: java.lang.IllegalStateException: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/rcore-xtext-support-evidence/contextual-first-rule-v1/replay/terminal_first_three_level_object_closure/src/audit/FirstRuleDeepObjectMiddle.xtext':
+XtextSyntaxDiagnostic: null:4 required (...)+ loop did not match anything at input '<EOF>'
+	at org.eclipse.xtext.xtext.generator.XtextGeneratorLanguage.initialize(XtextGeneratorLanguage.java:229)
+	at org.eclipse.xtext.xtext.generator.StandardLanguage.initialize(StandardLanguage.java:167)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.initialize(XtextGenerator.java:189)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.checkConfigurationInternal(XtextGenerator.java:157)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent2.checkConfiguration(AbstractWorkflowComponent2.java:23)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.preInvoke(Mwe2Bridge.java:69)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.preInvoke(AbstractWorkflowComponent.java:208)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.preInvoke(AbstractCompositeWorkflowComponent.java:31)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:20)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	... 4 more

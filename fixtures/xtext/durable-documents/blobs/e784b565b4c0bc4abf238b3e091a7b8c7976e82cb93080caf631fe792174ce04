@@ -1,0 +1,47 @@
+"""Freeze verification-only full-source/node baseline from unchanged originals."""
+from pathlib import Path
+import hashlib,json,re,shutil
+N=Path(__file__).resolve().parent;T=N.parent
+OLD=T/'hidden-scope-after-v63-v1/helper-references-v1'
+SRC=N/'construction-originals-v1';OUT=N/'construction-oracle-helper-v1'
+def pin(p):
+ b=p.read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def save(p,v):p.write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+OUT.mkdir(exist_ok=False);(OUT/'inputs').mkdir();(OUT/'original').mkdir()
+lineage=[]
+def copy(s,d):
+ d.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(s,d);assert s.read_bytes()==d.read_bytes();lineage.append({'source':str(s),'path':d.relative_to(OUT).as_posix(),**pin(d)})
+for f in ['BuildProvider.java','HiddenScopeRuntime.java','ReferenceScopeRuntime.java','HiddenScopeMetadata.java']:
+ copy(OLD/f,OUT/f)
+copy(OLD/'original/FullRuntime.java',OUT/'original/FullRuntime.java')
+copy(OLD/'produce-hidden.py',OUT/'original/produce-hidden.py')
+copy(N/'helper-addendum-v1/NodeSnapshotRuntime.java',OUT/'NodeSnapshotRuntime.java')
+for f in ['stack.json','Generate.mwe2.template','RuntimeOracle.java','MetamodelOracle.java','TerminalNegationOracle.java']:
+ copy(OLD/'inputs'/f,OUT/'inputs'/f)
+cases=[]
+for c in json.loads((SRC/'cases.json').read_text(encoding='utf-8')):
+ dest=OUT/'inputs'/c['id'];dest.mkdir();copy(SRC/c['id']/'imported.ecore',dest/'imported.ecore')
+ bindings=['provider\timported\tmemory:/node-recovery/providers/'+c['provider']['sha256']+'/imported.ecore\t'+c['provider']['sha256']+'\timported.ecore']
+ sources=[]
+ for s in c['sources']:
+  raw=(SRC/c['id']/s['file']).read_bytes();assert hashlib.sha256(raw).hexdigest()==s['source_id']['sha256']
+  grammar=re.search(r'\bgrammar\s+([\w.]+)',raw.decode('utf-8')).group(1)
+  # Only physical loader filename changes. Full text/logical URI/digest unchanged.
+  filename=grammar+'.xtext';copy(SRC/c['id']/s['file'],dest/filename)
+  bindings.append('\t'.join(['grammar',grammar,s['source_id']['uri'],s['source_id']['sha256'],filename]))
+  sources.append({'file':filename,'grammar':grammar,'source_id':s['source_id'],'original_file':s['file']})
+ # Load parent before child; original entry identity is still the first source.
+ entry=sources[0]['grammar'];sources.reverse()
+ (dest/'uri-bindings.tsv').write_text('\n'.join(bindings)+'\n',encoding='utf-8',newline='\n')
+ cases.append({'id':c['id'],'entry':entry,'sources':sources,'inputs':c['inputs'],'named_entries':c['named_entries'],'original_source_recipe':c})
+save(OUT/'inputs/cases.json',cases)
+save(OUT/'inputs/pins.json',{p.relative_to(OUT/'inputs').as_posix():pin(p)['sha256']for p in sorted((OUT/'inputs').rglob('*'))if p.is_file()})
+original=(OLD/'produce-hidden.py').read_text(encoding='utf-8')
+new=original.replace("HERE/'ReferenceScopeRuntime.java',HERE/'HiddenScopeMetadata.java'","HERE/'ReferenceScopeRuntime.java',HERE/'NodeSnapshotRuntime.java',HERE/'HiddenScopeMetadata.java'")
+new=new.replace("'intersect.oracle.ReferenceScopeRuntime',info['package_class']","'intersect.oracle.NodeSnapshotRuntime',info['package_class']")
+assert new!=original and new.count("'intersect.oracle.NodeSnapshotRuntime',info['package_class']")==2
+# Source grammar/provider/probes and StandardLanguage generation policy unchanged.
+(OUT/'produce-construction.py').write_text(new,encoding='utf-8',newline='\n')
+save(OUT/'lineage.json',{'original_construction_freeze':pin(SRC/'preexecution.json'),'original_cases':pin(SRC/'cases.json'),'byte_exact_copies':lineage,'producer_delta':['fresh helper/output paths','compile separately frozen NodeSnapshotRuntime helper','invoke NodeSnapshotRuntime for complete original runtime fields plus node arena'], 'source_delta':'none; physical metadata filenames equal declared grammar names while exact original logical SourceId is bound explicitly','workflow':'original StandardLanguage scaffold for every authored source; failures preserved, no assumed valid source/runtime'})
+save(OUT/'preexecution.json',{'state':'frozen before javac/provider/generation/runtime','producer':pin(OUT/'produce-construction.py'),'original_producer':pin(OUT/'original/produce-hidden.py'),'inputs':pin(OUT/'inputs/pins.json'),'cases':pin(OUT/'inputs/cases.json'),'lineage':pin(OUT/'lineage.json'),'helper':pin(OUT/'NodeSnapshotRuntime.java'),'planned_graphs':len(cases),'planned_resource_probes':sum(len(c['inputs'])for c in cases),'normalization':'only explicit absolute owned provider-<ecoreSHA12>/provider.genmodel output field; raw URI/type/diagnostic/tree values unchanged','scope':'independent verification only; no native Ecore import, source validity or runtime success assumed','gate_closures':[]})
+print(json.dumps({'root':str(OUT),'preexecution':pin(OUT/'preexecution.json'),'producer':pin(OUT/'produce-construction.py')}))

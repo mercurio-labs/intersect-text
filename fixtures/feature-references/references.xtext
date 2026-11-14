@@ -1,0 +1,17 @@
+grammar example.Library with org.eclipse.xtext.common.Terminals
+import "urn:intersect:example:library:1" as lib
+
+Library returns lib::Library:
+  'library' name=ID '{'
+    (copies+=BookCopy | members+=Member | loans+=Loan)*
+  '}';
+
+BookCopy returns lib::BookCopy:
+  'copy' name=ID title=STRING ('edition' edition=INT)? ';';
+
+Member returns lib::Member:
+  'member' name=ID ';';
+
+Loan returns lib::Loan:
+  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]
+  'to' member=[lib::Member|ID] ';';

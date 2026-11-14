@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\dev\repos\mercurio-labs\intersect\target\rcore-xtext-support-evidence\full-until-literal-suffix-v1\produce.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\dev\repos\mercurio-labs\intersect\target\rcore-xtext-support-evidence\full-until-literal-suffix-v1\produce.py", line 9, in main
+    a=argparse.ArgumentParser();a.add_argument('--output',type=Path,required=True);a.add_argument('--only',nargs='*');a.add_argument('--jdk',type=Path,required=True);a.add_argument('--maven-cache',type=Path,required=True);args=a.parse_args();out=args.output.resolve();protected=HERE.parents[1];assert out!=protected and protected not in out.parents,'Output must stay outside fixtures';out.mkdir(exist_ok=False)
+                                                                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Output must stay outside fixtures

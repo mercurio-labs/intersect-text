@@ -1,0 +1,27 @@
+{
+  "original_sha256": "b72066a0c46cf2cb9db49c258881a641feb3de0d20b663589f474c2c11295a1a",
+  "new_sha256": "7563d1c52b4a9105dadeae9dbd13b8715db310d53f059f7099c7940f67d0f189",
+  "changes": [
+    {
+      "old": "public class FullRuntime {",
+      "new": "public class HiddenScopeRuntime {\n static List<Object> leaves(org.eclipse.xtext.nodemodel.INode node){List<Object> result=new ArrayList<>();if(node!=null)for(var leaf:node.getLeafNodes())result.add(fields(\"text\",leaf.getText(),\"hidden\",leaf.isHidden(),\"utf16_start\",leaf.getOffset(),\"utf16_end\",leaf.getEndOffset(),\"syntax_error\",leaf.getSyntaxErrorMessage()==null?null:leaf.getSyntaxErrorMessage().getMessage()));return result;}\n static List<Object> modelNodes(EObject root){List<Object> result=new ArrayList<>();if(root==null)return result;List<EObject> all=new ArrayList<>();all.add(root);root.eAllContents().forEachRemaining(all::add);for(var object:all){var node=NodeModelUtils.getNode(object);result.add(fields(\"class\",object.eClass().getEPackage().getNsURI()+\"#//\"+object.eClass().getName(),\"utf16_start\",node==null?null:node.getOffset(),\"utf16_end\",node==null?null:node.getEndOffset(),\"total_utf16_start\",node==null?null:node.getTotalOffset(),\"total_utf16_end\",node==null?null:node.getTotalEndOffset()));}return result;}"
+    },
+    {
+      "old": "Map<String,Object> result=fields(\"text\",text,\"lexer\",null,\"resource\",null,\"parser\",null);",
+      "new": "Map<String,Object> result=fields(\"text\",text,\"named_entry\",args.length==4?args[3]:null,\"lexer\",null,\"resource\",null,\"parser\",null);"
+    },
+    {
+      "old": "result.put(\"resource\",fields(\"accepted\",root!=null&&errors.isEmpty(),\"errors\",errors,\"warnings\",warnings,\"resource_contents\",resource.getContents().size(),\"model\",RuntimeOracle.model(root),\"leaves\",leaves,\"failure\",null));",
+      "new": "result.put(\"resource\",fields(\"accepted\",root!=null&&errors.isEmpty(),\"errors\",errors,\"warnings\",warnings,\"resource_contents\",resource.getContents().size(),\"model\",RuntimeOracle.model(root),\"leaves\",leaves,\"all_root_leaves\",leaves(((org.eclipse.xtext.resource.XtextResource)resource).getParseResult().getRootNode()),\"model_nodes\",modelNodes(root),\"failure\",null));"
+    },
+    {
+      "old": "var rule=(ParserRule)GrammarUtil.findRuleForName(grammar,\"Model\");var parsed=injector.getInstance(IParser.class).parse(rule,new StringReader(text));",
+      "new": "var parser=injector.getInstance(IParser.class);var parsed=args.length==4?parser.parse((ParserRule)GrammarUtil.findRuleForName(grammar,args[3]),new StringReader(text)):parser.parse(new StringReader(text));"
+    },
+    {
+      "old": "result.put(\"parser\",fields(\"accepted\",root!=null&&errors.isEmpty(),\"errors\",errors,\"model\",RuntimeOracle.model(root),\"failure\",null));",
+      "new": "result.put(\"parser\",fields(\"accepted\",root!=null&&errors.isEmpty(),\"errors\",errors,\"model\",RuntimeOracle.model(root),\"all_root_leaves\",leaves(parsed.getRootNode()),\"model_nodes\",modelNodes(root),\"failure\",null));"
+    }
+  ],
+  "semantics": "Independent observation adapter only. Real generated setup/lexer/IParser/resource. Named request selects actual ParserRule; no parser fallback. New default IParser path uses its real default entry. Original helper bytes retained."
+}

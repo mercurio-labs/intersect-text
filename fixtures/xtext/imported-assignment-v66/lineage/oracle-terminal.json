@@ -1,0 +1,91 @@
+{
+  "state": "COMPLETE_RECORD_AND_FRESH_REPLAY_EQUAL",
+  "runs": [
+    {
+      "lane": "record",
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-producer\\produce.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-record",
+        "--jdk",
+        "D:/dev/jdks/jdk21",
+        "--maven-cache",
+        "C:/Users/MarkPetrotta/.m2/repository"
+      ],
+      "exit_code": 0,
+      "seconds": 108.76162672042847,
+      "log_sha256": "11ab9c97ea53e8b35c9141046dd75a6b95a51f27b44b6ec73bf6ad12857e498e"
+    },
+    {
+      "lane": "replay",
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-producer\\produce.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-replay",
+        "--jdk",
+        "D:/dev/jdks/jdk21",
+        "--maven-cache",
+        "C:/Users/MarkPetrotta/.m2/repository"
+      ],
+      "exit_code": 0,
+      "seconds": 160.63364267349243,
+      "log_sha256": "11ab9c97ea53e8b35c9141046dd75a6b95a51f27b44b6ec73bf6ad12857e498e"
+    }
+  ],
+  "sole_exception": "Strictly verified absolute owned provider.genmodel location; no semantic, diagnostic, generated, source, token, model or partial result exclusions.",
+  "stages": [
+    {
+      "id": "imported_refs_default_true",
+      "metadata_exit": 0,
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "runtime": 6,
+      "accepted": 5
+    },
+    {
+      "id": "imported_refs_explicit_true",
+      "metadata_exit": 0,
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "runtime": 6,
+      "accepted": 5
+    },
+    {
+      "id": "imported_refs_explicit_false",
+      "metadata_exit": 0,
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "runtime": 6,
+      "accepted": 5
+    }
+  ],
+  "observations": [
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-record\\observations.json",
+      "sha256": "a61a501cb3828bb418ba542e105bd38118eb0c3e731bfcbef72fc4d125a13d22"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\imported-unique-assignment-before-v1\\oracle-replay\\observations.json",
+      "sha256": "b8d7bfca143d809ff4ee6077d588b32cd5fe16c8260bc373727464e1f1a6841e"
+    }
+  ],
+  "preexecution_sha256": "14f0054aed8b76a7b28eb98b00670661ae474d2869eab00b5f9d4e58a4767431",
+  "post_input_pins_equal": true
+}

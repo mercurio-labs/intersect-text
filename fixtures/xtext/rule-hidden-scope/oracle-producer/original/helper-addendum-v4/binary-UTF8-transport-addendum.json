@@ -1,0 +1,27 @@
+{
+  "previous_freeze": {
+    "bytes": 12806,
+    "sha256": "efa6dd2c1f6cd0a4048d89127de7f465cbce2a8ff624d8e3d8bb31cc5aeb4431"
+  },
+  "old_producer": {
+    "bytes": 8819,
+    "sha256": "68a158d2300b9232a37e123da392f02f50e3dc2bd5b6550db5c08d61a1d110e5"
+  },
+  "new_producer": {
+    "bytes": 9269,
+    "sha256": "acde84e83688d483a0f6fe140ebe03d7d30fa47ea0c70f46a0fed41130d0ed67"
+  },
+  "sole_code_delta": {
+    "old_run_function": " def run(cmd,timeout=180,cwd=None):\n  n=len(commands)+1\n  try:v=subprocess.run(cmd,cwd=cwd or out,capture_output=True,text=True,encoding='utf-8',errors='strict',timeout=timeout)\n  except subprocess.TimeoutExpired as ex:v=subprocess.CompletedProcess(cmd,124,ex.stdout.decode('utf-8')if isinstance(ex.stdout,bytes)else ex.stdout or '',ex.stderr.decode('utf-8')if isinstance(ex.stderr,bytes)else ex.stderr or '')\n  (out/f'{n:03d}.stdout.log').write_text(v.stdout,encoding='utf-8',newline='\\n');(out/f'{n:03d}.stderr.log').write_text(v.stderr,encoding='utf-8',newline='\\n');commands.append({'command':cmd,'exit_code':v.returncode,'timeout_seconds':timeout,'stdout':f'{n:03d}.stdout.log','stderr':f'{n:03d}.stderr.log'});save(out/'commands.json',commands);return v\n",
+    "new_run_function": " def run(cmd,timeout=180,cwd=None):\n  if cmd[0]==java:cmd=[java,'-Dstdout.encoding=UTF-8','-Dstderr.encoding=UTF-8',*cmd[1:]]\n  n=len(commands)+1\n  try:v=subprocess.run(cmd,cwd=cwd or out,capture_output=True,timeout=timeout)\n  except subprocess.TimeoutExpired as ex:v=subprocess.CompletedProcess(cmd,124,ex.stdout or b'',ex.stderr or b'')\n  assert isinstance(v.stdout,bytes) and isinstance(v.stderr,bytes)\n  (out/f'{n:03d}.stdout.log').write_bytes(v.stdout);(out/f'{n:03d}.stderr.log').write_bytes(v.stderr)\n  command={'command':cmd,'exit_code':v.returncode,'timeout_seconds':timeout,'stdout':f'{n:03d}.stdout.log','stderr':f'{n:03d}.stderr.log','raw_stdout_bytes':len(v.stdout),'raw_stderr_bytes':len(v.stderr),'raw_capture_before_decode':True}\n  commands.append(command);save(out/'commands.json',commands)\n  try:stdout=v.stdout.decode('utf-8',errors='strict');stderr=v.stderr.decode('utf-8',errors='strict')\n  except UnicodeDecodeError as error:\n   command['UTF8_decode_failure']={'class':type(error).__name__,'message':str(error)};save(out/'commands.json',commands);raise\n  command['UTF8_decoded']=True;save(out/'commands.json',commands)\n  return subprocess.CompletedProcess(cmd,v.returncode,stdout,stderr)\n"
+  },
+  "calibration": {
+    "bytes": 1681,
+    "sha256": "316c97eba14a13cdc01ba822757900682635ac14616f59b74cf1f8b7f245008e"
+  },
+  "initial_missing_raw_limitation": {
+    "bytes": 1181,
+    "sha256": "38e8761f3a389b74871254bdfd74903f29be848f66a3a8eeb132062d24936aa9"
+  },
+  "protocol": "Write stdout/stderr binary bytes before strict UTF8 decode and JSON parsing. Pin explicit stdout.encoding/stderr.encoding UTF8 JVM flags; no file.encoding flag, CP1252 decoding, JSON/resourceURI normalization, source/helper semantics change or changed comparison exception."
+}

@@ -1,0 +1,3194 @@
+{
+  "requests": {
+    "params": {
+      "bundle": {
+        "version": 1,
+        "sources": [
+          {
+            "id": {
+              "uri": "memory:job-expansion.ecore.rcore",
+              "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+            },
+            "kind": "rcore",
+            "text": "rcore 1;\npackage m version \"1\";\nmetamodel \"urn:job-expansion\" prefix m {\n  class Root<T extends Root> {\n    ref r0: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r1: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r2: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r3: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n  }\n  class C0 extends Root {\n  }\n  class C1 extends Root {\n  }\n  class C2 extends Root {\n  }\n  class C3 extends Root {\n  }\n  class C4 extends Root {\n  }\n  class C5 extends Root {\n  }\n  class C6 extends Root {\n  }\n  class C7 extends Root {\n  }\n  class C8 extends Root {\n  }\n  class C9 extends Root {\n  }\n  class C10 extends Root {\n  }\n  class C11 extends Root {\n  }\n  class C12 extends Root {\n  }\n  class C13 extends Root {\n  }\n  class C14 extends Root {\n  }\n  class C15 extends Root {\n  }\n  class C16 extends Root {\n  }\n  class C17 extends Root {\n  }\n  class C18 extends Root {\n  }\n  class C19 extends Root {\n  }\n  class C20 extends Root {\n  }\n  class C21 extends Root {\n  }\n  class C22 extends Root {\n  }\n  class C23 extends Root {\n  }\n  class C24 extends Root {\n  }\n  class C25 extends Root {\n  }\n  class C26 extends Root {\n  }\n  class C27 extends Root {\n  }\n  class C28 extends Root {\n  }\n  class C29 extends Root {\n  }\n  class C30 extends Root {\n  }\n  class C31 extends Root {\n  }\n  class C32 extends Root {\n  }\n  class C33 extends Root {\n  }\n  class C34 extends Root {\n  }\n  class C35 extends Root {\n  }\n  class C36 extends Root {\n  }\n  class C37 extends Root {\n  }\n  class C38 extends Root {\n  }\n  class C39 extends Root {\n  }\n  class C40 extends Root {\n  }\n  class C41 extends Root {\n  }\n  class C42 extends Root {\n  }\n  class C43 extends Root {\n  }\n  class C44 extends Root {\n  }\n  class C45 extends Root {\n  }\n  class C46 extends Root {\n  }\n  class C47 extends Root {\n  }\n  class C48 extends Root {\n  }\n  class C49 extends Root {\n  }\n  class C50 extends Root {\n  }\n  class C51 extends Root {\n  }\n  class C52 extends Root {\n  }\n  class C53 extends Root {\n  }\n  class C54 extends Root {\n  }\n  class C55 extends Root {\n  }\n  class C56 extends Root {\n  }\n  class C57 extends Root {\n  }\n  class C58 extends Root {\n  }\n  class C59 extends Root {\n  }\n  class C60 extends Root {\n  }\n  class C61 extends Root {\n  }\n  class C62 extends Root {\n  }\n}\n",
+            "dependencies": []
+          },
+          {
+            "id": {
+              "uri": "memory:job-expansion-behavior.rcore",
+              "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed"
+            },
+            "kind": "rcore_behavior",
+            "text": "rcore 1;package expansion version \"1\";import model \"urn:job-expansion\" as m;fn run(value:m.C0)->m.C0=if spin(12)>0 {value} else {value};fn spin(n:Int8)->Int32=if n==0 {1} else {spin(n-1)+spin(n-1)};",
+            "dependencies": [
+              {
+                "uri": "memory:job-expansion.ecore.rcore",
+                "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+              }
+            ]
+          }
+        ],
+        "namespaces": []
+      },
+      "entry": {
+        "uri": "memory:job-expansion-behavior.rcore",
+        "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed"
+      },
+      "selection": {
+        "symbol": {
+          "source": {
+            "uri": "memory:job-expansion-behavior.rcore",
+            "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed"
+          },
+          "declaration": 1
+        },
+        "types": [],
+        "arguments": []
+      },
+      "arguments": [
+        {
+          "ty": 0,
+          "data": {
+            "Model": {
+              "kind": "model_reference",
+              "context": "ade2668ef7036885a952814be1e540e064052561ee6f9cd0c5c20127fc53329d",
+              "element": "child"
+            }
+          }
+        }
+      ],
+      "reference_contexts": [
+        {
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage m version \"1\";\nmetamodel \"urn:job-expansion\" prefix m {\n  class Root<T extends Root> {\n    ref r0: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r1: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r2: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n    ref r3: generic parameter \"#//@eClassifiers.0/@eTypeParameters.0\" [0,1];\n  }\n  class C0 extends Root {\n  }\n  class C1 extends Root {\n  }\n  class C2 extends Root {\n  }\n  class C3 extends Root {\n  }\n  class C4 extends Root {\n  }\n  class C5 extends Root {\n  }\n  class C6 extends Root {\n  }\n  class C7 extends Root {\n  }\n  class C8 extends Root {\n  }\n  class C9 extends Root {\n  }\n  class C10 extends Root {\n  }\n  class C11 extends Root {\n  }\n  class C12 extends Root {\n  }\n  class C13 extends Root {\n  }\n  class C14 extends Root {\n  }\n  class C15 extends Root {\n  }\n  class C16 extends Root {\n  }\n  class C17 extends Root {\n  }\n  class C18 extends Root {\n  }\n  class C19 extends Root {\n  }\n  class C20 extends Root {\n  }\n  class C21 extends Root {\n  }\n  class C22 extends Root {\n  }\n  class C23 extends Root {\n  }\n  class C24 extends Root {\n  }\n  class C25 extends Root {\n  }\n  class C26 extends Root {\n  }\n  class C27 extends Root {\n  }\n  class C28 extends Root {\n  }\n  class C29 extends Root {\n  }\n  class C30 extends Root {\n  }\n  class C31 extends Root {\n  }\n  class C32 extends Root {\n  }\n  class C33 extends Root {\n  }\n  class C34 extends Root {\n  }\n  class C35 extends Root {\n  }\n  class C36 extends Root {\n  }\n  class C37 extends Root {\n  }\n  class C38 extends Root {\n  }\n  class C39 extends Root {\n  }\n  class C40 extends Root {\n  }\n  class C41 extends Root {\n  }\n  class C42 extends Root {\n  }\n  class C43 extends Root {\n  }\n  class C44 extends Root {\n  }\n  class C45 extends Root {\n  }\n  class C46 extends Root {\n  }\n  class C47 extends Root {\n  }\n  class C48 extends Root {\n  }\n  class C49 extends Root {\n  }\n  class C50 extends Root {\n  }\n  class C51 extends Root {\n  }\n  class C52 extends Root {\n  }\n  class C53 extends Root {\n  }\n  class C54 extends Root {\n  }\n  class C55 extends Root {\n  }\n  class C56 extends Root {\n  }\n  class C57 extends Root {\n  }\n  class C58 extends Root {\n  }\n  class C59 extends Root {\n  }\n  class C60 extends Root {\n  }\n  class C61 extends Root {\n  }\n  class C62 extends Root {\n  }\n}\n",
+                "dependencies": []
+              }
+            ],
+            "namespaces": []
+          },
+          "entry": {
+            "uri": "memory:job-expansion.ecore.rcore",
+            "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+          },
+          "namespace": "urn:job-expansion",
+          "conversions": [],
+          "materialized_types": [
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  0
+                ]
+              },
+              "arguments": [],
+              "raw": true
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  1
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  2
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  3
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  4
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  5
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  6
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  7
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  8
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  9
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  10
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  11
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  12
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  13
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  14
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  15
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  16
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  17
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  18
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  19
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  20
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  21
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  22
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  23
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  24
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  25
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  26
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  27
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  28
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  29
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  30
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  31
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  32
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  33
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  34
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  35
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  36
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  37
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  38
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  39
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  40
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  41
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  42
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  43
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  44
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  45
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  46
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  47
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  48
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  49
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  50
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  51
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  52
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  53
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  54
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  55
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  56
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  57
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  58
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  59
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  60
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  61
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  62
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            },
+            {
+              "kind": "classifier",
+              "declaration": {
+                "source": {
+                  "uri": "memory:job-expansion.ecore.rcore",
+                  "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e"
+                },
+                "path": [
+                  63
+                ]
+              },
+              "arguments": [],
+              "raw": false
+            }
+          ],
+          "model": {
+            "elements": [
+              {
+                "class": "__type_intersect_generic_1_aa5221702a02a9b5fa52bf9cf5cdc9c25642bcf0148f07525dc0a33d8d99c4f9",
+                "end": 0,
+                "id": "child",
+                "resource": "memory:materialized",
+                "start": 0,
+                "type_identity": "memory:job-expansion.ecore.rcore@9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e#1",
+                "values": {
+                  "r0": null,
+                  "r1": null,
+                  "r2": null,
+                  "r3": null
+                }
+              }
+            ],
+            "resources": {
+              "memory:materialized": {
+                "content_revision": "1",
+                "diagnostics": [],
+                "load_state": "Loaded",
+                "roots": [
+                  "child"
+                ],
+                "source": null,
+                "uri": "memory:materialized"
+              }
+            },
+            "schema_revision": "5374593ee779e189108ff72294f5d4b40cdaf27f6e2c671a11c911600a4319fb"
+          }
+        }
+      ]
+    },
+    "small": {
+      "bundle": {
+        "version": 1,
+        "sources": [
+          {
+            "id": {
+              "uri": "memory:functions-behavior.rcore",
+              "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450"
+            },
+            "kind": "rcore_behavior",
+            "text": "rcore 1; package functions version \"1\"; fn run()->Int8=42;",
+            "dependencies": []
+          }
+        ],
+        "namespaces": []
+      },
+      "entry": {
+        "uri": "memory:functions-behavior.rcore",
+        "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450"
+      },
+      "selection": {
+        "symbol": {
+          "source": {
+            "uri": "memory:functions-behavior.rcore",
+            "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450"
+          },
+          "declaration": 0
+        },
+        "types": [],
+        "arguments": []
+      },
+      "arguments": []
+    }
+  },
+  "points": [
+    {
+      "resumes": 1,
+      "cancel_result": {
+        "failure": {
+          "arithmetic_kind": null,
+          "consumed": {
+            "captures": 0,
+            "closures": 0,
+            "collection_comparisons": 0,
+            "context_bytes": 16643,
+            "membership_checks": 1,
+            "model_contexts": 0,
+            "model_elements": 1,
+            "model_storage_bytes": 9759309,
+            "numeric_work": 0,
+            "provider_evidence_bytes": 0,
+            "provider_invocations": 0,
+            "provider_work": 478532,
+            "reference_domains": 0,
+            "steps": 53,
+            "value_bytes": 6886,
+            "value_nodes": 6
+          },
+          "consumed_providers": [],
+          "kind": "Cancelled",
+          "message": "Evaluation cancelled by host",
+          "provider_evidence_truncated": false,
+          "selected_providers": [],
+          "span": null,
+          "trace": [
+            {
+              "call_site": null,
+              "definition": {
+                "end": 136,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 76
+              },
+              "function": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 1,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              }
+            }
+          ],
+          "trace_truncated": false
+        },
+        "ok": false,
+        "program": {
+          "entry": 0,
+          "entry_source": {
+            "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+            "uri": "memory:job-expansion-behavior.rcore"
+          },
+          "functions": [
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 108,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 104
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 12,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 111,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 109
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 1
+                            }
+                          ],
+                          "callee": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 112,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 104
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 0,
+                              "ty": {
+                                "Scalar": "Int32"
+                              }
+                            }
+                          },
+                          "ty": 2
+                        }
+                      },
+                      "span": {
+                        "end": 114,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 113
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Register": 2
+                          },
+                          "op": "Greater",
+                          "right": {
+                            "Register": 3
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 113,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 112
+                      },
+                      "ty": 4
+                    }
+                  ],
+                  "parameters": [
+                    0
+                  ],
+                  "span": {
+                    "end": 136,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 76
+                  },
+                  "terminator": {
+                    "Branch": {
+                      "condition": {
+                        "Register": 4
+                      },
+                      "else_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          },
+                          {
+                            "Register": 2
+                          },
+                          {
+                            "Register": 3
+                          },
+                          {
+                            "Register": 4
+                          }
+                        ],
+                        "block": 2
+                      },
+                      "then_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          },
+                          {
+                            "Register": 2
+                          },
+                          {
+                            "Register": 3
+                          },
+                          {
+                            "Register": 4
+                          }
+                        ],
+                        "block": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Parameter": 3
+                        },
+                        {
+                          "Parameter": 4
+                        },
+                        {
+                          "Parameter": 5
+                        },
+                        {
+                          "Parameter": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Parameter": 3
+                        },
+                        {
+                          "Parameter": 4
+                        },
+                        {
+                          "Parameter": 5
+                        },
+                        {
+                          "Parameter": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4,
+                    0
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Parameter": 6
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 1,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [
+                0
+              ],
+              "result": 0,
+              "span": {
+                "end": 136,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 76
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 0,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 166,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 165
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Equal",
+                          "right": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 165,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 163
+                      },
+                      "ty": 4
+                    }
+                  ],
+                  "parameters": [
+                    1
+                  ],
+                  "span": {
+                    "end": 198,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 136
+                  },
+                  "terminator": {
+                    "Branch": {
+                      "condition": {
+                        "Register": 1
+                      },
+                      "else_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          }
+                        ],
+                        "block": 2
+                      },
+                      "then_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          }
+                        ],
+                        "block": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int32"
+                              }
+                            }
+                          },
+                          "ty": 2
+                        }
+                      },
+                      "span": {
+                        "end": 169,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 168
+                      },
+                      "ty": 2
+                    }
+                  ],
+                  "parameters": [
+                    1,
+                    1,
+                    4
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Register": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 181,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 177
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 185,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 184
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Subtract",
+                          "right": {
+                            "Register": 1
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 184,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 183
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 2
+                            }
+                          ],
+                          "callee": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 186,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 177
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 191,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 187
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 195,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 194
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Subtract",
+                          "right": {
+                            "Register": 5
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 194,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 193
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 6
+                            }
+                          ],
+                          "callee": {
+                            "Register": 4
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 196,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 187
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Register": 3
+                          },
+                          "op": "Add",
+                          "right": {
+                            "Register": 7
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 187,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 186
+                      },
+                      "ty": 2
+                    }
+                  ],
+                  "parameters": [
+                    1,
+                    1,
+                    4
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Register": 8
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    1,
+                    1,
+                    4,
+                    2
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Parameter": 3
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 2,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [
+                1
+              ],
+              "result": 2,
+              "span": {
+                "end": 198,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 136
+              }
+            }
+          ],
+          "policies": {
+            "applied": [],
+            "constructors": [],
+            "conversions": []
+          },
+          "sources": [
+            {
+              "source": {
+                "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                "uri": "memory:job-expansion-behavior.rcore"
+              }
+            },
+            {
+              "source": {
+                "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e",
+                "uri": "memory:job-expansion.ecore.rcore"
+              }
+            }
+          ],
+          "types": [
+            {
+              "Model": {
+                "arguments": [],
+                "declaration": {
+                  "path": [
+                    1
+                  ],
+                  "source": {
+                    "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e",
+                    "uri": "memory:job-expansion.ecore.rcore"
+                  }
+                },
+                "kind": "classifier",
+                "raw": false
+              }
+            },
+            {
+              "Scalar": "Int8"
+            },
+            {
+              "Scalar": "Int32"
+            },
+            {
+              "Function": {
+                "parameters": [
+                  1
+                ],
+                "result": 2
+              }
+            },
+            {
+              "Scalar": "Bool"
+            }
+          ],
+          "version": 2
+        },
+        "source_backed": true,
+        "stage": "function_execution"
+      },
+      "recovery_result": {
+        "evaluation": {
+          "consumed": {
+            "captures": 0,
+            "closures": 0,
+            "collection_comparisons": 0,
+            "context_bytes": 0,
+            "membership_checks": 0,
+            "model_contexts": 0,
+            "model_elements": 0,
+            "model_storage_bytes": 0,
+            "numeric_work": 0,
+            "provider_evidence_bytes": 0,
+            "provider_invocations": 0,
+            "provider_work": 0,
+            "reference_domains": 0,
+            "steps": 2,
+            "value_bytes": 953,
+            "value_nodes": 2
+          },
+          "consumed_providers": [],
+          "selected_providers": [],
+          "value": {
+            "data": {
+              "Scalar": {
+                "payload": 42,
+                "ty": {
+                  "Scalar": "Int8"
+                }
+              }
+            },
+            "ty": 0
+          }
+        },
+        "ok": true,
+        "program": {
+          "entry": 0,
+          "entry_source": {
+            "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+            "uri": "memory:functions-behavior.rcore"
+          },
+          "functions": [
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 42,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 0
+                        }
+                      },
+                      "span": {
+                        "end": 57,
+                        "source": {
+                          "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                          "uri": "memory:functions-behavior.rcore"
+                        },
+                        "start": 55
+                      },
+                      "ty": 0
+                    }
+                  ],
+                  "parameters": [],
+                  "span": {
+                    "end": 58,
+                    "source": {
+                      "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                      "uri": "memory:functions-behavior.rcore"
+                    },
+                    "start": 40
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Register": 0
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 0,
+                    "source": {
+                      "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                      "uri": "memory:functions-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [],
+              "result": 0,
+              "span": {
+                "end": 58,
+                "source": {
+                  "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                  "uri": "memory:functions-behavior.rcore"
+                },
+                "start": 40
+              }
+            }
+          ],
+          "policies": {
+            "applied": [],
+            "constructors": [],
+            "conversions": []
+          },
+          "sources": [
+            {
+              "source": {
+                "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                "uri": "memory:functions-behavior.rcore"
+              }
+            }
+          ],
+          "types": [
+            {
+              "Scalar": "Int8"
+            }
+          ],
+          "version": 2
+        },
+        "source_backed": true,
+        "stage": "function_execution"
+      }
+    },
+    {
+      "resumes": 2,
+      "cancel_result": {
+        "failure": {
+          "arithmetic_kind": null,
+          "consumed": {
+            "captures": 0,
+            "closures": 3,
+            "collection_comparisons": 3,
+            "context_bytes": 16643,
+            "membership_checks": 1,
+            "model_contexts": 1,
+            "model_elements": 1,
+            "model_storage_bytes": 10159428,
+            "numeric_work": 589,
+            "provider_evidence_bytes": 0,
+            "provider_invocations": 0,
+            "provider_work": 486359,
+            "reference_domains": 1,
+            "steps": 173,
+            "value_bytes": 10658,
+            "value_nodes": 15
+          },
+          "consumed_providers": [],
+          "kind": "Cancelled",
+          "message": "Evaluation cancelled by host",
+          "provider_evidence_truncated": false,
+          "selected_providers": [],
+          "span": {
+            "end": 198,
+            "source": {
+              "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+              "uri": "memory:job-expansion-behavior.rcore"
+            },
+            "start": 136
+          },
+          "trace": [
+            {
+              "call_site": {
+                "end": 186,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 177
+              },
+              "definition": {
+                "end": 198,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 136
+              },
+              "function": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 2,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              }
+            },
+            {
+              "call_site": {
+                "end": 186,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 177
+              },
+              "definition": {
+                "end": 198,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 136
+              },
+              "function": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 2,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              }
+            },
+            {
+              "call_site": {
+                "end": 112,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 104
+              },
+              "definition": {
+                "end": 198,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 136
+              },
+              "function": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 2,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              }
+            },
+            {
+              "call_site": null,
+              "definition": {
+                "end": 136,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 76
+              },
+              "function": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 1,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              }
+            }
+          ],
+          "trace_truncated": false
+        },
+        "ok": false,
+        "program": {
+          "entry": 0,
+          "entry_source": {
+            "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+            "uri": "memory:job-expansion-behavior.rcore"
+          },
+          "functions": [
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 108,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 104
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 12,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 111,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 109
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 1
+                            }
+                          ],
+                          "callee": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 112,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 104
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 0,
+                              "ty": {
+                                "Scalar": "Int32"
+                              }
+                            }
+                          },
+                          "ty": 2
+                        }
+                      },
+                      "span": {
+                        "end": 114,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 113
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Register": 2
+                          },
+                          "op": "Greater",
+                          "right": {
+                            "Register": 3
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 113,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 112
+                      },
+                      "ty": 4
+                    }
+                  ],
+                  "parameters": [
+                    0
+                  ],
+                  "span": {
+                    "end": 136,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 76
+                  },
+                  "terminator": {
+                    "Branch": {
+                      "condition": {
+                        "Register": 4
+                      },
+                      "else_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          },
+                          {
+                            "Register": 2
+                          },
+                          {
+                            "Register": 3
+                          },
+                          {
+                            "Register": 4
+                          }
+                        ],
+                        "block": 2
+                      },
+                      "then_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          },
+                          {
+                            "Register": 2
+                          },
+                          {
+                            "Register": 3
+                          },
+                          {
+                            "Register": 4
+                          }
+                        ],
+                        "block": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Parameter": 3
+                        },
+                        {
+                          "Parameter": 4
+                        },
+                        {
+                          "Parameter": 5
+                        },
+                        {
+                          "Parameter": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Parameter": 3
+                        },
+                        {
+                          "Parameter": 4
+                        },
+                        {
+                          "Parameter": 5
+                        },
+                        {
+                          "Parameter": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    4,
+                    0
+                  ],
+                  "span": {
+                    "end": 135,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 101
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Parameter": 6
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 1,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [
+                0
+              ],
+              "result": 0,
+              "span": {
+                "end": 136,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 76
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 0,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 166,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 165
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Equal",
+                          "right": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 165,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 163
+                      },
+                      "ty": 4
+                    }
+                  ],
+                  "parameters": [
+                    1
+                  ],
+                  "span": {
+                    "end": 198,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 136
+                  },
+                  "terminator": {
+                    "Branch": {
+                      "condition": {
+                        "Register": 1
+                      },
+                      "else_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          }
+                        ],
+                        "block": 2
+                      },
+                      "then_edge": {
+                        "arguments": [
+                          {
+                            "Parameter": 0
+                          },
+                          {
+                            "Register": 0
+                          },
+                          {
+                            "Register": 1
+                          }
+                        ],
+                        "block": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int32"
+                              }
+                            }
+                          },
+                          "ty": 2
+                        }
+                      },
+                      "span": {
+                        "end": 169,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 168
+                      },
+                      "ty": 2
+                    }
+                  ],
+                  "parameters": [
+                    1,
+                    1,
+                    4
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Register": 0
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 181,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 177
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 185,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 184
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Subtract",
+                          "right": {
+                            "Register": 1
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 184,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 183
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 2
+                            }
+                          ],
+                          "callee": {
+                            "Register": 0
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 186,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 177
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "MakeClosure": {
+                          "captures": [],
+                          "function": 1
+                        }
+                      },
+                      "span": {
+                        "end": 191,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 187
+                      },
+                      "ty": 3
+                    },
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 1,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 1
+                        }
+                      },
+                      "span": {
+                        "end": 195,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 194
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Parameter": 0
+                          },
+                          "op": "Subtract",
+                          "right": {
+                            "Register": 5
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 194,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 193
+                      },
+                      "ty": 1
+                    },
+                    {
+                      "kind": {
+                        "Call": {
+                          "arguments": [
+                            {
+                              "Register": 6
+                            }
+                          ],
+                          "callee": {
+                            "Register": 4
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 196,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 187
+                      },
+                      "ty": 2
+                    },
+                    {
+                      "kind": {
+                        "Binary": {
+                          "left": {
+                            "Register": 3
+                          },
+                          "op": "Add",
+                          "right": {
+                            "Register": 7
+                          }
+                        }
+                      },
+                      "span": {
+                        "end": 187,
+                        "source": {
+                          "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                          "uri": "memory:job-expansion-behavior.rcore"
+                        },
+                        "start": 186
+                      },
+                      "ty": 2
+                    }
+                  ],
+                  "parameters": [
+                    1,
+                    1,
+                    4
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Jump": {
+                      "arguments": [
+                        {
+                          "Parameter": 0
+                        },
+                        {
+                          "Parameter": 1
+                        },
+                        {
+                          "Parameter": 2
+                        },
+                        {
+                          "Register": 8
+                        }
+                      ],
+                      "block": 3
+                    }
+                  }
+                },
+                {
+                  "instructions": [],
+                  "parameters": [
+                    1,
+                    1,
+                    4,
+                    2
+                  ],
+                  "span": {
+                    "end": 197,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    },
+                    "start": 159
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Parameter": 3
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 2,
+                    "source": {
+                      "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                      "uri": "memory:job-expansion-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [
+                1
+              ],
+              "result": 2,
+              "span": {
+                "end": 198,
+                "source": {
+                  "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                  "uri": "memory:job-expansion-behavior.rcore"
+                },
+                "start": 136
+              }
+            }
+          ],
+          "policies": {
+            "applied": [],
+            "constructors": [],
+            "conversions": []
+          },
+          "sources": [
+            {
+              "source": {
+                "sha256": "383ee5b59ccdc2cc6e208dff8cb309d9b4c0e9a093b6421524f7a0fabeb1d8ed",
+                "uri": "memory:job-expansion-behavior.rcore"
+              }
+            },
+            {
+              "source": {
+                "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e",
+                "uri": "memory:job-expansion.ecore.rcore"
+              }
+            }
+          ],
+          "types": [
+            {
+              "Model": {
+                "arguments": [],
+                "declaration": {
+                  "path": [
+                    1
+                  ],
+                  "source": {
+                    "sha256": "9408a247ad42d0ea05f68039c4b0be7ec3406a970d32959513f6a5846cd7a20e",
+                    "uri": "memory:job-expansion.ecore.rcore"
+                  }
+                },
+                "kind": "classifier",
+                "raw": false
+              }
+            },
+            {
+              "Scalar": "Int8"
+            },
+            {
+              "Scalar": "Int32"
+            },
+            {
+              "Function": {
+                "parameters": [
+                  1
+                ],
+                "result": 2
+              }
+            },
+            {
+              "Scalar": "Bool"
+            }
+          ],
+          "version": 2
+        },
+        "source_backed": true,
+        "stage": "function_execution"
+      },
+      "recovery_result": {
+        "evaluation": {
+          "consumed": {
+            "captures": 0,
+            "closures": 0,
+            "collection_comparisons": 0,
+            "context_bytes": 0,
+            "membership_checks": 0,
+            "model_contexts": 0,
+            "model_elements": 0,
+            "model_storage_bytes": 0,
+            "numeric_work": 0,
+            "provider_evidence_bytes": 0,
+            "provider_invocations": 0,
+            "provider_work": 0,
+            "reference_domains": 0,
+            "steps": 2,
+            "value_bytes": 953,
+            "value_nodes": 2
+          },
+          "consumed_providers": [],
+          "selected_providers": [],
+          "value": {
+            "data": {
+              "Scalar": {
+                "payload": 42,
+                "ty": {
+                  "Scalar": "Int8"
+                }
+              }
+            },
+            "ty": 0
+          }
+        },
+        "ok": true,
+        "program": {
+          "entry": 0,
+          "entry_source": {
+            "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+            "uri": "memory:functions-behavior.rcore"
+          },
+          "functions": [
+            {
+              "blocks": [
+                {
+                  "instructions": [
+                    {
+                      "kind": {
+                        "Constant": {
+                          "data": {
+                            "Scalar": {
+                              "payload": 42,
+                              "ty": {
+                                "Scalar": "Int8"
+                              }
+                            }
+                          },
+                          "ty": 0
+                        }
+                      },
+                      "span": {
+                        "end": 57,
+                        "source": {
+                          "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                          "uri": "memory:functions-behavior.rcore"
+                        },
+                        "start": 55
+                      },
+                      "ty": 0
+                    }
+                  ],
+                  "parameters": [],
+                  "span": {
+                    "end": 58,
+                    "source": {
+                      "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                      "uri": "memory:functions-behavior.rcore"
+                    },
+                    "start": 40
+                  },
+                  "terminator": {
+                    "Return": {
+                      "Register": 0
+                    }
+                  }
+                }
+              ],
+              "captures": [],
+              "identity": {
+                "Named": {
+                  "symbol": {
+                    "declaration": 0,
+                    "source": {
+                      "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                      "uri": "memory:functions-behavior.rcore"
+                    }
+                  },
+                  "type_arguments": []
+                }
+              },
+              "parameters": [],
+              "result": 0,
+              "span": {
+                "end": 58,
+                "source": {
+                  "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                  "uri": "memory:functions-behavior.rcore"
+                },
+                "start": 40
+              }
+            }
+          ],
+          "policies": {
+            "applied": [],
+            "constructors": [],
+            "conversions": []
+          },
+          "sources": [
+            {
+              "source": {
+                "sha256": "62f9b1292c040bfa641b4bc605a2df73ca8cd86ad9fd39ae33367034cac6c450",
+                "uri": "memory:functions-behavior.rcore"
+              }
+            }
+          ],
+          "types": [
+            {
+              "Scalar": "Int8"
+            }
+          ],
+          "version": 2
+        },
+        "source_backed": true,
+        "stage": "function_execution"
+      }
+    }
+  ]
+}

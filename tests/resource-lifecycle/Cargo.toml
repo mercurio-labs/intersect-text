@@ -1,0 +1,16 @@
+
+["package"]
+"name" = "intersect-resource-lifecycle-tests"
+"version" = "0.1.0-alpha.1"
+"edition" = "2024"
+"rust-version" = "1.88"
+"publish" = false
+
+["lib"]
+"crate-type" = ["rlib", "cdylib"]
+
+["dependencies"]
+"intersect-model-test-support" = { "git" = "https://github.com/mercurio-labs/intersect-model.git", "rev" = "1955d1e9e99cad50049dd1f00096bee5fbe1a160", "version" = "0.1.0-alpha.1" }
+"intersect-model" = { "workspace" = true, "features" = ["xmi"] }
+"intersect-text" = { "workspace" = true }
+"serde_json" = { "workspace" = true }

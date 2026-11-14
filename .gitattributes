@@ -1,0 +1,195 @@
+* text=auto eol=lf
+
+# Preserve the historical proposal exactly, including Markdown hard line breaks.
+docs/framework-proposal.md -text -whitespace
+
+# Conformance inputs are hashed as exact upstream bytes, including line endings.
+fixtures/definition-conformance/upstream/** -text -whitespace
+fixtures/definition-conformance/mercurio/** -text -whitespace
+fixtures/unicode-13/UnicodeData.txt -text -whitespace
+fixtures/unicode-13/LICENSE.txt -text -whitespace
+fixtures/ecore-scalars/mercurio-enum-rules.json -text -whitespace
+
+# Benchmark snapshots and raw results retain the exact bytes recorded in provenance.
+
+# Preserve the exact EMF oracle schema/XMI/report bytes pinned by provenance.
+fixtures/ecore-unsettable/emf-xmi/** -text -whitespace
+
+fixtures/ecore-unsettable/emf-inverse-xmi/** -text -whitespace
+tools/ecore-features/ObserveInverseXmi.java -text
+
+fixtures/ecore-feature-flags/emf-collections-observations.json -text
+tools/ecore-features/ObserveCollections.java -text
+
+fixtures/ecore-feature-flags/emf-indexed-collections-observations.json -text
+tools/ecore-features/ObserveIndexedCollections.java -text
+
+fixtures/ecore-transient/** -text -whitespace
+tools/ecore-features/ObserveTransientXmi.java -text
+tools/ecore-features/ObserveTransientValues.java -text
+
+# Preserve the exact pinned Mercurio closure source excerpts and their digest.
+fixtures/ecore-navigation/mercurio-closure-source.rs.txt -text -whitespace
+
+# Rcore demonstration lineage is pinned to unmodified Pilot bytes.
+fixtures/rcore/day01/upstream/** -text -whitespace
+
+# Pinned operand oracle observations and licenses retain exact imported bytes.
+fixtures/xtext/pinned-kerml-operands/observations.json -text -whitespace
+fixtures/xtext/pinned-kerml-operands/LICENSE-* -text -whitespace
+fixtures/xtext/pinned-kerml-operands/SysML.ecore -text -whitespace
+
+# Native prediction replay and its upstream license retain their recorded bytes.
+crates/intersect-model/assets/fixtures/xtext/connector-prediction/program.json -text -whitespace
+fixtures/xtext/connector-prediction/LICENSE -text -whitespace
+
+# Preserve frozen native provider inputs/results with their recorded byte digests.
+fixtures/xtext/inferred-computed-collection-contexts/*.json -text -whitespace
+fixtures/xtext/inferred-provider-selection/*.json -text -whitespace
+
+# Preserve the complete-profile baseline derived before normalization edits.
+crates/intersect-model/src/definitions/generic_normalization_preparation_baseline.json -text -whitespace
+
+# Preserve exact upstream generator artifacts and their raw-byte provenance.
+fixtures/xtext/terminal-negation/emitted/** -text -whitespace
+
+# Preserve the complete generated-language oracle corpus and its exact byte pins.
+fixtures/xtext/full-generated-lexical/** -text -whitespace
+
+# Preserve all frozen full-generated Until graphs and observations byte for byte.
+fixtures/xtext/full-generated-until/** -text -whitespace
+
+# Preserve the independent literal Until suffix companion and complete raw observations.
+fixtures/xtext/full-generated-until-literal-suffix/** -text -whitespace
+
+# Preserve contextual admission sources and full original/fresh oracle observations.
+fixtures/xtext/contextual-first-rule/** -text -whitespace
+fixtures/xtext/contextual-first-rule-proof-gaps/** -text -whitespace
+fixtures/rcore/bindings/transactions/*.json -text -whitespace
+fixtures/xtext/grouped-terminal-negation/** -text -whitespace
+
+# Preserve exact original cardinality oracle sources, generated artifacts and failures.
+fixtures/xtext/terminal-cardinality/** -text -whitespace
+
+# Preserve original String transport and scoped-hidden verification inputs.
+fixtures/rcore-string-transport/** -text -whitespace
+fixtures/rcore-input-string-transport/** -text -whitespace
+crates/intersect-web/tests/fixtures/hidden-scope-v64/** -text -whitespace
+toolkit/tests/fixtures/hidden-scope-v64/** -text -whitespace
+
+# Preserve exact hidden-policy source, oracle, partial and workflow history bytes.
+fixtures/xtext/rule-hidden-scope/** -text -whitespace
+
+# Preserve complete retained payload/provider observations and worker phase plans.
+fixtures/rcore-numeric-payload/** -text -whitespace
+fixtures/rcore-retained-provider/** -text -whitespace
+fixtures/rcore-retained-json/** -text -whitespace
+fixtures/rcore-json-resource/** -text -whitespace
+fixtures/rcore-reference-domain-pending/** -text -whitespace
+crates/intersect-text/src/document_tests/*.json -text -whitespace
+crates/intersect-web/tests/fixtures/durable_rgb.json -text -whitespace
+crates/intersect-web/tests/fixtures/legacy_document_tail.json -text -whitespace
+toolkit/tests/fixtures/durable-provider-goldens.json -text -whitespace
+fixtures/xtext/durable-documents/** -text -whitespace
+fixtures/rcore-scalar-comparison/** -text -whitespace
+
+# Exact imported-assignment source/oracle/native evidence.
+fixtures/xtext/imported-assignment-v66/** -text -whitespace
+
+# Preserve the byte-pinned physical-draft boundaries and shared control sources.
+crates/intersect-kerml/src/draft.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+crates/intersect-model/src/core/storage/physical_snapshot.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+crates/intersect-kerml/tests/ownership_reads.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+crates/intersect-model/tests/draft_null_defaults.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve exact draft/prediction inputs and independent oracle observations.
+fixtures/draft-null-defaults/** -text -whitespace
+fixtures/feature-draft/** -text -whitespace
+fixtures/xtext-required-object-call-v71/** -text -whitespace
+fixtures/xtext-owned-rule-spans-v71/** -text -whitespace
+fixtures/xtext-follow-frontier-v72/** -text -whitespace
+
+# Preserve exact source/fixture bytes of the 2026-10-20 qualification checkpoint.
+crates/intersect-kerml/tests/namespace_import_draft.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+crates/intersect-model/src/core/storage/draft_construction_absence_tests.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+crates/intersect-model/src/definitions/conversion_validation_preparation.rs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+fixtures/feature-draft/legacy-controls.rs -text -whitespace
+fixtures/kerml-base-scalar-constructors/source-roles.json -text -whitespace
+fixtures/kerml-base-scalar-input/Base.kerml -text -whitespace
+fixtures/kerml-base-scalar-input/ScalarValues.kerml -text -whitespace
+fixtures/local-typed-draft/cold-v7-failure.json -text -whitespace
+fixtures/local-typed-draft/oracle-expectations.json -text -whitespace
+fixtures/local-typed-draft/qualified-original-eight-v1/receipt.json -text -whitespace
+fixtures/namespace-import-draft/oracle.json -text -whitespace
+fixtures/namespace-import-draft/README.md -text -whitespace
+fixtures/xtext-call-free-relative-v75/ManyCallers.xtext -text -whitespace
+fixtures/xtext-call-free-relative-v75/model.ecore -text -whitespace
+fixtures/xtext-call-free-relative-v75/README.md -text -whitespace
+fixtures/xtext-call-free-relative-v75/Small.xtext -text -whitespace
+
+# Preserve complete original-request observations from the C9/C10 checkpoint.
+
+# Preserve exact source and observation bytes of the C11/C12 checkpoint.
+
+# Preserve exact source and observation bytes of the C13 checkpoint.
+
+# Preserve exact C14 receipts, source review and raw portable-control outputs.
+
+# Preserve exact physical-project UI checkpoint receipts and capture descriptors.
+
+# Preserve exact C15 qualification and original-request receipts.
+
+# Preserve exact C16 component receipts, including the retained failure.
+
+# Preserve exact C17 qualification and original negative observations.
+
+# Preserve exact C18 native results and original negative observations.
+
+# Preserve completed C18 public runtime and compiler-pool evidence bytes.
+
+# Preserve exact construction/prediction candidate receipts, including failures.
+
+# Preserve scoped semantic read and shared-return receipts, including failures.
+
+# Preserve C22 shared-call/inventory receipts and failures exactly.
+fixtures/kerml-required-library-inputs/sources/*.kerml -text -whitespace
+fixtures/kerml-required-library-inputs/UPSTREAM-LICENSE -text -whitespace
+fixtures/kerml-required-library-inputs/manifest.json -text -whitespace
+fixtures/kerml-required-library-inputs/README.md -text -whitespace
+
+# Exact Pilot corpus bytes include the pinned upstream checkout line endings.
+fixtures/native-pilot/v1/sources/** -text -whitespace
+fixtures/native-pilot/v1/UPSTREAM-LICENSE -text -whitespace
+# Unexecuted original source evidence is hashed byte for byte.
+fixtures/xtext/pinned-kerml-operands/source-evidence/** -text -whitespace
+
+fixtures/xtext-nullable-fragment-current-v1/original-feature-caller.java.txt -text
+
+# Generated Rcore structure, hashed as exact bytes by every schema declaration.
+crates/intersect-kerml/metamodel/SysML.ecore.rcore -text -whitespace linguist-generated
+
+# Preserve inherited source and evidence bytes in fresh checkouts.
+/fixtures/basic-systems/v1/contract.json -text
+/fixtures/kerml-draft-name-bridge/baseline-provenance.json -text
+/fixtures/kerml-draft-name-bridge/legacy-raw-graph.json -text
+/fixtures/kerml-draft-pinned/KerML.xtext -text
+/fixtures/kerml-draft-pinned/KerMLExpressions.xtext -text
+/fixtures/kerml-draft-pinned/README.md -text
+/fixtures/kerml-draft-pinned/SysML.ecore -text
+/fixtures/kerml-draft-pinned/UPSTREAM-LICENSE -text
+/fixtures/kerml-draft-pinned/sources.json -text
+/fixtures/semantic-read-policy/pilot-observations.json -text
+/fixtures/sysml-usage-reference-v69/LICENSE -text
+/fixtures/sysml-usage-reference-v69/README.md -text
+/fixtures/sysml-usage-reference-v69/Usage_isReference_SettingDelegate.java -text
+/fixtures/sysml-usage-reference-v69/pilot-boolean-observations.json -text
+/fixtures/sysml-usage-reference-v69/pilot-oracle-provenance.json -text
+/fixtures/sysml-usage-reference-v69/provenance.json -text
+/fixtures/xtext-full-predicates-v68/ImportedFullGroupedStar.xtext -text
+/fixtures/xtext-full-predicates-v68/ImportedFullOptional.xtext -text
+/fixtures/xtext-full-predicates-v68/ImportedFullPlus.xtext -text
+/fixtures/xtext-full-predicates-v68/ImportedFullStar.xtext -text
+/fixtures/xtext-full-predicates-v68/README.md -text
+/fixtures/xtext-full-predicates-v68/cardinality-observations.json -text
+/fixtures/xtext-full-predicates-v68/observations.json -text
+/fixtures/xtext-full-predicates-v68/provenance.json -text

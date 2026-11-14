@@ -1,0 +1,64 @@
+{
+  "producer": {
+    "bytes": 2559,
+    "sha256": "2b6dac3cd671df2ae4ca3f60085a934ca6e968b7044bf29fac5e81dbb4711258"
+  },
+  "source_freeze": {
+    "bytes": 102036,
+    "sha256": "8983042e5c81857d6f4539a74b655a3a3c24757588e1383fc2eb1013ecb58af0"
+  },
+  "steps": [
+    {
+      "label": "public-json",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "intersect-web",
+        "--example",
+        "terminal_cardinality_json_probe",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "label": "public-shared-controls",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "intersect-web",
+        "--test",
+        "durable_document",
+        "--test",
+        "durable_rgb",
+        "--locked",
+        "--offline",
+        "--",
+        "--nocapture"
+      ]
+    },
+    {
+      "label": "strict-lint",
+      "command": [
+        "cargo",
+        "clippy",
+        "-p",
+        "intersect-model",
+        "-p",
+        "intersect-xtext",
+        "-p",
+        "intersect-web",
+        "--all-features",
+        "--all-targets",
+        "--locked",
+        "--offline",
+        "--",
+        "-D",
+        "warnings"
+      ]
+    }
+  ],
+  "scope": "Private real native JSON and identical shared controls including exact5 source archive contexts and34 full analyses; no actual source/cache/public mutation",
+  "gate_closures": []
+}

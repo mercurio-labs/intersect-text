@@ -1,0 +1,46 @@
+[
+  {
+    "id": "node-matrix",
+    "source": "grammar node.Matrix with parent.One, parent.Two hidden(WS)\ngenerate g 'urn:generated' as gen\nimport 'urn:external' as ext\n@Override @Deprecated Rule<P,Q> returns gen::Model hidden(WS,COMMENT):\n <P | Q & !false> name=ID\n | (a?='a' & b+='b'?)\n | {gen::Model} 'x' {gen::Model.items+=current}\n | =>('left' Other<flag=P,true>)\n | ->name=(ID | 'keyword')\n | ref=[gen::Model|'fixed'];\nfragment Any *: 'any';\nterminal fragment Frag: ('a'..'z')+;\nterminal TOKEN returns ext::EString: Frag !('a'|'b') ->('x'|'y') . EOF;\nenum Choice returns gen::Choice: One='one' | Two;\n"
+  },
+  {
+    "id": "comment-cr",
+    "source": "// comment\rgrammar test Rule: 'x';"
+  },
+  {
+    "id": "comment-lf",
+    "source": "// comment\ngrammar test Rule: 'x';"
+  },
+  {
+    "id": "comment-crlf",
+    "source": "// comment\r\ngrammar test Rule: 'x';"
+  },
+  {
+    "id": "formfeed-space",
+    "source": "grammar\ftest Rule: 'x';"
+  },
+  {
+    "id": "split-predicate",
+    "source": "grammar test Rule: = >'x';"
+  },
+  {
+    "id": "split-qualified",
+    "source": "grammar test Rule returns a: :B: 'x';"
+  },
+  {
+    "id": "incomplete-guard",
+    "source": "grammar test Rule<P>: <P &> 'x';"
+  },
+  {
+    "id": "unterminated-string",
+    "source": "grammar test Rule: 'x;"
+  },
+  {
+    "id": "trailing-comment-cr",
+    "source": "grammar test Rule: 'x'; // trailing\r"
+  },
+  {
+    "id": "trailing-comment-eof",
+    "source": "grammar test Rule: 'x'; // trailing"
+  }
+]

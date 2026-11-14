@@ -1,0 +1,3367 @@
+//! Handwritten Xtext interpreter and explicit unique-name scope policy.
+//! Shared Rcore execution belongs to intersect-model.
+//! It consumes compiled definitions; it does not implement KerML/SysML policy.
+use intersect_model::core::model::Model;
+use intersect_model::core::storage::{self, ModelRead, ModelStore, Query};
+pub use intersect_model::definitions::{compiler, grammar};
+pub mod distribution;
+use intersect_model::definitions::{
+    grammar::{Expr, Kind, Token, token_cursor::TokenCursor},
+    schema::{Diagnostic, Expression, Package},
+};
+use serde::{Deserialize, Serialize};
+use serde_json::{Value, json};
+use std::borrow::Cow;
+use std::collections::{BTreeMap, BTreeSet};
+mod datatype_text;
+pub mod document;
+pub mod entry;
+pub mod inference;
+pub use inference::ordinary;
+mod replay;
+use datatype_text::{DatatypeText, TextCheckpoint};
+use intersect_model::initialization;
+use intersect_model::query;
+use intersect_model::setting;
+pub use replay::{
+    compile_inputs_with_context as compile_inference_inputs_with_context, recompile,
+    recompile_with_context, recompile_with_source_policy,
+};
+
+mod rule_conversion;
+
+#[cfg(test)]
+mod document_tests;
+#[cfg(test)]
+mod index_policy_tests;
+#[cfg(test)]
+mod parser_tests;
+
+#[cfg(test)]
+fn compile_migrated_fixture(
+    ecore: &str,
+    xtext: &str,
+    behavior: &str,
+) -> Result<Package, Vec<Diagnostic>> {
+    compile_migrated_fixture_with_profile(ecore, xtext, behavior, grammar::Profile::default())
+}
+#[cfg(test)]
+fn compile_migrated_fixture_with_profile(
+    ecore: &str,
+    xtext: &str,
+    behavior: &str,
+    profile: grammar::Profile,
+) -> Result<Package, Vec<Diagnostic>> {
+    use intersect_model::definitions::bundle::{DefinitionSource, SourceKind};
+    let report = intersect_model::migration::migrate_ecore(
+        DefinitionSource::new("memory:oracle.ecore", SourceKind::Ecore, ecore),
+        "memory:fixture.rcore",
+    )
+    .map_err(|error| {
+        vec![Diagnostic::new(
+            "ecore",
+            error.span.start,
+            error.span.end,
+            error.message,
+        )]
+    })?;
+    let converted = report.converted.ok_or_else(|| {
+        vec![Diagnostic::new(
+            "ecore",
+            0,
+            ecore.len(),
+            format!("Fixture migration failed: {:?}", report.issues),
+        )]
+    })?;
+    compiler::compile_rcore_with_profile(&converted.text, Some(xtext), Some(behavior), profile)
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct Source {
+    pub uri: String,
+    pub text: String,
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct Reference {
+    pub uri: String,
+    pub start: usize,
+    pub end: usize,
+    pub target: String,
+}
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct Evaluation {
+    pub model: Model,
+    pub diagnostics: Vec<Diagnostic>,
+    pub references: Vec<Reference>,
+    pub derived: BTreeMap<String, BTreeMap<String, Value>>,
+}
+/// Host-selected deterministic evaluation budgets. `None` removes that ceiling.
+/// These are not memory quotas; hosts must manage cancellation and memory separately.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct EvaluationLimits {
+    pub resources: Option<usize>,
+    pub input_bytes: Option<usize>,
+    pub elements_per_resource: Option<usize>,
+    pub tokens_per_resource: Option<usize>,
+    pub steps_per_resource: Option<usize>,
+    pub nesting: usize,
+}
+impl EvaluationLimits {
+    /// No size or step ceiling. Keep the recursive parser's nesting protection.
+    pub const fn native() -> Self {
+        Self {
+            resources: None,
+            input_bytes: None,
+            elements_per_resource: None,
+            tokens_per_resource: None,
+            steps_per_resource: None,
+            nesting: 64,
+        }
+    }
+    /// The browser workbench's original resource policy.
+    pub const fn workbench() -> Self {
+        Self {
+            resources: Some(8),
+            input_bytes: Some(256_000),
+            elements_per_resource: Some(512),
+            tokens_per_resource: Some(50_000),
+            steps_per_resource: Some(100_000),
+            nesting: 64,
+        }
+    }
+}
+impl Default for EvaluationLimits {
+    fn default() -> Self {
+        Self::native()
+    }
+}
+#[derive(Clone)]
+struct Pending {
+    owner: String,
+    field: String,
+    spelling: String,
+    target: String,
+    uri: String,
+    start: usize,
+    end: usize,
+    index: Option<usize>,
+    active: bool,
+}
+#[derive(Debug)]
+enum ParseError {
+    Syntax(String),
+    Budget(String),
+    Storage(String),
+}
+impl ParseError {
+    fn message(self) -> String {
+        match self {
+            Self::Syntax(message) | Self::Budget(message) | Self::Storage(message) => message,
+        }
+    }
+}
+// ModelStore savepoints own model rollback; this journal only restores parser-local references.
+struct Undo<'a> {
+    owner: usize,
+    field: &'a str,
+    unresolved: Option<usize>,
+}
+// Origin travels with the actual current-object slot, including rollback.
+// An assigned child value uses a separate slot and cannot replace caller origin.
+#[derive(Clone, Copy)]
+struct Current {
+    index: usize,
+    delegated: bool,
+}
+impl Current {
+    fn local(index: usize) -> Self {
+        Self {
+            index,
+            delegated: false,
+        }
+    }
+    fn called(index: usize) -> Self {
+        Self {
+            index,
+            delegated: true,
+        }
+    }
+}
+struct Checkpoint {
+    document: Option<document::Mark>,
+    storage: storage::Checkpoint,
+    text: Option<TextCheckpoint>,
+    cursor: TokenCursor,
+    datatype_span: Option<(usize, usize)>,
+    elements: usize,
+    undo: usize,
+    pending: usize,
+    depth: usize,
+}
+#[derive(Clone, Copy)]
+struct LexicalType<'a> {
+    datatype: Option<&'a intersect_model::definitions::datatypes::Datatype>,
+    target: &'a str,
+    constrained: bool,
+}
+struct Machine<'a, 'store, S: ModelStore> {
+    document: Option<Box<document::Capture>>,
+    document_origin: Option<&'a str>,
+    document_feature: Option<(usize, &'a str)>,
+    retained_tokens: bool,
+    hidden_policy: &'a [String],
+    raw_entry: bool,
+    construction: Option<(&'a str, usize)>,
+    settings: Option<&'a setting::TextSettings<'a>>,
+    raw_source: &'a str,
+    utf16_positions: Vec<usize>,
+    datatype_text: Option<DatatypeText>,
+    conversions: Option<&'a intersect_model::definitions::conversion::ConversionRegistry<'a>>,
+    initializers: Option<&'a initialization::PackageInitializers>,
+    lexical_types: &'a BTreeMap<String, BTreeMap<String, LexicalType<'a>>>,
+    unsettable: &'a BTreeMap<String, BTreeSet<String>>,
+    keywords: &'a BTreeSet<String>,
+    undo: Vec<Undo<'a>>,
+    limits: EvaluationLimits,
+    package: &'a Package,
+    uri: &'a str,
+    tokens: Vec<Token<Cow<'a, str>>>,
+    cursor: TokenCursor,
+    datatype_span: Option<(usize, usize)>,
+    store: &'store mut S,
+    elements: usize,
+    pending: Vec<Pending>,
+    scalar_pending: BTreeMap<(usize, &'a str), usize>,
+    steps: usize,
+    depth: usize,
+    // Preserve called-rule values in caller-generic fragment bodies. The model
+    // API admits them against the actual owner; field-directed coercion would
+    // incorrectly turn a numeric EString into an integer.
+    generic_fragment: bool,
+    farthest: usize,
+    diagnostic_position: Option<usize>,
+    expected: String,
+}
+fn hidden_token<T>(
+    token: &Token<T>,
+    policy: &[String],
+    lexical: &grammar::LexerPrediction,
+) -> Result<bool, String> {
+    let alternative = token
+        .lexical_alternative
+        .ok_or("Missing retained token classification")?;
+    Ok(
+        matches!(lexical.alternative(alternative)?, grammar::LexicalAlternative::Terminal(name) if policy.contains(name)),
+    )
+}
+impl<'a, S: ModelStore> Machine<'a, '_, S> {
+    fn previous_token(&self) -> Option<&Token<Cow<'a, str>>> {
+        let index = if self.retained_tokens {
+            self.cursor.last_matched?
+        } else {
+            self.cursor.position.saturating_sub(1)
+        };
+        self.tokens.get(index)
+    }
+    fn skip_hidden(&mut self) -> Result<(), ParseError> {
+        if !self.retained_tokens {
+            return Ok(());
+        }
+        let lexical = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|grammar| grammar.lexical_prediction.as_ref())
+            .ok_or_else(|| ParseError::Storage("Missing retained lexical program".into()))?;
+        let mut remaining = self
+            .limits
+            .steps_per_resource
+            .map(|limit| limit.saturating_sub(self.steps));
+        let before = remaining;
+        let document = self.document.is_some();
+        let result = self.cursor.skip_hidden(
+            &self.tokens,
+            |token| {
+                if document && token.lexical_alternative.is_none() {
+                    Ok(true)
+                } else {
+                    hidden_token(token, self.hidden_policy, lexical)
+                }
+            },
+            &mut remaining,
+        );
+        if let (Some(before), Some(after)) = (before, remaining) {
+            self.steps = self.steps.saturating_add(before - after);
+        }
+        result.map_err(|error| {
+            if error.contains("budget") {
+                ParseError::Budget(error)
+            } else {
+                ParseError::Storage(error)
+            }
+        })
+    }
+    fn enter_hidden(
+        &mut self,
+        policy: Option<&'a [String]>,
+    ) -> Result<Option<&'a [String]>, ParseError> {
+        if !self.retained_tokens {
+            return Ok(None);
+        }
+        // Upstream setHiddenTokens observes LT(1) under the OLD policy first.
+        self.skip_hidden()?;
+        Ok(policy.map(|policy| std::mem::replace(&mut self.hidden_policy, policy)))
+    }
+    fn restore_hidden(&mut self, previous: Option<&'a [String]>) -> Result<(), ParseError> {
+        let Some(previous) = previous else {
+            return Ok(());
+        };
+        // Always restore the parent, including a denied child-trivia admission.
+        let result = self.skip_hidden();
+        self.hidden_policy = previous;
+        result
+    }
+    fn assignment_owner(&mut self, owner: &mut Option<Current>) -> Result<usize, ParseError> {
+        if owner.is_none()
+            && self.package.grammar.as_ref().is_some_and(|g| {
+                matches!(
+                    g.profile,
+                    grammar::Profile::NativeV28
+                        | grammar::Profile::NativeV29
+                        | grammar::Profile::NativeV30
+                        | grammar::Profile::NativeV31
+                        | grammar::Profile::NativeV32
+                        | grammar::Profile::NativeV33
+                        | grammar::Profile::NativeV34
+                        | grammar::Profile::NativeV35
+                        | grammar::Profile::NativeV36
+                        | grammar::Profile::NativeV37
+                        | grammar::Profile::NativeV38
+                        | grammar::Profile::NativeV39
+                        | grammar::Profile::NativeV40
+                        | grammar::Profile::NativeV41
+                        | grammar::Profile::NativeV42
+                        | grammar::Profile::NativeV43
+                        | grammar::Profile::NativeV44
+                        | grammar::Profile::NativeV45
+                        | grammar::Profile::NativeV46
+                        | grammar::Profile::NativeV47
+                        | grammar::Profile::NativeV48
+                        | grammar::Profile::NativeV49
+                        | grammar::Profile::NativeV50
+                        | grammar::Profile::NativeV51
+                        | grammar::Profile::NativeV52
+                        | grammar::Profile::NativeV53
+                        | grammar::Profile::NativeV54
+                        | grammar::Profile::NativeV55
+                        | grammar::Profile::NativeV56
+                        | grammar::Profile::NativeV57
+                        | grammar::Profile::NativeV58
+                        | grammar::Profile::NativeV59
+                        | grammar::Profile::NativeV60
+                        | grammar::Profile::NativeV61
+                        | grammar::Profile::NativeV62
+                        | grammar::Profile::NativeV63
+                        | grammar::Profile::NativeV64
+                        | grammar::Profile::NativeV65
+                )
+            })
+        {
+            let (class, start) = self.construction.ok_or_else(|| {
+                ParseError::Storage("Missing implicit construction context".into())
+            })?;
+            *owner = Some(Current::local(self.create_current(class, start)?));
+        }
+        owner
+            .as_ref()
+            .map(|current| current.index)
+            .ok_or_else(|| ParseError::Storage("Assignment requires a current object".into()))
+    }
+    fn identity(&self, index: usize) -> String {
+        format!("{}#{index}", self.uri)
+    }
+    fn checkpoint(&mut self) -> Result<Checkpoint, ParseError> {
+        let document = self
+            .document
+            .as_mut()
+            .map(|document| document.mark())
+            .transpose()
+            .map_err(ParseError::Storage)?;
+        let storage = match self.store.begin() {
+            Ok(storage) => storage,
+            Err(error) => {
+                if let (Some(document), Some(mark)) = (self.document.as_mut(), document) {
+                    document.rollback(mark).map_err(ParseError::Storage)?;
+                }
+                return Err(ParseError::Storage(error));
+            }
+        };
+        Ok(Checkpoint {
+            document,
+            storage,
+            text: self.datatype_text.as_ref().map(DatatypeText::checkpoint),
+            cursor: self.cursor,
+            datatype_span: self.datatype_span,
+            elements: self.elements,
+            undo: self.undo.len(),
+            pending: self.pending.len(),
+            depth: self.depth,
+        })
+    }
+    fn commit_checkpoint(&mut self, checkpoint: Checkpoint) -> Result<(), ParseError> {
+        if let (Some(document), Some(mark)) = (self.document.as_ref(), checkpoint.document.as_ref())
+        {
+            document.check_mark(mark).map_err(ParseError::Storage)?;
+        }
+        if let Err(error) = self.store.commit(&checkpoint.storage) {
+            self.store
+                .rollback(&checkpoint.storage)
+                .map_err(ParseError::Storage)?;
+            if let (Some(document), Some(mark)) = (self.document.as_mut(), checkpoint.document) {
+                document.rollback(mark).map_err(ParseError::Storage)?;
+            }
+            return Err(ParseError::Storage(error));
+        }
+        if let (Some(document), Some(mark)) = (self.document.as_mut(), checkpoint.document) {
+            document.commit(mark).map_err(ParseError::Storage)?;
+        }
+        Ok(())
+    }
+    fn rollback(&mut self, checkpoint: Checkpoint) -> Result<(), ParseError> {
+        match (self.datatype_text.as_mut(), checkpoint.text) {
+            (Some(text), Some(previous)) => text.rollback(previous).map_err(ParseError::Storage)?,
+            (None, None) => {}
+            _ => {
+                return Err(ParseError::Storage(
+                    "Invalid datatype parsing context".into(),
+                ));
+            }
+        }
+        self.store
+            .rollback(&checkpoint.storage)
+            .map_err(ParseError::Storage)?;
+        while self.undo.len() > checkpoint.undo {
+            let undo = self
+                .undo
+                .pop()
+                .ok_or_else(|| ParseError::Storage("Missing parser undo entry".into()))?;
+            self.set_scalar_pending(undo.owner, undo.field, undo.unresolved)?;
+        }
+        if let (Some(document), Some(mark)) = (self.document.as_mut(), checkpoint.document) {
+            document.rollback(mark).map_err(ParseError::Storage)?;
+        }
+        self.elements = checkpoint.elements;
+        self.scalar_pending
+            .retain(|(owner, _), _| *owner < checkpoint.elements);
+        self.cursor = checkpoint.cursor;
+        self.datatype_span = checkpoint.datatype_span;
+        self.pending.truncate(checkpoint.pending);
+        self.depth = checkpoint.depth;
+        Ok(())
+    }
+    fn set_scalar_pending(
+        &mut self,
+        owner: usize,
+        field: &'a str,
+        next: Option<usize>,
+    ) -> Result<(), ParseError> {
+        if let Some(previous) = self.scalar_pending.remove(&(owner, field)) {
+            self.pending
+                .get_mut(previous)
+                .ok_or_else(|| ParseError::Storage("Invalid parser reference state".into()))?
+                .active = false;
+        }
+        if let Some(next) = next {
+            self.pending
+                .get_mut(next)
+                .ok_or_else(|| ParseError::Storage("Invalid parser reference state".into()))?
+                .active = true;
+            self.scalar_pending.insert((owner, field), next);
+        }
+        Ok(())
+    }
+    fn fail(&mut self, expected: impl Into<String>) -> ParseError {
+        let expected = expected.into();
+        if self.cursor.position >= self.farthest {
+            self.farthest = self.cursor.position;
+            self.expected = expected.clone();
+        }
+        ParseError::Syntax(expected)
+    }
+    fn create_current(&mut self, class: &str, start: usize) -> Result<usize, ParseError> {
+        let package = self.package;
+        let index = self.elements;
+        let id = self.identity(index);
+        // The resource transaction constructs objects directly in the shared
+        // store. Local ordinals rewind on backtracking to preserve source IDs.
+        if package
+            .semantics
+            .initializers
+            .iter()
+            .any(|declaration| declaration.class == class)
+        {
+            let remaining = self
+                .limits
+                .steps_per_resource
+                .map(|limit| limit.saturating_sub(self.steps))
+                .unwrap_or(usize::MAX);
+            let mut budget = intersect_model::core::query::QueryBudget::new(remaining);
+            let result = self
+                .initializers
+                .ok_or_else(|| ParseError::Storage("Missing initializer dispatch".into()))?
+                .create_for_text(
+                    self.store,
+                    &package.schema,
+                    class,
+                    storage::Construction {
+                        id: &id,
+                        resource: self.uri,
+                        authored: &[],
+                    },
+                    self.conversions,
+                    &mut budget,
+                );
+            self.steps = self.steps.saturating_add(budget.reads);
+            result.map_err(ParseError::Storage)?;
+            self.store
+                .set_span(&id, start, start)
+                .map_err(ParseError::Storage)?;
+        } else {
+            self.store
+                .create_element(&self.package.schema, &id, class, self.uri, start, start)
+                .map_err(ParseError::Storage)?;
+        }
+        self.elements += 1;
+        if let Some(document) = self.document.as_mut() {
+            document.associate(index).map_err(ParseError::Storage)?;
+        }
+        Ok(index)
+    }
+    fn current_index(&self, value: &Value) -> Result<usize, ParseError> {
+        value
+            .as_str()
+            .and_then(|id| id.strip_prefix(self.uri))
+            .and_then(|tail| tail.strip_prefix('#'))
+            .and_then(|index| index.parse().ok())
+            .filter(|index| *index < self.elements)
+            .ok_or_else(|| ParseError::Storage("Invalid current-object identity".into()))
+    }
+    fn computed_assignment(
+        &mut self,
+        owner: usize,
+        feature: &str,
+        many: bool,
+        value: Value,
+    ) -> Result<bool, ParseError> {
+        let Some(settings) = self.settings else {
+            return Ok(false);
+        };
+        let id = self.identity(owner);
+        let class = self
+            .store
+            .class(&id)
+            .map_err(ParseError::Storage)?
+            .ok_or_else(|| ParseError::Storage("Missing computed owner".into()))?;
+        if !settings.supports(&class, feature) {
+            return Ok(false);
+        }
+        let remaining = self
+            .limits
+            .steps_per_resource
+            .map(|n| n.saturating_sub(self.steps))
+            .unwrap_or(usize::MAX);
+        let mut budget = intersect_model::core::query::QueryBudget::new(remaining);
+        let edit = if many {
+            storage::ComputedEdit::Append(value)
+        } else {
+            storage::ComputedEdit::Set(value)
+        };
+        let result = settings.apply(
+            self.store,
+            &id,
+            (&class, feature),
+            edit,
+            &mut budget,
+            self.conversions,
+        );
+        self.steps = self.steps.saturating_add(budget.reads);
+        result.map_err(ParseError::Storage)?;
+        Ok(true)
+    }
+    fn capture_current(
+        &mut self,
+        owner: Current,
+        class: &str,
+        feature: &'a str,
+        many: bool,
+    ) -> Result<usize, ParseError> {
+        let delegated = self.retained_tokens && owner.delegated;
+        let owner = owner.index;
+        let mut span = None;
+        self.store
+            .inspect(&self.identity(owner), &mut |object| {
+                span = Some((object.start(), object.end()));
+                Ok(())
+            })
+            .map_err(ParseError::Storage)?;
+        let (start, previous_end) =
+            span.ok_or_else(|| ParseError::Storage("Missing captured object".into()))?;
+        let end = self.previous_token().map_or(start, |token| token.end);
+        if !delegated && end != previous_end {
+            self.store
+                .set_span(&self.identity(owner), start, end)
+                .map_err(ParseError::Storage)?;
+        }
+        let action_start = if self.retained_tokens {
+            self.construction.map_or(start, |(_, start)| start)
+        } else {
+            start
+        };
+        let next = self.create_current(class, action_start)?;
+        let captured = Value::String(self.identity(owner));
+        if self.computed_assignment(next, feature, many, captured.clone())? {
+            return Ok(next);
+        }
+        self.assignment_undo(next, feature, many)?;
+        if many {
+            self.store
+                .append_value(&self.identity(next), feature, captured)
+                .map_err(ParseError::Storage)?;
+        } else {
+            self.store
+                .set_value(&self.identity(next), feature, Some(captured))
+                .map_err(ParseError::Storage)?;
+            self.set_scalar_pending(next, feature, None)?;
+        }
+        Ok(next)
+    }
+    fn document_symbol(&self, index: usize) -> Result<grammar::PredictionSymbol, ParseError> {
+        let Some(token) = self.tokens.get(index) else {
+            return Ok(grammar::PredictionSymbol::End);
+        };
+        let lexical = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|g| g.lexical_prediction.as_ref())
+            .ok_or_else(|| ParseError::Storage("Missing document lexical program".into()))?;
+        let selected = token
+            .lexical_alternative
+            .ok_or_else(|| ParseError::Storage("Missing original lexical winner".into()))?;
+        Ok(
+            match lexical.alternative(selected).map_err(ParseError::Storage)? {
+                grammar::LexicalAlternative::Keyword(s) => {
+                    grammar::PredictionSymbol::Keyword(s.clone())
+                }
+                grammar::LexicalAlternative::Terminal(s) => {
+                    grammar::PredictionSymbol::Terminal(s.clone())
+                }
+            },
+        )
+    }
+    fn document_peek_after(&mut self) -> Result<usize, ParseError> {
+        let mut cursor = self.cursor;
+        cursor.position = cursor
+            .position
+            .checked_add(1)
+            .ok_or_else(|| ParseError::Storage("Document cursor overflow".into()))?;
+        let lexical = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|g| g.lexical_prediction.as_ref())
+            .ok_or_else(|| ParseError::Storage("Missing document lexical program".into()))?;
+        let mut work = self
+            .limits
+            .steps_per_resource
+            .map(|limit| limit.saturating_sub(self.steps));
+        let before = work;
+        let result = cursor.skip_hidden(
+            &self.tokens,
+            |t| {
+                if t.lexical_alternative.is_none() {
+                    Ok(true)
+                } else {
+                    hidden_token(t, self.hidden_policy, lexical)
+                }
+            },
+            &mut work,
+        );
+        if let (Some(before), Some(after)) = (before, work) {
+            self.steps = self.steps.saturating_add(before - after)
+        }
+        result.map_err(ParseError::Budget)?;
+        Ok(cursor.position)
+    }
+    fn document_follow(
+        &mut self,
+        path: &str,
+        callers: usize,
+    ) -> Result<BTreeSet<grammar::PredictionSymbol>, ParseError> {
+        let program = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|g| g.parser_prediction.as_ref())
+            .ok_or_else(|| ParseError::Storage("Missing document prediction program".into()))?;
+        let document = self
+            .document
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing document capture".into()))?;
+        let callers = document
+            .calls
+            .get(..callers)
+            .ok_or_else(|| ParseError::Storage("Invalid document return context".into()))?
+            .iter()
+            .map(String::as_str)
+            .collect::<Vec<_>>();
+        let mut work = self
+            .limits
+            .steps_per_resource
+            .map(|limit| limit.saturating_sub(self.steps));
+        let before = work;
+        let result = program.recovery_symbols_with_work(path, &callers, &mut work);
+        if let (Some(before), Some(after)) = (before, work) {
+            self.steps = self.steps.saturating_add(before - after)
+        }
+        result.map_err(|e| {
+            if e.contains("budget") || e.contains("depth") {
+                ParseError::Budget(e)
+            } else {
+                ParseError::Storage(e)
+            }
+        })
+    }
+    fn document_expected(symbol: &grammar::PredictionSymbol) -> String {
+        match symbol {
+            grammar::PredictionSymbol::Keyword(s) => format!("'{s}'"),
+            grammar::PredictionSymbol::Terminal(s) => {
+                format!("RULE_{}", s.rsplit("::").next().unwrap_or(s))
+            }
+            grammar::PredictionSymbol::End => "EOF".into(),
+        }
+    }
+    fn document_report(
+        &mut self,
+        message: String,
+        expected: Option<String>,
+        recovery: document::Recovery,
+        force: bool,
+    ) -> Result<(), ParseError> {
+        let at = self.cursor.position;
+        let start = self.document_at(at);
+        let end = self
+            .document
+            .as_ref()
+            .and_then(|d| d.token_range(at))
+            .map_or(start, |r| r.end);
+        self.document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing document report context".into()))?
+            .report(
+                message,
+                intersect_model::core::text_document::TextRange { start, end },
+                expected,
+                recovery,
+                force,
+            )
+            .map_err(ParseError::Storage)
+    }
+    fn document_conversion_failure(
+        &mut self,
+        start: usize,
+        message: String,
+        target: document::ConversionNode,
+    ) -> Result<Value, ParseError> {
+        let end = self
+            .cursor
+            .position
+            .checked_sub(1)
+            .ok_or_else(|| ParseError::Storage("Conversion has no committed token".into()))?;
+        let capture = self
+            .document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing conversion document context".into()))?;
+        let first = capture
+            .token_range(start)
+            .ok_or_else(|| ParseError::Storage("Missing first conversion source token".into()))?;
+        let last = capture
+            .token_range(end)
+            .ok_or_else(|| ParseError::Storage("Missing final conversion source token".into()))?;
+        capture
+            .conversion_issue(
+                message,
+                intersect_model::core::text_document::TextRange {
+                    start: first.start,
+                    end: last.end,
+                },
+                target,
+            )
+            .map_err(ParseError::Storage)?;
+        Ok(Value::Null)
+    }
+    fn document_discard(&mut self) -> Result<(), ParseError> {
+        self.step()?;
+        let index = self.cursor.position;
+        if index >= self.tokens.len() {
+            return Ok(());
+        }
+        self.document_flush(index)?;
+        let key = match self.document_symbol(index)? {
+            grammar::PredictionSymbol::Terminal(name) => Some(format!("terminal/{name}")),
+            _ => None,
+        };
+        let previous = self.document_feature.take();
+        let result = self.document_leaf(index, key.as_deref(), false);
+        self.document_feature = previous;
+        result?;
+        self.cursor.position += 1;
+        self.skip_hidden()
+    }
+    /// True consumes an actually observed unwanted token and retries the real
+    /// match; false inserts a logical missing token with no synthetic source leaf.
+    fn document_recover_token(
+        &mut self,
+        expected: grammar::PredictionSymbol,
+    ) -> Result<bool, ParseError> {
+        let index = self.cursor.position;
+        let label = Self::document_expected(&expected);
+        let following = if index < self.tokens.len() {
+            Some(self.document_peek_after()?)
+        } else {
+            None
+        };
+        let unwanted = if let Some(at) = following {
+            self.document_symbol(at)? == expected
+        } else {
+            false
+        };
+        if unwanted {
+            let message = self
+                .document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                .token_message(index, "extraneous input '", &format!("' expecting {label}"))
+                .map_err(ParseError::Storage)?;
+            self.document_report(message, Some(label), document::Recovery::Delete, false)?;
+            self.document_discard()?;
+            self.document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                .recovered_match = true;
+            return Ok(true);
+        }
+        // The generated outer wrapper uses FOLLOW_2={EOR}; with no live
+        // caller frames ANTLR keeps EOR, admitting missing EOF at any LA(1).
+        // Deletion above still takes precedence. Inner rule end follows remain
+        // the exact actual call-return context, never a grammar-wide union.
+        if expected == grammar::PredictionSymbol::End {
+            let message = self
+                .document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                .token_message(index, "missing EOF at '", "'")
+                .map_err(ParseError::Storage)?;
+            self.document_report(message, Some(label), document::Recovery::Insert, false)?;
+            return Ok(false);
+        }
+        if index < self.tokens.len() {
+            let path = self.document_origin.ok_or_else(|| {
+                ParseError::Storage("Missing original mismatch occurrence".into())
+            })?;
+            let calls = self
+                .document
+                .as_ref()
+                .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                .calls
+                .len();
+            if self
+                .document_follow(path, calls)?
+                .contains(&self.document_symbol(index)?)
+            {
+                let message = self
+                    .document
+                    .as_mut()
+                    .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                    .token_message(index, &format!("missing {label} at '"), "'")
+                    .map_err(ParseError::Storage)?;
+                self.document_report(message, Some(label), document::Recovery::Insert, false)?;
+                return Ok(false);
+            }
+        }
+        let message = self
+            .document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+            .token_message(index, "mismatched input '", &format!("' expecting {label}"))
+            .map_err(ParseError::Storage)?;
+        Err(self.fail(message))
+    }
+    fn document_recover_rule(&mut self, message: String) -> Result<(), ParseError> {
+        let message = if message == "No viable predicted alternative" {
+            self.document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+                .token_message(
+                    self.cursor.position,
+                    "no viable alternative at input '",
+                    "'",
+                )
+                .map_err(ParseError::Storage)?
+        } else {
+            message
+        };
+        self.document_report(message, None, document::Recovery::Resynchronize, true)?;
+        let previous = self
+            .document
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+            .last_error_index;
+        if previous == Some(self.cursor.position) && self.cursor.position < self.tokens.len() {
+            self.document_discard()?;
+        }
+        self.document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+            .last_error_index = Some(self.cursor.position);
+        let program = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|g| g.parser_prediction.as_ref())
+            .ok_or_else(|| ParseError::Storage("Missing document prediction program".into()))?;
+        let calls = self
+            .document
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing document recovery context".into()))?
+            .calls
+            .iter()
+            .map(String::as_str)
+            .collect::<Vec<_>>();
+        let mut work = self
+            .limits
+            .steps_per_resource
+            .map(|limit| limit.saturating_sub(self.steps));
+        let before = work;
+        let mut follow = BTreeSet::from([grammar::PredictionSymbol::End]);
+        let result = (|| -> Result<(), String> {
+            for (index, path) in calls.iter().enumerate() {
+                follow.extend(program.recovery_symbols_with_work(
+                    path,
+                    &calls[..index],
+                    &mut work,
+                )?);
+            }
+            Ok(())
+        })();
+        if let (Some(before), Some(after)) = (before, work) {
+            self.steps = self.steps.saturating_add(before - after)
+        }
+        result.map_err(|e| {
+            if e.contains("budget") || e.contains("depth") {
+                ParseError::Budget(e)
+            } else {
+                ParseError::Storage(e)
+            }
+        })?;
+        while !follow.contains(&self.document_symbol(self.cursor.position)?) {
+            self.document_discard()?;
+        }
+        Ok(())
+    }
+    fn document_at(&self, index: usize) -> usize {
+        self.utf16_positions
+            .get(index)
+            .copied()
+            .unwrap_or_else(|| self.raw_source.encode_utf16().count())
+    }
+    fn document_leaf(
+        &mut self,
+        index: usize,
+        origin: Option<&str>,
+        hidden: bool,
+    ) -> Result<(), ParseError> {
+        if self.document.is_none() {
+            return Ok(());
+        }
+        self.tokens
+            .get(index)
+            .ok_or_else(|| ParseError::Storage("Missing document lexical record".into()))?;
+        let range = self
+            .document
+            .as_ref()
+            .and_then(|d| d.token_range(index))
+            .ok_or_else(|| {
+                ParseError::Storage("Missing exact document source-unit range".into())
+            })?;
+        let document = self
+            .document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing document capture".into()))?;
+        let node = if let Some(node) = document
+            .lexical_leaf(index, range)
+            .map_err(ParseError::Storage)?
+        {
+            node
+        } else {
+            document
+                .leaf(origin, range, hidden)
+                .map_err(ParseError::Storage)?
+        };
+        if !hidden && let Some((owner, feature)) = self.document_feature {
+            document
+                .feature(&format!("{}#{owner}", self.uri), feature, node)
+                .map_err(ParseError::Storage)?;
+        }
+        document.emitted = index + 1;
+        Ok(())
+    }
+    fn document_flush(&mut self, until: usize) -> Result<(), ParseError> {
+        while let Some(index) = self
+            .document
+            .as_ref()
+            .map(|d| d.emitted)
+            .filter(|index| *index < until)
+        {
+            let token = self
+                .tokens
+                .get(index)
+                .ok_or_else(|| ParseError::Storage("Missing retained document trivia".into()))?;
+            let key = token
+                .lexical_alternative
+                .and_then(|index| {
+                    self.package
+                        .grammar
+                        .as_ref()?
+                        .lexical_prediction
+                        .as_ref()?
+                        .alternative(index)
+                        .ok()
+                })
+                .and_then(|a| {
+                    if let grammar::LexicalAlternative::Terminal(name) = a {
+                        Some(format!("terminal/{name}"))
+                    } else {
+                        None
+                    }
+                });
+            self.document_leaf(index, key.as_deref(), true)?;
+        }
+        Ok(())
+    }
+    fn document_append_all(&mut self) -> Result<(), ParseError> {
+        while let Some(index) = self
+            .document
+            .as_ref()
+            .map(|d| d.emitted)
+            .filter(|i| *i < self.tokens.len())
+        {
+            let token = &self.tokens[index];
+            let lexical = self
+                .package
+                .grammar
+                .as_ref()
+                .and_then(|g| g.lexical_prediction.as_ref())
+                .ok_or_else(|| ParseError::Storage("Missing document lexical program".into()))?;
+            let hidden = if token.lexical_alternative.is_none() {
+                true
+            } else {
+                hidden_token(token, self.hidden_policy, lexical).map_err(ParseError::Storage)?
+            };
+            let key = token
+                .lexical_alternative
+                .and_then(|i| lexical.alternative(i).ok())
+                .and_then(|a| {
+                    if let grammar::LexicalAlternative::Terminal(name) = a {
+                        Some(format!("terminal/{name}"))
+                    } else {
+                        None
+                    }
+                });
+            self.document_leaf(index, key.as_deref(), hidden)?;
+        }
+        self.cursor.position = self.tokens.len();
+        Ok(())
+    }
+    fn document_match(&mut self, index: usize) -> Result<(), ParseError> {
+        if self.document.is_none() {
+            return Ok(());
+        }
+        self.document
+            .as_mut()
+            .ok_or_else(|| ParseError::Storage("Missing document match context".into()))?
+            .matched();
+        self.document_flush(index)?;
+        self.document_leaf(index, self.document_origin, false)
+    }
+    fn entry(&mut self, name: &str) -> Result<Value, ParseError> {
+        let at = self.document_at(0);
+        let node = self
+            .document
+            .as_mut()
+            .map(|d| d.begin(&format!("rule/{name}/declaration"), at))
+            .transpose()
+            .map_err(ParseError::Storage)?;
+        let result = self.entry_body(name);
+        if result.is_ok() {
+            self.document_append_all()?;
+        } else if self.document.is_some()
+            && let Err(ParseError::Syntax(message)) = &result
+        {
+            self.document_recover_rule(message.clone())?;
+        }
+        if let (Some(document), Some(node)) = (self.document.as_mut(), node) {
+            document.close(node).map_err(ParseError::Storage)?;
+        }
+        result
+    }
+    fn entry_body(&mut self, name: &str) -> Result<Value, ParseError> {
+        if !self.retained_tokens {
+            return self.rule(name);
+        }
+        let policy = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|grammar| grammar.rules.get(name))
+            .and_then(|rule| rule.hidden.as_deref());
+        // Generated entryRule and rule both install explicit hidden clauses.
+        // The outer entry policy remains active through its EOF match.
+        let previous = self.enter_hidden(policy)?;
+        let result = self.rule(name).and_then(|value| {
+            self.skip_hidden()?;
+            if self.cursor.position != self.tokens.len() {
+                if self.document.is_some() {
+                    self.document_recover_token(grammar::PredictionSymbol::End)?;
+                    return Ok(value);
+                }
+                return Err(self.fail("Unexpected trailing input"));
+            }
+            Ok(value)
+        });
+        if result.is_err() {
+            self.diagnostic_position = Some(self.farthest.max(self.cursor.position));
+        }
+        self.restore_hidden(previous)?;
+        result
+    }
+    fn rule(&mut self, name: &str) -> Result<Value, ParseError> {
+        let policy = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|grammar| grammar.rules.get(name))
+            .and_then(|rule| rule.hidden.as_deref());
+        let previous = self.enter_hidden(policy)?;
+        let result = self.rule_body(name);
+        self.restore_hidden(previous)?;
+        result
+    }
+    fn rule_body(&mut self, name: &str) -> Result<Value, ParseError> {
+        let undo_start = self.undo.len();
+        self.depth += 1;
+        if self.depth > self.limits.nesting {
+            return Err(ParseError::Budget("Model nesting budget exceeded".into()));
+        }
+        let package = self.package;
+        let grammar = package
+            .grammar
+            .as_ref()
+            .ok_or_else(|| ParseError::Syntax("Package has no text grammar".into()))?;
+        let rule = grammar
+            .rules
+            .get(name)
+            .ok_or_else(|| ParseError::Syntax("Missing parser rule".into()))?;
+        // EObject semantic spans begin at the first significant token under
+        // the newly installed policy, not at leading retained trivia.
+        self.skip_hidden()?;
+        if rule.fragment {
+            return Err(ParseError::Syntax(
+                "Parser fragment requires a caller object".into(),
+            ));
+        }
+        if rule.datatype.is_some() {
+            let datatype_start = self.cursor.position;
+            let parent = self.datatype_text.replace(DatatypeText::default());
+            let result = self.expr(&rule.body, &mut None);
+            let child = self.datatype_text.take();
+            self.datatype_text = parent;
+            self.depth -= 1;
+            if self.document.is_some()
+                && let Err(ParseError::Syntax(message)) = &result
+            {
+                self.document_recover_rule(message.clone())?;
+            } else {
+                result?;
+            }
+            let child =
+                child.ok_or_else(|| ParseError::Storage("Missing datatype text context".into()))?;
+            if let Some(parent) = self.datatype_text.as_mut() {
+                parent.merge(&child).map_err(ParseError::Storage)?;
+            }
+            let first_offset = child.source_start();
+            let text = match child.into_text() {
+                Some(text) => text,
+                None if self.document.is_some() => return Ok(Value::Null),
+                None => return Err(self.fail("Nullable datatype parser result is unsupported")),
+            };
+            if self.retained_tokens {
+                let first_offset = first_offset
+                    .ok_or_else(|| ParseError::Storage("Missing datatype source start".into()))?;
+                let index = self
+                    .utf16_positions
+                    .binary_search(&first_offset)
+                    .map_err(|_| {
+                        ParseError::Storage("Datatype source start has no retained token".into())
+                    })?;
+                let start = self
+                    .tokens
+                    .get(index)
+                    .ok_or_else(|| ParseError::Storage("Missing first datatype token".into()))?
+                    .start;
+                let end = self
+                    .previous_token()
+                    .ok_or_else(|| ParseError::Storage("Missing final datatype token".into()))?
+                    .end;
+                self.datatype_span = Some((start, end));
+            }
+            if self.raw_entry {
+                return Ok(Value::String(text));
+            }
+            if grammar.profile.has_durable_documents()
+                && rule.datatype == Some(grammar::Datatype::Nominal)
+                && self.datatype_text.is_some()
+            {
+                // A containing datatype rule consumes this already-merged
+                // lexical token text; its own committed return owns conversion.
+                return Ok(Value::String(text));
+            }
+            if rule.datatype == Some(grammar::Datatype::Nominal) {
+                if !grammar.profile.has_durable_documents() {
+                    return Err(ParseError::Storage(
+                        "Nominal datatype execution requires the explicit durable profile".into(),
+                    ));
+                }
+                self.step()?;
+                let declaration = rule.nominal_return.as_ref().ok_or_else(|| {
+                    ParseError::Storage("Missing exact nominal rule return".into())
+                })?;
+                let datatype = package
+                    .schema
+                    .datatypes
+                    .get(&rule.class)
+                    .filter(|datatype| datatype.declaration() == declaration)
+                    .ok_or_else(|| {
+                        ParseError::Storage(
+                            "Nominal rule return differs from the current schema datatype".into(),
+                        )
+                    })?;
+                let converted = self
+                    .conversions
+                    .ok_or_else(|| {
+                        "Explicit conversion registry required for datatype rule".to_string()
+                    })
+                    .and_then(|registry| registry.parse_datatype(datatype, &text));
+                return match converted {
+                    Ok(value) => Ok(value),
+                    Err(error) if self.document.is_some() => self.document_conversion_failure(
+                        datatype_start,
+                        error,
+                        document::ConversionNode::CalledRule,
+                    ),
+                    Err(error) => {
+                        self.cursor.position = datatype_start;
+                        Err(self.fail(format!("Invalid {} literal: {error}", datatype.name())))
+                    }
+                };
+            }
+            if rule.datatype == Some(grammar::Datatype::EBoolean) {
+                // Charge bounded binding validation and provider lookup before execution.
+                for binding in &package.semantics.rule_conversions {
+                    self.step()?;
+                    for _ in binding.keywords.keys() {
+                        self.step()?;
+                    }
+                }
+                self.step()?;
+                return rule_conversion::boolean(self.package, name, &text).map_err(|e| {
+                    self.cursor.position = datatype_start;
+                    self.fail(e)
+                });
+            }
+            if rule.datatype == Some(grammar::Datatype::EDouble) {
+                // Reuse the authoritative Ecore IEEE codec, including nonfinite bits.
+                for _ in 0..text.len().div_ceil(256).max(1) {
+                    self.step()?;
+                }
+                return intersect_model::definitions::scalars::Builtin::EDouble
+                    .parse(&text)
+                    .map_err(|e| {
+                        self.cursor.position = datatype_start;
+                        self.fail(e)
+                    });
+            }
+            if rule.datatype == Some(grammar::Datatype::Enum) {
+                let enumeration = self
+                    .package
+                    .schema
+                    .enumerations
+                    .get(&rule.class)
+                    .ok_or_else(|| ParseError::Storage("Missing enum rule type".into()))?;
+                if matches!(
+                    grammar.profile,
+                    grammar::Profile::NativeV46
+                        | grammar::Profile::NativeV47
+                        | grammar::Profile::NativeV48
+                        | grammar::Profile::NativeV49
+                        | grammar::Profile::NativeV50
+                        | grammar::Profile::NativeV51
+                        | grammar::Profile::NativeV52
+                        | grammar::Profile::NativeV53
+                        | grammar::Profile::NativeV54
+                        | grammar::Profile::NativeV55
+                        | grammar::Profile::NativeV56
+                        | grammar::Profile::NativeV57
+                        | grammar::Profile::NativeV58
+                        | grammar::Profile::NativeV59
+                        | grammar::Profile::NativeV60
+                        | grammar::Profile::NativeV61
+                        | grammar::Profile::NativeV62
+                        | grammar::Profile::NativeV63
+                        | grammar::Profile::NativeV64
+                        | grammar::Profile::NativeV65
+                ) && rule.enum_literals.is_empty()
+                {
+                    // Ordinary datatype parser rules use the imported enum's
+                    // lexical codec. Enum declarations retain keyword bindings.
+                    let value = enumeration.parse(&text).map_err(|message| {
+                        self.cursor.position = datatype_start;
+                        self.fail(message)
+                    })?;
+                    return serde_json::to_value(value)
+                        .map_err(|error| ParseError::Storage(error.to_string()));
+                }
+                let value = rule
+                    .enum_literals
+                    .get(&text)
+                    .ok_or_else(|| ParseError::Storage("Missing enum keyword binding".into()))?;
+                enumeration
+                    .validate_value(value)
+                    .map_err(ParseError::Storage)?;
+                return serde_json::to_value(value)
+                    .map_err(|error| ParseError::Storage(error.to_string()));
+            }
+            return Ok(Value::String(text));
+        }
+        if rule.is_dispatch(grammar) {
+            // No caller object exists for pure delegation. The selected rule
+            // owns construction, initialization, source ordinals and spans.
+            let value = if matches!(
+                grammar.profile,
+                grammar::Profile::NativeV25
+                    | grammar::Profile::NativeV26
+                    | grammar::Profile::NativeV27
+                    | grammar::Profile::NativeV28
+                    | grammar::Profile::NativeV29
+                    | grammar::Profile::NativeV30
+                    | grammar::Profile::NativeV31
+                    | grammar::Profile::NativeV32
+                    | grammar::Profile::NativeV33
+                    | grammar::Profile::NativeV34
+                    | grammar::Profile::NativeV35
+                    | grammar::Profile::NativeV36
+                    | grammar::Profile::NativeV37
+                    | grammar::Profile::NativeV38
+                    | grammar::Profile::NativeV39
+                    | grammar::Profile::NativeV40
+                    | grammar::Profile::NativeV41
+                    | grammar::Profile::NativeV42
+                    | grammar::Profile::NativeV43
+                    | grammar::Profile::NativeV44
+                    | grammar::Profile::NativeV45
+                    | grammar::Profile::NativeV46
+                    | grammar::Profile::NativeV47
+                    | grammar::Profile::NativeV48
+                    | grammar::Profile::NativeV49
+                    | grammar::Profile::NativeV50
+                    | grammar::Profile::NativeV51
+                    | grammar::Profile::NativeV52
+                    | grammar::Profile::NativeV53
+                    | grammar::Profile::NativeV54
+                    | grammar::Profile::NativeV55
+                    | grammar::Profile::NativeV56
+                    | grammar::Profile::NativeV57
+                    | grammar::Profile::NativeV58
+                    | grammar::Profile::NativeV59
+                    | grammar::Profile::NativeV60
+                    | grammar::Profile::NativeV61
+                    | grammar::Profile::NativeV62
+                    | grammar::Profile::NativeV63
+                    | grammar::Profile::NativeV64
+                    | grammar::Profile::NativeV65
+            ) {
+                let mut current = None;
+                let result = self.expr(&rule.body, &mut current);
+                if self.document.is_some()
+                    && let Err(ParseError::Syntax(message)) = &result
+                {
+                    self.document_recover_rule(message.clone())?;
+                } else {
+                    result?;
+                }
+                match current {
+                    Some(current) => Value::String(self.identity(current.index)),
+                    None if grammar.profile.has_constant_guards() => Value::Null,
+                    None => {
+                        return Err(ParseError::Storage(
+                            "Forwarding rule produced no object".into(),
+                        ));
+                    }
+                }
+            } else {
+                self.dispatch(&rule.body)?
+            };
+            self.depth -= 1;
+            return Ok(value);
+        }
+        let start = self.tokens.get(self.cursor.position).map_or(0, |t| t.start);
+        let mut current =
+            if grammar.profile.has_constant_guards() || rule.uses_current_flow(grammar) {
+                None
+            } else {
+                Some(Current::local(
+                    self.create_current(rule.construction_class(), start)?,
+                ))
+            };
+        // Nested rules temporarily replace this context; fragments retain their
+        // caller's context. Restore it on both success and failure.
+        let previous_construction = self.construction.replace((&rule.class, start));
+        let parsed = self.expr(&rule.body, &mut current);
+        self.construction = previous_construction;
+        if self.document.is_some()
+            && let Err(ParseError::Syntax(message)) = &parsed
+        {
+            self.document_recover_rule(message.clone())?;
+        } else {
+            parsed?;
+        }
+        if current.is_none() && grammar.profile.has_constant_guards() {
+            self.depth -= 1;
+            self.undo.truncate(undo_start);
+            return Ok(Value::Null);
+        }
+        let current = current
+            .ok_or_else(|| ParseError::Storage("Object rule produced no current object".into()))?;
+        let index = current.index;
+        let id = self.identity(index);
+        // A speculative rule at the end of a repetition must be allowed to fail
+        // syntactically without rejecting a model exactly at the element limit.
+        if let Some(limit) = self.limits.elements_per_resource {
+            if self.elements > limit {
+                return Err(ParseError::Budget(format!(
+                    "Model element budget exceeded ({limit} per resource)"
+                )));
+            }
+        }
+        if !self.retained_tokens || !current.delegated {
+            let end = self.previous_token().map_or(start, |t| t.end);
+            self.store
+                .set_span(&id, start, end)
+                .map_err(ParseError::Storage)?;
+        }
+        self.depth -= 1;
+        // A rule owns its newly created objects. Store savepoints restore their
+        // model state; reference undo is needed only while the rule is speculative.
+        self.undo.truncate(undo_start);
+        self.scalar_pending.retain(|(owner, _), _| *owner != index);
+        Ok(Value::String(id))
+    }
+    fn dispatch(&mut self, expr: &'a Expr) -> Result<Value, ParseError> {
+        self.step()?;
+        match &expr.kind {
+            Kind::Call(name) => self.rule(name),
+            Kind::Sequence(items) if items.len() == 1 => self.dispatch(&items[0]),
+            Kind::Alternative(items) => {
+                if items.is_empty() {
+                    return Err(self.fail("Boolean guard is false"));
+                }
+                if expr.prediction_path.is_some() {
+                    let selected = self
+                        .predict(expr, "choice")?
+                        .ok_or_else(|| ParseError::Syntax(self.expected.clone()))?;
+                    let item = items.get(selected).ok_or_else(|| {
+                        ParseError::Storage("Invalid predicted dispatch alternative".into())
+                    })?;
+                    return self.dispatch(item);
+                }
+                for item in items {
+                    let checkpoint = self.checkpoint()?;
+                    match self.dispatch(item) {
+                        Ok(value) => {
+                            self.commit_checkpoint(checkpoint)?;
+                            return Ok(value);
+                        }
+                        Err(error) if !matches!(error, ParseError::Syntax(_)) => {
+                            self.rollback(checkpoint)?;
+                            return Err(error);
+                        }
+                        Err(_) => self.rollback(checkpoint)?,
+                    }
+                }
+                Err(ParseError::Syntax(self.expected.clone()))
+            }
+            _ => Err(ParseError::Syntax("Invalid parser dispatch".into())),
+        }
+    }
+    fn predict(&mut self, expr: &Expr, suffix: &str) -> Result<Option<usize>, ParseError> {
+        self.skip_hidden()?;
+        let path = expr
+            .prediction_path
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing parser decision path".into()))?;
+        let grammar = self
+            .package
+            .grammar
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing prediction grammar".into()))?;
+        let program = grammar
+            .parser_prediction
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing parser prediction program".into()))?;
+        let lexical = grammar
+            .lexical_prediction
+            .as_ref()
+            .ok_or_else(|| ParseError::Storage("Missing lexical prediction program".into()))?;
+        let mut remaining = self
+            .limits
+            .steps_per_resource
+            .map(|limit| limit.saturating_sub(self.steps));
+        let before = remaining;
+        let mut cursor = self.cursor;
+        let prediction_start = cursor.position;
+        let tokens = &self.tokens;
+        let policy = self.hidden_policy;
+        let retained = self.retained_tokens;
+        let document = self.document.is_some();
+        let result = program.predict_with_input_work(
+            &format!("{path}/{suffix}"),
+            |work| {
+                if retained {
+                    cursor.skip_hidden(
+                        tokens,
+                        |token| {
+                            if document && token.lexical_alternative.is_none() {
+                                Ok(true)
+                            } else {
+                                hidden_token(token, policy, lexical)
+                            }
+                        },
+                        work,
+                    )?;
+                }
+                if let Some(token) = tokens.get(cursor.position) {
+                    cursor.position += 1;
+                    let alternative = token
+                        .lexical_alternative
+                        .ok_or("Missing lexical token classification")?;
+                    Ok(Some(match lexical.alternative(alternative)? {
+                        grammar::LexicalAlternative::Keyword(value) => {
+                            grammar::PredictionSymbol::Keyword(value.clone())
+                        }
+                        grammar::LexicalAlternative::Terminal(value) => {
+                            grammar::PredictionSymbol::Terminal(value.clone())
+                        }
+                    }))
+                } else if cursor.position == tokens.len() {
+                    cursor.position += 1;
+                    Ok(Some(grammar::PredictionSymbol::End))
+                } else {
+                    Ok(None)
+                }
+            },
+            &mut remaining,
+        );
+        if let (Some(before), Some(after)) = (before, remaining) {
+            self.steps = self.steps.saturating_add(before - after);
+        }
+        if result.is_ok()
+            && let Some(document) = self.document.as_mut()
+        {
+            document
+                .prediction(
+                    &format!("{path}/{suffix}"),
+                    prediction_start,
+                    cursor.position,
+                    policy,
+                )
+                .map_err(ParseError::Storage)?;
+        }
+        let result = result.map_err(|error| {
+            if error.contains("budget") || error.contains("depth") {
+                ParseError::Budget(error)
+            } else {
+                ParseError::Storage(error)
+            }
+        })?;
+        if result.is_none() && suffix == "choice" {
+            let farthest = cursor.position.saturating_sub(1).min(tokens.len());
+            if farthest >= self.farthest {
+                self.farthest = farthest;
+                self.expected = "No viable predicted alternative".into();
+            }
+        }
+        Ok(result)
+    }
+    fn expr(&mut self, expr: &'a Expr, owner: &mut Option<Current>) -> Result<Value, ParseError> {
+        let mut count = 0;
+        let mut result = Value::Null;
+        loop {
+            self.step()?;
+            let predicted = expr.prediction_path.is_some() && expr.cardinality != '1';
+            if predicted
+                && !(expr.cardinality == '+' && count == 0)
+                && self.predict(expr, "repeat")?.is_none()
+            {
+                break;
+            }
+            let checkpoint = self.checkpoint()?;
+            let previous_current = *owner;
+            match self.once(expr, owner) {
+                Ok(value) => {
+                    result = value;
+                    count += 1;
+                    if self.cursor.matched == checkpoint.cursor.matched
+                        && ['*', '+'].contains(&expr.cardinality)
+                    {
+                        self.rollback(checkpoint)?;
+                        *owner = previous_current;
+                        return Err(ParseError::Budget(
+                            "Non-consuming grammar repetition".into(),
+                        ));
+                    }
+                    self.commit_checkpoint(checkpoint)?;
+                }
+                Err(error) => {
+                    if self.document.is_some()
+                        && matches!(error, ParseError::Syntax(_))
+                        && (predicted || expr.cardinality == '1')
+                    {
+                        self.commit_checkpoint(checkpoint)?;
+                        return Err(error);
+                    }
+                    self.rollback(checkpoint)?;
+                    *owner = previous_current;
+                    if predicted || !matches!(error, ParseError::Syntax(_)) {
+                        return Err(error);
+                    }
+                    if count == 0 && !['?', '*'].contains(&expr.cardinality) {
+                        return Err(error);
+                    }
+                    break;
+                }
+            }
+            if !['*', '+'].contains(&expr.cardinality) {
+                break;
+            }
+        }
+        Ok(result)
+    }
+    fn step(&mut self) -> Result<(), ParseError> {
+        if let Some(limit) = self.limits.steps_per_resource {
+            if self.steps >= limit {
+                return Err(ParseError::Budget("Execution budget exceeded".into()));
+            }
+            self.steps += 1;
+        }
+        Ok(())
+    }
+    fn recognize_terminal(
+        &mut self,
+        name: &str,
+    ) -> Result<Option<Token<Cow<'a, str>>>, ParseError> {
+        loop {
+            self.skip_hidden()?;
+            let selected = self.tokens.get(self.cursor.position).cloned();
+            if selected.is_none() && self.document.is_some() {
+                if self.document_recover_token(grammar::PredictionSymbol::Terminal(name.into()))? {
+                    continue;
+                } else {
+                    return Ok(None);
+                }
+            }
+            let t = self
+                .tokens
+                .get(self.cursor.position)
+                .cloned()
+                .ok_or_else(|| self.fail(format!("Expected {name}")))?;
+            let custom = self
+                .package
+                .grammar
+                .as_ref()
+                .and_then(|grammar| grammar.terminals.get(name));
+            let valid = if let Some(index) = t.lexical_alternative {
+                let prediction = self
+                    .package
+                    .grammar
+                    .as_ref()
+                    .and_then(|grammar| grammar.lexical_prediction.as_ref())
+                    .ok_or_else(|| {
+                        ParseError::Storage("Missing lexical prediction program".into())
+                    })?;
+                matches!(prediction.alternative(index).map_err(ParseError::Storage)?, grammar::LexicalAlternative::Terminal(selected) if selected == name)
+            } else if let Some(terminal) = custom {
+                !t.quoted && terminal.starts(&t.text) && !self.keywords.contains(t.text.as_ref())
+            } else {
+                match name {
+                    "STRING" => t.quoted,
+                    "INT" => {
+                        !t.quoted
+                            && !t.text.is_empty()
+                            && t.text.chars().all(|c| c.is_ascii_digit())
+                    }
+                    _ => {
+                        !t.quoted
+                            && t.text
+                                .chars()
+                                .next()
+                                .is_some_and(|c| c.is_alphabetic() || c == '_')
+                            && !self.keywords.contains(t.text.as_ref())
+                    }
+                }
+            };
+            if !valid {
+                if self.document.is_some() {
+                    if self
+                        .document_recover_token(grammar::PredictionSymbol::Terminal(name.into()))?
+                    {
+                        continue;
+                    } else {
+                        return Ok(None);
+                    }
+                }
+                return Err(self.fail(format!("Expected {name}")));
+            }
+            self.document_match(self.cursor.position)?;
+            self.cursor.consume().map_err(ParseError::Storage)?;
+            return Ok(Some(t));
+        }
+    }
+    fn append_datatype_token(&mut self, index: usize) -> Result<(), ParseError> {
+        let Some(text) = self.datatype_text.as_mut() else {
+            return Ok(());
+        };
+        let token = self
+            .tokens
+            .get(index)
+            .ok_or_else(|| ParseError::Storage("Missing datatype token".into()))?;
+        let raw = self
+            .raw_source
+            .get(token.start..token.end)
+            .ok_or_else(|| ParseError::Storage("Invalid datatype token span".into()))?;
+        let offset = self
+            .utf16_positions
+            .get(index)
+            .ok_or_else(|| ParseError::Storage("Missing datatype token UTF-16 position".into()))?;
+        text.push(raw, *offset).map_err(ParseError::Storage)
+    }
+    fn terminal(&mut self, name: &str, lexical: bool) -> Result<Value, ParseError> {
+        self.skip_hidden()?;
+        let token_index = self.cursor.position;
+        let Some(token) = self.recognize_terminal(name)? else {
+            return Ok(Value::Null);
+        };
+        self.terminal_value(name, lexical, token_index, token)
+    }
+    fn terminal_value(
+        &mut self,
+        name: &str,
+        lexical: bool,
+        token_index: usize,
+        t: Token<Cow<'a, str>>,
+    ) -> Result<Value, ParseError> {
+        if self
+            .document
+            .as_ref()
+            .is_some_and(|d| !d.scalar_token(token_index))
+        {
+            return Err(ParseError::Syntax(
+                "Non-scalar lexical values require explicit model source-unit String support"
+                    .into(),
+            ));
+        }
+        if self.datatype_text.is_some() {
+            self.append_datatype_token(self.cursor.position - 1)?;
+            return Ok(Value::Null);
+        }
+        if self.package.grammar.as_ref().is_some_and(|grammar| {
+            matches!(
+                grammar.profile,
+                grammar::Profile::NativeV52
+                    | grammar::Profile::NativeV53
+                    | grammar::Profile::NativeV54
+                    | grammar::Profile::NativeV55
+                    | grammar::Profile::NativeV56
+                    | grammar::Profile::NativeV57
+                    | grammar::Profile::NativeV58
+                    | grammar::Profile::NativeV59
+                    | grammar::Profile::NativeV60
+                    | grammar::Profile::NativeV61
+                    | grammar::Profile::NativeV62
+                    | grammar::Profile::NativeV63
+                    | grammar::Profile::NativeV64
+                    | grammar::Profile::NativeV65
+            ) && (name == "STRING" || name == "@org.eclipse.xtext.common.Terminals::STRING")
+        }) {
+            let raw = self
+                .raw_source
+                .get(t.start..t.end)
+                .ok_or_else(|| ParseError::Storage("Invalid STRING token span".into()))?;
+            return rule_conversion::string(raw)
+                .map(Value::String)
+                .map_err(|message| {
+                    self.cursor.position = token_index;
+                    self.fail(format!("Invalid STRING literal: {message}"))
+                });
+        }
+        if !lexical
+            && let Some(key) = self
+                .package
+                .grammar
+                .as_ref()
+                .and_then(|grammar| grammar.terminals.get(name))
+                .and_then(|terminal| terminal.enumeration.as_deref())
+        {
+            let enumeration = self
+                .package
+                .schema
+                .enumerations
+                .get(key)
+                .ok_or_else(|| ParseError::Storage("Missing enum terminal type".into()))?;
+            let value = enumeration.parse(&t.text).map_err(|message| {
+                self.cursor.position -= 1;
+                self.fail(message)
+            })?;
+            return serde_json::to_value(value)
+                .map_err(|error| ParseError::Storage(error.to_string()));
+        }
+        let integer = self
+            .package
+            .grammar
+            .as_ref()
+            .and_then(|grammar| grammar.terminals.get(name))
+            .map_or(name == "INT", |terminal| {
+                terminal.datatype == grammar::Datatype::EInt
+            });
+        if integer && !lexical {
+            intersect_model::definitions::scalars::Builtin::EInt
+                .parse(&t.text)
+                .map_err(|error| self.fail(format!("INT outside EInt range: {error}")))
+        } else {
+            Ok(Value::String(t.text.into_owned()))
+        }
+    }
+    fn lexical_assignment(
+        &mut self,
+        name: &str,
+        lexical: LexicalType<'_>,
+        owner: usize,
+        feature: &str,
+        prefetched: Option<(usize, Token<Cow<'a, str>>)>,
+    ) -> Result<Value, ParseError> {
+        self.step()?;
+        let start = prefetched
+            .as_ref()
+            .map_or(self.cursor.position, |(at, _)| *at);
+        let text = if let Some((at, token)) = prefetched {
+            self.terminal_value(name, true, at, token)?
+        } else {
+            self.terminal(name, true)?
+        };
+        if text.is_null() && self.document.is_some() {
+            return Ok(Value::Null);
+        }
+        let text = text
+            .as_str()
+            .ok_or_else(|| self.fail("Terminal did not produce lexical text"))?;
+        let owner_class = self
+            .store
+            .class(&self.identity(owner))
+            .map_err(ParseError::Storage)?
+            .ok_or_else(|| ParseError::Storage("Missing parser owner".into()))?;
+        let result = if lexical.constrained {
+            self.package.schema.parse_runtime_attribute(
+                &owner_class,
+                feature,
+                text,
+                self.conversions,
+            )
+        } else if let Some(datatype) = lexical.datatype {
+            if datatype.codec().is_ok() {
+                datatype
+                    .parse(text)
+                    .and_then(|value| serde_json::to_value(value).map_err(|e| e.to_string()))
+            } else {
+                self.conversions
+                    .ok_or_else(|| "Explicit conversion registry required for terminal".to_string())
+                    .and_then(|registry| registry.parse_datatype(datatype, text))
+            }
+        } else {
+            Err("Missing selected lexical datatype".into())
+        };
+        if self.document.is_some() {
+            return match result {
+                Ok(value) => Ok(value),
+                Err(error) => self.document_conversion_failure(
+                    self.cursor.position.saturating_sub(1),
+                    error,
+                    document::ConversionNode::MatchedTerminal,
+                ),
+            };
+        }
+        result.map_err(|error| {
+            // Keep the token that failed conversion, not the following token, as
+            // the source of the diagnostic after speculative parsing rolls back.
+            self.cursor.position = start;
+            self.fail(format!(
+                "Invalid {} literal: {error}",
+                lexical
+                    .datatype
+                    .map_or(lexical.target, |datatype| datatype.name())
+            ))
+        })
+    }
+    fn reference_spelling(
+        &mut self,
+        rule: Option<&str>,
+    ) -> Result<Option<(String, usize, usize)>, ParseError> {
+        if self.document.is_some() && rule.is_none() {
+            self.skip_hidden()?;
+            let Some(token) = self.recognize_terminal("ID")? else {
+                return Ok(None);
+            };
+            return Ok(Some((token.text.into_owned(), token.start, token.end)));
+        }
+        self.skip_hidden()?;
+        let first = self
+            .tokens
+            .get(self.cursor.position)
+            .cloned()
+            .ok_or_else(|| self.fail("Expected reference name"))?;
+        if let Some(rule) = rule {
+            let value = self.rule(rule)?;
+            if value.is_null() && self.document.is_some() {
+                return Ok(None);
+            }
+            let spelling = value
+                .as_str()
+                .ok_or_else(|| {
+                    ParseError::Storage("Datatype reference produced a non-string".into())
+                })?
+                .to_owned();
+            let end = self
+                .previous_token()
+                .ok_or_else(|| ParseError::Storage("Missing datatype reference span".into()))?
+                .end;
+            let (start, end) = if self.retained_tokens {
+                self.datatype_span.ok_or_else(|| {
+                    ParseError::Storage("Missing matched reference datatype span".into())
+                })?
+            } else {
+                (first.start, end)
+            };
+            Ok(Some((spelling, start, end)))
+        } else {
+            // Preserve the original ID-reference lexical contract verbatim.
+            if first.quoted
+                || !first
+                    .text
+                    .chars()
+                    .next()
+                    .is_some_and(|c| c.is_alphabetic() || c == '_')
+            {
+                return Err(self.fail("Expected reference name"));
+            }
+            self.document_match(self.cursor.position)?;
+            self.cursor.consume().map_err(ParseError::Storage)?;
+            Ok(Some((first.text.into_owned(), first.start, first.end)))
+        }
+    }
+    fn once(&mut self, expr: &'a Expr, owner: &mut Option<Current>) -> Result<Value, ParseError> {
+        if self.document.is_none() {
+            return self.once_body(expr, owner);
+        }
+        let previous_origin = self.document_origin;
+        let previous_feature = self.document_feature;
+        self.document_origin = expr.prediction_path.as_deref();
+        let captured_node = if matches!(&expr.kind, Kind::Action(_) | Kind::Capture { .. }) {
+            let path = expr
+                .prediction_path
+                .as_deref()
+                .ok_or_else(|| ParseError::Storage("Missing action source occurrence".into()))?;
+            Some(
+                self.document
+                    .as_mut()
+                    .ok_or_else(|| ParseError::Storage("Missing action document".into()))?
+                    .action(path)
+                    .map_err(ParseError::Storage)?,
+            )
+        } else {
+            None
+        };
+        if let Kind::Assign { feature, .. } | Kind::BooleanAssign { feature, .. } = &expr.kind {
+            if let Some(current) = owner {
+                self.document_feature = Some((current.index, feature));
+            }
+        }
+        let called = matches!(&expr.kind,Kind::Call(name) if self.package.grammar.as_ref().is_some_and(|g|g.rules.contains_key(name)));
+        let at = self.document_at(
+            self.document
+                .as_ref()
+                .map_or(self.cursor.position, |d| d.emitted),
+        );
+        let node = if called {
+            let path = expr
+                .prediction_path
+                .as_deref()
+                .ok_or_else(|| ParseError::Storage("Missing document call occurrence".into()))?;
+            let document = self
+                .document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing document capture".into()))?;
+            let node = document.begin(path, at).map_err(ParseError::Storage)?;
+            if let Some((index, feature)) = self.document_feature {
+                document
+                    .feature(&format!("{}#{index}", self.uri), feature, node)
+                    .map_err(ParseError::Storage)?;
+            }
+            document.push_call(path).map_err(ParseError::Storage)?;
+            self.document_feature = None;
+            Some(node)
+        } else {
+            None
+        };
+        let result = self.once_body(expr, owner);
+        if result.is_ok()
+            && let (Kind::Capture { feature, .. }, Some(node), Some(current)) =
+                (&expr.kind, captured_node, *owner)
+        {
+            let id = self.identity(current.index);
+            self.document
+                .as_mut()
+                .ok_or_else(|| ParseError::Storage("Missing captured feature document".into()))?
+                .feature(&id, feature, node)
+                .map_err(ParseError::Storage)?;
+        }
+        if let (Some(document), Some(node)) = (self.document.as_mut(), node) {
+            document.calls.pop();
+            document.close(node).map_err(ParseError::Storage)?;
+        }
+        self.document_origin = previous_origin;
+        self.document_feature = previous_feature;
+        result
+    }
+    fn once_body(
+        &mut self,
+        expr: &'a Expr,
+        owner: &mut Option<Current>,
+    ) -> Result<Value, ParseError> {
+        self.skip_hidden()?;
+        match &expr.kind {
+            // Mixed-action rules start without an owner. Admission proves this
+            // creation occurs before any current object exists on the selected path.
+            Kind::Action(class) if owner.is_none() && self.package.grammar.as_ref().is_some_and(|grammar| matches!(grammar.profile, grammar::Profile::NativeV26 | grammar::Profile::NativeV27 | grammar::Profile::NativeV28 | grammar::Profile::NativeV29 | grammar::Profile::NativeV30 | grammar::Profile::NativeV31 | grammar::Profile::NativeV32 | grammar::Profile::NativeV33 | grammar::Profile::NativeV34 | grammar::Profile::NativeV35 | grammar::Profile::NativeV36 | grammar::Profile::NativeV37 | grammar::Profile::NativeV38 | grammar::Profile::NativeV39 | grammar::Profile::NativeV40 | grammar::Profile::NativeV41 | grammar::Profile::NativeV42 | grammar::Profile::NativeV43 | grammar::Profile::NativeV44 | grammar::Profile::NativeV45 | grammar::Profile::NativeV46 | grammar::Profile::NativeV47 | grammar::Profile::NativeV48 | grammar::Profile::NativeV49 | grammar::Profile::NativeV50 | grammar::Profile::NativeV51 | grammar::Profile::NativeV52 | grammar::Profile::NativeV53 | grammar::Profile::NativeV54 | grammar::Profile::NativeV55 | grammar::Profile::NativeV56 | grammar::Profile::NativeV57 | grammar::Profile::NativeV58 | grammar::Profile::NativeV59 | grammar::Profile::NativeV60 | grammar::Profile::NativeV61 | grammar::Profile::NativeV62 | grammar::Profile::NativeV63 | grammar::Profile::NativeV64 | grammar::Profile::NativeV65)) => {
+                let start = self.tokens.get(self.cursor.position).map_or(0, |token| token.start);
+                *owner = Some(Current::local(self.create_current(class, start)?));
+                Ok(Value::Null)
+            },
+            // Ordinary leading actions selected their class before rule entry;
+            // their owner is already initialized and must not be created twice.
+            Kind::Action(_) => Ok(Value::Null),
+            Kind::Capture { class, feature, many } => {
+                let previous = owner.ok_or_else(|| ParseError::Storage("Capture requires a current object".into()))?;
+                let next = self.capture_current(previous, class, feature, *many)?;
+                *owner = Some(Current::local(next));
+                Ok(Value::String(self.identity(next)))
+            },
+            Kind::Literal(text) => {
+                if self
+                    .tokens
+                    .get(self.cursor.position)
+                    .is_some_and(|t| {
+                        !t.quoted && t.text == *text && t.lexical_alternative.is_none_or(|index| {
+                            self.package.grammar.as_ref()
+                                .and_then(|grammar| grammar.lexical_prediction.as_ref())
+                                .and_then(|prediction| prediction.alternative(index).ok())
+                                .is_some_and(|alternative| matches!(alternative, grammar::LexicalAlternative::Keyword(selected) if selected == text))
+                        })
+                    })
+                {
+                    self.document_match(self.cursor.position)?;
+                    self.cursor.consume().map_err(ParseError::Storage)?;
+                    self.append_datatype_token(self.cursor.position - 1)?;
+                    Ok(Value::String(text.clone()))
+                } else {
+                    if self.document.is_some(){if self.document_recover_token(grammar::PredictionSymbol::Keyword(text.clone()))?{return self.once_body(expr,owner)}else{return Ok(Value::Null)}}
+                    Err(self.fail(format!("Expected '{text}'")))
+                }
+            }
+            Kind::Call(name)
+                if ["ID", "STRING", "INT"].contains(&name.as_str())
+                    || self
+                        .package
+                        .grammar
+                        .as_ref()
+                        .is_some_and(|grammar| grammar.terminals.contains_key(name)) =>
+            {
+                self.terminal(name, false)
+            }
+            Kind::Call(name) => {
+                let fragment = self
+                    .package
+                    .grammar
+                    .as_ref()
+                    .and_then(|grammar| grammar.rules.get(name))
+                    .filter(|rule| rule.fragment);
+                if let Some(fragment) = fragment {
+                    self.depth += 1;
+                    if self.depth > self.limits.nesting {
+                        return Err(ParseError::Budget("Model nesting budget exceeded".into()));
+                    }
+                    // Fragment writes stay in the caller journal; a surrounding
+                    // failed group must restore values, markers and references.
+                    let previous = self.generic_fragment;
+                    self.generic_fragment |= fragment.wildcard;
+                    let prior_policy = self.enter_hidden(fragment.hidden.as_deref())?;
+                    let mut result = self.expr(&fragment.body, owner);
+                    if self.document.is_some()&&let Err(ParseError::Syntax(message))=&result{self.document_recover_rule(message.clone())?;result=Ok(Value::Null);}
+                    let restored = self.restore_hidden(prior_policy);
+                    self.generic_fragment = previous;
+                    self.depth -= 1;
+                    restored?;
+                    result
+                } else {
+                    // Ordinary called rules construct/check their own context.
+                    let previous = self.generic_fragment;
+                    self.generic_fragment = false;
+                    let result = self.rule(name);
+                    self.generic_fragment = previous;
+                    let value = result?;
+                    if !value.is_null() && self.package.grammar.as_ref().and_then(|g| g.rules.get(name)).is_some_and(|r| r.datatype.is_none()) {
+                        *owner = Some(Current::called(self.current_index(&value)?));
+                    }
+                    Ok(value)
+                }
+            }
+            Kind::Reference(_) | Kind::ScalarReference { .. } => Err(ParseError::Syntax(
+                "Cross-reference must be assigned".into(),
+            )),
+            Kind::Assign {
+                feature,
+                many,
+                value,
+            } => {
+                let mut prefetched=None;let mut inserted_terminal=false;
+                if self.document.is_some()&&owner.is_none()&&value.cardinality=='1'&&let Kind::Call(name)=&value.kind&&(["ID","STRING","INT"].contains(&name.as_str())||self.package.grammar.as_ref().is_some_and(|g|g.terminals.contains_key(name))){
+                    self.skip_hidden()?;let at=self.cursor.position;let previous=self.document_origin;self.document_origin=value.prediction_path.as_deref();let token=self.recognize_terminal(name);self.document_origin=previous;
+                    if let Some(token)=token?{prefetched=Some((at,token));}else{inserted_terminal=true;}
+                }
+                let owner = self.assignment_owner(owner)?;
+                let owner_id = self.identity(owner);
+                if self.document.is_some(){
+                    self.document_feature=Some((owner,feature));
+                    if prefetched.is_some(){let document=self.document.as_mut().ok_or_else(||ParseError::Storage("Missing document assignment".into()))?;let node=document.builder.last_node().ok_or_else(||ParseError::Storage("Missing recognized assignment leaf".into()))?;document.feature(&owner_id,feature,node).map_err(ParseError::Storage)?;}
+                }
+                // A genuine missing-token insertion returns to the generated
+                // assignment action: create its owner, but publish no synthetic
+                // leaf or value. A thrown mismatch never reaches this point.
+                if inserted_terminal{return Ok(Value::Null)}
+                let reference = match &value.kind {
+                    Kind::Reference(target) => Some((target, None)),
+                    Kind::ScalarReference { target, rule } => Some((target, Some(rule.as_str()))),
+                    _ => None,
+                };
+                let field_value = if let Some((target, spelling_rule)) = reference {
+                    let class = self.store.class(&owner_id).map_err(ParseError::Storage)?.ok_or_else(|| ParseError::Storage("Missing reference owner".into()))?;
+                    if self.settings.is_some_and(|settings| settings.supports(&class, feature)) {
+                        return Err(ParseError::Storage("Computed reference spellings require deferred provider linking, which is unsupported".into()));
+                    }
+                    let at=self.document_at(self.cursor.position);
+                    let previous_origin=self.document_origin;let previous_feature=self.document_feature;
+                    let parser_spelling=spelling_rule.is_some_and(|name|self.package.grammar.as_ref().is_some_and(|g|g.rules.contains_key(name)));
+                    let reference_node=if let Some(document)=self.document.as_mut(){
+                        let path=value.prediction_path.as_deref().ok_or_else(||ParseError::Storage("Missing original reference occurrence".into()))?;
+                        self.document_origin=Some(path);
+                        if parser_spelling{
+                            let node=document.begin(path,at).map_err(ParseError::Storage)?;document.feature(&owner_id,feature,node).map_err(ParseError::Storage)?;
+                            document.push_call(path).map_err(ParseError::Storage)?;self.document_feature=None;Some(node)
+                        }else{self.document_feature=Some((owner,feature));None}
+                    }else{None};
+                    let spelling=self.reference_spelling(spelling_rule);
+                    if let(Some(document),Some(node))=(self.document.as_mut(),reference_node){if parser_spelling{document.calls.pop();}document.close(node).map_err(ParseError::Storage)?;}
+                    self.document_origin=previous_origin;self.document_feature=previous_feature;
+                    let Some((spelling,start,end))=spelling? else{return Ok(Value::Null)};
+                    self.validate_generic_assignment(owner, feature, *many, None)?;
+                    let index = self.assignment_undo(owner, feature, *many)?;
+                    self.store
+                        .set_unresolved_reference(&owner_id, feature, &spelling, *many)
+                        .map_err(ParseError::Storage)?;
+                    let pending = self.pending.len();
+                    self.pending.push(Pending {
+                        owner: owner_id,
+                        field: feature.clone(),
+                        spelling,
+                        target: target.clone(),
+                        uri: self.uri.into(),
+                        start,
+                        end,
+                        index,
+                        active: true,
+                    });
+                    if !many {
+                        self.set_scalar_pending(owner, feature, Some(pending))?;
+                    }
+                    // Unresolved spelling lives in a reference state, not in a
+                    // magic string masquerading as an ordinary model value.
+                    return Ok(Value::Null);
+                } else if let Kind::Call(name) = &value.kind {
+                    let owner_class = self
+                        .store
+                        .class(&self.identity(owner))
+                        .map_err(ParseError::Storage)?
+                        .ok_or_else(|| ParseError::Storage("Missing parser owner".into()))?;
+                    let datatype = self
+                        .lexical_types
+                        .get(&owner_class)
+                        .and_then(|fields| fields.get(feature))
+                        .copied();
+                    if let Some(datatype) = datatype.filter(|_| {
+                        !self.generic_fragment
+                            && (["ID", "STRING", "INT"].contains(&name.as_str())
+                                || self.package.grammar.as_ref()
+                                    .is_some_and(|grammar| grammar.terminals.contains_key(name)))
+                    }) {
+                        let previous=self.document_origin;
+                        if self.document.is_some(){self.document_origin=value.prediction_path.as_deref();}
+                        let result=self.lexical_assignment(name, datatype, owner, feature,prefetched.take());
+                        self.document_origin=previous;result?
+                    } else if let Some((at,token))=prefetched.take(){self.terminal_value(name,false,at,token)?}else {
+                        self.expr(value, &mut Some(Current::local(owner)))?
+                    }
+                } else {
+                    self.expr(value, &mut Some(Current::local(owner)))?
+                };
+                if field_value.is_null() && self.package.grammar.as_ref().is_some_and(|g| g.profile.has_constant_guards()) {
+                    return Ok(Value::Null);
+                }
+                self.validate_generic_assignment(owner, feature, *many, Some(&field_value))?;
+                if self.computed_assignment(owner, feature, *many, field_value.clone())? { return Ok(field_value); }
+                self.assignment_undo(owner, feature, *many)?;
+                if *many {
+                    self.store
+                        .append_value(&owner_id, feature, field_value.clone())
+                        .map_err(ParseError::Storage)?;
+                } else {
+                    self.store
+                        .set_value(&owner_id, feature, Some(field_value.clone()))
+                        .map_err(ParseError::Storage)?;
+                    self.set_scalar_pending(owner, feature, None)?;
+                }
+                Ok(field_value)
+            }
+            Kind::BooleanAssign { feature, value } => {
+                let owner = self.assignment_owner(owner)?;
+                // Match before writing the Boolean feature. Shared savepoints preserve
+                // unsettable assignment markers when an enclosing branch fails.
+                self.expr(value, &mut Some(Current::local(owner)))?;
+                self.validate_generic_assignment(owner, feature, false, Some(&Value::Bool(true)))?;
+                if self.computed_assignment(owner, feature, false, Value::Bool(true))? { return Ok(Value::Bool(true)); }
+                self.assignment_undo(owner, feature, false)?;
+                self.store
+                    .set_value(&self.identity(owner), feature, Some(Value::Bool(true)))
+                    .map_err(ParseError::Storage)?;
+                self.set_scalar_pending(owner, feature, None)?;
+                Ok(Value::Bool(true))
+            }
+            Kind::Sequence(items) => {
+                if items.len() == 1 && self.package.grammar.as_ref().is_some_and(|grammar| matches!(grammar.profile, grammar::Profile::NativeV27 | grammar::Profile::NativeV28 | grammar::Profile::NativeV29 | grammar::Profile::NativeV30 | grammar::Profile::NativeV31 | grammar::Profile::NativeV32 | grammar::Profile::NativeV33 | grammar::Profile::NativeV34 | grammar::Profile::NativeV35 | grammar::Profile::NativeV36 | grammar::Profile::NativeV37 | grammar::Profile::NativeV38 | grammar::Profile::NativeV39 | grammar::Profile::NativeV40 | grammar::Profile::NativeV41 | grammar::Profile::NativeV42 | grammar::Profile::NativeV43 | grammar::Profile::NativeV44 | grammar::Profile::NativeV45 | grammar::Profile::NativeV46 | grammar::Profile::NativeV47 | grammar::Profile::NativeV48 | grammar::Profile::NativeV49 | grammar::Profile::NativeV50 | grammar::Profile::NativeV51 | grammar::Profile::NativeV52 | grammar::Profile::NativeV53 | grammar::Profile::NativeV54 | grammar::Profile::NativeV55 | grammar::Profile::NativeV56 | grammar::Profile::NativeV57 | grammar::Profile::NativeV58 | grammar::Profile::NativeV59 | grammar::Profile::NativeV60 | grammar::Profile::NativeV61 | grammar::Profile::NativeV62 | grammar::Profile::NativeV63 | grammar::Profile::NativeV64 | grammar::Profile::NativeV65)) {
+                    return self.expr(&items[0], owner);
+                }
+                for item in items {
+                    self.expr(item, owner)?;
+                }
+                Ok(Value::Null)
+            }
+            Kind::Alternative(items) => {
+                if items.is_empty() { return Err(self.fail("Boolean guard is false")); }
+                if expr.prediction_path.is_some() {
+                    let selected = self.predict(expr, "choice")?.ok_or_else(|| ParseError::Syntax(self.expected.clone()))?;
+                    let item = items.get(selected).ok_or_else(|| ParseError::Storage("Invalid predicted model alternative".into()))?;
+                    return self.expr(item, owner);
+                }
+                for item in items {
+                    let checkpoint = self.checkpoint()?;
+                    let previous_current = *owner;
+                    match self.expr(item, owner) {
+                        Ok(value) => { self.commit_checkpoint(checkpoint)?; return Ok(value); },
+                        Err(error) if !matches!(error, ParseError::Syntax(_)) => { self.rollback(checkpoint)?; return Err(error); },
+                        Err(_) => {
+                            self.rollback(checkpoint)?;
+                            *owner = previous_current;
+                        }
+                    }
+                }
+                Err(ParseError::Syntax(self.expected.clone()))
+            }
+        }
+    }
+    fn validate_generic_assignment(
+        &self,
+        owner: usize,
+        feature: &str,
+        many: bool,
+        value: Option<&Value>,
+    ) -> Result<(), ParseError> {
+        if !self.generic_fragment {
+            return Ok(());
+        }
+        let schema = &self.package.schema;
+        let class = self
+            .store
+            .class(&self.identity(owner))
+            .map_err(ParseError::Storage)?
+            .ok_or_else(|| ParseError::Storage("Missing parser owner".into()))?;
+        let fields = schema.features(&class).map_err(ParseError::Storage)?;
+        let field = fields
+            .get(feature)
+            .ok_or_else(|| ParseError::Storage(format!("Unknown feature {class}.{feature}")))?;
+        if many != (field.upper != 1) {
+            return Err(ParseError::Storage(format!(
+                "Assignment multiplicity mismatch: {class}.{feature}"
+            )));
+        }
+        if let Some(value) = value {
+            if field.reference {
+                let target = value
+                    .as_str()
+                    .ok_or_else(|| ParseError::Storage("Reference must be an identity".into()))?;
+                let target_class = self
+                    .store
+                    .class(target)
+                    .map_err(ParseError::Storage)?
+                    .ok_or_else(|| ParseError::Storage("Missing reference target".into()))?;
+                if !schema
+                    .reference_conforms(&class, feature, &target_class)
+                    .map_err(ParseError::Storage)?
+                {
+                    return Err(ParseError::Storage(format!(
+                        "Reference type mismatch: {class}.{feature}"
+                    )));
+                }
+            } else {
+                schema
+                    .validate_runtime_attribute(&class, field, value, self.conversions)
+                    .map_err(ParseError::Storage)?;
+            }
+        } else if !field.reference {
+            return Err(ParseError::Storage(format!(
+                "Cross-reference requires a reference feature: {class}.{feature}"
+            )));
+        }
+        Ok(())
+    }
+    fn assignment_undo(
+        &mut self,
+        owner: usize,
+        field: &'a str,
+        many: bool,
+    ) -> Result<Option<usize>, ParseError> {
+        let id = self.identity(owner);
+        // Legacy grammars retain their existing per-assignment cost. New classes
+        // cache effective unsettable names once, including inherited references.
+        if !self.unsettable.is_empty() {
+            let class = self
+                .store
+                .class(&id)
+                .map_err(ParseError::Storage)?
+                .ok_or_else(|| ParseError::Storage("Missing parser owner".into()))?;
+            if self
+                .unsettable
+                .get(&class)
+                .is_some_and(|fields| fields.contains(field))
+            {
+                let mut previous = None;
+                self.store
+                    .inspect(&id, &mut |object| {
+                        let state = object
+                            .assignment_state()
+                            .ok_or("Missing parser assignment state")?;
+                        if !state.explicitly_set(field) {
+                            previous = Some(state.clone());
+                        }
+                        Ok(())
+                    })
+                    .map_err(ParseError::Storage)?;
+                if let Some(previous) = previous {
+                    let next = previous
+                        .with_assignment(field, true)
+                        .map_err(ParseError::Storage)?;
+                    self.store
+                        .set_assignment_state(&id, Some(next))
+                        .map_err(ParseError::Storage)?;
+                }
+            }
+        }
+        if many {
+            if let Some(length) = self
+                .store
+                .value_len(&id, field)
+                .map_err(ParseError::Storage)?
+            {
+                return Ok(Some(length));
+            }
+        }
+        let unresolved = self.scalar_pending.get(&(owner, field)).copied();
+        self.undo.push(Undo {
+            owner,
+            field,
+            unresolved,
+        });
+        Ok(many.then_some(0))
+    }
+}
+pub fn keywords(package: &Package) -> Vec<String> {
+    package
+        .grammar
+        .as_ref()
+        .map_or_else(Vec::new, grammar::Grammar::keywords)
+}
+
+/// Evaluate without model-size or execution-step ceilings.
+/// Recursive nesting remains bounded. Use `evaluate_with_limits` for host budgets.
+pub fn evaluate(package: &Package, sources: &[Source]) -> Evaluation {
+    evaluate_with_limits(package, sources, EvaluationLimits::native())
+}
+
+/// Evaluation metadata without materializing the stored model.
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct StoredEvaluation {
+    pub diagnostics: Vec<Diagnostic>,
+    pub references: Vec<Reference>,
+    pub derived: BTreeMap<String, BTreeMap<String, Value>>,
+}
+
+/// A live, compact model and its evaluation metadata. Creating this result does
+/// not materialize the owned compatibility model or retain source text/tokens.
+pub struct EvaluatedStore {
+    pub store: storage::MemoryStore,
+    pub evaluation: StoredEvaluation,
+}
+
+/// Evaluate into an owned compact store, retaining successfully parsed resources
+/// when another resource has diagnostics. Use `evaluate_into` when any diagnostic
+/// must instead roll back an entire replacement of an existing model.
+pub fn evaluate_stored(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+) -> Result<EvaluatedStore, String> {
+    evaluate_stored_context(
+        package,
+        sources,
+        limits,
+        None,
+        &query::PackageDerived(package),
+    )
+}
+/// Evaluate with explicitly selected source-bound computed setters. Unresolved
+/// references are linked and strictly validated before a result is published.
+pub fn evaluate_stored_with_settings(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    settings: &setting::TextSettings<'_>,
+) -> Result<EvaluatedStore, String> {
+    evaluate_stored_context_with_settings(
+        package,
+        sources,
+        limits,
+        None,
+        Some(settings),
+        &query::PackageDerived(package),
+    )
+}
+fn evaluate_stored_context(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    derived: &dyn query::DerivedValues,
+) -> Result<EvaluatedStore, String> {
+    evaluate_stored_context_with_settings(package, sources, limits, conversions, None, derived)
+}
+fn evaluate_stored_context_with_settings(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    settings: Option<&setting::TextSettings<'_>>,
+    derived: &dyn query::DerivedValues,
+) -> Result<EvaluatedStore, String> {
+    let mut store = storage::MemoryStore::with_index_policy(evaluation_index_policy(package));
+    let evaluation = storage::atomic(&mut store, |s| {
+        evaluate_staged(
+            package,
+            sources,
+            Invocation::resource(limits),
+            s,
+            conversions,
+            settings,
+            derived,
+        )
+    })?;
+    Ok(EvaluatedStore { store, evaluation })
+}
+
+fn evaluation_index_policy(package: &Package) -> storage::IndexPolicy {
+    // Unique-name linking, incoming-edge semantics and reciprocal validation
+    // require repeated lookups. Index opposite endpoints too: checking each
+    // child's membership in an unindexed parent collection would be quadratic.
+    // Other features retain identical query behavior through the store's scan
+    // fallback; their values need not also occupy a secondary index.
+    let indexed_features = std::iter::once("name".to_owned())
+        .chain(
+            package
+                .semantics
+                .derived
+                .iter()
+                .filter_map(|rule| match &rule.expression {
+                    Expression::NoIncoming { feature, .. } => Some(feature.clone()),
+                    Expression::Count { .. }
+                    | Expression::Stored { .. }
+                    | Expression::External { .. } => None,
+                }),
+        )
+        .chain(
+            package
+                .semantics
+                .validations
+                .iter()
+                .map(|rule| rule.feature.clone()),
+        )
+        .chain(
+            package
+                .schema
+                .classes
+                .values()
+                .flat_map(|class| class.features.values())
+                .filter_map(|field| field.opposite.as_deref())
+                .filter_map(|opposite| opposite.split_once('/'))
+                .map(|(_, feature)| feature.to_owned()),
+        );
+    storage::IndexPolicy::selected(indexed_features)
+}
+
+pub fn evaluate_with_limits(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+) -> Evaluation {
+    evaluate_context(
+        package,
+        sources,
+        limits,
+        None,
+        &query::PackageDerived(package),
+    )
+}
+/// Evaluate text and model semantics using an explicit shared derived provider.
+pub fn evaluate_with_provider(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    derived: &dyn query::DerivedValues,
+) -> Evaluation {
+    evaluate_context(package, sources, limits, None, derived)
+}
+
+pub fn evaluate_with_conversions(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    conversions: &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+) -> Evaluation {
+    evaluate_context(
+        package,
+        sources,
+        limits,
+        Some(conversions),
+        &query::PackageDerived(package),
+    )
+}
+fn evaluate_context(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    derived: &dyn query::DerivedValues,
+) -> Evaluation {
+    evaluate_with_context(package, sources, limits, conversions, None, derived)
+}
+/// Evaluate the default resource entry with explicit conversions, source-bound
+/// setters and derived reads. The original default-entry diagnostics and partial
+/// resource semantics are shared with the context-free evaluation APIs.
+pub fn evaluate_with_context(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    settings: Option<&setting::TextSettings<'_>>,
+    derived: &dyn query::DerivedValues,
+) -> Evaluation {
+    match evaluate_stored_context_with_settings(
+        package,
+        sources,
+        limits,
+        conversions,
+        settings,
+        derived,
+    )
+    .and_then(|result| Ok((result.evaluation, result.store.into_model()?)))
+    {
+        Ok((result, model)) => Evaluation {
+            model,
+            diagnostics: result.diagnostics,
+            references: result.references,
+            derived: result.derived,
+        },
+        Err(error) => Evaluation {
+            model: Model::default(),
+            diagnostics: vec![Diagnostic::new("model", 0, 0, error)],
+            references: vec![],
+            derived: BTreeMap::new(),
+        },
+    }
+}
+
+/// Atomically replace a model from source. Syntax, linking, structural and
+/// semantic diagnostics roll back the entire import, retaining the previous
+/// model and its indexes. Storage failures abort; failures encountered during
+/// validation or opposite reconciliation may be attached as diagnostics.
+/// Resource parsers construct directly into shared store savepoints. A compact
+/// parser journal tracks pending references; current-resource tokens remain in memory.
+/// Ok returns metadata for the attempted import, including when diagnostics
+/// reject it. Only an empty diagnostics list means the replacement committed;
+/// references and derived values from a rejected attempt do not describe the
+/// retained store.
+pub fn evaluate_into(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    store: &mut impl ModelStore,
+) -> Result<StoredEvaluation, String> {
+    evaluate_into_context(package, sources, limits, store, None)
+}
+pub fn evaluate_into_with_conversions(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    store: &mut impl ModelStore,
+    conversions: &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+) -> Result<StoredEvaluation, String> {
+    evaluate_into_context(package, sources, limits, store, Some(conversions))
+}
+fn evaluate_into_context(
+    package: &Package,
+    sources: &[Source],
+    limits: EvaluationLimits,
+    store: &mut impl ModelStore,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+) -> Result<StoredEvaluation, String> {
+    let mut result = StoredEvaluation::default();
+    let mut rejected = false;
+    let outcome = storage::atomic(store, |store| {
+        storage::bind_schema(store, &package.schema)?;
+        let mut after = None;
+        loop {
+            let page = store.id_page(after, 128)?;
+            if page.is_empty() {
+                break;
+            }
+            for (cursor, id) in page {
+                after = Some(cursor);
+                store.remove(&id)?;
+            }
+        }
+        for uri in store.resource_records()?.keys() {
+            store.remove_resource_record(uri)?;
+        }
+        result = evaluate_staged(
+            package,
+            sources,
+            Invocation::resource(limits),
+            store,
+            conversions,
+            None,
+            &query::PackageDerived(package),
+        )?;
+        if !result.diagnostics.is_empty() {
+            rejected = true;
+            return Err("Import rejected by diagnostics".into());
+        }
+        Ok(())
+    });
+    match outcome {
+        Ok(()) => Ok(result),
+        Err(error) if rejected && error == "Import rejected by diagnostics" => Ok(result),
+        Err(error) => Err(error),
+    }
+}
+
+struct Invocation<'entry, 'values> {
+    documents: Option<document::Request<'values>>,
+    limits: EvaluationLimits,
+    entry: Option<&'entry str>,
+    values: Option<&'values mut BTreeMap<String, entry::EntryValue>>,
+}
+impl Invocation<'static, 'static> {
+    fn resource(limits: EvaluationLimits) -> Self {
+        Self {
+            limits,
+            entry: None,
+            values: None,
+            documents: None,
+        }
+    }
+}
+fn evaluate_staged(
+    package: &Package,
+    sources: &[Source],
+    mut invocation: Invocation<'_, '_>,
+    store: &mut impl ModelStore,
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    settings: Option<&setting::TextSettings<'_>>,
+    derived: &dyn query::DerivedValues,
+) -> Result<StoredEvaluation, String> {
+    let limits = invocation.limits;
+    let initializers = if package.semantics.initializers.is_empty() {
+        None
+    } else {
+        Some(initialization::PackageInitializers::new(package)?)
+    };
+    let mut output = StoredEvaluation::default();
+    let Some(grammar) = package.grammar.as_ref() else {
+        output.diagnostics.push(Diagnostic::new(
+            "model",
+            0,
+            0,
+            "Ecore-only package has no text grammar; construct instances through the model API",
+        ));
+        return Ok(output);
+    };
+    let selected_entry = invocation.entry.unwrap_or(&grammar.entry);
+    if invocation.entry.is_none() && grammar.parameterized_rules.contains(selected_entry) {
+        for source in sources {
+            output.diagnostics.push(Diagnostic::new(
+                &source.uri,
+                0,
+                0,
+                "Named parameterized rule has no no-argument parser entry",
+            ));
+        }
+        return Ok(output);
+    }
+    if let Some(selected) = settings {
+        if !selected.belongs_to(package) {
+            return Err("Text providers belong to another package".into());
+        }
+    } else if !grammar.computed_settings.is_empty() {
+        return Err("Text computed-setting providers are not installed".into());
+    }
+
+    storage::bind_schema(store, &package.schema)?;
+    store.configure_schema(&package.schema)?;
+    let input_exceeded = limits.input_bytes.is_some_and(|limit| {
+        sources
+            .iter()
+            .try_fold(0usize, |total, s| total.checked_add(s.text.len()))
+            .is_none_or(|total| total > limit)
+    });
+    if limits.resources.is_some_and(|limit| sources.len() > limit) || input_exceeded {
+        output.diagnostics.push(Diagnostic::new(
+            "model",
+            0,
+            0,
+            "Model resource budget exceeded",
+        ));
+        return Ok(output);
+    }
+    let keywords: BTreeSet<String> = keywords(package).into_iter().collect();
+    let punctuation = package
+        .grammar
+        .as_ref()
+        .filter(|grammar| !grammar.profile.is_workbench())
+        .map(|_| {
+            if grammar.hidden.is_some() {
+                grammar::PunctuationKeywords::all(keywords.iter().map(String::as_str))
+            } else {
+                grammar::PunctuationKeywords::new(keywords.iter().map(String::as_str))
+            }
+        });
+    let mut unsettable = BTreeMap::<String, BTreeSet<String>>::new();
+    let mut lexical_types = BTreeMap::<String, BTreeMap<String, LexicalType<'_>>>::new();
+    for class in package.schema.classes.keys() {
+        for member in package.schema.effective_features(class)? {
+            let field = member.feature;
+            if field.unsettable {
+                unsettable
+                    .entry(class.clone())
+                    .or_default()
+                    .insert(field.name.clone());
+            }
+            if field.reference {
+                continue;
+            }
+            let constrained = !package
+                .schema
+                .feature_domains(class, &field.name)
+                .is_empty();
+            let target = package
+                .schema
+                .runtime_attribute_lexical_target(class, &field.name)?;
+            if let Some(target) = target {
+                let datatype = package.schema.datatypes.get(target);
+                if constrained || datatype.is_some() {
+                    lexical_types.entry(class.clone()).or_default().insert(
+                        field.name.clone(),
+                        LexicalType {
+                            datatype,
+                            target,
+                            constrained,
+                        },
+                    );
+                }
+            }
+        }
+    }
+    let mut pending = Vec::new();
+    let mut seen = std::collections::BTreeSet::new();
+    let mut parsed_resources = BTreeSet::new();
+    for source in sources {
+        if !seen.insert(&source.uri) {
+            output
+                .diagnostics
+                .push(Diagnostic::new(&source.uri, 0, 0, "Duplicate resource URI"));
+            continue;
+        }
+        intersect_model::core::resources::create_resource(store, &source.uri)?;
+        let mut capture = invocation
+            .documents
+            .as_ref()
+            .map(|request| request.capture(source))
+            .transpose()?;
+        let mut lexical_work = limits.steps_per_resource;
+        let lexed = if capture.is_some() {
+            grammar::lex_document(
+                &source.text,
+                limits.tokens_per_resource,
+                &grammar.terminals,
+                grammar
+                    .lexical_prediction
+                    .as_ref()
+                    .ok_or("Missing document lexical program")?,
+                &mut lexical_work,
+            )
+            .and_then(|(tokens, issues, ranges)| {
+                capture
+                    .as_mut()
+                    .ok_or((0, "Missing document capture".into()))?
+                    .lexical_issues(issues, ranges)
+                    .map_err(|e| (0, e))?;
+                Ok(tokens)
+            })
+        } else {
+            grammar::lex_borrowed_with_prediction(
+                &source.text,
+                limits.tokens_per_resource,
+                punctuation.as_ref(),
+                Some(&grammar.terminals),
+                if grammar.profile.has_scoped_hidden_tokens() {
+                    Some(&[])
+                } else {
+                    grammar.hidden.as_deref()
+                },
+                grammar.lexical_prediction.as_ref(),
+                &mut lexical_work,
+            )
+        };
+        let tokens = match lexed {
+            Ok(t) => t,
+            Err((at, error)) => {
+                output
+                    .diagnostics
+                    .push(Diagnostic::new(&source.uri, at, at + 1, error));
+                continue;
+            }
+        };
+        let utf16_positions = if let Some(capture) = &capture {
+            capture.token_positions()
+        } else if grammar.rules.values().any(|rule| rule.datatype.is_some()) {
+            datatype_text::utf16_offsets(&source.text, tokens.iter().map(|token| token.start))?
+        } else {
+            Vec::new()
+        };
+        let mut rejected = None;
+        let document_mode = capture.is_some();
+        let mut document_diagnostics = Vec::new();
+        let parsed = storage::atomic(store, |store| {
+            let mut machine = Machine {
+                document: capture.map(Box::new),
+                document_origin: None,
+                document_feature: None,
+                retained_tokens: grammar.profile.has_scoped_hidden_tokens(),
+                hidden_policy: grammar.hidden.as_deref().unwrap_or(&[]),
+                raw_entry: invocation.entry.is_some()
+                    && grammar
+                        .rules
+                        .get(selected_entry)
+                        .is_some_and(|rule| rule.datatype.is_some()),
+                construction: None,
+                settings,
+                raw_source: &source.text,
+                utf16_positions,
+                datatype_text: None,
+                initializers: initializers.as_ref(),
+                conversions,
+                lexical_types: &lexical_types,
+                unsettable: &unsettable,
+                keywords: &keywords,
+                undo: Vec::new(),
+                limits,
+                package,
+                uri: &source.uri,
+                tokens,
+                cursor: TokenCursor::default(),
+                datatype_span: None,
+                store,
+                elements: 0,
+                pending: vec![],
+                scalar_pending: BTreeMap::new(),
+                steps: limits
+                    .steps_per_resource
+                    .zip(lexical_work)
+                    .map_or(0, |(limit, remaining)| limit.saturating_sub(remaining)),
+                depth: 0,
+                generic_fragment: false,
+                farthest: 0,
+                diagnostic_position: None,
+                expected: String::new(),
+            };
+            // A successfully consumed resource can have no EObject root. Keep
+            // that outcome separate from syntax rejection and storage failure.
+            let result = machine.entry(selected_entry);
+            if let Err(ParseError::Storage(error)) = result {
+                return Err(error);
+            }
+            if document_mode && let Err(ParseError::Budget(error)) = &result {
+                return Err(error.clone());
+            }
+            if let Some(document) = machine.document.take() {
+                let mut snapshot = (*document).finish()?;
+                for node in snapshot.document.nodes() {
+                    if let Some(index) = node.data.syntax_error {
+                        let issue = &snapshot.syntax_issues[index];
+                        if let Some(range) = snapshot.document.utf8_range(node.range)? {
+                            document_diagnostics.push(Diagnostic::new(
+                                &source.uri,
+                                range.start,
+                                range.end,
+                                issue.message.clone(),
+                            ));
+                        }
+                    }
+                }
+                if !snapshot.syntax_issues.is_empty() {
+                    for node in snapshot
+                        .document
+                        .nodes()
+                        .iter()
+                        .filter(|n| n.data.direct_semantic_association)
+                    {
+                        if let Some(index) = node.data.semantic_object {
+                            let range = snapshot
+                                .document
+                                .utf8_range(node.range)?
+                                .ok_or("Recovered object has an interior UTF16 boundary")?;
+                            machine.store.set_span(
+                                &format!("{}#{index}", source.uri),
+                                range.start,
+                                range.end,
+                            )?;
+                        }
+                    }
+                }
+                snapshot.capture_parse_stage(
+                    machine.store,
+                    machine.elements,
+                    &machine.pending,
+                    result.as_ref().ok(),
+                    grammar
+                        .rules
+                        .get(selected_entry)
+                        .is_some_and(|r| r.datatype.is_some()),
+                    invocation
+                        .documents
+                        .as_ref()
+                        .ok_or("Missing document request")?
+                        .limits(),
+                )?;
+                invocation
+                    .documents
+                    .as_mut()
+                    .ok_or("Missing document request")?
+                    .push(snapshot);
+            }
+            if result.is_err() || machine.cursor.position != machine.tokens.len() {
+                let at = machine.tokens.get(
+                    machine
+                        .diagnostic_position
+                        .unwrap_or_else(|| machine.farthest.max(machine.cursor.position)),
+                );
+                let start = at.map_or(source.text.len(), |t| t.start);
+                let end = at.map_or(start, |t| t.end);
+                let message = result.err().map(ParseError::message).unwrap_or_else(|| {
+                    if machine.expected.is_empty() {
+                        "Unexpected trailing input".into()
+                    } else {
+                        machine.expected.clone()
+                    }
+                });
+                rejected = Some(Diagnostic::new(&source.uri, start, end, message));
+                if document_mode {
+                    Ok((machine.pending, Value::Null))
+                } else {
+                    Err("Resource parse rejected".into())
+                }
+            } else {
+                Ok((machine.pending, result.map_err(ParseError::message)?))
+            }
+        });
+        match parsed {
+            Ok((references, value)) => {
+                if document_mode
+                    && document_diagnostics.is_empty()
+                    && let Some(diagnostic) = rejected.take()
+                {
+                    output.diagnostics.push(diagnostic);
+                }
+                output.diagnostics.append(&mut document_diagnostics);
+                if let Some(values) = invocation.values.as_mut() {
+                    let selected = if grammar
+                        .rules
+                        .get(selected_entry)
+                        .is_some_and(|rule| rule.datatype.is_some())
+                    {
+                        entry::EntryValue::Datatype(
+                            value
+                                .as_str()
+                                .ok_or("Datatype entry did not return text")?
+                                .to_owned(),
+                        )
+                    } else if value.is_null() {
+                        entry::EntryValue::Empty
+                    } else {
+                        entry::EntryValue::Object(
+                            value
+                                .as_str()
+                                .ok_or("Object entry did not return an identity")?
+                                .to_owned(),
+                        )
+                    };
+                    values.insert(source.uri.clone(), selected);
+                }
+                parsed_resources.insert(source.uri.as_str());
+                pending.extend(references);
+            }
+            Err(error) if rejected.is_some() && error == "Resource parse rejected" => {
+                if let Some(diagnostic) = rejected {
+                    output.diagnostics.push(diagnostic);
+                }
+            }
+            Err(error) => return Err(error),
+        }
+    }
+    {
+        for reference in pending.into_iter().filter(|reference| reference.active) {
+            let mut targets = Vec::new();
+            let mut unresolved = None;
+            let owner_class = store
+                .class(&reference.owner)?
+                .ok_or("Missing reference owner")?;
+            for id in store.query(Query::Value(
+                "name",
+                &Value::String(reference.spelling.clone()),
+            ))? {
+                let class = store.class(&id)?.ok_or("Missing indexed name target")?;
+                if package.schema.conforms(&class, &reference.target) {
+                    match package
+                        .schema
+                        .reference_conforms(&owner_class, &reference.field, &class)
+                    {
+                        Ok(true) => targets.push(id),
+                        Ok(false) => {}
+                        Err(message) => unresolved = Some(message),
+                    }
+                }
+            }
+            if let Some(message) = unresolved {
+                output.diagnostics.push(Diagnostic::new(
+                    &reference.uri,
+                    reference.start,
+                    reference.end,
+                    message,
+                ));
+                continue;
+            }
+            if targets.len() != 1 {
+                output.diagnostics.push(Diagnostic::new(
+                    &reference.uri,
+                    reference.start,
+                    reference.end,
+                    format!(
+                        "{} reference '{}' ({})",
+                        if targets.is_empty() {
+                            "Unresolved"
+                        } else {
+                            "Ambiguous"
+                        },
+                        reference.spelling,
+                        reference.target
+                    ),
+                ));
+                continue;
+            }
+            let target = &targets[0];
+            store.resolve_reference(&reference.owner, &reference.field, reference.index, target)?;
+            output.references.push(Reference {
+                uri: reference.uri,
+                start: reference.start,
+                end: reference.end,
+                target: target.clone(),
+            });
+        }
+    }
+    // Retain original populated endpoints, rather than a second model snapshot.
+    let mut opposite_edits = Vec::new();
+    let mut opposite_fields = BTreeMap::new();
+    for name in package.schema.classes.keys() {
+        opposite_fields.insert(
+            name.as_str(),
+            package
+                .schema
+                .features(name)?
+                .into_iter()
+                .filter(|(_, field)| field.opposite.is_some())
+                .collect::<Vec<_>>(),
+        );
+    }
+    storage::visit_views(store, |element| {
+        for (name, field) in opposite_fields
+            .get(element.class())
+            .ok_or("Unknown class")?
+        {
+            if field.opposite.is_some() {
+                if let Some(value) = element
+                    .value(name)
+                    .filter(|v| !v.is_null() && v.collection().is_none_or(|a| !a.is_empty()))
+                {
+                    opposite_edits.push((element.id().to_owned(), name.clone(), value.to_json()));
+                }
+            }
+        }
+        Ok(())
+    })?;
+    for (id, name, value) in opposite_edits {
+        if let Err(error) = storage::set_with_opposite(store, &package.schema, &id, &name, value) {
+            let element = store.get(&id)?.ok_or("Missing opposite owner")?;
+            output.diagnostics.push(Diagnostic::new(
+                &element.resource,
+                element.start,
+                element.end,
+                error,
+            ));
+        }
+    }
+    if output.diagnostics.is_empty() {
+        let validation = match conversions {
+            Some(registry) => storage::validate_with_conversions(store, &package.schema, registry),
+            None => storage::validate(store, &package.schema),
+        };
+        if let Err(error) = validation {
+            output.diagnostics.push(Diagnostic::new(
+                sources.first().map_or("model", |s| &s.uri),
+                0,
+                1,
+                error,
+            ));
+        } else {
+            apply_stored_semantics_with_provider(package, store, &mut output, derived)?;
+        }
+    }
+    // Attach correspondence after linking/opposite writes, which invalidate old
+    // source evidence. Parse-rejected resources remain resident and explicitly
+    // diagnosed, without claiming element/source correspondence.
+    let mut retained = BTreeSet::new();
+    for source in sources {
+        if !retained.insert(source.uri.as_str()) {
+            continue;
+        }
+        if let Some(mut record) = store.resource_record(&source.uri)? {
+            record.source = if parsed_resources.contains(source.uri.as_str()) {
+                let identity = intersect_model::definitions::bundle::SourceId::for_text(
+                    &source.uri,
+                    &source.text,
+                );
+                Some(intersect_model::core::resources::SourceCorrespondence {
+                    uri: identity.uri,
+                    revision: identity.sha256,
+                })
+            } else {
+                None
+            };
+            record.diagnostics = output
+                .diagnostics
+                .iter()
+                .filter(|diagnostic| diagnostic.source == source.uri)
+                .map(|diagnostic| {
+                    format!(
+                        "{}..{}: {}",
+                        diagnostic.start, diagnostic.end, diagnostic.message
+                    )
+                })
+                .collect();
+            store.set_resource_record(record)?;
+        }
+    }
+    Ok(output)
+}
+
+/// Recompute derived values through the shared storage evaluator and append
+/// semantic diagnostics to the existing list. Use a fresh diagnostics list when
+/// recomputing after edits to avoid retaining diagnostics from an earlier pass.
+pub fn apply_semantics(package: &Package, result: &mut Evaluation) {
+    apply_semantics_with_provider(package, result, &query::PackageDerived(package));
+}
+
+/// Recompute model semantics with an explicitly installed derived provider.
+pub fn apply_semantics_with_provider(
+    package: &Package,
+    result: &mut Evaluation,
+    derived: &dyn query::DerivedValues,
+) {
+    let mut metadata = StoredEvaluation::default();
+    let outcome = storage::ModelView::new(&result.model).and_then(|view| {
+        apply_stored_semantics_with_provider(package, &view, &mut metadata, derived)
+    });
+    result.derived = metadata.derived;
+    result.diagnostics.extend(metadata.diagnostics);
+    if let Err(error) = outcome {
+        result
+            .diagnostics
+            .push(Diagnostic::new("model", 0, 0, error));
+    }
+}
+
+/// Recompute derived values and append semantic diagnostics. The caller owns
+/// diagnostic provenance: pass fresh metadata for an independent rerun instead
+/// of accumulating obsolete findings. Language-specific semantics stay here;
+/// stores supply generic indexed reads.
+pub fn apply_stored_semantics(
+    package: &Package,
+    store: &impl ModelRead,
+    result: &mut StoredEvaluation,
+) -> Result<(), String> {
+    apply_stored_semantics_with_provider(package, store, result, &query::PackageDerived(package))
+}
+
+pub fn apply_stored_semantics_with_provider(
+    package: &Package,
+    store: &impl ModelRead,
+    result: &mut StoredEvaluation,
+    derived: &dyn query::DerivedValues,
+) -> Result<(), String> {
+    result.derived.clear();
+    // Preserve the existing native model-rule policy. External adapters enforce
+    // their own shared, sticky registry budget (100,000 units in the web host).
+    let mut budget = intersect_model::core::query::QueryBudget::new(usize::MAX);
+    storage::visit_views(store, |element| {
+        for rule in &package.semantics.derived {
+            if !package.schema.conforms(element.class(), &rule.class) {
+                continue;
+            }
+            let value = derived.read(store, element.id(), &rule.feature, &mut budget)?;
+            result
+                .derived
+                .entry(element.id().to_owned())
+                .or_default()
+                .insert(rule.feature.clone(), value);
+        }
+        Ok(())
+    })?;
+    for rule in &package.semantics.validations {
+        let mut targets = BTreeSet::new();
+        for class in package
+            .schema
+            .classes
+            .keys()
+            .filter(|c| package.schema.conforms(c, &rule.class))
+        {
+            for id in store.query(Query::Class(class))? {
+                if !store.inspect(&id, &mut |element| {
+                    if let Some(value) = element.value(&rule.feature) {
+                        if let Some(list) = value.collection() {
+                            for value in list.iter() {
+                                if let Some(id) = value.as_str() {
+                                    targets.insert(id.to_owned());
+                                }
+                            }
+                        } else if let Some(id) = value.as_str() {
+                            targets.insert(id.to_owned());
+                        }
+                    }
+                    Ok(())
+                })? {
+                    return Err("Missing indexed instance".into());
+                }
+            }
+        }
+        for target in targets {
+            let mut incoming = Vec::new();
+            for id in store.query(Query::Value(&rule.feature, &json!(target)))? {
+                if !store.inspect(&id, &mut |e| {
+                    if package.schema.conforms(e.class(), &rule.class) {
+                        if let Some(value) = e.value(&rule.feature) {
+                            let count = value.collection().map_or_else(
+                                || usize::from(value.as_str() == Some(&target)),
+                                |a| a.iter().filter(|v| v.as_str() == Some(&target)).count(),
+                            );
+                            for _ in 0..count {
+                                incoming.push((e.resource().to_owned(), e.start(), e.end()));
+                            }
+                        }
+                    }
+                    Ok(())
+                })? {
+                    return Err("Missing indexed owner".into());
+                }
+            }
+            if incoming.len() > rule.max_incoming {
+                for (uri, start, end) in incoming {
+                    result
+                        .diagnostics
+                        .push(Diagnostic::new(&uri, start, end, &rule.message));
+                }
+            }
+        }
+    }
+    Ok(())
+}

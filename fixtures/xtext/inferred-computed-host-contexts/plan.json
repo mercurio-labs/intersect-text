@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "baseline": "45175c6d1a8aed265c472f8610b4927ce447061a",
+  "qualification": "Native extension provider/host consumers. No new independent JVM results or parent gate closure. All original acceptance obligations remain open.",
+  "requirements": [
+    "Execute the actual source-authored writable projection through default and reachable named text entries, with exact backing values, derived readback and parent-child identities.",
+    "Require explicit version 2 behavior and computed-setting selection; version 1 retains its original catalog-only contract.",
+    "Install only rcore.projection version 1, delegating to the existing Rcore PackageDerived and SourceBoundSettings algorithms after fresh source compilation.",
+    "Rebuild original inputs, behavior identities and setting contracts for replay, JSON query/script consumers, both ZIP forms and actual workers; never trust cached semantics, schema or grammar code.",
+    "Reject absent, stale, mismatched, duplicated, unsupported or unused setting contracts, unauthorized operations and conflicting archive recipes; preserve active state and allow valid retry.",
+    "Prove actual source ZIP roundtrip and fresh-instance/worker replay with an explicit context; durable editor/project/restart adoption and full resource/provider qualification remain required.",
+    "Preserve native/WASM semantics, model-only boundary and legacy source/ZIP bytes; keep imported, consumed and semantically verified separate."
+  ],
+  "cases": [
+    {
+      "id": "computed_settings_behavior_entries_explicit",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package settings_read version \"1\"; import model \"urn:inferred:settings\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.xtext",
+                "sha256": "eb49d3d80ea7cc3852c2c0bc5ffc36a0fc1daf91336a15b04049e36ed0fe13da"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'computed' child=Item<true> | 'stored' child=Item<false>;\nItem<Flag> returns p::Item: <Flag> computed=ID | <!Flag> backing=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                },
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+                  "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/model.xtext",
+          "sha256": "eb49d3d80ea7cc3852c2c0bc5ffc36a0fc1daf91336a15b04049e36ed0fe13da"
+        }
+      },
+      "model_text": "computed alpha",
+      "entry": "Item",
+      "behavior": {
+        "uri": "memory:inferred-contexts/computed_settings_behavior_entries_explicit/behavior.rcore",
+        "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+      },
+      "named_model_text": "alpha"
+    },
+    {
+      "id": "computed_settings_plain_behavior_entries_explicit",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package settings version \"1\";\nmetamodel \"urn:inferred:settings\" prefix p {\n class Item { attr backing: String [0,1]; attr computed: String [0,1] derived; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+                "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package settings_read version \"1\"; import model \"urn:inferred:settings\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+                "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.settings.Language hidden(WS)\ngenerate model \"urn:contexts:settings\"\nimport \"urn:inferred:settings\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                  "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+                },
+                {
+                  "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+                  "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:settings",
+              "source": {
+                "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.rcore",
+                "sha256": "4ba9e6ce482d1c9c09f464f4c45e4b74de73811804ce3da310df642ae088de41"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/model.xtext",
+          "sha256": "ea475a68fac18dea95a84396a36657018f168d37a1a9cd6a124d5caf75a2197a"
+        }
+      },
+      "model_text": "alpha",
+      "entry": "Item",
+      "behavior": {
+        "uri": "memory:inferred-contexts/computed_settings_plain_behavior_entries_explicit/behavior.rcore",
+        "sha256": "b45e127c5207d678714cdb87405470cba0a92e6105c110800ab603532d9ae0e6"
+      },
+      "named_model_text": "alpha"
+    }
+  ]
+}

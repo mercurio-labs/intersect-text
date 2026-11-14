@@ -1,0 +1,4 @@
+grammar example.ChildColors with example.Colors
+import "urn:intersect:xtext:enum-composition:1" as p
+@Override Model returns p::Model: 'color' shade=Choice ';';
+@Override Choice returns p::Shade: 'red' | 'blue' | 'missing';

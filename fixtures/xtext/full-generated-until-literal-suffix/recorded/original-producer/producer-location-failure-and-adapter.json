@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "initial_observed_tool_call_chunk": "c2acd1",
+  "initial_observed_exit": 1,
+  "initial_failure": "Copied portable producer assumed HERE lies within fixtures; ignored relocation computed protected=primary target and rejected output before any Java or output creation.",
+  "same_failure_reproduction": {
+    "command": [
+      "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+      "-B",
+      "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\full-until-literal-suffix-v1\\produce.py",
+      "--output",
+      "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\full-until-literal-suffix-v1\\record",
+      "--jdk",
+      "D:/dev/jdks/jdk21",
+      "--maven-cache",
+      "C:/Users/MarkPetrotta/.m2/repository"
+    ],
+    "exit_code": 1,
+    "stderr_sha256": "99375002244586c48801e3e0f9e85b41ab16e1de55aef4b320044dac0545b8e6"
+  },
+  "original_producer_sha256_unchanged": "5d6ab9ab0b5eca36443cdce3b7a003c3989a0b7e0053728f3eb7266376b26f79",
+  "new_adapter": {
+    "path": "produce-location-adapter-v1.py",
+    "sha256": "7abf6d96b35d2c85b684ea0056f8f57df58c5192cbf732c7282c009152c0135d",
+    "only_change": "protected=HERE.parents[1] -> protected=HERE/'inputs'; output still must be new, and must stay outside immutable inputs. No source/toolchain/semantic generation/runtime changes."
+  },
+  "input_manifest_sha256_unchanged": "d0bbfbc1d97d7ad8f46789edef6d1bd5ff4db10387a2afd874bc75974ce4b680",
+  "attempted_semantic_execution_before_failure": false,
+  "gate_closures": []
+}

@@ -1,0 +1,7 @@
+grammar mini.Inference with mini.InferenceBase
+import "urn:intersect:xtext:mini-kerml:inference:1" as k
+Entry returns k::Model: Model;
+@Override
+Type returns k::Element: {k::Type} isAbstract?='abstract'? 'type' Identification ('operator' operator=ConditionalOperator)? ('count' count=DECIMAL_VALUE)? ('magnitude' magnitude=Number)? ('description' description=STRING_VALUE)? ';';
+@Override
+Feature returns k::Element: {k::Feature} 'feature' Identification ':>' target=[k::Type|QualifiedName] ';';

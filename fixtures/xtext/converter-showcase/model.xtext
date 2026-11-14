@@ -1,0 +1,7 @@
+grammar mini.ConverterShowcase with mini.ConverterShowcaseBase
+import "urn:intersect:xtext:mini-kerml:converters:1" as k
+Entry returns k::Model: Model;
+@Override
+Type returns k::Element: {k::Type} isAbstract?='abstract'? 'type' Identification ('visibility' visibility=VisibilityIndicator)? ('filter' visibility=FilterPackageMemberVisibility)? ('operator' operator=ConditionalOperator)? ('count' count=DECIMAL_VALUE)? ('magnitude' magnitude=Number)? ('description' description=STRING_VALUE)? ';';
+@Override
+Feature returns k::Element: {k::Feature} 'feature' Identification Modifiers? ('direction' direction=FeatureDirection)? ('enabled' isEnabled=BooleanValue)? ':>' target=[k::Type|QualifiedName] ';';

@@ -1,0 +1,946 @@
+{
+  "cases": [
+    {
+      "id": "wildcard_original_control",
+      "request": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+                "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                "uri": "memory:terminal-negation/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "entry": {
+          "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+          "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+        },
+        "source_limits": {
+          "declarations": 128,
+          "source_bytes": 256000
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "id": "wildcard_first_null",
+      "request": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+                "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nfragment Fields*: name=ID;\nModel: 'm' Fields;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                "uri": "memory:terminal-negation/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "entry": {
+          "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+          "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+        },
+        "source_limits": {
+          "declarations": 128,
+          "source_bytes": 256000
+        }
+      },
+      "result": {
+        "diagnostic": {
+          "end": 178,
+          "message": "The first rule must not be a fragment",
+          "source": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext",
+          "start": 169
+        },
+        "ok": false,
+        "origin": {
+          "kind": "source",
+          "source": {
+            "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+            "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+          },
+          "span": {
+            "end": 178,
+            "source": {
+              "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+              "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+            },
+            "start": 169
+          }
+        }
+      }
+    },
+    {
+      "id": "scalar_fragment_library",
+      "request": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofScalarFragmentLibrary\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment Text returns ecore::EString: VALUE;\nterminal VALUE: 'a';\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                "uri": "memory:terminal-negation/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "entry": {
+          "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+          "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext"
+        },
+        "source_limits": {
+          "declarations": 128,
+          "source_bytes": 256000
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "id": "scalar_fragment_model_child",
+      "request": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofScalarFragmentLibrary\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment Text returns ecore::EString: VALUE;\nterminal VALUE: 'a';\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                {
+                  "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                  "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+                "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofScalarFragmentChild with audit.ProofScalarFragmentLibrary\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                "uri": "memory:terminal-negation/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "entry": {
+          "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+          "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext"
+        },
+        "source_limits": {
+          "declarations": 128,
+          "source_bytes": 256000
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "id": "syntax_clean_object_three_level",
+      "request": {
+        "bundle": {
+          "namespaces": [],
+          "sources": [
+            {
+              "dependencies": [],
+              "id": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+                "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofObjectBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                {
+                  "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+                  "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+                "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofObjectMiddle with audit.ProofObjectBase\n\nterminal MID: 'z';\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                {
+                  "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+                  "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+                "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.ProofObjectChild with audit.ProofObjectMiddle\n\nterminal FIRST: 'b';\n"
+            },
+            {
+              "dependencies": [
+                {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              ],
+              "id": {
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                "uri": "memory:terminal-negation/behavior.rcore"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+            }
+          ],
+          "version": 1
+        },
+        "entry": {
+          "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+          "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext"
+        },
+        "source_limits": {
+          "declarations": 128,
+          "source_bytes": 256000
+        }
+      },
+      "result": {
+        "diagnostic": {
+          "end": 72,
+          "message": "The first rule must be a parser rule.",
+          "source": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext",
+          "start": 69
+        },
+        "ok": false,
+        "origin": {
+          "kind": "source",
+          "source": {
+            "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+            "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+          },
+          "span": {
+            "end": 72,
+            "source": {
+              "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+              "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+            },
+            "start": 69
+          }
+        }
+      }
+    }
+  ],
+  "input": {
+    "cases": [
+      {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+                  "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+            "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+          }
+        },
+        "id": "wildcard_original_control",
+        "inference_request": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+                  "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'm' Fields;\nfragment Fields*: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              }
+            ],
+            "version": 1
+          },
+          "grammar": {
+            "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+            "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+          },
+          "version": 1
+        },
+        "inputs": [
+          "m alpha",
+          "malpha",
+          "m ",
+          "",
+          "m alpha beta"
+        ],
+        "original_ecore": {
+          "bytes": 1283,
+          "path": "../inputs/wildcard_original_control/imported.ecore",
+          "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+        },
+        "source_pins": [
+          {
+            "file": "inference.fragments.WildcardBasic.xtext",
+            "grammar": "inference.fragments.WildcardBasic",
+            "source_id": {
+              "sha256": "c12a226bf9b273df51ad8d71ed887a78f3486549ea2b3674e5d2b428063de5d8",
+              "uri": "memory:proof-gaps/wildcard_original_control/inference.fragments.WildcardBasic.xtext"
+            }
+          }
+        ],
+        "structural_selection": "Exact unchanged canonical full7 Rcore migration adapter; original Ecore bytes separately retained. Generated wildcard sources may be unsupported by this ordinary adapter, not silently rewritten."
+      },
+      {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+                  "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nfragment Fields*: name=ID;\nModel: 'm' Fields;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+            "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+          }
+        },
+        "id": "wildcard_first_null",
+        "inference_request": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+                  "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.WildcardBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:wildcard_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nfragment Fields*: name=ID;\nModel: 'm' Fields;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+              }
+            ],
+            "version": 1
+          },
+          "grammar": {
+            "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+            "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+          },
+          "version": 1
+        },
+        "inputs": [
+          "m alpha",
+          "malpha",
+          "m ",
+          "",
+          "m alpha beta"
+        ],
+        "original_ecore": {
+          "bytes": 1283,
+          "path": "../inputs/wildcard_first_null/imported.ecore",
+          "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+        },
+        "source_pins": [
+          {
+            "file": "inference.fragments.WildcardBasic.xtext",
+            "grammar": "inference.fragments.WildcardBasic",
+            "source_id": {
+              "sha256": "1fb6087ea0257c8f56ee2b6ba054814404b361cb6751126ce4f062acc562abd0",
+              "uri": "memory:proof-gaps/wildcard_first_null/inference.fragments.WildcardBasic.xtext"
+            }
+          }
+        ],
+        "structural_selection": "Exact unchanged canonical full7 Rcore migration adapter; original Ecore bytes separately retained. Generated wildcard sources may be unsupported by this ordinary adapter, not silently rewritten."
+      },
+      {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                  "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofScalarFragmentLibrary\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment Text returns ecore::EString: VALUE;\nterminal VALUE: 'a';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+            "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext"
+          }
+        },
+        "id": "scalar_fragment_library",
+        "inputs": [
+          "a",
+          "b",
+          "",
+          "aa",
+          "a🌍"
+        ],
+        "original_ecore": {
+          "bytes": 1283,
+          "path": "../inputs/scalar_fragment_library/imported.ecore",
+          "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+        },
+        "source_pins": [
+          {
+            "file": "audit.ProofScalarFragmentLibrary.xtext",
+            "grammar": "audit.ProofScalarFragmentLibrary",
+            "source_id": {
+              "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+              "uri": "memory:proof-gaps/scalar_fragment_library/audit.ProofScalarFragmentLibrary.xtext"
+            }
+          }
+        ],
+        "structural_selection": "Exact unchanged canonical full7 Rcore migration adapter; original Ecore bytes separately retained. Generated wildcard sources may be unsupported by this ordinary adapter, not silently rewritten."
+      },
+      {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                  "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofScalarFragmentLibrary\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment Text returns ecore::EString: VALUE;\nterminal VALUE: 'a';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  {
+                    "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+                    "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext"
+                  }
+                ],
+                "id": {
+                  "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+                  "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofScalarFragmentChild with audit.ProofScalarFragmentLibrary\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+            "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext"
+          }
+        },
+        "id": "scalar_fragment_model_child",
+        "inputs": [
+          "a",
+          "b",
+          "",
+          "aa",
+          "a🌍"
+        ],
+        "original_ecore": {
+          "bytes": 1283,
+          "path": "../inputs/scalar_fragment_model_child/imported.ecore",
+          "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+        },
+        "source_pins": [
+          {
+            "file": "audit.ProofScalarFragmentLibrary.xtext",
+            "grammar": "audit.ProofScalarFragmentLibrary",
+            "source_id": {
+              "sha256": "427ba3ec6d7124926e29780a401c6edb951c7bdbc18e0c9b22ab65c8b25755d0",
+              "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentLibrary.xtext"
+            }
+          },
+          {
+            "file": "audit.ProofScalarFragmentChild.xtext",
+            "grammar": "audit.ProofScalarFragmentChild",
+            "source_id": {
+              "sha256": "162bd3d13979a21ee4ccb7e17cd1c3e61d46d9427a758464098cea4adc2048d8",
+              "uri": "memory:proof-gaps/scalar_fragment_model_child/audit.ProofScalarFragmentChild.xtext"
+            }
+          }
+        ],
+        "structural_selection": "Exact unchanged canonical full7 Rcore migration adapter; original Ecore bytes separately retained. Generated wildcard sources may be unsupported by this ordinary adapter, not silently rewritten."
+      },
+      {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+                  "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofObjectBase\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nModel returns k::Model: name=VALUE;\nterminal VALUE: 'a';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  {
+                    "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+                    "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext"
+                  }
+                ],
+                "id": {
+                  "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+                  "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofObjectMiddle with audit.ProofObjectBase\n\nterminal MID: 'z';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  {
+                    "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+                    "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+                  }
+                ],
+                "id": {
+                  "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+                  "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.ProofObjectChild with audit.ProofObjectMiddle\n\nterminal FIRST: 'b';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+            "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext"
+          }
+        },
+        "id": "syntax_clean_object_three_level",
+        "inputs": [
+          "a",
+          "b",
+          "z",
+          "",
+          "ab"
+        ],
+        "original_ecore": {
+          "bytes": 1283,
+          "path": "../inputs/syntax_clean_object_three_level/imported.ecore",
+          "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+        },
+        "source_pins": [
+          {
+            "file": "audit.ProofObjectBase.xtext",
+            "grammar": "audit.ProofObjectBase",
+            "source_id": {
+              "sha256": "93fb7940e3c545075900642332b16ea1ac21509803ba2bbafbfa2e7f65e8391f",
+              "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectBase.xtext"
+            }
+          },
+          {
+            "file": "audit.ProofObjectMiddle.xtext",
+            "grammar": "audit.ProofObjectMiddle",
+            "source_id": {
+              "sha256": "5d5160040030759c36df88ffde2b0ab2d67864bc35977a97b91cfc7fd8f9512a",
+              "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectMiddle.xtext"
+            }
+          },
+          {
+            "file": "audit.ProofObjectChild.xtext",
+            "grammar": "audit.ProofObjectChild",
+            "source_id": {
+              "sha256": "adfaa4b33d721aeeef296c3675f9a335be255d4cb41e4b4f749d42a3a975820b",
+              "uri": "memory:proof-gaps/syntax_clean_object_three_level/audit.ProofObjectChild.xtext"
+            }
+          }
+        ],
+        "structural_selection": "Exact unchanged canonical full7 Rcore migration adapter; original Ecore bytes separately retained. Generated wildcard sources may be unsupported by this ordinary adapter, not silently rewritten."
+      }
+    ],
+    "profile": "intersect.xtext.native.v61",
+    "scope": "Immutable V61 BEFORE only. Original generated wildcard also observed through unchanged inferred-v1 default; no inferred61 selection or new adapter.",
+    "version": 1
+  },
+  "scope": "Public authored-source validation only under fixed NativeV61. No executable package, generation/runtime, inferred-profile or full-support award.",
+  "version": 1
+}

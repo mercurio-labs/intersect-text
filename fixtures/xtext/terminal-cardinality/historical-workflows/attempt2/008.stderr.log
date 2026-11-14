@@ -1,0 +1,35 @@
+Exception in thread "main" com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) [Guice/MissingImplementation]: No implementation for IParseTreeConstructor was bound.
+
+Requested by:
+1  : Serializer.<init>(Serializer.java:44)
+      \_ for 1st parameter ptc
+     at MethodBasedModule.configure(MethodBasedModule.java:58)
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+IParseTreeConstructor: "org.eclipse.xtext.parsetree.reconstr.IParseTreeConstructor"
+MethodBasedModule:     "org.eclipse.xtext.service.MethodBasedModule"
+Serializer:            "org.eclipse.xtext.parsetree.reconstr.Serializer"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:589)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:163)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:69)
+	at com.google.inject.Guice.createInjector(Guice.java:59)
+	at audit.ReturnIdentityBaseStandaloneSetupGenerated.createInjector(ReturnIdentityBaseStandaloneSetupGenerated.java:40)
+	at audit.ReturnIdentityBaseStandaloneSetupGenerated.createInjectorAndDoEMFRegistration(ReturnIdentityBaseStandaloneSetupGenerated.java:34)
+	at audit.ReturnIdentityBaseStandaloneSetup.doSetup(ReturnIdentityBaseStandaloneSetup.java:13)
+	at audit.ReturnMatrixInheritedExplicitTerminalStandaloneSetupGenerated.createInjectorAndDoEMFRegistration(ReturnMatrixInheritedExplicitTerminalStandaloneSetupGenerated.java:18)
+	at intersect.oracle.FullRuntime.main(FullRuntime.java:8)

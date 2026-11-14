@@ -1,0 +1,67 @@
+--- crates/intersect-web/src/conversions.rs
++++ crates/intersect-web/src/conversions.rs
+@@ -295,3 +295,64 @@
+         intersect_model::conversion::constructor_contract(&bundle, &declaration, provider)?;
+     Ok(json!({"ok":true,"contract":contract,"model_published":false}))
+ }
++
++// Explicit catalog selectors select installed host implementations; original
++// source inputs are supplied only by the shared, digest-checked archive verifier.
++struct ArchiveCatalog<'a> {
++    contracts: &'a [ConversionContract],
++    applications: &'a [AppliedConversionContract],
++    constructors: &'a [ConstructorContract],
++}
++impl intersect_xtext::distribution::BundleCompilationFrontend for ArchiveCatalog<'_> {
++    fn compile(
++        &self,
++        inputs: &BundleCompilation,
++        profile: intersect_model::definitions::grammar::Profile,
++        settings: &[intersect_model::definitions::setting::ComputedSettingContract],
++        requested: Option<intersect_model::definitions::schema::CompilationSourcePolicy>,
++        host: intersect_model::definitions::schema::CompilationSourcePolicy,
++    ) -> Result<intersect_xtext::distribution::CompiledBundle, String> {
++        if profile != intersect_model::definitions::grammar::Profile::NativeV65 {
++            return Err("Ordinary catalog archive import requires explicit NativeV65".into());
++        }
++        intersect_model::conversion::with_catalog_policies(
++            &inputs.bundle,
++            self.contracts,
++            self.applications,
++            self.constructors,
++            |registry| {
++                let compiled = intersect_xtext::distribution::compile_bundle_with_context(
++                    inputs, profile, settings, Some(registry), requested, host,
++                )?;
++                if compiled.package.schema.conversion_contracts.len() != self.contracts.len()
++                    || compiled.package.schema.applied_conversion_contracts.len() != self.applications.len()
++                    || compiled.package.schema.constructor_contracts.len() != self.constructors.len()
++                {
++                    return Err("Unused conversion provider selection".into());
++                }
++                Ok(compiled)
++            },
++        )
++    }
++}
++
++pub fn import(request: &Value) -> Result<Value, String> {
++    let files = serde_json::from_value(
++        request.get("files").cloned().ok_or("Missing extracted archive files")?,
++    ).map_err(|error| format!("Invalid archive files: {error}"))?;
++    let contracts: Vec<ConversionContract> = serde_json::from_value(
++        request.get("conversions").cloned().unwrap_or(json!([])),
++    ).map_err(|error| error.to_string())?;
++    let applications: Vec<AppliedConversionContract> = serde_json::from_value(
++        request.get("applied_conversions").cloned().unwrap_or(json!([])),
++    ).map_err(|error| error.to_string())?;
++    let constructors = constructor_inputs(request, "constructors")?;
++    let frontend = ArchiveCatalog { contracts: &contracts, applications: &applications, constructors: &constructors };
++    let imported = intersect_xtext::distribution::import_files_with_frontends(
++        files, &[], Default::default(), None, Some(&frontend),
++    )?;
++    let keywords = intersect_xtext::keywords(&imported.package);
++    let mut response = serde_json::to_value(imported).map_err(|error| error.to_string())?;
++    response["keywords"] = json!(keywords);
++    Ok(response)
++}

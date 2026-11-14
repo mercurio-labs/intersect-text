@@ -1,0 +1,12 @@
+[package]
+name="typed-string-phase-witness-v3"
+version="0.0.0"
+edition="2024"
+[workspace]
+[[bin]]
+name="typed-string-phase-witness-v3"
+path="../typed-phase-witness.rs"
+[dependencies]
+intersect-model={path="../../../crates/intersect-model",features=["allocation-profile"]}
+serde_json="=1.0.151"
+serde={version="=1.0.229",features=["derive"]}

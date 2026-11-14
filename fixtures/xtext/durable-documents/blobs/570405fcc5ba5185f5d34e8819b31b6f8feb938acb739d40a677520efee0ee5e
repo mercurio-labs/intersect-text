@@ -1,0 +1,21 @@
+--- crates/intersect-xtext/src/distribution.rs
++++ crates/intersect-xtext/src/distribution.rs
+@@ -231,6 +231,18 @@
+         CompilationSourcePolicy::default(),
+     )
+ }
++/// Compile source inputs through the installed ordinary frontend with caller-owned context.
++/// This shares fresh compiler identity selection with archive export/import.
++pub fn compile_bundle_with_context(
++    inputs: &BundleCompilation,
++    profile: Profile,
++    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
++    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
++    requested: Option<CompilationSourcePolicy>,
++    host: CompilationSourcePolicy,
++) -> Result<CompiledBundle, String> {
++    OrdinaryFrontend { conversions }.compile(inputs, profile, settings, requested, host)
++}
+ /// Provider registries are caller-selected; archives retain only their contracts.
+ pub fn build_bundle_with_context(
+     inputs: BundleCompilation,

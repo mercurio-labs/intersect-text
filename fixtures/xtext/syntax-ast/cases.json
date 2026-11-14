@@ -1,0 +1,78 @@
+[
+  {
+    "id": "simple",
+    "source": "grammar test Rule: 'x';"
+  },
+  {
+    "id": "standard-escapes",
+    "source": "grammar test Rule: '\\b\\f\\n\\r\\t\\\\\\'\\\"';"
+  },
+  {
+    "id": "unicode-escape",
+    "source": "grammar test Rule: '\\u0041\\u03b1';"
+  },
+  {
+    "id": "surrogate-pair",
+    "source": "grammar test Rule: '\\uD83D\\uDE00';"
+  },
+  {
+    "id": "isolated-surrogate",
+    "source": "grammar test Rule: '\\uD800';"
+  },
+  {
+    "id": "unknown-escape",
+    "source": "grammar test Rule: '\\q';"
+  },
+  {
+    "id": "octal-escape",
+    "source": "grammar test Rule: '\\101';"
+  },
+  {
+    "id": "malformed-unicode",
+    "source": "grammar test Rule: '\\u12x4';"
+  },
+  {
+    "id": "short-unicode",
+    "source": "grammar test Rule: '\\u12';"
+  },
+  {
+    "id": "nonascii-space",
+    "source": "grammar\u00a0test Rule: 'x';"
+  },
+  {
+    "id": "escaped-name",
+    "source": "grammar ^test ^Rule: ^name=ID;"
+  },
+  {
+    "id": "predicate-action",
+    "source": "grammar test Rule: ->{Model};"
+  },
+  {
+    "id": "repeated-predicate",
+    "source": "grammar test Rule: =>=>ID;"
+  },
+  {
+    "id": "parameter-keyword",
+    "source": "grammar test Rule<true>: 'x';"
+  },
+  {
+    "id": "guard-unordered",
+    "source": "grammar test Rule<A>: <A> 'a' | ('b' & 'c'?);"
+  },
+  {
+    "id": "general-terminal",
+    "source": "grammar test terminal T: !('a'|'b') ->('x'|'y') . EOF;"
+  },
+  {
+    "id": "empty-rule",
+    "source": "grammar test Rule:;"
+  },
+  {
+    "id": "unclosed-comment",
+    "source": "grammar test Rule: 'x'; /*"
+  },
+  {
+    "id": "named-argument",
+    "source": "grammar test Rule<A>: Other<flag=A|false>;"
+  }
+]

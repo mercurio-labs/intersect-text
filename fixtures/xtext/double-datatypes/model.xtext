@@ -1,0 +1,18 @@
+// Authored teaching model. Exact pinned rule/terminal declarations follow.
+grammar example.DoubleValues hidden(WS)
+import "urn:intersect:xtext:double:1" as SysML
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Model returns SysML::Model: 'values' values+=LiteralReal*;
+LiteralReal returns SysML::LiteralRational: value=RealValue;
+RealValue returns Ecore::EDouble:
+	DECIMAL_VALUE? '.' ( DECIMAL_VALUE | EXP_VALUE ) | EXP_VALUE
+;
+
+terminal DECIMAL_VALUE returns Ecore::EInt:
+	'0'..'9' ('0'..'9')*;
+
+terminal EXP_VALUE:
+	DECIMAL_VALUE ('e' | 'E') ('+' | '-')? DECIMAL_VALUE;
+
+terminal WS:
+	(' ' | '\t' | '\r' | '\n')+;

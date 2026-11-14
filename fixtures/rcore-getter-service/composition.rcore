@@ -1,0 +1,31 @@
+rcore 1;
+package getter.composition version "1";
+metamodel "urn:getter-composition" prefix m {
+  class Node {
+    attr raw: String [0,1];
+    attr label: String [0,1] derived;
+    attr decorated: String [0,1] derived;
+    attr peerLabel: String [0,1] derived;
+    ref next: Node [0,1];
+    ref successor: Node [0,1] derived;
+    ref selected: Node [0,1] derived;
+    ref peers: Node [0,*];
+    ref visible: Node [0,*] derived;
+  }
+  class Child extends Node {}
+}
+behavior {
+  import model "urn:getter-composition" as m;
+  derive m.Node.label(self) -> Option<String> = label(self);
+  fn label(self:m.Node) -> Option<String> = self.raw;
+  derive m.Node.decorated(self) -> Option<String> = decorated(self);
+  fn decorated(self:m.Node) -> Option<String> = match self.label { Some(name) => Some("~" + name), None => None };
+  derive m.Node.successor(self) -> Option<m.Node> = successor(self);
+  fn successor(self:m.Node) -> Option<m.Node> = self.next;
+  derive m.Node.peerLabel(self) -> Option<String> = peer_label(self);
+  fn peer_label(self:m.Node) -> Option<String> = self.successor?.decorated;
+  derive m.Node.visible(self) -> m.Node[0,*] = visible(self);
+  fn visible(self:m.Node) -> m.Node[0,*] = self.peers;
+  derive m.Node.selected(self) -> Option<m.Node> = selected(self);
+  fn selected(self:m.Node) -> Option<m.Node> = find(self.visible, |node| node.label == Some("chosen"));
+}

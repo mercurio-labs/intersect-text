@@ -1,0 +1,2202 @@
+{
+  "context": "org.omg.kerml.xtext.KerML",
+  "extract": {
+    "path": "crates/mercurio-sysml/resources/metamodels/sysml-2.0-pilot-2026-08/grammar.structure.extract.json",
+    "sha256": "3d4796dfd30ae84bd4ebdd56f46163fa5e9d9c741b0530ebb1a9d08f9d1e0db1",
+    "provenance": {
+      "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+      "jar_sha256": "b1ad9d64b1f0c75730facf25a5e2856bc9df2bb4bd39476df2fdf5ae68cd9350",
+      "exporter_sha256": "98f29e29f262d21df5f7385fb36eafeddff3976adc028802c0e4bd691e975675",
+      "driver_sha256": "d4284aef63c0a859f41e45f986ad263617df3bad6c37b7276e4de0fe68e9d631",
+      "sources_sha256": {
+        "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8",
+        "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa",
+        "org.omg.sysml.xtext/src/org/omg/sysml/xtext/SysML.xtext": "7d9142742c454f5810fe4db61a089abef5e0b8d61ad8bf552631d9136b04f298",
+        "org.omg.sysml/model/SysML.ecore": "22719934c65588180fc19658f8a7c891cb209458e4027bf90ddf005c80ddc17f"
+      }
+    },
+    "parser": "org.eclipse.xtext.XtextStandaloneSetup",
+    "span_encoding": "utf-16-code-units"
+  },
+  "sources": {
+    "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext": {
+      "sha256": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8",
+      "bytes": 15252
+    },
+    "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext": {
+      "sha256": "cc02be703955603d2daa91f878f299f950195fcd2e3c59563ae17643ba91dfaa",
+      "bytes": 29731
+    }
+  },
+  "effective_rule_count": 282,
+  "kinds": {
+    "Action": 34,
+    "Alternatives": 141,
+    "Annotation": 2,
+    "Assignment": 360,
+    "CharacterRange": 7,
+    "CrossReference": 51,
+    "EnumLiteralDeclaration": 7,
+    "EnumRule": 3,
+    "Group": 264,
+    "Keyword": 359,
+    "NegatedToken": 4,
+    "ParserRule": 270,
+    "RuleCall": 636,
+    "TerminalRule": 9,
+    "TypeRef": 367,
+    "UntilToken": 2
+  },
+  "flags": {
+    "fragment": 65,
+    "firstSetPredicated": 2,
+    "predicated": 0,
+    "parameters": 0,
+    "arguments": 0
+  },
+  "assignments": {
+    "+=": 240,
+    "=": 94,
+    "?=": 26
+  },
+  "actions": {
+    "operand+=": 21,
+    "simple": 13
+  },
+  "first_set_predicates": {
+    "org.omg.kerml.xtext.KerML::FeatureSpecializationPart/alternatives/elements/0/elements/0": [
+      "keyword::",
+      "keyword:typed",
+      "keyword::>",
+      "keyword:subsets",
+      "keyword:::>",
+      "keyword:references",
+      "keyword:=>",
+      "keyword:crosses",
+      "keyword::>>",
+      "keyword:redefines"
+    ],
+    "org.omg.kerml.xtext.KerML::PayloadFeatureSpecializationPart/alternatives/elements/0/elements/0": [
+      "keyword::",
+      "keyword:typed",
+      "keyword::>",
+      "keyword:subsets",
+      "keyword:::>",
+      "keyword:references",
+      "keyword:=>",
+      "keyword:crosses",
+      "keyword::>>",
+      "keyword:redefines"
+    ]
+  },
+  "closures": {
+    "FeatureSpecialization": {
+      "rules": [
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::GlobalQualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::ID",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Name",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChaining",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Qualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::QualifiedName",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::UNRESTRICTED_NAME",
+        "org.omg.kerml.xtext.KerML::Crossings",
+        "org.omg.kerml.xtext.KerML::FeatureSpecialization",
+        "org.omg.kerml.xtext.KerML::FeatureType",
+        "org.omg.kerml.xtext.KerML::OwnedCrossSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedFeatureTyping",
+        "org.omg.kerml.xtext.KerML::OwnedRedefinition",
+        "org.omg.kerml.xtext.KerML::OwnedReferenceSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedSubsetting",
+        "org.omg.kerml.xtext.KerML::Redefines",
+        "org.omg.kerml.xtext.KerML::Redefinitions",
+        "org.omg.kerml.xtext.KerML::References",
+        "org.omg.kerml.xtext.KerML::ReferencesKeyword",
+        "org.omg.kerml.xtext.KerML::Subsets",
+        "org.omg.kerml.xtext.KerML::Subsettings",
+        "org.omg.kerml.xtext.KerML::TypedBy",
+        "org.omg.kerml.xtext.KerML::Typings"
+      ],
+      "cycles": []
+    },
+    "FeatureSpecializationPart": {
+      "rules": [
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::DECIMAL_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::EXP_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceExpression",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceMember",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::GlobalQualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::ID",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralBoolean",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralExpression",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInfinity",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInteger",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralReal",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralString",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Name",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChaining",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Qualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::QualifiedName",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::RealValue",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::STRING_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::UNRESTRICTED_NAME",
+        "org.omg.kerml.xtext.KerML::Crossings",
+        "org.omg.kerml.xtext.KerML::FeatureSpecialization",
+        "org.omg.kerml.xtext.KerML::FeatureSpecializationPart",
+        "org.omg.kerml.xtext.KerML::FeatureType",
+        "org.omg.kerml.xtext.KerML::MultiplicityBounds",
+        "org.omg.kerml.xtext.KerML::MultiplicityExpressionMember",
+        "org.omg.kerml.xtext.KerML::MultiplicityPart",
+        "org.omg.kerml.xtext.KerML::Nonunique",
+        "org.omg.kerml.xtext.KerML::OwnedCrossSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedFeatureTyping",
+        "org.omg.kerml.xtext.KerML::OwnedMultiplicity",
+        "org.omg.kerml.xtext.KerML::OwnedMultiplicityRange",
+        "org.omg.kerml.xtext.KerML::OwnedRedefinition",
+        "org.omg.kerml.xtext.KerML::OwnedReferenceSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedSubsetting",
+        "org.omg.kerml.xtext.KerML::Redefines",
+        "org.omg.kerml.xtext.KerML::Redefinitions",
+        "org.omg.kerml.xtext.KerML::References",
+        "org.omg.kerml.xtext.KerML::ReferencesKeyword",
+        "org.omg.kerml.xtext.KerML::Subsets",
+        "org.omg.kerml.xtext.KerML::Subsettings",
+        "org.omg.kerml.xtext.KerML::TypedBy",
+        "org.omg.kerml.xtext.KerML::Typings"
+      ],
+      "cycles": []
+    },
+    "PayloadFeatureSpecializationPart": {
+      "rules": [
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::DECIMAL_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::EXP_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceExpression",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceMember",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::GlobalQualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::ID",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralBoolean",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralExpression",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInfinity",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInteger",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralReal",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralString",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Name",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChain",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChaining",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::Qualification",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::QualifiedName",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::RealValue",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::STRING_VALUE",
+        "org.omg.kerml.expressions.xtext.KerMLExpressions::UNRESTRICTED_NAME",
+        "org.omg.kerml.xtext.KerML::Crossings",
+        "org.omg.kerml.xtext.KerML::FeatureSpecialization",
+        "org.omg.kerml.xtext.KerML::FeatureType",
+        "org.omg.kerml.xtext.KerML::MultiplicityBounds",
+        "org.omg.kerml.xtext.KerML::MultiplicityExpressionMember",
+        "org.omg.kerml.xtext.KerML::MultiplicityPart",
+        "org.omg.kerml.xtext.KerML::Nonunique",
+        "org.omg.kerml.xtext.KerML::OwnedCrossSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedFeatureTyping",
+        "org.omg.kerml.xtext.KerML::OwnedMultiplicity",
+        "org.omg.kerml.xtext.KerML::OwnedMultiplicityRange",
+        "org.omg.kerml.xtext.KerML::OwnedRedefinition",
+        "org.omg.kerml.xtext.KerML::OwnedReferenceSubsetting",
+        "org.omg.kerml.xtext.KerML::OwnedSubsetting",
+        "org.omg.kerml.xtext.KerML::PayloadFeatureSpecializationPart",
+        "org.omg.kerml.xtext.KerML::Redefines",
+        "org.omg.kerml.xtext.KerML::Redefinitions",
+        "org.omg.kerml.xtext.KerML::References",
+        "org.omg.kerml.xtext.KerML::ReferencesKeyword",
+        "org.omg.kerml.xtext.KerML::Subsets",
+        "org.omg.kerml.xtext.KerML::Subsettings",
+        "org.omg.kerml.xtext.KerML::TypedBy",
+        "org.omg.kerml.xtext.KerML::Typings"
+      ],
+      "cycles": []
+    }
+  },
+  "declarations": {
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::AdditiveExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6985,
+      "utf16_length": 198,
+      "utf8_slice_sha256": "e49b8f0e81a3dafc2384335e5a796c3bcb45970f2705a9ad3fca933375c4518d"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::AdditiveOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7187,
+      "utf16_length": 34,
+      "utf8_slice_sha256": "3a5106be52471643ab267a93a3edf2e1214893d4249e2537e9d162289d5a4c9e"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::AndExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3729,
+      "utf16_length": 257,
+      "utf8_slice_sha256": "4dab584fb1b8cdc0c148f82c201fcb882775105650955af40eb4fcd7e4ad9db5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::AndOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3990,
+      "utf16_length": 25,
+      "utf8_slice_sha256": "7ad10ff69c65f5f4a4ebfa7291eda52423275143aa1085aed701ad1d9c2aea72"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::Argument": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12807,
+      "utf16_length": 73,
+      "utf8_slice_sha256": "c3350ee169387b84eb793902ca0041836b35879d991b74767458586839f492f3"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ArgumentList": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12454,
+      "utf16_length": 107,
+      "utf8_slice_sha256": "7bb42320e71d806cf33ee7944a5ef2e4f2bdfa1cecc5e8fcbc85ed1b985623d7"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ArgumentMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12714,
+      "utf16_length": 89,
+      "utf8_slice_sha256": "c325e2a55375e7bbf9fae1e192031a82b0f12635acc22823feb04e7178ab98be"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ArgumentValue": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13381,
+      "utf16_length": 87,
+      "utf8_slice_sha256": "6eb2769d756c220b266b4d0475c4243f632fee2be3ad1bb88f5742733de49db4"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::BaseExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9685,
+      "utf16_length": 250,
+      "utf8_slice_sha256": "c2f79c6be44d5f091fe361baa44035ebbee2b7ea77571d7cee1a6731e1acbbf2"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::BodyExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9963,
+      "utf16_length": 105,
+      "utf8_slice_sha256": "a0a8da2933fc29246d3288520c5b4a85e2b368fd775e84b5e78a5278e6e1e3df"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::BodyParameter": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 10633,
+      "utf16_length": 63,
+      "utf8_slice_sha256": "f7929940d4ae63645ce85ecf8834a1dcc326142306ce6c31da64618fd165e478"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::BodyParameterMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 10525,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "6554f947f62101c4bf562809358a0c249aaeb167f3b452b8becaec49b950caf4"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::BooleanValue": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13854,
+      "utf16_length": 60,
+      "utf8_slice_sha256": "1e22878eb3c9e5fcdb4fff2af7621afb24fa54e3f08f00685f48ecda4fd5b5bf"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::CastOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5639,
+      "utf16_length": 27,
+      "utf8_slice_sha256": "caaaef6d226a7adb7e0e4d1983cf081332a5a3499a3a59bd8609599ca773443c"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ClassificationExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4614,
+      "utf16_length": 911,
+      "utf8_slice_sha256": "e86e49bcb4a34aab9abd01984c511c48539967e5d7e4f18981090a0439f6cecd"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ClassificationTestOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5529,
+      "utf16_length": 60,
+      "utf8_slice_sha256": "6fe35803f68fc67b99c543d872d5b2753d5bc6ba3a60a326ffa97b40da2adb60"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConditionalAndOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4019,
+      "utf16_length": 35,
+      "utf8_slice_sha256": "ffd528aad8cb88cf1f6a590cbd0ac7bf06b1f23d88016930c1672714de570b2f"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConditionalExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 1729,
+      "utf16_length": 271,
+      "utf8_slice_sha256": "4ff3ac60b2d76ad243fee1c1953fea94708b2d2692a0c15822eb88e941122979"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConditionalOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2004,
+      "utf16_length": 31,
+      "utf8_slice_sha256": "31a87cb9a6d2d9cc1db38c8a56c055ef10d6f4d61549922201a6e8810d7d55a1"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConditionalOrOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3278,
+      "utf16_length": 33,
+      "utf8_slice_sha256": "91d71144a31e76bc42678cf9f62cf78a5f3563eca03571c628a406c4c74b2c79"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConstructorExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11615,
+      "utf16_length": 167,
+      "utf8_slice_sha256": "b0063e9ab9fe7dc8260d9eadb5a5ecbb2b6c319c73dab3dcf6158d1ed7222423"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConstructorResult": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11905,
+      "utf16_length": 63,
+      "utf8_slice_sha256": "4dacb4179c321857041c5b5577b3c889bb343bbf5e71c9821244c16c76f0c0bd"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ConstructorResultMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11786,
+      "utf16_length": 115,
+      "utf8_slice_sha256": "13584fac2ca525d734a05f8722942f5dc060fad8bc496f693b3915cc8ee13e25"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::DECIMAL_VALUE": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14541,
+      "utf16_length": 67,
+      "utf8_slice_sha256": "ece7195fd8b3a4d4e7ac5d81050794e4b5f081a91cdef9e433a67d99ff2b8578"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EXP_VALUE": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14612,
+      "utf16_length": 75,
+      "utf8_slice_sha256": "f87efc089c8504f7bdb5e27cbfbaab01779d68922803ec61010ed2a9599dd906"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ElementReferenceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11348,
+      "utf16_length": 107,
+      "utf8_slice_sha256": "a68ba5b23f9cc66e1bfca3eec5e770cdcdbde7595ee8d58dc31f9a039221b107"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EmptyFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6426,
+      "utf16_length": 59,
+      "utf8_slice_sha256": "97395e9e56ebdda0eb93c78303f5075f2676307aaacd022214a72aa31a8ffca8"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EqualityExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4322,
+      "utf16_length": 200,
+      "utf8_slice_sha256": "f901c1a04aa89d67897cbed702332064f51c6ab49011117ab459d1a3b65b9ca8"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EqualityExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4211,
+      "utf16_length": 107,
+      "utf8_slice_sha256": "86ff185867c9f41fbf28314c704215b54c6767f1f53fc49fca1b2e5cdc522b51"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EqualityExpressionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4085,
+      "utf16_length": 122,
+      "utf8_slice_sha256": "c227fc73f51bffdd68e69fd3b7aa70089094dbc573a68957cace2e04f1399b34"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::EqualityOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 4526,
+      "utf16_length": 51,
+      "utf8_slice_sha256": "b8b1bdf1f83bdbdb112b74877e976ba43d1d9baf11ffa82912e697b42c6c43a5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ExponentiationExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7488,
+      "utf16_length": 202,
+      "utf8_slice_sha256": "0d6548c456a8a3fad91390c18b203013c1dde9888fd26fea96c62a9096acacb5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ExponentiationOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7694,
+      "utf16_length": 40,
+      "utf8_slice_sha256": "5ecc424277aac39cf9c2bd37fecb9ad769c07a3a6a4a4ca3d95b44780449b49a"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ExpressionBodyMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 10072,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "b494f1d43f6bd31b4f13ca16531859aa90d8eb0c01db923d42474d004bfdae69"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ExtentExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7990,
+      "utf16_length": 156,
+      "utf8_slice_sha256": "cce59f63371345926c9870106a77ca123eab1a1146d9b0943b7056e266d26e93"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureChain": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12191,
+      "utf16_length": 146,
+      "utf8_slice_sha256": "72ce116cc4ea6bfc8c653293327700118bca60b920f571e56821e4d092f5d249"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureChainMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9417,
+      "utf16_length": 174,
+      "utf8_slice_sha256": "8da742b17b7a5b4bea3d214989a3d1c3f30486b6466fe4031bd8347d7dcd5a07"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 10949,
+      "utf16_length": 119,
+      "utf8_slice_sha256": "97d0caed9c901bdec74aa7ee8d49e8bec9c61d4281179e2d40e3cf6bac7c85ed"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FeatureReferenceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11072,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "526ecf6cf37d4085e49d37130e69d369d6ddfb3a814cb9a1b02e0c84ddc527e5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FunctionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9326,
+      "utf16_length": 87,
+      "utf8_slice_sha256": "3a12cdf9ce777a2eda46095c5a4a75c693ba12de7870f8bbe62d399953057868"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FunctionReferenceExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9092,
+      "utf16_length": 121,
+      "utf8_slice_sha256": "bedcfa1531e670dc558c86e5f6f3bf8cd176bb176afdabc02b208dea204b92ac"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::FunctionReferenceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9217,
+      "utf16_length": 105,
+      "utf8_slice_sha256": "5e01a0362ec776741b4d37181a73eb245fc22524cdf41c51b7485bdc4d91e6a2"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::GlobalQualification": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14379,
+      "utf16_length": 35,
+      "utf8_slice_sha256": "5ad8b15294299fb9d8ddc9133652c7a440ec291e8503c028b1e0efcd910e661e"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ID": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14691,
+      "utf16_length": 83,
+      "utf8_slice_sha256": "e2d676e1b243cb14b269eb020d4d754a0866bd4824735cfc6d6e150ca59fc6c6"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ImpliesExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2576,
+      "utf16_length": 180,
+      "utf8_slice_sha256": "d5095ef0004f83a72d218efa29918e7b2b790baf92b15f57ffd31c3e30ddac0e"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ImpliesExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2467,
+      "utf16_length": 105,
+      "utf8_slice_sha256": "af1d60ae9871a4893c31b59b1a36899d44c7e2c9ca32c4fbf10d4617e0265607"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ImpliesExpressionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2343,
+      "utf16_length": 120,
+      "utf8_slice_sha256": "f7d11c1521284522964b14585839308ed5d12bd59024285f532e5457544f9def"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ImpliesOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2760,
+      "utf16_length": 32,
+      "utf8_slice_sha256": "a5cd81f80120ecc7c997f0040850222816f971ee5211e8249515b5a6f35cabe2"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::InstantiatedTypeMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11972,
+      "utf16_length": 175,
+      "utf8_slice_sha256": "927cfa3922658c6b96c8a334f2e212877c8f2c7674467244a28a5c55942b7390"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::InvocationExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11491,
+      "utf16_length": 120,
+      "utf8_slice_sha256": "81cf55756456cf6ea6500f61f40e4beffe5cf8115573c17f54ae02e48aa74277"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralBoolean": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13778,
+      "utf16_length": 72,
+      "utf8_slice_sha256": "3e9dfb07e4a5326a8c6587d185d2bf61c170db22f4fb26f73b61532e2c2581c0"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13624,
+      "utf16_length": 150,
+      "utf8_slice_sha256": "9390ea0f22b95bef76a086e449c8d38ebc13e2fbe02b9ca9f6fd0263c0bd80f1"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInfinity": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14241,
+      "utf16_length": 82,
+      "utf8_slice_sha256": "110d304b4b411e4c98f0665fd3e2cc0a0c2403b6a4c1ac2d1764306cbbc4546a"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralInteger": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13992,
+      "utf16_length": 72,
+      "utf8_slice_sha256": "07ec294b51de0dec8c1950da1238712faabd7cef964054764e42c426d51c995b"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralReal": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14068,
+      "utf16_length": 66,
+      "utf8_slice_sha256": "97f0820d33cc543cd49bea484864d2f496fff06cc496532a6e3b6fb3666b9a7d"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::LiteralString": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13918,
+      "utf16_length": 70,
+      "utf8_slice_sha256": "385d43a2e2d125869a0c7045b5f7827df1af0636008c45fa34e3a75cbba9b859"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ML_NOTE": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 15096,
+      "utf16_length": 32,
+      "utf8_slice_sha256": "fcfc85652ca70dad5633803886f2b34586f457f207a66cab243310f30d9e496c"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MetaCastOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5670,
+      "utf16_length": 30,
+      "utf8_slice_sha256": "623053b470db34e4292e852937ebf8a2e4af41a13ad9a6a0a19058360a17114e"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MetaClassificationTestOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5593,
+      "utf16_length": 42,
+      "utf8_slice_sha256": "c344aa1b11309d86f966d748e4512e401781f8d7e888ee65f0ec80c2549fa0a6"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MetadataAccessExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 11214,
+      "utf16_length": 130,
+      "utf8_slice_sha256": "1e68c035f92b0f735098581f334618a6b51a5f952002dbbacebf3776aa82f2ee"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MetadataReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5704,
+      "utf16_length": 108,
+      "utf8_slice_sha256": "7974fe3968a5ae4b54618991c47c8431e11c568697f9b9b1e1685cbd6a7f65ec"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MultiplicativeExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7225,
+      "utf16_length": 210,
+      "utf8_slice_sha256": "496e6a9225dc2a1fd156b98eac10162e5d97e06acd32c72083ee9b1b54709db9"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::MultiplicativeOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7439,
+      "utf16_length": 45,
+      "utf8_slice_sha256": "6980ea2ce979b859a61f57e320169d7cb6013fc4c4bf6adfdec1606e8ac5aff0"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::Name": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14342,
+      "utf16_length": 33,
+      "utf8_slice_sha256": "da9ec8967410711373f516608e2e3de3ac8cae27db86f18548ce3d6b28c547cd"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NamedArgument": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13141,
+      "utf16_length": 125,
+      "utf8_slice_sha256": "49732d4b4b221053820269ef8897b5e3254a1554c8e958cd09dda39aa30f06ca"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NamedArgumentList": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12884,
+      "utf16_length": 150,
+      "utf8_slice_sha256": "35afdc033fce5409e6aefa8a69aa5a2321945a49c588f5f624f10bf46389e08f"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NamedArgumentMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13038,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "0b14547383ffaf518c2da3447b0bed8785f26d81dba5e3e70e77698cb28cdea6"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NullCoalescingExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2073,
+      "utf16_length": 202,
+      "utf8_slice_sha256": "5ab7830ffed52f74296ad36a534ab02c5d389b37637206054b46c0e953c593a0"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NullCoalescingOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2279,
+      "utf16_length": 34,
+      "utf8_slice_sha256": "2795d7ec3bd15a8dd4e9a017f1ba4f75f3c5a3b310fd8686dda8578f553bb443"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::NullExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13495,
+      "utf16_length": 96,
+      "utf8_slice_sha256": "0c6b6bbe271cace04090b16625037ffe3dd91be4cab2c9538ff6c41075f5fc58"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OrExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3009,
+      "utf16_length": 239,
+      "utf8_slice_sha256": "72b0afd67a40f3709421c884fdde38da7e66fe5f9ef276be0fb6328311716b92"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OrExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2910,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "424c4d642a10dbe951309fea386bd7caea16a6121032fb320955cbb940914873"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OrExpressionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 2796,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "1d271cc2578cffc6da7255e3bed36f4933f660a1037653fe46fad96f76e7d137"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OrOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3252,
+      "utf16_length": 22,
+      "utf8_slice_sha256": "c98d423dca834813976fcd4e04086fb9cb9e3c20192712cd5486d96d1a0e8e73"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 1499,
+      "utf16_length": 71,
+      "utf8_slice_sha256": "3c4054f909bddcbbbe956eaaccc36e1ef32b425e50665c6d6ac0341ef2691e17"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 1394,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "5d15b423d6eb4d403716206a096508454fe1ecc1e7f6c325ab3352128d8d6783"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedExpressionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 1609,
+      "utf16_length": 116,
+      "utf8_slice_sha256": "8c3ae78ade280c55c79eb1a50240e29eb11a947b67fe3e9f47566cf544115f6b"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChain": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 9595,
+      "utf16_length": 60,
+      "utf8_slice_sha256": "8fe4ed0bc61a224b55b3f1fed8f1fff6293d05f10404d9b2357709c4e47e4cc2"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::OwnedFeatureChaining": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12341,
+      "utf16_length": 109,
+      "utf8_slice_sha256": "5169f473b5d61cf557195cca58cb51e7af565f6dac09d8ec91125024a8f0d9f5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ParameterRedefinition": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 13270,
+      "utf16_length": 107,
+      "utf8_slice_sha256": "8dfb2e283a36b7b82e87e2ac8c41b8416061cf1be950c87d4f94d4f98a109898"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::PositionalArgumentList": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 12565,
+      "utf16_length": 145,
+      "utf8_slice_sha256": "8393c77136e9f931a70364b8a942dc7ba923007f0e145dd084e4a18c78a4f7b5"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::PrimaryExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 8179,
+      "utf16_length": 909,
+      "utf8_slice_sha256": "1daad7e95062e581c3da4ccdf770405857e2cd85715f24783d8a2042e607f47b"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::Qualification": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14418,
+      "utf16_length": 35,
+      "utf8_slice_sha256": "d8988e55d8d752e72e9cef093a824ac89c705a1c77f6d4767074c37d35aa4a5f"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::QualifiedName": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14457,
+      "utf16_length": 60,
+      "utf8_slice_sha256": "70444abec791f323a360384e0922c964d3304ac1ac160911228ce9cb54ca018c"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::REGULAR_COMMENT": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 15052,
+      "utf16_length": 40,
+      "utf8_slice_sha256": "a9ca026ee7ff6b218a4fab0e41325a92a3cb6d71c02437b6ca205870b9365b82"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::RangeExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6782,
+      "utf16_length": 170,
+      "utf8_slice_sha256": "9a50c0abac6aec41277c5056616135eed5dbcbe0224e400152407b1db9715551"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::RealValue": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14138,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "bdab0c0eed69373fb2716828cc7daaeb0e8c341909ca8a13c6e0d55f96700e71"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::ReferenceTyping": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6107,
+      "utf16_length": 90,
+      "utf8_slice_sha256": "0400c623ab952bb4400f5a29ab8f7e7ffaf75dfeb38e6794a19c940906220015"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::RelationalExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6518,
+      "utf16_length": 183,
+      "utf8_slice_sha256": "36b4cdcf1438ddfc9d1d8c2f1782d1be34b30c43af0cea5425df51db3fb8cbd2"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::RelationalOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6705,
+      "utf16_length": 49,
+      "utf8_slice_sha256": "911a2dc21937c2475264c2232fabe59df9dc0d4001f5315657505cc20458d813"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::SL_NOTE": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 15132,
+      "utf16_length": 73,
+      "utf8_slice_sha256": "ded61be6311059626d651995ad42e1ba333ecea54cfd7edf6f88031d1bbfa1b3"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::STRING_VALUE": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14919,
+      "utf16_length": 129,
+      "utf8_slice_sha256": "94d3e4660bd5a7f5c7df340b390f088428a262123125b480ba983d24872aabd7"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::SelfReferenceExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6201,
+      "utf16_length": 113,
+      "utf8_slice_sha256": "16aca7309ad940b5ddc0f476a3634b420b0dded1477d5afcde5c06b872d6cddb"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::SelfReferenceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6318,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "b106efe90fb9e515674716529279bf8e036593614eef044ebcc608fd61e0b95d"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::SequenceExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 10727,
+      "utf16_length": 182,
+      "utf8_slice_sha256": "5b338e0b5401c05f93a83405a6a7d6a5a3f30b8dc557438e6af81c66ffb6df8b"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::TypeReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 6023,
+      "utf16_length": 80,
+      "utf8_slice_sha256": "7407f5725a38e6262c18eb71cfc81317b03b770be4e326678d625714c1393b59"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::TypeReferenceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5816,
+      "utf16_length": 98,
+      "utf8_slice_sha256": "3a7d6775f0f92430586af015dc475023fc79418e370610f5699bf06884f80bc1"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::TypeResultMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 5918,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "731be6489556131a8ca764bee4ab3d546538c29ed7293fa842645353fc08152d"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::UNRESTRICTED_NAME": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 14778,
+      "utf16_length": 137,
+      "utf8_slice_sha256": "6c45ba37a09956918f5f6cc1383dabc8bd1be2646ee8817d406e70ea082d5875"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::UnaryExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7762,
+      "utf16_length": 151,
+      "utf8_slice_sha256": "91c848c6e57c570e4564ec1ee77e7e5d8b473079356581b9a4ee14f2550e2f62"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::UnaryOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 7917,
+      "utf16_length": 44,
+      "utf8_slice_sha256": "744f84d4271e09f8cd1fe84352d6a58f17128c0f633a6c6262635f4368791af1"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::WS": {
+      "kind": "TerminalRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 15209,
+      "utf16_length": 43,
+      "utf8_slice_sha256": "1c230bb3d37c570c4c4f80e4140cbe86d053fd23b1e55981aa8b35c9e5fbbfd7"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::XorExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3532,
+      "utf16_length": 165,
+      "utf8_slice_sha256": "b9f237452df7ae38270fa619a991f18948947f20e57da60d6b44707173e582eb"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::XorExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3431,
+      "utf16_length": 97,
+      "utf8_slice_sha256": "1a5a008a66dce14980363bca07eda247a1dbf25b96febcb74ec7151aa54ee86a"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::XorExpressionReference": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3315,
+      "utf16_length": 112,
+      "utf8_slice_sha256": "51165e8840172d02d7a4696a483231cb491812e597b1b2ed164c70ee76e953dc"
+    },
+    "org.omg.kerml.expressions.xtext.KerMLExpressions::XorOperator": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+      "utf16_offset": 3701,
+      "utf16_length": 24,
+      "utf8_slice_sha256": "e6c0d4e6b3eceb073fcdccb2747e059fa63ef811a076a079137b720250226627"
+    },
+    "org.omg.kerml.xtext.KerML::AliasMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4530,
+      "utf16_length": 201,
+      "utf8_slice_sha256": "ca86ed7d7725cc3396fc82158ccf9cf62eae36e2c1515b1f0fc2cb8f569c46ee"
+    },
+    "org.omg.kerml.xtext.KerML::AnnotatingElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 2615,
+      "utf16_length": 131,
+      "utf8_slice_sha256": "2ce6bb142d1d711af946b645644693549c5007197335d9fd548ccd9b4ab5c29d"
+    },
+    "org.omg.kerml.xtext.KerML::Annotation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 2425,
+      "utf16_length": 93,
+      "utf8_slice_sha256": "dde9648bbac08acdbe59b2ae17778216eebd71e3c458547692c807e1a2da052a"
+    },
+    "org.omg.kerml.xtext.KerML::Association": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21642,
+      "utf16_length": 98,
+      "utf8_slice_sha256": "53815c0d98cb5b73a8b90fa9fdef271afa28c626fd241bbda449a095262c164b"
+    },
+    "org.omg.kerml.xtext.KerML::AssociationStructure": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21744,
+      "utf16_length": 124,
+      "utf8_slice_sha256": "2d8cd3ae2468ff59541c0c1e2137219625eada2b410a17ff29819dd8678b2a65"
+    },
+    "org.omg.kerml.xtext.KerML::BasicFeaturePrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13594,
+      "utf16_length": 265,
+      "utf8_slice_sha256": "57008496ead74386e47c64a3859119c9f1c38c391ecaa378e5f02e1a46cd3dfd"
+    },
+    "org.omg.kerml.xtext.KerML::Behavior": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24185,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "23e26637af902594b9ec09fc05959d0dc7ca80c3d102baa1bd80dbac4be1f1b2"
+    },
+    "org.omg.kerml.xtext.KerML::BinaryConnectorDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22184,
+      "utf16_length": 221,
+      "utf8_slice_sha256": "36dbc2f6e47cda6e660f15e83759bf9615560606eda2bf332601be6ba0bfc4d9"
+    },
+    "org.omg.kerml.xtext.KerML::BindingConnector": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 23207,
+      "utf16_length": 120,
+      "utf8_slice_sha256": "0be1d10f2146332c2239b00016f09b13483df7d6bf19d292de96e7bd8973811d"
+    },
+    "org.omg.kerml.xtext.KerML::BindingConnectorDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 23331,
+      "utf16_length": 338,
+      "utf8_slice_sha256": "72c9c139c83804efff1154272b5ea0cc1f3d66c864d434b6e0c9fb4a89882753"
+    },
+    "org.omg.kerml.xtext.KerML::BooleanExpression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25660,
+      "utf16_length": 116,
+      "utf8_slice_sha256": "9ae9d89adf34d646bcacfa004379df815f33954942583be4e30a69b2632fbc58"
+    },
+    "org.omg.kerml.xtext.KerML::ChainingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14901,
+      "utf16_length": 121,
+      "utf8_slice_sha256": "d270871d8b433ecb710bff5a4bfaa0a09d2553896a268e63cdb1bde4389149c8"
+    },
+    "org.omg.kerml.xtext.KerML::Class": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21409,
+      "utf16_length": 86,
+      "utf8_slice_sha256": "59867455e3dc768386d5f885fe29a1736a23bb4a47ca242d94ee8de11578b5ea"
+    },
+    "org.omg.kerml.xtext.KerML::Classifier": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 12114,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "40b3dce9e968171df7d54ec40dab7787beb5dd7894d23d40d74a8160261a3b8f"
+    },
+    "org.omg.kerml.xtext.KerML::ClassifierConjugation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13236,
+      "utf16_length": 106,
+      "utf8_slice_sha256": "8afb7ccfe88a434a90f154c80840ea549dd7ff685bbddfd95e681cd70a0f0e48"
+    },
+    "org.omg.kerml.xtext.KerML::ClassifierConjugationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 12643,
+      "utf16_length": 133,
+      "utf8_slice_sha256": "a96a7671679f7e95cc016707695497b5643d2d2e61add58db2707a165534fa68"
+    },
+    "org.omg.kerml.xtext.KerML::ClassifierDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 12219,
+      "utf16_length": 232,
+      "utf8_slice_sha256": "a46964211dbe7b383ebd22e532d077bb136586a7d5a52a07af9feacffcb062ac"
+    },
+    "org.omg.kerml.xtext.KerML::Comment": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 2768,
+      "utf16_length": 231,
+      "utf8_slice_sha256": "1f58eabc2bcb81ce6b1f918e1a573e1c3707d16635cfd80079e3de68869581cf"
+    },
+    "org.omg.kerml.xtext.KerML::Conjugation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 10613,
+      "utf16_length": 345,
+      "utf8_slice_sha256": "87ea5fd24c2f4a9a7a6a8ecc8a03b63cd513a645651d876010701736206734f8"
+    },
+    "org.omg.kerml.xtext.KerML::ConjugationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8644,
+      "utf16_length": 112,
+      "utf8_slice_sha256": "1d5fb49c498ac969890e0df4538a0768c9610df11dfadba8999b737ef10d6665"
+    },
+    "org.omg.kerml.xtext.KerML::Connector": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21912,
+      "utf16_length": 149,
+      "utf8_slice_sha256": "22e7afa5761e5c067ba42103bae3bee6f6669f584896844355d0baf341858b8c"
+    },
+    "org.omg.kerml.xtext.KerML::ConnectorDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22065,
+      "utf16_length": 115,
+      "utf8_slice_sha256": "a9eb63072ef75966adf4e7b1d6a07b7c609bb92b698b31e07f8a99d192b81c1f"
+    },
+    "org.omg.kerml.xtext.KerML::ConnectorEnd": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22760,
+      "utf16_length": 194,
+      "utf8_slice_sha256": "1a81dd6c2a9b26b56141707c9414ed08d38983e85708d7cd89f6b22238bc9cc5"
+    },
+    "org.omg.kerml.xtext.KerML::ConnectorEndMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22658,
+      "utf16_length": 98,
+      "utf8_slice_sha256": "8482e10f4a580a30c0489644fec9101bf5a6e796019f9d663347511a57d7238f"
+    },
+    "org.omg.kerml.xtext.KerML::Crossings": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16620,
+      "utf16_length": 111,
+      "utf8_slice_sha256": "7e64e4b37a1b440813199af86e69f265cc97216c221b5e38d3612871339f4341"
+    },
+    "org.omg.kerml.xtext.KerML::DataType": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21293,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "918a3b462a2f9bd0390d329d9a31fec0c2c37b0b7e9afd6d62271b381715a6d2"
+    },
+    "org.omg.kerml.xtext.KerML::Dependency": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 2040,
+      "utf16_length": 360,
+      "utf8_slice_sha256": "f74557a71d47330c483c740fcc1cc12e1a908dbea7116469d14055410ff93f65"
+    },
+    "org.omg.kerml.xtext.KerML::Differencing": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 11925,
+      "utf16_length": 143,
+      "utf8_slice_sha256": "b1a66fffe3f07ae3224a3d2ab140b802eab7fff43212aaf732a4a1ebe81b91d6"
+    },
+    "org.omg.kerml.xtext.KerML::DifferencingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9328,
+      "utf16_length": 146,
+      "utf8_slice_sha256": "15f163191fa06dea87eb44efd4767978c4a0825c3fcc07955ebfd511a0e69e70"
+    },
+    "org.omg.kerml.xtext.KerML::Disjoining": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 11128,
+      "utf16_length": 316,
+      "utf8_slice_sha256": "0ed89531712d18b3d7aec07e900c226ac2db0306217a70e2cd2070c9feb9e7f4"
+    },
+    "org.omg.kerml.xtext.KerML::DisjoiningPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8888,
+      "utf16_length": 154,
+      "utf8_slice_sha256": "3dba16e78f7a788cc97436c6e578ed3d9b996a269ca467465072d17aa0cc9bf5"
+    },
+    "org.omg.kerml.xtext.KerML::Documentation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3003,
+      "utf16_length": 135,
+      "utf8_slice_sha256": "d0d5631989e30e6661a33f3f3dc97e4f4a072418830562d4c80cde40c6bc1381"
+    },
+    "org.omg.kerml.xtext.KerML::ElementFilterMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 7850,
+      "utf16_length": 132,
+      "utf8_slice_sha256": "023bf860344e996f0a7b539193bb7b46ccce7c88945b936685f0d155dcdb7c95"
+    },
+    "org.omg.kerml.xtext.KerML::EndFeaturePrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13491,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "bca7fc170f4f76bd0e61936de3bb5fd6d4e2e4a58622d65bb74afe375c78921c"
+    },
+    "org.omg.kerml.xtext.KerML::Expression": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25298,
+      "utf16_length": 102,
+      "utf8_slice_sha256": "7edf42c5e8396e67d10eaaecd1f21420209d3ab207b713880b8fad3ff516c1a0"
+    },
+    "org.omg.kerml.xtext.KerML::ExpressionBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 29646,
+      "utf16_length": 83,
+      "utf8_slice_sha256": "0ce7e4d6e1be56cabeb7547f2a687cc03a2839e6f4e3019fff3d1a4c179985d2"
+    },
+    "org.omg.kerml.xtext.KerML::ExpressionDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25404,
+      "utf16_length": 94,
+      "utf8_slice_sha256": "52fbd8cf4fdea1fc33be4947f6bd6ed45398cd003df2ca4b686d0cfe271de8c3"
+    },
+    "org.omg.kerml.xtext.KerML::Feature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14272,
+      "utf16_length": 235,
+      "utf8_slice_sha256": "6dd0bdc41e3a4d6f527e0045ae45e3e43235828c3a381c48b0fe6d47670808c8"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureChainPrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27673,
+      "utf16_length": 147,
+      "utf8_slice_sha256": "7e27c9f209c1b6374a241858f33176ad10cb6258f5347c1abd529a6790dede84"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureConjugation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 19853,
+      "utf16_length": 148,
+      "utf8_slice_sha256": "6498d32d92f6d5a02e2c4d1d3b122e5b057789bd3a7f574df8fee7d78143ea2e"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureConjugationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 19725,
+      "utf16_length": 124,
+      "utf8_slice_sha256": "efa0b7679373a0fad3a73ad0bdbe4d426a0ada3674fa248e6f36c5d19a4ab8e9"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14511,
+      "utf16_length": 248,
+      "utf8_slice_sha256": "3fe5abb0e8e33ea51067fe7c0bf2ee10e645fd3f2a007761ae6d5399bf8452f4"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureDirection": {
+      "kind": "EnumRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13382,
+      "utf16_length": 105,
+      "utf8_slice_sha256": "7bcd8acd4370450b7ea4d9f76c21804269cdedf7ee6192aa177cc53a17652355"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 6886,
+      "utf16_length": 192,
+      "utf8_slice_sha256": "800c767ed7d88ecea9fad34420f4c8079686311a73ab069c2ef152d5aa641825"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureInverting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16991,
+      "utf16_length": 333,
+      "utf8_slice_sha256": "7e85515f8e594e1cc71330c1ff0e260411feaae354ee771f85c8e7127a20d815"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9747,
+      "utf16_length": 91,
+      "utf8_slice_sha256": "ff10155cce6433ae4a6af1596c23d1a4dfdeb988517aa0ab2345534441dafb7b"
+    },
+    "org.omg.kerml.xtext.KerML::FeaturePrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13863,
+      "utf16_length": 200,
+      "utf8_slice_sha256": "09f34dc900969f048ae50b7710e666239818db4fd8899ade681f6b9c5f2eba18"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureRelationshipPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14763,
+      "utf16_length": 134,
+      "utf8_slice_sha256": "fb0b63f5f2db75c72dc0c2882da06a76d99ce83674f7accbea9ae7da0f0bba72"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureSpecialization": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15890,
+      "utf16_length": 123,
+      "utf8_slice_sha256": "ffa980acf8309c40629a7f8c508e385fc312bd67cec76160f58012327478672a"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureSpecializationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15308,
+      "utf16_length": 181,
+      "utf8_slice_sha256": "e7d802a46a2a24737e15161fcc8c4e41e38869ff04090523e464e2f63b4022f2"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureType": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18142,
+      "utf16_length": 140,
+      "utf8_slice_sha256": "99c506fb6e299f8fdfaebac54ae66cc6843b47805258e6b9871fb9334915632f"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureTyping": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 17859,
+      "utf16_length": 209,
+      "utf8_slice_sha256": "82fde2f7b481880621a592e4a58ebd40dfccd35337fdc3e9763d86c653d1e5ee"
+    },
+    "org.omg.kerml.xtext.KerML::FeatureValue": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20117,
+      "utf16_length": 177,
+      "utf8_slice_sha256": "b711f97d6cd7cc60e179147316a28d74522a37cb553eb617c9d4f9e6b669fdcb"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackage": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5507,
+      "utf16_length": 132,
+      "utf8_slice_sha256": "de9b676996d5708e03a43a3e48fcfd2923d8e41b2175f132505d4e70ccaae8fd"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackageImport": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5643,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "ebee588bfdb7eac98d8494f14037233c6c01b2623af36e3dc840ae78d68a4bf0"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackageMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5936,
+      "utf16_length": 151,
+      "utf8_slice_sha256": "a1748ea0e9e1b11f1504711a7accac9089791773a8e7af38f59d4dead76c422a"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackageMemberVisibility": {
+      "kind": "EnumRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 6091,
+      "utf16_length": 85,
+      "utf8_slice_sha256": "520f7069f5a0352d560acb2aaf4abd926b0f8a40bc62fa335455af55b217fb01"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackageMembershipImport": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5757,
+      "utf16_length": 87,
+      "utf8_slice_sha256": "b7eb2eb1db21593b451e48b359aabfdf30e6344481ed52deac5f19c78d75a8e9"
+    },
+    "org.omg.kerml.xtext.KerML::FilterPackageNamespaceImport": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5848,
+      "utf16_length": 84,
+      "utf8_slice_sha256": "aaa1ade2a46e79e31aa747d9c370d549ae450aab6aabbf804e6c9419cfe4067e"
+    },
+    "org.omg.kerml.xtext.KerML::Flow": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 26104,
+      "utf16_length": 80,
+      "utf8_slice_sha256": "bf623ff1b04e6c9d8d8dc114764f8adb6e26b697b852c3abf0d07051d7a590fa"
+    },
+    "org.omg.kerml.xtext.KerML::FlowDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 26302,
+      "utf16_length": 362,
+      "utf8_slice_sha256": "62f53728a42139d11316374049b2394778a1777140bf1b5020cde6677deadc38"
+    },
+    "org.omg.kerml.xtext.KerML::FlowEnd": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27379,
+      "utf16_length": 122,
+      "utf8_slice_sha256": "5ce9a3c6ccc0da868269d0088c45440a63e34563dfbb21f99bab872854fed96e"
+    },
+    "org.omg.kerml.xtext.KerML::FlowEndMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27287,
+      "utf16_length": 88,
+      "utf8_slice_sha256": "a65b72e303ae6f8b64f57b89cd557cad05977b2ff521ef0ff298b4f65a7242bb"
+    },
+    "org.omg.kerml.xtext.KerML::FlowEndSubsetting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27505,
+      "utf16_length": 164,
+      "utf8_slice_sha256": "8f5f387f6997ea2512708e58e1666feffe8713cf7f739f8c53ae84dd850b0aaa"
+    },
+    "org.omg.kerml.xtext.KerML::FlowFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27921,
+      "utf16_length": 79,
+      "utf8_slice_sha256": "e93482a876edc1df64c983d30a03c60c5db45f7b42dbbc635cb1f2bea37e84d3"
+    },
+    "org.omg.kerml.xtext.KerML::FlowFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27824,
+      "utf16_length": 93,
+      "utf8_slice_sha256": "d8f4035f01d6587e386534f4e830bd62dafcb3a4f427af30b79987581b2a51e0"
+    },
+    "org.omg.kerml.xtext.KerML::FlowRedefinition": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28004,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "5ea5f6279571d72d33bb870e438fab658ceeee3aec68116628e349d81f5c40ea"
+    },
+    "org.omg.kerml.xtext.KerML::Function": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24507,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "2fdf72f4e27ed402561c537e7968310c63e4723938875532d8b1c2ea68caa306"
+    },
+    "org.omg.kerml.xtext.KerML::FunctionBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24612,
+      "utf16_length": 79,
+      "utf8_slice_sha256": "ba8b5aa31f582359b958f79eae6e89601a0ac1d11fac60e2b389759ae2136eb6"
+    },
+    "org.omg.kerml.xtext.KerML::FunctionBodyPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24695,
+      "utf16_length": 304,
+      "utf8_slice_sha256": "37dc2da69aec1c5488701dc0f668864cce2a7f048e593b77514ab4d2c0ac3a80"
+    },
+    "org.omg.kerml.xtext.KerML::Identification": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 1493,
+      "utf16_length": 137,
+      "utf8_slice_sha256": "44f04f5e0d5f178d839780f50aef6c6d628c59bb1700f02bf0c1aa1c5b9fdb1a"
+    },
+    "org.omg.kerml.xtext.KerML::Import": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4861,
+      "utf16_length": 93,
+      "utf8_slice_sha256": "4fa6a7bcc13e8fd2bc39ce4f174a2216ce6a8e04060609f392ab1da48d0842f1"
+    },
+    "org.omg.kerml.xtext.KerML::ImportPrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4735,
+      "utf16_length": 122,
+      "utf8_slice_sha256": "fa325dac6b491f6bb78765de23f4278fef93c0c53b46b3aacfbcba79837912dc"
+    },
+    "org.omg.kerml.xtext.KerML::ImportedMembership": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5049,
+      "utf16_length": 154,
+      "utf8_slice_sha256": "07342b75a8418555a9932982f879454a4c87940a4d33c27fdeab2cfb437435bd"
+    },
+    "org.omg.kerml.xtext.KerML::ImportedNamespace": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5345,
+      "utf16_length": 158,
+      "utf8_slice_sha256": "8c20e6d56472c4591c5da2235c1fb595c125eb97c18e87966c19618e634756d0"
+    },
+    "org.omg.kerml.xtext.KerML::Interaction": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25981,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "a51afd21baec2d8577d6e26099cbd22ccc7e6d7019f30b8ebef910f004926bb9"
+    },
+    "org.omg.kerml.xtext.KerML::Intersecting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 11778,
+      "utf16_length": 143,
+      "utf8_slice_sha256": "c3b5294aaad6a5096fc1daccbd8df3cf1414f32d3e1bf93f7d3c5a9a923ed85d"
+    },
+    "org.omg.kerml.xtext.KerML::IntersectingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9179,
+      "utf16_length": 145,
+      "utf8_slice_sha256": "8aee70182639a10b68022be0b543c1724197a7d6442f14dfe15a150160bd043c"
+    },
+    "org.omg.kerml.xtext.KerML::Invariant": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25800,
+      "utf16_length": 133,
+      "utf8_slice_sha256": "fbc60fb81090a62b7c5fd3c39445895e0ea362e829a48070938862001625287d"
+    },
+    "org.omg.kerml.xtext.KerML::InvertingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15026,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "086f7fb11c573a2e31dbcfb274f4fd6726bb1ef84f3d5ac5b223dbfcd7024e5a"
+    },
+    "org.omg.kerml.xtext.KerML::LibraryPackage": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 7222,
+      "utf16_length": 173,
+      "utf8_slice_sha256": "845cfd1041ab1d0270e5a5b81bf620e7209c7cc53ae80f32b8233391ab57945e"
+    },
+    "org.omg.kerml.xtext.KerML::MemberElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 6339,
+      "utf16_length": 81,
+      "utf8_slice_sha256": "844749b92a7892419d4e72457139757f8b587ac18a3aa3b3dbffd14c195f1465"
+    },
+    "org.omg.kerml.xtext.KerML::MemberPrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4100,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "0b7de8fbb4e22cef75cdbf87ccff0255ac679c2b96cae0126b34472607dd0d20"
+    },
+    "org.omg.kerml.xtext.KerML::MembershipImport": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4958,
+      "utf16_length": 87,
+      "utf8_slice_sha256": "2f16ae14cae485b0750ef6b10d70cad9cf83e965eadce27002137ff275411636"
+    },
+    "org.omg.kerml.xtext.KerML::Metaclass": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28127,
+      "utf16_length": 98,
+      "utf8_slice_sha256": "980f521efd5a3440d26f77ef1c49b1ddfa87da397e292820d084d7d1e16ff16a"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 29068,
+      "utf16_length": 257,
+      "utf8_slice_sha256": "24499f0607f6a7c7edfbe8679e4dbb7d5274dd76e80f36f626132c54804136de"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataBodyFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 29441,
+      "utf16_length": 180,
+      "utf8_slice_sha256": "ecf331da5809083129bad6c056d9ddcb9b63230169f43858fa3ffbb58b13d57d"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataBodyFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 29329,
+      "utf16_length": 108,
+      "utf8_slice_sha256": "572718757b035f3b17b61f7da5d79f4925ede1e154392dd6ad7be6a32e3818f6"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28551,
+      "utf16_length": 260,
+      "utf8_slice_sha256": "b6c73883ebd5c7d4aaf899fe38c5315d9e05c55b9ab38a8af359c69653f7a43a"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataFeatureDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28815,
+      "utf16_length": 153,
+      "utf8_slice_sha256": "b1949b56461b6f596d7ce72d41283a694c1ef19400b09ecad1cd34a8bf88aa24"
+    },
+    "org.omg.kerml.xtext.KerML::MetadataTyping": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28972,
+      "utf16_length": 92,
+      "utf8_slice_sha256": "e568e64cbecdd4916f610cfc42cacab14175c20dc7a0768e406555057372dbc5"
+    },
+    "org.omg.kerml.xtext.KerML::Multiplicity": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20322,
+      "utf16_length": 86,
+      "utf8_slice_sha256": "2176be7286e81de6aece364a83babee2cec4ecc568cbb7cc4258ee3c17e8cae8"
+    },
+    "org.omg.kerml.xtext.KerML::MultiplicityBounds": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20829,
+      "utf16_length": 270,
+      "utf8_slice_sha256": "19d012ef59ebf5ccaf3d0c4f1d5592d7d8a52972d348b4ed444b9aad4b530fe8"
+    },
+    "org.omg.kerml.xtext.KerML::MultiplicityExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21103,
+      "utf16_length": 142,
+      "utf8_slice_sha256": "9175e1211ca0c93e02ec399aab554f49e4a264f7b1ab056e68752b55c207c505"
+    },
+    "org.omg.kerml.xtext.KerML::MultiplicityPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15493,
+      "utf16_length": 261,
+      "utf8_slice_sha256": "e70c1de56e5db97bf0cd2a3a5d60be6c02656973833cd2b3525a8879e86e35cb"
+    },
+    "org.omg.kerml.xtext.KerML::MultiplicityRange": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20517,
+      "utf16_length": 116,
+      "utf8_slice_sha256": "58dfa1b3dcb82e5fabc7c8a9cb10f81eb16ee71ddbb20592b0757c3fb7260feb"
+    },
+    "org.omg.kerml.xtext.KerML::MultiplicitySubset": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20412,
+      "utf16_length": 101,
+      "utf8_slice_sha256": "dab2f80b37a37e7f803833bc51ed3938e35c293dd5e8ef64676cfb262dc059b4"
+    },
+    "org.omg.kerml.xtext.KerML::Namespace": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3362,
+      "utf16_length": 125,
+      "utf8_slice_sha256": "81f6ce3c5f27caf11e91ae2704aa40ed2ec2e7fb34e3a9c246a5ef8b2790c60c"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3585,
+      "utf16_length": 312,
+      "utf8_slice_sha256": "7bd04417427068ede84f0c89adcacf1c379bc546dd7ff43de96b8dfb088dc2b2"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceBodyElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3927,
+      "utf16_length": 169,
+      "utf8_slice_sha256": "104600fdde961aef40e1d9c22d1db75b313f3e9d6850fdbf26abd13d14badf51"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3491,
+      "utf16_length": 90,
+      "utf8_slice_sha256": "4006f0be0a4bc00b472427c677cd6c7a758026cea54a434778ea1ab387d9b4b3"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4413,
+      "utf16_length": 113,
+      "utf8_slice_sha256": "e6a9113a73923f1e3667efe14f1a3a271fe65b23366b32a50261e8bd159ac6b0"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceImport": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 5207,
+      "utf16_length": 134,
+      "utf8_slice_sha256": "c38e5b4570aa507644f5fa77766f21c0989d673f4a53ca84d00cf43c5b21f806"
+    },
+    "org.omg.kerml.xtext.KerML::NamespaceMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4199,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "b61c8cd2cfa7092f5980066fd764e5bac0ef43761f47d238d3690ea655f01b79"
+    },
+    "org.omg.kerml.xtext.KerML::NaryConnectorDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22409,
+      "utf16_length": 245,
+      "utf8_slice_sha256": "06903d379693d45717bcce7788bbf18a121e85ac7c6ed9888e8bc5f566039ce8"
+    },
+    "org.omg.kerml.xtext.KerML::NonFeatureElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 6424,
+      "utf16_length": 458,
+      "utf8_slice_sha256": "9782f6259eeccb1b0252cd8b674f5bf47bd31f8e997cf31f8c9c3854f68e4571"
+    },
+    "org.omg.kerml.xtext.KerML::NonFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 4302,
+      "utf16_length": 107,
+      "utf8_slice_sha256": "1de4402196a7e619e802ddcf11f46f3e7a3441e07c2f407508b42217e03c63d4"
+    },
+    "org.omg.kerml.xtext.KerML::Nonunique": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15758,
+      "utf16_length": 128,
+      "utf8_slice_sha256": "8424035410a2a0020a4515a08448127796e1350f44d6df739ad1e080feca97df"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedAnnotation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 2522,
+      "utf16_length": 89,
+      "utf8_slice_sha256": "d0d5d3c1c905fd867294ba639ecee76a9414c3ec102018f6fbe32cbd20fbe1c1"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedConjugation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 10962,
+      "utf16_length": 142,
+      "utf8_slice_sha256": "d2f8f890474832f81f89c2b9e7129fb7c6bf3ac174dd01b13ae2e09b147f1b82"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedCrossSubsetting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18984,
+      "utf16_length": 159,
+      "utf8_slice_sha256": "e8ded0b46a19bbd42587702127cb28f928699fad397ef6f6c68b2d2910c1a0d4"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedCrossingFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14180,
+      "utf16_length": 88,
+      "utf8_slice_sha256": "2d9f3da71dbf1e07b9f75255d564676b510384f36819c59c6f8197c99638c97f"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedCrossingFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 14067,
+      "utf16_length": 109,
+      "utf8_slice_sha256": "5303734a797fd3d4583d379387ccd07f566a59eaab584a2973cb7f8481f74a25"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedCrossingMultiplicity": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 23081,
+      "utf16_length": 94,
+      "utf8_slice_sha256": "91d0b1ea8c60b438a8db7a593e4e2cee48f48058429b12cb50c81b9fc3c0120a"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedCrossingMultiplicityMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 22958,
+      "utf16_length": 119,
+      "utf8_slice_sha256": "8512147dfa286fdbf52b3f39f505a7bb04b130ae480d19f4d7fc23cc020ae35c"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedDisjoining": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 11448,
+      "utf16_length": 142,
+      "utf8_slice_sha256": "70457d2ed1346dbd3d2e024e92d357c220d06726ba6a9b04471623c1b6a33e10"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedFeatureInverting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 17328,
+      "utf16_length": 159,
+      "utf8_slice_sha256": "c4cda21a731cfb3f29efde076938f28ba1491fe15e7e64c850d7326d33d8ccf1"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9963,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "c822028feba541940beadef0ff4dd109398aede068ce151002415c9eaeff2385"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedFeatureTyping": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18072,
+      "utf16_length": 66,
+      "utf8_slice_sha256": "8bda291e4525f194eda3dca4166f92c090393c42d80992db60bf58cadf998dde"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedMultiplicity": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20637,
+      "utf16_length": 103,
+      "utf8_slice_sha256": "7fedd22e337583c99ce70b4d771f19e592ebee76221ff0ea5989ef8dc27fce68"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedMultiplicityRange": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20744,
+      "utf16_length": 81,
+      "utf8_slice_sha256": "2f303eed1c825f7c10677e7ea34795728eedbac9a5fcdcea3d074ab74575154c"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedRedefinition": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 19541,
+      "utf16_length": 151,
+      "utf8_slice_sha256": "df51a1da3b6f504afa36b278b18043cfd88e608940a77dd5f6c7e79b993a1b07"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedReferenceSubsetting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18815,
+      "utf16_length": 165,
+      "utf8_slice_sha256": "7e38735304cccb6b9acc5ca78510136f1e5aa989ca7080d433472ec4eb7d6112"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedRelatedElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 1927,
+      "utf16_length": 87,
+      "utf8_slice_sha256": "cc98e469eac06c76e719b5bcf9543a87cd08a7bf2bf5f19584e17071f2301d60"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedSpecialization": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 10445,
+      "utf16_length": 143,
+      "utf8_slice_sha256": "4edaaa554c3be4f98f8982bb55de72c14c17018ab057ae2bc327000357ca343e"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedSubsetting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18665,
+      "utf16_length": 146,
+      "utf8_slice_sha256": "89c5fe43195709aa1057f88557095ca27fdb6995759a6df452aa20b563405cae"
+    },
+    "org.omg.kerml.xtext.KerML::OwnedTypeFeaturing": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 17731,
+      "utf16_length": 100,
+      "utf8_slice_sha256": "b4a8fe309187778128896e9327e91954122430e61c0ff14e44bedac5a01b6a49"
+    },
+    "org.omg.kerml.xtext.KerML::Ownedsubclassification": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 13084,
+      "utf16_length": 116,
+      "utf8_slice_sha256": "67a5936ff9739826942a6519cb3071c32def7c65afd6d1e325b1f56a578e0866"
+    },
+    "org.omg.kerml.xtext.KerML::Package": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 7100,
+      "utf16_length": 118,
+      "utf8_slice_sha256": "a5fc88b76678622b6b10ac87646af171f409564c8c27d620e93aa67823e7443e"
+    },
+    "org.omg.kerml.xtext.KerML::PackageBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 7486,
+      "utf16_length": 360,
+      "utf8_slice_sha256": "6f6931511c393fb656339794a00e2c85d3af967ee8635dadc38e993c10c54ffe"
+    },
+    "org.omg.kerml.xtext.KerML::PackageDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 7399,
+      "utf16_length": 83,
+      "utf8_slice_sha256": "21ecb81730ab8afc9462853660c439334025d9c93dabb627896f7b5a040dd7b5"
+    },
+    "org.omg.kerml.xtext.KerML::PayloadFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 26771,
+      "utf16_length": 320,
+      "utf8_slice_sha256": "cb08cb2fec7b687c2ca99ab465f3a14b72f3420ea2add0b740e51211776ddbd7"
+    },
+    "org.omg.kerml.xtext.KerML::PayloadFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 26668,
+      "utf16_length": 99,
+      "utf8_slice_sha256": "d8cb12a9d01ae07c180d0b298482d1d98668208316301bc180a88c25b0af3f37"
+    },
+    "org.omg.kerml.xtext.KerML::PayloadFeatureSpecializationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 27095,
+      "utf16_length": 188,
+      "utf8_slice_sha256": "af8962997d56f94212fc0b02e6ec3511b49a36d66f68a5b02858abf62808ab90"
+    },
+    "org.omg.kerml.xtext.KerML::Predicate": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25522,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "d7e5d214ccfbba891298b0b4393547eb080ab2d08ee109b7a4ac9226194b7d00"
+    },
+    "org.omg.kerml.xtext.KerML::PrefixMetadataAnnotation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28229,
+      "utf16_length": 106,
+      "utf8_slice_sha256": "f3a4d6a8483ffa3f2687a3d87714ba496dded3c8ca9e44806b5e32d9d64de313"
+    },
+    "org.omg.kerml.xtext.KerML::PrefixMetadataFeature": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28452,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "7dadc768d3712d1eda8218d6766d8d68c1adb3dc34a55636b1166f9cbc3d66f9"
+    },
+    "org.omg.kerml.xtext.KerML::PrefixMetadataMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 28339,
+      "utf16_length": 109,
+      "utf8_slice_sha256": "c9f5da15d8bc3af64ce9b9222995b9a68b387cae6c22a6d785a39a8fb70ac0c7"
+    },
+    "org.omg.kerml.xtext.KerML::Redefines": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16849,
+      "utf16_length": 111,
+      "utf8_slice_sha256": "def76c17c352c63c7928fa94327eb48b8c9926bb9623715ef393a4d0fab67278"
+    },
+    "org.omg.kerml.xtext.KerML::Redefinition": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 19169,
+      "utf16_length": 368,
+      "utf8_slice_sha256": "de0d9308bb53770861c987f1e6f2218bbd36e0942c1332a25a6cf4ee1d5b09af"
+    },
+    "org.omg.kerml.xtext.KerML::Redefinitions": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16735,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "d0ac0802504048d5b8a769a6110d7e13259b65f372582af7691ca7b6dd624286"
+    },
+    "org.omg.kerml.xtext.KerML::References": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16454,
+      "utf16_length": 113,
+      "utf8_slice_sha256": "c9b8e635d7b26e7beb245d612b9f53a3ae13dcae8d39a4361813de54a2e898a1"
+    },
+    "org.omg.kerml.xtext.KerML::ReferencesKeyword": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16571,
+      "utf16_length": 45,
+      "utf8_slice_sha256": "5e75e2f3bdc84d129d62bfa1f4e8b69bc09150be502f408244b5c61d428ca344"
+    },
+    "org.omg.kerml.xtext.KerML::RelationshipBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 1657,
+      "utf16_length": 103,
+      "utf8_slice_sha256": "5619bb35c4d1b68583997077b0bd404078b92698dc83ede662c2838af9731dc8"
+    },
+    "org.omg.kerml.xtext.KerML::RelationshipOwnedElement": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 1764,
+      "utf16_length": 159,
+      "utf8_slice_sha256": "b2a857a2499c688cf84041bb5194a6d9a72c4bd24c33b65ea400ad19dcd371be"
+    },
+    "org.omg.kerml.xtext.KerML::ResultExpressionMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25138,
+      "utf16_length": 135,
+      "utf8_slice_sha256": "1ecb29ebe41776b2608bd0e941a5fbf9d080377eb0865c380b3a4b243c2a4077"
+    },
+    "org.omg.kerml.xtext.KerML::ReturnFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 25003,
+      "utf16_length": 131,
+      "utf8_slice_sha256": "e9b7044b1e8bc4148b9a4232b789fb4bc5299bc16560177404fb33776cb7ecda"
+    },
+    "org.omg.kerml.xtext.KerML::RootNamespace": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 1368,
+      "utf16_length": 85,
+      "utf8_slice_sha256": "2458d6a6f9fa9eb4641a71a0a09385a2a73e729e99796f773d2e09d6b81f20fa"
+    },
+    "org.omg.kerml.xtext.KerML::Specialization": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 10101,
+      "utf16_length": 340,
+      "utf8_slice_sha256": "9604b9424abb5b6189d5e13adfcafe4256285c0f6318b022f7889c55b312d7c3"
+    },
+    "org.omg.kerml.xtext.KerML::SpecializationPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8458,
+      "utf16_length": 182,
+      "utf8_slice_sha256": "48a7e0d410932659254013c6e5aefe98ba5e7ff0dfe947f677d65f79d6d74561"
+    },
+    "org.omg.kerml.xtext.KerML::Step": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24299,
+      "utf16_length": 80,
+      "utf8_slice_sha256": "df8f3f8b7f04321c313c870fd88c82af711ef1254937d090f05d3aafc69fc323"
+    },
+    "org.omg.kerml.xtext.KerML::StepDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 24383,
+      "utf16_length": 82,
+      "utf8_slice_sha256": "b28c29f4e9e49b101cf6669ce261042b195054561c4343e99dee724a9ae5f04e"
+    },
+    "org.omg.kerml.xtext.KerML::Structure": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 21519,
+      "utf16_length": 95,
+      "utf8_slice_sha256": "0b885efbc6c0e2cfdecc588ca84ec5edfca27fc7f5121eb8322bae77e8d5a950"
+    },
+    "org.omg.kerml.xtext.KerML::Subclassification": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 12807,
+      "utf16_length": 273,
+      "utf8_slice_sha256": "b3bb1f082ad23543f0fb168b20a0253792739fe83bb7babec9a5a904e24397ea"
+    },
+    "org.omg.kerml.xtext.KerML::Subsets": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16345,
+      "utf16_length": 105,
+      "utf8_slice_sha256": "48b290ab36b5a1b9040640abafb301f955a5cfb32c6087c8c083a225ec15fe7f"
+    },
+    "org.omg.kerml.xtext.KerML::Subsetting": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 18306,
+      "utf16_length": 355,
+      "utf8_slice_sha256": "07b457dd17b9743747cacbf9af24de8d2d105e885fd9797d0d894892b6c6e253"
+    },
+    "org.omg.kerml.xtext.KerML::Subsettings": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16237,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "de3dd2a2647b152276bcb76104fed50a0a0981e0bbdf7acfc8ad5ab322c749f8"
+    },
+    "org.omg.kerml.xtext.KerML::Succession": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 23694,
+      "utf16_length": 104,
+      "utf8_slice_sha256": "75564bead331c7835606be49f7958bbfa1452a0e5915e49002907eceb565e43e"
+    },
+    "org.omg.kerml.xtext.KerML::SuccessionDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 23802,
+      "utf16_length": 341,
+      "utf8_slice_sha256": "ed261ebeef67ce5742e023b551e6288dfb898f29f9985b0e974a123b0526c005"
+    },
+    "org.omg.kerml.xtext.KerML::SuccessionFlow": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 26188,
+      "utf16_length": 110,
+      "utf8_slice_sha256": "b1c493aa650a5ea74f19eec93cdbd9220997bf07f01090bf7cf6d6c233cade9b"
+    },
+    "org.omg.kerml.xtext.KerML::SuperclassingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 12455,
+      "utf16_length": 184,
+      "utf8_slice_sha256": "335d5d9f0fa749a162476b4e552ca4cb04f23e50dcc674e733977e674fc083ce"
+    },
+    "org.omg.kerml.xtext.KerML::TextualRepresentation": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 3174,
+      "utf16_length": 164,
+      "utf8_slice_sha256": "35dae8a146734ff669b1100395c100f7121d240db155f63149499916b6592fcb"
+    },
+    "org.omg.kerml.xtext.KerML::Type": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8146,
+      "utf16_length": 83,
+      "utf8_slice_sha256": "1f35e2d26f5d11b40a9943908052a327950adb79977fcadedd4bfc6e8e1f80c4"
+    },
+    "org.omg.kerml.xtext.KerML::TypeBody": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9478,
+      "utf16_length": 237,
+      "utf8_slice_sha256": "2505035acefd8cb78bb0daf4b2554177b867c7278102fcd50c4a7bc441da4d78"
+    },
+    "org.omg.kerml.xtext.KerML::TypeDeclaration": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8233,
+      "utf16_length": 221,
+      "utf8_slice_sha256": "353467565ddc7755fd2c28430c62c44df9b2099118d09883886eb875399c128f"
+    },
+    "org.omg.kerml.xtext.KerML::TypeFeatureMember": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9842,
+      "utf16_length": 117,
+      "utf8_slice_sha256": "33907c188db3a52918f216c92a99352f944294ef36f866eaccb95fc26163828d"
+    },
+    "org.omg.kerml.xtext.KerML::TypeFeaturing": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 17515,
+      "utf16_length": 212,
+      "utf8_slice_sha256": "1de14dac0ddab3d433c8a9603fe5d46d738b42b12df8f7a033887382a2988f5d"
+    },
+    "org.omg.kerml.xtext.KerML::TypeFeaturingPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 15140,
+      "utf16_length": 164,
+      "utf8_slice_sha256": "787ed3755ffbe6aa8aeeb9cdbbec60eb294d1ddbf09348cb5d73a4897a854888"
+    },
+    "org.omg.kerml.xtext.KerML::TypePrefix": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8016,
+      "utf16_length": 126,
+      "utf8_slice_sha256": "466a035ff1fe54c604ad528c68a5c1d4209e4fdf10410d60f69f4d212491145b"
+    },
+    "org.omg.kerml.xtext.KerML::TypeRelationshipPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 8760,
+      "utf16_length": 124,
+      "utf8_slice_sha256": "283e62329513b3d7abf908c65a4ba2ae1ace3989d6605134a8132a08c30bfde2"
+    },
+    "org.omg.kerml.xtext.KerML::TypedBy": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16124,
+      "utf16_length": 109,
+      "utf8_slice_sha256": "8704c17657173b213711fad9d977104a6b7510832ff76525347b12ebbd326f66"
+    },
+    "org.omg.kerml.xtext.KerML::Typings": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 16017,
+      "utf16_length": 103,
+      "utf8_slice_sha256": "46d04a293d52394ec42560cb5eb0943d67e05a3fba0d545e4494da590b2c4b9b"
+    },
+    "org.omg.kerml.xtext.KerML::Unioning": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 11643,
+      "utf16_length": 131,
+      "utf8_slice_sha256": "2f8f1d261758e706fe099799b2fd80effd8a6418dedcb83f55fe57d7ba39d144"
+    },
+    "org.omg.kerml.xtext.KerML::UnioningPart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 9046,
+      "utf16_length": 129,
+      "utf8_slice_sha256": "69b0b3dfe4e8cf82926555a376800695c3bdc852dded5c9817476fcfe67e1483"
+    },
+    "org.omg.kerml.xtext.KerML::ValuePart": {
+      "kind": "ParserRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 20029,
+      "utf16_length": 84,
+      "utf8_slice_sha256": "0d039875c2a71661c56b5d48ce4b41147966597ed38859d92359ef1177713790"
+    },
+    "org.omg.kerml.xtext.KerML::VisibilityIndicator": {
+      "kind": "EnumRule",
+      "source": "org.omg.kerml.xtext/src/org/omg/kerml/xtext/KerML.xtext",
+      "utf16_offset": 6180,
+      "utf16_length": 127,
+      "utf8_slice_sha256": "92049b04dd53b7bf9fd857d5f259c7ad7608509464f99d3b592e724d6f3940d1"
+    }
+  },
+  "native_extraction": false,
+  "executable_support_awarded": false
+}

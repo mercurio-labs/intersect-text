@@ -1,0 +1,4 @@
+rcore 1; package records version "1"; metamodel "urn:general-text" prefix d {
+      enum Mode { FAST=0; SLOW=1; }
+      class Document { attr name: String [1,1]; attr path: String [1,1]; attr active: Bool [0,1] default false; attr mode: Mode [1,1]; attr count: Int32 [1,1]; }
+    }

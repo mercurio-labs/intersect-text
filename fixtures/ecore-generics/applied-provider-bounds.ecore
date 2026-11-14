@@ -1,0 +1,17 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="colors" nsURI="urn:colors">
+  <eClassifiers x:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="example.RGB"/>
+  <eClassifiers x:type="e:EDataType" name="BoundedList" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false">
+    <eTypeParameters name="T"><eBounds eClassifier="#//RGB"/></eTypeParameters>
+  </eClassifiers>
+  <eClassifiers x:type="e:EDataType" name="Envelope" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+  <eClassifiers x:type="e:EDataType" name="OrdinaryList" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"/>
+  <eClassifiers x:type="e:EClass" name="Holder">
+    <eStructuralFeatures x:type="e:EAttribute" name="values"><eGenericType eClassifier="#//BoundedList"><eTypeArguments eClassifier="#//Alias"/></eGenericType></eStructuralFeatures>
+    <eStructuralFeatures x:type="e:EAttribute" name="nested"><eGenericType eClassifier="#//Envelope"><eTypeArguments eClassifier="#//BoundedList"><eTypeArguments eClassifier="#//Alias"/></eTypeArguments></eGenericType></eStructuralFeatures>
+    <eStructuralFeatures x:type="e:EAttribute" name="wrapped" eType="#//OrdinaryList"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="OnlyWrapped">
+    <eStructuralFeatures x:type="e:EAttribute" name="wrapped" eType="#//OrdinaryList"/>
+  </eClassifiers>
+</e:EPackage>

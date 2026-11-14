@@ -1,0 +1,15 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="settings" nsURI="urn:settings">
+<eClassifiers x:type="e:EClass" name="Model">
+<eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EReference" name="items" containment="true" upperBound="-1" eType="#//Item"/>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Item">
+<eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="title" unsettable="true" defaultValueLiteral="seed" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="aliasTitle" derived="true" unsettable="true" defaultValueLiteral="seed" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="readonlyTitle" derived="true" defaultValueLiteral="seed" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="tags" upperBound="2" unsettable="true" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EAttribute" name="aliasTags" derived="true" unsettable="true" upperBound="2" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures x:type="e:EReference" name="peer" unsettable="true" eType="#//Item"/>
+<eStructuralFeatures x:type="e:EReference" name="aliasPeer" derived="true" unsettable="true" eType="#//Item"/>
+</eClassifiers></e:EPackage>

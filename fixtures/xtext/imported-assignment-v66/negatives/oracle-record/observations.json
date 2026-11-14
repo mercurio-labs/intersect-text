@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "imported_refs_negative_wrong_target",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423"
+    },
+    "provider": {
+      "ecore_sha256": "5a3b5d0e74e14869c617c46406f2b0e49bd7d1cb2558d9d0c2654261e99aa423",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-5a3b5d0e74e1\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' has an incompatible type 'Other'. The expected type is 'Node'."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' has an incompatible type 'Other'. The expected type is 'Node'."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' has an incompatible type 'Other'. The expected type is 'Node'."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' has an incompatible type 'Other'. The expected type is 'Node'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_negative_wrong_cardinality",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e"
+    },
+    "provider": {
+      "ecore_sha256": "c902a368c054f2af0a16555966ef27d4304b63187ff7731d6bca34e715ac949e",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-c902a368c054\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has a different cardinality."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has a different cardinality."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has a different cardinality."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has a different cardinality."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_negative_wrong_containment",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "b4afa77dec1505f7706dc1b6d16c3a742fcb23e5b32393419feb41123db7d49d"
+    },
+    "provider": {
+      "ecore_sha256": "b4afa77dec1505f7706dc1b6d16c3a742fcb23e5b32393419feb41123db7d49d",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-b4afa77dec15\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_negative_not_changeable",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a"
+    },
+    "provider": {
+      "ecore_sha256": "407bb19cbe91bf47f186b86d685411b6c6596c9b1c9163a35d32a3b1dd0be52a",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-407bb19cbe91\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' is not changeable."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' is not changeable."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' is not changeable."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' is not changeable."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_negative_attribute_not_reference",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd"
+    },
+    "provider": {
+      "ecore_sha256": "f3d45edd7096ae4b64fff53dffa75170d6af192cee5093631e1e5a80e9867afd",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-f3d45edd7096\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has an incompatible type 'EString' [java.lang.String]. The expected type is 'Node'."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has an incompatible type 'EString' [java.lang.String]. The expected type is 'Node'."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has an incompatible type 'EString' [java.lang.String]. The expected type is 'Node'."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing feature 'refs' has an incompatible type 'EString' [java.lang.String]. The expected type is 'Node'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  },
+  {
+    "id": "imported_refs_negative_valid_unique_containment",
+    "entry": "audit.ImportedUnique",
+    "original_inputs": [
+      "nodes a,b; refs a,b;"
+    ],
+    "source_pins": {
+      "audit.ImportedUnique.xtext": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207",
+      "imported.ecore": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5"
+    },
+    "provider": {
+      "ecore_sha256": "fdda8aafdba0baec72be7aaa950d91028b52329f1725050d61c54dda730151b5",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.importedUnique.ImportedUniquePackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\v66i-v3\\negative-oracle-six-v1\\oracle-record\\provider-fdda8aafdba0\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.ImportedUnique",
+            "errors": [
+              {
+                "line": 5,
+                "column": 53,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              },
+              {
+                "line": 5,
+                "column": 77,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              }
+            ],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::Node",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.ImportedUnique::ID",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.ImportedUnique",
+            "issues": [
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 224,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              },
+              {
+                "severity": "ERROR",
+                "code": "org.eclipse.xtext.xtext.ecoreInference.TransformationErrorCode.CannotCreateTypeInSealedMetamodel",
+                "start": 248,
+                "length": 18,
+                "message": "Cannot find compatible feature refs in sealed EClass Model from imported package urn:intersect:xtext:imported-unique:1: The existing reference 'refs' is a containment reference."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.ImportedUnique::ID",
+            "name": "RULE_ID",
+            "fragment": false,
+            "body": "('a'..'z')+"
+          },
+          {
+            "source_rule": "audit.ImportedUnique::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "(' '|'\\t'|'\\r'|'\\n')+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 1,
+      "source_unchanged": true
+    },
+    "compilation": null,
+    "runtime": [],
+    "first_rule_metadata": {
+      "exit_code": 0,
+      "observation": {
+        "grammars": [
+          {
+            "source": "audit.ImportedUnique",
+            "used": [],
+            "rules": [
+              {
+                "name": "Model",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Model",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Model"
+                }
+              },
+              {
+                "name": "Node",
+                "kind": "ParserRule",
+                "fragment": false,
+                "datatype": false,
+                "classifier": {
+                  "name": "Node",
+                  "kind": "EClass",
+                  "proxy": false,
+                  "namespace": "urn:intersect:xtext:imported-unique:1",
+                  "resource_fragment": "//Node"
+                }
+              },
+              {
+                "name": "ID",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              },
+              {
+                "name": "WS",
+                "kind": "TerminalRule",
+                "fragment": false,
+                "datatype": null,
+                "classifier": {
+                  "name": "EString",
+                  "kind": "EDataType",
+                  "proxy": false,
+                  "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                  "resource_fragment": "//EString"
+                }
+              }
+            ]
+          }
+        ],
+        "linking_failure": null
+      }
+    }
+  }
+]

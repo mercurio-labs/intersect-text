@@ -1,0 +1,121 @@
+/**
+ */
+package oracle.provider.currentActions.impl;
+
+import oracle.provider.currentActions.*;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class CurrentActionsFactoryImpl extends EFactoryImpl implements CurrentActionsFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static CurrentActionsFactory init() {
+		try {
+			CurrentActionsFactory theCurrentActionsFactory = (CurrentActionsFactory)EPackage.Registry.INSTANCE.getEFactory(CurrentActionsPackage.eNS_URI);
+			if (theCurrentActionsFactory != null) {
+				return theCurrentActionsFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new CurrentActionsFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CurrentActionsFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case CurrentActionsPackage.MODEL: return createModel();
+			case CurrentActionsPackage.LITERAL: return createLiteral();
+			case CurrentActionsPackage.OPERATOR_EXPRESSION: return createOperatorExpression();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Model createModel() {
+		ModelImpl model = new ModelImpl();
+		return model;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Literal createLiteral() {
+		LiteralImpl literal = new LiteralImpl();
+		return literal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OperatorExpression createOperatorExpression() {
+		OperatorExpressionImpl operatorExpression = new OperatorExpressionImpl();
+		return operatorExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CurrentActionsPackage getCurrentActionsPackage() {
+		return (CurrentActionsPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static CurrentActionsPackage getPackage() {
+		return CurrentActionsPackage.eINSTANCE;
+	}
+
+} //CurrentActionsFactoryImpl

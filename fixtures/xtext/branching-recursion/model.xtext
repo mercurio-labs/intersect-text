@@ -1,0 +1,26 @@
+grammar branchingRecursion hidden(WS)
+import "urn:intersect:xtext:current-actions:1" as k
+Root returns k::Expression: (-> Left0 'left' | Right0 'right');
+Left0 returns k::OperatorExpression: operator='a' ('x' operand+=Left1 | 'y' operand+=Left1);
+Left1 returns k::OperatorExpression: operator='a' ('x' operand+=Left2 | 'y' operand+=Left2);
+Left2 returns k::OperatorExpression: operator='a' ('x' operand+=Left3 | 'y' operand+=Left3);
+Left3 returns k::OperatorExpression: operator='a' ('x' operand+=Left4 | 'y' operand+=Left4);
+Left4 returns k::OperatorExpression: operator='a' ('x' operand+=Left5 | 'y' operand+=Left5);
+Left5 returns k::OperatorExpression: operator='a' ('x' operand+=Left6 | 'y' operand+=Left6);
+Left6 returns k::OperatorExpression: operator='a' ('x' operand+=Left7 | 'y' operand+=Left7);
+Left7 returns k::OperatorExpression: operator='a' ('x' operand+=Left8 | 'y' operand+=Left8);
+Left8 returns k::OperatorExpression: operator='a' ('x' operand+=Left9 | 'y' operand+=Left9);
+Left9 returns k::OperatorExpression: operator='a' ('x' operand+=Left10 | 'y' operand+=Left10);
+Left10 returns k::OperatorExpression: operator='a' ('(' operand+=Left0 ')')?;
+Right0 returns k::OperatorExpression: operator='a' ('x' operand+=Right1 | 'y' operand+=Right1);
+Right1 returns k::OperatorExpression: operator='a' ('x' operand+=Right2 | 'y' operand+=Right2);
+Right2 returns k::OperatorExpression: operator='a' ('x' operand+=Right3 | 'y' operand+=Right3);
+Right3 returns k::OperatorExpression: operator='a' ('x' operand+=Right4 | 'y' operand+=Right4);
+Right4 returns k::OperatorExpression: operator='a' ('x' operand+=Right5 | 'y' operand+=Right5);
+Right5 returns k::OperatorExpression: operator='a' ('x' operand+=Right6 | 'y' operand+=Right6);
+Right6 returns k::OperatorExpression: operator='a' ('x' operand+=Right7 | 'y' operand+=Right7);
+Right7 returns k::OperatorExpression: operator='a' ('x' operand+=Right8 | 'y' operand+=Right8);
+Right8 returns k::OperatorExpression: operator='a' ('x' operand+=Right9 | 'y' operand+=Right9);
+Right9 returns k::OperatorExpression: operator='a' ('x' operand+=Right10 | 'y' operand+=Right10);
+Right10 returns k::OperatorExpression: operator='a' ('(' operand+=Right0 ')')?;
+terminal WS: ' '+;

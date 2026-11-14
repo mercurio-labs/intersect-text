@@ -1,0 +1,69 @@
+rcore 1;
+package example.catalog.scoping version "1";
+import model "urn:intersect:example:catalog:1" as c;
+
+// Xtext's default scoping for this language, written in Rcore. A name is
+// resolved as Xtext's ImportedNamespaceAwareLocalScopeProvider over the
+// DefaultGlobalScopeProvider does: relative to each enclosing package, nearest
+// first; then through the resource's imports (`import a.b.*` and
+// `import a.b.C`); then as a fully qualified name among every loaded resource.
+// An element's qualified name is its packages' names and its own, joined
+// with ".".
+
+bind scope c.Entity.superType = super_type;
+bind scope c.Feature.type = feature_type;
+
+fn super_type(r:c.Entity, name:String)->Sequence<c.Entity> =
+  candidates(r, name).selectByKind::<c.Entity>();
+
+fn feature_type(r:c.Feature, name:String)->Sequence<c.Type> =
+  candidates(r, name).selectByKind::<c.Type>();
+
+fn candidates(r:c.Element, name:String)->Sequence<c.Element> {
+  let local = in_packages(r, ancestors::<c.Package>(r), name, 0);
+  if local.notEmpty() { local } else {
+    let imported = through_imports(r, name);
+    if imported.notEmpty() { imported } else { with_qualified_name(r, name) }
+  }
+}
+
+fn in_packages(r:c.Element, packages:OrderedSet<c.Package>, name:String, i:Int64)->Sequence<c.Element> =
+  match packages.at(i) {
+    Some(p) => {
+      let found = with_qualified_name(r, qualified_name(p) + "." + name);
+      if found.notEmpty() { found } else { in_packages(r, packages, name, i + 1) }
+    },
+    None => []
+  };
+
+fn through_imports(r:c.Element, name:String)->Sequence<c.Element> =
+  ancestors::<c.Model>(r)
+    .flatMap(|m| m.imports)
+    .flatMap(|i| imported(r, i.importedNamespace, name));
+
+// `a.b.*` imports every element directly in a.b; `a.b.C` imports C as C.
+fn imported(r:c.Element, namespace:String, name:String)->Sequence<c.Element> {
+  let wildcard = namespace.split(".*");
+  if wildcard.size() == 2 {
+    match wildcard.first() {
+      Some(prefix) => with_qualified_name(r, prefix + "." + name),
+      None => []
+    }
+  } else {
+    if namespace.split(".").last() == Some(name) { with_qualified_name(r, namespace) } else { [] }
+  }
+}
+
+fn with_qualified_name(r:c.Element, name:String)->Sequence<c.Element> =
+  roots::<c.Model>(r)
+    .flatMap(|m| all(Sequence(m.elements)))
+    .filter(|e| qualified_name(e) == name);
+
+fn all(elements:Sequence<c.Element>)->Sequence<c.Element> =
+  elements.concat(elements.selectByKind::<c.Package>().flatMap(|p| all(Sequence(p.elements))));
+
+fn qualified_name(e:c.Element)->String =
+  match ancestors::<c.Package>(e).first() {
+    Some(p) => qualified_name(p) + "." + e.name,
+    None => e.name
+  };

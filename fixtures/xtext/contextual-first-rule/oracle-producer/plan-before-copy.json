@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "state": "external_oracle_promotion_plan_before_copy",
+  "eventual_destination": "fixtures/xtext/contextual-first-rule",
+  "owned_paths": [
+    "inputs/",
+    "oracle/",
+    "oracle-producer/",
+    "oracle-provenance.json"
+  ],
+  "reserved_other_agent_paths": [
+    "native/",
+    "migration/",
+    "README.md",
+    "verify.py",
+    "native-provenance.json",
+    "native case/tests"
+  ],
+  "source_baseline_receipt": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-v1\\baseline-ready.json",
+    "sha256": "5b33a7ff2c1f1402ed9b1a17e0237b34972bb80ecb594940cf493ddee2ffef90"
+  },
+  "exact_copy_directories": [
+    {
+      "source": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-v1\\record",
+      "destination": "oracle/record",
+      "raw_artifacts_excluding_manifest": 775,
+      "all_files_including_manifest": 776,
+      "all_bytes": 2381297
+    },
+    {
+      "source": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-v1\\replay",
+      "destination": "oracle/replay",
+      "raw_artifacts_excluding_manifest": 775,
+      "all_files_including_manifest": 776,
+      "all_bytes": 2381297
+    },
+    {
+      "source": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-v1\\metadata-v2-record",
+      "destination": "oracle/metadata-v2-record",
+      "raw_artifacts_excluding_manifest": 121,
+      "all_files_including_manifest": 122,
+      "all_bytes": 293970
+    },
+    {
+      "source": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-v1\\metadata-v2-replay",
+      "destination": "oracle/metadata-v2-replay",
+      "raw_artifacts_excluding_manifest": 121,
+      "all_files_including_manifest": 122,
+      "all_bytes": 293970
+    }
+  ],
+  "source_graphs": 20,
+  "provider_cohorts": {
+    "original_ecore_sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+    "separate_authored_ecore_sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+  },
+  "original_full_run_counts": {
+    "planned_per_run": 128,
+    "runtime_per_run": 34,
+    "accepted_per_run": 7,
+    "rejected_per_run": 27,
+    "rejected_partial_models_per_run": 15,
+    "unexecuted_after_failure_per_run": 94
+  },
+  "original_failure_preservation": [
+    "Original fullproducer and original helper NPE byteexact, plus both raw fullrecord/replay streams.",
+    "Separate corrected metadata-only V2 adapter, record/replay andreceipt retained.",
+    "Original4 failed2/valid2 sourcegraphs/oldcompleteobservations/receipts/lineage retained, no repairs."
+  ],
+  "portable_execution": [
+    "Original fullproducer copiedbyteexact separately; newproduce.py changesPATHDISCOVERYonly to corpusroot/helperlocations.",
+    "Portablemetadata_v2_pair.py changesPATHDISCOVERY/CLIoutput/JDK/cacheonly, retaining same observedpinnedclassifications.",
+    "verify.py default pureintegrity; optional --replay NEW_OUTPUT_ROOT --jdk JDK --maven-cache CACHE performsfreshrecord+replay+V2 thencomparesfullsemanticobservations to frozen data."
+  ],
+  "only_comparison_exception": "row.provider.genmodel absolute exactowned outputroot/provider-<EcoreSHA12>/provider.genmodel after strict validation; no other normalization.",
+  "jar_policy": "60 pinned prerequisite jars and pinnedsourcearchive referenced bystack.json, notcopied; JDK21.0.6+7; generated EMF providerGenModel/StandardLanguage/MWE2/Setup/IParserroute unchanged.",
+  "source_or_worktree_or_git_changes": false,
+  "native_support_award": false,
+  "gate_closures": []
+}

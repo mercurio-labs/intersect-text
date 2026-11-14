@@ -1,0 +1,280 @@
+{
+  "status": "PROPOSED; accounting source not installed",
+  "contract": "Explicit fixed portable logical bytes per inline record/header; existing UTF8 byte/u16 payload counts, records, work/order and admission precedence unchanged. No field filtering, physical relabeling or provider-budget relaxation. Canonical charges equal measured current native x64 costs. Every charged inline type has compile-time actual-size<=logical-cost guard on native and WASM.",
+  "private_scope": "Both modules absent from original joined V1-64 source map. Newly introduced private V65 document contract only, no legacy public accounting rebase. All V1-64/default paths still require independent complete regression.",
+  "source_lineage": {
+    "original_joined": {
+      "bytes": 3258452,
+      "sha256": "5eab9acfe924540cf645ba4edddb07a2cb11c903240b9f18ce2d411c6924680c"
+    },
+    "current_nested_install": {
+      "bytes": 1816,
+      "sha256": "a39ed97f4e5a44c7842af6c1c0749aebdcd716dfc2c56e7e8c11a98291eb21e3"
+    },
+    "layout_before_manifest": {
+      "bytes": 99470,
+      "sha256": "c67756995ccdd38a2b7238b22867b683969b18d7e2e0a07b9ff472cfa8545787"
+    },
+    "physical_measurement_terminal": {
+      "bytes": 727,
+      "sha256": "0df8944db7570c45d6d1c2abd129215939fbd45fffab560f08a68be81f9efad4"
+    },
+    "immutable_measurement_binary": {
+      "bytes": 664,
+      "sha256": "61d41645354be906d3d72477c3d3a42730bc6395054b33bb455f5ee1ae1951a4"
+    },
+    "measurement_only_source_restored": {
+      "bytes": 615,
+      "sha256": "121b8e223d433bce97cd6b36c1c7030abe6e79edb59233a542d2a32dd871a6fd"
+    }
+  },
+  "before_defect": {
+    "strict_complete_normal_abi": {
+      "bytes": 623,
+      "sha256": "8a6b0786ce94eda4c421f52e5dd4870c37e59b2705d9e5169a05545452553164"
+    },
+    "threshold_capture": {
+      "bytes": 2590,
+      "sha256": "e5dbaba3def34580d194cef077ac9d2b0935034f8cc46a68ca299aaa1219a8a3"
+    },
+    "raw_observations": {
+      "bytes": 526925,
+      "sha256": "a9035545d7f7507593a141a6215a77adbd1bd1b205421d870a3e04825c1a816f"
+    },
+    "native_tree_min": 3312,
+    "wasm_tree_min": 1776,
+    "native_association_min": 12157,
+    "wasm_association_min": 9213,
+    "old_native_expectation_preserved": true,
+    "old_wasm_failure_preserved": true
+  },
+  "native_physical_observed": {
+    "intersect-model/Builder": 272,
+    "intersect-model/Node": 112,
+    "intersect-model/NodeId": 8,
+    "intersect-model/Mark": 40,
+    "intersect-model/DocumentMark": 16,
+    "intersect-model/Undo": 128,
+    "intersect-model/Word": 8,
+    "intersect-xtext/GrammarOrigin": 224,
+    "intersect-xtext/Frame": 24,
+    "intersect-xtext/String": 24,
+    "intersect-xtext/FeatureNode": 160,
+    "intersect-xtext/PredictionDependency": 80,
+    "intersect-xtext/SyntaxIssue": 136,
+    "intersect-xtext/ParsedObject": 136,
+    "intersect-xtext/ParsedReference": 184,
+    "intersect-xtext/SemanticObjectIdentity": 192,
+    "intersect-xtext/DocumentSnapshot": 424,
+    "intersect-xtext/OriginIndex": 32,
+    "intersect-xtext/FeatureUndo": 16,
+    "intersect-xtext/FrameUndo": 32,
+    "intersect-xtext/LexicalIssue": 64,
+    "intersect-xtext/DocumentTokenRange": 40,
+    "intersect-xtext/UnitMessage": 48,
+    "intersect-xtext/EntryValue": 32
+  },
+  "changes": [
+    {
+      "path": "crates/intersect-model/src/core/text_document.rs",
+      "before": {
+        "bytes": 37759,
+        "sha256": "7044b4e254ec0018bac97d1a7ce422fa58d2be9d21df6cd51471070739bcdcaf"
+      },
+      "proposed": {
+        "bytes": 38573,
+        "sha256": "e581e2cdf469e5e7a661d125775737de04948eab0e4a1482bca442cd50fcf28b"
+      },
+      "patch": {
+        "bytes": 4115,
+        "sha256": "10f54b7812d7fc60dfbb28a6b44ebd23100250577fc68017588f39202d3960da"
+      },
+      "records": [
+        {
+          "rust_type": "DocumentBuilder",
+          "constant": "BUILDER",
+          "logical_bytes": 272,
+          "replaced_charge_sites": 2
+        },
+        {
+          "rust_type": "usize",
+          "constant": "WORD",
+          "logical_bytes": 8,
+          "replaced_charge_sites": 3
+        },
+        {
+          "rust_type": "Node",
+          "constant": "NODE",
+          "logical_bytes": 112,
+          "replaced_charge_sites": 2
+        },
+        {
+          "rust_type": "NodeId",
+          "constant": "NODE_ID",
+          "logical_bytes": 8,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "Mark",
+          "constant": "MARK",
+          "logical_bytes": 40,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "DocumentMark",
+          "constant": "MARK_TOKEN",
+          "logical_bytes": 16,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "Undo",
+          "constant": "UNDO",
+          "logical_bytes": 128,
+          "replaced_charge_sites": 1
+        }
+      ]
+    },
+    {
+      "path": "crates/intersect-xtext/src/document.rs",
+      "before": {
+        "bytes": 62655,
+        "sha256": "343b9918d223f35db492bf4f2fdaf7eb06ca864526a8f280de8540d5bfdca0da"
+      },
+      "proposed": {
+        "bytes": 63809,
+        "sha256": "475b92cb286f3654e1b705e7fb9cda07c7cbbaaa87a6a6d2ba384a9609d462e2"
+      },
+      "patch": {
+        "bytes": 8899,
+        "sha256": "239a8a907af685862a47f9f5f29cd258b4a33c7a3e0610aca92147fec344ec93"
+      },
+      "records": [
+        {
+          "rust_type": "GrammarOrigin",
+          "constant": "ORIGIN",
+          "logical_bytes": 224,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "(String, usize)",
+          "constant": "ORIGIN_INDEX",
+          "logical_bytes": 32,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "Frame",
+          "constant": "FRAME",
+          "logical_bytes": 24,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "(usize, NodeId)",
+          "constant": "FEATURE_UNDO",
+          "logical_bytes": 16,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "(usize, Frame)",
+          "constant": "FRAME_UNDO",
+          "logical_bytes": 32,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "String",
+          "constant": "STRING",
+          "logical_bytes": 24,
+          "replaced_charge_sites": 2
+        },
+        {
+          "rust_type": "FeatureNode",
+          "constant": "FEATURE",
+          "logical_bytes": 160,
+          "replaced_charge_sites": 2
+        },
+        {
+          "rust_type": "PredictionDependency",
+          "constant": "DEPENDENCY",
+          "logical_bytes": 80,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "grammar::LexicalIssue",
+          "constant": "LEXICAL_ISSUE",
+          "logical_bytes": 64,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "grammar::DocumentTokenRange",
+          "constant": "TOKEN_RANGE",
+          "logical_bytes": 40,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "SyntaxIssue",
+          "constant": "SYNTAX_ISSUE",
+          "logical_bytes": 136,
+          "replaced_charge_sites": 2
+        },
+        {
+          "rust_type": "(String, Vec<u16>)",
+          "constant": "UNIT_MESSAGE",
+          "logical_bytes": 48,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "ParsedObject",
+          "constant": "PARSED_OBJECT",
+          "logical_bytes": 136,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "ParsedReference",
+          "constant": "PARSED_REFERENCE",
+          "logical_bytes": 184,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "entry::EntryValue",
+          "constant": "ENTRY_VALUE",
+          "logical_bytes": 32,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "usize",
+          "constant": "WORD",
+          "logical_bytes": 8,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "SemanticObjectIdentity",
+          "constant": "OBJECT_IDENTITY",
+          "logical_bytes": 192,
+          "replaced_charge_sites": 1
+        },
+        {
+          "rust_type": "DocumentSnapshot",
+          "constant": "SNAPSHOT",
+          "logical_bytes": 424,
+          "replaced_charge_sites": 1
+        }
+      ]
+    }
+  ],
+  "physical_scope": "Actual public native/WASM holder layouts separately retained in before raw observations. New private-record guards prove bounds at compile time on each target; do not claim exact private WASM sizes without measurements. Original public holder1904/native976/WASM plus128 remains2032/1104<=2048. No new holder/header claim.",
+  "acceptance": [
+    "Exact native private V65 full22 requests remain byte/structured complete-equal to frozen prior native, including all accounting fields; independent replay.",
+    "Normal zero-import WASM complete JSON now equals native for all prior22 and new nested/source metadata probes, no excluded fields.",
+    "Native and WASM exact tree3312/one-short3311 and association12157/one-short12156 admit/refuse at same original stage and messages with identical whole successful analyses.",
+    "Physical header const guards compile both targets; original2048 public holder measured independently remains unchanged.",
+    "Core document tests including rollback/wrap/marks, full old V65 original90/104named/construction/prelink/UTF16 and all V1-64 legacy replay remain required.",
+    "Same current registry/provider failures, original callback/source ownership and forged archive/source constraints unchanged; no full S09 allocation/cooperative claim."
+  ],
+  "gate_closures": [],
+  "proposal_lineage": {
+    "initial_plan": {
+      "bytes": 9696,
+      "sha256": "5eea0c90a433ecf64bb50e7963c932cf66d296412d4ae738203b69bf2ff07b24"
+    },
+    "delta": "Remove now-unused core size_of import in proposed file only; all guards use qualified std::mem::size_of. No accounting source installed."
+  }
+}

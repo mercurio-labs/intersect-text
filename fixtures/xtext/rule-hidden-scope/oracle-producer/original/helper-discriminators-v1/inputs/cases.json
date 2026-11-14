@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fragment_internal_significance",
+    "entry": "audit.scopes.FragmentInternalSignificance",
+    "sources": [
+      {
+        "grammar": "audit.scopes.FragmentInternalSignificance",
+        "file": "audit.scopes.FragmentInternalSignificance.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/fragment_internal_significance/audit.scopes.FragmentInternalSignificance.xtext",
+          "sha256": "c3df3c8ec5026447b97ce9c47f08b5994e974f5626dbf3b34752ec3e8d842335"
+        },
+        "bytes": 574
+      }
+    ],
+    "inputs": [
+      "[a:b]done",
+      "[ a:b ]done",
+      "[a :b]done",
+      "[a: b]done",
+      "[a/*x*/:b]done",
+      "[a:/*x*/b]done",
+      "[a:b]/*\ud83d\ude00*/done",
+      "[a:]done",
+      "[a:b]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Two significant tokens within caller-owned fragment distinguish its actual hidden policy. Earlier one-token fragment graph remains unchanged; it did not by itself discriminate internal skipping.",
+    "lineage": {
+      "original_case": "namespace_fragment_empty_scope",
+      "difference": "Separate full fragment body adds colon+second unassigned ID; original earlier body/providers/probes/results remain immutable."
+    },
+    "execution": "UNEXECUTED; separate source/workflow probes, never repair or requalify original inputs."
+  },
+  {
+    "id": "reachable_named_prediction_entry",
+    "entry": "audit.scopes.AvailablePredictionEntry",
+    "sources": [
+      {
+        "grammar": "audit.scopes.AvailablePredictionEntry",
+        "file": "audit.scopes.AvailablePredictionEntry.xtext",
+        "source_id": {
+          "uri": "memory:hidden-discriminators/reachable_named_prediction_entry/audit.scopes.AvailablePredictionEntry.xtext",
+          "sha256": "1ae9a4f8757945121c8d34cab661fbc9a57653db0f51b4901055594b67049d38"
+        },
+        "bytes": 698
+      }
+    ],
+    "inputs": [
+      "ab!",
+      "a b!",
+      "a/*x*/b!",
+      "ab?",
+      "a b?",
+      " a b?",
+      "a  b?",
+      "a b? ",
+      "a b",
+      "direct a b?",
+      "direct a b? ",
+      "direct a/*x*/b?",
+      "directab?"
+    ],
+    "named_entries": [
+      "Model",
+      "TightEntry"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    "purpose": "Additional same-body named entry is made actually reachable by a new explicit Model alternative; verifies actual generated IParser entry availability and current-policy lookahead versus direct empty-policy call. Original unused TightEntry NoSuchMethodException remains its own availability observation.",
+    "lineage": {
+      "original_source": {
+        "grammar": "audit.scopes.PredictionMarkerScope",
+        "file": "audit.scopes.PredictionMarkerScope.xtext",
+        "source_id": {
+          "uri": "memory:hidden-boundaries/prediction_marker_scope/audit.scopes.PredictionMarkerScope.xtext",
+          "sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135"
+        },
+        "bytes": 673
+      },
+      "original_file_sha256": "f63a4ba3fea319a2accbeac970048a49c190c0963cb660b0056999da33e66135",
+      "source_delta": [
+        {
+          "old": "audit.scopes.PredictionMarkerScope",
+          "new": "audit.scopes.AvailablePredictionEntry"
+        },
+        {
+          "old": "Model returns k::Model: name=Loose '!' | name=Tight '?';",
+          "new": "Model returns k::Model: name=Loose '!' | name=Tight '?' | 'direct' TightEntry;"
+        }
+      ],
+      "original_probe_prefix_unchanged": true,
+      "new_probes": [
+        "direct a b?",
+        "direct a b? ",
+        "direct a/*x*/b?",
+        "directab?"
+      ]
+    },
+    "execution": "UNEXECUTED; separate source/workflow probes, never repair or requalify original inputs."
+  }
+]

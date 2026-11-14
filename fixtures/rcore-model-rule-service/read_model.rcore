@@ -1,0 +1,9 @@
+rcore 1;
+package standalone.readDomain version "1";
+metamodel "urn:standalone-model-reads" prefix m {
+  class Node {
+    attr name: String [0,1];
+    ref next: Node [0,1];
+  }
+  class Child extends Node {}
+}

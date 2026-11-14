@@ -1,0 +1,516 @@
+[
+  {
+    "id": "int8-overflow",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-int8-overflow.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Int8,b:Int8)->Int8=a+b;",
+      "sha256": "9bfb0d2b63a6fc8e589e4737fad968e81161e093bf1ad142497b0283f6b9b7bb"
+    },
+    "original_control": {
+      "id": "int8-overflow",
+      "mode": "binary",
+      "op": "Add",
+      "left": {
+        "ty": {
+          "Scalar": "Int8"
+        },
+        "payload": 127
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Int8"
+        },
+        "payload": 1
+      },
+      "literal_result": null,
+      "literal_error": "overflow"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "uint8-underflow",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-uint8-underflow.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:UInt8,b:UInt8)->UInt8=a-b;",
+      "sha256": "f75c40e3766d5eb5e995b29e743f5572b76eb067f29b88e9c06371bb5babb61a"
+    },
+    "original_control": {
+      "id": "uint8-underflow",
+      "mode": "binary",
+      "op": "Subtract",
+      "left": {
+        "ty": {
+          "Scalar": "UInt8"
+        },
+        "payload": 0
+      },
+      "right": {
+        "ty": {
+          "Scalar": "UInt8"
+        },
+        "payload": 1
+      },
+      "literal_result": null,
+      "literal_error": "overflow"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "int64-divzero",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-int64-divzero.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Int64,b:Int64)->Int64=a/b;",
+      "sha256": "e81ff7e3196b943e813196ec4f1850dc1c2205eafbbb36ef707df2fe05290401"
+    },
+    "original_control": {
+      "id": "int64-divzero",
+      "mode": "binary",
+      "op": "Divide",
+      "left": {
+        "ty": {
+          "Scalar": "Int64"
+        },
+        "payload": {
+          "kind": "int64",
+          "value": "7"
+        }
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Int64"
+        },
+        "payload": {
+          "kind": "int64",
+          "value": "0"
+        }
+      },
+      "literal_result": null,
+      "literal_error": "division_by_zero"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "int64-negate-min",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-int64-negate-min.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Int64)->Int64=-a;",
+      "sha256": "1b07079ec33de614b39b07e9b6fde92cbaba5e371769b1d54f77a2bf7bb8b9d1"
+    },
+    "original_control": {
+      "id": "int64-negate-min",
+      "mode": "unary",
+      "op": "Negate",
+      "left": {
+        "ty": {
+          "Scalar": "Int64"
+        },
+        "payload": {
+          "kind": "int64",
+          "value": "-9223372036854775808"
+        }
+      },
+      "right": null,
+      "literal_result": null,
+      "literal_error": "overflow"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "decimal-nonterminating",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-decimal-nonterminating.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Decimal,b:Decimal)->Decimal=a/b;",
+      "sha256": "e89a0312ddab094077cd38553023ebcec6bf7b4618756cee943efc269ce23f2f"
+    },
+    "original_control": {
+      "id": "decimal-nonterminating",
+      "mode": "binary",
+      "op": "Divide",
+      "left": {
+        "ty": {
+          "Scalar": "Decimal"
+        },
+        "payload": {
+          "kind": "decimal",
+          "coefficient": "1",
+          "scale": 0
+        }
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Decimal"
+        },
+        "payload": {
+          "kind": "decimal",
+          "coefficient": "3",
+          "scale": 0
+        }
+      },
+      "literal_result": null,
+      "literal_error": "non_terminating_decimal"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "decimal-exact",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-decimal-exact.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Decimal,b:Decimal)->Decimal=a+b;",
+      "sha256": "6879974a45f2d84624d77b2680e0694452b1b4c8c9cca86021b5f4c384fb6c39"
+    },
+    "original_control": {
+      "id": "decimal-exact",
+      "mode": "binary",
+      "op": "Add",
+      "left": {
+        "ty": {
+          "Scalar": "Decimal"
+        },
+        "payload": {
+          "kind": "decimal",
+          "coefficient": "12",
+          "scale": 1
+        }
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Decimal"
+        },
+        "payload": {
+          "kind": "decimal",
+          "coefficient": "3",
+          "scale": 1
+        }
+      },
+      "literal_result": {
+        "ty": {
+          "Scalar": "Decimal"
+        },
+        "payload": {
+          "kind": "decimal",
+          "coefficient": "15",
+          "scale": 1
+        }
+      },
+      "literal_error": null
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "bigint-product",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-bigint-product.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:BigInt,b:BigInt)->BigInt=a*b;",
+      "sha256": "44b081f934962f941f5a668e8bdfc393b1f446ab24adbc670e79b2add76e5b0b"
+    },
+    "original_control": {
+      "id": "bigint-product",
+      "mode": "binary",
+      "op": "Multiply",
+      "left": {
+        "ty": {
+          "Scalar": "BigInt"
+        },
+        "payload": {
+          "kind": "bigint",
+          "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+        }
+      },
+      "right": {
+        "ty": {
+          "Scalar": "BigInt"
+        },
+        "payload": {
+          "kind": "bigint",
+          "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+        }
+      },
+      "literal_result": {
+        "ty": {
+          "Scalar": "BigInt"
+        },
+        "payload": {
+          "kind": "bigint",
+          "value": "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+        }
+      },
+      "literal_error": null
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "bool-not",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-bool-not.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Bool)->Bool=!a;",
+      "sha256": "529d9d50dfe099e1f9689ea1393ced83e135195b08f3aa40c2c81d5fd7888901"
+    },
+    "original_control": {
+      "id": "bool-not",
+      "mode": "unary",
+      "op": "Not",
+      "left": {
+        "ty": {
+          "Scalar": "Bool"
+        },
+        "payload": true
+      },
+      "right": null,
+      "literal_result": {
+        "ty": {
+          "Scalar": "Bool"
+        },
+        "payload": false
+      },
+      "literal_error": null
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "unit-equal",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-unit-equal.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Unit,b:Unit)->Bool=a==b;",
+      "sha256": "d13f98bf7d0cb6d04989fd0c78e48e223ea6f6ec792d0cdbc78a15589b6fa311"
+    },
+    "original_control": {
+      "id": "unit-equal",
+      "mode": "binary",
+      "op": "Equal",
+      "left": {
+        "ty": {
+          "Scalar": "Unit"
+        },
+        "payload": {
+          "kind": "unit"
+        }
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Unit"
+        },
+        "payload": {
+          "kind": "unit"
+        }
+      },
+      "literal_result": {
+        "ty": {
+          "Scalar": "Bool"
+        },
+        "payload": true
+      },
+      "literal_error": null
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "type-mismatch",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-type-mismatch.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:Int8,b:Int16)->Int8=a+b;",
+      "sha256": "a548a23cec8e8a5899455d33e8675c2afd97c8e930a03d090af2852cd6afa627"
+    },
+    "original_control": {
+      "id": "type-mismatch",
+      "mode": "binary",
+      "op": "Add",
+      "left": {
+        "ty": {
+          "Scalar": "Int8"
+        },
+        "payload": 1
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Int16"
+        },
+        "payload": 1
+      },
+      "literal_result": null,
+      "literal_error": "type_mismatch"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  },
+  {
+    "id": "malformed-before-type",
+    "source": {
+      "uri": "memory:s09-v22-typed-kernel-malformed-before-type.rcore",
+      "text": "rcore 1;package numeric_session_proof version \"1\";fn run(a:String,b:Int16)->String=a+b;",
+      "sha256": "afb5a35976387e749c8e74026a734cf1540c471bda9060bf0e563e36211c548d"
+    },
+    "original_control": {
+      "id": "malformed-before-type",
+      "mode": "binary",
+      "op": "Add",
+      "left": {
+        "ty": {
+          "Scalar": "String"
+        },
+        "payload": true
+      },
+      "right": {
+        "ty": {
+          "Scalar": "Int16"
+        },
+        "payload": 1
+      },
+      "literal_result": null,
+      "literal_error": "invalid_value"
+    },
+    "owned": [
+      false,
+      true
+    ],
+    "quantum": [
+      1,
+      3,
+      256
+    ],
+    "policies": [
+      "default",
+      "zero-work",
+      "zero-result",
+      "one-value-byte"
+    ]
+  }
+]

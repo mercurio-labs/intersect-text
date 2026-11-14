@@ -1,0 +1,20 @@
+{
+  "checkpoint": "R03",
+  "native_wasm_comparisons": 96,
+  "rust_frontend_tests": 24,
+  "development_browser_tests": 1,
+  "production_browser_tests": 10,
+  "commands": [
+    "cargo test -p intersect-definitions --test rcore_structure --test rcore_syntax --test semdef_syntax --locked",
+    "node tools/rcore_demo.mjs --structure --output target/rcore-day03-report.json",
+    "cargo clippy --workspace --all-targets --locked -- -D warnings",
+    "cargo build --workspace --lib --target wasm32-unknown-unknown --locked",
+    "python -B tools/verify_rcore_fixture.py",
+    "npm run build",
+    "npx playwright test tests/rcore-example.spec.js",
+    "npx playwright test --config playwright.production.config.js"
+  ],
+  "formatting": "All eight workspace packages checked separately because the combined Windows rustfmt command exceeds the command-line limit.",
+  "scope": "Focused R03 and browser acceptance; no full native workspace rerun or full S09/KerML/EMF/Xtext qualification.",
+  "repairs": "Generation provenance was separated from Ecore import dependencies; reference-context JSON ordering was corrected in the harness; a run begun against an older WASM build was rerun against the final build; mobile selector overflow was fixed and the full production suite rerun."
+}

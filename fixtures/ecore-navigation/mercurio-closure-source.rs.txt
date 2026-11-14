@@ -1,0 +1,71 @@
+// Read-only source excerpts, MIT, Mercurio Labs. Not compiled or used as a runtime implementation.
+
+fn materialized_redefinition_closure_typed_query(query: &DefinitionNameQuery<'_,'_>, feature: &KirElement)
+    -> Result<BTreeSet<String>, QueryFailure> {
+    let canonical=query.index.len()==query.graph.len()
+        && query.index.get(feature.id.as_str()).is_some_and(|stored|std::ptr::eq(*stored,feature));
+    if canonical {
+        if let Some(result)=query.redefinition_closures.borrow().get(&feature.id) {return Ok(result.clone());}
+    }
+    let result=query.trace(DefinitionConstructionPhase::RedefinitionClosureEvaluationStarted,
+        DefinitionConstructionPhase::RedefinitionClosureEvaluationFinished,&feature.id,Some(&feature.kind),None,|| {
+            let mut result = BTreeSet::new();
+            let mut pending = vec![feature];
+            while let Some(feature) = pending.pop() {
+                if result.insert(feature.id.clone()) {
+                    pending.extend(definition_redefined_features_typed_query(query,feature,false)?);
+                }
+            }
+            Ok::<_, QueryFailure>(result)
+        })?;
+    if canonical {query.redefinition_closures.borrow_mut().insert(feature.id.clone(),result.clone());}
+    Ok(result)
+}
+
+    fn definition_redefinition_closure_cache_reuses_only_canonical_success() {
+        let graph=redefinition_view_fixture(2,128);
+        let index=graph.iter().map(|e|(e.id.as_str(),e)).collect();
+        let evaluations=std::cell::Cell::new(0);
+        let observer=|event:DefinitionConstructionEvent<'_>|if event.phase==DefinitionConstructionPhase::RedefinitionClosureEvaluationStarted {evaluations.set(evaluations.get()+1);};
+        let query=DefinitionNameQuery::observed(&graph,&index,&observer);
+        let feature=query.index.get("view_feature0").copied().unwrap();
+        let expected=BTreeSet::from([feature.id.clone()]);
+        let before=serde_json::to_value(&graph).unwrap();
+        for _ in 0..5 {assert_eq!(materialized_redefinition_closure_query(&query,feature).unwrap(),expected);}
+        assert_eq!(evaluations.get(),1);
+        assert_eq!(query.redefinition_closures.borrow().len(),1);
+        let mut foreign=feature.clone();foreign.properties.remove("owned_relationship");
+        assert!(materialized_redefinition_closure_query(&query,&foreign).is_err());
+        assert_eq!(evaluations.get(),2);
+        assert_eq!(query.redefinition_closures.borrow().len(),1);
+        assert_eq!(serde_json::to_value(&graph).unwrap(),before);
+    }
+
+    fn definition_redefinition_closure_cache_preserves_failures_and_edit_invalidation() {
+        let mut graph=redefinition_view_fixture(2,64);
+        let mut relation=fresh_definition_element("cache_relation".into(),"Redefinition").unwrap();
+        relation.properties.insert("redefining_feature".into(),json!("view_feature0"));
+        let feature=graph.iter_mut().find(|e|e.id=="view_feature0").unwrap();
+        ecore_ownership::attach(&ecore_ownership_generated::OWNED_RELATIONSHIPS,feature,&mut relation).unwrap();graph.push(relation);
+        {
+            let index=graph.iter().map(|e|(e.id.as_str(),e)).collect();let query=DefinitionNameQuery::new(&graph,&index);
+            let feature=query.index.get("view_feature0").copied().unwrap();
+            for _ in 0..2 {assert!(materialized_redefinition_closure_query(&query,feature).is_err());}
+            assert!(query.redefinition_closures.borrow().is_empty());
+            let owner=query.index.get("view_owner").copied().unwrap();
+            assert!(materialized_redefinition_closure_query(&query,owner).is_err());
+            assert!(query.redefinition_closures.borrow().is_empty());
+        }
+        for (target,expected) in [("view_feature1",vec!["view_feature0","view_feature1"]),("view_feature0",vec!["view_feature0"])] {
+            graph.iter_mut().find(|e|e.id=="cache_relation").unwrap().properties.insert("redefined_feature".into(),json!(target));
+            for reload in [false,true] {
+                if reload {graph=serde_json::from_value(serde_json::to_value(&graph).unwrap()).unwrap();graph.reverse();}
+                let index=graph.iter().map(|e|(e.id.as_str(),e)).collect();let query=DefinitionNameQuery::new(&graph,&index);
+                assert!(query.redefinition_closures.borrow().is_empty());
+                let feature=query.index.get("view_feature0").copied().unwrap();
+                let result=materialized_redefinition_closure_query(&query,feature).unwrap();
+                assert_eq!(result,expected.iter().map(|id|(*id).to_owned()).collect());
+                assert_eq!(materialized_redefinition_closure_query(&query,feature).unwrap(),result);
+            }
+        }
+    }

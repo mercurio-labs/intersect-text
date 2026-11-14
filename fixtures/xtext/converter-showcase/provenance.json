@@ -1,0 +1,120 @@
+{
+  "origin": "Independently authored cumulative converter teaching model; not the actual pinned KerML metamodel",
+  "pilot_revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "source_path": "org.omg.kerml.expressions.xtext/src/org/omg/kerml/expressions/xtext/KerMLExpressions.xtext",
+  "source_sha256": "7bea42879a913f7613ac5e32779174db01e8fd4fe75694f0845c495aa0191aa8",
+  "terminal_slices": [
+    {
+      "name": "DECIMAL_VALUE",
+      "start": 14541,
+      "end": 14608,
+      "sha256": "ece7195fd8b3a4d4e7ac5d81050794e4b5f081a91cdef9e433a67d99ff2b8578",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::DECIMAL_VALUE"
+    },
+    {
+      "name": "EXP_VALUE",
+      "start": 14612,
+      "end": 14687,
+      "sha256": "f87efc089c8504f7bdb5e27cbfbaab01779d68922803ec61010ed2a9599dd906",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::EXP_VALUE"
+    },
+    {
+      "name": "ID",
+      "start": 14691,
+      "end": 14774,
+      "sha256": "e2d676e1b243cb14b269eb020d4d754a0866bd4824735cfc6d6e150ca59fc6c6",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::ID"
+    },
+    {
+      "name": "UNRESTRICTED_NAME",
+      "start": 14778,
+      "end": 14915,
+      "sha256": "6c45ba37a09956918f5f6cc1383dabc8bd1be2646ee8817d406e70ea082d5875",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::UNRESTRICTED_NAME"
+    },
+    {
+      "name": "STRING_VALUE",
+      "start": 14919,
+      "end": 15048,
+      "sha256": "94d3e4660bd5a7f5c7df340b390f088428a262123125b480ba983d24872aabd7",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::STRING_VALUE"
+    },
+    {
+      "name": "REGULAR_COMMENT",
+      "start": 15052,
+      "end": 15092,
+      "sha256": "a9ca026ee7ff6b218a4fab0e41325a92a3cb6d71c02437b6ca205870b9365b82",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::REGULAR_COMMENT"
+    },
+    {
+      "name": "ML_NOTE",
+      "start": 15096,
+      "end": 15128,
+      "sha256": "fcfc85652ca70dad5633803886f2b34586f457f207a66cab243310f30d9e496c",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::ML_NOTE"
+    },
+    {
+      "name": "SL_NOTE",
+      "start": 15132,
+      "end": 15205,
+      "sha256": "ded61be6311059626d651995ad42e1ba333ecea54cfd7edf6f88031d1bbfa1b3",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::SL_NOTE"
+    },
+    {
+      "name": "WS",
+      "start": 15209,
+      "end": 15252,
+      "sha256": "1c230bb3d37c570c4c4f80e4140cbe86d053fd23b1e55981aa8b35c9e5fbbfd7",
+      "origin_identity": "org.omg.kerml.expressions.xtext.KerMLExpressions::WS"
+    }
+  ],
+  "converter_rules": [
+    {
+      "source": "grammar",
+      "name": "Nonunique",
+      "start": 15758,
+      "end": 15886,
+      "sha256": "8424035410a2a0020a4515a08448127796e1350f44d6df739ad1e080feca97df",
+      "text": "Nonunique returns Ecore::EBoolean :\r\n\t// Note: A value converter converts the value of this keyword to \"false\".\r\n\t'nonunique'\r\n;"
+    },
+    {
+      "source": "expressions",
+      "name": "BooleanValue",
+      "start": 13854,
+      "end": 13914,
+      "sha256": "1e22878eb3c9e5fcdb4fff2af7621afb24fa54e3f08f00685f48ecda4fd5b5bf",
+      "text": "BooleanValue returns Ecore::EBoolean :\r\n\t'true' | 'false'\r\n;"
+    }
+  ],
+  "converter_evidence": "../rule-converters/provenance.json",
+  "derived_from": [
+    {
+      "path": "fixtures/xtext/enum-showcase/model.ecore",
+      "sha256": "2d5353b3d1c1711d0fa8691f1680d0af89e3c096bbe40f8ffc264513345bd4d3"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/base.xtext",
+      "sha256": "1b8f048df736e8451ffa6b065a91053006c3395a31cc1f96bdf3f5dd775e9d6b"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/model.xtext",
+      "sha256": "aa08df4250c122a7218ae851802df643e6c88fd7d89d64931e0caa2aa6257ade"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/model.semdef",
+      "sha256": "d3037cebe41ac4337d554546c2c6111d98dab7aef618684f376fa0f5bf746146"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/example.kerml",
+      "sha256": "bd337144c6275697dc04b18bce431dd584603e5a86723c709abb8dacb862acbf"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/more.kerml",
+      "sha256": "436637d4af4d96e762e15c94d7031d9780338bb1d5272ef761a005d7c9f09ec7"
+    },
+    {
+      "path": "fixtures/xtext/enum-showcase/LICENSE",
+      "sha256": "22b203a3f2bfa35ff272ed57702d154aed8966ea0978c44ceca6658f2c60bc51"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="unbounded" nsURI="urn:raw-unbounded">
+ <eClassifiers x:type="e:EClass" name="Value"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="original"/></eClassifiers>
+ <eClassifiers x:type="e:EClass" name="Other"/>
+ <eClassifiers x:type="e:EClass" name="Box">
+  <eTypeParameters name="T"/>
+  <eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Box/T"/></eStructuralFeatures>
+ </eClassifiers>
+ <eClassifiers x:type="e:EClass" name="EObject"/>
+ <eClassifiers x:type="e:EClass" name="Holder">
+  <eStructuralFeatures x:type="e:EReference" name="local" eType="#//EObject"/>
+  <eStructuralFeatures x:type="e:EReference" name="top" eType="e:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+ </eClassifiers>
+</e:EPackage>

@@ -1,0 +1,367 @@
+//! Explicit provider catalog selection at the untrusted host boundary.
+use intersect_model::definitions::{
+    bundle::{DefinitionBundle, DefinitionSource, SourceKind},
+    compiler,
+    conversion::{AppliedConversionContract, ConstructorContract, ConversionContract},
+    schema::{BundleCompilation, Package},
+};
+use serde_json::{Value, json};
+
+fn inputs(request: &Value) -> Result<(DefinitionBundle, Option<BundleCompilation>), String> {
+    if let Some(compilation) = request.get("compilation").filter(|value| !value.is_null()) {
+        let compilation: BundleCompilation =
+            serde_json::from_value(compilation.clone()).map_err(|error| error.to_string())?;
+        if compilation
+            .bundle
+            .sources
+            .iter()
+            .any(|source| source.text.len() > 256_000)
+        {
+            return Err("Definition size budget exceeded".into());
+        }
+        Ok((compilation.bundle.clone(), Some(compilation)))
+    } else {
+        let text = request["rcore"].as_str().ok_or("Missing Rcore source")?;
+        if text.len() > 256_000 {
+            return Err("Definition size budget exceeded".into());
+        }
+        Ok((
+            DefinitionBundle {
+                version: 1,
+                sources: vec![DefinitionSource::new(
+                    "memory:model.rcore",
+                    SourceKind::Rcore,
+                    text,
+                )],
+                namespaces: vec![],
+            },
+            None,
+        ))
+    }
+}
+fn build(
+    request: &Value,
+    compilation: Option<BundleCompilation>,
+    registry: &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+) -> Result<Package, String> {
+    match compilation {
+        Some(compilation) => intersect_xtext::ordinary::compile_with_optional_source_policy(
+            compilation,
+            crate::compiler_profile(request)?,
+            &[],
+            Some(registry),
+            None,
+            Default::default(),
+        ),
+        None => compiler::compile_rcore_with_conversions_and_profile(
+            request["rcore"].as_str().ok_or("Missing Rcore")?,
+            request["xtext"].as_str().filter(|s| !s.trim().is_empty()),
+            request["rcore_behavior"]
+                .as_str()
+                .filter(|s| !s.trim().is_empty()),
+            registry,
+            crate::compiler_profile(request)?,
+        ),
+    }
+    .map_err(|diagnostics| format!("Invalid language definitions: {diagnostics:?}"))
+}
+pub fn compile(request: &Value) -> Result<Value, String> {
+    compile_with(request, |package, _| {
+        Ok(json!({"ok":true,"keywords":intersect_xtext::keywords(package),"package":package}))
+    })
+}
+
+fn compile_with<T>(
+    request: &Value,
+    callback: impl FnOnce(
+        &Package,
+        &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+    ) -> Result<T, String>,
+) -> Result<T, String> {
+    let (bundle, compilation) = inputs(request)?;
+    let contracts: Vec<ConversionContract> =
+        serde_json::from_value(request.get("conversions").cloned().unwrap_or(json!([])))
+            .map_err(|error| error.to_string())?;
+    let applications: Vec<AppliedConversionContract> = serde_json::from_value(
+        request
+            .get("applied_conversions")
+            .cloned()
+            .unwrap_or(json!([])),
+    )
+    .map_err(|e| e.to_string())?;
+    let constructors = constructor_inputs(request, "constructors")?;
+    intersect_model::conversion::with_catalog_policies(
+        &bundle,
+        &contracts,
+        &applications,
+        &constructors,
+        |registry| {
+            let package = build(request, compilation, registry)?;
+            if package.schema.conversion_contracts.len() != contracts.len()
+                || package.schema.applied_conversion_contracts.len() != applications.len()
+                || package.schema.constructor_contracts.len() != constructors.len()
+            {
+                return Err("Unused conversion provider selection".into());
+            }
+            callback(&package, registry)
+        },
+    )
+}
+pub fn evaluate(request: &Value) -> Result<Value, String> {
+    let retained = &request["package"];
+    if !retained["xtext_inference"].is_null() {
+        return crate::inferred_context::evaluate(request);
+    }
+    let mut compile_request = retained["sources"]
+        .as_object()
+        .cloned()
+        .map(Value::Object)
+        .ok_or("Missing retained definition sources")?;
+    if retained["version"].as_u64() != Some(2) || retained["compilation"].is_null() {
+        return Err("Unsupported package version or missing retained inputs".into());
+    }
+    compile_request["compilation"] = retained["compilation"].clone();
+    compile_request["xtext_profile"] = json!(crate::retained_profile(retained)?);
+    let (bundle, compilation) = inputs(&compile_request)?;
+    let contracts: Vec<ConversionContract> = serde_json::from_value(
+        retained["schema"]
+            .get("conversion_contracts")
+            .cloned()
+            .unwrap_or(json!([])),
+    )
+    .map_err(|error| error.to_string())?;
+    let applications: Vec<AppliedConversionContract> = serde_json::from_value(
+        retained["schema"]
+            .get("applied_conversion_contracts")
+            .cloned()
+            .unwrap_or(json!([])),
+    )
+    .map_err(|e| e.to_string())?;
+    let constructors = constructor_inputs(&retained["schema"], "constructor_contracts")?;
+    intersect_model::conversion::with_catalog_policies(
+        &bundle,
+        &contracts,
+        &applications,
+        &constructors,
+        |registry| {
+            let package = build(&compile_request, compilation, registry)?;
+            if package.schema.conversion_contracts.len() != contracts.len()
+                || package.schema.applied_conversion_contracts.len() != applications.len()
+                || package.schema.constructor_contracts.len() != constructors.len()
+            {
+                return Err("Unused conversion provider selection".into());
+            }
+            let sources: Vec<intersect_xtext::Source> =
+                serde_json::from_value(request["sources"].clone())
+                    .map_err(|error| error.to_string())?;
+            Ok(json!(intersect_xtext::evaluate_with_conversions(
+                &package,
+                &sources,
+                intersect_xtext::EvaluationLimits::workbench(),
+                registry
+            )))
+        },
+    )
+}
+
+pub fn export(request: &Value) -> Result<Value, String> {
+    let (bundle, compilation) = inputs(request)?;
+    let compilation = compilation.ok_or("Package export requires retained compilation inputs")?;
+    let contracts: Vec<ConversionContract> =
+        serde_json::from_value(request.get("conversions").cloned().unwrap_or(json!([])))
+            .map_err(|error| error.to_string())?;
+    let metadata =
+        serde_json::from_value(request["metadata"].clone()).map_err(|error| error.to_string())?;
+    let applications: Vec<AppliedConversionContract> = serde_json::from_value(
+        request
+            .get("applied_conversions")
+            .cloned()
+            .unwrap_or(json!([])),
+    )
+    .map_err(|e| e.to_string())?;
+    let constructors = constructor_inputs(request, "constructors")?;
+    intersect_model::conversion::with_catalog_policies(
+        &bundle,
+        &contracts,
+        &applications,
+        &constructors,
+        |registry| {
+            let distribution =
+                intersect_xtext::distribution::build_bundle_with_conversions_and_profile(
+                    compilation,
+                    metadata,
+                    registry,
+                    crate::compiler_profile(request)?,
+                )?;
+            if distribution.package.schema.conversion_contracts.len() != contracts.len()
+                || distribution
+                    .package
+                    .schema
+                    .applied_conversion_contracts
+                    .len()
+                    != applications.len()
+                || distribution.package.schema.constructor_contracts.len() != constructors.len()
+            {
+                return Err("Unused conversion provider selection".into());
+            }
+            serde_json::to_value(distribution).map_err(|error| error.to_string())
+        },
+    )
+}
+
+pub fn rebuild(retained: &Value) -> Result<Package, String> {
+    with_rebuilt(retained, |package, _| Ok(package.clone()))
+}
+
+/// Recompile retained source and consume its checked catalog within the same scope.
+pub fn with_rebuilt<T>(
+    retained: &Value,
+    callback: impl FnOnce(
+        &Package,
+        &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+    ) -> Result<T, String>,
+) -> Result<T, String> {
+    if !retained["xtext_inference"].is_null() {
+        return crate::inferred_context::with_rebuilt(retained, callback);
+    }
+    let mut request = retained["sources"]
+        .as_object()
+        .cloned()
+        .map(Value::Object)
+        .ok_or("Missing retained definition sources")?;
+    request["xtext_profile"] = json!(crate::retained_profile(retained)?);
+    match retained["version"].as_u64() {
+        Some(2) => request["compilation"] = retained["compilation"].clone(),
+        _ => return Err("Unsupported or inconsistent package version".into()),
+    }
+    request["conversions"] = retained["schema"]
+        .get("conversion_contracts")
+        .cloned()
+        .unwrap_or(json!([]));
+    request["applied_conversions"] = retained["schema"]
+        .get("applied_conversion_contracts")
+        .cloned()
+        .unwrap_or(json!([]));
+    request["constructors"] = retained["schema"]
+        .get("constructor_contracts")
+        .cloned()
+        .unwrap_or(json!([]));
+    compile_with(&request, callback)
+}
+pub fn with_package<T>(
+    package: &Package,
+    callback: impl FnOnce(
+        &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+    ) -> Result<T, String>,
+) -> Result<T, String> {
+    let bundle = retained_bundle(package)?;
+    intersect_model::conversion::with_catalog_policies(
+        &bundle,
+        &package.schema.conversion_contracts,
+        &package.schema.applied_conversion_contracts,
+        &package.schema.constructor_contracts,
+        callback,
+    )
+}
+
+pub fn retained_bundle(package: &Package) -> Result<DefinitionBundle, String> {
+    match (&package.compilation, &package.xtext_inference) {
+        (Some(compilation), None) => Ok(compilation.bundle.clone()),
+        (None, Some(inference)) => Ok(inference.bundle.clone()),
+        (Some(_), Some(_)) => Err("Package selects conflicting source compilation inputs".into()),
+        (None, None) => Err("Missing retained compilation inputs".into()),
+    }
+}
+
+pub fn constructor_inputs(
+    request: &Value,
+    field: &str,
+) -> Result<Vec<ConstructorContract>, String> {
+    serde_json::from_value(request.get(field).cloned().unwrap_or(json!([])))
+        .map_err(|e| e.to_string())
+}
+
+pub fn constructor(request: &Value) -> Result<Value, String> {
+    let bundle: DefinitionBundle =
+        serde_json::from_value(request["bundle"].clone()).map_err(|e| e.to_string())?;
+    if bundle.sources.iter().any(|s| s.text.len() > 256_000) {
+        return Err("Definition size budget exceeded".into());
+    }
+    let declaration =
+        serde_json::from_value(request["datatype"].clone()).map_err(|e| e.to_string())?;
+    let provider =
+        serde_json::from_value(request["provider"].clone()).map_err(|e| e.to_string())?;
+    let contract =
+        intersect_model::conversion::constructor_contract(&bundle, &declaration, provider)?;
+    Ok(json!({"ok":true,"contract":contract,"model_published":false}))
+}
+
+// Explicit catalog selectors select installed host implementations; original
+// source inputs are supplied only by the shared, digest-checked archive verifier.
+fn exact_selections<T: PartialEq>(consumed: &[T], selected: &[T]) -> bool {
+    consumed.len() == selected.len()
+        && selected.iter().enumerate().all(|(index, contract)| {
+            consumed.contains(contract) && !selected[..index].contains(contract)
+        })
+}
+struct ArchiveCatalog<'a> {
+    contracts: &'a [ConversionContract],
+    applications: &'a [AppliedConversionContract],
+    constructors: &'a [ConstructorContract],
+}
+impl intersect_xtext::distribution::BundleCompilationFrontend for ArchiveCatalog<'_> {
+    fn compile(
+        &self,
+        inputs: &BundleCompilation,
+        profile: intersect_model::definitions::grammar::Profile,
+        settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+        requested: Option<intersect_model::definitions::schema::CompilationSourcePolicy>,
+        host: intersect_model::definitions::schema::CompilationSourcePolicy,
+    ) -> Result<intersect_xtext::distribution::CompiledBundle, String> {
+        if profile != intersect_model::definitions::grammar::Profile::NativeV65 {
+            return Err("Ordinary catalog archive import requires explicit NativeV65".into());
+        }
+        intersect_model::conversion::with_catalog_policies(
+            &inputs.bundle,
+            self.contracts,
+            self.applications,
+            self.constructors,
+            |registry| {
+                let compiled = intersect_xtext::distribution::compile_bundle_with_context(
+                    inputs, profile, settings, Some(registry), requested, host,
+                )?;
+                if !exact_selections(&compiled.package.schema.conversion_contracts, self.contracts)
+                    || !exact_selections(&compiled.package.schema.applied_conversion_contracts, self.applications)
+                    || !exact_selections(&compiled.package.schema.constructor_contracts, self.constructors)
+                {
+                    return Err("Unused conversion provider selection".into());
+                }
+                Ok(compiled)
+            },
+        )
+    }
+}
+
+pub fn import(request: &Value) -> Result<Value, String> {
+    if request.get("inference_context").is_some_and(|context| !context.is_null()) {
+        return Err("Conflicting ordinary and inferred package provider contexts".into());
+    }
+    let files = serde_json::from_value(
+        request.get("files").cloned().ok_or("Missing extracted archive files")?,
+    ).map_err(|error| format!("Invalid archive files: {error}"))?;
+    let contracts: Vec<ConversionContract> = serde_json::from_value(
+        request.get("conversions").cloned().unwrap_or(json!([])),
+    ).map_err(|error| error.to_string())?;
+    let applications: Vec<AppliedConversionContract> = serde_json::from_value(
+        request.get("applied_conversions").cloned().unwrap_or(json!([])),
+    ).map_err(|error| error.to_string())?;
+    let constructors = constructor_inputs(request, "constructors")?;
+    let frontend = ArchiveCatalog { contracts: &contracts, applications: &applications, constructors: &constructors };
+    let imported = intersect_xtext::distribution::import_files_with_frontends(
+        files, &[], Default::default(), None, Some(&frontend),
+    )?;
+    let keywords = intersect_xtext::keywords(&imported.package);
+    let mut response = serde_json::to_value(imported).map_err(|error| error.to_string())?;
+    response["keywords"] = json!(keywords);
+    Ok(response)
+}

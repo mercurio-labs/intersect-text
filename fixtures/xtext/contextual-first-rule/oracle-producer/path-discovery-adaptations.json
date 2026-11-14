@@ -1,0 +1,97 @@
+{
+  "scope": "Exact text substitutions limited to corpus/helper discovery and explicit output/JDK/cache CLI paths. Original frozen bytes preserved separately.",
+  "producers": [
+    {
+      "original": "oracle-producer/original/produce.py",
+      "portable": "oracle-producer/produce.py",
+      "replacements": [
+        {
+          "old": "HERE=Path(__file__).resolve().parent",
+          "new": "HERE=Path(__file__).resolve().parent.parent\nHELPERS=Path(__file__).resolve().parent",
+          "count": 1
+        },
+        {
+          "old": "HERE/'BuildProvider.java'",
+          "new": "HELPERS/'BuildProvider.java'",
+          "count": 2
+        },
+        {
+          "old": "HERE/'FullRuntime.java'",
+          "new": "HELPERS/'FullRuntime.java'",
+          "count": 2
+        },
+        {
+          "old": "HERE/'FirstRuleMetadata.java'",
+          "new": "HELPERS/'FirstRuleMetadata.java'",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "original": "oracle-producer/original/metadata_v2_pair.py",
+      "portable": "oracle-producer/metadata_v2_pair.py",
+      "replacements": [
+        {
+          "old": "import hashlib,json,os,shutil,subprocess",
+          "new": "import hashlib,json,os,shutil,subprocess,argparse",
+          "count": 1
+        },
+        {
+          "old": "HERE=Path(__file__).resolve().parent",
+          "new": "HERE=Path(__file__).resolve().parent.parent\nHELPERS=Path(__file__).resolve().parent",
+          "count": 1
+        },
+        {
+          "old": "def main():\n",
+          "new": "def main():\n parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);parser.add_argument('--jdk',type=Path,required=True);parser.add_argument('--maven-cache',type=Path,required=True);args=parser.parse_args();OUT=args.output.resolve();assert OUT!=HERE and HERE not in OUT.parents,'Output must stay outside the corpus';OUT.mkdir(exist_ok=False)\n",
+          "count": 1
+        },
+        {
+          "old": "HERE/'preexecution.json'",
+          "new": "HERE/'oracle/receipts/preexecution.json'",
+          "count": 2
+        },
+        {
+          "old": "cache=Path('C:/Users/MarkPetrotta/.m2/repository')",
+          "new": "cache=args.maven_cache.resolve()",
+          "count": 1
+        },
+        {
+          "old": "jdk=Path('D:/dev/jdks/jdk21');java=jdk/'bin/java.exe';javac=jdk/'bin/javac.exe'",
+          "new": "jdk=args.jdk.resolve();suffix='.exe'if os.name=='nt'else '';java=jdk/'bin'/('java'+suffix);javac=jdk/'bin'/('javac'+suffix)",
+          "count": 1
+        },
+        {
+          "old": "HERE/'FirstRuleMetadata.java'",
+          "new": "HELPERS/'FirstRuleMetadata.java'",
+          "count": 2
+        },
+        {
+          "old": "HERE/'FirstRuleMetadataV2.java'",
+          "new": "HELPERS/'FirstRuleMetadataV2.java'",
+          "count": 2
+        },
+        {
+          "old": "HERE/'metadata-v2-preexecution.json'",
+          "new": "OUT/'metadata-v2-preexecution.json'",
+          "count": 1
+        },
+        {
+          "old": "root=HERE/('metadata-v2-'+key)",
+          "new": "root=OUT/('metadata-v2-'+key)",
+          "count": 1
+        },
+        {
+          "old": "HERE/'record/observations.json'",
+          "new": "HERE/'oracle/record/observations.json'",
+          "count": 1
+        },
+        {
+          "old": "HERE/'metadata-v2-receipt.json'",
+          "new": "OUT/'metadata-v2-receipt.json'",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+grammar independent.Modifiers with org.eclipse.xtext.common.Terminals
+import "urn:general-text" as m
+Modifier returns m::Modifier:
+    static?='static'? & final?='final'? & visibility=('public'|'private'|'protected');

@@ -1,0 +1,5 @@
+grammar audit.NextFragmentStarFollow hidden()
+import "urn:intersect:xtext:mini-kerml:terminal-spellings:1" as k
+Model returns k::Model: name=VALUE;
+terminal VALUE: BODY 'ab';
+terminal fragment BODY: 'a'*;

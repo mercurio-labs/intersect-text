@@ -1,0 +1,30 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="runtimeops" nsURI="urn:runtimeops">
+<eClassifiers x:type="e:EClass" name="Base"/>
+<eClassifiers x:type="e:EClass" name="Marker" interface="true"/>
+<eClassifiers x:type="e:EClass" name="Both" eSuperTypes="#//Base #//Marker"/>
+<eClassifiers x:type="e:EClass" name="OnlyBase" eSuperTypes="#//Base"/>
+<eClassifiers x:type="e:EClass" name="Box">
+ <eTypeParameters name="T"><eBounds eClassifier="#//Base"/><eBounds eClassifier="#//Marker"/></eTypeParameters>
+ <eOperations name="convert"><eTypeParameters name="T"><eBounds eTypeParameter="#//Box/T"/></eTypeParameters>
+  <eGenericType eTypeParameter="#//Box/convert/T"/>
+  <eParameters name="input"><eGenericType eTypeParameter="#//Box/T"/></eParameters>
+  <eParameters name="mapped"><eGenericType eTypeParameter="#//Box/convert/T"/></eParameters>
+  <eGenericExceptions eTypeParameter="#//Box/convert/T"/>
+ </eOperations>
+ <eOperations name="read"><eGenericType eTypeParameter="#//Box/T"/></eOperations>
+ <eOperations name="accept"><eTypeParameters name="U"/><eGenericType eTypeParameter="#//Box/accept/U"/></eOperations>
+ <eOperations name="dependent"><eTypeParameters name="U"><eBounds eTypeParameter="#//Box/T"/></eTypeParameters><eTypeParameters name="V"><eBounds eTypeParameter="#//Box/dependent/U"/></eTypeParameters><eGenericType eTypeParameter="#//Box/dependent/V"/></eOperations>
+ <eOperations name="nested"><eTypeParameters name="U"><eBounds eClassifier="#//Pair"><eTypeArguments eTypeParameter="#//Box/T"/><eTypeArguments eTypeParameter="#//Box/T"/></eBounds></eTypeParameters><eGenericType eTypeParameter="#//Box/nested/U"/></eOperations>
+ <eOperations name="recursive"><eTypeParameters name="U"><eBounds eClassifier="#//Node"><eTypeArguments eTypeParameter="#//Box/recursive/U"/></eBounds></eTypeParameters><eGenericType eTypeParameter="#//Box/recursive/U"/></eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child"><eTypeParameters name="U"><eBounds eClassifier="#//Base"/><eBounds eClassifier="#//Marker"/></eTypeParameters><eGenericSuperTypes eClassifier="#//Box"><eTypeArguments eTypeParameter="#//Child/U"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Closed"><eGenericSuperTypes eClassifier="#//Box"><eTypeArguments eClassifier="#//Both"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Raw" eSuperTypes="#//Box"/>
+<eClassifiers x:type="e:EClass" name="Mixed" eSuperTypes="#//Raw #//Closed"/>
+<eClassifiers x:type="e:EClass" name="Same" eSuperTypes="#//Closed"/>
+<eClassifiers x:type="e:EClass" name="Diamond" eSuperTypes="#//Same #//Closed"/>
+<eClassifiers x:type="e:EClass" name="Pair"><eTypeParameters name="L"/><eTypeParameters name="R"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="OtherBoth" eSuperTypes="#//Base #//Marker"/>
+<eClassifiers x:type="e:EClass" name="Node"><eTypeParameters name="N"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Self"><eGenericSuperTypes eClassifier="#//Node"><eTypeArguments eClassifier="#//Self"/></eGenericSuperTypes></eClassifiers>
+</e:EPackage>

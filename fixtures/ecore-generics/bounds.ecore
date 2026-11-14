@@ -1,0 +1,7 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EClass" name="Comparable"><eTypeParameters name="E"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Good"><eGenericSuperTypes eClassifier="#//Comparable"><eTypeArguments eClassifier="#//Good"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Bad"/>
+<eClassifiers x:type="e:EClass" name="Box"><eTypeParameters name="T"><eBounds eClassifier="#//Comparable"><eTypeArguments eTypeParameter="#//Box/T"/></eBounds></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Use"><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eClassifier="#//Box"><eTypeArguments eClassifier="#//Good"/></eGenericType></eStructuralFeatures></eClassifiers>
+</e:EPackage>

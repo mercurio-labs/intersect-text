@@ -1,0 +1,35 @@
+from pathlib import Path
+import hashlib,json,shutil
+N=Path(__file__).resolve().parent;T=N.parent;C=T/'hidden-scope-candidate-v63joined-v1';P=C/'portable-hidden-scope-v2';R=T/'xnr1';O=N/'node-observer-review-packet-v1';O.mkdir(exist_ok=False)
+def disk(p):p=Path(p).resolve();return Path('\\\\?\\'+str(p))if not str(p).startswith('\\\\?\\')else p
+def raw(p):return disk(p).read_bytes()
+def pin(p):b=raw(p);return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def read(p):return json.loads(raw(p).decode('utf-8'))
+def save(p,v):disk(p).write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+copies=[]
+def copy(s,rel):
+ d=O/rel;disk(d.parent).mkdir(parents=True,exist_ok=True);shutil.copyfile(disk(s),disk(d));assert raw(d)==raw(s);copies.append({'path':rel.as_posix(),'original_source':str(s),**pin(d)})
+for root,prefix in [(R,'observed'),(N/'helper-addendum-v1','helper'),(N/'node-tree-observer-v2-execution','execution'),(N/'node-tree-observer-v2-preexecution','preexecution')]:
+ for p in disk(root).rglob('*'):
+  if p.is_file():copy(p,Path(prefix)/p.relative_to(disk(root)))
+for name in ['observe-existing-node-trees-v2.py','run-node-tree-observer-v2.py','existing-exact-source-recipes.json','initialization-not-used']:
+ if (N/name).is_file():copy(N/name,Path('producer')/name)
+receipt=read(R/'receipt.json');assert receipt['fresh_JVM_runtime_invocations']==388 and receipt['observations_per_run']==194
+rows=read(R/'observations.json');record=[{k:v for k,v in r.items()if k!='run'}for r in rows if r['run']=='record'];replay=[{k:v for k,v in r.items()if k!='run'}for r in rows if r['run']=='replay'];assert record==replay and len(record)==194
+manifest=read(P/'extraction-manifest.json');entries=manifest['entries'];normalize=lambda p:str(p).replace('\\','/').removeprefix('//?/');lookup={normalize(e.get('original_source','')):e for e in entries};bindings=[]
+pre=read(R/'preexecution.json');seen=set();sources={}
+for item in pre['plan']:
+ generated=Path(item['generation']);key=normalize(generated)
+ if key not in seen:
+  seen.add(key);original=generated/'artifacts-sha256.json';entry=lookup.get(normalize(original));assert entry and entry['storage']=='raw';assert pin(original)==pin(P/entry['path']);assert pin(original)==item['artifact_manifest'];bindings.append({'original_generated_root':str(generated),'original_artifact_manifest':pin(original),'immutable_portable_manifest_path':entry['path'],'portable_corpus_extraction_manifest':pin(P/'extraction-manifest.json')})
+  copy(original,Path('generated-root-manifests')/(generated.name+'-'+generated.parent.name+'.json'))
+ cohort=next(c for c in manifest['cohorts']if c['id']==item['cohort']);helper=P/'oracle-producer/original'/cohort['original_helper'];cases=read(helper/'inputs/cases.json');case=next(c for c in cases if c['id']==item['case']);sources[item['case']]=case
+for case,recipe in sources.items():
+ cohort=next(c for c in manifest['cohorts']if any(i['case']==case and i['cohort']==c['id']for i in pre['plan']));helper=P/'oracle-producer/original'/cohort['original_helper'];copy(helper/'inputs'/case/'imported.ecore',Path('sources')/case/'imported.ecore');copy(helper/'inputs'/case/'uri-bindings.tsv',Path('sources')/case/'uri-bindings.tsv')
+ for s in recipe['sources']:
+  src=helper/'inputs'/case/s['file'];assert pin(src)['sha256']==s['source_id']['sha256'];copy(src,Path('sources')/case/s['file'])
+save(O/'exact-source-recipes.json',sources);save(O/'generated-root-bindings.json',bindings)
+record_nodes=sum(len(r['observation']['resource_node_snapshot']['nodes'])for r in record);counts={'graphs':8,'record_runtime_invocations':194,'fresh_replay_runtime_invocations':194,'resource_node_records':record_nodes,'resource_leaf_records':sum(sum(n['kind']=='leaf'for n in r['observation']['resource_node_snapshot']['nodes'])for r in record),'resource_hidden_leaf_records':sum(sum(n.get('hidden')is True for n in r['observation']['resource_node_snapshot']['nodes'])for r in record),'resource_syntax_error_nodes':sum(sum(n.get('syntax_error')is not None for n in r['observation']['resource_node_snapshot']['nodes'])for r in record)}
+save(O/'review.json',{'state':'complete frozen full-node observer proof with independent record/replay and exact original runtime fields','counts':counts,'original_node_receipt':pin(R/'receipt.json'),'terminal':pin(N/'node-tree-observer-v2-execution/terminal.json'),'actual_native_BEFORE_binding':{'receipt':str(N/'actual-joined-existing-eight-before-v1/receipt.json'),**pin(N/'actual-joined-existing-eight-before-v1/receipt.json')},'qualified_original_source_generation':'8 exact graphs from unchanged independently generated hsv4/hsv6/hsv8/hsv9 record+replay artifacts; every artifact checked before invocation; this helper addendum does not relabel failed hsp1','identities':'Input SourceId, authored grammar SourceId, raw generated grammar URI, rule/feature associations and lexical/contextual trivia ownership remain separate. No URI normalization.','comparison_exceptions':[],'construction_addenda':'separate original3 and namespace/workflow2 experiments, not silently included in this8graph denominator','gate_closures':[]})
+save(O/'copy-lineage.json',copies)
+pins={p.relative_to(disk(O)).as_posix():pin(p)for p in disk(O).rglob('*')if p.is_file()};save(O/'packet-manifest.json',{'state':'immutable ignored review packet; no source/index/portable corpus mutation','files':pins,'file_count':len(pins),'payload_bytes':sum(v['bytes']for v in pins.values()),'gate_closures':[]});print(json.dumps({'manifest':str(O/'packet-manifest.json'),**pin(O/'packet-manifest.json'),'files':len(pins),'payload_bytes':sum(v['bytes']for v in pins.values()),'counts':counts}))

@@ -1,0 +1,97 @@
+/**
+ */
+package oracle.provider.documentPaint.impl;
+
+import oracle.provider.documentPaint.*;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class DocumentPaintFactoryImpl extends EFactoryImpl implements DocumentPaintFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static DocumentPaintFactory init() {
+		try {
+			DocumentPaintFactory theDocumentPaintFactory = (DocumentPaintFactory)EPackage.Registry.INSTANCE.getEFactory(DocumentPaintPackage.eNS_URI);
+			if (theDocumentPaintFactory != null) {
+				return theDocumentPaintFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new DocumentPaintFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocumentPaintFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case DocumentPaintPackage.PAINT: return createPaint();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Paint createPaint() {
+		PaintImpl paint = new PaintImpl();
+		return paint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DocumentPaintPackage getDocumentPaintPackage() {
+		return (DocumentPaintPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static DocumentPaintPackage getPackage() {
+		return DocumentPaintPackage.eINSTANCE;
+	}
+
+} //DocumentPaintFactoryImpl

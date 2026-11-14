@@ -1,0 +1,13 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="state" nsURI="urn:state">
+  <eClassifiers x:type="e:EClass" name="Named" abstract="true">
+    <eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures x:type="e:EAttribute" name="value" unsettable="true" defaultValueLiteral="seed" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Root" eSuperTypes="#//Named">
+    <eStructuralFeatures x:type="e:EReference" name="items" upperBound="-1" containment="true" unsettable="true" eType="#//Item"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Item" eSuperTypes="#//Named">
+    <eStructuralFeatures x:type="e:EAttribute" name="tags" upperBound="-1" unsettable="true" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures x:type="e:EReference" name="link" unsettable="true" eType="#//Item"/>
+  </eClassifiers>
+</e:EPackage>

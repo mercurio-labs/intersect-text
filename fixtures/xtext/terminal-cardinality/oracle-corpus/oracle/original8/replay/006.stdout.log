@@ -1,0 +1,25 @@
+0    [main] INFO  xt.xtext.generator.StandardLanguage  - Skipping registration of Xbase genmodel. Xbase is not on the classpath.
+8    [main] INFO  text.xtext.generator.XtextGenerator  - Initializing Xtext generator
+492  [main] ERROR xt.generator.XtextGeneratorLanguage  - [TransformationDiagnostic: null:4 Cannot create type for VALUE because its EPackage is unknown. (ErrorCode: UnknownMetaModelAlias)]
+495  [main] ERROR mf.mwe2.launch.runtime.Mwe2Launcher  - Problems running workflow Generate: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/tc-full-oracle-v1/replay/inline_optional_follow/src/audit/NextInlineOptionalFollow.xtext':
+TransformationDiagnostic: null:4 Cannot create type for VALUE because its EPackage is unknown. (ErrorCode: UnknownMetaModelAlias)
+java.lang.RuntimeException: Problems running workflow Generate: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/tc-full-oracle-v1/replay/inline_optional_follow/src/audit/NextInlineOptionalFollow.xtext':
+TransformationDiagnostic: null:4 Cannot create type for VALUE because its EPackage is unknown. (ErrorCode: UnknownMetaModelAlias)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:105)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+Caused by: java.lang.IllegalStateException: Problem parsing 'file:/D:/dev/repos/mercurio-labs/intersect/target/tc-full-oracle-v1/replay/inline_optional_follow/src/audit/NextInlineOptionalFollow.xtext':
+TransformationDiagnostic: null:4 Cannot create type for VALUE because its EPackage is unknown. (ErrorCode: UnknownMetaModelAlias)
+	at org.eclipse.xtext.xtext.generator.XtextGeneratorLanguage.initialize(XtextGeneratorLanguage.java:229)
+	at org.eclipse.xtext.xtext.generator.StandardLanguage.initialize(StandardLanguage.java:167)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.initialize(XtextGenerator.java:189)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.checkConfigurationInternal(XtextGenerator.java:157)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent2.checkConfiguration(AbstractWorkflowComponent2.java:23)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.preInvoke(Mwe2Bridge.java:69)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.preInvoke(AbstractWorkflowComponent.java:208)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.preInvoke(AbstractCompositeWorkflowComponent.java:31)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:20)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	... 4 more

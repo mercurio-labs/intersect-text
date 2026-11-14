@@ -1,0 +1,634 @@
+{
+  "emissions": {
+    "first": "('a')=>",
+    "full": "('a' 'b' )=>"
+  },
+  "grammar_sha256": {
+    "FirstChoice": "c6fa7c236860c3e7b45270387c9a57da5162a6758ca1f32fac5f4fbeabc7c679",
+    "FirstOptional": "0dceafe57b277ff2fd6e6db40a735656b0d3714ca1ba12e2cb8db7b09e664231",
+    "FirstRepeat": "2d0f22be7214a52c32d16209c540e14c181e098f00d864925c920667969571e4",
+    "FirstRecursive": "d2011fb2ad36d26a12b04ccf1086e3b6c4d983810dd3ea67fe9571d1a75fac8b",
+    "FullChoice": "c3f13ccfe05963104160fefb56014016548a9c6d2bcf9697ebfd02efcf0e0114",
+    "FullOptional": "978a12ba4afd1cfcdfeb210a70c61d836ef13062e805d034a0c22c25f44016c1",
+    "FullRepeat": "3cbf1e9c0fe6de0666f516332afe34450c65fbd8ccdb05d35a869b8582398126",
+    "FullRecursive": "cee52c0b9af9e8e74c11fd4f631de0694d332d566b2acec404740a1462f6beb3"
+  },
+  "decisions": [
+    {
+      "parser": "FirstChoice",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstChoice",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a b a c",
+      "branch": "gf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a b c",
+      "branch": "gf",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a a c",
+      "branch": "f",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstOptional",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a b a c",
+      "branch": "gf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a b a b a c",
+      "branch": "ggf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a b c",
+      "branch": "gf",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a a c",
+      "branch": "f",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRepeat",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a a b b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FirstRecursive",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a a c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullChoice",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a b a c",
+      "branch": "gf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a b c",
+      "branch": "gf",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a a c",
+      "branch": "f",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullOptional",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a b a c",
+      "branch": "gf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a b a b a c",
+      "branch": "ggf",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a b c",
+      "branch": "gf",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a a c",
+      "branch": "f",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a a b b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a a b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRepeat",
+      "text": "a a a b b c",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a b a b a c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "b",
+      "branch": "",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a b c",
+      "branch": "g",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a a c",
+      "branch": "f",
+      "syntax_errors": 1,
+      "accepted": false
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a a b b",
+      "branch": "g",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a a b c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    },
+    {
+      "parser": "FullRecursive",
+      "text": "a a a b b c",
+      "branch": "f",
+      "syntax_errors": 0,
+      "accepted": true
+    }
+  ]
+}

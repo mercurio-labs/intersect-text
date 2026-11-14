@@ -1,0 +1,77 @@
+[
+  {
+    "id": "imported_refs_default_true",
+    "entry": "audit.ImportedUnique",
+    "sources": [
+      {
+        "grammar": "audit.ImportedUnique",
+        "file": "audit.ImportedUnique.xtext",
+        "source_id": {
+          "uri": "memory:imported_refs_default_true/audit.ImportedUnique.xtext",
+          "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+        }
+      }
+    ],
+    "inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "unique_attribute": null,
+    "resolved_unique_expected": true,
+    "question": "Observe imported many noncontainment reference += admission and actual duplicate/nonduplicate reference identities, without changing imported flags."
+  },
+  {
+    "id": "imported_refs_explicit_true",
+    "entry": "audit.ImportedUnique",
+    "sources": [
+      {
+        "grammar": "audit.ImportedUnique",
+        "file": "audit.ImportedUnique.xtext",
+        "source_id": {
+          "uri": "memory:imported_refs_explicit_true/audit.ImportedUnique.xtext",
+          "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+        }
+      }
+    ],
+    "inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "unique_attribute": true,
+    "resolved_unique_expected": true,
+    "question": "Observe imported many noncontainment reference += admission and actual duplicate/nonduplicate reference identities, without changing imported flags."
+  },
+  {
+    "id": "imported_refs_explicit_false",
+    "entry": "audit.ImportedUnique",
+    "sources": [
+      {
+        "grammar": "audit.ImportedUnique",
+        "file": "audit.ImportedUnique.xtext",
+        "source_id": {
+          "uri": "memory:imported_refs_explicit_false/audit.ImportedUnique.xtext",
+          "sha256": "3506bf93752876f259e8e944f8313f446b5510cff4032673b9320c81d7309207"
+        }
+      }
+    ],
+    "inputs": [
+      "nodes a,b; refs a,b;",
+      "nodes a,b; refs a,a;",
+      "nodes a,b; refs b,a,b;",
+      "nodes a; refs a;",
+      "nodes a,b; refs missing;",
+      "nodes a,b; refs a,;"
+    ],
+    "unique_attribute": false,
+    "resolved_unique_expected": false,
+    "question": "Observe imported many noncontainment reference += admission and actual duplicate/nonduplicate reference identities, without changing imported flags."
+  }
+]

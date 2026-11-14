@@ -1,0 +1,215 @@
+--- before/crates/intersect-xtext/src/document.rs
++++ after/crates/intersect-xtext/src/document.rs
+@@ -9,6 +9,38 @@
+     definitions::bundle::{SourceId, SourceSpan},
+ };
+ use std::sync::Arc;
++
++// Portable V65 document logical bytes are fixed per record, independent of
++// target pointer widths. Payload units, operation order and admission precedence
++// are unchanged. These guards bound inline record headers; allocator capacity
++// and uncharged compiler/transient storage remain outside this accounting claim.
++mod logical_debit {
++    use super::*;
++    macro_rules! header {
++        ($name:ident, $ty:ty, $bytes:expr) => {
++            pub(super) const $name: usize = $bytes;
++            const _: () = assert!(std::mem::size_of::<$ty>() <= $name);
++        };
++    }
++    header!(ORIGIN, GrammarOrigin, 224);
++    header!(ORIGIN_INDEX, (String, usize), 32);
++    header!(FRAME, Frame, 24);
++    header!(FEATURE_UNDO, (usize, NodeId), 16);
++    header!(FRAME_UNDO, (usize, Frame), 32);
++    header!(STRING, String, 24);
++    header!(FEATURE, FeatureNode, 160);
++    header!(DEPENDENCY, PredictionDependency, 80);
++    header!(LEXICAL_ISSUE, grammar::LexicalIssue, 64);
++    header!(TOKEN_RANGE, grammar::DocumentTokenRange, 40);
++    header!(SYNTAX_ISSUE, SyntaxIssue, 136);
++    header!(UNIT_MESSAGE, (String, Vec<u16>), 48);
++    header!(PARSED_OBJECT, ParsedObject, 136);
++    header!(PARSED_REFERENCE, ParsedReference, 184);
++    header!(ENTRY_VALUE, entry::EntryValue, 32);
++    header!(WORD, usize, 8);
++    header!(OBJECT_IDENTITY, SemanticObjectIdentity, 192);
++    header!(SNAPSHOT, DocumentSnapshot, 424);
++}
+ 
+ #[derive(Clone, Debug, Serialize)]
+ #[serde(rename_all = "snake_case")]
+@@ -165,8 +197,8 @@
+                 + origin.builtin.as_ref().map_or(0, String::len);
+             budget.admit(
+                 limits,
+-                std::mem::size_of::<GrammarOrigin>()
+-                    + std::mem::size_of::<(String, usize)>()
++                logical_debit::ORIGIN
++                    + logical_debit::ORIGIN_INDEX
+                     + key.len()
+                     + payload,
+                 1,
+@@ -688,7 +720,7 @@
+     }
+     pub(crate) fn begin(&mut self, key: &str, at: usize) -> Result<NodeId, String> {
+         self.usage
+-            .admit(self.limits, std::mem::size_of::<Frame>(), 1)?;
++            .admit(self.limits, logical_debit::FRAME, 1)?;
+         let node = self.builder.begin(
+             at,
+             NodeData {
+@@ -731,8 +763,8 @@
+             }
+         }
+         let bytes = links
+-            .checked_mul(std::mem::size_of::<(usize, NodeId)>())
+-            .and_then(|n| n.checked_add(std::mem::size_of::<(usize, Frame)>()))
++            .checked_mul(logical_debit::FEATURE_UNDO)
++            .and_then(|n| n.checked_add(logical_debit::FRAME_UNDO))
+             .ok_or("Document action association storage overflow")?;
+         self.usage.admit(
+             self.limits,
+@@ -763,7 +795,7 @@
+             return Err("Document recovery call depth exceeded".into());
+         }
+         self.usage
+-            .admit(self.limits, std::mem::size_of::<String>() + path.len(), 1)?;
++            .admit(self.limits, logical_debit::STRING + path.len(), 1)?;
+         self.calls.push(path.to_owned());
+         Ok(())
+     }
+@@ -785,7 +817,7 @@
+     ) -> Result<(), String> {
+         self.usage.admit(
+             self.limits,
+-            std::mem::size_of::<FeatureNode>() + owner.len() + feature.len(),
++            logical_debit::FEATURE + owner.len() + feature.len(),
+             1,
+         )?;
+         self.features.push(CapturedFeature {
+@@ -824,14 +856,14 @@
+             },
+         };
+         let payload = hidden.iter().try_fold(path.len(), |n, value| {
+-            n.checked_add(std::mem::size_of::<String>())
++            n.checked_add(logical_debit::STRING)
+                 .and_then(|n| n.checked_add(value.len()))
+                 .ok_or("Prediction dependency storage overflow")
+         })?;
+         self.usage.admit(
+             self.limits,
+             payload
+-                .checked_add(std::mem::size_of::<PredictionDependency>())
++                .checked_add(logical_debit::DEPENDENCY)
+                 .ok_or("Prediction dependency storage overflow")?,
+             1,
+         )?;
+@@ -853,7 +885,7 @@
+             self.limits,
+             issues
+                 .len()
+-                .checked_mul(std::mem::size_of::<grammar::LexicalIssue>())
++                .checked_mul(logical_debit::LEXICAL_ISSUE)
+                 .ok_or("Document lexical size overflow")?,
+             issues.len(),
+         )?;
+@@ -861,7 +893,7 @@
+             self.limits,
+             ranges
+                 .len()
+-                .checked_mul(std::mem::size_of::<grammar::DocumentTokenRange>())
++                .checked_mul(logical_debit::TOKEN_RANGE)
+                 .ok_or("Document token range storage overflow")?,
+             ranges.len(),
+         )?;
+@@ -908,7 +940,7 @@
+         let (message, message_utf16) = unit_message(units);
+         self.usage.admit(
+             self.limits,
+-            std::mem::size_of::<SyntaxIssue>()
++            logical_debit::SYNTAX_ISSUE
+                 + message.len()
+                 + message_utf16.as_ref().map_or(0, |v| v.len() * 2),
+             1,
+@@ -955,7 +987,7 @@
+             self.limits,
+             units
+                 .checked_mul(10)
+-                .and_then(|v| v.checked_add(std::mem::size_of::<(String, Vec<u16>)>()))
++                .and_then(|v| v.checked_add(logical_debit::UNIT_MESSAGE))
+                 .ok_or("Diagnostic unit storage overflow")?,
+             1,
+         )?;
+@@ -1035,7 +1067,7 @@
+     ) -> Result<usize, String> {
+         self.usage.admit(
+             self.limits,
+-            std::mem::size_of::<SyntaxIssue>()
++            logical_debit::SYNTAX_ISSUE
+                 + message.len()
+                 + expected.as_ref().map_or(0, String::len),
+             1,
+@@ -1182,7 +1214,7 @@
+                     view.class().len(),
+                     view.type_identity().len(),
+                     view.resource().len(),
+-                    std::mem::size_of::<ParsedObject>(),
++                    logical_debit::PARSED_OBJECT,
+                 ]
+                 .into_iter()
+                 .try_fold(0usize, |n, v| {
+@@ -1250,7 +1282,7 @@
+                 reference.target.len(),
+                 self.document.source().uri.len(),
+                 self.document.source().sha256.len(),
+-                std::mem::size_of::<ParsedReference>(),
++                logical_debit::PARSED_REFERENCE,
+             ]
+             .into_iter()
+             .try_fold(0usize, |n, v| {
+@@ -1274,7 +1306,7 @@
+         self.association_usage.admit(
+             limits,
+             payload
+-                .checked_add(std::mem::size_of::<entry::EntryValue>())
++                .checked_add(logical_debit::ENTRY_VALUE)
+                 .ok_or("Parse entry storage overflow")?,
+             1,
+         )?;
+@@ -1294,7 +1326,7 @@
+         .uri
+         .len()
+         .checked_add(source.sha256.len())
+-        .and_then(|v| v.checked_add(path.len().checked_mul(std::mem::size_of::<usize>())?))
++        .and_then(|v| v.checked_add(path.len().checked_mul(logical_debit::WORD)?))
+         .ok_or_else(|| "Document declaration storage overflow".into())
+ }
+ fn member_payload(
+@@ -1353,7 +1385,7 @@
+                 .and_then(|v| v.checked_add(classifier.name.len()))
+                 .and_then(|v| v.checked_add(element.id.len()))
+                 .and_then(|v| v.checked_add(element.class.len()))
+-                .and_then(|v| v.checked_add(std::mem::size_of::<SemanticObjectIdentity>()))
++                .and_then(|v| v.checked_add(logical_debit::OBJECT_IDENTITY))
+                 .ok_or("Document object association storage overflow")?;
+             self.association_usage.admit(limits, payload, 1)?;
+             self.semantic_objects.push(SemanticObjectIdentity {
+@@ -1386,7 +1418,7 @@
+             let member = schema.effective_feature(&element.class, &feature.feature)?;
+             self.association_usage.admit(
+                 limits,
+-                std::mem::size_of::<FeatureNode>()
++                logical_debit::FEATURE
+                     .checked_add(member_payload(&member.identity)?)
+                     .ok_or("Document feature identity storage overflow")?,
+                 1,
+@@ -1630,7 +1662,7 @@
+             bytes = bytes
+                 .checked_add(source.uri.len())
+                 .and_then(|v| v.checked_add(source.text.len()))
+-                .and_then(|v| v.checked_add(std::mem::size_of::<DocumentSnapshot>()))
++                .and_then(|v| v.checked_add(logical_debit::SNAPSHOT))
+                 .ok_or("Document source aggregate storage overflow")?;
+             if source.text.len() > self.limits.tree.source_bytes
+                 || bytes > self.limits.total_source_bytes

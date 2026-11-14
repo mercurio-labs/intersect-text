@@ -1,0 +1,888 @@
+[
+  {
+    "id": "grammar_hidden_control",
+    "entry": "audit.hidden.GrammarHiddenControl",
+    "sources": [
+      {
+        "file": "audit.hidden.GrammarHiddenControl.xtext",
+        "grammar": "audit.hidden.GrammarHiddenControl",
+        "source_id": {
+          "uri": "memory:hidden-scope/grammar_hidden_control/audit.hidden.GrammarHiddenControl.xtext",
+          "sha256": "10efa3920a49657a11ffbce013a0a606370f6aed96f771db0aea5661b1b62722"
+        },
+        "bytes": 482
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Whole-source control: lexer priority and ASCII whitespace/comments; Unicode source offsets, invalid and incomplete input retained.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "grammar_empty_control",
+    "entry": "audit.hidden.GrammarEmptyControl",
+    "sources": [
+      {
+        "file": "audit.hidden.GrammarEmptyControl.xtext",
+        "grammar": "audit.hidden.GrammarEmptyControl",
+        "source_id": {
+          "uri": "memory:hidden-scope/grammar_empty_control/audit.hidden.GrammarEmptyControl.xtext",
+          "sha256": "4f3eaec9aebc3cb99abe2a60c806139f32e7d611cb59cede22536f067498a02e"
+        },
+        "bytes": 457
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Explicit empty grammar policy; winning terminals retained as significant input.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "model_empty_scope",
+    "entry": "audit.hidden.ModelEmptyScope",
+    "sources": [
+      {
+        "file": "audit.hidden.ModelEmptyScope.xtext",
+        "grammar": "audit.hidden.ModelEmptyScope",
+        "source_id": {
+          "uri": "memory:hidden-scope/model_empty_scope/audit.hidden.ModelEmptyScope.xtext",
+          "sha256": "089f722e117e48f8162ac1bd5176787de87264d3161e1e7f62e01593e7a3b891"
+        },
+        "bytes": 486
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Rule-local empty policy versus nonempty grammar; leading/trailing hidden boundaries are observations, not assumptions.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "model_adds_scope",
+    "entry": "audit.hidden.ModelAddsScope",
+    "sources": [
+      {
+        "file": "audit.hidden.ModelAddsScope.xtext",
+        "grammar": "audit.hidden.ModelAddsScope",
+        "source_id": {
+          "uri": "memory:hidden-scope/model_adds_scope/audit.hidden.ModelAddsScope.xtext",
+          "sha256": "8901e987417d71afba16d799c0430ee9591149eabfa589dece79cdd16083e3a8"
+        },
+        "bytes": 485
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Rule-local nonempty policy versus empty grammar, including end-of-resource behavior.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "nested_restore",
+    "entry": "audit.hidden.NestedRestore",
+    "sources": [
+      {
+        "file": "audit.hidden.NestedRestore.xtext",
+        "grammar": "audit.hidden.NestedRestore",
+        "source_id": {
+          "uri": "memory:hidden-scope/nested_restore/audit.hidden.NestedRestore.xtext",
+          "sha256": "c737cdc0573839523b5ffd58862af85d0fefb4a2f4098874e420e3e02c64a1f3"
+        },
+        "bytes": 593
+      }
+    ],
+    "inputs": [
+      "[abc]done",
+      " [abc] done ",
+      "[a b c]done",
+      "[ab c]done",
+      "[a bc]done",
+      "[a/*x*/b c]done",
+      "[abc]/*x*/done",
+      "[abc]",
+      "[ab]done"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Nested explicit scopes, call entry and successful restoration, missing close/suffix and partial models.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "same_callee_two_contexts",
+    "entry": "audit.hidden.SameCalleeTwoContexts",
+    "sources": [
+      {
+        "file": "audit.hidden.SameCalleeTwoContexts.xtext",
+        "grammar": "audit.hidden.SameCalleeTwoContexts",
+        "source_id": {
+          "uri": "memory:hidden-scope/same_callee_two_contexts/audit.hidden.SameCalleeTwoContexts.xtext",
+          "sha256": "4eb742875cf4be09871936819dc16db94d11497a87eaefa5b6d20df3606cfdbd"
+        },
+        "bytes": 656
+      }
+    ],
+    "inputs": [
+      "looseab",
+      "loose a b",
+      "loosea/*x*/b",
+      "tightab",
+      "tight a b",
+      "tighta/*x*/b",
+      "tightab ",
+      "loosea",
+      "tighta"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Unspecified callee policy under two caller contexts; no assumption of static grammar policy inheritance.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "fragment_empty_scope",
+    "entry": "audit.hidden.FragmentEmptyScope",
+    "sources": [
+      {
+        "file": "audit.hidden.FragmentEmptyScope.xtext",
+        "grammar": "audit.hidden.FragmentEmptyScope",
+        "source_id": {
+          "uri": "memory:hidden-scope/fragment_empty_scope/audit.hidden.FragmentEmptyScope.xtext",
+          "sha256": "893854acb7cda71527f839f2f6232610c16510cf9254b4bf8331e2ad3ac862e9"
+        },
+        "bytes": 557
+      }
+    ],
+    "inputs": [
+      "[a]done",
+      " [a] done ",
+      "[ a]done",
+      "[a ]done",
+      "[a]/*x*/done",
+      "[a/*x*/]done",
+      "[]done",
+      "[a]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Caller-owned fragment scope and restoration; imported return type retained exactly.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "significant_ws_datatype",
+    "entry": "audit.hidden.SignificantWsDatatype",
+    "sources": [
+      {
+        "file": "audit.hidden.SignificantWsDatatype.xtext",
+        "grammar": "audit.hidden.SignificantWsDatatype",
+        "source_id": {
+          "uri": "memory:hidden-scope/significant_ws_datatype/audit.hidden.SignificantWsDatatype.xtext",
+          "sha256": "724ba0f4a4f3f0d371ff137cf8152eb967264c0b77e37013f2193fa3796b5d77"
+        },
+        "bytes": 509
+      }
+    ],
+    "inputs": [
+      "a b",
+      "a\tb",
+      "a\r\nb",
+      "a  b",
+      "ab",
+      " a b",
+      "a b ",
+      "a/*x*/b",
+      "a\u00e9 b"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "WS used as significant grammar input; complete raw datatype value and source spans required.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "significant_comment_datatype",
+    "entry": "audit.hidden.SignificantCommentDatatype",
+    "sources": [
+      {
+        "file": "audit.hidden.SignificantCommentDatatype.xtext",
+        "grammar": "audit.hidden.SignificantCommentDatatype",
+        "source_id": {
+          "uri": "memory:hidden-scope/significant_comment_datatype/audit.hidden.SignificantCommentDatatype.xtext",
+          "sha256": "7ddb4232234718e97021f419d80c4fb004e2d9448e86f677267d853483f8f2e6"
+        },
+        "bytes": 515
+      }
+    ],
+    "inputs": [
+      "a/*x*/b",
+      "a /*x*/ b",
+      "a/*\ud83d\ude00*/b",
+      "a/*x*/\r\nb",
+      "ab",
+      "a/*x*/",
+      "a/*"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Comment token used as significant input; hidden WS compression and Unicode spans remain separate observations.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "named_entry_policy",
+    "entry": "audit.hidden.NamedEntryPolicy",
+    "sources": [
+      {
+        "file": "audit.hidden.NamedEntryPolicy.xtext",
+        "grammar": "audit.hidden.NamedEntryPolicy",
+        "source_id": {
+          "uri": "memory:hidden-scope/named_entry_policy/audit.hidden.NamedEntryPolicy.xtext",
+          "sha256": "6580de1d521ba2babc85c0b7a49325e58a80fb9f0bb16a318baa575664ffa24b"
+        },
+        "bytes": 520
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [
+      "Model",
+      "Tight"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Same source invoked through resource default and actual named IParser entries; helper addendum must record both independently.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "keyword_hidden_shadow",
+    "entry": "audit.hidden.KeywordHiddenShadow",
+    "sources": [
+      {
+        "file": "audit.hidden.KeywordHiddenShadow.xtext",
+        "grammar": "audit.hidden.KeywordHiddenShadow",
+        "source_id": {
+          "uri": "memory:hidden-scope/keyword_hidden_shadow/audit.hidden.KeywordHiddenShadow.xtext",
+          "sha256": "e37d79171e47bf8fdf0ace16aa0e48ad0f01ca35fd12a89138befc78e485b33f"
+        },
+        "bytes": 517
+      }
+    ],
+    "inputs": [
+      "notea",
+      "note a",
+      "note/*x*/a",
+      "a",
+      "note"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Keyword/hidden terminal exact spelling collision: preserve actual validation/generation/reachability failures; never skip keyword by spelling.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "child_empty_policy",
+    "entry": "audit.hidden.ParentPolicyChild",
+    "sources": [
+      {
+        "file": "audit.hidden.ParentPolicyBase.xtext",
+        "grammar": "audit.hidden.ParentPolicyBase",
+        "source_id": {
+          "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyBase.xtext",
+          "sha256": "b67eb429dddd0548e5b6777f21acbf30a6a19bfb253c36fa69c5afc553ba9229"
+        },
+        "bytes": 478
+      },
+      {
+        "file": "audit.hidden.ParentPolicyChild.xtext",
+        "grammar": "audit.hidden.ParentPolicyChild",
+        "source_id": {
+          "uri": "memory:hidden-scope/child_empty_policy/audit.hidden.ParentPolicyChild.xtext",
+          "sha256": "b23dcec8ee09a4c505237ef727f13b56ebffa5d542023e9ace0a27438c877bed"
+        },
+        "bytes": 236
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Child grammar policy with inherited object rule; exact inherited source identity and caller policy remain observable.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "inherited_terminal_override",
+    "entry": "audit.hidden.OverrideTokenChild",
+    "sources": [
+      {
+        "file": "audit.hidden.OverrideTokenBase.xtext",
+        "grammar": "audit.hidden.OverrideTokenBase",
+        "source_id": {
+          "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenBase.xtext",
+          "sha256": "7929b3af7bb008973a7b39cf249153d183ef3aa7e53412984c35b8aec85b6f51"
+        },
+        "bytes": 457
+      },
+      {
+        "file": "audit.hidden.OverrideTokenChild.xtext",
+        "grammar": "audit.hidden.OverrideTokenChild",
+        "source_id": {
+          "uri": "memory:hidden-scope/inherited_terminal_override/audit.hidden.OverrideTokenChild.xtext",
+          "sha256": "2d4858d61816088c8f191a9bfd85f5a33da30037cd234889261641669698a4f3"
+        },
+        "bytes": 281
+      }
+    ],
+    "inputs": [
+      "a",
+      "~a~",
+      " a ",
+      "a~",
+      "a b",
+      "a~b",
+      "a\u00e9~",
+      "~",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Hidden token resolution uses effective override identity, not original body or spelling; warnings and lexer priority preserved.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "inherited_rule_override",
+    "entry": "audit.hidden.OverrideRuleChild",
+    "sources": [
+      {
+        "file": "audit.hidden.OverrideRuleBase.xtext",
+        "grammar": "audit.hidden.OverrideRuleBase",
+        "source_id": {
+          "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleBase.xtext",
+          "sha256": "3095cbf6821110ae251d8813aef4e50d65c8f8849a818b5f93b831fd36a0a131"
+        },
+        "bytes": 478
+      },
+      {
+        "file": "audit.hidden.OverrideRuleChild.xtext",
+        "grammar": "audit.hidden.OverrideRuleChild",
+        "source_id": {
+          "uri": "memory:hidden-scope/inherited_rule_override/audit.hidden.OverrideRuleChild.xtext",
+          "sha256": "bccc8ea6ed513092a1c83c3ca481ebac2c3312d9a1c5becf569b351cae3da3e7"
+        },
+        "bytes": 252
+      }
+    ],
+    "inputs": [
+      "a!",
+      " a!",
+      "a !",
+      "a! ",
+      "a/*x*/!",
+      "a",
+      "a\u00e9!"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Effective parser override must carry its own policy and exact source identity; parent remains original.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "unknown_hidden_target",
+    "entry": "audit.hidden.UnknownHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.hidden.UnknownHiddenTarget.xtext",
+        "grammar": "audit.hidden.UnknownHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope/unknown_hidden_target/audit.hidden.UnknownHiddenTarget.xtext",
+          "sha256": "4da163840126b5dacc9962610ce9e93fff6f4d9b97799d9feaa8427b5523dc1a"
+        },
+        "bytes": 475
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Unknown rule-local hidden target; preserve parse/link/validation errors, generation failures and unexecuted runtime.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "fragment_hidden_target",
+    "entry": "audit.hidden.FragmentHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.hidden.FragmentHiddenTarget.xtext",
+        "grammar": "audit.hidden.FragmentHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope/fragment_hidden_target/audit.hidden.FragmentHiddenTarget.xtext",
+          "sha256": "0a424d4b785782a96d8a78245f3fce25d531f39cc830b537d6312239642b420c"
+        },
+        "bytes": 502
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Terminal-fragment hidden target admission; source metadata must establish actual validity.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "parser_hidden_target",
+    "entry": "audit.hidden.ParserHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.hidden.ParserHiddenTarget.xtext",
+        "grammar": "audit.hidden.ParserHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope/parser_hidden_target/audit.hidden.ParserHiddenTarget.xtext",
+          "sha256": "835d380e1906be554794b727496fe8a6c65687601380524014ff5a970f973c92"
+        },
+        "bytes": 504
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Parser-rule hidden target admission; no classifier-spelling shortcut.",
+    "lineage": null,
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_absent_root",
+    "entry": "example.Colors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_absent_root/example.Colors.xtext",
+          "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+        },
+        "bytes": 217
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_empty_root",
+    "entry": "example.Colors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_empty_root/example.Colors.xtext",
+          "sha256": "bcc24d356965833debb6a7948c7d826f9d442eaf6f29376f983b73ef4b1fe8f3"
+        },
+        "bytes": 226
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_hidden_root",
+    "entry": "example.Colors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_hidden_root/example.Colors.xtext",
+          "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+        },
+        "bytes": 228
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_inherited_absent",
+    "entry": "example.ChildColors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_inherited_absent/example.Colors.xtext",
+          "sha256": "7a36e190e4b8397643d169470bcb30f368a2283587f98f2aafd0874005897b31"
+        },
+        "bytes": 217
+      },
+      {
+        "file": "example.ChildColors.xtext",
+        "grammar": "example.ChildColors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_inherited_absent/example.ChildColors.xtext",
+          "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+        },
+        "bytes": 167
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_inherited_hidden",
+    "entry": "example.ChildColors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_inherited_hidden/example.Colors.xtext",
+          "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+        },
+        "bytes": 228
+      },
+      {
+        "file": "example.ChildColors.xtext",
+        "grammar": "example.ChildColors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_inherited_hidden/example.ChildColors.xtext",
+          "sha256": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8"
+        },
+        "bytes": 167
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  },
+  {
+    "id": "legacy_child_empty",
+    "entry": "example.ChildColors",
+    "sources": [
+      {
+        "file": "example.Colors.xtext",
+        "grammar": "example.Colors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_child_empty/example.Colors.xtext",
+          "sha256": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1"
+        },
+        "bytes": 228
+      },
+      {
+        "file": "example.ChildColors.xtext",
+        "grammar": "example.ChildColors",
+        "source_id": {
+          "uri": "memory:hidden-scope/legacy_child_empty/example.ChildColors.xtext",
+          "sha256": "28f0398f3e5e5b18b485b9250cc63d9c69b40d14cf7d6166708fe7695dc7896b"
+        },
+        "bytes": 176
+      }
+    ],
+    "inputs": [
+      "colorred;",
+      "color red;",
+      "colorwarm;",
+      "color warm;",
+      "color\tred;",
+      "color",
+      "color red"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "87620422921d620d6d089ea058cf8427a5836e6df2cad42b638fd4f71e14ec24",
+      "bytes": 681
+    },
+    "purpose": "Existing six native hidden-policy regression recipe; original linked EObject flattening observation is not a full-source runtime oracle.",
+    "lineage": {
+      "recipe": "tests/acceptance/tests/language/xtext_enum_datatype_parsers.rs::default_hidden_policy_matches_pinned_flattening_with_profile",
+      "original_base": "f07d6fb3a6660dee281b37bb77fff3bdca2816200d0bc976e25c6c12c55e80c1",
+      "original_child": "2ec429024a5229a993cfb343b1a5ad43f4b6bbdf747cc99c813dd3ebef9da9c8",
+      "warning": "This is a separately identified full-source execution of the existing regression recipe; no prior Java source-loaded runtime is invented."
+    },
+    "execution": "UNEXECUTED; source proposal only; source validity and runtime outcomes not inferred"
+  }
+]

@@ -1,0 +1,7 @@
+rcore 1; package machine version "1";
+metamodel "urn:general-text" prefix m {
+ class Machine { attr name: String [1,1]; ref states: State [0,*] containment; ref edges: Edge [0,*] containment; ref regions: Region [0,*] containment; }
+ class Region { attr name: String [1,1]; ref states: State [0,*] containment; }
+ class State { attr name: String [1,1]; attr label: String [0,1]; attr tags: String [0,*] nonunique; attr final: Bool [0,1] default false; }
+ class Edge { attr name: String [1,1]; ref from: State [1,1]; ref to: State [1,1]; }
+}

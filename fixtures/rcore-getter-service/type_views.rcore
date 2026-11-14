@@ -1,0 +1,38 @@
+rcore 1;
+package getter.typeViews version "1";
+metamodel "urn:getter-type-views" prefix m {
+  class Node {
+    attr raw: String [0,1];
+    attr label: String [0,1] derived;
+    attr nextLabel: String [0,1] derived;
+    ref next: Node [0,1];
+    ref peers: Node [0,*];
+    ref narrow: Leaf [0,1] derived;
+    ref selected: Node [0,1] derived;
+    op narrowed() -> Leaf [0,1];
+  }
+  class Leaf extends Node { attr detail: String [0,1]; }
+  class LeafChild extends Leaf {}
+  class Sibling extends Node {}
+}
+behavior {
+  import model "urn:getter-type-views" as m;
+  derive m.Node.narrow(self) -> Option<m.Leaf> = narrow(self);
+  fn narrow(node:m.Node) -> Option<m.Leaf> = asType::<m.Leaf>(node);
+  derive m.Node.label(self) -> Option<String> = label(self);
+  fn label(node:m.Node) -> Option<String> = match asType::<m.Leaf>(node) {
+    Some(leaf) => leaf.detail, None => node.raw
+  };
+  derive m.Node.nextLabel(self) -> Option<String> = next_label(self);
+  fn next_label(node:m.Node) -> Option<String> = match node.next {
+    Some(other) => match asType::<m.Leaf>(other) { Some(leaf) => leaf.detail, None => None },
+    None => None
+  };
+  derive m.Node.selected(self) -> Option<m.Node> = selected(self);
+  fn selected(node:m.Node) -> Option<m.Node> = find(node.peers, |other|
+    match asType::<m.Leaf>(other) { Some(leaf) => leaf.detail == Some("chosen"), None => false }
+  );
+  fn narrowed(node:m.Node) -> Option<m.Leaf> = match node.next {
+    Some(other) => asType::<m.Leaf>(other), None => None
+  };
+}

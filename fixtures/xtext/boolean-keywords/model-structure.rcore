@@ -1,0 +1,13 @@
+rcore 1;
+package `mini` version "1";
+metamodel "urn:intersect:xtext:mini-kerml:boolean:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    ref `types`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  class `Type` {
+    attr `name`: EString [0,1];
+    attr `isAbstract`: EBoolean [0,1] unsettable;
+    attr `isStandard`: EBoolean [0,1] unsettable default "true";
+  }
+}

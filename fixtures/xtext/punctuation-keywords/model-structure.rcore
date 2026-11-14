@@ -1,0 +1,19 @@
+rcore 1;
+package `punctuation` version "1";
+metamodel "urn:intersect:xtext:mini-kerml:punctuation:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    ref `members`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  abstract class `Element` {
+    attr `name`: EString [0,1];
+  }
+  class `Import` extends external "#//@eClassifiers.1" {
+    attr `all`: EBoolean [0,1] unsettable;
+    attr `recursive`: EBoolean [0,1] unsettable;
+  }
+  class `Specialization` extends external "#//@eClassifiers.1" {
+    attr `targetName`: EString [0,1];
+    attr `redefinition`: EBoolean [0,1] unsettable;
+  }
+}

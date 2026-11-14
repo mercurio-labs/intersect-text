@@ -1,0 +1,5 @@
+grammar example.OverrideChild with example.OverrideBase
+import "urn:intersect:xtext:mini-kerml:contextual-overrides:1" as k
+Entry returns k::Model: Model;
+@Override
+Member returns k::Type: 'class' name=Name ';';

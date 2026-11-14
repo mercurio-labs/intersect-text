@@ -1,0 +1,361 @@
+package document.provider.parser.antlr.internal;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.parser.*;
+import org.eclipse.xtext.parser.impl.*;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
+import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
+import document.provider.services.NestedLexicalCollectionGrammarAccess;
+
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class InternalNestedLexicalCollectionParser extends AbstractInternalAntlrParser {
+    public static final String[] tokenNames = new String[] {
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_COLOR_TOKEN", "RULE_WS", "'paint'"
+    };
+    public static final int RULE_COLOR_TOKEN=4;
+    public static final int T__6=6;
+    public static final int RULE_WS=5;
+    public static final int EOF=-1;
+
+    // delegates
+    // delegators
+
+
+        public InternalNestedLexicalCollectionParser(TokenStream input) {
+            this(input, new RecognizerSharedState());
+        }
+        public InternalNestedLexicalCollectionParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
+        }
+        
+
+    public String[] getTokenNames() { return InternalNestedLexicalCollectionParser.tokenNames; }
+    public String getGrammarFileName() { return "InternalNestedLexicalCollection.g"; }
+
+
+
+     	private NestedLexicalCollectionGrammarAccess grammarAccess;
+
+        public InternalNestedLexicalCollectionParser(TokenStream input, NestedLexicalCollectionGrammarAccess grammarAccess) {
+            this(input);
+            this.grammarAccess = grammarAccess;
+            registerRules(grammarAccess.getGrammar());
+        }
+
+        @Override
+        protected String getFirstRuleName() {
+        	return "Paint";
+       	}
+
+       	@Override
+       	protected NestedLexicalCollectionGrammarAccess getGrammarAccess() {
+       		return grammarAccess;
+       	}
+
+
+
+
+    // $ANTLR start "entryRulePaint"
+    // InternalNestedLexicalCollection.g:64:1: entryRulePaint returns [EObject current=null] : iv_rulePaint= rulePaint EOF ;
+    public final EObject entryRulePaint() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePaint = null;
+
+
+        try {
+            // InternalNestedLexicalCollection.g:64:46: (iv_rulePaint= rulePaint EOF )
+            // InternalNestedLexicalCollection.g:65:2: iv_rulePaint= rulePaint EOF
+            {
+             newCompositeNode(grammarAccess.getPaintRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulePaint=rulePaint();
+
+            state._fsp--;
+
+             current =iv_rulePaint; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePaint"
+
+
+    // $ANTLR start "rulePaint"
+    // InternalNestedLexicalCollection.g:71:1: rulePaint returns [EObject current=null] : (otherlv_0= 'paint' ( (lv_color_1_0= ruleWrappedColor ) )? ) ;
+    public final EObject rulePaint() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        AntlrDatatypeRuleToken lv_color_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalNestedLexicalCollection.g:77:2: ( (otherlv_0= 'paint' ( (lv_color_1_0= ruleWrappedColor ) )? ) )
+            // InternalNestedLexicalCollection.g:78:2: (otherlv_0= 'paint' ( (lv_color_1_0= ruleWrappedColor ) )? )
+            {
+            // InternalNestedLexicalCollection.g:78:2: (otherlv_0= 'paint' ( (lv_color_1_0= ruleWrappedColor ) )? )
+            // InternalNestedLexicalCollection.g:79:3: otherlv_0= 'paint' ( (lv_color_1_0= ruleWrappedColor ) )?
+            {
+            otherlv_0=(Token)match(input,6,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getPaintAccess().getPaintKeyword_0());
+            		
+            // InternalNestedLexicalCollection.g:83:3: ( (lv_color_1_0= ruleWrappedColor ) )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0==RULE_COLOR_TOKEN) ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalNestedLexicalCollection.g:84:4: (lv_color_1_0= ruleWrappedColor )
+                    {
+                    // InternalNestedLexicalCollection.g:84:4: (lv_color_1_0= ruleWrappedColor )
+                    // InternalNestedLexicalCollection.g:85:5: lv_color_1_0= ruleWrappedColor
+                    {
+
+                    					newCompositeNode(grammarAccess.getPaintAccess().getColorWrappedColorParserRuleCall_1_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_color_1_0=ruleWrappedColor();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getPaintRule());
+                    					}
+                    					set(
+                    						current,
+                    						"color",
+                    						lv_color_1_0,
+                    						"document.provider.NestedLexicalCollection.WrappedColor");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePaint"
+
+
+    // $ANTLR start "entryRuleWrappedColor"
+    // InternalNestedLexicalCollection.g:106:1: entryRuleWrappedColor returns [String current=null] : iv_ruleWrappedColor= ruleWrappedColor EOF ;
+    public final String entryRuleWrappedColor() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleWrappedColor = null;
+
+
+        try {
+            // InternalNestedLexicalCollection.g:106:52: (iv_ruleWrappedColor= ruleWrappedColor EOF )
+            // InternalNestedLexicalCollection.g:107:2: iv_ruleWrappedColor= ruleWrappedColor EOF
+            {
+             newCompositeNode(grammarAccess.getWrappedColorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleWrappedColor=ruleWrappedColor();
+
+            state._fsp--;
+
+             current =iv_ruleWrappedColor.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWrappedColor"
+
+
+    // $ANTLR start "ruleWrappedColor"
+    // InternalNestedLexicalCollection.g:113:1: ruleWrappedColor returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_Color_0= ruleColor ;
+    public final AntlrDatatypeRuleToken ruleWrappedColor() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        AntlrDatatypeRuleToken this_Color_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalNestedLexicalCollection.g:119:2: (this_Color_0= ruleColor )
+            // InternalNestedLexicalCollection.g:120:2: this_Color_0= ruleColor
+            {
+
+            		newCompositeNode(grammarAccess.getWrappedColorAccess().getColorParserRuleCall());
+            	
+            pushFollow(FOLLOW_2);
+            this_Color_0=ruleColor();
+
+            state._fsp--;
+
+
+            		current.merge(this_Color_0);
+            	
+
+            		afterParserOrEnumRuleCall();
+            	
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWrappedColor"
+
+
+    // $ANTLR start "entryRuleColor"
+    // InternalNestedLexicalCollection.g:133:1: entryRuleColor returns [String current=null] : iv_ruleColor= ruleColor EOF ;
+    public final String entryRuleColor() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleColor = null;
+
+
+        try {
+            // InternalNestedLexicalCollection.g:133:45: (iv_ruleColor= ruleColor EOF )
+            // InternalNestedLexicalCollection.g:134:2: iv_ruleColor= ruleColor EOF
+            {
+             newCompositeNode(grammarAccess.getColorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleColor=ruleColor();
+
+            state._fsp--;
+
+             current =iv_ruleColor.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleColor"
+
+
+    // $ANTLR start "ruleColor"
+    // InternalNestedLexicalCollection.g:140:1: ruleColor returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_COLOR_TOKEN_0= RULE_COLOR_TOKEN ;
+    public final AntlrDatatypeRuleToken ruleColor() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_COLOR_TOKEN_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalNestedLexicalCollection.g:146:2: (this_COLOR_TOKEN_0= RULE_COLOR_TOKEN )
+            // InternalNestedLexicalCollection.g:147:2: this_COLOR_TOKEN_0= RULE_COLOR_TOKEN
+            {
+            this_COLOR_TOKEN_0=(Token)match(input,RULE_COLOR_TOKEN,FOLLOW_2); 
+
+            		current.merge(this_COLOR_TOKEN_0);
+            	
+
+            		newLeafNode(this_COLOR_TOKEN_0, grammarAccess.getColorAccess().getCOLOR_TOKENTerminalRuleCall());
+            	
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleColor"
+
+    // Delegated rules
+
+
+ 
+
+    public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000012L});
+
+}

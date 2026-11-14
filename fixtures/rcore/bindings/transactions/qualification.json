@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "base_commit": "91a98cdfbea19337318e278396d88508e56a5c89",
+  "scope": "Host-owned checked transactions around explicit Pure Rust/Query Rhai providers; no provider mutation, registry rollback, aggregate heap proof or resumable scheduling. Snapshot preparation is outside invocation accounting.",
+  "native_cases": 10,
+  "native_library_tests": 25,
+  "first_native": {
+    "bytes": 34797,
+    "sha256": "47263a8e3f9d68f376a54f5b6b607bc0501199ca12bd96cf477579b45eaf8d7e"
+  },
+  "native_fresh_replay_byte_exact": true,
+  "private_wasm": {
+    "file": "transactions-3e155fd74357729fa86e8e45661d236620db048807a06f74b980828c2da0ba29.wasm",
+    "bytes": 13498414,
+    "sha256": "3e155fd74357729fa86e8e45661d236620db048807a06f74b980828c2da0ba29"
+  },
+  "private_native": {
+    "file": "transactions-d3828f27fbfe84d241515af86e6ae43ad31b00e3a4ab0169d462835466f12195.exe",
+    "bytes": 15111680,
+    "sha256": "d3828f27fbfe84d241515af86e6ae43ad31b00e3a4ab0169d462835466f12195"
+  },
+  "zero_import_wasm_fresh_instances": 2,
+  "full_observation_equality": true,
+  "existing_shared_bindings_qualification": 0,
+  "browser": [
+    {
+      "mode": "dev",
+      "report": {
+        "bytes": 14444,
+        "sha256": "7700c03daddf7abbd598e6fb3b85a47eca8d05119f933c4cea038791da55ec96"
+      },
+      "stats": {
+        "startTime": "2026-10-18T14:48:59.937Z",
+        "duration": 115754.085,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "mode": "prod",
+      "report": {
+        "bytes": 13752,
+        "sha256": "7b1d57df5a2e45817c9324e8cb0116746efcf50ffb033fe50fed06bcb13b1bab"
+      },
+      "stats": {
+        "startTime": "2026-10-18T14:51:21.902Z",
+        "duration": 97647.159,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "source": [
+    {
+      "relative": "tests/semantic-bindings/Cargo.toml",
+      "bytes": 488,
+      "sha256": "75dd964dd4caafa30eb8d88fa33e56a506aad900b1b09e10be44274bc557615d"
+    },
+    {
+      "relative": "tests/semantic-bindings/src/lib.rs",
+      "bytes": 1581,
+      "sha256": "4a2c04d67aee0a3ee3885ed608d6c3050fb5d88d8829db75d13cfd25c3349db2"
+    },
+    {
+      "relative": "tests/semantic-bindings/src/transaction_qualification.rs",
+      "bytes": 23820,
+      "sha256": "578354371e79661e0710185caf9b67e9bb00ab34628d4b741bd7a1339c54f2f1"
+    },
+    {
+      "relative": "tests/semantic-bindings/examples/transaction_qualification.rs",
+      "bytes": 232,
+      "sha256": "2491c87efeda88bfde02ec4356737aec6c6cd804aabca32410af6d724d174dc1"
+    },
+    {
+      "relative": "fixtures/rcore/bindings/transaction-model.rcore",
+      "bytes": 254,
+      "sha256": "6aad8220fc065a3e0330760f1c952006e3c0733c4c9886c5118cd35bb79f7936"
+    },
+    {
+      "relative": "fixtures/rcore/bindings/transactions/native-observations.json",
+      "bytes": 34797,
+      "sha256": "47263a8e3f9d68f376a54f5b6b607bc0501199ca12bd96cf477579b45eaf8d7e"
+    },
+    {
+      "relative": "tools/test_semantic_binding_transactions_wasm.mjs",
+      "bytes": 4980,
+      "sha256": "6879fa8a66ecc007ae742ef3a116323da7d96c73d56648653d12352a4561cbba"
+    }
+  ],
+  "retained_attempts": {
+    "v1": "Compile failure: wrong imported trait name Wire; corrected to actual NativeValue.",
+    "v2": "Structural fixture assumption failed: implicit Int64 default makes omitted Meter.value valid. Independent native probe confirmed default0.",
+    "v3": "Focused native/WASM build passed; independent review required final structural phase marker and pending-value guards; lint found two needless borrows.",
+    "v4": "Native25, strictlint and complete ten-case native/WASM equality passed; v5 additionally covers new-resource rollback and same-model recovery."
+  },
+  "assessment_status": "Final bounded adoption decision and F13 closure require integrated checks and acceptance audit.",
+  "gate_closures": []
+}

@@ -1,0 +1,33 @@
+from pathlib import Path
+import hashlib,json,re,shutil
+N=Path(__file__).resolve().parent;T=N.parent;P=N/'construction-addenda-proposal-v2';OLD=N/'construction-oracle-helper-v1';O=N/'construction-addenda-oracle-helper-v1';shutil.copytree(OLD,O)
+def pin(p):b=Path(p).read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def save(p,v):Path(p).write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+# New helper root contains only the two separately identified experiment graphs.
+for p in (O/'inputs').iterdir():
+ if p.is_dir():shutil.rmtree(p)
+original=json.loads((N/'construction-originals-v1/cases.json').read_text(encoding='utf-8'));group=json.loads((P/'grouped-companion.json').read_text(encoding='utf-8'));simple=next(c for c in original if c['id']=='simple_actions_original');simple={**simple,'id':'simple_actions_same_source_library_workflow_addendum'}
+cases=[]
+for c in [group,simple]:
+ d=O/'inputs'/c['id'];d.mkdir();src=P/'grouped-namespace-companion'if c['id']==group['id']else N/'construction-originals-v1/simple_actions_original';shutil.copyfile(src/'imported.ecore',d/'imported.ecore')
+ h=pin(src/'imported.ecore')['sha256'];bindings=['provider\timported\tmemory:/node-recovery/providers/'+h+'/imported.ecore\t'+h+'\timported.ecore'];sources=[]
+ for source in c['sources']:
+  data=(src/source['file']).read_bytes();assert hashlib.sha256(data).hexdigest()==source['source_id']['sha256'];grammar=re.search(r'\bgrammar\s+([\w.]+)',data.decode('utf-8')).group(1);f=grammar+'.xtext';(d/f).write_bytes(data);bindings.append('\t'.join(['grammar',grammar,source['source_id']['uri'],source['source_id']['sha256'],f]));sources.append({'file':f,'grammar':grammar,'source_id':source['source_id']})
+ entry=sources[0]['grammar'];sources.reverse();(d/'uri-bindings.tsv').write_text('\n'.join(bindings)+'\n',encoding='utf-8',newline='\n');cases.append({'id':c['id'],'entry':entry,'sources':sources,'inputs':c['inputs'],'named_entries':[],'original_source_recipe':c})
+save(O/'inputs/cases.json',cases);save(O/'inputs/pins.json',{p.relative_to(O/'inputs').as_posix():pin(p)['sha256']for p in sorted((O/'inputs').rglob('*'))if p.is_file()and p.name!='pins.json'})
+prior=T/'terminal-inherited-library-workflow-addendum-v1/produce-attempt4.py';proven=prior.read_text(encoding='utf-8');workflow=proven[proven.index("languages=''.join("):proven.index(';workflow=')];source=(OLD/'produce-construction.py').read_text(encoding='utf-8');start=source.index("languages=''.join(");end=source.index(';workflow=',start);producer=source[:start]+workflow+source[end:];(O/'produce-construction.py').write_text(producer,encoding='utf-8',newline='\n')
+save(O/'lineage.json',{'original_helper_preexecution':pin(OLD/'preexecution.json'),'reviewed_proposal':pin(P/'receipt.json'),'workflow_copied_verbatim_from':{'path':str(prior),**pin(prior)},'source_changes':{'grouped_companion':'namespace/case header only, NEW URI/SHA; all bodies/provider/8probes unchanged','simple_actions':'no source/URI/SHA/provider/9probe changes; generator workflow only'},'original_failures_retained':'xnc1-record/replay unchanged: grouped namespace/case ERROR; simple all-StandardLanguage generation failure','no_native_source_admission_broadening':True})
+save(O/'preexecution.json',{'state':'before all new experiment executions','producer':pin(O/'produce-construction.py'),'input_pins':pin(O/'inputs/pins.json'),'cases':pin(O/'inputs/cases.json'),'lineage':pin(O/'lineage.json'),'source_loader_helpers':{n:pin(O/n)for n in ['HiddenScopeRuntime.java','ReferenceScopeRuntime.java','HiddenScopeMetadata.java','NodeSnapshotRuntime.java']},'graphs':2,'probes':17,'exception_policy':'only exact absolute owned provider GenModel output field','gate_closures':[]})
+plan=json.loads((N/'construction-originals-v1/native-before-plan.json').read_text(encoding='utf-8'));native=next(c for c in plan if c['id']=='grouped_objects_original');old=native['request']['compilation']['xtext'];new=group['sources'][0]['source_id']
+def identities(v):
+ if isinstance(v,dict):
+  if v==old:return new
+  return {k:identities(x)for k,x in v.items()}
+ if isinstance(v,list):return [identities(x)for x in v]
+ return v
+native=identities(native);native['id']=group['id']
+for s in native['request']['compilation']['bundle']['sources']:
+ if s['id']==new:s['text']=(P/'grouped-namespace-companion/model.xtext').read_text(encoding='utf-8')
+save(O/'native-before-plan.json',[native])
+driver=(N/'capture-construction-before-v1.mjs').read_text(encoding='utf-8').replace("construction-originals-v1/native-before-plan.json","construction-addenda-oracle-helper-v1/native-before-plan.json").replace("construction-originals-v1/preexecution.json","construction-addenda-oracle-helper-v1/preexecution.json");(N/'capture-construction-addendum-before-v1.mjs').write_text(driver,encoding='utf-8',newline='\n')
+print(json.dumps({'helper':str(O),'preexecution':pin(O/'preexecution.json'),'native_plan':pin(O/'native-before-plan.json')}))

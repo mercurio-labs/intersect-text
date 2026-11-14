@@ -1,0 +1,80 @@
+{
+  "method": "compile_bundle",
+  "compilation": {
+    "bundle": {
+      "version": 1,
+      "sources": [
+        {
+          "id": {
+            "uri": "memory:terminal-negation/model.rcore",
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+          },
+          "kind": "rcore",
+          "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+          "dependencies": []
+        },
+        {
+          "id": {
+            "uri": "memory:grouped-negation-context-control/base.xtext",
+            "sha256": "7c1edc36b0a7b010bbe224f210f450f261544c9e96f3328b05cb09a412f77547"
+          },
+          "kind": "xtext",
+          "text": "grammar audit.GroupedInheritedParentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: !PAIR;\nterminal fragment PAIR: 'ab';\n",
+          "dependencies": [
+            {
+              "uri": "memory:terminal-negation/model.rcore",
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+            }
+          ]
+        },
+        {
+          "id": {
+            "uri": "memory:grouped-negation-context-control/child.xtext",
+            "sha256": "5ee1fa9e94d84c0ccc26dee478c560f2a13373e138699082f35e999e208a619c"
+          },
+          "kind": "xtext",
+          "text": "grammar audit.GroupedInheritedParentChild with audit.GroupedInheritedParentBase hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nModel returns k::Model: name=VALUE;\n",
+          "dependencies": [
+            {
+              "uri": "memory:terminal-negation/model.rcore",
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+            },
+            {
+              "uri": "memory:grouped-negation-context-control/base.xtext",
+              "sha256": "7c1edc36b0a7b010bbe224f210f450f261544c9e96f3328b05cb09a412f77547"
+            }
+          ]
+        },
+        {
+          "id": {
+            "uri": "memory:terminal-negation/behavior.rcore",
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+          },
+          "kind": "rcore_behavior",
+          "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+          "dependencies": [
+            {
+              "uri": "memory:terminal-negation/model.rcore",
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+            }
+          ]
+        }
+      ],
+      "namespaces": []
+    },
+    "ecore": {
+      "uri": "memory:terminal-negation/model.rcore",
+      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+    },
+    "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+    "xtext": {
+      "uri": "memory:grouped-negation-context-control/child.xtext",
+      "sha256": "5ee1fa9e94d84c0ccc26dee478c560f2a13373e138699082f35e999e208a619c"
+    },
+    "rcore_behavior": {
+      "uri": "memory:terminal-negation/behavior.rcore",
+      "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+    }
+  },
+  "xtext_profile": "intersect.xtext.native.v62"
+}

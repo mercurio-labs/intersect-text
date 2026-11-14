@@ -1,0 +1,8 @@
+grammar example.Convergent hidden(WS)
+import "urn:intersect:xtext:recursive:1" as r
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Entry returns r::Entry: -> Left | Right;
+Left returns r::Left: {r::Left} F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 'b';
+Right returns r::Right: {r::Right} F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F F 'c';
+fragment F returns r::Entry: -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | -> ('a' 'q'?) | 'a' 'q'?;
+terminal WS: (' '| '\t' | '\r' | '\n')+;

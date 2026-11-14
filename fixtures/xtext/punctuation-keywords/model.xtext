@@ -1,0 +1,7 @@
+grammar mini.PunctuationKeywords with org.eclipse.xtext.common.Terminals
+import "urn:intersect:xtext:mini-kerml:punctuation:1" as k
+Model returns k::Model: 'package' name=ID '{' members+=Member* '}';
+Member returns k::Element: Import | Specialization | Redefinition;
+Import returns k::Import: 'import' name=ID ('::' (recursive?='**' | all?='*'))? ';';
+Specialization returns k::Specialization: 'specialize' name=ID ':>' targetName=ID ';';
+Redefinition returns k::Specialization: redefinition?='redefine' name=ID ':>>' targetName=ID ';';

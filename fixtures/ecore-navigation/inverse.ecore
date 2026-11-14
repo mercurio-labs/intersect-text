@@ -1,0 +1,12 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="inverse" nsURI="urn:intersect:inverse" nsPrefix="inv">
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1" unique="false" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="peer" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="computed" derived="true" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Child" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Other">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1" unique="false" eType="#//Node"/>
+  </eClassifiers>
+</ecore:EPackage>

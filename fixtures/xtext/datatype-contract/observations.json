@@ -1,0 +1,44 @@
+[
+  {
+    "case": "compact",
+    "value": "P::A",
+    "start_utf16": 0,
+    "expected_utf16": 4
+  },
+  {
+    "case": "hidden_gaps",
+    "value": "P :: A",
+    "start_utf16": 2,
+    "expected_utf16": 12
+  },
+  {
+    "case": "raw_quoted_escape",
+    "value": "\"B\\tC\"",
+    "start_utf16": 0,
+    "expected_utf16": 6
+  },
+  {
+    "case": "nested_compressed_gap",
+    "value": "A ::B .",
+    "start_utf16": 0,
+    "expected_utf16": 12
+  },
+  {
+    "case": "flat_compressed_gap",
+    "value": "A ::B.",
+    "start_utf16": 0,
+    "expected_utf16": 12
+  },
+  {
+    "case": "utf16_adjacency",
+    "value": "\"\ud83d\ude00\"::A",
+    "start_utf16": 0,
+    "expected_utf16": 7
+  },
+  {
+    "case": "empty",
+    "value": null,
+    "start_utf16": -1,
+    "expected_utf16": -1
+  }
+]

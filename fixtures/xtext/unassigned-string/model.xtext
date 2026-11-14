@@ -1,0 +1,7 @@
+grammar unassignedString hidden(WS)
+import "urn:intersect:compatibility:graph" as g
+Root returns g::Node: Prefix name=ID (ReferencesKeyword labels+=ID)+;
+Prefix: 'begin';
+ReferencesKeyword: '::>' | 'references';
+terminal ID: ('a'..'z')+;
+terminal WS: ' '+;

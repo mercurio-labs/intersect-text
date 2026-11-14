@@ -1,0 +1,2117 @@
+[
+  {
+    "id": "typed_terminal_nodefault_companion",
+    "entry": "document.provider.TypedTerminalNoDefault",
+    "original_inputs": [
+      "paint",
+      "paint #010203",
+      "paint #123abc",
+      "paint #bad",
+      "paint #",
+      "paint #010203 trailing"
+    ],
+    "source_pins": {
+      "document.provider.TypedTerminalNoDefault.xtext": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250",
+      "imported.ecore": "ca9fd0e75e713e87960d41caac9b6fc83714ea9bc09b219c4d723e6d98b6d74a"
+    },
+    "provider": {
+      "ecore_sha256": "ca9fd0e75e713e87960d41caac9b6fc83714ea9bc09b219c4d723e6d98b6d74a",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.documentPaint.DocumentPaintPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\prgb65r\\provider-ca9fd0e75e71\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "document.provider.TypedTerminalNoDefault",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "document.provider.TypedTerminalNoDefault",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "document.provider.TypedTerminalNoDefault::COLOR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "document.provider.TypedTerminalNoDefault",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "ValidEntryRuleInspector.noInstantiation",
+                "start": 171,
+                "length": 5,
+                "message": "The entry rule 'Paint' may consume non empty input without object instantiation. Add an action to ensure object creation, e.g. '{p::Paint}'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "document.provider.TypedTerminalNoDefault::COLOR",
+            "name": "RULE_COLOR",
+            "fragment": false,
+            "body": "'#' ('0'..'9'|'a'..'f')+"
+          },
+          {
+            "source_rule": "document.provider.TypedTerminalNoDefault::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "' '+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "paint",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [],
+            "model": null,
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": []
+        }
+      },
+      {
+        "text": "paint #010203",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #010203",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR",
+                "text": "#010203",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#010203",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #123abc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #123abc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR",
+                "text": "#123abc",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 18,
+                    "green": 58,
+                    "blue": 188
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#123abc",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 18,
+                    "green": 58,
+                    "blue": 188
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#123abc",
+              "value": {
+                "red": 18,
+                "green": 58,
+                "blue": 188
+              },
+              "formatted": "#123ABC",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#123abc",
+              "value": {
+                "red": 18,
+                "green": 58,
+                "blue": 188
+              },
+              "formatted": "#123ABC",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #bad",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #bad",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR",
+                "text": "#bad",
+                "utf16_start": 6,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "RGB text requires #RRGGBB",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": null
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#bad",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 10,
+                "syntax_error": "RGB text requires #RRGGBB"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "RGB text requires #RRGGBB",
+                "utf16_start": 6,
+                "utf16_end": 10
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": null
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#bad",
+              "failure": "RGB text requires #RRGGBB"
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#bad",
+              "failure": "RGB text requires #RRGGBB"
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "#",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "required (...)+ loop did not match anything at character '<EOF>'",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "required (...)+ loop did not match anything at character '<EOF>'",
+                "utf16_start": 6,
+                "utf16_end": 7
+              }
+            ],
+            "model": null,
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": []
+        }
+      },
+      {
+        "text": "paint #010203 trailing",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #010203 trailing",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR",
+                "text": "#010203",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 13,
+                "utf16_stop": 13,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "t",
+                "utf16_start": 14,
+                "utf16_stop": 14,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "r",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "i",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "l",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "i",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "n",
+                "utf16_start": 20,
+                "utf16_stop": 20,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "g",
+                "utf16_start": 21,
+                "utf16_stop": 21,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character 't'",
+                "line": 1,
+                "column": 15
+              },
+              {
+                "message": "no viable alternative at character 'r'",
+                "line": 1,
+                "column": 16
+              },
+              {
+                "message": "no viable alternative at character 'a'",
+                "line": 1,
+                "column": 17
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "line": 1,
+                "column": 18
+              },
+              {
+                "message": "no viable alternative at character 'l'",
+                "line": 1,
+                "column": 19
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "line": 1,
+                "column": 20
+              },
+              {
+                "message": "no viable alternative at character 'n'",
+                "line": 1,
+                "column": 21
+              },
+              {
+                "message": "no viable alternative at character 'g'",
+                "line": 1,
+                "column": 22
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#010203",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 13,
+                "utf16_end": 14,
+                "syntax_error": null
+              },
+              {
+                "text": "t",
+                "hidden": true,
+                "utf16_start": 14,
+                "utf16_end": 15,
+                "syntax_error": "no viable alternative at character 't'"
+              },
+              {
+                "text": "r",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": "no viable alternative at character 'r'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": "no viable alternative at character 'a'"
+              },
+              {
+                "text": "i",
+                "hidden": true,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": "no viable alternative at character 'i'"
+              },
+              {
+                "text": "l",
+                "hidden": true,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": "no viable alternative at character 'l'"
+              },
+              {
+                "text": "i",
+                "hidden": true,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": "no viable alternative at character 'i'"
+              },
+              {
+                "text": "n",
+                "hidden": true,
+                "utf16_start": 20,
+                "utf16_end": 21,
+                "syntax_error": "no viable alternative at character 'n'"
+              },
+              {
+                "text": "g",
+                "hidden": true,
+                "utf16_start": 21,
+                "utf16_end": 22,
+                "syntax_error": "no viable alternative at character 'g'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character 't'",
+                "utf16_start": 14,
+                "utf16_end": 15
+              },
+              {
+                "message": "no viable alternative at character 'r'",
+                "utf16_start": 15,
+                "utf16_end": 16
+              },
+              {
+                "message": "no viable alternative at character 'a'",
+                "utf16_start": 16,
+                "utf16_end": 17
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "utf16_start": 17,
+                "utf16_end": 18
+              },
+              {
+                "message": "no viable alternative at character 'l'",
+                "utf16_start": 18,
+                "utf16_end": 19
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "utf16_start": 19,
+                "utf16_end": 20
+              },
+              {
+                "message": "no viable alternative at character 'n'",
+                "utf16_start": 20,
+                "utf16_end": 21
+              },
+              {
+                "message": "no viable alternative at character 'g'",
+                "utf16_start": 21,
+                "utf16_end": 22
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedTerminalNoDefault",
+            "rule": "COLOR",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+              "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedTerminalNoDefault.COLOR",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "typed_rule_nodefault_companion",
+    "entry": "document.provider.TypedRuleNoDefault",
+    "original_inputs": [
+      "paint",
+      "paint #010203",
+      "paint #123abc",
+      "paint #bad",
+      "paint #",
+      "paint #010203 trailing"
+    ],
+    "source_pins": {
+      "document.provider.TypedRuleNoDefault.xtext": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042",
+      "imported.ecore": "ca9fd0e75e713e87960d41caac9b6fc83714ea9bc09b219c4d723e6d98b6d74a"
+    },
+    "provider": {
+      "ecore_sha256": "ca9fd0e75e713e87960d41caac9b6fc83714ea9bc09b219c4d723e6d98b6d74a",
+      "generation_exit": 0,
+      "package_class": "oracle.provider.documentPaint.DocumentPaintPackage",
+      "compile_exit": 0,
+      "genmodel": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\prgb65r\\provider-ca9fd0e75e71\\provider.genmodel"
+    },
+    "metadata": {
+      "exit_code": 0,
+      "observation": {
+        "syntax": [
+          {
+            "source": "document.provider.TypedRuleNoDefault",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "document.provider.TypedRuleNoDefault",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "document.provider.TypedRuleNoDefault::Color",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "document.provider.TypedRuleNoDefault::COLOR_TOKEN",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "document.provider.TypedRuleNoDefault",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "ValidEntryRuleInspector.noInstantiation",
+                "start": 167,
+                "length": 5,
+                "message": "The entry rule 'Paint' may consume non empty input without object instantiation. Add an action to ensure object creation, e.g. '{p::Paint}'."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "document.provider.TypedRuleNoDefault::COLOR_TOKEN",
+            "name": "RULE_COLOR_TOKEN",
+            "fragment": false,
+            "body": "'#' ('0'..'9'|'a'..'f')+"
+          },
+          {
+            "source_rule": "document.provider.TypedRuleNoDefault::WS",
+            "name": "RULE_WS",
+            "fragment": false,
+            "body": "' '+"
+          }
+        ],
+        "translation_failure": null
+      }
+    },
+    "generation": {
+      "exit_code": 0,
+      "source_unchanged": true
+    },
+    "compilation": {
+      "exit_code": 0
+    },
+    "runtime": [
+      {
+        "text": "paint",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [],
+            "model": null,
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": []
+        }
+      },
+      {
+        "text": "paint #010203",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #010203",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR_TOKEN",
+                "text": "#010203",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#010203",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #123abc",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #123abc",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR_TOKEN",
+                "text": "#123abc",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": true,
+            "errors": [],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 18,
+                    "green": 58,
+                    "blue": 188
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#123abc",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": true,
+            "errors": [],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 18,
+                    "green": 58,
+                    "blue": 188
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#123abc",
+              "value": {
+                "red": 18,
+                "green": 58,
+                "blue": 188
+              },
+              "formatted": "#123ABC",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#123abc",
+              "value": {
+                "red": 18,
+                "green": 58,
+                "blue": 188
+              },
+              "formatted": "#123ABC",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #bad",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #bad",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR_TOKEN",
+                "text": "#bad",
+                "utf16_start": 6,
+                "utf16_stop": 9,
+                "channel": 0
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "RGB text requires #RRGGBB",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": null
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#bad",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 10,
+                "syntax_error": null
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "RGB text requires #RRGGBB",
+                "utf16_start": 6,
+                "utf16_end": 10
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": null
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#bad",
+              "failure": "RGB text requires #RRGGBB"
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#bad",
+              "failure": "RGB text requires #RRGGBB"
+            }
+          ]
+        }
+      },
+      {
+        "text": "paint #",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "#",
+                "utf16_start": 6,
+                "utf16_stop": 6,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "required (...)+ loop did not match anything at character '<EOF>'",
+                "line": 1,
+                "column": 7
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 0,
+            "model": null,
+            "leaves": [],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "required (...)+ loop did not match anything at character '<EOF>'",
+                "utf16_start": 6,
+                "utf16_end": 7
+              }
+            ],
+            "model": null,
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": []
+        }
+      },
+      {
+        "text": "paint #010203 trailing",
+        "exit_code": 0,
+        "timeout_seconds": null,
+        "observation": {
+          "text": "paint #010203 trailing",
+          "lexer": {
+            "tokens": [
+              {
+                "type": 6,
+                "name": "T__6",
+                "text": "paint",
+                "utf16_start": 0,
+                "utf16_stop": 4,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 5,
+                "utf16_stop": 5,
+                "channel": 0
+              },
+              {
+                "type": 4,
+                "name": "RULE_COLOR_TOKEN",
+                "text": "#010203",
+                "utf16_start": 6,
+                "utf16_stop": 12,
+                "channel": 0
+              },
+              {
+                "type": 5,
+                "name": "RULE_WS",
+                "text": " ",
+                "utf16_start": 13,
+                "utf16_stop": 13,
+                "channel": 0
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "t",
+                "utf16_start": 14,
+                "utf16_stop": 14,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "r",
+                "utf16_start": 15,
+                "utf16_stop": 15,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "a",
+                "utf16_start": 16,
+                "utf16_stop": 16,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "i",
+                "utf16_start": 17,
+                "utf16_stop": 17,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "l",
+                "utf16_start": 18,
+                "utf16_stop": 18,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "i",
+                "utf16_start": 19,
+                "utf16_stop": 19,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "n",
+                "utf16_start": 20,
+                "utf16_stop": 20,
+                "channel": 99
+              },
+              {
+                "type": 0,
+                "name": null,
+                "text": "g",
+                "utf16_start": 21,
+                "utf16_stop": 21,
+                "channel": 99
+              },
+              {
+                "type": -1,
+                "name": "EOF",
+                "text": null,
+                "utf16_start": 0,
+                "utf16_stop": 0,
+                "channel": 0
+              }
+            ],
+            "through_eof": true,
+            "antlr_syntax_error_count": 0,
+            "failure": null
+          },
+          "resource": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character 't'",
+                "line": 1,
+                "column": 15
+              },
+              {
+                "message": "no viable alternative at character 'r'",
+                "line": 1,
+                "column": 16
+              },
+              {
+                "message": "no viable alternative at character 'a'",
+                "line": 1,
+                "column": 17
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "line": 1,
+                "column": 18
+              },
+              {
+                "message": "no viable alternative at character 'l'",
+                "line": 1,
+                "column": 19
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "line": 1,
+                "column": 20
+              },
+              {
+                "message": "no viable alternative at character 'n'",
+                "line": 1,
+                "column": 21
+              },
+              {
+                "message": "no viable alternative at character 'g'",
+                "line": 1,
+                "column": 22
+              }
+            ],
+            "warnings": [],
+            "resource_contents": 1,
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "leaves": [
+              {
+                "text": "paint",
+                "hidden": false,
+                "utf16_start": 0,
+                "utf16_end": 5,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 5,
+                "utf16_end": 6,
+                "syntax_error": null
+              },
+              {
+                "text": "#010203",
+                "hidden": false,
+                "utf16_start": 6,
+                "utf16_end": 13,
+                "syntax_error": null
+              },
+              {
+                "text": " ",
+                "hidden": true,
+                "utf16_start": 13,
+                "utf16_end": 14,
+                "syntax_error": null
+              },
+              {
+                "text": "t",
+                "hidden": true,
+                "utf16_start": 14,
+                "utf16_end": 15,
+                "syntax_error": "no viable alternative at character 't'"
+              },
+              {
+                "text": "r",
+                "hidden": true,
+                "utf16_start": 15,
+                "utf16_end": 16,
+                "syntax_error": "no viable alternative at character 'r'"
+              },
+              {
+                "text": "a",
+                "hidden": true,
+                "utf16_start": 16,
+                "utf16_end": 17,
+                "syntax_error": "no viable alternative at character 'a'"
+              },
+              {
+                "text": "i",
+                "hidden": true,
+                "utf16_start": 17,
+                "utf16_end": 18,
+                "syntax_error": "no viable alternative at character 'i'"
+              },
+              {
+                "text": "l",
+                "hidden": true,
+                "utf16_start": 18,
+                "utf16_end": 19,
+                "syntax_error": "no viable alternative at character 'l'"
+              },
+              {
+                "text": "i",
+                "hidden": true,
+                "utf16_start": 19,
+                "utf16_end": 20,
+                "syntax_error": "no viable alternative at character 'i'"
+              },
+              {
+                "text": "n",
+                "hidden": true,
+                "utf16_start": 20,
+                "utf16_end": 21,
+                "syntax_error": "no viable alternative at character 'n'"
+              },
+              {
+                "text": "g",
+                "hidden": true,
+                "utf16_start": 21,
+                "utf16_end": 22,
+                "syntax_error": "no viable alternative at character 'g'"
+              }
+            ],
+            "failure": null
+          },
+          "parser": {
+            "accepted": false,
+            "errors": [
+              {
+                "message": "no viable alternative at character 't'",
+                "utf16_start": 14,
+                "utf16_end": 15
+              },
+              {
+                "message": "no viable alternative at character 'r'",
+                "utf16_start": 15,
+                "utf16_end": 16
+              },
+              {
+                "message": "no viable alternative at character 'a'",
+                "utf16_start": 16,
+                "utf16_end": 17
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "utf16_start": 17,
+                "utf16_end": 18
+              },
+              {
+                "message": "no viable alternative at character 'l'",
+                "utf16_start": 18,
+                "utf16_end": 19
+              },
+              {
+                "message": "no viable alternative at character 'i'",
+                "utf16_start": 19,
+                "utf16_end": 20
+              },
+              {
+                "message": "no viable alternative at character 'n'",
+                "utf16_start": 20,
+                "utf16_end": 21
+              },
+              {
+                "message": "no viable alternative at character 'g'",
+                "utf16_start": 21,
+                "utf16_end": 22
+              }
+            ],
+            "model": [
+              {
+                "class": "urn:document-provider:paint:no-default:1#//Paint",
+                "values": {
+                  "color": {
+                    "red": 1,
+                    "green": 2,
+                    "blue": 3
+                  }
+                }
+              }
+            ],
+            "failure": null
+          },
+          "rgb_context": {
+            "provider": {
+              "name": "example.rgb",
+              "version": "1"
+            },
+            "grammar": "document.provider.TypedRuleNoDefault",
+            "rule": "Color",
+            "source": {
+              "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+              "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+            },
+            "datatype": "http://www.eclipse.org/emf/2002/Ecore#//EJavaObject",
+            "class_namespace": "urn:document-provider:paint:no-default:1",
+            "class_name": "Paint",
+            "feature": "color",
+            "rgb_carrier": "immutable AbstractMap red/green/blue; actual EJavaObject payload, not normalized model output"
+          },
+          "converter_calls": [
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            },
+            {
+              "operation": "parse",
+              "rule": "document.provider.TypedRuleNoDefault.Color",
+              "text": "#010203",
+              "value": {
+                "red": 1,
+                "green": 2,
+                "blue": 3
+              },
+              "formatted": "#010203",
+              "utf16_start": 6,
+              "utf16_end": 13
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

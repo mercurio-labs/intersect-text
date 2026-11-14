@@ -1,0 +1,195 @@
+package document.provider.parser.antlr.internal;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.parser.*;
+import org.eclipse.xtext.parser.impl.*;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
+import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
+import document.provider.services.TypedTerminalNoDefaultGrammarAccess;
+
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class InternalTypedTerminalNoDefaultParser extends AbstractInternalAntlrParser {
+    public static final String[] tokenNames = new String[] {
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_COLOR", "RULE_WS", "'paint'"
+    };
+    public static final int T__6=6;
+    public static final int RULE_WS=5;
+    public static final int RULE_COLOR=4;
+    public static final int EOF=-1;
+
+    // delegates
+    // delegators
+
+
+        public InternalTypedTerminalNoDefaultParser(TokenStream input) {
+            this(input, new RecognizerSharedState());
+        }
+        public InternalTypedTerminalNoDefaultParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
+        }
+        
+
+    public String[] getTokenNames() { return InternalTypedTerminalNoDefaultParser.tokenNames; }
+    public String getGrammarFileName() { return "InternalTypedTerminalNoDefault.g"; }
+
+
+
+     	private TypedTerminalNoDefaultGrammarAccess grammarAccess;
+
+        public InternalTypedTerminalNoDefaultParser(TokenStream input, TypedTerminalNoDefaultGrammarAccess grammarAccess) {
+            this(input);
+            this.grammarAccess = grammarAccess;
+            registerRules(grammarAccess.getGrammar());
+        }
+
+        @Override
+        protected String getFirstRuleName() {
+        	return "Paint";
+       	}
+
+       	@Override
+       	protected TypedTerminalNoDefaultGrammarAccess getGrammarAccess() {
+       		return grammarAccess;
+       	}
+
+
+
+
+    // $ANTLR start "entryRulePaint"
+    // InternalTypedTerminalNoDefault.g:64:1: entryRulePaint returns [EObject current=null] : iv_rulePaint= rulePaint EOF ;
+    public final EObject entryRulePaint() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePaint = null;
+
+
+        try {
+            // InternalTypedTerminalNoDefault.g:64:46: (iv_rulePaint= rulePaint EOF )
+            // InternalTypedTerminalNoDefault.g:65:2: iv_rulePaint= rulePaint EOF
+            {
+             newCompositeNode(grammarAccess.getPaintRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulePaint=rulePaint();
+
+            state._fsp--;
+
+             current =iv_rulePaint; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePaint"
+
+
+    // $ANTLR start "rulePaint"
+    // InternalTypedTerminalNoDefault.g:71:1: rulePaint returns [EObject current=null] : (otherlv_0= 'paint' ( (lv_color_1_0= RULE_COLOR ) )? ) ;
+    public final EObject rulePaint() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_color_1_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalTypedTerminalNoDefault.g:77:2: ( (otherlv_0= 'paint' ( (lv_color_1_0= RULE_COLOR ) )? ) )
+            // InternalTypedTerminalNoDefault.g:78:2: (otherlv_0= 'paint' ( (lv_color_1_0= RULE_COLOR ) )? )
+            {
+            // InternalTypedTerminalNoDefault.g:78:2: (otherlv_0= 'paint' ( (lv_color_1_0= RULE_COLOR ) )? )
+            // InternalTypedTerminalNoDefault.g:79:3: otherlv_0= 'paint' ( (lv_color_1_0= RULE_COLOR ) )?
+            {
+            otherlv_0=(Token)match(input,6,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getPaintAccess().getPaintKeyword_0());
+            		
+            // InternalTypedTerminalNoDefault.g:83:3: ( (lv_color_1_0= RULE_COLOR ) )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0==RULE_COLOR) ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalTypedTerminalNoDefault.g:84:4: (lv_color_1_0= RULE_COLOR )
+                    {
+                    // InternalTypedTerminalNoDefault.g:84:4: (lv_color_1_0= RULE_COLOR )
+                    // InternalTypedTerminalNoDefault.g:85:5: lv_color_1_0= RULE_COLOR
+                    {
+                    lv_color_1_0=(Token)match(input,RULE_COLOR,FOLLOW_2); 
+
+                    					newLeafNode(lv_color_1_0, grammarAccess.getPaintAccess().getColorCOLORTerminalRuleCall_1_0());
+                    				
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getPaintRule());
+                    					}
+                    					setWithLastConsumed(
+                    						current,
+                    						"color",
+                    						lv_color_1_0,
+                    						"document.provider.TypedTerminalNoDefault.COLOR");
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePaint"
+
+    // Delegated rules
+
+
+ 
+
+    public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000012L});
+
+}

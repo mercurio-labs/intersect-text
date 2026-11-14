@@ -1,0 +1,57 @@
+{
+  "scope": "Exact decoded actual worker results from preserved failedv1 traces. No source/test/observation repair.",
+  "rows": [
+    {
+      "mode": "dev",
+      "trace": "target\\v66i-v3\\browser-v1\\dev-results\\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\\trace.zip",
+      "trace_sha256": "8cf9af94dc0e160e1459c7d9934987927a40cbb31958aadcd0747e9d8f6cb3df",
+      "extracted": "target\\v66i-v3\\browser-v1\\failure-observation-review\\dev-whole-duplicate-inspects.json",
+      "extracted_sha256": "c02302eb2953a69b0782b804c5e1a9dc84866aa9ebc2de15936f3800fd36e404",
+      "diagnostics": [
+        {
+          "end": 1,
+          "message": "Duplicate value: Model.refs",
+          "source": "memory:imported_refs_default_true/worker.model",
+          "start": 0
+        }
+      ],
+      "values": {
+        "nodes": [
+          "memory:imported_refs_default_true/worker.model#1",
+          "memory:imported_refs_default_true/worker.model#2"
+        ],
+        "refs": [
+          "memory:imported_refs_default_true/worker.model#1",
+          "memory:imported_refs_default_true/worker.model#1"
+        ]
+      },
+      "elements": 3
+    },
+    {
+      "mode": "production",
+      "trace": "target\\v66i-v3\\browser-v1\\production-results\\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\\trace.zip",
+      "trace_sha256": "a65e7d469377ceacc8628e19407aecdfe75612ee37d7fdedf1c8646688187168",
+      "extracted": "target\\v66i-v3\\browser-v1\\failure-observation-review\\production-whole-duplicate-inspects.json",
+      "extracted_sha256": "b861b6e7e02a10558359de02384eaf57014c0d402b6ec53ed22d0d1a42aa987c",
+      "diagnostics": [
+        {
+          "end": 1,
+          "message": "Duplicate value: Model.refs",
+          "source": "memory:imported_refs_default_true/worker.model",
+          "start": 0
+        }
+      ],
+      "values": {
+        "nodes": [
+          "memory:imported_refs_default_true/worker.model#1",
+          "memory:imported_refs_default_true/worker.model#2"
+        ],
+        "refs": [
+          "memory:imported_refs_default_true/worker.model#1",
+          "memory:imported_refs_default_true/worker.model#1"
+        ]
+      },
+      "elements": 3
+    }
+  ]
+}

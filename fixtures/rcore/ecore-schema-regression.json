@@ -1,0 +1,191 @@
+{
+  "kerml": {
+    "input_sha256": "e8463d921e6eba42a844237c2ec8fcef03420d972003846978f8a3c76e48191f",
+    "schema": {
+      "classes": {
+        "Specialization": {
+          "abstract_type": false,
+          "feature_declarations": {
+            "general": {
+              "path": [
+                1,
+                0
+              ],
+              "source": {
+                "sha256": "e8463d921e6eba42a844237c2ec8fcef03420d972003846978f8a3c76e48191f",
+                "uri": "memory:ecore"
+              }
+            },
+            "specific": {
+              "path": [
+                1,
+                1
+              ],
+              "source": {
+                "sha256": "e8463d921e6eba42a844237c2ec8fcef03420d972003846978f8a3c76e48191f",
+                "uri": "memory:ecore"
+              }
+            }
+          },
+          "feature_order": [
+            "general",
+            "specific"
+          ],
+          "features": {
+            "general": {
+              "containment": false,
+              "default": null,
+              "derived": false,
+              "lower": 1,
+              "name": "general",
+              "opposite": null,
+              "ordered": false,
+              "reference": true,
+              "target": "Type",
+              "unique": true,
+              "upper": 1
+            },
+            "specific": {
+              "containment": false,
+              "default": null,
+              "derived": false,
+              "lower": 1,
+              "name": "specific",
+              "opposite": null,
+              "ordered": false,
+              "reference": true,
+              "target": "Type",
+              "unique": true,
+              "upper": 1
+            }
+          },
+          "name": "Specialization",
+          "parent": null
+        },
+        "Type": {
+          "abstract_type": false,
+          "features": {},
+          "name": "Type",
+          "parent": null
+        }
+      },
+      "name": "kermlSpecializationDemo",
+      "revision": "e8463d921e6eba42a844237c2ec8fcef03420d972003846978f8a3c76e48191f",
+      "uri": "urn:intersect:rcore:kerml-specialization-demo"
+    }
+  },
+  "organization": {
+    "input_sha256": "3f5070bba8922daf7a672ca9d8701a64e07804e53358157a8d1cc3ed3969fdb9",
+    "schema": {
+      "classes": {
+        "Node": {
+          "abstract_type": false,
+          "feature_declarations": {
+            "links": {
+              "path": [
+                0,
+                0
+              ],
+              "source": {
+                "sha256": "3f5070bba8922daf7a672ca9d8701a64e07804e53358157a8d1cc3ed3969fdb9",
+                "uri": "memory:ecore"
+              }
+            }
+          },
+          "feature_order": [
+            "links"
+          ],
+          "features": {
+            "links": {
+              "containment": false,
+              "default": [],
+              "derived": false,
+              "lower": 0,
+              "name": "links",
+              "opposite": null,
+              "ordered": true,
+              "reference": true,
+              "target": "Node",
+              "unique": false,
+              "upper": -1
+            }
+          },
+          "name": "Node",
+          "parent": null
+        }
+      },
+      "name": "organization",
+      "revision": "3f5070bba8922daf7a672ca9d8701a64e07804e53358157a8d1cc3ed3969fdb9",
+      "uri": "urn:intersect:rcore:organization"
+    }
+  },
+  "xmi_graph": {
+    "input_sha256": "1f1ee4addd7d16ebde978dc498a839a138b6d5097bf4f4debb5184ae131a3db2",
+    "schema": {
+      "classes": {
+        "Node": {
+          "abstract_type": false,
+          "feature_declarations": {
+            "links": {
+              "path": [
+                0,
+                1
+              ],
+              "source": {
+                "sha256": "1f1ee4addd7d16ebde978dc498a839a138b6d5097bf4f4debb5184ae131a3db2",
+                "uri": "memory:ecore"
+              }
+            },
+            "name": {
+              "path": [
+                0,
+                0
+              ],
+              "source": {
+                "sha256": "1f1ee4addd7d16ebde978dc498a839a138b6d5097bf4f4debb5184ae131a3db2",
+                "uri": "memory:ecore"
+              }
+            }
+          },
+          "feature_order": [
+            "name",
+            "links"
+          ],
+          "features": {
+            "links": {
+              "containment": false,
+              "default": [],
+              "derived": false,
+              "lower": 0,
+              "name": "links",
+              "opposite": null,
+              "ordered": true,
+              "reference": true,
+              "target": "Node",
+              "unique": true,
+              "upper": -1
+            },
+            "name": {
+              "containment": false,
+              "default": null,
+              "derived": false,
+              "lower": 0,
+              "name": "name",
+              "opposite": null,
+              "ordered": true,
+              "reference": false,
+              "target": "EString",
+              "unique": true,
+              "upper": 1
+            }
+          },
+          "name": "Node",
+          "parent": null
+        }
+      },
+      "name": "graph",
+      "revision": "1f1ee4addd7d16ebde978dc498a839a138b6d5097bf4f4debb5184ae131a3db2",
+      "uri": "urn:graph"
+    }
+  }
+}

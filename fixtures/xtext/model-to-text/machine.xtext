@@ -1,0 +1,6 @@
+grammar independent.Machine with org.eclipse.xtext.common.Terminals
+import "urn:general-text" as m
+Machine returns m::Machine: 'machine' name=ID '{' (states+=State | edges+=Edge | regions+=Region)* '}';
+State returns m::State: {m::State} 'state' name=ID ('label' label=STRING)? ('tags' '[' (tags+=STRING (',' tags+=STRING)*)? ']')? (final?='final')? ';';
+Edge returns m::Edge: 'edge' name=ID from=[m::State|ID] '->' to=[m::State|ID] ';';
+Region returns m::Region: 'region' name=ID '{' states+=State* '}';

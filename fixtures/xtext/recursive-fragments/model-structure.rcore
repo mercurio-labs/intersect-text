@@ -1,0 +1,22 @@
+rcore 1;
+package `arguments` version "1";
+metamodel "urn:intersect:xtext:recursive-arguments:1" prefix `a` {
+  class `Model` {
+    ref `elements`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  class `Feature` {
+    attr `name`: EString [0,1];
+    ref `ownedRelationship`: external "#//@eClassifiers.2" [0,*] containment;
+  }
+  abstract class `Relationship` {
+  }
+  class `ParameterMembership` extends external "#//@eClassifiers.2" {
+    ref `ownedRelatedElement`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  class `FeatureValue` extends external "#//@eClassifiers.2" {
+    ref `ownedRelatedElement`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  class `Redefinition` extends external "#//@eClassifiers.2" {
+    ref `redefinedFeature`: external "#//@eClassifiers.1" [0,1];
+  }
+}

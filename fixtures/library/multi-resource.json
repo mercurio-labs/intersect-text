@@ -1,0 +1,87 @@
+{
+  "bundle": {
+    "version": 1,
+    "sources": [
+      {
+        "id": {
+          "uri": "file:///definitions/library.ecore",
+          "sha256": "79ef37333fcb8282e0aa8bfba7eaa615836a0627d2ead6bbe77ad9f4bf6c5f49"
+        },
+        "kind": "ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"library\" nsURI=\"urn:intersect:example:library:1\" nsPrefix=\"lib\">\n\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Library\" eSuperTypes=\"common.ecore#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"copies\" upperBound=\"-1\" containment=\"true\" eType=\"#//BookCopy\" eOpposite=\"#//BookCopy/library\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"members\" upperBound=\"-1\" containment=\"true\" eType=\"#//Member\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"loans\" upperBound=\"-1\" containment=\"true\" eType=\"#//Loan\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"copyCount\" derived=\"true\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"BookCopy\" eSuperTypes=\"common.ecore#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"title\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"edition\" defaultValueLiteral=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"library\" eType=\"#//Library\" eOpposite=\"#//Library/copies\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"available\" derived=\"true\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Member\" eSuperTypes=\"common.ecore#//Named\"/>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Loan\" eSuperTypes=\"common.ecore#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"copy\" lowerBound=\"1\" eType=\"#//BookCopy\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"member\" lowerBound=\"1\" eType=\"#//Member\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "dependencies": [
+          {
+            "uri": "file:///definitions/common.ecore",
+            "sha256": "8bae75281a7ab6e50f14b88797de1237aea6c82e7d9289701d910899885a2cff"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/common.ecore",
+          "sha256": "8bae75281a7ab6e50f14b88797de1237aea6c82e7d9289701d910899885a2cff"
+        },
+        "kind": "ecore",
+        "text": "<ecore:EPackage xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"common\" nsURI=\"urn:intersect:example:common:1\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Named\" abstract=\"true\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "dependencies": []
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/library.xtext",
+          "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Library with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:example:library:1\" as lib\n\nLibrary returns lib::Library:\n  'library' name=ID '{'\n    (copies+=BookCopy | members+=Member | loans+=Loan)*\n  '}';\n\nBookCopy returns lib::BookCopy:\n  'copy' name=ID title=STRING ('edition' edition=INT)? ';';\n\nMember returns lib::Member:\n  'member' name=ID ';';\n\nLoan returns lib::Loan:\n  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]\n  'to' member=[lib::Member|ID] ';';\n",
+        "dependencies": [
+          {
+            "uri": "file:///definitions/library.ecore",
+            "sha256": "79ef37333fcb8282e0aa8bfba7eaa615836a0627d2ead6bbe77ad9f4bf6c5f49"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/library-behavior.rcore",
+          "sha256": "9f05466bc7ce243a5aa95796900ec8c48a5edbac3744ca2f60188a0dec0101ff"
+        },
+        "kind": "rcore_behavior",
+        "text": "{\n  \"version\": 1,\n  \"scope\": \"unique_names\",\n  \"derived\": [\n    {\n      \"class\": \"Library\",\n      \"feature\": \"copyCount\",\n      \"expression\": { \"op\": \"count\", \"feature\": \"copies\" }\n    },\n    {\n      \"class\": \"BookCopy\",\n      \"feature\": \"available\",\n      \"expression\": { \"op\": \"no_incoming\", \"class\": \"Loan\", \"feature\": \"copy\" }\n    }\n  ],\n  \"validations\": [\n    {\n      \"class\": \"Loan\",\n      \"feature\": \"copy\",\n      \"max_incoming\": 1,\n      \"message\": \"A book copy cannot have more than one active loan.\"\n    }\n  ]\n}\n",
+        "dependencies": [
+          {
+            "uri": "file:///definitions/library.ecore",
+            "sha256": "79ef37333fcb8282e0aa8bfba7eaa615836a0627d2ead6bbe77ad9f4bf6c5f49"
+          }
+        ]
+      }
+    ],
+    "namespaces": [
+      {
+        "namespace": "urn:intersect:example:library:1",
+        "source": {
+          "uri": "file:///definitions/library.ecore",
+          "sha256": "79ef37333fcb8282e0aa8bfba7eaa615836a0627d2ead6bbe77ad9f4bf6c5f49"
+        }
+      },
+      {
+        "namespace": "urn:intersect:example:common:1",
+        "source": {
+          "uri": "file:///definitions/common.ecore",
+          "sha256": "8bae75281a7ab6e50f14b88797de1237aea6c82e7d9289701d910899885a2cff"
+        }
+      }
+    ]
+  },
+  "ecore": {
+    "uri": "file:///definitions/library.ecore",
+    "sha256": "79ef37333fcb8282e0aa8bfba7eaa615836a0627d2ead6bbe77ad9f4bf6c5f49"
+  },
+  "namespace": "urn:intersect:example:library:1",
+  "xtext": {
+    "uri": "file:///definitions/library.xtext",
+    "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+  },
+  "rcore_behavior": {
+    "uri": "file:///definitions/library-behavior.rcore",
+    "sha256": "9f05466bc7ce243a5aa95796900ec8c48a5edbac3744ca2f60188a0dec0101ff"
+  }
+}

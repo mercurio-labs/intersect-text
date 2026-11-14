@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,hashlib
+N=Path(__file__).resolve().parent;T=N.parent;O=N/'portable-v65-evidence-v1';extra={}
+def pin(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def add(data,name,role):
+    q=pin(data);dest=O/'blobs'/q['sha256']
+    if not dest.exists():dest.open('xb').write(data)
+    else:assert dest.read_bytes()==data
+    assert name not in extra;extra[name]={**q,'blob':'blobs/'+q['sha256'],'role':role}
+manifest=json.loads((N/'source-origin-bindings-review-packet-v1/manifest.json').read_text(encoding='utf-8'))
+for relative,expected in manifest['files'].items():
+    p=T/relative;data=p.read_bytes();assert pin(data)==expected,relative
+    add(data,'source-bindings-manifest-original/'+relative,'exact-transitive-source-bindings-manifest-input')
+for p in sorted((N/'document-utf16-verification-carrier-v1').rglob('*')):
+    if p.is_file():add(p.read_bytes(),'original/document-utf16-verification-carrier-v1/'+p.relative_to(N/'document-utf16-verification-carrier-v1').as_posix(),'original-explicit-lossless-carrier-addendum')
+add(Path(__file__).read_bytes(),'producer-original/add-portable-v65-source-bindings-v1.py','verification-extractor')
+with(O/'origins-addendum-v4.json').open('x',encoding='utf-8',newline='\n')as f:f.write(json.dumps(extra,ensure_ascii=True,indent=2)+'\n')
+print(json.dumps({'source_manifest_inputs':len(manifest['files']),'new_origins':len(extra),'pin':pin((O/'origins-addendum-v4.json').read_bytes())}))

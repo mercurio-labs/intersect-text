@@ -1,0 +1,6 @@
+# The Rust release CI and local builds use. CI names it explicitly
+# (.github/workflows/ci.yml); bump both together, then fix new clippy lints.
+[toolchain]
+channel = "1.99.1"
+components = ["rustfmt", "clippy"]
+targets = ["wasm32-unknown-unknown"]

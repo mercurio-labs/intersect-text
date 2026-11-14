@@ -1,0 +1,951 @@
+{
+  "state": "full_group_fragment_multichar_oracle_and_V1_to_V61_BEFORE_frozen_for_algorithm_review",
+  "checkpoint": "91a98cdfbea19337318e278396d88508e56a5c89",
+  "original7_baseline": {
+    "bytes": 35127,
+    "sha256": "092983ec5b896b555e333fa5e989a0c03d239edda4090234bb5d852411a84332"
+  },
+  "new_cohort_preexecution": {
+    "bytes": 4646,
+    "sha256": "1219840d2ac53aa1fac2893d307bc4e03fa126683cddde40d620b2870ac40d3f"
+  },
+  "new_cohort_case_inputs": {
+    "bytes": 3138,
+    "sha256": "86147c33bb7ab942bf9e2e3763e49a6be4690b61e2c53304ec3dd81b9c23fc7f"
+  },
+  "new_cohort_native_recipe": {
+    "bytes": 16255,
+    "sha256": "86ac4f6bf721be12a7fa4366bdca16005d264dd9707378e8e452da26d0e57651"
+  },
+  "full_execution_receipt": {
+    "bytes": 4052,
+    "sha256": "f7317b1724e561b8d5498fd8cf33bfc8937b1c4b7b45ed825b9cf886bb936f19"
+  },
+  "runs": {
+    "record": {
+      "artifact_pins": 374,
+      "manifest": {
+        "bytes": 47584,
+        "sha256": "65300936223033fd4ba02ddc70889e811ca31db8ce7f7138b39338bf051e730c"
+      },
+      "observations": {
+        "bytes": 95934,
+        "sha256": "75928a981e627d070b021442501fa84ff6f5ef16f88d32e4e8dfd055fd74ebb1"
+      },
+      "commands": {
+        "bytes": 440831,
+        "sha256": "97fbf52a35c8718a61ffa484e8c7d5fbccadbe6fca3123bf450b6a9b1e7e9fcc"
+      },
+      "toolchain": {
+        "bytes": 12274,
+        "sha256": "80b26ea508e94d760869c5bf6015e71f165c7822d20136790b5c25ce2397d59a"
+      }
+    },
+    "replay": {
+      "artifact_pins": 374,
+      "manifest": {
+        "bytes": 47584,
+        "sha256": "11a63a67f292d45ba7edf9e696b917bb5cd3982d68be5bbf9800e6bf9c193de6"
+      },
+      "observations": {
+        "bytes": 95934,
+        "sha256": "58bb6e4f3242cc81d1f59529228176334da3602ee4ef14c286227eb5f6eb5882"
+      },
+      "commands": {
+        "bytes": 440831,
+        "sha256": "b347fcc1fe2cf3cee9c9ce8adaf5ca41c090e597d1597c7bb0e2fe71fcb87902"
+      },
+      "toolchain": {
+        "bytes": 12274,
+        "sha256": "80b26ea508e94d760869c5bf6015e71f165c7822d20136790b5c25ce2397d59a"
+      }
+    }
+  },
+  "stages": {
+    "record": [
+      {
+        "id": "original_sequence",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.Sequence",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.Sequence",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.Sequence::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.Sequence",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.Sequence::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~('a' 'b')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 4,
+        "accepted": 1,
+        "rejected": 3,
+        "rejected_partials": 2,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "006.stdout.log",
+            "bytes": 451,
+            "sha256": "2b9036141465699c5fac65e76ce2c0420951b82e8cc395752edac378c420efd2"
+          },
+          "stderr": {
+            "file": "006.stderr.log",
+            "bytes": 2267,
+            "sha256": "b33028d714ce338072233dc7b00ce5c0ea0cfb39d8dce2290098bf1fc5db2ac4"
+          },
+          "antlr_error_lines": [
+            "error(100): D:/dev/repos/mercurio-labs/intersect/target/grouped-negation-full-oracle-v1/record/original_sequence/src-gen/audit/parser/antlr/internal/InternalSequence.g:0:0: syntax error: buildnfa: <AST>:98:20: expecting EOA, found ''b''"
+          ]
+        },
+        "lexer_method_sha256": "7c7e133742300053c4c07ea43d6be938b7430d94b9f1ec4f8842b0dee5e9a9a4",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalSequence.g:98:12: (~ ( 'a' 'b' ) )\n            // InternalSequence.g:98:14: ~ ( 'a' 'b' )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='`')||(input.LA(1)>='b' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "grouped_multichar",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.GroupedMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.GroupedMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~('ab')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 4,
+        "rejected": 5,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "013.stdout.log",
+            "bytes": 463,
+            "sha256": "e2efb95ce449834d313c10d72f0800f7d5d9b8438df6f36ea47f80a603584d54"
+          },
+          "stderr": {
+            "file": "013.stderr.log",
+            "bytes": 2030,
+            "sha256": "0a6b8315ddf59920876f2a2c25dca196f00be9e97d7bae5ba8ca82681f36fbb7"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "bf08b2097deabcc737f261405dfd99b40e6f5ab0e5c975042b23ca178b41ed23",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalGroupedMultiNegation.g:98:12: (~ ( 'ab' ) )\n            // InternalGroupedMultiNegation.g:98:14: ~ ( 'ab' )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "fragment_multichar",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.FragmentMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  },
+                  {
+                    "target": "audit.FragmentMultiNegation::PAIR",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.FragmentMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(RULE_PAIR)"
+              },
+              {
+                "source_rule": "audit.FragmentMultiNegation::PAIR",
+                "name": "RULE_PAIR",
+                "fragment": true,
+                "body": "'ab'"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 4,
+        "rejected": 5,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "025.stdout.log",
+            "bytes": 464,
+            "sha256": "4e85a4446157ce620e71a5074bf67fbc4d0b0de4136f0a26a88e2f787027ba9f"
+          },
+          "stderr": {
+            "file": "025.stderr.log",
+            "bytes": 2032,
+            "sha256": "dfd0d55af6238b24626233e785343e31d820edd2616d760bee6255d9a9298bc9"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "5e83718e38abfdc36d6a2be7ed531b5d42780532b988e10448756f8edefc2e56",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalFragmentMultiNegation.g:98:12: (~ ( RULE_PAIR ) )\n            // InternalFragmentMultiNegation.g:98:14: ~ ( RULE_PAIR )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "mixed_group",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.MixedMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.MixedMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(('ab'|'x'))"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 3,
+        "rejected": 6,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "037.stdout.log",
+            "bytes": 461,
+            "sha256": "9804a8a101a74f43a2a4ea4ebeb742484399d0f813e6b768e9e0fc14fae2483b"
+          },
+          "stderr": {
+            "file": "037.stderr.log",
+            "bytes": 2018,
+            "sha256": "dbab74f3a55b704d0b2ab0536ae0da22db23b5f0159040d9814e1a2be0f31772"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "044e069d78dd164e4eea0d3d1456696b789cb0a65c0f154102b63cab95c26057",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalMixedMultiNegation.g:98:12: (~ ( ( 'ab' | 'x' ) ) )\n            // InternalMixedMultiNegation.g:98:14: ~ ( ( 'ab' | 'x' ) )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "fragment_mixed",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.FragmentMixedNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  },
+                  {
+                    "target": "audit.FragmentMixedNegation::PAIR",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.FragmentMixedNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(RULE_PAIR)"
+              },
+              {
+                "source_rule": "audit.FragmentMixedNegation::PAIR",
+                "name": "RULE_PAIR",
+                "fragment": true,
+                "body": "('ab'|'x')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 3,
+        "rejected": 6,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "049.stdout.log",
+            "bytes": 464,
+            "sha256": "60023c9502b31dfb1359e0a7003595f34d80251fba9a8f3f3db7918f55d62d19"
+          },
+          "stderr": {
+            "file": "049.stderr.log",
+            "bytes": 2083,
+            "sha256": "601c0a8a712eec06b3d6681fa41e308283ed6e084bc9ba32c07d804ea1490508"
+          },
+          "antlr_error_lines": [
+            "error(100):  syntax error: invalid char literal: <INVALID>"
+          ]
+        },
+        "lexer_method_sha256": "8cf6b2f89a47e82d694d1cfa68f00765b794c348513f82eb6ad749c071220f0a",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalFragmentMixedNegation.g:98:12: (~ ( RULE_PAIR ) )\n            // InternalFragmentMixedNegation.g:98:14: ~ ( RULE_PAIR )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      }
+    ],
+    "replay": [
+      {
+        "id": "original_sequence",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.Sequence",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.Sequence",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.Sequence::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.Sequence",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.Sequence::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~('a' 'b')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 4,
+        "accepted": 1,
+        "rejected": 3,
+        "rejected_partials": 2,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "006.stdout.log",
+            "bytes": 451,
+            "sha256": "b8d31b4733643eed786eef17d0ee4bc90091cf4549eb7ae13d22974718ec4a14"
+          },
+          "stderr": {
+            "file": "006.stderr.log",
+            "bytes": 2267,
+            "sha256": "1f34c75ac88d51652a63674c8aa200417fc2c921d6ba7aa35fa2cfaa01c7aab6"
+          },
+          "antlr_error_lines": [
+            "error(100): D:/dev/repos/mercurio-labs/intersect/target/grouped-negation-full-oracle-v1/replay/original_sequence/src-gen/audit/parser/antlr/internal/InternalSequence.g:0:0: syntax error: buildnfa: <AST>:98:20: expecting EOA, found ''b''"
+          ]
+        },
+        "lexer_method_sha256": "7c7e133742300053c4c07ea43d6be938b7430d94b9f1ec4f8842b0dee5e9a9a4",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalSequence.g:98:12: (~ ( 'a' 'b' ) )\n            // InternalSequence.g:98:14: ~ ( 'a' 'b' )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='`')||(input.LA(1)>='b' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "grouped_multichar",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.GroupedMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.GroupedMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.GroupedMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~('ab')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 4,
+        "rejected": 5,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "013.stdout.log",
+            "bytes": 463,
+            "sha256": "74535aa01d886dec663077ebd381161eef3ac6465451737db9cf04cc103a1ddc"
+          },
+          "stderr": {
+            "file": "013.stderr.log",
+            "bytes": 2030,
+            "sha256": "452ab976a37fc0a26592c1478915f5563510d72db2d8c0198d02f75179ac37a1"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "bf08b2097deabcc737f261405dfd99b40e6f5ab0e5c975042b23ca178b41ed23",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalGroupedMultiNegation.g:98:12: (~ ( 'ab' ) )\n            // InternalGroupedMultiNegation.g:98:14: ~ ( 'ab' )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "fragment_multichar",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.FragmentMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  },
+                  {
+                    "target": "audit.FragmentMultiNegation::PAIR",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.FragmentMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.FragmentMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(RULE_PAIR)"
+              },
+              {
+                "source_rule": "audit.FragmentMultiNegation::PAIR",
+                "name": "RULE_PAIR",
+                "fragment": true,
+                "body": "'ab'"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 4,
+        "rejected": 5,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "025.stdout.log",
+            "bytes": 464,
+            "sha256": "1c9c3eb610f19c0678511807b2a75f3b26166a1094358b400cfe51b826402cc4"
+          },
+          "stderr": {
+            "file": "025.stderr.log",
+            "bytes": 2032,
+            "sha256": "3f938996b06f2d626891bc5f773591394c31580b553f6569c3e4b8a2273fb5db"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "5e83718e38abfdc36d6a2be7ed531b5d42780532b988e10448756f8edefc2e56",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalFragmentMultiNegation.g:98:12: (~ ( RULE_PAIR ) )\n            // InternalFragmentMultiNegation.g:98:14: ~ ( RULE_PAIR )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "mixed_group",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.MixedMultiNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.MixedMultiNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.MixedMultiNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(('ab'|'x'))"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 3,
+        "rejected": 6,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "037.stdout.log",
+            "bytes": 461,
+            "sha256": "185d69d56dc04301b33cc37cdc1766fce00a13ff43602a6fdcdadc572c29c4a5"
+          },
+          "stderr": {
+            "file": "037.stderr.log",
+            "bytes": 2018,
+            "sha256": "727ce68da6384d1f59b18b164b3166824659ae29e599017f55859bb8b049c8dd"
+          },
+          "antlr_error_lines": []
+        },
+        "lexer_method_sha256": "044e069d78dd164e4eea0d3d1456696b789cb0a65c0f154102b63cab95c26057",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalMixedMultiNegation.g:98:12: (~ ( ( 'ab' | 'x' ) ) )\n            // InternalMixedMultiNegation.g:98:14: ~ ( ( 'ab' | 'x' ) )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      },
+      {
+        "id": "fragment_mixed",
+        "metadata": {
+          "exit_code": 0,
+          "observation": {
+            "syntax": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "errors": []
+              }
+            ],
+            "linking": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "errors": [],
+                "warnings": [],
+                "calls": [
+                  {
+                    "target": "audit.FragmentMixedNegation::VALUE",
+                    "proxy": false,
+                    "explicit": false
+                  },
+                  {
+                    "target": "audit.FragmentMixedNegation::PAIR",
+                    "proxy": false,
+                    "explicit": false
+                  }
+                ]
+              }
+            ],
+            "linking_failure": null,
+            "validation": [
+              {
+                "source": "audit.FragmentMixedNegation",
+                "issues": [],
+                "failure": null
+              }
+            ],
+            "translated_rules": [
+              {
+                "source_rule": "audit.FragmentMixedNegation::VALUE",
+                "name": "RULE_VALUE",
+                "fragment": false,
+                "body": "~(RULE_PAIR)"
+              },
+              {
+                "source_rule": "audit.FragmentMixedNegation::PAIR",
+                "name": "RULE_PAIR",
+                "fragment": true,
+                "body": "('ab'|'x')"
+              }
+            ],
+            "translation_failure": null
+          }
+        },
+        "generation": {
+          "exit_code": 0,
+          "source_unchanged": true
+        },
+        "compilation": {
+          "exit_code": 0
+        },
+        "runtime_inputs": 9,
+        "accepted": 3,
+        "rejected": 6,
+        "rejected_partials": 4,
+        "generation_diagnostics": {
+          "exit_code": 0,
+          "stdout": {
+            "file": "049.stdout.log",
+            "bytes": 464,
+            "sha256": "0f738c1706c84223632e2229793ab0b2a48c2aaa9d8210b889e2550b7f748182"
+          },
+          "stderr": {
+            "file": "049.stderr.log",
+            "bytes": 2083,
+            "sha256": "86cab9d2a60ed2382e954255d6031a54f613d55e17b8c68c96efee7e5297d295"
+          },
+          "antlr_error_lines": [
+            "error(100):  syntax error: invalid char literal: <INVALID>"
+          ]
+        },
+        "lexer_method_sha256": "8cf6b2f89a47e82d694d1cfa68f00765b794c348513f82eb6ad749c071220f0a",
+        "lexer_method": "public final void mRULE_VALUE() throws RecognitionException {\n        try {\n            int _type = RULE_VALUE;\n            int _channel = DEFAULT_TOKEN_CHANNEL;\n            // InternalFragmentMixedNegation.g:98:12: (~ ( RULE_PAIR ) )\n            // InternalFragmentMixedNegation.g:98:14: ~ ( RULE_PAIR )\n            {\n            if ( (input.LA(1)>='\\u0000' && input.LA(1)<='w')||(input.LA(1)>='y' && input.LA(1)<='\\uFFFF') ) {\n                input.consume();\n\n            }\n            else {\n                MismatchedSetException mse = new MismatchedSetException(null,input);\n                recover(mse);\n                throw mse;}\n\n\n            }\n\n            state.type = _type;\n            state.channel = _channel;\n        }\n        finally {\n        }\n    }\n    "
+      }
+    ]
+  },
+  "nativeV61_before": {
+    "receipt": {
+      "bytes": 662,
+      "sha256": "b706880b034d0c19d5b0ad12239c1759ab2c9b9120c85b6614fd1d3832016f4d"
+    },
+    "files": {
+      "preexecution.json": {
+        "bytes": 954,
+        "sha256": "e7a457ed9c96630724009a005dffce54092de2781d9391c9f8530e51af813495"
+      },
+      "receipt.json": {
+        "bytes": 662,
+        "sha256": "b706880b034d0c19d5b0ad12239c1759ab2c9b9120c85b6614fd1d3832016f4d"
+      },
+      "record.json": {
+        "bytes": 48516,
+        "sha256": "ef5a982e59b4ab5097edbfd6e86ce111c67c6e5171a5c473120406489798e277"
+      },
+      "replay.json": {
+        "bytes": 38562,
+        "sha256": "8ac9b889b7aaad4171c0c422a72f4bcfe3243f1d6456648e02e5f7ba8d829c5a"
+      }
+    },
+    "graphs": 5,
+    "compiled": 0,
+    "requests_per_run": 10,
+    "fresh_instances": 20,
+    "unexecuted_inputs": 40
+  },
+  "all_legacy_before": {
+    "receipt": {
+      "bytes": 1033,
+      "sha256": "72bfc49eaef25ac4a158115c72a4b2c40a6b203a184678e36dc76246239a80a8"
+    },
+    "record": {
+      "bytes": 1100157,
+      "sha256": "7b17cd78cde5b9c264fbd23841759ba681cdf2df2a56c20a0bdae74d4f84cf45"
+    },
+    "replay": {
+      "bytes": 1085440,
+      "sha256": "61bc349cc3fdb4da7a1e355a22c8bc547432d8c821a0b45cddd9df44ce4c48f8"
+    },
+    "profiles": 61,
+    "graphs": 5,
+    "requests_per_run": 305,
+    "fresh_instances": 610
+  },
+  "bytecode_evidence": {
+    "antlr-build-nfa-v2-receipt.json": {
+      "bytes": 350,
+      "sha256": "6991cb4616253e0de199efcde7649cf71ae15fd93929b8c6849770433f386da4"
+    },
+    "antlr-build-nfa-v2.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "antlr-build-nfa-v2.stdout.txt": {
+      "bytes": 256883,
+      "sha256": "15b8218630674b47430be14a170deae641fdc94f81d9707a2bcec2cd535aa442"
+    },
+    "antlr-build-nfa.stderr.txt": {
+      "bytes": 65,
+      "sha256": "c2cabb748bbcbd60a4975dfd1c2abf2c9b357079e3ecf84fe60349659b82a777"
+    },
+    "antlr-build-nfa.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "antlr-grammar.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "antlr-grammar.stdout.txt": {
+      "bytes": 286478,
+      "sha256": "fc67db0d30b1accd64881e7c06b7c10711cf33cb7534107fd5c2fb46eb05711f"
+    },
+    "receipt.json": {
+      "bytes": 1483,
+      "sha256": "de688e306f0587e34c05f5ec0db0d316ee35d22a4576acb1124c201dc09f005a"
+    },
+    "xtext-terminal-rule.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "xtext-terminal-rule.stdout.txt": {
+      "bytes": 29074,
+      "sha256": "daa4cf0450fb6595a8d1f36141087dad0aee40a0fdbc5213727de1eef150ad32"
+    }
+  },
+  "counts": {
+    "graphs": 5,
+    "planned_actual_runtime_inputs_per_run": 40,
+    "accepted_per_run": 15,
+    "rejected_per_run": 25,
+    "rejected_partials_per_run": 18,
+    "generation_exit0_and_javac0": 5,
+    "graphs_with_ANTLR_error_diagnostics_despite_exit0": [
+      "original_sequence",
+      "fragment_mixed"
+    ]
+  },
+  "limits": [
+    "Original sequence retains historical separate authored-ANTLR timeout observation; actualfullgenerationexit0+javac0/runtime4 coexist with explicitANTLRbuildnfaEOArecoveryerror.",
+    "Fragmentmixed actualcompleteoutput also retainsANTLRinvalidcharliteraldiagnostic despiteexit0; not relabelled clean.",
+    "No original graph/body/probe/profile repaired or outcome trimmed. AllgeneratedJava/ANTLR/model/leaves/rawUTF16/rejectedpartial outputs preserved.",
+    "No production edits/builds/source or artifact changes; Javaoracleonly."
+  ],
+  "native_support_award": false,
+  "gate_closures": []
+}

@@ -1,0 +1,12 @@
+--- crates/intersect-xtext/src/lib.rs
++++ crates/intersect-xtext/src/lib.rs
+@@ -970,6 +970,9 @@
+         Ok(())
+     }
+     fn document_at(&self, index: usize) -> usize {
++        if self.document.is_none() {
++            return 0;
++        }
+         self.utf16_positions
+             .get(index)
+             .copied()

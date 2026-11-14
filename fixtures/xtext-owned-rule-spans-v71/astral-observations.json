@@ -1,0 +1,756 @@
+[
+  {
+    "case": "fragment_implicit_astral",
+    "text": "frag /*\ud83d\ude00*/ x;",
+    "input_utf8_bytes": 16,
+    "input_utf16_units": 14,
+    "input_utf8_sha256": "81fb6f2dbfdc95a9069d49d4641ece67c5690b6c5a7ce5154bb8d9086b07a0e0",
+    "grammar": "intersect.oracle.BoundedFragmentSemanticSpans",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 14,
+      "text": "frag /*\ud83d\ude00*/ x;",
+      "total_start": 0,
+      "total_end": 14,
+      "utf8_start": 0,
+      "utf8_end": 16,
+      "utf8_total_start": 0,
+      "utf8_total_end": 16,
+      "grammar_origin": {
+        "kind": "ParserRule",
+        "parser_rule": "Root"
+      }
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "previous": null,
+          "child": null,
+          "name": "x",
+          "value": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "previous",
+            "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "child",
+            "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 12,
+                "end": 13,
+                "text": " /*\ud83d\ude00*/ x",
+                "total_start": 4,
+                "total_end": 13,
+                "utf8_start": 14,
+                "utf8_end": 15,
+                "utf8_total_start": 4,
+                "utf8_total_end": 15,
+                "grammar_origin": {
+                  "kind": "RuleCall",
+                  "parser_rule": "Shared"
+                }
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 14,
+          "text": "frag /*\ud83d\ude00*/ x;",
+          "total_start": 0,
+          "total_end": 14,
+          "utf8_start": 0,
+          "utf8_end": 16,
+          "utf8_total_start": 0,
+          "utf8_total_end": 16,
+          "grammar_origin": {
+            "kind": "RuleCall",
+            "parser_rule": "Root"
+          }
+        },
+        "actual_node": {
+          "start": 0,
+          "end": 14,
+          "text": "frag /*\ud83d\ude00*/ x;",
+          "total_start": 0,
+          "total_end": 14,
+          "utf8_start": 0,
+          "utf8_end": 16,
+          "utf8_total_start": 0,
+          "utf8_total_end": 16,
+          "grammar_origin": {
+            "kind": "ParserRule",
+            "parser_rule": "Root"
+          }
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "semanticSpansV71",
+      "uri": "urn:intersect:oracle:semantic-object-spans-v71",
+      "prefix": "semanticSpansV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Node",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Node",
+          "instance_type": "oracle.provider.semanticSpansV71.Node",
+          "annotations": [],
+          "origins": [],
+          "abstract": true,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        },
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Root",
+          "instance_type": "oracle.provider.semanticSpansV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "previous",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "child",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Leaf",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Leaf",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Leaf",
+          "instance_type": "oracle.provider.semanticSpansV71.Leaf",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Empty",
+          "instance_type": "oracle.provider.semanticSpansV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": []
+        },
+        {
+          "name": "Middle",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Middle",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Middle",
+          "instance_type": "oracle.provider.semanticSpansV71.Middle",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "child",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        }
+      ]
+    },
+    "offset_units": "start/end and total_* are Java UTF16; utf8_* derived from exact same source codepoint boundaries",
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no physical-storage, validation, native or completeness award"
+  },
+  {
+    "case": "delegated_astral",
+    "text": "via /*\ud83d\ude00*/ x;",
+    "input_utf8_bytes": 15,
+    "input_utf16_units": 13,
+    "input_utf8_sha256": "eed2c284ee99d656ee0f3e6428fac3515a0c0fb80094dc16328fc7c691669a70",
+    "grammar": "intersect.oracle.BoundedFragmentSemanticSpans",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 13,
+      "text": "via /*\ud83d\ude00*/ x;",
+      "total_start": 0,
+      "total_end": 13,
+      "utf8_start": 0,
+      "utf8_end": 15,
+      "utf8_total_start": 0,
+      "utf8_total_end": 15,
+      "grammar_origin": {
+        "kind": "ParserRule",
+        "parser_rule": "Root"
+      }
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "previous": {
+            "object": 1
+          },
+          "child": null,
+          "name": "x",
+          "value": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "previous",
+            "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 0,
+                "end": 3,
+                "text": "via",
+                "total_start": 0,
+                "total_end": 3,
+                "utf8_start": 0,
+                "utf8_end": 3,
+                "utf8_total_start": 0,
+                "utf8_total_end": 3,
+                "grammar_origin": {
+                  "kind": "RuleCall",
+                  "parser_rule": "Root"
+                }
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "child",
+            "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 11,
+                "end": 12,
+                "text": " /*\ud83d\ude00*/ x",
+                "total_start": 3,
+                "total_end": 12,
+                "utf8_start": 13,
+                "utf8_end": 14,
+                "utf8_total_start": 3,
+                "utf8_total_end": 14,
+                "grammar_origin": {
+                  "kind": "RuleCall",
+                  "parser_rule": "DelegatedCapture"
+                }
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 13,
+          "text": "via /*\ud83d\ude00*/ x;",
+          "total_start": 0,
+          "total_end": 13,
+          "utf8_start": 0,
+          "utf8_end": 15,
+          "utf8_total_start": 0,
+          "utf8_total_end": 15,
+          "grammar_origin": {
+            "kind": "Action",
+            "parser_rule": "DelegatedCapture",
+            "action_type": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+            "action_feature": "previous",
+            "action_operator": "="
+          }
+        },
+        "actual_node": {
+          "start": 0,
+          "end": 13,
+          "text": "via /*\ud83d\ude00*/ x;",
+          "total_start": 0,
+          "total_end": 13,
+          "utf8_start": 0,
+          "utf8_end": 15,
+          "utf8_total_start": 0,
+          "utf8_total_end": 15,
+          "grammar_origin": {
+            "kind": "ParserRule",
+            "parser_rule": "Root"
+          }
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:semantic-object-spans-v71#//Empty",
+        "container": 0,
+        "containment_feature": "previous",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3,
+          "utf8_start": 3,
+          "utf8_end": 3,
+          "utf8_total_start": 3,
+          "utf8_total_end": 3,
+          "grammar_origin": {
+            "kind": "Action",
+            "parser_rule": "Empty",
+            "action_type": "urn:intersect:oracle:semantic-object-spans-v71#//Empty",
+            "action_feature": null,
+            "action_operator": null
+          }
+        },
+        "actual_node": {
+          "start": 0,
+          "end": 3,
+          "text": "via",
+          "total_start": 0,
+          "total_end": 3,
+          "utf8_start": 0,
+          "utf8_end": 3,
+          "utf8_total_start": 0,
+          "utf8_total_end": 3,
+          "grammar_origin": {
+            "kind": "RuleCall",
+            "parser_rule": "Root"
+          }
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "semanticSpansV71",
+      "uri": "urn:intersect:oracle:semantic-object-spans-v71",
+      "prefix": "semanticSpansV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Node",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Node",
+          "instance_type": "oracle.provider.semanticSpansV71.Node",
+          "annotations": [],
+          "origins": [],
+          "abstract": true,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        },
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Root",
+          "instance_type": "oracle.provider.semanticSpansV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "previous",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "child",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Leaf",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Leaf",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Leaf",
+          "instance_type": "oracle.provider.semanticSpansV71.Leaf",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Empty",
+          "instance_type": "oracle.provider.semanticSpansV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": []
+        },
+        {
+          "name": "Middle",
+          "identity": "urn:intersect:oracle:semantic-object-spans-v71#//Middle",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.semanticSpansV71.Middle",
+          "instance_type": "oracle.provider.semanticSpansV71.Middle",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [
+            "urn:intersect:oracle:semantic-object-spans-v71#//Node"
+          ],
+          "features": [
+            {
+              "name": "child",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:semantic-object-spans-v71#//Node",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        }
+      ]
+    },
+    "offset_units": "start/end and total_* are Java UTF16; utf8_* derived from exact same source codepoint boundaries",
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no physical-storage, validation, native or completeness award"
+  }
+]

@@ -1,0 +1,9 @@
+rcore 1;
+package converterShowcase version "1";
+
+convert "mini.ConverterShowcase" rule "Nonunique"
+  from "base.xtext" sha256 "dcfdd53756d296feae74ec6eba51a1539876a900a2330c768b3d8453113226ea" span 3032 3160
+  to "http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+  using "intersect.xtext.keyword-boolean" version "1" {
+  "nonunique" = false;
+}

@@ -1,0 +1,7 @@
+rcore 1;
+package fixtureProviders version "1";
+import model "urn:settings" as m;
+projection m.`Item`.`aliasTitle` from `title` writable;
+projection m.`Item`.`readonlyTitle` from `title`;
+projection m.`Item`.`aliasTags` from `tags` writable;
+projection m.`Item`.`aliasPeer` from `peer` writable;

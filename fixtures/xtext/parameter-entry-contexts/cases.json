@@ -1,0 +1,1247 @@
+{
+  "version": 1,
+  "baseline": "3c265675504c4357c21fda790c4dd46ecb17c1c1",
+  "status": "preimplementation_authored_plan",
+  "full_gates": "OPEN",
+  "production_native_entry_changes": false,
+  "cases": [
+    {
+      "id": "scalar_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: value=Word<false>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "3e128b666b8a18cf11e2e697b142ae91ccf5bda8fd3d22de8c40617af3c3ed8d",
+          "uri": "memory:/ordinary-parameters/scalar_false/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no no"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no no"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_false/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "A reachable false datatype variant may emit an entry; observe model/error/empty outcome separately from the scalar return value.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "scalar_both",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: 't' value=Word<true> | 'f' value=Word<false>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "b88a15a9e34878acfe32c0574a89e80664ae0846c7883cdfe01d4bc1bec8a174",
+          "uri": "memory:/ordinary-parameters/scalar_both/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "t yes"
+        },
+        {
+          "entry": "resource",
+          "text": "f no"
+        },
+        {
+          "entry": "resource",
+          "text": "t no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "f no"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "t yes"
+        },
+        {
+          "entry": "resource",
+          "text": "f no"
+        },
+        {
+          "entry": "resource",
+          "text": "t no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "f no"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_both/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "Both datatype parameter variants are reachable; the no-argument named entry selects the false variant.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "scalar_false_dead",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: value=Word<true> (<false> value=Word<false>)?; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "92397db6a84384208d4625b24bb841bc93e82189b2af13afd6baea68ba116cff",
+          "uri": "memory:/ordinary-parameters/scalar_false_dead/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "resource",
+          "text": "yes no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "yes"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "resource",
+          "text": "yes no"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "yes"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_false_dead/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "A false call occurs only under a false guard, so syntax/validation presence alone must not confer entry availability.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "unused_plain",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.true_call.Language",
+          "source": "grammar oracle.parameters.imported.true_call.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:true_call\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: child=Node<true>; Node<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nUnused returns model::Node: a=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "dc0c644a6ff9b3ab82bf73bd78df5645a6eece968927d30e351bbf0a07c50f68",
+          "uri": "memory:/ordinary-parameters/unused_plain/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Unused",
+          "text": "alpha"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Unused",
+          "text": "alpha"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "true_call",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "true_call",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.truecall.Language",
+              "source": "grammar oracle.parameters.matrix.truecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:true_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "42"
+            },
+            {
+              "entry": "resource",
+              "text": ""
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "c583fe512fde40e43250f766abeffc34a49f606788d8e9f88d71ca10adef4db4"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:true_call",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:true_call\" nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "c583fe512fde40e43250f766abeffc34a49f606788d8e9f88d71ca10adef4db4",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/unused_plain/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "An unreachable local plain parser declaration is distinct from a reachable parameterized false variant.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "false_wildcard",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.forward_fragment.Language",
+          "source": "grammar oracle.parameters.imported.forward_fragment.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:forward_fragment\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: 'model' Fields<false>; fragment Fields<Flag>*: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "aa82c1b042d323c9cb4654da9d82f6c7b7aea4eca275af528a2dce899b26d117",
+          "uri": "memory:/ordinary-parameters/false_wildcard/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "model alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "model alpha alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "model alpha"
+        },
+        {
+          "entry": "Fields",
+          "text": "alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "model alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "model alpha alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "model alpha"
+        },
+        {
+          "entry": "Fields",
+          "text": "alpha"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "forward_fragment",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "forward_fragment",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.forwardfragment.Language",
+              "source": "grammar oracle.parameters.matrix.forwardfragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:forward_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'model' Fields<true>; fragment Fields<Flag>*: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "model alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "model alpha alpha"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "model alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "model alpha alpha"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "a441291897f13c363d0ab9f54373c81d322bce0dca01b9601e91be7d5c1fd350"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:forward_fragment",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:forward_fragment\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "a441291897f13c363d0ab9f54373c81d322bce0dca01b9601e91be7d5c1fd350",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/false_wildcard/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "A retained false wildcard fragment still lacks a public parser entry.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "typed_false_entries",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.typed_fragment.Language",
+          "source": "grammar oracle.parameters.imported.typed_fragment.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:typed_fragment\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: child=Node<false>; Node<Flag> returns model::Node: Fields<Flag>; fragment Fields<Flag> returns model::Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "3a53e6886e0347f57884d3731fe130da7d50861ca4834899478ed0e3c93f971f",
+          "uri": "memory:/ordinary-parameters/typed_false_entries/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Fields",
+          "text": "alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "alpha"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Fields",
+          "text": "alpha"
+        },
+        {
+          "entry": "Model",
+          "text": "alpha"
+        },
+        {
+          "entry": "ID",
+          "text": "alpha"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "typed_fragment",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "typed_fragment",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.typedfragment.Language",
+              "source": "grammar oracle.parameters.matrix.typedfragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:typed_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: Fields<Flag>; fragment Fields<Flag> returns Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "alpha"
+            },
+            {
+              "entry": "resource",
+              "text": "alpha alpha"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "3b76ec38bfa27169df567fd2b9e2985338b8144ca7f20b53ec9c2380fd17fd13"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:typed_fragment",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:typed_fragment\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"child\" eType=\"#//Node\"\n        containment=\"true\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Node\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"a\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"b\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "3b76ec38bfa27169df567fd2b9e2985338b8144ca7f20b53ec9c2380fd17fd13",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/typed_false_entries/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "Follow a false environment through a typed fragment, while preserving fragment exclusion and terminal rejection.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "parameterized_scalar_entry",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel<Flag> returns ecore::EString: Word<Flag>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "e6e2c216858bfcbf050d9effdbda7b3be8c990b57c2e2ce2575fc03f990c4592",
+          "uri": "memory:/ordinary-parameters/parameterized_scalar_entry/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/parameterized_scalar_entry/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "A first parameterized datatype parser uses the false default environment; retain error-free rootless results explicitly.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "scalar_via_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: value=Fields<false>; fragment Fields<Flag> returns ecore::EString: Word<Flag>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "2ad2c8a92d6b138e8c52d139e8cf8df5dda38cfc97ffd4bb8a7264022546b3ea",
+          "uri": "memory:/ordinary-parameters/scalar_via_fragment/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": false,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_via_fragment/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "A datatype fragment forwards the false environment to a datatype parser; named eligibility belongs to the reached parser variant, not the fragment.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes",
+      "original_author_expected_metadata_acceptance": true,
+      "observed_rejection": "InvalidFragmentCall: Cannot call a fragment from an assignment"
+    },
+    {
+      "id": "scalar_unassigned_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns ecore::EString: Fields<false>; fragment Fields<Flag> returns ecore::EString: Word<Flag>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "ae25e2afad2609427588fd58c963023c627de4e724fa2664bd7e49d2ed070d83",
+          "uri": "memory:/ordinary-parameters/scalar_unassigned_fragment/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_unassigned_fragment/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "An unassigned datatype fragment forwards false to a datatype parser. Observe the public entry, scalar return and rootless default outcomes independently.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    },
+    {
+      "id": "scalar_fragment_nested",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.imported.datatype_parameter.Language",
+          "source": "grammar oracle.parameters.imported.datatype_parameter.Language hidden(WS)\nimport \"urn:intersect:parameter-matrix:datatype_parameter\" as model\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns model::Model: value=Word<false>; Word<Flag> returns ecore::EString: Fields<Flag>; fragment Fields<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": [],
+          "sha256": "64bdf00811038887877fe59935c837ad3df8690767e7d4c48fafd7b28d870aa7",
+          "uri": "memory:/ordinary-parameters/scalar_fragment_nested/entry.xtext"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "Word",
+          "text": "no"
+        },
+        {
+          "entry": "Word",
+          "text": "yes"
+        },
+        {
+          "entry": "Fields",
+          "text": "no"
+        },
+        {
+          "entry": "Model",
+          "text": "no"
+        }
+      ],
+      "origin_variant": "lowercase_counterparts",
+      "origin_case": "datatype_parameter",
+      "classification": "New independent named-entry context graph; original ordinary and inferred sources remain unchanged",
+      "author_expected_metadata_acceptance": true,
+      "oracle_model_provider": {
+        "scaffold_case": {
+          "id": "datatype_parameter",
+          "entry": "entry",
+          "sources": [
+            {
+              "id": "entry",
+              "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+              "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": []
+            }
+          ],
+          "runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ],
+          "planned_runs": [
+            {
+              "entry": "resource",
+              "text": "yes"
+            },
+            {
+              "entry": "resource",
+              "text": "no"
+            },
+            {
+              "entry": "resource",
+              "text": "yes yes"
+            }
+          ]
+        },
+        "scaffold_ecore_hashes": {
+          "model/generated/Language.ecore": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628"
+        }
+      },
+      "metamodels": [
+        {
+          "file": "Language.ecore",
+          "namespace": "urn:intersect:parameter-matrix:datatype_parameter",
+          "source": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" name=\"model\" nsURI=\"urn:intersect:parameter-matrix:datatype_parameter\"\n    nsPrefix=\"model\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Model\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"value\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+          "sha256": "888c88d2ce63d84620b0f3fea2e5e8a545e9190f052d42754ceda054b2a0c628",
+          "provenance": "Exact pinned independently generated Ecore bytes",
+          "uri": "memory:/ordinary-parameters/scalar_fragment_nested/Language.ecore"
+        }
+      ],
+      "entry_context_rationale": "Keep an EObject production root and call a datatype parser, which forwards its false environment through an unassigned typed datatype fragment.",
+      "provider_scope": "Exact original independent scaffold/provider; only the ordinary grammar under test changes"
+    }
+  ],
+  "predecessor_plan_sha256": "dffca26b6a8a4c9117ee071d2386a80fd90e62d2b3c44bce02590d9f79399ab9",
+  "revision_notes": [
+    "Use the frozen metadata adapter exact memory:/ordinary-parameters producer URI convention; initial plan/capture context mismatch remains separately retained. No original eight grammar bytes changed.",
+    "Preserve assigned scalar fragment rejection, and add an independently identified unassigned scalar fragment counterpart.",
+    "Retain metadata-accepted first-scalar generator obstruction and its unexecuted requests; add a separate object-production-rooted scalar-fragment forwarding control."
+  ]
+}

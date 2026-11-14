@@ -1,0 +1,10 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EClass" name="Value"/>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EClass" name="Base"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Raw" eSuperTypes="#//Base"/>
+<eClassifiers x:type="e:EClass" name="Applied"><eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eClassifier="#//Value"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child" eSuperTypes="#//Raw #//Applied"/>
+<eClassifiers x:type="e:EClass" name="Limit"><eTypeParameters name="P"><eBounds eClassifier="#//Base"><eTypeArguments eClassifier="#//Value"/></eBounds></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Use"><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eClassifier="#//Limit"><eTypeArguments eClassifier="#//Child"/></eGenericType></eStructuralFeatures><eStructuralFeatures x:type="e:EReference" name="child"><eGenericType eClassifier="#//Child"/></eStructuralFeatures></eClassifiers>
+</e:EPackage>

@@ -1,0 +1,30 @@
+# Verification-only parent/child loader separation
+
+The previous generated experiment is immutable. Its simple-actions source parsed,
+linked and validated, generated and compiled, but all nine runtime processes
+failed before JSON with a signed-package SecurityException and consequential
+Guice missing binding. These are workflow failures, not model rejections.
+
+This addendum changes only the host class-loading boundary. The ordinary system
+loader loads the sixty byte-pinned dependency JARs, preserving JAR verification,
+signers and certificates. A child owns exactly the freshly generated and compiled
+classes plus raw grammar/token/properties resources listed in a frozen whitelist.
+Each unsigned generated package is defined only in that child; signed support
+classes remain in the parent. The exact generated Terminals classes and grammar
+resources are retained; no cached built-in grammar replaces the authored library.
+DefaultTerminalConverters must remain a signed parent-loaded dependency.
+
+The whitelist rejects digest mismatch, missing or extra owned files, ambiguous
+resource names, duplicate roots/JARs, path escape and a changed parent classpath.
+Only the original NodeSnapshotRuntime main can run. Its helper bytecode, authored
+URI bindings, provider, grammar, text and named-entry arguments stay unchanged.
+The thread context loader is restored on success or failure. Source, runtime
+grammar URI, diagnostics, model and node observations receive no normalization.
+
+Use both independently generated previous record/replay class trees. The eight
+successful grouped-companion runtime observations serve as an exact complete-JSON
+control; all nine simple-actions requests remain visible beside their original
+no-JSON failures. Capture new record/fresh-JVM replay separately and preserve all
+failure stages. Negative whitelist experiments alter new specifications only.
+No JAR is copied, stripped, rewritten or redefined. No Java enters production.
+This is verification workflow evidence, not native admission or a gate closure.

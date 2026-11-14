@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "scope": "Current source-native verification corpus; original ASCII bytes and separate native core Unicode model preserved",
+  "files": [
+    {
+      "bytes": 490957,
+      "sha256": "e64b48278f6da6b84b7afc44a23c2efdaee23bbbdb37b88bb252357742a83c8c",
+      "relative": "fixtures/rcore-string-transport/ascii-original.json"
+    },
+    {
+      "bytes": 416779,
+      "sha256": "971be1b971a6ba0117459d6190b5a768be61d7da6a9453011732bd032bc3b492",
+      "relative": "fixtures/rcore-string-transport/plan.json"
+    },
+    {
+      "bytes": 60006,
+      "sha256": "a0614c79426fe1d2bdb32993af09b7ee6cb4ec7c233fac921d2ba49f6e9a1040",
+      "relative": "fixtures/rcore-string-transport/public-controls.json"
+    },
+    {
+      "bytes": 3044,
+      "sha256": "4cf9fb7dc30f9f76f558b171d459e74bf62b59746da30b1f68992e5b3947d9d3",
+      "relative": "fixtures/rcore-string-transport/README.md"
+    },
+    {
+      "bytes": 3246,
+      "sha256": "de41b9452ece6d402682604fa63e50559f6951d5acce2889e728bd5d3cb1fdaa",
+      "relative": "fixtures/rcore-string-transport/string-worker-observer.js"
+    },
+    {
+      "bytes": 338839,
+      "sha256": "c0bd3a79ba3596cf915a1cc444197ef0d5db25676048ceb21d6300e1cadaab02",
+      "relative": "fixtures/rcore-string-transport/unicode-core-produced.json"
+    },
+    {
+      "bytes": 4884,
+      "sha256": "168bca576eaed2b96cd462f43c3d1fd244368ab79950aef6652bd642b085eaea",
+      "relative": "tools/check_rcore_string_transport.mjs"
+    },
+    {
+      "bytes": 1660,
+      "sha256": "6c003799be68cd1b0f6eb9d5b429f2e8f6793f504a351d3ba3e9e5e7e375d3ad",
+      "relative": "tools/string_transport_controls.mjs"
+    },
+    {
+      "bytes": 8437,
+      "sha256": "9d2912fa93318e8f9fc5e27589a292774512f1c35347d2d25ae12d041a39d23b",
+      "relative": "toolkit/tests/string-transport.spec.js"
+    },
+    {
+      "bytes": 4422,
+      "sha256": "210f2e60c2af1fe2e7d51eb54e812db94bd3dbde9dbb533d2fb18c6c0fae9130",
+      "relative": "crates/intersect-web/examples/string_transport_fixture_qualification.rs"
+    }
+  ],
+  "source_native_plan_sha256": "e040c5abbb297d8a59475feaf46312aac0e83bbbd4521d435181cbeee317fa22",
+  "source_freeze_sha256": "dd2c902e71134828b2436e45c0bd8974c6b4ce90825326092447ab3d9d97d497",
+  "public_wasm": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\s09-default-string-joined-v63-v1\\intersect_web-dbf32ffc08fc41cf1bc939eaaf56062ccc22bc07703a8c1de83ffffa6bcdbd8e.wasm",
+    "bytes": 19134231,
+    "sha256": "dbf32ffc08fc41cf1bc939eaaf56062ccc22bc07703a8c1de83ffffa6bcdbd8e"
+  },
+  "qualified": {
+    "native_public_groups": 16,
+    "responses_per_fresh_run": 160,
+    "fresh_native_runs": 2,
+    "fresh_wasm_runs": 2,
+    "persistent_instances_per_run": 16,
+    "browser_new_tests_per_mode": 3,
+    "browser_modes": [
+      "development",
+      "static production"
+    ]
+  },
+  "limits": [
+    "Not full W1/W4/W5/S09",
+    "No Java required or new Ecore support claim",
+    "Complete responses/logical admission/registry recovery do not prove physical heap/OS reclamation"
+  ]
+}

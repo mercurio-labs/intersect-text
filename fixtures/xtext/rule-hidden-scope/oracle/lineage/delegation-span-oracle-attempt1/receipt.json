@@ -1,0 +1,134 @@
+{
+  "state": "record_and_fresh_generation_replay_complete_observations_equal",
+  "helpers": {
+    "bytes": 3299,
+    "sha256": "0cf2796fa53dd01dbb89d642377ceeb6c4dae03acd53fd762801e0591425ad01"
+  },
+  "wrapper": {
+    "bytes": 7494,
+    "sha256": "13b1e8504fb5bcb923cfe055caf6930aad6733d475770c6b4a66797aece0de5e"
+  },
+  "source_matrix": {
+    "bytes": 532,
+    "sha256": "19bc013058934d4f7fc6605609a8cbf9eee62ecaa78662faa6b722bcee8085b6"
+  },
+  "java": {
+    "bytes": 49768,
+    "sha256": "abd12f952caba9b7404f15ca3939100f5ad5db5553187a3449814c57c2bf4b82"
+  },
+  "javac": {
+    "bytes": 23656,
+    "sha256": "c81b3bece8daf28136b387841f924c66a9da88746246211cf769bfa6ac3a6f25"
+  },
+  "stack": {
+    "bytes": 11732,
+    "sha256": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304"
+  },
+  "planned_cases": 1,
+  "planned_resource_inputs": 17,
+  "planned_additional_named_entry_calls": 34,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hidden-scope-after-v63-v1\\helper-delegation-spans-v1\\produce-hidden.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv9r",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv9r"
+    },
+    {
+      "command": [
+        "C:\\Users\\MarkPetrotta\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-B",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hidden-scope-after-v63-v1\\helper-delegation-spans-v1\\produce-hidden.py",
+        "--output",
+        "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv9p",
+        "--jdk",
+        "D:\\dev\\jdks\\jdk21",
+        "--maven-cache",
+        "C:\\Users\\MarkPetrotta\\.m2\\repository"
+      ],
+      "exit_code": 0,
+      "output": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\hsv9p"
+    }
+  ],
+  "gate_closures": [],
+  "runs": {
+    "record": {
+      "artifact_pins": 209,
+      "raw_manifest": {
+        "bytes": 23623,
+        "sha256": "7ebb29540a0b1e52496cd2d9c74c6dd6631e961c0ae161cfa66846f7ca1bd234"
+      },
+      "observations": {
+        "bytes": 362607,
+        "sha256": "edd52479c96cb42e96ca98f9139c515097da48ec0889aa15c837f637af67722b"
+      },
+      "commands": {
+        "bytes": 484755,
+        "sha256": "17bfc1f808895a7101ce3ab5bf315edde08a5790483c2246febad81ff29a3a33"
+      },
+      "toolchain": {
+        "bytes": 12488,
+        "sha256": "2195bd7addd4ad522f1fce76dbc7368525f4146e341c76eccf6c9c89e327b59c"
+      }
+    },
+    "replay": {
+      "artifact_pins": 209,
+      "raw_manifest": {
+        "bytes": 23623,
+        "sha256": "99511491526fbc94cc1a80bd43d8fcdfe2416fc42595658ca004c8a6524b412a"
+      },
+      "observations": {
+        "bytes": 362607,
+        "sha256": "f98dae462621807d17c521e00b8201368fbea615738e854eebef1372c2e3d047"
+      },
+      "commands": {
+        "bytes": 484755,
+        "sha256": "25bbabcdb111aa04379fdab5149bb865fdce664a218ffce5a50bb3f71ea637ec"
+      },
+      "toolchain": {
+        "bytes": 12488,
+        "sha256": "2195bd7addd4ad522f1fce76dbc7368525f4146e341c76eccf6c9c89e327b59c"
+      }
+    }
+  },
+  "classification": [
+    {
+      "id": "caller_suffix",
+      "metadata_exit": 0,
+      "syntax_errors": 0,
+      "link_errors": 0,
+      "validation_ERRORs": 0,
+      "hidden_metadata_exit": 0,
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "antlr_error_lines": [],
+      "antlr_warning_lines": [],
+      "javac": {
+        "exit_code": 0
+      },
+      "planned_resource_inputs": 17,
+      "actual_runtime_attempts": 17,
+      "complete_runtime_observations": 17,
+      "resource_accepted": 6,
+      "resource_rejected": 11,
+      "resource_rejected_partials": 8,
+      "named_calls_attempted": 34,
+      "complete_named_calls": 34,
+      "named_parser_accepted": 9,
+      "unexecuted_resource_inputs": [],
+      "runtime_process_failure_or_timeout": []
+    }
+  ],
+  "comparison_exception": "Only exact absolute owned provider-<EcoreSHA12>/provider.genmodel output path"
+}

@@ -1,0 +1,1204 @@
+[
+  {
+    "id": "terminal_only_library",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleTerminalOnly",
+          "used": [],
+          "rules": [
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "datatype_only_library",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDatatypeOnly",
+          "used": [],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "terminal_library_model_child",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleTerminalLibraryBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleTerminalLibraryChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleTerminalLibraryBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleTerminalLibraryBase.xtext#XtextFragmentProvider_audit.FirstRuleTerminalLibraryBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "datatype_library_model_child",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDatatypeLibraryBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleDatatypeLibraryChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleDatatypeLibraryBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDatatypeLibraryBase.xtext#XtextFragmentProvider_audit.FirstRuleDatatypeLibraryBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "terminal_before_local_model",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleTerminalBeforeModel",
+          "used": [],
+          "rules": [
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "datatype_before_local_model",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDatatypeBeforeModel",
+          "used": [],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "terminal_child_over_model_parent",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleTerminalChildBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleTerminalChildChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleTerminalChildBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleTerminalChildBase.xtext#XtextFragmentProvider_audit.FirstRuleTerminalChildBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "OTHER",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "datatype_child_over_model_parent",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDatatypeChildBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleDatatypeChildChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleDatatypeChildBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDatatypeChildBase.xtext#XtextFragmentProvider_audit.FirstRuleDatatypeChildBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "fragment_class_first",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleClassFragment",
+          "used": [],
+          "rules": [
+            {
+              "name": "First",
+              "kind": "ParserRule",
+              "fragment": true,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "fragment_untyped_first",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleUntypedFragment",
+          "used": [],
+          "rules": [
+            {
+              "name": "First",
+              "kind": "ParserRule",
+              "fragment": true,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "terminal_first_three_level_object_closure",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDeepObjectBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleDeepObjectMiddle",
+          "used": [
+            {
+              "name": "audit.FirstRuleDeepObjectBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDeepObjectBase.xtext#XtextFragmentProvider_audit.FirstRuleDeepObjectBase"
+            }
+          ],
+          "rules": []
+        },
+        {
+          "source": "audit.FirstRuleDeepObjectChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleDeepObjectMiddle",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDeepObjectMiddle.xtext#XtextFragmentProvider_audit.FirstRuleDeepObjectMiddle"
+            }
+          ],
+          "rules": [
+            {
+              "name": "OTHER",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "datatype_first_three_level_scalar_closure",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleDeepScalarBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleDeepScalarMiddle",
+          "used": [
+            {
+              "name": "audit.FirstRuleDeepScalarBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDeepScalarBase.xtext#XtextFragmentProvider_audit.FirstRuleDeepScalarBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "OTHER",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleDeepScalarChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleDeepScalarMiddle",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleDeepScalarMiddle.xtext#XtextFragmentProvider_audit.FirstRuleDeepScalarMiddle"
+            }
+          ],
+          "rules": [
+            {
+              "name": "More",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "enum_before_local_model",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleEnumBeforeModel",
+          "used": [],
+          "rules": [
+            {
+              "name": "Choice",
+              "kind": "EnumRule",
+              "fragment": null,
+              "datatype": null,
+              "classifier": {
+                "name": "Choice",
+                "kind": "EEnum",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//Choice"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "enum_library_model_child",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleEnumLibraryBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Choice",
+              "kind": "EnumRule",
+              "fragment": null,
+              "datatype": null,
+              "classifier": {
+                "name": "Choice",
+                "kind": "EEnum",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//Choice"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.FirstRuleEnumLibraryChild",
+          "used": [
+            {
+              "name": "audit.FirstRuleEnumLibraryBase",
+              "proxy": false,
+              "uri": "memory:/audit/FirstRuleEnumLibraryBase.xtext#XtextFragmentProvider_audit.FirstRuleEnumLibraryBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "same_name_class_first",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleIdentityClass",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "EString",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "same_name_datatype_first",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.FirstRuleIdentityDatatype",
+          "used": [],
+          "rules": [
+            {
+              "name": "Text",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": true,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "EString",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:first-rule:identity:1",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "inherited_operand_override",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.UntilContextInheritedOperandOverrideBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.UntilContextInheritedOperandOverrideChild",
+          "used": [
+            {
+              "name": "audit.UntilContextInheritedOperandOverrideBase",
+              "proxy": false,
+              "uri": "memory:/audit/UntilContextInheritedOperandOverrideBase.xtext#XtextFragmentProvider_audit.UntilContextInheritedOperandOverrideBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "explicit_parent_operand",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.UntilContextExplicitParentOperandBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.UntilContextExplicitParentOperandChild",
+          "used": [
+            {
+              "name": "audit.UntilContextExplicitParentOperandBase",
+              "proxy": false,
+              "uri": "memory:/audit/UntilContextExplicitParentOperandBase.xtext#XtextFragmentProvider_audit.UntilContextExplicitParentOperandBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "valid_inherited_operand_override",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.UntilValidInheritedOperandBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.UntilValidInheritedOperandChild",
+          "used": [
+            {
+              "name": "audit.UntilValidInheritedOperandBase",
+              "proxy": false,
+              "uri": "memory:/audit/UntilValidInheritedOperandBase.xtext#XtextFragmentProvider_audit.UntilValidInheritedOperandBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  },
+  {
+    "id": "valid_explicit_parent_operand",
+    "observation": {
+      "grammars": [
+        {
+          "source": "audit.UntilValidExplicitParentOperandBase",
+          "used": [],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        },
+        {
+          "source": "audit.UntilValidExplicitParentOperandChild",
+          "used": [
+            {
+              "name": "audit.UntilValidExplicitParentOperandBase",
+              "proxy": false,
+              "uri": "memory:/audit/UntilValidExplicitParentOperandBase.xtext#XtextFragmentProvider_audit.UntilValidExplicitParentOperandBase"
+            }
+          ],
+          "rules": [
+            {
+              "name": "Model",
+              "kind": "ParserRule",
+              "fragment": false,
+              "datatype": false,
+              "classifier": {
+                "name": "Model",
+                "kind": "EClass",
+                "proxy": false,
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "resource_fragment": "//Model"
+              }
+            },
+            {
+              "name": "VALUE",
+              "kind": "TerminalRule",
+              "fragment": false,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            },
+            {
+              "name": "END",
+              "kind": "TerminalRule",
+              "fragment": true,
+              "datatype": null,
+              "classifier": {
+                "name": "EString",
+                "kind": "EDataType",
+                "proxy": false,
+                "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                "resource_fragment": "//EString"
+              }
+            }
+          ]
+        }
+      ],
+      "linking_failure": null
+    }
+  }
+]

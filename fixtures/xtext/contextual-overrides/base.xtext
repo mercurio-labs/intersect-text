@@ -1,0 +1,8 @@
+grammar example.OverrideBase hidden(WS)
+import "urn:intersect:xtext:mini-kerml:contextual-overrides:1" as k
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Model returns k::Model: 'package' name=Name '{' members+=Member* '}';
+Member returns k::Type: 'type' name=Name ';';
+Name returns Ecore::EString: ID;
+terminal ID: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
+terminal WS: (' '|'\t'|'\r'|'\n')+;

@@ -1,0 +1,7 @@
+grammar mini.EnumShowcase with mini.EnumShowcaseBase
+import "urn:intersect:xtext:mini-kerml:enums:1" as k
+Entry returns k::Model: Model;
+@Override
+Type returns k::Element: {k::Type} isAbstract?='abstract'? 'type' Identification ('visibility' visibility=VisibilityIndicator)? ('filter' visibility=FilterPackageMemberVisibility)? ('operator' operator=ConditionalOperator)? ('count' count=DECIMAL_VALUE)? ('magnitude' magnitude=Number)? ('description' description=STRING_VALUE)? ';';
+@Override
+Feature returns k::Element: {k::Feature} 'feature' Identification ('direction' direction=FeatureDirection)? ':>' target=[k::Type|QualifiedName] ';';

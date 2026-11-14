@@ -1,0 +1,71 @@
+0    [main] INFO  xt.xtext.generator.StandardLanguage  - Skipping registration of Xbase genmodel. Xbase is not on the classpath.
+3    [main] INFO  text.xtext.generator.XtextGenerator  - Initializing Xtext generator
+304  [main] INFO  text.xtext.generator.XtextGenerator  - Generating inference.fragments.WildcardBasic
+339  [main] INFO  nerator.ecore.EMFGeneratorFragment2  - Generating EMF model code
+935  [main] INFO  text.xtext.generator.XtextGenerator  - Generating common infrastructure
+938  [main] ERROR mf.mwe2.launch.runtime.Mwe2Launcher  - Problems running workflow Generate: 
+[ERROR]: GeneratorException: (Element: -UNKNOWN-; Reported by: XtextGenerator)
+	 java.lang.NullPointerException: Cannot invoke "org.eclipse.xtext.TypeRef.getClassifier()" because the return value of "org.eclipse.xtext.AbstractRule.getType()" is null
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generateExampleRuntimeTest(JUnitFragment.java:188)
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generate(JUnitFragment.java:133)
+	at org.eclipse.xtext.xtext.generator.CompositeGeneratorFragment2.generate(CompositeGeneratorFragment2.java:43)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.invokeInternal(XtextGenerator.java:228)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:133)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.invoke(Mwe2Bridge.java:35)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:213)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.invoke(AbstractCompositeWorkflowComponent.java:38)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:21)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+
+java.lang.RuntimeException: Problems running workflow Generate: 
+[ERROR]: GeneratorException: (Element: -UNKNOWN-; Reported by: XtextGenerator)
+	 java.lang.NullPointerException: Cannot invoke "org.eclipse.xtext.TypeRef.getClassifier()" because the return value of "org.eclipse.xtext.AbstractRule.getType()" is null
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generateExampleRuntimeTest(JUnitFragment.java:188)
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generate(JUnitFragment.java:133)
+	at org.eclipse.xtext.xtext.generator.CompositeGeneratorFragment2.generate(CompositeGeneratorFragment2.java:43)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.invokeInternal(XtextGenerator.java:228)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:133)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.invoke(Mwe2Bridge.java:35)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:213)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.invoke(AbstractCompositeWorkflowComponent.java:38)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:21)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:105)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+Caused by: java.lang.RuntimeException: 
+[ERROR]: GeneratorException: (Element: -UNKNOWN-; Reported by: XtextGenerator)
+	 java.lang.NullPointerException: Cannot invoke "org.eclipse.xtext.TypeRef.getClassifier()" because the return value of "org.eclipse.xtext.AbstractRule.getType()" is null
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generateExampleRuntimeTest(JUnitFragment.java:188)
+	at org.eclipse.xtext.xtext.generator.junit.JUnitFragment.generate(JUnitFragment.java:133)
+	at org.eclipse.xtext.xtext.generator.CompositeGeneratorFragment2.generate(CompositeGeneratorFragment2.java:43)
+	at org.eclipse.xtext.xtext.generator.XtextGenerator.invokeInternal(XtextGenerator.java:228)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:133)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.invoke(Mwe2Bridge.java:35)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:213)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.invoke(AbstractCompositeWorkflowComponent.java:38)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:21)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:63)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:53)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.run(Mwe2Launcher.java:78)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher.main(Mwe2Launcher.java:36)
+
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.handleIssues(Mwe2Bridge.java:60)
+	at org.eclipse.emf.mwe.core.lib.Mwe2Bridge.invoke(Mwe2Bridge.java:52)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:213)
+	at org.eclipse.emf.mwe2.runtime.workflow.AbstractCompositeWorkflowComponent.invoke(AbstractCompositeWorkflowComponent.java:38)
+	at org.eclipse.emf.mwe2.runtime.workflow.Workflow.run(Workflow.java:21)
+	at org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner.run(Mwe2Runner.java:103)
+	... 4 more

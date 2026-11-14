@@ -1,0 +1,9 @@
+rcore 1;
+package fixtureProviders version "1";
+import model "urn:intersect:example:library:1" as m;
+derive m.`Library`.`copyCount` using count(`copies`);
+derive m.`BookCopy`.`available` using noIncoming(m.`Loan`.`copy`);
+validate m.`Loan`.rule0(self) {
+  require size(incoming::<m.`Loan`>(self.`copy`, "copy")) <= 1
+    code "rule0" message "A book copy cannot have more than one active loan.";
+}

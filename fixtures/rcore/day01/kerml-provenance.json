@@ -1,0 +1,58 @@
+{
+  "revision": "692170b71867353b8f90341e61556f49a5beb0e5",
+  "repository": "https://github.com/Systems-Modeling/SysML-v2-Pilot-Implementation",
+  "source_path": "org.omg.sysml/model/kerml.ecore",
+  "source_sha256": "07f47c9aabedbf5561e1cb31986c8cedc707d05cf1eada4370c062d55dd9791a",
+  "original_namespace": "https://www.omg.org/spec/KerML/20250201",
+  "projection_namespace": "urn:intersect:rcore:kerml-specialization-demo",
+  "identity_policy": "Projection identities differ from upstream identities. This map records lineage, not full-metamodel admission.",
+  "declarations": [
+    {
+      "projected_classifier": "Type",
+      "original_classifier_path": [
+        16
+      ],
+      "original_name": "Type",
+      "original_super_types": "#//Namespace",
+      "features": []
+    },
+    {
+      "projected_classifier": "Specialization",
+      "original_classifier_path": [
+        17
+      ],
+      "original_name": "Specialization",
+      "original_super_types": "#//Relationship",
+      "features": [
+        {
+          "projected_feature": "general",
+          "original_feature_index": 0,
+          "original_attributes": {
+            "{http://www.w3.org/2001/XMLSchema-instance}type": "ecore:EReference",
+            "name": "general",
+            "ordered": "false",
+            "lowerBound": "1",
+            "eType": "#//Type"
+          }
+        },
+        {
+          "projected_feature": "specific",
+          "original_feature_index": 1,
+          "original_attributes": {
+            "{http://www.w3.org/2001/XMLSchema-instance}type": "ecore:EReference",
+            "name": "specific",
+            "ordered": "false",
+            "lowerBound": "1",
+            "eType": "#//Type"
+          }
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    "all inherited Element/Namespace/Relationship features and constraints",
+    "derived owningType/ownedSpecialization",
+    "implicit specialization and standard-library semantics",
+    "full KerML conformance"
+  ]
+}

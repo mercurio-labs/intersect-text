@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "unique_names",
+  "derived": [
+    {
+      "class": "Library",
+      "feature": "copyCount",
+      "expression": { "op": "count", "feature": "copies" }
+    },
+    {
+      "class": "BookCopy",
+      "feature": "available",
+      "expression": { "op": "no_incoming", "class": "Loan", "feature": "copy" }
+    }
+  ],
+  "validations": [
+    {
+      "class": "Loan",
+      "feature": "copy",
+      "max_incoming": 1,
+      "message": "A book copy cannot have more than one active loan."
+    }
+  ]
+}

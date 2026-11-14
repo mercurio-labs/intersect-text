@@ -1,0 +1,128 @@
+{
+  "purpose": "Independently authored framing expectations for the next metadata-hash continuation; not evidence that an incremental Rust implementation exists.",
+  "cases": [
+    {
+      "name": "empty",
+      "prior_revision": "prior",
+      "raw_reference_bounds": {},
+      "runtime_warnings": [],
+      "expected_json": "[\"prior\",{},[]]",
+      "expected_sha256": "b691d11b2b0dc03f5d75d1c7902f8607aaeb80235360f132209f8447175daa26",
+      "expected_bytes": 15
+    },
+    {
+      "name": "multiple_bounds",
+      "prior_revision": "prior",
+      "raw_reference_bounds": {
+        "A": {
+          "first": [
+            "B",
+            "C"
+          ],
+          "second": []
+        },
+        "Z": {
+          "link": [
+            "A"
+          ]
+        }
+      },
+      "runtime_warnings": [],
+      "expected_json": "[\"prior\",{\"A\":{\"first\":[\"B\",\"C\"],\"second\":[]},\"Z\":{\"link\":[\"A\"]}},[]]",
+      "expected_sha256": "cdbe197f3d709551e4030cab3d8e892b61e545a76f96ad588bda3aaf7e779a69",
+      "expected_bytes": 69
+    },
+    {
+      "name": "warnings",
+      "prior_revision": "prior",
+      "raw_reference_bounds": {},
+      "runtime_warnings": [
+        {
+          "code": "raw.parameter",
+          "message": "Unresolved \"T\"\nuses its raw bound",
+          "span": {
+            "source": {
+              "uri": "memory:raw.ecore",
+              "sha256": "abababababababababababababababababababababababababababababababab"
+            },
+            "start": 7,
+            "end": 19
+          }
+        }
+      ],
+      "expected_json": "[\"prior\",{},[{\"code\":\"raw.parameter\",\"message\":\"Unresolved \\\"T\\\"\\nuses its raw bound\",\"span\":{\"source\":{\"uri\":\"memory:raw.ecore\",\"sha256\":\"abababababababababababababababababababababababababababababababab\"},\"start\":7,\"end\":19}}]]",
+      "expected_sha256": "bfb1c4457d459d260f3ae6e9cb5c20e39933be7d48e75b4bb3bb4505a1044ebe",
+      "expected_bytes": 228
+    },
+    {
+      "name": "escaped_unicode",
+      "prior_revision": "rev\"\\\n",
+      "raw_reference_bounds": {
+        "A\"\\\n": {
+          "snowman☃": [
+            "target\t\r\n",
+            "emoji🚀"
+          ]
+        }
+      },
+      "runtime_warnings": [
+        {
+          "code": "raw.parameter",
+          "message": "Unresolved \"T\"\nuses its raw bound",
+          "span": {
+            "source": {
+              "uri": "memory:raw.ecore",
+              "sha256": "abababababababababababababababababababababababababababababababab"
+            },
+            "start": 7,
+            "end": 19
+          }
+        }
+      ],
+      "expected_json": "[\"rev\\\"\\\\\\n\",{\"A\\\"\\\\\\n\":{\"snowman☃\":[\"target\\t\\r\\n\",\"emoji🚀\"]}},[{\"code\":\"raw.parameter\",\"message\":\"Unresolved \\\"T\\\"\\nuses its raw bound\",\"span\":{\"source\":{\"uri\":\"memory:raw.ecore\",\"sha256\":\"abababababababababababababababababababababababababababababababab\"},\"start\":7,\"end\":19}}]]",
+      "expected_sha256": "f7c4f163e934ba08b9b5094abf62758fb466873681858b1375ebffe5f35a6e9c",
+      "expected_bytes": 285
+    },
+    {
+      "name": "multiple_digest_blocks",
+      "prior_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "raw_reference_bounds": {
+        "A": {
+          "f": [
+            "unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃",
+            "bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-"
+          ]
+        }
+      },
+      "runtime_warnings": [
+        {
+          "code": "raw.parameter",
+          "message": "Unresolved \"T\"\nuses its raw bound",
+          "span": {
+            "source": {
+              "uri": "memory:raw.ecore",
+              "sha256": "abababababababababababababababababababababababababababababababab"
+            },
+            "start": 7,
+            "end": 19
+          }
+        },
+        {
+          "code": "raw.parameter",
+          "message": "Unresolved \"T\"\nuses its raw bound",
+          "span": {
+            "source": {
+              "uri": "memory:raw.ecore",
+              "sha256": "abababababababababababababababababababababababababababababababab"
+            },
+            "start": 7,
+            "end": 19
+          }
+        }
+      ],
+      "expected_json": "[\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",{\"A\":{\"f\":[\"unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃unicode☃\",\"bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-bound-\"]}},[{\"code\":\"raw.parameter\",\"message\":\"Unresolved \\\"T\\\"\\nuses its raw bound\",\"span\":{\"source\":{\"uri\":\"memory:raw.ecore\",\"sha256\":\"abababababababababababababababababababababababababababababababab\"},\"start\":7,\"end\":19}},{\"code\":\"raw.parameter\",\"message\":\"Unresolved \\\"T\\\"\\nuses its raw bound\",\"span\":{\"source\":{\"uri\":\"memory:raw.ecore\",\"sha256\":\"abababababababababababababababababababababababababababababababab\"},\"start\":7,\"end\":19}}]]",
+      "expected_sha256": "7100a513937d646983dec45a279e0842f794ef85952a8c15c2a95087134132f4",
+      "expected_bytes": 2018
+    }
+  ]
+}

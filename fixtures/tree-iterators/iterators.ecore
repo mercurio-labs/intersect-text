@@ -1,0 +1,9 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="iterators" nsURI="urn:intersect:iterators">
+  <eClassifiers xsi:type="ecore:EDataType" name="Cursor" instanceClassName="org.eclipse.emf.common.util.TreeIterator" serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Session">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localCursor" eType="#//Cursor"/>
+    <eOperations name="resume" eType="http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator"><eParameters name="cursor" eType="http://www.eclipse.org/emf/2002/Ecore#//ETreeIterator"/></eOperations>
+  </eClassifiers>
+</ecore:EPackage>

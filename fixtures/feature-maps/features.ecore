@@ -1,0 +1,20 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="fm" nsURI="urn:fm">
+<eClassifiers xsi:type="e:EDataType" name="Count" instanceClassName="int"/>
+<eClassifiers xsi:type="e:EDataType" name="RGB" instanceClassName="example.RGB"/>
+<eClassifiers xsi:type="e:EEnum" name="Mode"><eLiterals name="First" value="7"/><eLiterals name="Alias" value="7"/></eClassifiers>
+<eClassifiers xsi:type="e:EClass" name="Holder">
+<eStructuralFeatures xsi:type="e:EAttribute" name="text" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="count" eType="#//Count"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="mode" eType="#//Mode"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="color" eType="#//RGB"/>
+<eStructuralFeatures xsi:type="e:EReference" name="peer" eType="#//Peer"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="entry" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="map" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="localEntry" eType="#//Entry"/>
+<eStructuralFeatures xsi:type="e:EAttribute" name="localMap" eType="#//Map"/>
+<eOperations name="echo" eType="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"><eParameters name="value" eType="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap"/></eOperations>
+</eClassifiers>
+<eClassifiers xsi:type="e:EClass" name="Peer"/>
+<eClassifiers xsi:type="e:EDataType" name="Entry" instanceClassName="org.eclipse.emf.ecore.util.FeatureMap$Entry" serializable="false"/>
+<eClassifiers xsi:type="e:EDataType" name="Map" instanceClassName="org.eclipse.emf.ecore.util.FeatureMap" serializable="false"/>
+</e:EPackage>

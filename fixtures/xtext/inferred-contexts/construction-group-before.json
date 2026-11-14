@@ -1,0 +1,156 @@
+[
+  {
+    "id": "rgb_defaults_ecore_action_group",
+    "inference": {
+      "version": 1,
+      "bundle": {
+        "version": 1,
+        "sources": [
+          {
+            "id": {
+              "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.rcore",
+              "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+            },
+            "kind": "rcore",
+            "text": "rcore 1; package paint version \"1\";\nmetamodel \"urn:inferred:paint\" prefix p {\n datatype RGB instanceClass \"example.RGB\" {}\n class Paint { attr color: RGB [0,1] default \"#123abc\"; }\n}\n",
+            "dependencies": []
+          },
+          {
+            "id": {
+              "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.xtext",
+              "sha256": "8956153643daedb00ed7527f424d5851a20435bd559bf8e9e5ee8e82318a020e"
+            },
+            "kind": "xtext",
+            "text": "grammar contexts.rgb.Language hidden(WS)\ngenerate model \"urn:contexts:rgb\"\nimport \"urn:inferred:paint\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Paint<false>;\nPaint<Flag> returns p::Paint: {p::Paint} (<Flag> 'yes' | <!Flag> 'paint');\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+            "dependencies": [
+              {
+                "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              }
+            ]
+          }
+        ],
+        "namespaces": [
+          {
+            "namespace": "urn:inferred:paint",
+            "source": {
+              "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.rcore",
+              "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+            }
+          }
+        ]
+      },
+      "grammar": {
+        "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.xtext",
+        "sha256": "8956153643daedb00ed7527f424d5851a20435bd559bf8e9e5ee8e82318a020e"
+      }
+    },
+    "model_text": "paint",
+    "entry": "Paint",
+    "before": {
+      "diagnostic_origins": [
+        {
+          "kind": "source",
+          "source": {
+            "sha256": "8956153643daedb00ed7527f424d5851a20435bd559bf8e9e5ee8e82318a020e",
+            "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.xtext"
+          },
+          "span": {
+            "end": 107,
+            "source": {
+              "sha256": "8956153643daedb00ed7527f424d5851a20435bd559bf8e9e5ee8e82318a020e",
+              "uri": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.xtext"
+            },
+            "start": 75
+          }
+        }
+      ],
+      "diagnostics": [
+        {
+          "end": 107,
+          "message": "Unsupported: Unsupported datatype RGB: No native scalar binding for \"example.RGB\"; an explicit provider is required",
+          "source": "memory:inferred-contexts/rgb_defaults_ecore_action_group/model.xtext",
+          "start": 75
+        }
+      ],
+      "ok": false
+    }
+  },
+  {
+    "id": "rgb_defaults_plain_ecore_action_group",
+    "inference": {
+      "version": 1,
+      "bundle": {
+        "version": 1,
+        "sources": [
+          {
+            "id": {
+              "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.rcore",
+              "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+            },
+            "kind": "rcore",
+            "text": "rcore 1; package paint version \"1\";\nmetamodel \"urn:inferred:paint\" prefix p {\n datatype RGB instanceClass \"example.RGB\" {}\n class Paint { attr color: RGB [0,1] default \"#123abc\"; }\n}\n",
+            "dependencies": []
+          },
+          {
+            "id": {
+              "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.xtext",
+              "sha256": "50da530f4d43da7078e8bbbcd84e10c9b44e211c58cea2d1b888092c64a9ed7a"
+            },
+            "kind": "xtext",
+            "text": "grammar contexts.rgb.Language hidden(WS)\ngenerate model \"urn:contexts:rgb\"\nimport \"urn:inferred:paint\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Paint;\nPaint returns p::Paint: {p::Paint} 'paint';\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+            "dependencies": [
+              {
+                "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.rcore",
+                "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+              }
+            ]
+          }
+        ],
+        "namespaces": [
+          {
+            "namespace": "urn:inferred:paint",
+            "source": {
+              "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.rcore",
+              "sha256": "f43fb4a12cade74861c2143da2a638322bf85ea6830db26493cce13523edfdff"
+            }
+          }
+        ]
+      },
+      "grammar": {
+        "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.xtext",
+        "sha256": "50da530f4d43da7078e8bbbcd84e10c9b44e211c58cea2d1b888092c64a9ed7a"
+      }
+    },
+    "model_text": "paint",
+    "entry": "Paint",
+    "before": {
+      "diagnostic_origins": [
+        {
+          "kind": "source",
+          "source": {
+            "sha256": "50da530f4d43da7078e8bbbcd84e10c9b44e211c58cea2d1b888092c64a9ed7a",
+            "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.xtext"
+          },
+          "span": {
+            "end": 107,
+            "source": {
+              "sha256": "50da530f4d43da7078e8bbbcd84e10c9b44e211c58cea2d1b888092c64a9ed7a",
+              "uri": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.xtext"
+            },
+            "start": 75
+          }
+        }
+      ],
+      "diagnostics": [
+        {
+          "end": 107,
+          "message": "Unsupported: Unsupported datatype RGB: No native scalar binding for \"example.RGB\"; an explicit provider is required",
+          "source": "memory:inferred-contexts/rgb_defaults_plain_ecore_action_group/model.xtext",
+          "start": 75
+        }
+      ],
+      "ok": false
+    }
+  }
+]

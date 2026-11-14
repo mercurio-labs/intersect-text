@@ -1,0 +1,7 @@
+{
+  "original_sha256": "0df88dd8960b087360eb8ac8ffd738d208ccff13cf43a5a8975e962d62e60278",
+  "new_sha256": "ad75aeca3d69db8cd4657043887956e69ebf07c8872316674b1c27be6a887ed8",
+  "scope": "Mechanical V65 capability inheritance for66 ONLY. Old v1 browser source/reports/traces retained, source holds terminal before edit. No Rust change or WASM rebuild.",
+  "before": "function durablePackage(pkg) { return pkg?.grammar?.profile === 'intersect.xtext.native.v65'; }",
+  "after": "function durablePackage(pkg) { return ['intersect.xtext.native.v65', 'intersect.xtext.native.v66'].includes(pkg?.grammar?.profile); }"
+}

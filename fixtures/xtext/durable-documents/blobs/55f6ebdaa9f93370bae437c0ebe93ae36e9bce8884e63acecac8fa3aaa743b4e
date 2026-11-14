@@ -1,0 +1,272 @@
+//! Language-owned ordinary/inferred archive compilation over one manifest verifier.
+use crate::inference::InferenceRequest;
+pub use intersect_model::definitions::distribution::*;
+use intersect_model::definitions::{
+    grammar::Profile,
+    schema::{BundleCompilation, CompilationSourcePolicy, Package, XtextInferenceInputs},
+};
+use std::collections::BTreeMap;
+/// Identity of the installed language-owned inference frontend. This descriptor installs no executable code.
+pub fn inference_compiler_identity() -> CompilerIdentity {
+    Frontend.identity()
+}
+struct Frontend;
+impl XtextInferenceFrontend for Frontend {
+    fn identity(&self) -> CompilerIdentity {
+        CompilerIdentity {
+            name: "intersect-xtext".into(),
+            version: env!("CARGO_PKG_VERSION").into(),
+        }
+    }
+    fn profile(&self) -> Profile {
+        Profile::NativeV56
+    }
+    fn supports_profile(&self, profile: Profile) -> bool {
+        matches!(profile, Profile::NativeV56 | Profile::NativeV57)
+    }
+    fn compile(
+        &self,
+        inputs: &XtextInferenceInputs,
+        requested: CompilationSourcePolicy,
+        host: CompilationSourcePolicy,
+    ) -> Result<Package, String> {
+        crate::replay::compile_inputs_with_source_policy(inputs, requested, host).map_err(
+            |diagnostics| format!("Cannot compile inferred archive sources: {diagnostics:?}"),
+        )
+    }
+}
+struct InferenceContextFrontend<'a> {
+    settings: &'a [intersect_model::definitions::setting::ComputedSettingContract],
+    conversions: Option<&'a intersect_model::definitions::conversion::ConversionRegistry<'a>>,
+}
+impl XtextInferenceFrontend for InferenceContextFrontend<'_> {
+    fn identity(&self) -> CompilerIdentity {
+        Frontend.identity()
+    }
+    fn profile(&self) -> Profile {
+        Frontend.profile()
+    }
+    fn supports_profile(&self, profile: Profile) -> bool {
+        Frontend.supports_profile(profile)
+    }
+    fn compile(
+        &self,
+        inputs: &XtextInferenceInputs,
+        requested: CompilationSourcePolicy,
+        host: CompilationSourcePolicy,
+    ) -> Result<Package, String> {
+        crate::replay::compile_inputs_with_context(
+            inputs,
+            requested,
+            host,
+            self.settings,
+            self.conversions,
+        )
+        .map_err(|diagnostics| format!("Cannot compile inferred archive sources: {diagnostics:?}"))
+    }
+}
+/// Package original inference sources using explicitly installed provider context.
+/// Archives retain contracts and exact behavior selections, never executable providers.
+pub fn build_inferred_with_context(
+    inputs: XtextInferenceInputs,
+    metadata: PackageMetadata,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    requested: CompilationSourcePolicy,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    build_inferred_with_frontend(
+        inputs,
+        metadata,
+        requested,
+        host,
+        &InferenceContextFrontend {
+            settings,
+            conversions,
+        },
+    )
+}
+/// Rebuild an inferred source request and package the original inputs.
+pub fn build_inferred(
+    inputs: InferenceRequest,
+    metadata: PackageMetadata,
+) -> Result<Distribution, String> {
+    build_inferred_with_source_policy(
+        inputs,
+        metadata,
+        CompilationSourcePolicy::default(),
+        CompilationSourcePolicy::default(),
+    )
+}
+pub fn build_inferred_with_source_policy(
+    inputs: InferenceRequest,
+    metadata: PackageMetadata,
+    requested: CompilationSourcePolicy,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    build_inferred_with_frontend(
+        XtextInferenceInputs {
+            version: inputs.version,
+            bundle: inputs.bundle,
+            grammar: inputs.grammar,
+            behavior: None,
+        },
+        metadata,
+        requested,
+        host,
+        &Frontend,
+    )
+}
+/// Both source producers select explicitly installed frontends. Legacy ordinary
+/// archives retain their exact model compiler identity and payload bytes.
+pub fn import_files(files: BTreeMap<String, String>) -> Result<Distribution, String> {
+    import_files_with_source_policy(files, CompilationSourcePolicy::default())
+}
+pub fn import_files_with_source_policy(
+    files: BTreeMap<String, String>,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    import_files_with_settings_and_source_policy(files, &[], host)
+}
+pub fn import_files_with_settings_and_source_policy(
+    files: BTreeMap<String, String>,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    import_files_with_context(files, settings, None, host)
+}
+
+struct OrdinaryFrontend<'a> {
+    conversions: Option<&'a intersect_model::definitions::conversion::ConversionRegistry<'a>>,
+}
+impl BundleCompilationFrontend for OrdinaryFrontend<'_> {
+    fn compile(
+        &self,
+        inputs: &BundleCompilation,
+        profile: Profile,
+        settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+        requested: Option<CompilationSourcePolicy>,
+        host: CompilationSourcePolicy,
+    ) -> Result<CompiledBundle, String> {
+        let package = crate::ordinary::compile_with_optional_source_policy(
+            inputs.clone(),
+            profile,
+            settings,
+            self.conversions,
+            requested,
+            host,
+        )
+        .map_err(|errors| format!("Cannot compile ordinary archive sources: {errors:?}"))?;
+        // Only fresh compilation output determines the compiler identity. Never
+        // inspect an archived Package to select authority or executable code.
+        let specialized = package
+            .sources
+            .keys()
+            .any(|k| k.starts_with("generated:xtext:"));
+        Ok(CompiledBundle {
+            package,
+            compiler: if specialized {
+                Frontend.identity()
+            } else {
+                model_compiler_identity()
+            },
+        })
+    }
+}
+pub fn build_bundle_with_profile(
+    inputs: BundleCompilation,
+    metadata: PackageMetadata,
+    profile: Profile,
+) -> Result<Distribution, String> {
+    build_bundle_with_context(
+        inputs,
+        metadata,
+        profile,
+        &[],
+        None,
+        None,
+        CompilationSourcePolicy::default(),
+    )
+}
+pub fn build_bundle_with_source_policy(
+    inputs: BundleCompilation,
+    metadata: PackageMetadata,
+    profile: Profile,
+    requested: CompilationSourcePolicy,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    build_bundle_with_context(inputs, metadata, profile, &[], None, Some(requested), host)
+}
+pub fn build_bundle_with_settings_and_source_policy(
+    inputs: BundleCompilation,
+    metadata: PackageMetadata,
+    profile: Profile,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    requested: CompilationSourcePolicy,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    build_bundle_with_context(
+        inputs,
+        metadata,
+        profile,
+        settings,
+        None,
+        Some(requested),
+        host,
+    )
+}
+pub fn build_bundle_with_conversions_and_profile(
+    inputs: BundleCompilation,
+    metadata: PackageMetadata,
+    conversions: &intersect_model::definitions::conversion::ConversionRegistry<'_>,
+    profile: Profile,
+) -> Result<Distribution, String> {
+    build_bundle_with_context(
+        inputs,
+        metadata,
+        profile,
+        &[],
+        Some(conversions),
+        None,
+        CompilationSourcePolicy::default(),
+    )
+}
+/// Provider registries are caller-selected; archives retain only their contracts.
+pub fn build_bundle_with_context(
+    inputs: BundleCompilation,
+    metadata: PackageMetadata,
+    profile: Profile,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    requested: Option<CompilationSourcePolicy>,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    build_bundle_with_frontend(
+        inputs,
+        metadata,
+        profile,
+        settings,
+        requested,
+        host,
+        &OrdinaryFrontend { conversions },
+    )
+}
+/// Rebuild ordinary sources with explicit contracts/providers through the same
+/// inventory, identity, runtime and full cached-IR verifier as inferred sources.
+pub fn import_files_with_context(
+    files: BTreeMap<String, String>,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    host: CompilationSourcePolicy,
+) -> Result<Distribution, String> {
+    import_files_with_frontends(
+        files,
+        settings,
+        host,
+        Some(&InferenceContextFrontend {
+            settings,
+            conversions,
+        }),
+        Some(&OrdinaryFrontend { conversions }),
+    )
+}

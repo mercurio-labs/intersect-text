@@ -1,0 +1,22 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="bridge" nsURI="urn:concrete-operation-bridge">
+<eClassifiers x:type="e:EClass" name="Value"/>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="TextAlias" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EEnum" name="Choice"><eLiterals name="First"/></eClassifiers>
+<eClassifiers x:type="e:EEnum" name="OtherChoice"><eLiterals name="First"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Owner">
+ <eOperations name="inspect" eType="#//Value" lowerBound="1" ordered="false" unique="false">
+  <eParameters name="item" eType="#//Value" lowerBound="1" ordered="false" unique="false"/>
+  <eParameters name="texts" eType="#//Text" upperBound="-1" unique="false"/>
+  <eParameters name="label" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eParameters name="choice" eType="#//Choice"/>
+  <eAnnotations source="exact-source"/>
+ </eOperations>
+ <eOperations name="noop"/>
+ <eOperations name="alternatives" eType="#//Other"><eParameters name="text" eType="#//TextAlias"/><eParameters name="choice" eType="#//OtherChoice"/></eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Generic"><eTypeParameters name="T"/><eOperations name="echo"><eGenericType eTypeParameter="#//Generic/T"/><eParameters name="item"><eGenericType eTypeParameter="#//Generic/T"/></eParameters></eOperations></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child"><eGenericSuperTypes eClassifier="#//Generic"><eTypeArguments eClassifier="#//Value"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Inherited" eSuperTypes="#//Owner"/>
+</e:EPackage>

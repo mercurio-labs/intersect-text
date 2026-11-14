@@ -1,0 +1,390 @@
+[
+  {
+    "id": "suffix_ab_or_abc_x",
+    "entry": "audit.UntilContextSuffixAbOrAbcX",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextSuffixAbOrAbcX",
+        "file": "audit.UntilContextSuffixAbOrAbcX.xtext",
+        "source_id": {
+          "uri": "memory:suffix_ab_or_abc_x/audit.UntilContextSuffixAbOrAbcX.xtext",
+          "sha256": "f7e704d4b04e09b74678ffc494970b9b5fdfbdd588525b5c5729f991016ba67c"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abcx",
+      "@abca",
+      "@abcax",
+      "@abcy",
+      "@abxx",
+      "@xabcx",
+      "@abxabx"
+    ],
+    "question": "Does whole-rule suffix x alter the nongreedy loop and internal prefix choice?",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "suffix_abc_or_b_c",
+    "entry": "audit.UntilContextSuffixAbcOrBC",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextSuffixAbcOrBC",
+        "file": "audit.UntilContextSuffixAbcOrBC.xtext",
+        "source_id": {
+          "uri": "memory:suffix_abc_or_b_c/audit.UntilContextSuffixAbcOrBC.xtext",
+          "sha256": "c790299fd713a578f93a4769fd38d0f99cc993b683ec1e439eb072b6a0175346"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@abc",
+      "@abcc",
+      "@bc",
+      "@bx",
+      "@acbc",
+      "@xabc",
+      "@abcbc",
+      "@abcx",
+      "@bcbcc",
+      "@abcc@bc"
+    ],
+    "question": "Does suffix c alter continue-vs-exit prediction for overlapping abc|b?",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "factored_ab_or_abc",
+    "entry": "audit.UntilContextFactoredAbOrAbc",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextFactoredAbOrAbc",
+        "file": "audit.UntilContextFactoredAbOrAbc.xtext",
+        "source_id": {
+          "uri": "memory:factored_ab_or_abc/audit.UntilContextFactoredAbOrAbc.xtext",
+          "sha256": "afcfe908684552cb7e442a6152c9c13ff6d84d007477c7bfd26fe497549a6dd2"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Compare equivalent delimiter language with factored prefix/inner alternative.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "unfactored_ab_or_abc",
+    "entry": "audit.UntilContextUnfactoredAbOrAbc",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextUnfactoredAbOrAbc",
+        "file": "audit.UntilContextUnfactoredAbOrAbc.xtext",
+        "source_id": {
+          "uri": "memory:unfactored_ab_or_abc/audit.UntilContextUnfactoredAbOrAbc.xtext",
+          "sha256": "d07793993553de5c3963b4df5d88915c12bbedd02480801b4d270725644a7ed5"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "New directly paired unfactored control for identical inputs.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "fragment_ab_or_abc",
+    "entry": "audit.UntilContextFragmentAbOrAbc",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextFragmentAbOrAbc",
+        "file": "audit.UntilContextFragmentAbOrAbc.xtext",
+        "source_id": {
+          "uri": "memory:fragment_ab_or_abc/audit.UntilContextFragmentAbOrAbc.xtext",
+          "sha256": "a2caddf9c7d57fd3218e036c00d75678299cd60d3170ba00f9fe0214b72466be"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Compare same delimiter language moved into a fragment call.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "shared_until_fragment_suffixes",
+    "entry": "audit.UntilContextSharedFragmentSuffixes",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextSharedFragmentSuffixes",
+        "file": "audit.UntilContextSharedFragmentSuffixes.xtext",
+        "source_id": {
+          "uri": "memory:shared_until_fragment_suffixes/audit.UntilContextSharedFragmentSuffixes.xtext",
+          "sha256": "a5cfcb4f0de3f198f1e99b1e8f7c22261040c95e3c35528d8478c06a4962cda0"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@abx",
+      "@abcx",
+      "@aby",
+      "@abcy",
+      "@abc",
+      "@ab",
+      "@abz",
+      "@abcxy",
+      "@xabcx",
+      "@abx@abcy"
+    ],
+    "question": "One until-bearing fragment called from two different suffix contexts; preserve any upstream ambiguity or generation failure.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "inherited_operand_override",
+    "entry": "audit.UntilContextInheritedOperandOverrideChild",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextInheritedOperandOverrideBase",
+        "file": "audit.UntilContextInheritedOperandOverrideBase.xtext",
+        "source_id": {
+          "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideBase.xtext",
+          "sha256": "c42d8c02df2ff6d19d81f19673051590d23211c3c0f4597e8f4e4d4b34ffa562"
+        }
+      },
+      {
+        "grammar": "audit.UntilContextInheritedOperandOverrideChild",
+        "file": "audit.UntilContextInheritedOperandOverrideChild.xtext",
+        "source_id": {
+          "uri": "memory:inherited_operand_override/audit.UntilContextInheritedOperandOverrideChild.xtext",
+          "sha256": "abadddb2cdb11c1d742f70179d506392ef93db9eeb1635855d515664b2378cae"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Inherited VALUE ordinary END should bind child override, versus explicit parent END selection. Override warnings remain exact.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "explicit_parent_operand",
+    "entry": "audit.UntilContextExplicitParentOperandChild",
+    "sources": [
+      {
+        "grammar": "audit.UntilContextExplicitParentOperandBase",
+        "file": "audit.UntilContextExplicitParentOperandBase.xtext",
+        "source_id": {
+          "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandBase.xtext",
+          "sha256": "f23a2bdd67cb892928f0f31fb975f01dc16c7e56fb625c57f126d93bba092a67"
+        }
+      },
+      {
+        "grammar": "audit.UntilContextExplicitParentOperandChild",
+        "file": "audit.UntilContextExplicitParentOperandChild.xtext",
+        "source_id": {
+          "uri": "memory:explicit_parent_operand/audit.UntilContextExplicitParentOperandChild.xtext",
+          "sha256": "f32c01485ce0a29458228af9414d5c7f9d21ea51fcdbe6f07b7706f0cb3a496c"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@ab",
+      "@abc",
+      "@abx",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@acb",
+      "@xabc",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Inherited VALUE ordinary END should bind child override, versus explicit parent END selection. Override warnings remain exact.",
+    "origin": "new independently authored exact source graph"
+  },
+  {
+    "id": "b_or_abc",
+    "entry": "audit.UntilOverlapBOrAbc",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapBOrAbc",
+        "file": "audit.UntilOverlapBOrAbc.xtext",
+        "source_id": {
+          "uri": "memory:b_or_abc/audit.UntilOverlapBOrAbc.xtext",
+          "sha256": "17cfc0ef79048fe3309b58e26dafdfb427b0ed9a1761529bed633a3d1932a19a"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Promote exact previously frozen narrow-adapter reversed/shifted-overlap graph to actual full generator/resource/parser route.",
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\b_or_abc\\model.xtext"
+  },
+  {
+    "id": "abc_or_ab",
+    "entry": "audit.UntilOverlapAbcOrAb",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapAbcOrAb",
+        "file": "audit.UntilOverlapAbcOrAb.xtext",
+        "source_id": {
+          "uri": "memory:abc_or_ab/audit.UntilOverlapAbcOrAb.xtext",
+          "sha256": "b55282be6e0f564091e4f543e339e6b26eab8e51d8373440822aeca4ecc0a7a3"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Promote exact previously frozen narrow-adapter reversed/shifted-overlap graph to actual full generator/resource/parser route.",
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\abc_or_ab\\model.xtext"
+  },
+  {
+    "id": "aba_or_ba",
+    "entry": "audit.UntilOverlapAbaOrBa",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapAbaOrBa",
+        "file": "audit.UntilOverlapAbaOrBa.xtext",
+        "source_id": {
+          "uri": "memory:aba_or_ba/audit.UntilOverlapAbaOrBa.xtext",
+          "sha256": "8a1ee4196d8a0049a84256c15ecb679c407a02d483e32e7f94eabef1b4667dec"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Promote exact previously frozen narrow-adapter reversed/shifted-overlap graph to actual full generator/resource/parser route.",
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\aba_or_ba\\model.xtext"
+  },
+  {
+    "id": "ba_or_aba",
+    "entry": "audit.UntilOverlapBaOrAba",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapBaOrAba",
+        "file": "audit.UntilOverlapBaOrAba.xtext",
+        "source_id": {
+          "uri": "memory:ba_or_aba/audit.UntilOverlapBaOrAba.xtext",
+          "sha256": "7b8e41346f3f490fc4b1a678c815b5a5d99221475a798c43c357f434aa6b7dd0"
+        }
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "question": "Promote exact previously frozen narrow-adapter reversed/shifted-overlap graph to actual full generator/resource/parser route.",
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\ba_or_aba\\model.xtext"
+  }
+]

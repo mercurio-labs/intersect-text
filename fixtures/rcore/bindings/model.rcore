@@ -1,0 +1,8 @@
+rcore 1;
+package binding.example version "1";
+metamodel "urn:intersect:bindings" prefix binding {
+  class Meter {
+    attr value: Int64 [1,1];
+    op doubled() -> Int64 [1,1];
+  }
+}

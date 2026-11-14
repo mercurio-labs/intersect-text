@@ -1,0 +1,45 @@
+{
+  "original_preexecution": {
+    "bytes": 3114,
+    "sha256": "25cd5bbb86d276c084625a2f45960676e71a51c76045739094d83c5e433ccef8"
+  },
+  "provider_delta": "remove one defaultValueLiteral attribute and assign new explicit provider namespace; no other Ecore declaration change",
+  "old_provider": {
+    "bytes": 466,
+    "sha256": "663c9ea55dfe1941deb6ce6838fa13f0a9e5f4e59e8808f1dfaaf7db20efb09b"
+  },
+  "new_provider": {
+    "bytes": 447,
+    "sha256": "ca9fd0e75e713e87960d41caac9b6fc83714ea9bc09b219c4d723e6d98b6d74a"
+  },
+  "cases": [
+    {
+      "old_case": "typed_terminal",
+      "old_source_id": {
+        "uri": "memory:document-provider-typed-v1/typed_terminal.xtext",
+        "sha256": "297cd9f8347c6d339f0ed06d9dc1a045e7c9514138a1a750b59cd95b43f2971a"
+      },
+      "new_source_id": {
+        "uri": "memory:document-provider-typed-nodefault-v1/typed_terminal_nodefault_companion.xtext",
+        "sha256": "d235904ffcc64c31a2c97c3f2e0eeaa84068d20b7efd1d074becad4dac34c250"
+      },
+      "old_grammar_text": "grammar document.provider.TypedTerminal hidden(WS)\nimport \"urn:document-provider:paint:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=COLOR?;\nterminal COLOR returns ecore::EJavaObject: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+      "new_grammar_text": "grammar document.provider.TypedTerminalNoDefault hidden(WS)\nimport \"urn:document-provider:paint:no-default:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=COLOR?;\nterminal COLOR returns ecore::EJavaObject: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+      "probe_lists_equal": true
+    },
+    {
+      "old_case": "typed_rule",
+      "old_source_id": {
+        "uri": "memory:document-provider-typed-v1/typed_rule.xtext",
+        "sha256": "96f9578b2aad84ab0638495c9ef53f9bd1beefe58b8c9d3c55b2725adf22d054"
+      },
+      "new_source_id": {
+        "uri": "memory:document-provider-typed-nodefault-v1/typed_rule_nodefault_companion.xtext",
+        "sha256": "2cd78e917b4f3565a86df8234f111c2eb2a10ec16694775821124e013dbf3042"
+      },
+      "old_grammar_text": "grammar document.provider.TypedRule hidden(WS)\nimport \"urn:document-provider:paint:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=Color?;\nColor returns ecore::EJavaObject: COLOR;\nterminal COLOR returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+      "new_grammar_text": "grammar document.provider.TypedRuleNoDefault hidden(WS)\nimport \"urn:document-provider:paint:no-default:1\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nPaint returns p::Paint: 'paint' color=Color?;\nColor returns ecore::EJavaObject: COLOR_TOKEN;\nterminal COLOR_TOKEN returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;\nterminal WS returns ecore::EString: ' '+;\n",
+      "probe_lists_equal": true
+    }
+  ]
+}

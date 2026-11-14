@@ -1,0 +1,87 @@
+{
+  "bundle": {
+    "namespaces": [
+      {
+        "namespace": "urn:intersect:example:library:1",
+        "source": {
+          "sha256": "533124ca2054d49cf69ae624858cda5422c55113442b1de87938e98ab0a54b75",
+          "uri": "file:///definitions/library.ecore.rcore"
+        }
+      },
+      {
+        "namespace": "urn:intersect:example:common:1",
+        "source": {
+          "sha256": "b4ea4500a9927d4ad72ec3537ddb5538df1340f5659573bcf394af44767c111d",
+          "uri": "file:///definitions/common.ecore.rcore"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "dependencies": [
+          {
+            "sha256": "b4ea4500a9927d4ad72ec3537ddb5538df1340f5659573bcf394af44767c111d",
+            "uri": "file:///definitions/common.ecore.rcore"
+          }
+        ],
+        "id": {
+          "sha256": "533124ca2054d49cf69ae624858cda5422c55113442b1de87938e98ab0a54b75",
+          "uri": "file:///definitions/library.ecore.rcore"
+        },
+        "kind": "rcore",
+        "text": "rcore 1;\npackage `library` version \"1\";\nmetamodel \"urn:intersect:example:library:1\" prefix `lib` {\n  class `Library` extends external \"file:///definitions/common.ecore.rcore#//@eClassifiers.0\" {\n    ref `copies`: external \"#//@eClassifiers.1\" [0,*] containment opposite external \"#//@eClassifiers.1/@eStructuralFeatures.2\";\n    ref `members`: external \"#//@eClassifiers.2\" [0,*] containment;\n    ref `loans`: external \"#//@eClassifiers.3\" [0,*] containment;\n    attr `copyCount`: EInt [0,1] derived;\n  }\n  class `BookCopy` extends external \"file:///definitions/common.ecore.rcore#//@eClassifiers.0\" {\n    attr `title`: EString [0,1];\n    attr `edition`: EInt [0,1] default \"1\";\n    ref `library`: external \"#//@eClassifiers.0\" [0,1] opposite external \"#//@eClassifiers.0/@eStructuralFeatures.0\";\n    attr `available`: EBoolean [0,1] derived;\n  }\n  class `Member` extends external \"file:///definitions/common.ecore.rcore#//@eClassifiers.0\" {\n  }\n  class `Loan` extends external \"file:///definitions/common.ecore.rcore#//@eClassifiers.0\" {\n    ref `copy`: external \"#//@eClassifiers.1\" [1,1];\n    ref `member`: external \"#//@eClassifiers.2\" [1,1];\n  }\n}\n"
+      },
+      {
+        "dependencies": [],
+        "id": {
+          "sha256": "b4ea4500a9927d4ad72ec3537ddb5538df1340f5659573bcf394af44767c111d",
+          "uri": "file:///definitions/common.ecore.rcore"
+        },
+        "kind": "rcore",
+        "text": "rcore 1;\npackage `common` version \"1\";\nmetamodel \"urn:intersect:example:common:1\" prefix `common` {\n  abstract class `Named` {\n    attr `name`: EString [1,1];\n  }\n}\n"
+      },
+      {
+        "dependencies": [
+          {
+            "sha256": "533124ca2054d49cf69ae624858cda5422c55113442b1de87938e98ab0a54b75",
+            "uri": "file:///definitions/library.ecore.rcore"
+          }
+        ],
+        "id": {
+          "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7",
+          "uri": "file:///definitions/library.xtext"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Library with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:example:library:1\" as lib\n\nLibrary returns lib::Library:\n  'library' name=ID '{'\n    (copies+=BookCopy | members+=Member | loans+=Loan)*\n  '}';\n\nBookCopy returns lib::BookCopy:\n  'copy' name=ID title=STRING ('edition' edition=INT)? ';';\n\nMember returns lib::Member:\n  'member' name=ID ';';\n\nLoan returns lib::Loan:\n  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]\n  'to' member=[lib::Member|ID] ';';\n"
+      },
+      {
+        "dependencies": [
+          {
+            "sha256": "533124ca2054d49cf69ae624858cda5422c55113442b1de87938e98ab0a54b75",
+            "uri": "file:///definitions/library.ecore.rcore"
+          }
+        ],
+        "id": {
+          "sha256": "a86f5e1f4a2800151976c6d9c522ce2cd091c4bb8f58f0b7c7f1a3750cc6fea3",
+          "uri": "file:///definitions/library-behavior.rcore"
+        },
+        "kind": "rcore_behavior",
+        "text": "rcore 1;\npackage fixtureProviders version \"1\";\nimport model \"urn:intersect:example:library:1\" as m;\nderive m.`Library`.`copyCount` using count(`copies`);\nderive m.`BookCopy`.`available` using noIncoming(m.`Loan`.`copy`);\nvalidate m.`Loan`.rule0(self) {\n  require size(incoming::<m.`Loan`>(self.`copy`, \"copy\")) <= 1\n    code \"rule0\" message \"A book copy cannot have more than one active loan.\";\n}\n"
+      }
+    ],
+    "version": 1
+  },
+  "ecore": {
+    "sha256": "533124ca2054d49cf69ae624858cda5422c55113442b1de87938e98ab0a54b75",
+    "uri": "file:///definitions/library.ecore.rcore"
+  },
+  "namespace": "urn:intersect:example:library:1",
+  "rcore_behavior": {
+    "sha256": "a86f5e1f4a2800151976c6d9c522ce2cd091c4bb8f58f0b7c7f1a3750cc6fea3",
+    "uri": "file:///definitions/library-behavior.rcore"
+  },
+  "xtext": {
+    "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7",
+    "uri": "file:///definitions/library.xtext"
+  }
+}

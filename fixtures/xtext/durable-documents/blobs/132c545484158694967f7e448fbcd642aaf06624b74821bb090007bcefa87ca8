@@ -1,0 +1,655 @@
+{
+  "state": "original selected initializer context full native BEFORE outputs; never replaced by source-only companion",
+  "original_compilation": {
+    "bundle": {
+      "version": 1,
+      "sources": [
+        {
+          "id": {
+            "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+            "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+          },
+          "kind": "rcore",
+          "text": "rcore 1;\npackage `actions` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:actions:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `origin`: EString [0,1] unsettable;\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.1\" [0,1] unsettable;\n  }\n}\n",
+          "dependencies": []
+        },
+        {
+          "id": {
+            "uri": "memory:node-recovery/original/simple_actions_original/model.xtext",
+            "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8"
+          },
+          "kind": "xtext",
+          "text": "grammar mini.SimpleActions with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:xtext:mini-kerml:actions:1\" as k\nModel returns k::Model: {k::Model} 'package' name=ID '{' members+=Member* '}';\nMember returns k::Element: Type | Feature;\nType returns k::Element: {k::Type} 'type' Identification ('origin' origin=STRING)? ';';\nFeature returns k::Element: {k::Feature} 'feature' Identification ':' target=[k::Type|ID] ';';\nfragment Identification returns k::Element: name=ID;\n",
+          "dependencies": [
+            {
+              "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+              "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+            },
+            {
+              "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext",
+              "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a"
+            }
+          ]
+        },
+        {
+          "id": {
+            "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext",
+            "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a"
+          },
+          "kind": "xtext",
+          "text": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n",
+          "dependencies": [
+            {
+              "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+              "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+            }
+          ]
+        },
+        {
+          "id": {
+            "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore",
+            "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b"
+          },
+          "kind": "rcore_behavior",
+          "text": "rcore 1;\npackage actionProviders version \"1\";\nimport model \"urn:intersect:xtext:mini-kerml:actions:1\" as m;\n\ninitialize m.Type using \"intersect.constant-attributes\" version \"1\" {\n  origin = \"constructor\";\n}\n",
+          "dependencies": [
+            {
+              "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+              "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+            }
+          ]
+        }
+      ],
+      "namespaces": []
+    },
+    "ecore": {
+      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+    },
+    "namespace": "urn:intersect:xtext:mini-kerml:actions:1",
+    "xtext": {
+      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext",
+      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8"
+    },
+    "rcore_behavior": {
+      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore",
+      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b"
+    }
+  },
+  "rows": [
+    {
+      "label": "simple_actions_original/resource/0",
+      "source": {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package Demo {\n  type Vehicle origin \"authored\";\n  type Wheel;\n  feature wheel : Wheel;\n}\n"
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 89,
+              "id": "memory:node-recovery/before/simple_actions_original.model#0",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 0,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#0",
+              "values": {
+                "members": [
+                  "memory:node-recovery/before/simple_actions_original.model#1",
+                  "memory:node-recovery/before/simple_actions_original.model#2",
+                  "memory:node-recovery/before/simple_actions_original.model#3"
+                ],
+                "name": "Demo"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "origin"
+                ],
+                "version": 1
+              },
+              "class": "Type",
+              "end": 48,
+              "id": "memory:node-recovery/before/simple_actions_original.model#1",
+              "initialization": {
+                "authored_members": [],
+                "contract": {
+                  "class": "Type",
+                  "class_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+                  "members": [
+                    {
+                      "declaration": {
+                        "path": [
+                          2,
+                          0
+                        ],
+                        "source": {
+                          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                        }
+                      },
+                      "kind": "source"
+                    }
+                  ],
+                  "provider": {
+                    "name": "intersect.constant-attributes",
+                    "version": "1"
+                  },
+                  "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f",
+                  "sources": [
+                    {
+                      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                    },
+                    {
+                      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext"
+                    },
+                    {
+                      "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a",
+                      "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext"
+                    },
+                    {
+                      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore"
+                    }
+                  ],
+                  "version": 1
+                },
+                "object": "memory:node-recovery/before/simple_actions_original.model#1"
+              },
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 17,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+              "values": {
+                "isAbstract": false,
+                "name": "Vehicle",
+                "origin": "authored"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "origin"
+                ],
+                "version": 1
+              },
+              "class": "Type",
+              "end": 62,
+              "id": "memory:node-recovery/before/simple_actions_original.model#2",
+              "initialization": {
+                "authored_members": [],
+                "contract": {
+                  "class": "Type",
+                  "class_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+                  "members": [
+                    {
+                      "declaration": {
+                        "path": [
+                          2,
+                          0
+                        ],
+                        "source": {
+                          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                        }
+                      },
+                      "kind": "source"
+                    }
+                  ],
+                  "provider": {
+                    "name": "intersect.constant-attributes",
+                    "version": "1"
+                  },
+                  "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f",
+                  "sources": [
+                    {
+                      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                    },
+                    {
+                      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext"
+                    },
+                    {
+                      "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a",
+                      "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext"
+                    },
+                    {
+                      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore"
+                    }
+                  ],
+                  "version": 1
+                },
+                "object": "memory:node-recovery/before/simple_actions_original.model#2"
+              },
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 51,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+              "values": {
+                "isAbstract": false,
+                "name": "Wheel",
+                "origin": "constructor"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "target"
+                ],
+                "version": 1
+              },
+              "class": "Feature",
+              "end": 87,
+              "id": "memory:node-recovery/before/simple_actions_original.model#3",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 65,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#3",
+              "values": {
+                "name": "wheel",
+                "target": "memory:node-recovery/before/simple_actions_original.model#2"
+              }
+            }
+          ],
+          "resources": {
+            "memory:node-recovery/before/simple_actions_original.model": {
+              "content_revision": "37",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:node-recovery/before/simple_actions_original.model#0"
+              ],
+              "source": {
+                "revision": "41cdb5d13708865179b99bb21144aaf931b279f9e8c11481af7cc638181acb2c",
+                "uri": "memory:node-recovery/before/simple_actions_original.model"
+              },
+              "uri": "memory:node-recovery/before/simple_actions_original.model"
+            }
+          },
+          "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f"
+        },
+        "references": [
+          {
+            "end": 86,
+            "start": 81,
+            "target": "memory:node-recovery/before/simple_actions_original.model#2",
+            "uri": "memory:node-recovery/before/simple_actions_original.model"
+          }
+        ]
+      }
+    },
+    {
+      "label": "simple_actions_original/resource/1",
+      "source": {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A; feature f:A; }"
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 34,
+              "id": "memory:node-recovery/before/simple_actions_original.model#0",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 0,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#0",
+              "values": {
+                "members": [
+                  "memory:node-recovery/before/simple_actions_original.model#1",
+                  "memory:node-recovery/before/simple_actions_original.model#2"
+                ],
+                "name": "M"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "origin"
+                ],
+                "version": 1
+              },
+              "class": "Type",
+              "end": 19,
+              "id": "memory:node-recovery/before/simple_actions_original.model#1",
+              "initialization": {
+                "authored_members": [],
+                "contract": {
+                  "class": "Type",
+                  "class_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+                  "members": [
+                    {
+                      "declaration": {
+                        "path": [
+                          2,
+                          0
+                        ],
+                        "source": {
+                          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                        }
+                      },
+                      "kind": "source"
+                    }
+                  ],
+                  "provider": {
+                    "name": "intersect.constant-attributes",
+                    "version": "1"
+                  },
+                  "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f",
+                  "sources": [
+                    {
+                      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                    },
+                    {
+                      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext"
+                    },
+                    {
+                      "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a",
+                      "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext"
+                    },
+                    {
+                      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore"
+                    }
+                  ],
+                  "version": 1
+                },
+                "object": "memory:node-recovery/before/simple_actions_original.model#1"
+              },
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 12,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+              "values": {
+                "isAbstract": false,
+                "name": "A",
+                "origin": "constructor"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "target"
+                ],
+                "version": 1
+              },
+              "class": "Feature",
+              "end": 32,
+              "id": "memory:node-recovery/before/simple_actions_original.model#2",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 20,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#3",
+              "values": {
+                "name": "f",
+                "target": "memory:node-recovery/before/simple_actions_original.model#1"
+              }
+            }
+          ],
+          "resources": {
+            "memory:node-recovery/before/simple_actions_original.model": {
+              "content_revision": "25",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:node-recovery/before/simple_actions_original.model#0"
+              ],
+              "source": {
+                "revision": "4bb0ebf022a0ec7de22ac12747a30f58e5ecfa1a35a05e83b24e4fbd59918e3b",
+                "uri": "memory:node-recovery/before/simple_actions_original.model"
+              },
+              "uri": "memory:node-recovery/before/simple_actions_original.model"
+            }
+          },
+          "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f"
+        },
+        "references": [
+          {
+            "end": 31,
+            "start": 30,
+            "target": "memory:node-recovery/before/simple_actions_original.model#1",
+            "uri": "memory:node-recovery/before/simple_actions_original.model"
+          }
+        ]
+      }
+    },
+    {
+      "label": "simple_actions_original/resource/2",
+      "source": {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A origin \"x\"; }"
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 32,
+              "id": "memory:node-recovery/before/simple_actions_original.model#0",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 0,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#0",
+              "values": {
+                "members": [
+                  "memory:node-recovery/before/simple_actions_original.model#1"
+                ],
+                "name": "M"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "origin"
+                ],
+                "version": 1
+              },
+              "class": "Type",
+              "end": 30,
+              "id": "memory:node-recovery/before/simple_actions_original.model#1",
+              "initialization": {
+                "authored_members": [],
+                "contract": {
+                  "class": "Type",
+                  "class_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+                  "members": [
+                    {
+                      "declaration": {
+                        "path": [
+                          2,
+                          0
+                        ],
+                        "source": {
+                          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                        }
+                      },
+                      "kind": "source"
+                    }
+                  ],
+                  "provider": {
+                    "name": "intersect.constant-attributes",
+                    "version": "1"
+                  },
+                  "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f",
+                  "sources": [
+                    {
+                      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                    },
+                    {
+                      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext"
+                    },
+                    {
+                      "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a",
+                      "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext"
+                    },
+                    {
+                      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore"
+                    }
+                  ],
+                  "version": 1
+                },
+                "object": "memory:node-recovery/before/simple_actions_original.model#1"
+              },
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 12,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+              "values": {
+                "isAbstract": false,
+                "name": "A",
+                "origin": "x"
+              }
+            }
+          ],
+          "resources": {
+            "memory:node-recovery/before/simple_actions_original.model": {
+              "content_revision": "16",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:node-recovery/before/simple_actions_original.model#0"
+              ],
+              "source": {
+                "revision": "18b17109f7237abe909a60daf9fcb1cccce9f6c7c8ca40a6f40254d8c6892edb",
+                "uri": "memory:node-recovery/before/simple_actions_original.model"
+              },
+              "uri": "memory:node-recovery/before/simple_actions_original.model"
+            }
+          },
+          "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f"
+        },
+        "references": []
+      }
+    },
+    {
+      "label": "simple_actions_original/resource/8",
+      "source": {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "/*lead*/package M { type A; }//tail"
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 29,
+              "id": "memory:node-recovery/before/simple_actions_original.model#0",
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 8,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#0",
+              "values": {
+                "members": [
+                  "memory:node-recovery/before/simple_actions_original.model#1"
+                ],
+                "name": "M"
+              }
+            },
+            {
+              "assignment_state": {
+                "set_features": [
+                  "name",
+                  "origin"
+                ],
+                "version": 1
+              },
+              "class": "Type",
+              "end": 27,
+              "id": "memory:node-recovery/before/simple_actions_original.model#1",
+              "initialization": {
+                "authored_members": [],
+                "contract": {
+                  "class": "Type",
+                  "class_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+                  "members": [
+                    {
+                      "declaration": {
+                        "path": [
+                          2,
+                          0
+                        ],
+                        "source": {
+                          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                        }
+                      },
+                      "kind": "source"
+                    }
+                  ],
+                  "provider": {
+                    "name": "intersect.constant-attributes",
+                    "version": "1"
+                  },
+                  "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f",
+                  "sources": [
+                    {
+                      "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore"
+                    },
+                    {
+                      "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model.xtext"
+                    },
+                    {
+                      "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a",
+                      "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext"
+                    },
+                    {
+                      "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b",
+                      "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore"
+                    }
+                  ],
+                  "version": 1
+                },
+                "object": "memory:node-recovery/before/simple_actions_original.model#1"
+              },
+              "resource": "memory:node-recovery/before/simple_actions_original.model",
+              "start": 20,
+              "type_identity": "memory:node-recovery/original/simple_actions_original/model-structure.rcore@4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2#2",
+              "values": {
+                "isAbstract": false,
+                "name": "A",
+                "origin": "constructor"
+              }
+            }
+          ],
+          "resources": {
+            "memory:node-recovery/before/simple_actions_original.model": {
+              "content_revision": "15",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:node-recovery/before/simple_actions_original.model#0"
+              ],
+              "source": {
+                "revision": "f67275d0092f42c5a2e8bbe3c4f8c02b1b16da83087b5302a3e0226488a00f5c",
+                "uri": "memory:node-recovery/before/simple_actions_original.model"
+              },
+              "uri": "memory:node-recovery/before/simple_actions_original.model"
+            }
+          },
+          "schema_revision": "2cb2e9eadbb7ba589e671e1476f8fa60d8c1e75510f4386b7b31a7cc723c5d8f"
+        },
+        "references": []
+      }
+    }
+  ]
+}

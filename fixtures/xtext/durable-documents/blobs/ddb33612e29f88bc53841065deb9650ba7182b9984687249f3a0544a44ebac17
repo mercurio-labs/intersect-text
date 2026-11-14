@@ -1,0 +1,17 @@
+rcore 1;
+package `currentActions` version "1";
+metamodel "urn:intersect:xtext:current-actions:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    ref `value`: external "#//@eClassifiers.1" [0,1] containment;
+  }
+  abstract class `Expression` {
+  }
+  class `Literal` extends external "#//@eClassifiers.1" {
+    attr `value`: EInt [0,1];
+  }
+  class `OperatorExpression` extends external "#//@eClassifiers.1" {
+    attr `operator`: EString [0,1];
+    ref `operand`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+}

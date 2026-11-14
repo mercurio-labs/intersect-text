@@ -1,0 +1,21 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="generics" nsURI="urn:generics">
+  <!-- Unicode source position control: λ 🧭 -->
+  <eClassifiers x:type="e:EClass" name="Comparable">
+    <eTypeParameters name="T"/>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Box">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Comparable"><eTypeArguments eTypeParameter="#//Box/T"/></eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Box/T"/></eStructuralFeatures>
+    <eOperations name="convert">
+      <eTypeParameters name="U"/>
+      <eGenericType eTypeParameter="#//Box/convert/U"/>
+      <eParameters name="input"><eGenericType eTypeParameter="#//Box/T"/></eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers x:type="e:EClass" name="Holder">
+    <eStructuralFeatures x:type="e:EReference" name="raw"><eGenericType eClassifier="#//Box"/></eStructuralFeatures>
+    <eStructuralFeatures x:type="e:EReference" name="boxed"><eGenericType eClassifier="#//Box"><eTypeArguments/></eGenericType></eStructuralFeatures>
+  </eClassifiers>
+</e:EPackage>

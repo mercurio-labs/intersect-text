@@ -1,0 +1,16 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="templates" nsURI="urn:templates">
+<eClassifiers x:type="e:EClass" name="Value"/>
+<eClassifiers x:type="e:EClass" name="Base">
+  <eTypeParameters name="T"/>
+  <eOperations name="convert" ordered="false">
+    <eTypeParameters name="T"><eBounds eTypeParameter="#//Base/T"/></eTypeParameters>
+    <eGenericType eTypeParameter="#//Base/convert/T"/>
+    <eParameters name="input"><eGenericType eTypeParameter="#//Base/T"/></eParameters>
+    <eParameters name="mapped" upperBound="-1" unique="false"><eGenericType eTypeParameter="#//Base/convert/T"/></eParameters>
+    <eGenericExceptions eTypeParameter="#//Base/convert/T"/>
+    <eAnnotations source="retained-template"/>
+  </eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child"><eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eClassifier="#//Value"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Other"/>
+</e:EPackage>

@@ -1,0 +1,9 @@
+rcore 1;
+package standalone.reads version "1";
+import model "urn:standalone-model-reads" as m;
+
+fn inspect(self:m.Node, short:Bool, prefix:String) -> Result<{label:Option<String>, target:Option<m.Node>},String> {
+  if short { Err(prefix) } else {
+    Ok({label: match self.name { Some(name) => Some(prefix + name), None => None }, target: self.next})
+  }
+}

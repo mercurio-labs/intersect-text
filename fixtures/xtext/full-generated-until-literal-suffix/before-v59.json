@@ -1,0 +1,5238 @@
+{
+  "wasm_sha256": "053cec46fd68e54f88494cb8bcde14e0b499c6ca4230c9a2a2ad91cb2a51971d",
+  "fresh_zero_import_instances": 16,
+  "complete_fresh_replays_equal": true,
+  "compile": {
+    "request": {
+      "method": "compile_bundle",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:terminal-negation/model.rcore",
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext",
+                "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3"
+              },
+              "kind": "xtext",
+              "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:terminal-negation/behavior.rcore",
+                "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+              "dependencies": [
+                {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:terminal-negation/model.rcore",
+          "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+        "xtext": {
+          "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext",
+          "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3"
+        },
+        "rcore_behavior": {
+          "uri": "memory:terminal-negation/behavior.rcore",
+          "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+        }
+      },
+      "xtext_profile": "intersect.xtext.native.v59"
+    },
+    "result": {
+      "keywords": [],
+      "ok": true,
+      "package": {
+        "compilation": {
+          "bundle": {
+            "namespaces": [],
+            "sources": [
+              {
+                "dependencies": [],
+                "id": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+              },
+              {
+                "dependencies": [
+                  {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                ],
+                "id": {
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                  "uri": "memory:terminal-negation/behavior.rcore"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+              }
+            ],
+            "version": 1
+          },
+          "ecore": {
+            "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+            "uri": "memory:terminal-negation/model.rcore"
+          },
+          "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+          "rcore_behavior": {
+            "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+            "uri": "memory:terminal-negation/behavior.rcore"
+          },
+          "xtext": {
+            "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+            "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+          }
+        },
+        "grammar": {
+          "declaration_sources": {
+            "Model": {
+              "end": 200,
+              "source": {
+                "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+              },
+              "start": 165
+            },
+            "VALUE": {
+              "end": 255,
+              "source": {
+                "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+              },
+              "start": 201
+            }
+          },
+          "entry": "Model",
+          "hidden": [],
+          "lexical_prediction": {
+            "alternatives": [
+              {
+                "Terminal": "VALUE"
+              }
+            ],
+            "roots": [
+              0
+            ],
+            "states": [
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  2
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  5
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  1
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  8
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 64,
+                    "low": 64,
+                    "target": 6
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  4
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  11
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 65535,
+                    "low": 0,
+                    "target": 8
+                  },
+                  {
+                    "high": 97,
+                    "low": 97,
+                    "target": 10
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  7
+                ],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 98,
+                    "low": 98,
+                    "target": 9
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "high": 99,
+                    "low": 99,
+                    "target": 12
+                  }
+                ],
+                "epsilon": [],
+                "owner": 0
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "epsilon": [
+                  3
+                ],
+                "owner": 0
+              }
+            ]
+          },
+          "name": "audit.UntilLiteralSuffixC",
+          "parser_prediction": {
+            "decisions": {},
+            "first_guards": {},
+            "rules": {
+              "Model": [
+                0,
+                1
+              ]
+            },
+            "states": [
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      {
+                        "Terminal": "VALUE"
+                      },
+                      1
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": false,
+                "edges": [],
+                "follow": [
+                  2
+                ],
+                "rule_stop": true
+              },
+              {
+                "accepting": false,
+                "edges": [
+                  {
+                    "Token": [
+                      "End",
+                      3
+                    ]
+                  }
+                ],
+                "follow": [],
+                "rule_stop": false
+              },
+              {
+                "accepting": true,
+                "edges": [],
+                "follow": [],
+                "rule_stop": false
+              }
+            ]
+          },
+          "profile": "intersect.xtext.native.v59",
+          "rules": {
+            "Model": {
+              "body": {
+                "cardinality": "1",
+                "kind": {
+                  "Assign": {
+                    "feature": "name",
+                    "many": false,
+                    "value": {
+                      "cardinality": "1",
+                      "kind": {
+                        "Call": "VALUE"
+                      }
+                    }
+                  }
+                }
+              },
+              "class": "Model"
+            }
+          },
+          "terminal_order": [
+            "VALUE"
+          ],
+          "terminals": {
+            "VALUE": {
+              "body": {
+                "cardinality": "1",
+                "first": [
+                  [
+                    64,
+                    64
+                  ]
+                ],
+                "kind": {
+                  "Sequence": [
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          64,
+                          64
+                        ]
+                      ],
+                      "kind": {
+                        "Literal": [
+                          64
+                        ]
+                      },
+                      "nullable": false
+                    },
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          0,
+                          65535
+                        ]
+                      ],
+                      "kind": {
+                        "Until": [
+                          97,
+                          98
+                        ]
+                      },
+                      "nullable": false
+                    },
+                    {
+                      "cardinality": "1",
+                      "first": [
+                        [
+                          99,
+                          99
+                        ]
+                      ],
+                      "kind": {
+                        "Literal": [
+                          99
+                        ]
+                      },
+                      "nullable": false
+                    }
+                  ]
+                },
+                "nullable": false
+              },
+              "datatype": "EString",
+              "end": 255,
+              "identity": "audit.UntilLiteralSuffixC::VALUE",
+              "start": 201
+            }
+          }
+        },
+        "schema": {
+          "classes": {
+            "Element": {
+              "abstract_type": true,
+              "feature_declarations": {
+                "name": {
+                  "path": [
+                    1,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "name"
+              ],
+              "features": {
+                "name": {
+                  "containment": false,
+                  "default": null,
+                  "derived": false,
+                  "lower": 0,
+                  "name": "name",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": false,
+                  "target": "EString",
+                  "unique": true,
+                  "unsettable": true,
+                  "upper": 1
+                }
+              },
+              "name": "Element",
+              "parents": []
+            },
+            "Feature": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "target": {
+                  "path": [
+                    3,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "target"
+              ],
+              "features": {
+                "target": {
+                  "containment": false,
+                  "default": null,
+                  "derived": false,
+                  "lower": 0,
+                  "name": "target",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Type",
+                  "unique": true,
+                  "unsettable": true,
+                  "upper": 1
+                }
+              },
+              "name": "Feature",
+              "parents": [
+                "Element"
+              ]
+            },
+            "Model": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "members": {
+                  "path": [
+                    0,
+                    1
+                  ],
+                  "source": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                },
+                "name": {
+                  "path": [
+                    0,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "name",
+                "members"
+              ],
+              "features": {
+                "members": {
+                  "containment": true,
+                  "default": [],
+                  "derived": false,
+                  "lower": 0,
+                  "name": "members",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": true,
+                  "target": "Element",
+                  "unique": true,
+                  "upper": -1
+                },
+                "name": {
+                  "containment": false,
+                  "default": null,
+                  "derived": false,
+                  "lower": 0,
+                  "name": "name",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": false,
+                  "target": "EString",
+                  "unique": true,
+                  "upper": 1
+                }
+              },
+              "name": "Model",
+              "parents": []
+            },
+            "Type": {
+              "abstract_type": false,
+              "feature_declarations": {
+                "isAbstract": {
+                  "path": [
+                    2,
+                    0
+                  ],
+                  "source": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  }
+                }
+              },
+              "feature_order": [
+                "isAbstract"
+              ],
+              "features": {
+                "isAbstract": {
+                  "containment": false,
+                  "default": false,
+                  "derived": false,
+                  "lower": 0,
+                  "name": "isAbstract",
+                  "opposite": null,
+                  "ordered": true,
+                  "reference": false,
+                  "target": "EBoolean",
+                  "unique": true,
+                  "unsettable": true,
+                  "upper": 1
+                }
+              },
+              "name": "Type",
+              "parents": [
+                "Element"
+              ]
+            }
+          },
+          "declarations": {
+            "Element": {
+              "name": "Element",
+              "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+              "path": [
+                1
+              ],
+              "source": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              }
+            },
+            "Feature": {
+              "name": "Feature",
+              "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+              "path": [
+                3
+              ],
+              "source": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              }
+            },
+            "Model": {
+              "name": "Model",
+              "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+              "path": [
+                0
+              ],
+              "source": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              }
+            },
+            "Type": {
+              "name": "Type",
+              "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+              "path": [
+                2
+              ],
+              "source": {
+                "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                "uri": "memory:terminal-negation/model.rcore"
+              }
+            }
+          },
+          "name": "terminalSpellings",
+          "reference_top": {
+            "path": [
+              10
+            ],
+            "source": {
+              "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+              "uri": "http://www.eclipse.org/emf/2002/Ecore"
+            }
+          },
+          "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+          "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+        },
+        "semantics": {
+          "derived": [],
+          "scope": "unique_names",
+          "validations": [],
+          "version": 1
+        },
+        "sources": {
+          "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+          "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+          "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+        },
+        "version": 2
+      }
+    }
+  },
+  "evaluations": [
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@abc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 4,
+              "id": "memory:v59-literal-suffix.model#0",
+              "resource": "memory:v59-literal-suffix.model",
+              "start": 0,
+              "type_identity": "memory:terminal-negation/model.rcore@19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193#0",
+              "values": {
+                "members": [],
+                "name": "@abc"
+              }
+            }
+          ],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "4",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:v59-literal-suffix.model#0"
+              ],
+              "source": {
+                "revision": "771c7b0ff2eff313009a81739307c3f7cde375acd7902b11061266a899a375f6",
+                "uri": "memory:v59-literal-suffix.model"
+              },
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@abxabc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE",
+            "source": "memory:v59-literal-suffix.model",
+            "start": 0
+          }
+        ],
+        "model": {
+          "elements": [],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "0",
+              "diagnostics": [
+                "0..1: Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE"
+              ],
+              "load_state": "Loaded",
+              "roots": [],
+              "source": null,
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@abx"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE",
+            "source": "memory:v59-literal-suffix.model",
+            "start": 0
+          }
+        ],
+        "model": {
+          "elements": [],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "0",
+              "diagnostics": [
+                "0..1: Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE"
+              ],
+              "load_state": "Loaded",
+              "roots": [],
+              "source": null,
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@abcc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 5,
+            "message": "Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE",
+            "source": "memory:v59-literal-suffix.model",
+            "start": 4
+          }
+        ],
+        "model": {
+          "elements": [],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "0",
+              "diagnostics": [
+                "4..5: Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE"
+              ],
+              "load_state": "Loaded",
+              "roots": [],
+              "source": null,
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@xabc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [],
+        "model": {
+          "elements": [
+            {
+              "class": "Model",
+              "end": 5,
+              "id": "memory:v59-literal-suffix.model#0",
+              "resource": "memory:v59-literal-suffix.model",
+              "start": 0,
+              "type_identity": "memory:terminal-negation/model.rcore@19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193#0",
+              "values": {
+                "members": [],
+                "name": "@xabc"
+              }
+            }
+          ],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "4",
+              "diagnostics": [],
+              "load_state": "Loaded",
+              "roots": [
+                "memory:v59-literal-suffix.model#0"
+              ],
+              "source": {
+                "revision": "f01904dbd93e9321a0f805d52e54bf5e3a929dbfc66c7d6e2e5f35edd31e950e",
+                "uri": "memory:v59-literal-suffix.model"
+              },
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@ababc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 1,
+            "message": "Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE",
+            "source": "memory:v59-literal-suffix.model",
+            "start": 0
+          }
+        ],
+        "model": {
+          "elements": [],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "0",
+              "diagnostics": [
+                "0..1: Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE"
+              ],
+              "load_state": "Loaded",
+              "roots": [],
+              "source": null,
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    },
+    {
+      "request": {
+        "method": "evaluate",
+        "package": {
+          "compilation": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                    "uri": "memory:terminal-negation/model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                    "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+                },
+                {
+                  "dependencies": [
+                    {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  ],
+                  "id": {
+                    "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+                    "uri": "memory:terminal-negation/behavior.rcore"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\n"
+                }
+              ],
+              "version": 1
+            },
+            "ecore": {
+              "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+              "uri": "memory:terminal-negation/model.rcore"
+            },
+            "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+            "rcore_behavior": {
+              "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7",
+              "uri": "memory:terminal-negation/behavior.rcore"
+            },
+            "xtext": {
+              "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+              "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+            }
+          },
+          "grammar": {
+            "declaration_sources": {
+              "Model": {
+                "end": 200,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 165
+              },
+              "VALUE": {
+                "end": 255,
+                "source": {
+                  "sha256": "f80f72ea0daf718e83753ef24cdf3072348dfdb352d006eaf027be06b3df10b3",
+                  "uri": "memory:literal_until_suffix_c/audit.UntilLiteralSuffixC.xtext"
+                },
+                "start": 201
+              }
+            },
+            "entry": "Model",
+            "hidden": [],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "VALUE"
+                }
+              ],
+              "roots": [
+                0
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    5
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 64,
+                      "low": 64,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 8
+                    },
+                    {
+                      "high": 97,
+                      "low": 97,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 98,
+                      "low": 98,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 99,
+                      "low": 99,
+                      "target": 12
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                }
+              ]
+            },
+            "name": "audit.UntilLiteralSuffixC",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "VALUE"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    2
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        3
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v59",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "VALUE"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "Model"
+              }
+            },
+            "terminal_order": [
+              "VALUE"
+            ],
+            "terminals": {
+              "VALUE": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      64,
+                      64
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            64,
+                            64
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            64
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            0,
+                            65535
+                          ]
+                        ],
+                        "kind": {
+                          "Until": [
+                            97,
+                            98
+                          ]
+                        },
+                        "nullable": false
+                      },
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            99,
+                            99
+                          ]
+                        ],
+                        "kind": {
+                          "Literal": [
+                            99
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 255,
+                "identity": "audit.UntilLiteralSuffixC::VALUE",
+                "start": 201
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "Element": {
+                "abstract_type": true,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Element",
+                "parents": []
+              },
+              "Feature": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "target": {
+                    "path": [
+                      3,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "target"
+                ],
+                "features": {
+                  "target": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "target",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Type",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Feature",
+                "parents": [
+                  "Element"
+                ]
+              },
+              "Model": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "members": {
+                    "path": [
+                      0,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  },
+                  "name": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name",
+                  "members"
+                ],
+                "features": {
+                  "members": {
+                    "containment": true,
+                    "default": [],
+                    "derived": false,
+                    "lower": 0,
+                    "name": "members",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "Element",
+                    "unique": true,
+                    "upper": -1
+                  },
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Model",
+                "parents": []
+              },
+              "Type": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "isAbstract": {
+                    "path": [
+                      2,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                      "uri": "memory:terminal-negation/model.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "isAbstract"
+                ],
+                "features": {
+                  "isAbstract": {
+                    "containment": false,
+                    "default": false,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "isAbstract",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EBoolean",
+                    "unique": true,
+                    "unsettable": true,
+                    "upper": 1
+                  }
+                },
+                "name": "Type",
+                "parents": [
+                  "Element"
+                ]
+              }
+            },
+            "declarations": {
+              "Element": {
+                "name": "Element",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Feature": {
+                "name": "Feature",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  3
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Model": {
+                "name": "Model",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              },
+              "Type": {
+                "name": "Type",
+                "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                "path": [
+                  2
+                ],
+                "source": {
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193",
+                  "uri": "memory:terminal-negation/model.rcore"
+                }
+              }
+            },
+            "name": "terminalSpellings",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41",
+            "uri": "urn:intersect:xtext:mini-kerml:terminal-spellings:1"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "sources": {
+            "ecore": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+            "rcore_behavior": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+            "xtext": "grammar audit.UntilLiteralSuffixC hidden()\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel returns k::Model: name=VALUE;\nterminal VALUE returns ecore::EString: '@' ->'ab' 'c';\n"
+          },
+          "version": 2
+        },
+        "sources": [
+          {
+            "uri": "memory:v59-literal-suffix.model",
+            "text": "@abcabc"
+          }
+        ]
+      },
+      "result": {
+        "derived": {},
+        "diagnostics": [
+          {
+            "end": 5,
+            "message": "Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE",
+            "source": "memory:v59-literal-suffix.model",
+            "start": 4
+          }
+        ],
+        "model": {
+          "elements": [],
+          "resources": {
+            "memory:v59-literal-suffix.model": {
+              "content_revision": "0",
+              "diagnostics": [
+                "4..5: Incomplete or invalid terminal audit.UntilLiteralSuffixC::VALUE"
+              ],
+              "load_state": "Loaded",
+              "roots": [],
+              "source": null,
+              "uri": "memory:v59-literal-suffix.model"
+            }
+          },
+          "schema_revision": "e1caaa3144675c5d68a8ddc24f3549eec71081b2b1985a7e31d871f8f071fe41"
+        },
+        "references": []
+      }
+    }
+  ]
+}

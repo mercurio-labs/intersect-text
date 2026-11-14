@@ -1,0 +1,26 @@
+// Verification-only immutable NativeV61 BEFORE; complete calls, each a fresh zero-import instance.
+import fs from 'node:fs';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+import {validateProject} from './host-source-snapshot/toolkit/src/project.js';
+import {bundleSourceSnapshot} from './host-source-snapshot/toolkit/src/bundle-project.js';
+const at=n=>new URL(n,import.meta.url),read=n=>fs.readFileSync(at(n));const sha=b=>createHash('sha256').update(b).digest('hex');
+assert(!fs.existsSync(at('record.json')),'Never overwrite original BEFORE');
+const artifact=JSON.parse(read('artifact.json')),binary=fs.readFileSync(artifact.path);assert.equal(sha(binary),artifact.sha256);
+const module=await WebAssembly.compile(binary);assert.deepEqual(WebAssembly.Module.imports(module),[]);
+let instances=0;const transcript=[];
+async function call(request){const{exports:w}=await WebAssembly.instantiate(module,{});instances++;const b=Buffer.from(JSON.stringify(request),'utf8'),p=w.input_buffer(b.length);new Uint8Array(w.memory.buffer,p,b.length).set(b);const n=w.execute(),result=JSON.parse(Buffer.from(new Uint8Array(w.memory.buffer,w.output_buffer(),n)).toString('utf8'));const value={request,result};transcript.push(value);return value;}
+const native=JSON.parse(read('native-cases.json')),profile=native.profile,rows=[];
+for(const c of native.cases){
+ for(const s of c.compilation.bundle.sources)assert.equal(sha(Buffer.from(s.text)),s.id.sha256);
+ const compile=await call({method:'compile_bundle',compilation:c.compilation,xtext_profile:profile});
+ const row={id:c.id,compile,inputs:[],archive:{export:await call({method:'package/export',compilation:c.compilation,xtext_profile:profile,metadata:{package_id:'proof-gap-before.'+c.id,release:'1',display_name:c.id,description:'Immutable V61 before; no qualification'}})}};
+ let imported;
+ if(row.archive.export.result.manifest){const ex=row.archive.export.result;row.archive.import=await call({method:'package/import',files:{...ex.files,'manifest.json':JSON.stringify(ex.manifest)}});imported=row.archive.import.result.package;}
+ for(const text of c.inputs){const input={text};if(compile.result.ok){const request={method:'evaluate',package:compile.result.package,sources:[{uri:'memory:proof-gaps/'+c.id+'.model',text}]};input.direct=await call(request);input.native_resource_accepted=Array.isArray(input.direct.result.diagnostics)&&input.direct.result.diagnostics.length===0&&!input.direct.result.error;if(imported)input.archive=await call({...request,package:imported});}else input.not_executed='Explicit V61 original graph did not compile; complete rejection retained.';row.inputs.push(input);}
+ if(c.inference_request){row.inferred_default=await call({method:'compile_inferred',inference:c.inference_request});row.inferred_inputs=[];for(const text of c.inputs){if(row.inferred_default.result.ok)row.inferred_inputs.push({text,call:await call({method:'evaluate',package:row.inferred_default.result.package,sources:[{uri:'memory:proof-gaps-inferred/'+c.id+'.model',text}]})});else row.inferred_inputs.push({text,not_executed:'Unchanged inferred-v1 default rejected exact original graph.'});}}
+ const draft={format:'intersect.toolkit.project.v2',mode:'language',profile:'default',compilerProfile:profile,structureSource:'rcore',definitionBundle:structuredClone(c.compilation),definitions:bundleSourceSnapshot(c.compilation),models:{catalog:c.inputs[0],loans:c.inputs[0]},python:'',layout:{version:1,positions:{},zoom:1}};
+ row.project={draft:{project:draft}};try{row.project.draft.result={accepted:true,value:validateProject(JSON.parse(JSON.stringify(draft)))}}catch(e){row.project.draft.result={accepted:false,error:e.message}}
+ if(compile.result.ok){const recovery={...draft,format:'intersect.toolkit.project.v3',definitionRecovery:{compilation:structuredClone(c.compilation),compilerProfile:profile}};row.project.recovery={project:recovery};try{const reopened=validateProject(JSON.parse(JSON.stringify(recovery)));row.project.recovery.result={accepted:true,value:reopened};row.project.recovery.recompile=await call({method:'compile_bundle',compilation:reopened.definitionRecovery.compilation,xtext_profile:reopened.compilerProfile});assert.deepEqual(row.project.recovery.recompile.result,compile.result);}catch(e){row.project.recovery.result={accepted:false,error:e.message}}}
+ rows.push(row);console.log(JSON.stringify({id:c.id,ordinary_ok:compile.result.ok,diagnostics:compile.result.diagnostics,inferred_ok:row.inferred_default?.result?.ok,inferred_diagnostics:row.inferred_default?.result?.diagnostics,model_inputs:row.inputs.filter(x=>x.direct).length}));
+}
+const result={version:1,scope:'Complete immutable V61 BEFORE only. Exact original graphs and unchanged bounded Rcore migration adapter. No Ecore/upstream semantic equivalence/browser lifecycle qualification. Inferred-v1 retains existing default.',wasm:artifact,fresh_zero_import_instances:instances,cases:rows,transcript};
+fs.writeFileSync(at('record.json'),JSON.stringify(result,null,2)+'\n','utf8');console.log(JSON.stringify({graphs:rows.length,compiled:rows.filter(c=>c.compile.result.ok).length,planned:rows.reduce((n,c)=>n+c.inputs.length,0),ordinary_evaluations:rows.reduce((n,c)=>n+c.inputs.filter(x=>x.direct).length,0),fresh_instances:instances}));

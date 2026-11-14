@@ -1,0 +1,293 @@
+{
+  "qualification": "Retained complete original candidates: scalar += infers a nonunique collection and conflicts with imported unique collections. Both bounded and unbounded original candidates remain rejected.",
+  "cases": [
+    {
+      "id": "unique_bounded_plain",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,3] unsettable; attr computed: String [0,3] derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+                "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed+=ID (',' computed+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+          "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+        }
+      },
+      "behavior": {
+        "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+        "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+      },
+      "model_text": "alpha,beta",
+      "named_model_text": "alpha,beta",
+      "entry": "Item"
+    },
+    {
+      "id": "unique_bounded_parameterized",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,3] unsettable; attr computed: String [0,3] derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+                "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item<true>;\nItem<Flag> returns p::Item: <Flag> computed+=ID (',' computed+=ID)* | <!Flag> backing+=ID (',' backing+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "4f1a2c274d28566a8f607f5ddd72d4f369a085d7230e36d21d6a0c2e69365167"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+          "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+        }
+      },
+      "behavior": {
+        "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+        "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+      },
+      "model_text": "alpha,beta",
+      "named_model_text": "alpha,beta",
+      "entry": "Item"
+    },
+    {
+      "id": "unique_unbounded_plain",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,*] unsettable; attr computed: String [0,*] derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+                "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item;\nItem returns p::Item: computed+=ID (',' computed+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                  "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/plain/model.rcore",
+                "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/plain/model.xtext",
+          "sha256": "c29281abe4a7099eb9b8b579e23a77465050afb01d506a6a1fe793c9f510c610"
+        }
+      },
+      "behavior": {
+        "uri": "memory:inferred-collection-contexts/plain/behavior.rcore",
+        "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+      },
+      "model_text": "alpha,beta",
+      "named_model_text": "alpha,beta",
+      "entry": "Item"
+    },
+    {
+      "id": "unique_unbounded_parameterized",
+      "inference": {
+        "version": 1,
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+              },
+              "kind": "rcore",
+              "text": "rcore 1; package collections version \"1\";\nmetamodel \"urn:inferred:collections\" prefix p {\n class Item { attr backing: String [0,*] unsettable; attr computed: String [0,*] derived unsettable; }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1; package collection_read version \"1\"; import model \"urn:inferred:collections\" as p; projection p.Item.computed from backing writable;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+                "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+              },
+              "kind": "xtext",
+              "text": "grammar contexts.collections.Language hidden(WS)\ngenerate model \"urn:contexts:collections\"\nimport \"urn:inferred:collections\" as p\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Item<true>;\nItem<Flag> returns p::Item: <Flag> computed+=ID (',' computed+=ID)* | <!Flag> backing+=ID (',' backing+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                  "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+                },
+                {
+                  "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+                  "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+                }
+              ]
+            }
+          ],
+          "namespaces": [
+            {
+              "namespace": "urn:inferred:collections",
+              "source": {
+                "uri": "memory:inferred-collection-contexts/parameterized/model.rcore",
+                "sha256": "a11a4dfe075780c4ea0bf7e3d9badf567e308619837205f4d5ffdf81f2d2411b"
+              }
+            }
+          ]
+        },
+        "grammar": {
+          "uri": "memory:inferred-collection-contexts/parameterized/model.xtext",
+          "sha256": "db6506aae2c3ac11348389e4525c606a9c3445b64407b7c7663039cfd07ee585"
+        }
+      },
+      "behavior": {
+        "uri": "memory:inferred-collection-contexts/parameterized/behavior.rcore",
+        "sha256": "24a72ae1d1e86845d9206be6513d2c2368a6eceb74e30e6c9d3d24fefc3fbf8b"
+      },
+      "model_text": "alpha,beta",
+      "named_model_text": "alpha,beta",
+      "entry": "Item"
+    }
+  ]
+}

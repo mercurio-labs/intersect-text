@@ -1,0 +1,19 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EClass" name="Value"/>
+<eClassifiers x:type="e:EClass" name="Base">
+  <eTypeParameters name="T"/>
+  <eStructuralFeatures x:type="e:EReference" name="value" lowerBound="1" upperBound="-1"><eGenericType eClassifier="#//Value"/><eAnnotations source="retained"/></eStructuralFeatures>
+  <eOperations name="convert">
+    <eTypeParameters name="T"><eBounds eClassifier="#//Value"/></eTypeParameters>
+    <eGenericType eTypeParameter="#//Base/convert/T"/>
+    <eParameters name="input"><eGenericType eTypeParameter="#//Base/T"/></eParameters>
+    <eGenericExceptions eClassifier="#//Value"/>
+  </eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="Child"><eGenericSuperTypes eClassifier="#//Base"><eTypeArguments eClassifier="#//Value"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Use"><eStructuralFeatures x:type="e:EReference" name="child"><eGenericType eClassifier="#//Child"/></eStructuralFeatures></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Raw" eSuperTypes="#//Base"/>
+<eClassifiers x:type="e:EClass" name="Mixed" eSuperTypes="#//Raw #//Child"/>
+<eClassifiers x:type="e:EClass" name="Same" eSuperTypes="#//Child"/>
+<eClassifiers x:type="e:EClass" name="Diamond" eSuperTypes="#//Same #//Child"/>
+</e:EPackage>

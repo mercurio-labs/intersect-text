@@ -1,0 +1,656 @@
+{
+  "version": 1,
+  "state": "complete_immutable_native_v60_before_ready_for_parent_review",
+  "scope": "Verification only; no tracked source, production behavior, profile, artifact or old corpus changes.",
+  "source_commit": "97b32e54fae28e37611f8181804f2430814f2e6f",
+  "wasm": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\baseline.wasm",
+    "bytes": 19067987,
+    "sha256": "99fbb605670d467aad9fcfb9195c874aae9669dcaad718641a7e0ea190f9776b"
+  },
+  "native_graphs": 20,
+  "planned_inputs": 128,
+  "native_compile_successes": 12,
+  "native_compile_rejections": 8,
+  "actual_native_direct_input_evaluations": 88,
+  "actual_archive_input_evaluations": 88,
+  "native_record_fresh_instances": 240,
+  "independent_replay_fresh_instances_including_migration": 241,
+  "project_transport_checks_per_run": 32,
+  "complete_native_request_response_equality": true,
+  "no_replay_result_exclusions": true,
+  "source_compile_archive_import_and_project_recovery_package_equal_for_all12": true,
+  "upstream_observation_baseline": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\baseline-ready.json",
+    "bytes": 48631,
+    "sha256": "5b33a7ff2c1f1402ed9b1a17e0237b34972bb80ecb594940cf493ddee2ffef90"
+  },
+  "classification_counts": {
+    "native_compile_rejected_or_unsupported": 40,
+    "native_compile_and_execution_observed_upstream_runtime_unexecuted": 54,
+    "resource_acceptance_divergence": 1,
+    "both_resource_rejected_no_diagnostic_or_partial_equivalence": 26,
+    "both_resource_accepted": 7
+  },
+  "commands": [
+    {
+      "command": "node migration.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "python prepare-native.py",
+      "exit_code": 0
+    },
+    {
+      "command": "node capture.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node replay.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "python finalize.py",
+      "exit_code": 0
+    }
+  ],
+  "preparation_failure_preserved": {
+    "stage": "native input recipe construction before native capture",
+    "failure": "KeyError provider_cohort on original inherited rows without additive optional metadata",
+    "action": "New prepare-native.py treats omitted cohort metadata explicitly; exact original source bytes and compilation recipes unchanged. Migration stage receipt was already frozen. No native request/output dropped."
+  },
+  "files": [
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\baseline-artifact.json",
+      "bytes": 774,
+      "sha256": "ca77230da9fc19495eb50498e13fc61637c057d1983ad16aa7e35094c73ce5a8"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\baseline.wasm",
+      "bytes": 19067987,
+      "sha256": "99fbb605670d467aad9fcfb9195c874aae9669dcaad718641a7e0ea190f9776b"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\capture.mjs",
+      "bytes": 4989,
+      "sha256": "106974afc6280b05fc563b147b7f2df6bb8b76b7f864fb76fb005f8fba1d7f0d"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\comparison.json",
+      "bytes": 54725,
+      "sha256": "0894206435ae63015c83852c6fae40fea323cdfcb89cb95e8c0b27be932fb3ed"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\finalize.py",
+      "bytes": 6419,
+      "sha256": "138b38ce9e5c13764bf4dcd8f5ee2f8c1e4d6cae772f021b04efe12b40b9ec5f"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\full7-provenance.json",
+      "bytes": 27728,
+      "sha256": "928af589eb71014d59611be2e2cd76fca1c11f9a8a3d70ab2b6746c77f91fb08"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-module-pins.json",
+      "bytes": 1755,
+      "sha256": "56a49d35e0a43d397aa03ebe6d452961ef15601d54e1e29b54370743a14929eb"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\fixtures\\xtext\\inference-fragment-runtime\\cases.json",
+      "bytes": 8989,
+      "sha256": "a92f1368c7d83d8f294ce4d0de68b52e4f4c49a3472acfe8ed493efdbfbecb45"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\binding-state.js",
+      "bytes": 864,
+      "sha256": "e4b40251885ff69b887f0a15eba9610602881e28fbf791648cd2cdba2bf21930"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\bundle-project.js",
+      "bytes": 2312,
+      "sha256": "de116852b57d52e617410df7169c0855b6c5add3a4dd09d555057b72cd8ce6f0"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\editor-windows.js",
+      "bytes": 11019,
+      "sha256": "e1a691b20a315dd41c594592d67db7d9b1aa8c2278401e2b6ffb2756c70f06d0"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\entry-selection.js",
+      "bytes": 3028,
+      "sha256": "e2811576bdbf0d81aa191e3baf54e73a10821cd6b455c489b536b231ae45de4f"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\inference-diagnostics.js",
+      "bytes": 2685,
+      "sha256": "ebd196c588860f60ee3cbe939ca20394701b5ca1fdddc32afd2c2869e331e88c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\inference-graph-controls.js",
+      "bytes": 9581,
+      "sha256": "31fcb75e55cce3b39d25d11c049dd4fd2a1928128e36395947e864f19ee89c10"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\inference-graph.js",
+      "bytes": 7875,
+      "sha256": "3753949027d31248595fdaf481dfebbbfcf8c2bff8773b56a67b04d189e08e78"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\inference-project.js",
+      "bytes": 11414,
+      "sha256": "5e25d554cc38b7f94ebe0f35e30af23852c8ac343a179f51d062f8ccc1a402c2"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\inference-provider-state.js",
+      "bytes": 6060,
+      "sha256": "6cb999afeff9d37633ca9cfd468ba6f1bb5d4b0e3a3c8f1fad7ae58672bb1394"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\project.js",
+      "bytes": 19503,
+      "sha256": "76570f2de97fe1145fa0e6031ad89a36eccd5789363a2a9be33e734b09e5ac98"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\host-source-snapshot\\toolkit\\src\\source-drafts.js",
+      "bytes": 1944,
+      "sha256": "ce7285ac5254469527af9355e7804f2255a91fd8d9020c43e906c366824f4295"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\migration-converted-source.rcore",
+      "bytes": 664,
+      "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\migration-identity.json",
+      "bytes": 43713,
+      "sha256": "33bba0946ac4988013b57b4a2bddb645c5c18f32d418a8912a15fc5272f508b5"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\migration-original-draft.rcore",
+      "bytes": 664,
+      "sha256": "dc4b9c3df7c51d0ffb4bc57335c0bdd11385ae7ea135945c2374acad26950ff5"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\migration-stage-receipt.json",
+      "bytes": 2003,
+      "sha256": "e448c2f044be3432d40e7291e21da70c76f52712e00a15e36df498641192f8ac"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\migration.mjs",
+      "bytes": 2148,
+      "sha256": "bfe7baf5f8844e6570e208b62b29c2592e65450bb0e785078e2d4e49020ad51b"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\native-cases.json",
+      "bytes": 105949,
+      "sha256": "f6c740c29a201b3cfb4eeb80d35ffb218bcf724d7a5ef75cd975d2771f3074d7"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\native-preexecution.json",
+      "bytes": 2443,
+      "sha256": "1c1f3e96d44e1d51b23f9038c44a31c7c4a168fdd355c6bdb5cabbc7e579eab6"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\cases.json",
+      "bytes": 22409,
+      "sha256": "71311b1910d27bae0c266ec68cf785bb22b9d64099c3199b56e725f91b326feb"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_before_local_model\\audit.FirstRuleDatatypeBeforeModel.xtext",
+      "bytes": 236,
+      "sha256": "139e476051621fd623392f7733d976bef44311369cf93e28bd94303f69296fca"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_before_local_model\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_child_over_model_parent\\audit.FirstRuleDatatypeChildBase.xtext",
+      "bytes": 222,
+      "sha256": "ca076ae71c7c3e06b59961f2b5bd676d939cbaad6b6a1e1cdbc76751bb400259"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_child_over_model_parent\\audit.FirstRuleDatatypeChildChild.xtext",
+      "bytes": 238,
+      "sha256": "bb1a0733bb0c2c9f383d34c15f6e082871db14743cc7f22b880967c7794fc2a2"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_child_over_model_parent\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_first_three_level_scalar_closure\\audit.FirstRuleDeepScalarBase.xtext",
+      "bytes": 196,
+      "sha256": "d73e22c80dcc0f30f49f032f8642bd98bfde27a7a7451a1819a4745449362c72"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_first_three_level_scalar_closure\\audit.FirstRuleDeepScalarChild.xtext",
+      "bytes": 234,
+      "sha256": "66b362adaf2890e7253ab75140635a8ba0cfac7b2bc1955fbca7b08aa99476c9"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_first_three_level_scalar_closure\\audit.FirstRuleDeepScalarMiddle.xtext",
+      "bytes": 220,
+      "sha256": "ef514ef6302997e7ca526f874da8d99a5fdb81f71fcc74594b5501bb73d44172"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_first_three_level_scalar_closure\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_library_model_child\\audit.FirstRuleDatatypeLibraryBase.xtext",
+      "bytes": 201,
+      "sha256": "250a0b7a86269f9be0418e99d4517d8e5d9ea53c0d0bef2d7f3efb515c8c6e51"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_library_model_child\\audit.FirstRuleDatatypeLibraryChild.xtext",
+      "bytes": 243,
+      "sha256": "8f0032fe6d026ed58588216bb5cd007c7cb5d64e25fe9d71e7834a0500d3d271"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_library_model_child\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_only_library\\audit.FirstRuleDatatypeOnly.xtext",
+      "bytes": 215,
+      "sha256": "87ebc6f930c5402b40563bf01c0548fa48b3ae839a129447769022b2724f341a"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\datatype_only_library\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_before_local_model\\audit.FirstRuleEnumBeforeModel.xtext",
+      "bytes": 256,
+      "sha256": "690c0a44cf24f53881efa26e5836d3e6055ce18beb662922e8a8a122a574bfc4"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_before_local_model\\imported.ecore",
+      "bytes": 1497,
+      "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_library_model_child\\audit.FirstRuleEnumLibraryBase.xtext",
+      "bytes": 199,
+      "sha256": "b383f27f271bc99d0a11ba377b768bf21183c736e1c811e4fc76600c75652a71"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_library_model_child\\audit.FirstRuleEnumLibraryChild.xtext",
+      "bytes": 247,
+      "sha256": "c53d6111977d6fecee2ef8e70c41f92ad53cd3297f7ec438ea1bb8d40c2ed216"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\enum_library_model_child\\imported.ecore",
+      "bytes": 1497,
+      "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\explicit_parent_operand\\audit.UntilContextExplicitParentOperandBase.xtext",
+      "bytes": 303,
+      "sha256": "f23a2bdd67cb892928f0f31fb975f01dc16c7e56fb625c57f126d93bba092a67"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\explicit_parent_operand\\audit.UntilContextExplicitParentOperandChild.xtext",
+      "bytes": 325,
+      "sha256": "f32c01485ce0a29458228af9414d5c7f9d21ea51fcdbe6f07b7706f0cb3a496c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\explicit_parent_operand\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_class_first\\audit.FirstRuleClassFragment.xtext",
+      "bytes": 258,
+      "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_class_first\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_untyped_first\\audit.FirstRuleUntypedFragment.xtext",
+      "bytes": 241,
+      "sha256": "21f6b63599502688844fcee28846d975e81b409b88d61e064c10054b6a849eb8"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\fragment_untyped_first\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\Generate.mwe2.template",
+      "bytes": 525,
+      "sha256": "3338b2b8630f242a3215f17ab70d7dcc35f24b2e66c37dd401447c7ba25b9fef"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\inherited_operand_override\\audit.UntilContextInheritedOperandOverrideBase.xtext",
+      "bytes": 306,
+      "sha256": "c42d8c02df2ff6d19d81f19673051590d23211c3c0f4597e8f4e4d4b34ffa562"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\inherited_operand_override\\audit.UntilContextInheritedOperandOverrideChild.xtext",
+      "bytes": 274,
+      "sha256": "abadddb2cdb11c1d742f70179d506392ef93db9eeb1635855d515664b2378cae"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\inherited_operand_override\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\MetamodelOracle.java",
+      "bytes": 8405,
+      "sha256": "1b90b692cbf96439592ebe5d0e449e87c65ce90e4fd9e9cc466fd1033417a98d"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\pins.json",
+      "bytes": 7623,
+      "sha256": "e26cae3ed4b4aa6c647824c0933270aacb577f6418ffb1c987c2f96236962717"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\RuntimeOracle.java",
+      "bytes": 4035,
+      "sha256": "b4fb77536f9f4a9743a76e92eca31176d1ba33f29042be907b9a525e3f3e84e3"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_class_first\\audit.FirstRuleIdentityClass.xtext",
+      "bytes": 210,
+      "sha256": "533eb878d87597047ea8232c2020dd0dd87ad1f8c094cc16e08f549e4284f17c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_class_first\\imported.ecore",
+      "bytes": 1497,
+      "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_datatype_first\\audit.FirstRuleIdentityDatatype.xtext",
+      "bytes": 225,
+      "sha256": "34b5f35dd5bb4eea664b1b72b1fa9612843e0f9c74739b3808440163968a516c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\same_name_datatype_first\\imported.ecore",
+      "bytes": 1497,
+      "sha256": "b76db785dd753b6b11dd38786195677477ffc5c9f55b2fadbf96d87937c0e470"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\stack.json",
+      "bytes": 11732,
+      "sha256": "ae506bd34e91cdf6d550089f03d936f9bd1850e4cffc7880b9e4daa474568304"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_before_local_model\\audit.FirstRuleTerminalBeforeModel.xtext",
+      "bytes": 224,
+      "sha256": "aedad672f8c8ca196584c248a38629338fcf4998f4f899781e0fb0df4d860a74"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_before_local_model\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_child_over_model_parent\\audit.FirstRuleTerminalChildBase.xtext",
+      "bytes": 222,
+      "sha256": "d21dd1af44327b90a69602b79793d0dfa22f37a3af53ebba3f307327f3732a55"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_child_over_model_parent\\audit.FirstRuleTerminalChildChild.xtext",
+      "bytes": 225,
+      "sha256": "7153ba38c673e493238b417aa1ff7b1f3148a3f52d5eafe36ebb71c6b8184435"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_child_over_model_parent\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_first_three_level_object_closure\\audit.FirstRuleDeepObjectBase.xtext",
+      "bytes": 219,
+      "sha256": "3899dcb23dd99b16f53482d70da0190ddf51d4f2a525fe051aa15f7fdd9f03cd"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_first_three_level_object_closure\\audit.FirstRuleDeepObjectChild.xtext",
+      "bytes": 221,
+      "sha256": "efd13e91a883fafa349459c9ba23e5fa965d1a1c4957fa312ec3b150abf55491"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_first_three_level_object_closure\\audit.FirstRuleDeepObjectMiddle.xtext",
+      "bytes": 200,
+      "sha256": "616e55b08f6c553426463fd3c63a4f46410a73d07ed569b4f7d8b39f68c0ba60"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_first_three_level_object_closure\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_library_model_child\\audit.FirstRuleTerminalLibraryBase.xtext",
+      "bytes": 188,
+      "sha256": "c5f85be04e2efc5de0903a44204738490037d7b1963093515e7a70342e336cb4"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_library_model_child\\audit.FirstRuleTerminalLibraryChild.xtext",
+      "bytes": 244,
+      "sha256": "c5f662c855a3ace801b99057972929dc2f5f0a53f6e5147c0067f1f9b88b9e45"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_library_model_child\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_only_library\\audit.FirstRuleTerminalOnly.xtext",
+      "bytes": 181,
+      "sha256": "d56568e95bf50336d364313705aa12b6b7dcf9da463838885d8ef06df48127a8"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\terminal_only_library\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\TerminalNegationOracle.java",
+      "bytes": 6960,
+      "sha256": "9a42efff7e87512ca0c224c4ea4118d33fc5cc1abc1752c7c47ac7075390eb66"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_explicit_parent_operand\\audit.UntilValidExplicitParentOperandBase.xtext",
+      "bytes": 301,
+      "sha256": "a395586f1bf509ace43382880fd5df4843db7db0fb55cbd5a21f9f06f62ed619"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_explicit_parent_operand\\audit.UntilValidExplicitParentOperandChild.xtext",
+      "bytes": 357,
+      "sha256": "d7ca88634c53077d5b0867e3e3a9e5cbf01fe3238eff2e8c26b56422382da32b"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_explicit_parent_operand\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_inherited_operand_override\\audit.UntilValidInheritedOperandBase.xtext",
+      "bytes": 296,
+      "sha256": "06573c0e481aacfd344bdf386764cd895b8547d9151431a05d125d9c55562fc1"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_inherited_operand_override\\audit.UntilValidInheritedOperandChild.xtext",
+      "bytes": 290,
+      "sha256": "63e5385384b09ac64b22a78fec0ac7164095541c4e05103ffc339ec84727fbba"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-inputs\\valid_inherited_operand_override\\imported.ecore",
+      "bytes": 1283,
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\BuildProvider.java",
+      "bytes": 2219,
+      "sha256": "40c8797bb2de1b735f7a9009deab8506743d88dd5f4abd01d64519a4aaab2f50"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\FirstRuleMetadata.java",
+      "bytes": 2931,
+      "sha256": "90bbdd15d5ec3ddad7eb0692f4fd175c6186aac7ec1e4c922c624ff356bfa8da"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\FullRuntime.java",
+      "bytes": 4626,
+      "sha256": "b72066a0c46cf2cb9db49c258881a641feb3de0d20b663589f474c2c11295a1a"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\pinned-source\\GrammarUtil.java",
+      "bytes": 22108,
+      "sha256": "ad2bfa993446377aff9421119f7763e7234e8363d130f16432a41da1c13bd8bd"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\pinned-source\\XtextValidator.java",
+      "bytes": 51395,
+      "sha256": "9f132d30e26dca2a4e29d9ec967873448a95e2169920ef8aa1528354b2649a74"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\preexecution.json",
+      "bytes": 2391,
+      "sha256": "14082c8bf3412d0b1d6a33ef1f28e8ab635ac6aff32a09cf2687deab25d53bc8"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\produce.py",
+      "bytes": 8072,
+      "sha256": "fa87cf4a62e1e9495558b3438a609cd0257bdabcec6e070ebbdcdb3cbd1944aa"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\run_pair.py",
+      "bytes": 949,
+      "sha256": "97755b16271e3e381e5bd8e9be4018b5f28cf00353dbd8e0562a8f2ff52c3df1"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-preexecution\\verify.py",
+      "bytes": 4148,
+      "sha256": "4fae2266bbb288d355ba6b75d1880b8e15c871fd072359e41ada5989b0474ebc"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\baseline-ready.json",
+      "bytes": 48631,
+      "sha256": "5b33a7ff2c1f1402ed9b1a17e0237b34972bb80ecb594940cf493ddee2ffef90"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\finalize_baseline.py",
+      "bytes": 6906,
+      "sha256": "5f99aa7072a676c27693ab35e5b63cc08c4131f6ef4d4d2a138e97a3686d59f4"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\FirstRuleMetadataV2.java",
+      "bytes": 3085,
+      "sha256": "2069d203e8016bdbc0beb14cef625cac405073b324ec36552a939149c3a0b41c"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\metadata-v2-preexecution.json",
+      "bytes": 1680,
+      "sha256": "759cd7ed65b7f00bc02bdebddcc345d525df116673d054b699ef1671be8cc17a"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\metadata-v2-receipt.json",
+      "bytes": 2064,
+      "sha256": "bf10f6ae99c07332b850576ff9ee5f804ef17ab7e27e17baab2ea9513e46eff5"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\metadata-v2-record\\observations.json",
+      "bytes": 35963,
+      "sha256": "db1c0ba6b7b94e81b1f16e8b1994d1c9a9cd9d0ade8618f1cbac8ce44f3e0b07"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\metadata-v2-replay\\observations.json",
+      "bytes": 35963,
+      "sha256": "db1c0ba6b7b94e81b1f16e8b1994d1c9a9cd9d0ade8618f1cbac8ce44f3e0b07"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\metadata_v2_pair.py",
+      "bytes": 4436,
+      "sha256": "753f6b307c55112f79bd1dd1f87fb46f97a14f31c2ca2de462445b6a5da51746"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\record\\artifacts-sha256.json",
+      "bytes": 108996,
+      "sha256": "1c77de53a0d550a6995786b0c428cdaf3d02ccc8307e187132f8f5eb391cd8be"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\record\\commands.json",
+      "bytes": 817224,
+      "sha256": "3fe6b1fe35d09c56de872f146f4587339fb2d46e733a569804b7526fe1b25d2d"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\record\\observations.json",
+      "bytes": 179283,
+      "sha256": "d24768581a070aaf48357df09ceb76bca7edfaf24100c71dc6f3506b814349e9"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\record\\toolchain.json",
+      "bytes": 12372,
+      "sha256": "8dc371c7c2fe4dd584a12261a6e7fb0e20cf3312efee602ad0a5d0d10a9bac5e"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\replay\\artifacts-sha256.json",
+      "bytes": 108996,
+      "sha256": "1c48664ec864cadaaca1def2f0a62f7f3030ee48b7071803d68d26840f758870"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\replay\\commands.json",
+      "bytes": 817224,
+      "sha256": "37969f22aca490a76174f3fc549c51c34774d65edcc2ee36841c3a543ab61862"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\replay\\observations.json",
+      "bytes": 179283,
+      "sha256": "9b4096253ec631e72c4b8d270e3d63b0b859ef8e8cb237349bda4c25adb06160"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\oracle-results\\replay\\toolchain.json",
+      "bytes": 12372,
+      "sha256": "8dc371c7c2fe4dd584a12261a6e7fb0e20cf3312efee602ad0a5d0d10a9bac5e"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\prepare-native.py",
+      "bytes": 3425,
+      "sha256": "f4792743b5e866c3f463b3d094990a6abd67976e1acc84d6eb40dc09ee9b5649"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\record.json",
+      "bytes": 11852091,
+      "sha256": "77e4cc5ba7461a0afd44eb42fab231d253a1c8fd605af0f911f8bde2b06953be"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\replay.json",
+      "bytes": 10057297,
+      "sha256": "aa9e5b364e3e4ce6381e141dfbe78642ecb1cc71f70c564247f0802ea8cc7271"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\replay.mjs",
+      "bytes": 2495,
+      "sha256": "162865230516af1a618e190efe9dad8063be0e7c4abe9f34c3c5fadc22433259"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\selection-policy.json",
+      "bytes": 1330,
+      "sha256": "2857272daaf01fdd72ae8bce8605408d06129e7a55c410c5ee99bb75e4d269c5"
+    },
+    {
+      "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-native-v60-before\\unchanged-full7-native-adapter-cases.json",
+      "bytes": 22102,
+      "sha256": "f4f75790ae1f0dec1d4ff516803b9f50a09749763123df1ed2dde69009271f27"
+    }
+  ],
+  "native_support_award": false,
+  "gate_closures": []
+}

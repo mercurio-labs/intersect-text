@@ -1,0 +1,6 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="recursive" nsPrefix="r" nsURI="urn:intersect:xtext:recursive:1">
+<eClassifiers xsi:type="ecore:EClass" name="Entry" abstract="true"><eStructuralFeatures xsi:type="ecore:EReference" name="child" containment="true" eType="#//Inner"/></eClassifiers>
+<eClassifiers xsi:type="ecore:EClass" name="Left" eSuperTypes="#//Entry"><eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/></eClassifiers>
+<eClassifiers xsi:type="ecore:EClass" name="Right" eSuperTypes="#//Entry"><eStructuralFeatures xsi:type="ecore:EAttribute" name="raw" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/></eClassifiers>
+<eClassifiers xsi:type="ecore:EClass" name="Inner"><eStructuralFeatures xsi:type="ecore:EReference" name="child" containment="true" eType="#//Inner"/></eClassifiers>
+</ecore:EPackage>

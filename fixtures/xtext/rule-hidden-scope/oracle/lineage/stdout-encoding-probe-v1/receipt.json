@@ -1,0 +1,45 @@
+{
+  "state": "explicit_stdout_stderr_UTF8_verified_before_oracle_restart",
+  "preexecution": {
+    "bytes": 781,
+    "sha256": "0d3d8064b38de8a15c10d59d0e07c32fb564afbca776c92c1e9394652db5a7d7"
+  },
+  "compiled_class": {
+    "bytes": 1101,
+    "sha256": "91f1889374fbe1fff8315f26b352593a5815de0c813f8b6c6ab5b6ec8996724e"
+  },
+  "rows": [
+    {
+      "label": "original",
+      "flags": [],
+      "exit_code": 0,
+      "UTF8_decodable": false,
+      "decoded_UTF8_JSON": null,
+      "stdout": {
+        "bytes": 80,
+        "sha256": "6c16c4dc699af27c8a77360628e3a10b28f42c98f485ed30fefd12276ddd4a87"
+      }
+    },
+    {
+      "label": "explicit_stdout_stderr_utf8",
+      "flags": [
+        "-Dstdout.encoding=UTF-8",
+        "-Dstderr.encoding=UTF-8"
+      ],
+      "exit_code": 0,
+      "UTF8_decodable": true,
+      "decoded_UTF8_JSON": {
+        "stdout_charset": "UTF-8",
+        "stderr_charset": "UTF-8",
+        "sample": "\u00e9"
+      },
+      "stdout": {
+        "bytes": 67,
+        "sha256": "503a4a6fb4d4e1b2f724a8baafd1ecd7ebfecbb1a7e89cf0e28976b0bf1fff5d"
+      }
+    }
+  ],
+  "production_changed": false,
+  "file_encoding_unchanged": true,
+  "gate_closures": []
+}

@@ -1,0 +1,48 @@
+{
+  "state": "separate_two_fragment_header_companions_frozen_for_review_not_executed",
+  "original_and_failed_typed_sources_untouched": true,
+  "no_nullable_fragment_legality_assumption": true,
+  "only_changes": "New source/grammar identities, explicit Ecore import, explicit VALUE return; original fragment declarations/bodies and all probes retained.",
+  "changes": [
+    {
+      "original_case": "fragment_star_follow",
+      "new_case": "fragment_star_follow_fragment_typed",
+      "original_entry": "audit.NextFragmentStarFollow",
+      "new_entry": "audit.NextFragmentStarFollowFragmentTyped",
+      "original_source_id": {
+        "uri": "memory:next-terminal-continuations-v1/fragment_star_follow/audit.NextFragmentStarFollow.xtext",
+        "sha256": "6786bf1f1bd0c52bd725e2c384de4b67a8190c4f3fbbeef2ba6341554e635512"
+      },
+      "new_source_id": {
+        "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_star_follow_fragment_typed/audit.NextFragmentStarFollowFragmentTyped.xtext",
+        "sha256": "1e760c07944b62731fe3db6348e119fb6ccf80caa1c15bc231cad63e256d08df"
+      },
+      "exact_original_fragment_headers": [
+        "terminal fragment BODY: 'a'*;"
+      ],
+      "inputs_unchanged": true,
+      "reverse_header_delta_recovers_original_bytes": true,
+      "unified_delta": "--- audit.NextFragmentStarFollow.xtext\n\n+++ audit.NextFragmentStarFollowFragmentTyped.xtext\n\n@@ -1,5 +1,6 @@\n\n-grammar audit.NextFragmentStarFollow hidden()\n+grammar audit.NextFragmentStarFollowFragmentTyped hidden()\n import \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\n+import \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n Model returns k::Model: name=VALUE;\n-terminal VALUE: BODY 'ab';\n+terminal VALUE returns ecore::EString: BODY 'ab';\n terminal fragment BODY: 'a'*;\n"
+    },
+    {
+      "original_case": "fragment_until_repeat",
+      "new_case": "fragment_until_repeat_fragment_typed",
+      "original_entry": "audit.NextFragmentUntilRepeat",
+      "new_entry": "audit.NextFragmentUntilRepeatFragmentTyped",
+      "original_source_id": {
+        "uri": "memory:next-terminal-continuations-v1/fragment_until_repeat/audit.NextFragmentUntilRepeat.xtext",
+        "sha256": "8eb82ab5cf2ff0be225926727f8f532775ff63f3c3d4a00a2afbadb13cef012f"
+      },
+      "new_source_id": {
+        "uri": "memory:terminal-cardinality-fragment-typed-v1/fragment_until_repeat_fragment_typed/audit.NextFragmentUntilRepeatFragmentTyped.xtext",
+        "sha256": "67071b6af1689478e8b9508a88a7f1ea8ed27244f8d334c69d3f624b62bf470d"
+      },
+      "exact_original_fragment_headers": [
+        "terminal fragment BLOCK: '@' ->'ab';"
+      ],
+      "inputs_unchanged": true,
+      "reverse_header_delta_recovers_original_bytes": true,
+      "unified_delta": "--- audit.NextFragmentUntilRepeat.xtext\n\n+++ audit.NextFragmentUntilRepeatFragmentTyped.xtext\n\n@@ -1,5 +1,6 @@\n\n-grammar audit.NextFragmentUntilRepeat hidden()\n+grammar audit.NextFragmentUntilRepeatFragmentTyped hidden()\n import \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\n+import \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n Model returns k::Model: name=VALUE;\n-terminal VALUE: BLOCK+ 'c';\n+terminal VALUE returns ecore::EString: BLOCK+ 'c';\n terminal fragment BLOCK: '@' ->'ab';\n"
+    }
+  ]
+}

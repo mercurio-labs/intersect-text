@@ -1,0 +1,58 @@
+{
+  "schema": "intersect.basic-systems.api-map.v1",
+  "existing_shared_routes": [
+    {
+      "operation": "compile full exact ordinary grammars",
+      "API": "intersect_xtext::ordinary::compile_with_context",
+      "source": {
+        "path": "crates/intersect-xtext/src/ordinary.rs",
+        "bytes": 12780,
+        "sha256": "601b4da5162efcca694e93c2354816bc1e4fba85171dc03dae7c25f8e4da3bc3"
+      }
+    },
+    {
+      "operation": "parse/link with explicit computed settings",
+      "API": "intersect_xtext::evaluate_stored_with_settings",
+      "source": {
+        "path": "crates/intersect-xtext/src/lib.rs",
+        "bytes": 139333,
+        "sha256": "52dcdfb375f6a37a9b936631e9a50736b49689da162babbde908591940fa4df5"
+      }
+    },
+    {
+      "operation": "checked direct construction and transaction",
+      "API": "intersect_model::core::api::{BasicModel,ModelEdit,TransactionalModel}"
+    },
+    {
+      "operation": "read/query",
+      "API": "intersect_model::core::storage::ModelRead + intersect_model::query"
+    },
+    {
+      "operation": "XMI closed resources",
+      "API": "intersect_model::core::interchange::FormatRegistry + intersect_model::xmi::XmiFormat"
+    },
+    {
+      "operation": "Pilot operand setting only",
+      "API": "intersect_kerml::OperandSettings",
+      "source": {
+        "path": "crates/intersect-kerml/src/lib.rs",
+        "bytes": 8142,
+        "sha256": "6f8a78f998529062318b3dc29bd107f9bfb7b1ccdcad0cae8330ab23318c0cec"
+      }
+    }
+  ],
+  "missing_or_unqualified": [
+    "Full grammar activation at current checkpoint",
+    "KerML/SysML scoping and standard-library installation",
+    "All implicit constructors/defaults/derived/validation providers",
+    "Basic semantic queries and scalar/constraint evaluation",
+    "Basic text serialization",
+    "Four-lane real adapter for this draft protocol"
+  ],
+  "dependency_direction": "host -> language package -> model core/definitions; draft host protocol must not implement another language evaluator or use a reduced grammar/schema projection",
+  "provenance_checkpoint": {
+    "git_head": "3897131e3545b5a3be0c9b3dc3da9d4bf47bf4a7",
+    "source_inventory_sha256": "1c2d1392b1d02690031ee6f8ec333f7412ac53dad2dab0e50366fffff2e4e7d0",
+    "scope": "Source API provenance only, not semantic qualification"
+  }
+}

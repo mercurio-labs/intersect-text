@@ -1,0 +1,63 @@
+from pathlib import Path
+import json,hashlib
+
+N=Path(__file__).resolve().parent;T=N.parent;W=T/'xtext-node-recovery-candidate-v64joined-v1/workspace'
+O=N/'portable-v65-evidence-v1';O.mkdir();(O/'blobs').mkdir()
+def pin(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def save(p,v):
+    with (O/p).open('x',encoding='utf-8',newline='\n')as f:f.write(json.dumps(v,ensure_ascii=True,indent=2)+'\n')
+origins={};unique={}
+def add(p,logical,role):
+    b=p.read_bytes();q=pin(b);sha=q['sha256'];destination=O/'blobs'/sha
+    if sha not in unique:
+        destination.open('xb').write(b);unique[sha]=q
+    else:assert destination.read_bytes()==b
+    assert logical not in origins
+    origins[logical]={**q,'blob':'blobs/'+sha,'role':role}
+raw=json.loads((N/'portable-v65-evidence-plan-v1/candidate-raw-inventory.json').read_text(encoding='utf-8'))
+for root,items in raw.items():
+    for name,expected in items['files'].items():
+        p=N/root/name;assert pin(p.read_bytes())==expected
+        add(p,'original/'+root+'/'+name,'upstream-original-or-historical-helper')
+# Original construction observer is separate from the old incomplete review copy.
+for root in ['xncl1','xnc1-record','xnc1-replay','xnca1-record','xnca1-replay','pncl65r','pncl65p','pndm65r','pndm65p']:
+    for p in sorted((T/root).rglob('*')):
+        if p.is_file():
+            assert p.suffix!='.jar','No JAR vendoring'
+            add(p,'generated/'+root+'/'+p.relative_to(T/root).as_posix(),'unchanged-upstream-source-generated-artifact')
+fixtures=json.loads((N/'portable-v65-evidence-plan-v1/native-fixture-pins.json').read_text(encoding='utf-8'))
+for name,expected in fixtures.items():
+    p=W/name;assert pin(p.read_bytes())==expected;add(p,'consumer/'+name,'unchanged-native-consumer-fixture')
+# Compact explicit failed-stage lineage. No executable/cache copies.
+history=['document-portable-logical-debits-plan-v2','document-portable-logical-debits-revision-v1',
+ 'portable-debits-abi-comparator-lineage-v1','portable-debits-complete-abi-attempt1',
+ 'portable-debits-complete-abi-attempt2','original2147-current-v65-attempt1',
+ 'original2147-first-difference-v1','legacy-document-tail-revision-v1',
+ 'no-document-offset-guard-revision-v1','ordinary-archive-context-before-v2',
+ 'ordinary-archive-context-plan-v1','ordinary-archive-context-revision-v2']
+for root in history:
+    for p in sorted((N/root).rglob('*')):
+        if p.is_file()and p.suffix not in ['.exe','.wasm','.rlib','.rmeta']:
+            add(p,'history/'+root+'/'+p.relative_to(N/root).as_posix(),'historical-failure-or-correction-lineage')
+for name in ['observe-existing-node-trees-v2.py','run-node-tree-observer-v2.py','freeze-node-observer-packet-v1.py',
+ 'prepare-construction-oracle-v1.py','prepare-construction-addenda-oracle-v1.py',
+ 'run-provider-rgb-node-observer-v1.py','run-rgb-source-node-bindings-v2.py','run-nested-provider-source-bindings-v1.py',
+ 'capture-original2147-legacy-v65-v2.mjs','capture-original2147-no-document-offset-v1.mjs',
+ 'capture-no-document-offset-abi-v1.mjs','extract-portable-v65-evidence-v1.py']:
+    p=N/name
+    if p.is_file():add(p,'producer-original/'+name,'unchanged-original-verification-producer')
+save('origins.json',origins)
+save('blobs.json',unique)
+save('provenance.json',{
+ 'scope':'Byte-exact extraction; original paths are explicit lineage keys, never filesystem authority. Raw sources/generation/stage failures/recorded observations unchanged. Native fixtures remain in original consumer paths.',
+ 'plan':pin((N/'portable-v65-evidence-plan-v1/plan.json').read_bytes()),
+ 'original_node_observer':'original/node-observer-review-packet-v1/observed/observations.json',
+ 'construction_correct_original':'generated/xncl1/observations.json',
+ 'construction_historical_packaging_omission':'The old separated-loader raw receipt pins original xncl1 observations4663f3a0, while its copied observations are earlier xnc1 2c4c18c9. Both copies and manifests preserved. generated/xncl1 carries the exact original declared observation bytes; no old receipt/fixture was overwritten.',
+ 'counts':{'original_paths':len(origins),'unique_blobs':len(unique),'raw_original_path_bytes':sum(x['bytes']for x in origins.values()),'unique_bytes':sum(x['bytes']for x in unique.values()),'consumer_fixtures':len(fixtures)},
+ 'dependencies':'Existing committed fixtures/xtext/hidden-scope supplies original generation/provider/root manifests at exact hashes retained in original/node-observer-review-packet-v1/generated-root-bindings.json. No JAR vendoring. Preserve upstream source copyright/license headers in original/helper extracts; artifact coordinates/digests remain recorded in toolchain files.',
+ 'comparison':'Complete original JSON, UTF16 units, identity/order/error stages retained. No URI normalization; only previously explicit owned GenModel field exception in original generator comparisons. This extractor makes no new generator comparison or runtime award.',
+ 'original_authority':'Authored sources/schema/provider selection rebuilt by shared production engine. Recorded observations and serialized node snapshots are fixtures only, never executable authority.',
+ 'remaining':['Dedicated portable derivation checks and explicit optional fresh generator path adapter are separate follow-up files; extraction alone is not a semantic qualification.','All X04-X07/X15/S09 broad obligations remain open. Raw ANTLR lookahead bookkeeping is not claimed equal.'],
+ 'gate_closures':[]})
+print(json.dumps({'output':str(O),'origins':len(origins),'unique':len(unique),'bytes':sum(x['bytes']for x in unique.values()),'manifest':pin((O/'origins.json').read_bytes())}))

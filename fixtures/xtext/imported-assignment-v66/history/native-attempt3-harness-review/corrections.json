@@ -1,0 +1,18 @@
+{
+  "scope": "Test-only corrections after exact original failures; no production changes or original corpus repair.",
+  "original_test": {
+    "sha256": "6f47507159accfc80baecbfb94df7eedf5b41265a07520f3bd9d2762aecad9df",
+    "bytes": 14746
+  },
+  "new_test": {
+    "sha256": "943b08f3e14a194739fd51219cac8894ab9b109590140abb054f8ea7737d8dd0",
+    "bytes": 16893
+  },
+  "failed_log_sha256": "b89a9d4325f2f83c434e238384d5edfaa629993dfdf1f0b282f9add01ec56ecb",
+  "corrections": [
+    "Exact WASM ABI wraps native dispatch Err as {error:message}; native replay now uses that explicit carrier only, unchanged expected complete results.",
+    "Wrong duplicate-dedup assertion removed; source refs retain exact authored ordered duplicates. Native source resolution and generated resource observations are separate from generated list mutation; no full equivalence claim.",
+    "Companion imported Ecore but bound contract before canonical prepare_ecore_reference_context. Existing public helper documented revision transition applied before contract selection, unchanged source IDs. Added both V65/V66 rejection of exact old revision plus V65 positive control, not weakened stale check."
+  ],
+  "production_unchanged": true
+}

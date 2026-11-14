@@ -1,0 +1,143 @@
+[
+  {
+    "id": "simple_actions_empty_behavior_selected_companion",
+    "request": {
+      "method": "compile_bundle",
+      "xtext_profile": "intersect.xtext.native.v64",
+      "compilation": {
+        "bundle": {
+          "version": 1,
+          "sources": [
+            {
+              "id": {
+                "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+                "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+              },
+              "kind": "rcore",
+              "text": "rcore 1;\npackage `actions` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:actions:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `origin`: EString [0,1] unsettable;\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.1\" [0,1] unsettable;\n  }\n}\n",
+              "dependencies": []
+            },
+            {
+              "id": {
+                "uri": "memory:node-recovery/original/simple_actions_original/model.xtext",
+                "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8"
+              },
+              "kind": "xtext",
+              "text": "grammar mini.SimpleActions with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:xtext:mini-kerml:actions:1\" as k\nModel returns k::Model: {k::Model} 'package' name=ID '{' members+=Member* '}';\nMember returns k::Element: Type | Feature;\nType returns k::Element: {k::Type} 'type' Identification ('origin' origin=STRING)? ';';\nFeature returns k::Element: {k::Feature} 'feature' Identification ':' target=[k::Type|ID] ';';\nfragment Identification returns k::Element: name=ID;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+                  "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+                },
+                {
+                  "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext",
+                  "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:node-recovery/original/simple_actions_original/Terminals.xtext",
+                "sha256": "3e3d37770a731b0d5270b456743fc70331aa7aaf1c99afa6728896c64bbe401a"
+              },
+              "kind": "xtext",
+              "text": "/*******************************************************************************\n * Copyright (c) 2008, 2017 itemis AG and others.\n * This program and the accompanying materials are made available under the\n * terms of the Eclipse Public License 2.0 which is available at\n * http://www.eclipse.org/legal/epl-2.0.\n *\n * SPDX-License-Identifier: EPL-2.0\n *******************************************************************************/\ngrammar org.eclipse.xtext.common.Terminals hidden(WS, ML_COMMENT, SL_COMMENT)\n\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nterminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;\nterminal INT returns ecore::EInt: ('0'..'9')+;\nterminal STRING:\n\t\t\t'\"' ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|'\"') )* '\"' |\n\t\t\t\"'\" ( '\\\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'\"'|\"'\"|'\\\\' */ | !('\\\\'|\"'\") )* \"'\"\n\t\t;\nterminal ML_COMMENT : '/*' -> '*/';\nterminal SL_COMMENT : '//' !('\\n'|'\\r')* ('\\r'? '\\n')?;\n\nterminal WS         : (' '|'\\t'|'\\r'|'\\n')+;\n\nterminal ANY_OTHER: .;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+                  "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:node-recovery/original/simple_actions_original/model-behavior.rcore",
+                "sha256": "83bb99f47fc23f10622924aec7caa658a80badf4c20eeb7e25fe08f02b2cd41b"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage actionProviders version \"1\";\nimport model \"urn:intersect:xtext:mini-kerml:actions:1\" as m;\n\ninitialize m.Type using \"intersect.constant-attributes\" version \"1\" {\n  origin = \"constructor\";\n}\n",
+              "dependencies": [
+                {
+                  "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+                  "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+                }
+              ]
+            },
+            {
+              "id": {
+                "uri": "memory:node-recovery/native-context-companion/no-initializers.rcore",
+                "sha256": "64797f81949a2911c83d9b9e5761240fef13aa34cee1b887da679ff4c0592b1a"
+              },
+              "kind": "rcore_behavior",
+              "text": "rcore 1;\npackage nodeDocumentNoInitializers version \"1\";\nimport model \"urn:intersect:xtext:mini-kerml:actions:1\" as m;\n",
+              "dependencies": [
+                {
+                  "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+                  "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+                }
+              ]
+            }
+          ],
+          "namespaces": []
+        },
+        "ecore": {
+          "uri": "memory:node-recovery/original/simple_actions_original/model-structure.rcore",
+          "sha256": "4e4ba7b02cac95824319089e9c2adbcb5b3df7d0cbccf1a7d75f0680380086e2"
+        },
+        "namespace": "urn:intersect:xtext:mini-kerml:actions:1",
+        "xtext": {
+          "uri": "memory:node-recovery/original/simple_actions_original/model.xtext",
+          "sha256": "585963aac211973311684d254126073e99709641a37e972cac7e9b5b88172df8"
+        },
+        "rcore_behavior": {
+          "uri": "memory:node-recovery/native-context-companion/no-initializers.rcore",
+          "sha256": "64797f81949a2911c83d9b9e5761240fef13aa34cee1b887da679ff4c0592b1a"
+        }
+      }
+    },
+    "sources": [
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package Demo {\n  type Vehicle origin \"authored\";\n  type Wheel;\n  feature wheel : Wheel;\n}\n"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A; feature f:A; }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A origin \"x\"; }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A; feature f:; }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A; feature f:Missing; }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type A;"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { type ; }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "package M { 😀 }"
+      },
+      {
+        "uri": "memory:node-recovery/before/simple_actions_original.model",
+        "text": "/*lead*/package M { type A; }//tail"
+      }
+    ],
+    "upstream_provider": {
+      "file": "imported.ecore",
+      "bytes": 1424,
+      "sha256": "df531766fb529692971f7fe27c4797ccd31a71e853952f4ec00ce885675e8c90"
+    },
+    "scope": "new explicit source envelope over unchanged original fixture texts; canonical Rcore adapter; no native Ecore import or source validity assumption"
+  }
+]

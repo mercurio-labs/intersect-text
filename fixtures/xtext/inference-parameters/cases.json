@@ -1,0 +1,1942 @@
+{
+  "original_obstructions": [
+    {
+      "id": "true_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.TrueCall.Language",
+          "source": "grammar oracle.parameters.matrix.TrueCall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:true_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "false_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.FalseCall.Language",
+          "source": "grammar oracle.parameters.matrix.FalseCall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "named_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.NamedTrue.Language",
+          "source": "grammar oracle.parameters.matrix.NamedTrue.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:named_true\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "named_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.NamedFalse.Language",
+          "source": "grammar oracle.parameters.matrix.NamedFalse.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:named_false\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "forward_negation",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.ForwardNegation.Language",
+          "source": "grammar oracle.parameters.matrix.ForwardNegation.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:forward_negation\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Outer<true>; Outer<Flag>: value=Node<!Flag>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "and_or_precedence",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.AndOrPrecedence.Language",
+          "source": "grammar oracle.parameters.matrix.AndOrPrecedence.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:and_or_precedence\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false,true>; Node<A,B,C>: <A & B | C> yes=ID | <!(A & B | C)> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "grouped_boolean",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.GroupedBoolean.Language",
+          "source": "grammar oracle.parameters.matrix.GroupedBoolean.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:grouped_boolean\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false,false>; Node<A,B,C>: <A & (B | C)> yes=ID | <!(A & (B | C))> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "reordered_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.ReorderedNamed.Language",
+          "source": "grammar oracle.parameters.matrix.ReorderedNamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:reordered_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<B=false,A=true>; Node<A,B>: <A & !B> yes=ID | <!A | B> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "mixed_named_positional",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.MixedNamedPositional.Language",
+          "source": "grammar oracle.parameters.matrix.MixedNamedPositional.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:mixed_named_positional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,B=false>; Node<A,B>: <A & !B> yes=ID | <!A | B> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "guarded_sequence",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.GuardedSequence.Language",
+          "source": "grammar oracle.parameters.matrix.GuardedSequence.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_sequence\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID) | (<!Flag> 'no' b=ID);\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "no alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        }
+      ]
+    },
+    {
+      "id": "guarded_optional",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.GuardedOptional.Language",
+          "source": "grammar oracle.parameters.matrix.GuardedOptional.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_optional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: 'node' (<Flag> name=ID)?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "guarded_repetition",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.GuardedRepetition.Language",
+          "source": "grammar oracle.parameters.matrix.GuardedRepetition.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_repetition\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: 'node' (<Flag> yes+=ID | <!Flag> no+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha beta"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node 42"
+        }
+      ]
+    },
+    {
+      "id": "guarded_action",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.GuardedAction.Language",
+          "source": "grammar oracle.parameters.matrix.GuardedAction.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> {Yes} name=ID | <!Flag> {No} name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "forward_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.ForwardFragment.Language",
+          "source": "grammar oracle.parameters.matrix.ForwardFragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:forward_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'model' Fields<true>; fragment Fields<Flag>*: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "model alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "model alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "typed_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.TypedFragment.Language",
+          "source": "grammar oracle.parameters.matrix.TypedFragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:typed_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: Fields<Flag>; fragment Fields<Flag> returns Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "recursive_context",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.RecursiveContext.Language",
+          "source": "grammar oracle.parameters.matrix.RecursiveContext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta)"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta(yes gamma))"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(yes beta)"
+        }
+      ]
+    },
+    {
+      "id": "datatype_parameter",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.DatatypeParameter.Language",
+          "source": "grammar oracle.parameters.matrix.DatatypeParameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes yes"
+        }
+      ]
+    },
+    {
+      "id": "parameterized_entry",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.ParameterizedEntry.Language",
+          "source": "grammar oracle.parameters.matrix.ParameterizedEntry.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:parameterized_entry\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "unreachable_guard_structure",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.UnreachableGuardStructure.Language",
+          "source": "grammar oracle.parameters.matrix.UnreachableGuardStructure.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unreachable_guard_structure\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <true> a=ID | <false> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "omitted_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.OmittedCall.Language",
+          "source": "grammar oracle.parameters.matrix.OmittedCall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:omitted_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "too_few_arguments",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.TooFewArguments.Language",
+          "source": "grammar oracle.parameters.matrix.TooFewArguments.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:too_few_arguments\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<A,B>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "too_many_arguments",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.TooManyArguments.Language",
+          "source": "grammar oracle.parameters.matrix.TooManyArguments.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:too_many_arguments\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "unknown_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.UnknownNamed.Language",
+          "source": "grammar oracle.parameters.matrix.UnknownNamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unknown_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Missing=true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "duplicate_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.DuplicateNamed.Language",
+          "source": "grammar oracle.parameters.matrix.DuplicateNamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:duplicate_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=true,Flag=false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "duplicate_parameters",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.DuplicateParameters.Language",
+          "source": "grammar oracle.parameters.matrix.DuplicateParameters.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:duplicate_parameters\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false>; Node<Flag,Flag>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "unbound_condition",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.UnboundCondition.Language",
+          "source": "grammar oracle.parameters.matrix.UnboundCondition.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unbound_condition\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Missing> name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "unbound_argument",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.UnboundArgument.Language",
+          "source": "grammar oracle.parameters.matrix.UnboundArgument.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unbound_argument\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Missing>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "argument_to_plain_rule",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.ArgumentToPlainRule.Language",
+          "source": "grammar oracle.parameters.matrix.ArgumentToPlainRule.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:argument_to_plain_rule\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "empty_parameters",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.EmptyParameters.Language",
+          "source": "grammar oracle.parameters.matrix.EmptyParameters.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:empty_parameters\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<>; Node<>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "nonboolean_argument",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.NonbooleanArgument.Language",
+          "source": "grammar oracle.parameters.matrix.NonbooleanArgument.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:nonboolean_argument\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<42>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "inherited_parameters",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.InheritedParameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.InheritedParameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:inherited_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.InheritedParameters.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.InheritedParameters.Child with oracle.parameters.matrix.InheritedParameters.Parent\ngenerate child \"urn:intersect:parameter-matrix:inherited_parameters:child\"\nimport \"urn:intersect:parameter-matrix:inherited_parameters:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "overridden_parameters",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.OverriddenParameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.OverriddenParameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:overridden_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.OverriddenParameters.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.OverriddenParameters.Child with oracle.parameters.matrix.OverriddenParameters.Parent\ngenerate child \"urn:intersect:parameter-matrix:overridden_parameters:child\"\nimport \"urn:intersect:parameter-matrix:overridden_parameters:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag> returns parent::Node: <Flag> a=ID | <!Flag> b=ID;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "override_arity",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.OverrideArity.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.OverrideArity.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:override_arity:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.OverrideArity.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.OverrideArity.Child with oracle.parameters.matrix.OverrideArity.Parent\ngenerate child \"urn:intersect:parameter-matrix:override_arity:child\"\nimport \"urn:intersect:parameter-matrix:override_arity:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag,Other> returns parent::Node: name=ID;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    }
+  ],
+  "lowercase_counterparts": [
+    {
+      "id": "true_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.truecall.Language",
+          "source": "grammar oracle.parameters.matrix.truecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:true_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "false_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.falsecall.Language",
+          "source": "grammar oracle.parameters.matrix.falsecall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:false_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "named_true",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.namedtrue.Language",
+          "source": "grammar oracle.parameters.matrix.namedtrue.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:named_true\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "named_false",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.namedfalse.Language",
+          "source": "grammar oracle.parameters.matrix.namedfalse.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:named_false\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "42"
+        },
+        {
+          "entry": "resource",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "forward_negation",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.forwardnegation.Language",
+          "source": "grammar oracle.parameters.matrix.forwardnegation.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:forward_negation\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Outer<true>; Outer<Flag>: value=Node<!Flag>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "and_or_precedence",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.andorprecedence.Language",
+          "source": "grammar oracle.parameters.matrix.andorprecedence.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:and_or_precedence\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false,true>; Node<A,B,C>: <A & B | C> yes=ID | <!(A & B | C)> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "grouped_boolean",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.groupedboolean.Language",
+          "source": "grammar oracle.parameters.matrix.groupedboolean.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:grouped_boolean\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false,false>; Node<A,B,C>: <A & (B | C)> yes=ID | <!(A & (B | C))> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "reordered_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.reorderednamed.Language",
+          "source": "grammar oracle.parameters.matrix.reorderednamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:reordered_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<B=false,A=true>; Node<A,B>: <A & !B> yes=ID | <!A | B> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "mixed_named_positional",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.mixednamedpositional.Language",
+          "source": "grammar oracle.parameters.matrix.mixednamedpositional.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:mixed_named_positional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,B=false>; Node<A,B>: <A & !B> yes=ID | <!A | B> no=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "guarded_sequence",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.guardedsequence.Language",
+          "source": "grammar oracle.parameters.matrix.guardedsequence.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_sequence\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID) | (<!Flag> 'no' b=ID);\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "no alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "no alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes"
+        }
+      ]
+    },
+    {
+      "id": "guarded_optional",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.guardedoptional.Language",
+          "source": "grammar oracle.parameters.matrix.guardedoptional.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_optional\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: 'node' (<Flag> name=ID)?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "guarded_repetition",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.guardedrepetition.Language",
+          "source": "grammar oracle.parameters.matrix.guardedrepetition.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_repetition\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: 'node' (<Flag> yes+=ID | <!Flag> no+=ID)*;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha beta"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node 42"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "node alpha beta"
+        },
+        {
+          "entry": "resource",
+          "text": "node"
+        },
+        {
+          "entry": "resource",
+          "text": "node 42"
+        }
+      ]
+    },
+    {
+      "id": "guarded_action",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.guardedaction.Language",
+          "source": "grammar oracle.parameters.matrix.guardedaction.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:guarded_action\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> {Yes} name=ID | <!Flag> {No} name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "forward_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.forwardfragment.Language",
+          "source": "grammar oracle.parameters.matrix.forwardfragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:forward_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: 'model' Fields<true>; fragment Fields<Flag>*: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "model alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "model alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "model alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "model alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "typed_fragment",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.typedfragment.Language",
+          "source": "grammar oracle.parameters.matrix.typedfragment.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:typed_fragment\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag>: Fields<Flag>; fragment Fields<Flag> returns Node: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "recursive_context",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.recursivecontext.Language",
+          "source": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta)"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta(yes gamma))"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(yes beta)"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta)"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(no beta(yes gamma))"
+        },
+        {
+          "entry": "resource",
+          "text": "yes alpha(yes beta)"
+        }
+      ]
+    },
+    {
+      "id": "datatype_parameter",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.datatypeparameter.Language",
+          "source": "grammar oracle.parameters.matrix.datatypeparameter.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:datatype_parameter\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: value=Word<true>; Word<Flag> returns ecore::EString: <Flag> 'yes' | <!Flag> 'no';\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes yes"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "yes"
+        },
+        {
+          "entry": "resource",
+          "text": "no"
+        },
+        {
+          "entry": "resource",
+          "text": "yes yes"
+        }
+      ]
+    },
+    {
+      "id": "parameterized_entry",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.parameterizedentry.Language",
+          "source": "grammar oracle.parameters.matrix.parameterizedentry.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:parameterized_entry\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "unreachable_guard_structure",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.unreachableguardstructure.Language",
+          "source": "grammar oracle.parameters.matrix.unreachableguardstructure.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unreachable_guard_structure\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <true> a=ID | <false> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "omitted_call",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.omittedcall.Language",
+          "source": "grammar oracle.parameters.matrix.omittedcall.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:omitted_call\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "too_few_arguments",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.toofewarguments.Language",
+          "source": "grammar oracle.parameters.matrix.toofewarguments.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:too_few_arguments\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<A,B>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "too_many_arguments",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.toomanyarguments.Language",
+          "source": "grammar oracle.parameters.matrix.toomanyarguments.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:too_many_arguments\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "unknown_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.unknownnamed.Language",
+          "source": "grammar oracle.parameters.matrix.unknownnamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unknown_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Missing=true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "duplicate_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.duplicatenamed.Language",
+          "source": "grammar oracle.parameters.matrix.duplicatenamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:duplicate_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=true,Flag=false>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "duplicate_parameters",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.duplicateparameters.Language",
+          "source": "grammar oracle.parameters.matrix.duplicateparameters.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:duplicate_parameters\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,false>; Node<Flag,Flag>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "unbound_condition",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.unboundcondition.Language",
+          "source": "grammar oracle.parameters.matrix.unboundcondition.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unbound_condition\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Missing> name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "unbound_argument",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.unboundargument.Language",
+          "source": "grammar oracle.parameters.matrix.unboundargument.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:unbound_argument\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Missing>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "argument_to_plain_rule",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.argumenttoplainrule.Language",
+          "source": "grammar oracle.parameters.matrix.argumenttoplainrule.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:argument_to_plain_rule\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "empty_parameters",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.emptyparameters.Language",
+          "source": "grammar oracle.parameters.matrix.emptyparameters.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:empty_parameters\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<>; Node<>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "nonboolean_argument",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.matrix.nonbooleanargument.Language",
+          "source": "grammar oracle.parameters.matrix.nonbooleanargument.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:nonboolean_argument\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<42>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+          "dependencies": []
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "inherited_parameters",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.inheritedparameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.inheritedparameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:inherited_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.inheritedparameters.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.inheritedparameters.Child with oracle.parameters.matrix.inheritedparameters.Parent\ngenerate child \"urn:intersect:parameter-matrix:inherited_parameters:child\"\nimport \"urn:intersect:parameter-matrix:inherited_parameters:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "overridden_parameters",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.overriddenparameters.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.overriddenparameters.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:overridden_parameters:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.overriddenparameters.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.overriddenparameters.Child with oracle.parameters.matrix.overriddenparameters.Parent\ngenerate child \"urn:intersect:parameter-matrix:overridden_parameters:child\"\nimport \"urn:intersect:parameter-matrix:overridden_parameters:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag> returns parent::Node: <Flag> a=ID | <!Flag> b=ID;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "override_arity",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.matrix.overridearity.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.matrix.overridearity.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-matrix:override_arity:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.matrix.overridearity.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.matrix.overridearity.Child with oracle.parameters.matrix.overridearity.Parent\ngenerate child \"urn:intersect:parameter-matrix:override_arity:child\"\nimport \"urn:intersect:parameter-matrix:override_arity:parent\" as parent\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false>; Node<Flag,Other> returns parent::Node: name=ID;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    }
+  ],
+  "additional_controls": [
+    {
+      "id": "duplicate_used",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.duplicateused.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.duplicateused.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:duplicate_used\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<false,true>; Node<Flag,Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "duplicate_named_declarations",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.duplicatenameddeclarations.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.duplicatenameddeclarations.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:duplicate_named_declarations\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<Flag=true,Flag=false>; Node<Flag,Flag>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "mixed_out_of_order",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.mixedoutoforder.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.mixedoutoforder.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:mixed_out_of_order\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true,C=false,B=true>; Node<A,B,C>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "partial_named",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.partialnamed.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.partialnamed.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:partial_named\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<A=true>; Node<A,B>: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "boolean_argument_expressions",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.booleanargumentexpressions.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.booleanargumentexpressions.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:boolean_argument_expressions\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Outer<true,false>; Outer<A,B>: child=Node<(A | B) & !B>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "named_entry",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.namedentry.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.namedentry.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:named_entry\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha"
+        },
+        {
+          "entry": "Node",
+          "text": "alpha alpha"
+        }
+      ]
+    },
+    {
+      "id": "recursive_missing_argument",
+      "entry": "entry",
+      "sources": [
+        {
+          "id": "entry",
+          "grammar": "oracle.parameters.addendum.recursivemissingargument.Language",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.recursivemissingargument.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-addendum:recursive_missing_argument\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: name=ID ('(' child=Node ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        }
+      ],
+      "runs": [],
+      "planned_runs": []
+    },
+    {
+      "id": "inherited_fragment_parameters",
+      "entry": "child",
+      "sources": [
+        {
+          "id": "parent",
+          "grammar": "oracle.parameters.addendum.inheritedfragment.Parent",
+          "dependencies": [],
+          "source": "grammar oracle.parameters.addendum.inheritedfragment.Parent hidden(WS)\ngenerate parent \"urn:intersect:parameter-addendum:fragment:parent\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRoot: Fields<true>; fragment Fields<Flag>*: <Flag> a=ID | <!Flag> b=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+        },
+        {
+          "id": "child",
+          "grammar": "oracle.parameters.addendum.inheritedfragment.Child",
+          "dependencies": [
+            "parent"
+          ],
+          "source": "grammar oracle.parameters.addendum.inheritedfragment.Child with oracle.parameters.addendum.inheritedfragment.Parent\ngenerate child \"urn:intersect:parameter-addendum:fragment:child\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields<false>;\n"
+        }
+      ],
+      "runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ],
+      "planned_runs": [
+        {
+          "entry": "resource",
+          "text": "alpha"
+        },
+        {
+          "entry": "resource",
+          "text": "alpha alpha"
+        }
+      ]
+    }
+  ]
+}

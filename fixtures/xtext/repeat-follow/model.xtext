@@ -1,0 +1,4 @@
+grammar repeatFollow hidden(WS)
+import "urn:intersect:compatibility:graph" as g
+Root returns g::Node: ('a' labels+='b')* 'a' name='c';
+terminal WS: ' '+;

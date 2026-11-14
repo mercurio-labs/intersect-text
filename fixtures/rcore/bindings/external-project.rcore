@@ -1,0 +1,12 @@
+rcore 1;
+package external.example version "1";
+metamodel "urn:intersect:external" prefix external {
+  class Meter {
+    attr value: Int64 [1,1];
+  }
+}
+behavior {
+  import model "urn:intersect:external" as m;
+  extern fn twice(value: Int64) -> Int64;
+  extern fn doubled(meter: m.Meter) -> Int64;
+}

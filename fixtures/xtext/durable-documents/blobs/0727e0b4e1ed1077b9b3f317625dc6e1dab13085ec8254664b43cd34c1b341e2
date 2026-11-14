@@ -1,0 +1,158 @@
+{
+  "exit_code": 0,
+  "observations": [
+    {
+      "provider": {
+        "name": "example.rgb",
+        "version": "1"
+      },
+      "parse": [
+        {
+          "text": "#010203",
+          "value": {
+            "red": 1,
+            "green": 2,
+            "blue": 3
+          },
+          "formatted": "#010203",
+          "failure": null
+        },
+        {
+          "text": "#123abc",
+          "value": {
+            "red": 18,
+            "green": 58,
+            "blue": 188
+          },
+          "formatted": "#123ABC",
+          "failure": null
+        },
+        {
+          "text": "#ABCDEF",
+          "value": {
+            "red": 171,
+            "green": 205,
+            "blue": 239
+          },
+          "formatted": "#ABCDEF",
+          "failure": null
+        },
+        {
+          "text": "#000000",
+          "value": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          },
+          "formatted": "#000000",
+          "failure": null
+        },
+        {
+          "text": "#ffffff",
+          "value": {
+            "red": 255,
+            "green": 255,
+            "blue": 255
+          },
+          "formatted": "#FFFFFF",
+          "failure": null
+        },
+        {
+          "text": "010203",
+          "value": null,
+          "failure": "RGB text requires #RRGGBB"
+        },
+        {
+          "text": "#bad",
+          "value": null,
+          "failure": "RGB text requires six ASCII hexadecimal digits"
+        },
+        {
+          "text": "#0102030",
+          "value": null,
+          "failure": "RGB text requires six ASCII hexadecimal digits"
+        },
+        {
+          "text": "#\uff11\uff12\uff13\uff14\uff15\uff16",
+          "value": null,
+          "failure": "RGB text requires six ASCII hexadecimal digits"
+        },
+        {
+          "text": "#00000G",
+          "value": null,
+          "failure": "RGB text requires six ASCII hexadecimal digits"
+        }
+      ],
+      "format": [
+        {
+          "value": {
+            "blue": 3,
+            "red": 1,
+            "green": 2
+          },
+          "formatted": "#010203",
+          "failure": null
+        },
+        {
+          "value": {
+            "blue": 188,
+            "red": 18,
+            "green": 58
+          },
+          "formatted": "#123ABC",
+          "failure": null
+        },
+        {
+          "value": {
+            "blue": 3,
+            "red": 256,
+            "green": 2
+          },
+          "formatted": null,
+          "failure": "Expected integer RGB channel 0..255"
+        },
+        {
+          "value": {
+            "blue": 3,
+            "red": -1,
+            "green": 2
+          },
+          "formatted": null,
+          "failure": "Expected integer RGB channel 0..255"
+        },
+        {
+          "value": {
+            "blue": 3,
+            "red": 1.0,
+            "green": 2
+          },
+          "formatted": null,
+          "failure": "Expected integer RGB channel 0..255"
+        },
+        {
+          "value": {
+            "extra": 4,
+            "green": 2,
+            "blue": 3,
+            "red": 1
+          },
+          "formatted": null,
+          "failure": "Expected exact RGB fields"
+        },
+        {
+          "value": {
+            "green": 2,
+            "red": 1
+          },
+          "formatted": null,
+          "failure": "Expected exact RGB fields"
+        },
+        {
+          "value": null,
+          "formatted": null,
+          "failure": "Expected exact RGB payload"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5287 @@
+{
+  "scope": "Additive immutable historical V60 compatibility capture after initial candidate edits; exact existing fragment/parameter graphs, no changed inference protocol or new inferred profile.",
+  "wasm_sha256": "99fbb605670d467aad9fcfb9195c874aae9669dcaad718641a7e0ea190f9776b",
+  "cases": [
+    {
+      "request": {
+        "method": "compile_inferred",
+        "inference": {
+          "version": 1,
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:host-inference/typed_basic/model.xtext",
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": []
+              }
+            ],
+            "namespaces": []
+          },
+          "grammar": {
+            "uri": "memory:host-inference/typed_basic/model.xtext",
+            "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e"
+          }
+        }
+      },
+      "result": {
+        "generated_definitions": {
+          "entry": {
+            "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+            "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+          },
+          "origins": [
+            {
+              "generated": {
+                "end": 305,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 219
+              },
+              "original": [
+                {
+                  "end": 168,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 163
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 407,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 324
+              },
+              "original": [
+                {
+                  "end": 202,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 195
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 411,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 305
+              },
+              "original": [
+                {
+                  "end": 193,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 187
+                }
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "dependencies": [
+                {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+              },
+              "kind": "rcore",
+              "text": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n"
+            }
+          ]
+        },
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "grammar": {
+            "declaration_sources": {
+              "Fields": {
+                "end": 203,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 178
+              },
+              "ID": {
+                "end": 229,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 204
+              },
+              "Model": {
+                "end": 177,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 163
+              },
+              "WS": {
+                "end": 265,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 230
+              }
+            },
+            "entry": "Model",
+            "hidden": [
+              "WS"
+            ],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "ID"
+                },
+                {
+                  "Terminal": "WS"
+                }
+              ],
+              "roots": [
+                0,
+                6
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1,
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 122,
+                      "low": 97,
+                      "target": 5
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    10
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7,
+                    8
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    12,
+                    14,
+                    16,
+                    18
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    9
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 32,
+                      "low": 32,
+                      "target": 13
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 9,
+                      "low": 9,
+                      "target": 15
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 13,
+                      "low": 13,
+                      "target": 17
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 10,
+                      "low": 10,
+                      "target": 19
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                }
+              ]
+            },
+            "name": "inference.fragments.TypedBasic",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Fields": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 0
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    4
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v56",
+            "rules": {
+              "Fields": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "ID"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4",
+                "fragment": true
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "Fields"
+                  }
+                },
+                "class": "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae"
+              }
+            },
+            "terminal_order": [
+              "ID",
+              "WS"
+            ],
+            "terminals": {
+              "ID": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      97,
+                      122
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            97,
+                            122
+                          ]
+                        ],
+                        "kind": {
+                          "Range": [
+                            97,
+                            122
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 229,
+                "identity": "inference.fragments.TypedBasic::ID",
+                "start": 204
+              },
+              "WS": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      13,
+                      13
+                    ],
+                    [
+                      32,
+                      32
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            9,
+                            10
+                          ],
+                          [
+                            13,
+                            13
+                          ],
+                          [
+                            32,
+                            32
+                          ]
+                        ],
+                        "kind": {
+                          "Alternative": [
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  32,
+                                  32
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  32
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  9,
+                                  9
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  9
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  13,
+                                  13
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  13
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  10,
+                                  10
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  10
+                                ]
+                              },
+                              "nullable": false
+                            }
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 265,
+                "identity": "inference.fragments.TypedBasic::WS",
+                "start": 230
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4",
+                "parents": []
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "abstract_type": false,
+                "features": {},
+                "name": "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae",
+                "parents": [
+                  "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4"
+                ]
+              }
+            },
+            "declarations": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "name": "Fields",
+                "namespace": "urn:inference:fragments:typed_basic",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "name": "Model",
+                "namespace": "urn:inference:fragments:typed_basic",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              }
+            },
+            "declared_operation_selections": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              }
+            },
+            "generic_signatures": {
+              "parameters": [],
+              "raw_signatures": [
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:inference:fragments:typed_basic#//Fields",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 304,
+                        "source": {
+                          "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                          "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                        },
+                        "start": 221
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                        "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 406,
+                        "source": {
+                          "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                          "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                        },
+                        "start": 328
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "retained_payloads": [],
+              "sources": [
+                {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              ],
+              "types": []
+            },
+            "name": "fragments",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "8bf5622cc1e3bd868e9e2d4c8c614449b8fd38f16d467bebbef3f09ee7e37fc1",
+            "uri": "urn:inference:fragments:typed_basic"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "source_policy": {
+            "structure_bytes": 256000,
+            "xtext_bytes": 256000,
+            "xtext_declarations": 128
+          },
+          "sources": {
+            "ecore": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n",
+            "rcore_behavior": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n",
+            "xtext": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+          },
+          "version": 2,
+          "xtext_inference": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+                }
+              ],
+              "version": 1
+            },
+            "grammar": {
+              "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+              "uri": "memory:host-inference/typed_basic/model.xtext"
+            },
+            "version": 1
+          }
+        }
+      },
+      "replay": {
+        "generated_definitions": {
+          "entry": {
+            "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+            "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+          },
+          "origins": [
+            {
+              "generated": {
+                "end": 305,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 219
+              },
+              "original": [
+                {
+                  "end": 168,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 163
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 407,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 324
+              },
+              "original": [
+                {
+                  "end": 202,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 195
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 411,
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                },
+                "start": 305
+              },
+              "original": [
+                {
+                  "end": 193,
+                  "source": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "start": 187
+                }
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "dependencies": [
+                {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+              },
+              "kind": "rcore",
+              "text": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n"
+            }
+          ]
+        },
+        "keywords": [],
+        "ok": true,
+        "package": {
+          "grammar": {
+            "declaration_sources": {
+              "Fields": {
+                "end": 203,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 178
+              },
+              "ID": {
+                "end": 229,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 204
+              },
+              "Model": {
+                "end": 177,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 163
+              },
+              "WS": {
+                "end": 265,
+                "source": {
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                  "uri": "memory:host-inference/typed_basic/model.xtext"
+                },
+                "start": 230
+              }
+            },
+            "entry": "Model",
+            "hidden": [
+              "WS"
+            ],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Terminal": "ID"
+                },
+                {
+                  "Terminal": "WS"
+                }
+              ],
+              "roots": [
+                0,
+                6
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    4
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    1,
+                    2
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 122,
+                      "low": 97,
+                      "target": 5
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    3
+                  ],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    8
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    10
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    7,
+                    8
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    12,
+                    14,
+                    16,
+                    18
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    9
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 32,
+                      "low": 32,
+                      "target": 13
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 9,
+                      "low": 9,
+                      "target": 15
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 13,
+                      "low": 13,
+                      "target": 17
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 10,
+                      "low": 10,
+                      "target": 19
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    11
+                  ],
+                  "owner": 1
+                }
+              ]
+            },
+            "name": "inference.fragments.TypedBasic",
+            "parser_prediction": {
+              "decisions": {},
+              "first_guards": {},
+              "rules": {
+                "Fields": [
+                  0,
+                  1
+                ],
+                "Model": [
+                  2,
+                  3
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        1
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    3
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 3,
+                        "target": 0
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    4
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        5
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v56",
+            "rules": {
+              "Fields": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "name",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "ID"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4",
+                "fragment": true
+              },
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Call": "Fields"
+                  }
+                },
+                "class": "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae"
+              }
+            },
+            "terminal_order": [
+              "ID",
+              "WS"
+            ],
+            "terminals": {
+              "ID": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      97,
+                      122
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            97,
+                            122
+                          ]
+                        ],
+                        "kind": {
+                          "Range": [
+                            97,
+                            122
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 229,
+                "identity": "inference.fragments.TypedBasic::ID",
+                "start": 204
+              },
+              "WS": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      13,
+                      13
+                    ],
+                    [
+                      32,
+                      32
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            9,
+                            10
+                          ],
+                          [
+                            13,
+                            13
+                          ],
+                          [
+                            32,
+                            32
+                          ]
+                        ],
+                        "kind": {
+                          "Alternative": [
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  32,
+                                  32
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  32
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  9,
+                                  9
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  9
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  13,
+                                  13
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  13
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  10,
+                                  10
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  10
+                                ]
+                              },
+                              "nullable": false
+                            }
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 265,
+                "identity": "inference.fragments.TypedBasic::WS",
+                "start": 230
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "name": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "name"
+                ],
+                "features": {
+                  "name": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "name",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4",
+                "parents": []
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "abstract_type": false,
+                "features": {},
+                "name": "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae",
+                "parents": [
+                  "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4"
+                ]
+              }
+            },
+            "declarations": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "name": "Fields",
+                "namespace": "urn:inference:fragments:typed_basic",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "name": "Model",
+                "namespace": "urn:inference:fragments:typed_basic",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              }
+            },
+            "declared_operation_selections": {
+              "__type_intersect_generic_1_9537f8e6728bca94477d4c5dfad5387ea6e86e95cf2b0fdeb85eec3c21aaede4": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              },
+              "__type_intersect_generic_1_aee49e8212c044d6cb679cedd852ac3b33751c6f24ee422b9261fa42129e1fae": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              }
+            },
+            "generic_signatures": {
+              "parameters": [],
+              "raw_signatures": [
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:inference:fragments:typed_basic#//Fields",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 304,
+                        "source": {
+                          "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                          "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                        },
+                        "start": 221
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                        "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 406,
+                        "source": {
+                          "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                          "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                        },
+                        "start": 328
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                      "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "retained_payloads": [],
+              "sources": [
+                {
+                  "sha256": "47172006800fff7a025f7e6342ae03575b6c350a595f4b901524d70e22eaf9f5",
+                  "uri": "intersect-inferred:b7ea903d8c5127e983dad9c04ced8d601612fcd10d40c89125706a1c5adf2cd0:0.rcore"
+                }
+              ],
+              "types": []
+            },
+            "name": "fragments",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "8bf5622cc1e3bd868e9e2d4c8c614449b8fd38f16d467bebbef3f09ee7e37fc1",
+            "uri": "urn:inference:fragments:typed_basic"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "source_policy": {
+            "structure_bytes": 256000,
+            "xtext_bytes": 256000,
+            "xtext_declarations": 128
+          },
+          "sources": {
+            "ecore": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n",
+            "rcore_behavior": "// Generated Xtext metamodel from SHA-256 2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e.\nrcore 1;\npackage `fragments` version \"1\";\nmetamodel \"urn:inference:fragments:typed_basic\" prefix `fragments` {\n  class `Model` extends external \"urn:inference:fragments:typed_basic#//Fields\" {\n  }\n  class `Fields` {\n    attr `name`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n  }\n}\n",
+            "xtext": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+          },
+          "version": 2,
+          "xtext_inference": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+                    "uri": "memory:host-inference/typed_basic/model.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n"
+                }
+              ],
+              "version": 1
+            },
+            "grammar": {
+              "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e",
+              "uri": "memory:host-inference/typed_basic/model.xtext"
+            },
+            "version": 1
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_inferred",
+        "inference": {
+          "version": 1,
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:host-inference/recursive_context/entry.xtext",
+                  "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "kind": "xtext",
+                "text": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+                "dependencies": []
+              }
+            ],
+            "namespaces": []
+          },
+          "grammar": {
+            "uri": "memory:host-inference/recursive_context/entry.xtext",
+            "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+          }
+        }
+      },
+      "result": {
+        "generated_definitions": {
+          "entry": {
+            "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+            "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+          },
+          "origins": [
+            {
+              "generated": {
+                "end": 345,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 242
+              },
+              "original": [
+                {
+                  "end": 215,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 199
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 349,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 224
+              },
+              "original": [
+                {
+                  "end": 197,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 192
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 446,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 366
+              },
+              "original": [
+                {
+                  "end": 247,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 243
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 526,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 446
+              },
+              "original": [
+                {
+                  "end": 267,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 263
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 629,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 526
+              },
+              "original": [
+                {
+                  "end": 291,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 274
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 633,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 349
+              },
+              "original": [
+                {
+                  "end": 221,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 217
+                }
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "dependencies": [
+                {
+                  "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                  "uri": "memory:host-inference/recursive_context/entry.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+              },
+              "kind": "rcore",
+              "text": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n"
+            }
+          ]
+        },
+        "keywords": [
+          "(",
+          ")",
+          "no",
+          "yes"
+        ],
+        "ok": true,
+        "package": {
+          "grammar": {
+            "declaration_sources": {
+              "ANY_OTHER": {
+                "end": 607,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 585
+              },
+              "ID": {
+                "end": 548,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 523
+              },
+              "Model": {
+                "end": 348,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 312
+              },
+              "Node": {
+                "end": 435,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 349
+              },
+              "WS": {
+                "end": 584,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 549
+              },
+              "_intersect_parameter_5": {
+                "end": 522,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 436
+              }
+            },
+            "entry": "Model",
+            "hidden": [
+              "WS"
+            ],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Keyword": "("
+                },
+                {
+                  "Keyword": ")"
+                },
+                {
+                  "Keyword": "no"
+                },
+                {
+                  "Keyword": "yes"
+                },
+                {
+                  "Terminal": "ID"
+                },
+                {
+                  "Terminal": "WS"
+                },
+                {
+                  "Terminal": "ANY_OTHER"
+                }
+              ],
+              "roots": [
+                0,
+                2,
+                4,
+                7,
+                11,
+                17,
+                31
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 40,
+                      "low": 40,
+                      "target": 1
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 41,
+                      "low": 41,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 110,
+                      "low": 110,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 111,
+                      "low": 111,
+                      "target": 5
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 121,
+                      "low": 121,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 101,
+                      "low": 101,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 115,
+                      "low": 115,
+                      "target": 8
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    13
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    15
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    12,
+                    13
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 122,
+                      "low": 97,
+                      "target": 16
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    14
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    19
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    21
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    18,
+                    19
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    23,
+                    25,
+                    27,
+                    29
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    20
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 32,
+                      "low": 32,
+                      "target": 24
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 9,
+                      "low": 9,
+                      "target": 26
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 13,
+                      "low": 13,
+                      "target": 28
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 10,
+                      "low": 10,
+                      "target": 30
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    33
+                  ],
+                  "owner": 6
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 6
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 34
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 6
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    32
+                  ],
+                  "owner": 6
+                }
+              ]
+            },
+            "name": "oracle.parameters.matrix.recursivecontext.Language",
+            "parameterized_rules": [
+              "Node",
+              "_intersect_parameter_5"
+            ],
+            "parser_prediction": {
+              "decisions": {
+                "rule/Node/s0/s0/choice": {
+                  "entries": [
+                    9
+                  ],
+                  "exit": null
+                },
+                "rule/Node/s1/repeat": {
+                  "entries": [
+                    11,
+                    3
+                  ],
+                  "exit": 1
+                },
+                "rule/_intersect_parameter_5/s0/s0/choice": {
+                  "entries": [
+                    16
+                  ],
+                  "exit": null
+                },
+                "rule/_intersect_parameter_5/s1/repeat": {
+                  "entries": [
+                    18,
+                    5
+                  ],
+                  "exit": 1
+                }
+              },
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ],
+                "Node": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_5": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 1,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 9
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    21
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 16
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    1,
+                    14
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 11
+                    },
+                    {
+                      "Epsilon": 3
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "no"
+                        },
+                        10
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        8
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "("
+                        },
+                        13
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 3
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 14,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": ")"
+                        },
+                        12
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 18
+                    },
+                    {
+                      "Epsilon": 5
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "yes"
+                        },
+                        17
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        15
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "("
+                        },
+                        20
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 5
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 21,
+                        "target": 2
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": ")"
+                        },
+                        19
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v57",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "child",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "_intersect_parameter_5"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a"
+              },
+              "Node": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Alternative": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Sequence": [
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Literal": "no"
+                                          }
+                                        },
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Assign": {
+                                              "feature": "b",
+                                              "many": false,
+                                              "value": {
+                                                "cardinality": "1",
+                                                "kind": {
+                                                  "Call": "ID"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              "prediction_path": "rule/Node/s0/s0"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "cardinality": "?",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Sequence": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": "("
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Assign": {
+                                        "feature": "child",
+                                        "many": false,
+                                        "value": {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Call": "_intersect_parameter_5"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": ")"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "prediction_path": "rule/Node/s1"
+                      }
+                    ]
+                  }
+                },
+                "class": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48"
+              },
+              "_intersect_parameter_5": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Alternative": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Sequence": [
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Literal": "yes"
+                                          }
+                                        },
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Assign": {
+                                              "feature": "a",
+                                              "many": false,
+                                              "value": {
+                                                "cardinality": "1",
+                                                "kind": {
+                                                  "Call": "ID"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              "prediction_path": "rule/_intersect_parameter_5/s0/s0"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "cardinality": "?",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Sequence": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": "("
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Assign": {
+                                        "feature": "child",
+                                        "many": false,
+                                        "value": {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Call": "Node"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": ")"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "prediction_path": "rule/_intersect_parameter_5/s1"
+                      }
+                    ]
+                  }
+                },
+                "class": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48"
+              }
+            },
+            "terminal_order": [
+              "ID",
+              "WS",
+              "ANY_OTHER"
+            ],
+            "terminals": {
+              "ANY_OTHER": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      0,
+                      65535
+                    ]
+                  ],
+                  "kind": "Wildcard",
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 607,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::ANY_OTHER",
+                "start": 585
+              },
+              "ID": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      97,
+                      122
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            97,
+                            122
+                          ]
+                        ],
+                        "kind": {
+                          "Range": [
+                            97,
+                            122
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 548,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::ID",
+                "start": 523
+              },
+              "WS": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      13,
+                      13
+                    ],
+                    [
+                      32,
+                      32
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            9,
+                            10
+                          ],
+                          [
+                            13,
+                            13
+                          ],
+                          [
+                            32,
+                            32
+                          ]
+                        ],
+                        "kind": {
+                          "Alternative": [
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  32,
+                                  32
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  32
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  9,
+                                  9
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  9
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  13,
+                                  13
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  13
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  10,
+                                  10
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  10
+                                ]
+                              },
+                              "nullable": false
+                            }
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 584,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::WS",
+                "start": 549
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "child": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "child"
+                ],
+                "features": {
+                  "child": {
+                    "containment": true,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "child",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a",
+                "parents": []
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "a": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "b": {
+                    "path": [
+                      1,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "child": {
+                    "path": [
+                      1,
+                      2
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "a",
+                  "b",
+                  "child"
+                ],
+                "features": {
+                  "a": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "a",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  },
+                  "b": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "b",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  },
+                  "child": {
+                    "containment": true,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "child",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                "parents": []
+              }
+            },
+            "declarations": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "name": "Model",
+                "namespace": "urn:intersect:parameter-matrix:recursive_context",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "name": "Node",
+                "namespace": "urn:intersect:parameter-matrix:recursive_context",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              }
+            },
+            "declared_operation_selections": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              }
+            },
+            "generic_signatures": {
+              "parameters": [],
+              "raw_signatures": [
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:intersect:parameter-matrix:recursive_context#//Node",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 344,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 246
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                        "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 445,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 370
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 525,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 450
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:intersect:parameter-matrix:recursive_context#//Node",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 628,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 530
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      2
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                        "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "retained_payloads": [],
+              "sources": [
+                {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              ],
+              "types": []
+            },
+            "name": "model",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "981b5cc18e437b3e291d78bfb2c7f409d1d5fc32b78293441e7316f5254527f5",
+            "uri": "urn:intersect:parameter-matrix:recursive_context"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "source_policy": {
+            "structure_bytes": 256000,
+            "xtext_bytes": 256000,
+            "xtext_declarations": 128
+          },
+          "sources": {
+            "ecore": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b": "// Generated native parameter program; original digest 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b\ngrammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=_intersect_parameter_5;\nNode: (<false> 'yes' a=ID | <true> 'no' b=ID) ('(' child=_intersect_parameter_5 ')')?;\n_intersect_parameter_5: (<true> 'yes' a=ID | <false> 'no' b=ID) ('(' child=Node ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+            "rcore_behavior": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n",
+            "xtext": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+          },
+          "version": 2,
+          "xtext_inference": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+                }
+              ],
+              "version": 1
+            },
+            "grammar": {
+              "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+              "uri": "memory:host-inference/recursive_context/entry.xtext"
+            },
+            "version": 1
+          }
+        }
+      },
+      "replay": {
+        "generated_definitions": {
+          "entry": {
+            "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+            "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+          },
+          "origins": [
+            {
+              "generated": {
+                "end": 345,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 242
+              },
+              "original": [
+                {
+                  "end": 215,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 199
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 349,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 224
+              },
+              "original": [
+                {
+                  "end": 197,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 192
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 446,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 366
+              },
+              "original": [
+                {
+                  "end": 247,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 243
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 526,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 446
+              },
+              "original": [
+                {
+                  "end": 267,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 263
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 629,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 526
+              },
+              "original": [
+                {
+                  "end": 291,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 274
+                }
+              ]
+            },
+            {
+              "generated": {
+                "end": 633,
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                },
+                "start": 349
+              },
+              "original": [
+                {
+                  "end": 221,
+                  "source": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "start": 217
+                }
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "dependencies": [
+                {
+                  "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                  "uri": "memory:host-inference/recursive_context/entry.xtext"
+                }
+              ],
+              "id": {
+                "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+              },
+              "kind": "rcore",
+              "text": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n"
+            }
+          ]
+        },
+        "keywords": [
+          "(",
+          ")",
+          "no",
+          "yes"
+        ],
+        "ok": true,
+        "package": {
+          "grammar": {
+            "declaration_sources": {
+              "ANY_OTHER": {
+                "end": 607,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 585
+              },
+              "ID": {
+                "end": 548,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 523
+              },
+              "Model": {
+                "end": 348,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 312
+              },
+              "Node": {
+                "end": 435,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 349
+              },
+              "WS": {
+                "end": 584,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 549
+              },
+              "_intersect_parameter_5": {
+                "end": 522,
+                "source": {
+                  "sha256": "30de1736099ad8f55e93a66dba7e5c262d7de550bf65f3f5eeef65360aa7c697",
+                  "uri": "intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b"
+                },
+                "start": 436
+              }
+            },
+            "entry": "Model",
+            "hidden": [
+              "WS"
+            ],
+            "lexical_prediction": {
+              "alternatives": [
+                {
+                  "Keyword": "("
+                },
+                {
+                  "Keyword": ")"
+                },
+                {
+                  "Keyword": "no"
+                },
+                {
+                  "Keyword": "yes"
+                },
+                {
+                  "Terminal": "ID"
+                },
+                {
+                  "Terminal": "WS"
+                },
+                {
+                  "Terminal": "ANY_OTHER"
+                }
+              ],
+              "roots": [
+                0,
+                2,
+                4,
+                7,
+                11,
+                17,
+                31
+              ],
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 40,
+                      "low": 40,
+                      "target": 1
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 0
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 41,
+                      "low": 41,
+                      "target": 3
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 1
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 110,
+                      "low": 110,
+                      "target": 6
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 111,
+                      "low": 111,
+                      "target": 5
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 2
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 121,
+                      "low": 121,
+                      "target": 9
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 101,
+                      "low": 101,
+                      "target": 10
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 115,
+                      "low": 115,
+                      "target": 8
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 3
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    13
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    15
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    12,
+                    13
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 122,
+                      "low": 97,
+                      "target": 16
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    14
+                  ],
+                  "owner": 4
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    19
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    21
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    18,
+                    19
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    23,
+                    25,
+                    27,
+                    29
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    20
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 32,
+                      "low": 32,
+                      "target": 24
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 9,
+                      "low": 9,
+                      "target": 26
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 13,
+                      "low": 13,
+                      "target": 28
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 10,
+                      "low": 10,
+                      "target": 30
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    22
+                  ],
+                  "owner": 5
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    33
+                  ],
+                  "owner": 6
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "epsilon": [],
+                  "owner": 6
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "high": 65535,
+                      "low": 0,
+                      "target": 34
+                    }
+                  ],
+                  "epsilon": [],
+                  "owner": 6
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "epsilon": [
+                    32
+                  ],
+                  "owner": 6
+                }
+              ]
+            },
+            "name": "oracle.parameters.matrix.recursivecontext.Language",
+            "parameterized_rules": [
+              "Node",
+              "_intersect_parameter_5"
+            ],
+            "parser_prediction": {
+              "decisions": {
+                "rule/Node/s0/s0/choice": {
+                  "entries": [
+                    9
+                  ],
+                  "exit": null
+                },
+                "rule/Node/s1/repeat": {
+                  "entries": [
+                    11,
+                    3
+                  ],
+                  "exit": 1
+                },
+                "rule/_intersect_parameter_5/s0/s0/choice": {
+                  "entries": [
+                    16
+                  ],
+                  "exit": null
+                },
+                "rule/_intersect_parameter_5/s1/repeat": {
+                  "entries": [
+                    18,
+                    5
+                  ],
+                  "exit": 1
+                }
+              },
+              "first_guards": {},
+              "rules": {
+                "Model": [
+                  0,
+                  1
+                ],
+                "Node": [
+                  2,
+                  3
+                ],
+                "_intersect_parameter_5": [
+                  4,
+                  5
+                ]
+              },
+              "states": [
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 1,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    6
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 9
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    21
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 16
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [],
+                  "follow": [
+                    1,
+                    14
+                  ],
+                  "rule_stop": true
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        "End",
+                        7
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": true,
+                  "edges": [],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 11
+                    },
+                    {
+                      "Epsilon": 3
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "no"
+                        },
+                        10
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        8
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "("
+                        },
+                        13
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 3
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 14,
+                        "target": 4
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": ")"
+                        },
+                        12
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 18
+                    },
+                    {
+                      "Epsilon": 5
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "yes"
+                        },
+                        17
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Terminal": "ID"
+                        },
+                        15
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": "("
+                        },
+                        20
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Epsilon": 5
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Call": {
+                        "follow": 21,
+                        "target": 2
+                      }
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                },
+                {
+                  "accepting": false,
+                  "edges": [
+                    {
+                      "Token": [
+                        {
+                          "Keyword": ")"
+                        },
+                        19
+                      ]
+                    }
+                  ],
+                  "follow": [],
+                  "rule_stop": false
+                }
+              ]
+            },
+            "profile": "intersect.xtext.native.v57",
+            "rules": {
+              "Model": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Assign": {
+                      "feature": "child",
+                      "many": false,
+                      "value": {
+                        "cardinality": "1",
+                        "kind": {
+                          "Call": "_intersect_parameter_5"
+                        }
+                      }
+                    }
+                  }
+                },
+                "class": "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a"
+              },
+              "Node": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Alternative": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Sequence": [
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Literal": "no"
+                                          }
+                                        },
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Assign": {
+                                              "feature": "b",
+                                              "many": false,
+                                              "value": {
+                                                "cardinality": "1",
+                                                "kind": {
+                                                  "Call": "ID"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              "prediction_path": "rule/Node/s0/s0"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "cardinality": "?",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Sequence": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": "("
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Assign": {
+                                        "feature": "child",
+                                        "many": false,
+                                        "value": {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Call": "_intersect_parameter_5"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": ")"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "prediction_path": "rule/Node/s1"
+                      }
+                    ]
+                  }
+                },
+                "class": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48"
+              },
+              "_intersect_parameter_5": {
+                "body": {
+                  "cardinality": "1",
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Alternative": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Sequence": [
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Literal": "yes"
+                                          }
+                                        },
+                                        {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Assign": {
+                                              "feature": "a",
+                                              "many": false,
+                                              "value": {
+                                                "cardinality": "1",
+                                                "kind": {
+                                                  "Call": "ID"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              "prediction_path": "rule/_intersect_parameter_5/s0/s0"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "cardinality": "?",
+                        "kind": {
+                          "Sequence": [
+                            {
+                              "cardinality": "1",
+                              "kind": {
+                                "Sequence": [
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": "("
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Assign": {
+                                        "feature": "child",
+                                        "many": false,
+                                        "value": {
+                                          "cardinality": "1",
+                                          "kind": {
+                                            "Call": "Node"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "cardinality": "1",
+                                    "kind": {
+                                      "Literal": ")"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "prediction_path": "rule/_intersect_parameter_5/s1"
+                      }
+                    ]
+                  }
+                },
+                "class": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48"
+              }
+            },
+            "terminal_order": [
+              "ID",
+              "WS",
+              "ANY_OTHER"
+            ],
+            "terminals": {
+              "ANY_OTHER": {
+                "body": {
+                  "cardinality": "1",
+                  "first": [
+                    [
+                      0,
+                      65535
+                    ]
+                  ],
+                  "kind": "Wildcard",
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 607,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::ANY_OTHER",
+                "start": 585
+              },
+              "ID": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      97,
+                      122
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            97,
+                            122
+                          ]
+                        ],
+                        "kind": {
+                          "Range": [
+                            97,
+                            122
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 548,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::ID",
+                "start": 523
+              },
+              "WS": {
+                "body": {
+                  "cardinality": "+",
+                  "first": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      13,
+                      13
+                    ],
+                    [
+                      32,
+                      32
+                    ]
+                  ],
+                  "kind": {
+                    "Sequence": [
+                      {
+                        "cardinality": "1",
+                        "first": [
+                          [
+                            9,
+                            10
+                          ],
+                          [
+                            13,
+                            13
+                          ],
+                          [
+                            32,
+                            32
+                          ]
+                        ],
+                        "kind": {
+                          "Alternative": [
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  32,
+                                  32
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  32
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  9,
+                                  9
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  9
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  13,
+                                  13
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  13
+                                ]
+                              },
+                              "nullable": false
+                            },
+                            {
+                              "cardinality": "1",
+                              "first": [
+                                [
+                                  10,
+                                  10
+                                ]
+                              ],
+                              "kind": {
+                                "Literal": [
+                                  10
+                                ]
+                              },
+                              "nullable": false
+                            }
+                          ]
+                        },
+                        "nullable": false
+                      }
+                    ]
+                  },
+                  "nullable": false
+                },
+                "datatype": "EString",
+                "end": 584,
+                "identity": "oracle.parameters.matrix.recursivecontext.Language::WS",
+                "start": 549
+              }
+            }
+          },
+          "schema": {
+            "classes": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "child": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "child"
+                ],
+                "features": {
+                  "child": {
+                    "containment": true,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "child",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a",
+                "parents": []
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "abstract_type": false,
+                "feature_declarations": {
+                  "a": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "b": {
+                    "path": [
+                      1,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "child": {
+                    "path": [
+                      1,
+                      2
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  }
+                },
+                "feature_order": [
+                  "a",
+                  "b",
+                  "child"
+                ],
+                "features": {
+                  "a": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "a",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  },
+                  "b": {
+                    "containment": false,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "b",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": false,
+                    "target": "EString",
+                    "unique": true,
+                    "upper": 1
+                  },
+                  "child": {
+                    "containment": true,
+                    "default": null,
+                    "derived": false,
+                    "lower": 0,
+                    "name": "child",
+                    "opposite": null,
+                    "ordered": true,
+                    "reference": true,
+                    "target": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                    "unique": true,
+                    "upper": 1
+                  }
+                },
+                "name": "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48",
+                "parents": []
+              }
+            },
+            "declarations": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "name": "Model",
+                "namespace": "urn:intersect:parameter-matrix:recursive_context",
+                "path": [
+                  0
+                ],
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "name": "Node",
+                "namespace": "urn:intersect:parameter-matrix:recursive_context",
+                "path": [
+                  1
+                ],
+                "source": {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              }
+            },
+            "declared_operation_selections": {
+              "__type_intersect_generic_1_c2661d375a74461f24de9a3839a931c3769b1852132910dceda53e3e1f15826a": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              },
+              "__type_intersect_generic_1_f0ad5df58ea24fcf09d9ccb82ace92ca50907f987115c15d791d2d1f7ab79c48": {
+                "groups": [],
+                "receiver": {
+                  "arguments": [],
+                  "declaration": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "kind": "classifier",
+                  "raw": false
+                }
+              }
+            },
+            "generic_signatures": {
+              "parameters": [],
+              "raw_signatures": [
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:intersect:parameter-matrix:recursive_context#//Node",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 344,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 246
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      0,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                        "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eSuperTypes",
+                  "generic": [],
+                  "legacy": null,
+                  "owner": {
+                    "path": [
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": []
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 445,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 370
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      0
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 525,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 450
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      1
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        47
+                      ],
+                      "source": {
+                        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                        "uri": "http://www.eclipse.org/emf/2002/Ecore"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "feature": "eType",
+                  "generic": [],
+                  "legacy": [
+                    {
+                      "href": "urn:intersect:parameter-matrix:recursive_context#//Node",
+                      "kind_hint": null,
+                      "span": {
+                        "end": 628,
+                        "source": {
+                          "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                          "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                        },
+                        "start": 530
+                      }
+                    }
+                  ],
+                  "owner": {
+                    "path": [
+                      1,
+                      2
+                    ],
+                    "source": {
+                      "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                      "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                    }
+                  },
+                  "raw_types": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "source": {
+                        "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                        "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "retained_payloads": [],
+              "sources": [
+                {
+                  "sha256": "30d44322041ae4e66f62a51aae6c74d6e210c6166c9bc2d47e0618b64be996a6",
+                  "uri": "intersect-inferred:dc62c3f04b013689ca938c6d6cbd1cd44873f4eddc9df36161a28b4cc11f90db:0.rcore"
+                }
+              ],
+              "types": []
+            },
+            "name": "model",
+            "reference_top": {
+              "path": [
+                10
+              ],
+              "source": {
+                "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6",
+                "uri": "http://www.eclipse.org/emf/2002/Ecore"
+              }
+            },
+            "revision": "981b5cc18e437b3e291d78bfb2c7f409d1d5fc32b78293441e7316f5254527f5",
+            "uri": "urn:intersect:parameter-matrix:recursive_context"
+          },
+          "semantics": {
+            "derived": [],
+            "scope": "unique_names",
+            "validations": [],
+            "version": 1
+          },
+          "source_policy": {
+            "structure_bytes": 256000,
+            "xtext_bytes": 256000,
+            "xtext_declarations": 128
+          },
+          "sources": {
+            "ecore": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n",
+            "generated:xtext:intersect:parameter-program:9ed964f12c6c4121aab1c622164cb0b265163096f7899fe77341ad4db1a11879:6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b": "// Generated native parameter program; original digest 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b\ngrammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=_intersect_parameter_5;\nNode: (<false> 'yes' a=ID | <true> 'no' b=ID) ('(' child=_intersect_parameter_5 ')')?;\n_intersect_parameter_5: (<true> 'yes' a=ID | <false> 'no' b=ID) ('(' child=Node ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n",
+            "rcore_behavior": "// Generated Xtext metamodel from SHA-256 6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b.\nrcore 1;\npackage `model` version \"1\";\nmetamodel \"urn:intersect:parameter-matrix:recursive_context\" prefix `model` {\n  class `Model` {\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n  class `Node` {\n    attr `a`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    attr `b`: external \"http://www.eclipse.org/emf/2002/Ecore#//EString\" [0,1];\n    ref `child`: external \"urn:intersect:parameter-matrix:recursive_context#//Node\" [0,1] containment;\n  }\n}\n",
+            "xtext": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+          },
+          "version": 2,
+          "xtext_inference": {
+            "bundle": {
+              "namespaces": [],
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+                    "uri": "memory:host-inference/recursive_context/entry.xtext"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar oracle.parameters.matrix.recursivecontext.Language hidden(WS)\ngenerate model \"urn:intersect:parameter-matrix:recursive_context\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: child=Node<true>; Node<Flag>: (<Flag> 'yes' a=ID | <!Flag> 'no' b=ID) ('(' child=Node<!Flag> ')')?;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\nterminal ANY_OTHER: .;\n"
+                }
+              ],
+              "version": 1
+            },
+            "grammar": {
+              "sha256": "6f550ecbd0c2d63421018c5bd3b981bddfc4849d50fcdb48181cb2eec5dcdb8b",
+              "uri": "memory:host-inference/recursive_context/entry.xtext"
+            },
+            "version": 1
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "compile_inferred",
+        "inference": {
+          "version": 1,
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:host-inference/typed_basic/model.xtext",
+                  "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e"
+                },
+                "kind": "xtext",
+                "text": "grammar inference.fragments.TypedBasic hidden(WS)\ngenerate fragments \"urn:inference:fragments:typed_basic\"\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nModel: Fields;\nfragment Fields: name=ID;\nterminal ID: ('a'..'z')+;\nterminal WS: (' '|'\\t'|'\\r'|'\\n')+;\n",
+                "dependencies": []
+              }
+            ],
+            "namespaces": []
+          },
+          "grammar": {
+            "uri": "memory:host-inference/typed_basic/model.xtext",
+            "sha256": "2569bc5badad47112173812ca5f8960bac830efaf49c4fd8d7d8d4e5b890a55e"
+          }
+        },
+        "xtext_profile": "intersect.xtext.native.v61"
+      },
+      "result": {
+        "error": "Inferred compilation does not accept xtext_profile"
+      },
+      "replay": {
+        "error": "Inferred compilation does not accept xtext_profile"
+      }
+    },
+    {
+      "request": {
+        "method": "compile_inferred",
+        "inference": {
+          "version": 1,
+          "bundle": {
+            "version": 1,
+            "sources": [
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/model.rcore",
+                  "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                },
+                "kind": "rcore",
+                "text": "rcore 1;\npackage `terminalSpellings` version \"1\";\nmetamodel \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" prefix `k` {\n  class `Model` {\n    attr `name`: EString [0,1];\n    ref `members`: external \"#//@eClassifiers.1\" [0,*] containment;\n  }\n  abstract class `Element` {\n    attr `name`: EString [0,1] unsettable;\n  }\n  class `Type` extends external \"#//@eClassifiers.1\" {\n    attr `isAbstract`: EBoolean [0,1] unsettable;\n  }\n  class `Feature` extends external \"#//@eClassifiers.1\" {\n    ref `target`: external \"#//@eClassifiers.2\" [0,1] unsettable;\n  }\n}\n",
+                "dependencies": []
+              },
+              {
+                "id": {
+                  "uri": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+                  "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+                },
+                "kind": "xtext",
+                "text": "grammar audit.FirstRuleClassFragment\n\nimport \"urn:intersect:xtext:mini-kerml:terminal-spellings:1\" as k\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\n\nfragment First returns k::Model: name=VALUE;\nModel returns k::Model: First;\nterminal VALUE: 'a';\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              },
+              {
+                "id": {
+                  "uri": "memory:terminal-negation/behavior.rcore",
+                  "sha256": "7208e204f23bb12c2b82a05133b9703bd20d44616363a6509d67d4f6e1cfe7c7"
+                },
+                "kind": "rcore_behavior",
+                "text": "rcore 1;\npackage fixtureProviders version \"1\";\n",
+                "dependencies": [
+                  {
+                    "uri": "memory:terminal-negation/model.rcore",
+                    "sha256": "19dd2b5e4b12e69e5dc9ab4eefd3c602d4f15095d7d0c48dbb8c3aaf23d87193"
+                  }
+                ]
+              }
+            ],
+            "namespaces": []
+          },
+          "grammar": {
+            "uri": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+            "sha256": "a506273fedce4c881f249090d12750375dc05dc9f0ea79734253e56303400b7c"
+          }
+        }
+      },
+      "result": {
+        "diagnostics": [
+          {
+            "end": 257,
+            "message": "The first rule must not be a parser fragment",
+            "source": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      },
+      "replay": {
+        "diagnostics": [
+          {
+            "end": 257,
+            "message": "The first rule must not be a parser fragment",
+            "source": "memory:fragment_class_first/audit.FirstRuleClassFragment.xtext",
+            "start": 0
+          }
+        ],
+        "ok": false
+      }
+    }
+  ]
+}

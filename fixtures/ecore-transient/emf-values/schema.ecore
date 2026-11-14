@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="state" nsURI="urn:intersect:e09:xmi" nsPrefix="state">
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" defaultValueLiteral="seed" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tags" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="ecore:EClass schema.ecore#//Item"
+        transient="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="ecore:EClass schema.ecore#//Item" transient="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="ecore:EClass schema.ecore#//Item"
+        transient="true" unsettable="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="ecore:EClass schema.ecore#//Item" transient="true" unsettable="true"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

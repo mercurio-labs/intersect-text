@@ -1,0 +1,12 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="defaults" nsURI="urn:wildcard-defaults">
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="Number" instanceClassName="java.lang.Integer"/>
+<eClassifiers x:type="e:EDataType" name="Sequence" instanceClassName="intersect.Sequence"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="intersect.Sequence"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Envelope" instanceClassName="intersect.Sequence"><eTypeParameters name="T"><eBounds eClassifier="#//Sequence"><eTypeArguments eClassifier="#//Text"/></eBounds></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Holder"><eTypeParameters name="T"/><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/><eStructuralFeatures x:type="e:EAttribute" name="values" defaultValueLiteral="[&quot;initial&quot;]"><eGenericType eClassifier="#//Sequence"><eTypeArguments eTypeParameter="#//Holder/T"/></eGenericType></eStructuralFeatures></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Left"><eGenericSuperTypes eClassifier="#//Holder"><eTypeArguments eClassifier="#//Text"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Right"><eGenericSuperTypes eClassifier="#//Holder"><eTypeArguments eClassifier="#//Text"/></eGenericSuperTypes></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Diamond" eSuperTypes="#//Left #//Right"/>
+<eClassifiers x:type="e:EClass" name="Defaults"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/><eStructuralFeatures x:type="e:EAttribute" name="values" defaultValueLiteral="[&quot;[\&quot;initial\&quot;]&quot;]"><eGenericType eClassifier="#//Envelope"><eTypeArguments eClassifier="#//Alias"><eTypeArguments eClassifier="#//Text"/></eTypeArguments></eGenericType></eStructuralFeatures></eClassifiers>
+</e:EPackage>

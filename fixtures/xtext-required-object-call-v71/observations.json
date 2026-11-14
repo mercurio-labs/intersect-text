@@ -1,0 +1,5174 @@
+[
+  {
+    "case": "one_bare",
+    "text": "one x := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 11,
+      "text": "one x := y;",
+      "total_start": 0,
+      "total_end": 11
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " x",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 9,
+                "end": 10,
+                "text": " y",
+                "total_start": 8,
+                "total_end": 10
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 11,
+          "text": "one x := y;",
+          "total_start": 0,
+          "total_end": 11
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": null,
+          "empty": {
+            "object": 2
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "one_bound",
+    "text": "one p.x := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 13,
+      "text": "one p.x := y;",
+      "total_start": 0,
+      "total_end": 13
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 6,
+                "text": " p.",
+                "total_start": 3,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 7,
+                "text": "x",
+                "total_start": 6,
+                "total_end": 7
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 11,
+                "end": 12,
+                "text": " y",
+                "total_start": 10,
+                "total_end": 12
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 13,
+          "text": "one p.x := y;",
+          "total_start": 0,
+          "total_end": 13
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 6,
+                "text": "",
+                "total_start": 6,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 6,
+          "text": " p.",
+          "total_start": 3,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 5,
+          "text": " p",
+          "total_start": 3,
+          "total_end": 5
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 6,
+          "end": 6,
+          "text": "",
+          "total_start": 6,
+          "total_end": 6
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "two_bare",
+    "text": "two x := y!",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 11,
+      "text": "two x := y!",
+      "total_start": 0,
+      "total_end": 11
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " x",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 9,
+                "end": 10,
+                "text": " y",
+                "total_start": 8,
+                "total_end": 10
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 11,
+          "text": "two x := y!",
+          "total_start": 0,
+          "total_end": 11
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": null,
+          "empty": {
+            "object": 2
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "two_bound",
+    "text": "two p.x := y!",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 13,
+      "text": "two p.x := y!",
+      "total_start": 0,
+      "total_end": 13
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 6,
+                "text": " p.",
+                "total_start": 3,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 7,
+                "text": "x",
+                "total_start": 6,
+                "total_end": 7
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 11,
+                "end": 12,
+                "text": " y",
+                "total_start": 10,
+                "total_end": 12
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 13,
+          "text": "two p.x := y!",
+          "total_start": 0,
+          "total_end": 13
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 6,
+                "text": "",
+                "total_start": 6,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 6,
+          "text": " p.",
+          "total_start": 3,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 5,
+          "text": " p",
+          "total_start": 3,
+          "total_end": 5
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 6,
+          "end": 6,
+          "text": "",
+          "total_start": 6,
+          "total_end": 6
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "parenthesized",
+    "text": "one (p).x := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 15,
+      "text": "one (p).x := y;",
+      "total_start": 0,
+      "total_end": 15
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 8,
+                "text": " (p).",
+                "total_start": 3,
+                "total_end": 8
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 8,
+                "end": 9,
+                "text": "x",
+                "total_start": 8,
+                "total_end": 9
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 13,
+                "end": 14,
+                "text": " y",
+                "total_start": 12,
+                "total_end": 14
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 15,
+          "text": "one (p).x := y;",
+          "total_start": 0,
+          "total_end": 15
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 4
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 7,
+                "text": " (p)",
+                "total_start": 3,
+                "total_end": 7
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 8,
+                "end": 8,
+                "text": "",
+                "total_start": 8,
+                "total_end": 8
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 8,
+          "text": " (p).",
+          "total_start": 3,
+          "total_end": 8
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": null,
+          "inner": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 5,
+                "end": 6,
+                "text": "p",
+                "total_start": 5,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 7,
+          "text": " (p)",
+          "total_start": 3,
+          "total_end": 7
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 2,
+        "containment_feature": "inner",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 5,
+                "end": 6,
+                "text": "p",
+                "total_start": 5,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 5,
+          "end": 6,
+          "text": "p",
+          "total_start": 5,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 4,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 8,
+          "end": 8,
+          "text": "",
+          "total_start": 8,
+          "total_end": 8
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "nested_parenthesized",
+    "text": "two ((p)).x := y!",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": true,
+    "errors": [],
+    "root_node": {
+      "start": 0,
+      "end": 17,
+      "text": "two ((p)).x := y!",
+      "total_start": 0,
+      "total_end": 17
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 10,
+                "text": " ((p)).",
+                "total_start": 3,
+                "total_end": 10
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 10,
+                "end": 11,
+                "text": "x",
+                "total_start": 10,
+                "total_end": 11
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 15,
+                "end": 16,
+                "text": " y",
+                "total_start": 14,
+                "total_end": 16
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 17,
+          "text": "two ((p)).x := y!",
+          "total_start": 0,
+          "total_end": 17
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 5
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 9,
+                "text": " ((p))",
+                "total_start": 3,
+                "total_end": 9
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 10,
+                "end": 10,
+                "text": "",
+                "total_start": 10,
+                "total_end": 10
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 10,
+          "text": " ((p)).",
+          "total_start": 3,
+          "total_end": 10
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": null,
+          "inner": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 5,
+                "end": 8,
+                "text": "(p)",
+                "total_start": 5,
+                "total_end": 8
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 9,
+          "text": " ((p))",
+          "total_start": 3,
+          "total_end": 9
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 2,
+        "containment_feature": "inner",
+        "values_after_parse": {
+          "name": null,
+          "inner": {
+            "object": 4
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 7,
+                "text": "p",
+                "total_start": 6,
+                "total_end": 7
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 5,
+          "end": 8,
+          "text": "(p)",
+          "total_start": 5,
+          "total_end": 8
+        }
+      },
+      {
+        "id": 4,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 3,
+        "containment_feature": "inner",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 7,
+                "text": "p",
+                "total_start": 6,
+                "total_end": 7
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 6,
+          "end": 7,
+          "text": "p",
+          "total_start": 6,
+          "total_end": 7
+        }
+      },
+      {
+        "id": 5,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 10,
+          "end": 10,
+          "text": "",
+          "total_start": 10,
+          "total_end": 10
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "wrong_end",
+    "text": "one p.x := y!",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "mismatched input '!' expecting ';'",
+        "start": 12,
+        "end": 13
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 13,
+      "text": "one p.x := y!",
+      "total_start": 0,
+      "total_end": 13
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 6,
+                "text": " p.",
+                "total_start": 3,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 7,
+                "text": "x",
+                "total_start": 6,
+                "total_end": 7
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 11,
+                "end": 12,
+                "text": " y",
+                "total_start": 10,
+                "total_end": 12
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 13,
+          "text": "one p.x := y!",
+          "total_start": 0,
+          "total_end": 13
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 6,
+                "text": "",
+                "total_start": 6,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 6,
+          "text": " p.",
+          "total_start": 3,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 5,
+          "text": " p",
+          "total_start": 3,
+          "total_end": 5
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 6,
+          "end": 6,
+          "text": "",
+          "total_start": 6,
+          "total_end": 6
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "missing_name",
+    "text": "one := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "extraneous input ':=' expecting RULE_ID",
+        "start": 4,
+        "end": 6
+      },
+      {
+        "message": "mismatched input ';' expecting ':='",
+        "start": 8,
+        "end": 9
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 9,
+      "text": "one := y;",
+      "total_start": 0,
+      "total_end": 9
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "y",
+          "value": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 8,
+                "text": " := y",
+                "total_start": 3,
+                "total_end": 8
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 9,
+          "text": "one := y;",
+          "total_start": 0,
+          "total_end": 9
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": null,
+          "empty": {
+            "object": 2
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "missing_name_after_prefix",
+    "text": "one p. := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "extraneous input ':=' expecting RULE_ID",
+        "start": 7,
+        "end": 9
+      },
+      {
+        "message": "mismatched input ';' expecting ':='",
+        "start": 11,
+        "end": 12
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 12,
+      "text": "one p. := y;",
+      "total_start": 0,
+      "total_end": 12
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "y",
+          "value": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 6,
+                "text": " p.",
+                "total_start": 3,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 7,
+                "end": 11,
+                "text": " := y",
+                "total_start": 6,
+                "total_end": 11
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 12,
+          "text": "one p. := y;",
+          "total_start": 0,
+          "total_end": 12
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 6,
+                "text": "",
+                "total_start": 6,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 6,
+          "text": " p.",
+          "total_start": 3,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 5,
+          "text": " p",
+          "total_start": 3,
+          "total_end": 5
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 6,
+          "end": 6,
+          "text": "",
+          "total_start": 6,
+          "total_end": 6
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "missing_dot",
+    "text": "one p x := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "extraneous input 'x' expecting ':='",
+        "start": 6,
+        "end": 7
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 13,
+      "text": "one p x := y;",
+      "total_start": 0,
+      "total_end": 13
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "p",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 11,
+                "end": 12,
+                "text": " y",
+                "total_start": 10,
+                "total_end": 12
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 13,
+          "text": "one p x := y;",
+          "total_start": 0,
+          "total_end": 13
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": null,
+          "empty": {
+            "object": 2
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "double_dot",
+    "text": "one p..x := y;",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "extraneous input '.' expecting RULE_ID",
+        "start": 6,
+        "end": 7
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 14,
+      "text": "one p..x := y;",
+      "total_start": 0,
+      "total_end": 14
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 6,
+                "text": " p.",
+                "total_start": 3,
+                "total_end": 6
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 8,
+                "text": ".x",
+                "total_start": 6,
+                "total_end": 8
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 12,
+                "end": 13,
+                "text": " y",
+                "total_start": 11,
+                "total_end": 13
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 14,
+          "text": "one p..x := y;",
+          "total_start": 0,
+          "total_end": 14
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": {
+            "object": 2
+          },
+          "empty": {
+            "object": 3
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 6,
+                "end": 6,
+                "text": "",
+                "total_start": 6,
+                "total_end": 6
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 6,
+          "text": " p.",
+          "total_start": 3,
+          "total_end": 6
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Binding",
+        "container": 1,
+        "containment_feature": "binding",
+        "values_after_parse": {
+          "name": "p",
+          "inner": null
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " p",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "feature": "inner",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          }
+        ],
+        "node": {
+          "start": 4,
+          "end": 5,
+          "text": " p",
+          "total_start": 3,
+          "total_end": 5
+        }
+      },
+      {
+        "id": 3,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 6,
+          "end": 6,
+          "text": "",
+          "total_start": 6,
+          "total_end": 6
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  },
+  {
+    "case": "trailing",
+    "text": "one x := y; extra",
+    "grammar": "intersect.oracle.RequiredObjectCall",
+    "entry": "Root",
+    "accepted": false,
+    "errors": [
+      {
+        "message": "extraneous input 'extra' expecting EOF",
+        "start": 12,
+        "end": 17
+      }
+    ],
+    "root_node": {
+      "start": 0,
+      "end": 17,
+      "text": "one x := y; extra",
+      "total_start": 0,
+      "total_end": 17
+    },
+    "objects": [
+      {
+        "id": 0,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Root",
+        "container": null,
+        "containment_feature": null,
+        "values_after_parse": {
+          "target": {
+            "object": 1
+          },
+          "name": "x",
+          "value": "y"
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "target",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "name",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 4,
+                "end": 5,
+                "text": " x",
+                "total_start": 3,
+                "total_end": 5
+              }
+            ]
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Root",
+            "feature": "value",
+            "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+            "containment": false,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 9,
+                "end": 10,
+                "text": " y",
+                "total_start": 8,
+                "total_end": 10
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 0,
+          "end": 17,
+          "text": "one x := y; extra",
+          "total_start": 0,
+          "total_end": 17
+        }
+      },
+      {
+        "id": 1,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Target",
+        "container": 0,
+        "containment_feature": "target",
+        "values_after_parse": {
+          "binding": null,
+          "empty": {
+            "object": 2
+          }
+        },
+        "features": [
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "binding",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+            "containment": true,
+            "lower": 0,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": false,
+            "nodes": []
+          },
+          {
+            "owner": "urn:intersect:oracle:required-object-call-v71#//Target",
+            "feature": "empty",
+            "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+            "containment": true,
+            "lower": 1,
+            "upper": 1,
+            "derived": false,
+            "volatile": false,
+            "transient": false,
+            "is_set": true,
+            "nodes": [
+              {
+                "start": 3,
+                "end": 3,
+                "text": "",
+                "total_start": 3,
+                "total_end": 3
+              }
+            ]
+          }
+        ],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      },
+      {
+        "id": 2,
+        "class": "urn:intersect:oracle:required-object-call-v71#//Empty",
+        "container": 1,
+        "containment_feature": "empty",
+        "values_after_parse": {},
+        "features": [],
+        "node": {
+          "start": 3,
+          "end": 3,
+          "text": "",
+          "total_start": 3,
+          "total_end": 3
+        }
+      }
+    ],
+    "provider_identity": {
+      "name": "requiredCallV71",
+      "uri": "urn:intersect:oracle:required-object-call-v71",
+      "prefix": "requiredCallV71",
+      "annotations": [],
+      "classifiers": [
+        {
+          "name": "Root",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Root",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Root",
+          "instance_type": "oracle.provider.requiredCallV71.Root",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "target",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Target",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "value",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            }
+          ]
+        },
+        {
+          "name": "Target",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Target",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Target",
+          "instance_type": "oracle.provider.requiredCallV71.Target",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "binding",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            },
+            {
+              "name": "empty",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Empty",
+              "lower": 1,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Binding",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Binding",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Binding",
+          "instance_type": "oracle.provider.requiredCallV71.Binding",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": [
+            {
+              "name": "name",
+              "kind": "EAttribute",
+              "type": "http://www.eclipse.org/emf/2002/Ecore#//EString",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "id": false
+            },
+            {
+              "name": "inner",
+              "kind": "EReference",
+              "type": "urn:intersect:oracle:required-object-call-v71#//Binding",
+              "lower": 0,
+              "upper": 1,
+              "ordered": true,
+              "unique": true,
+              "changeable": true,
+              "volatile": false,
+              "transient": false,
+              "derived": false,
+              "unsettable": false,
+              "default_literal": null,
+              "annotations": [],
+              "origins": [],
+              "containment": true,
+              "container": false,
+              "resolve_proxies": false,
+              "opposite": null,
+              "keys": []
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "identity": "urn:intersect:oracle:required-object-call-v71#//Empty",
+          "kind": "EClass",
+          "instance_class": "oracle.provider.requiredCallV71.Empty",
+          "instance_type": "oracle.provider.requiredCallV71.Empty",
+          "annotations": [],
+          "origins": [],
+          "abstract": false,
+          "interface": false,
+          "super_types": [],
+          "features": []
+        }
+      ]
+    },
+    "scope": "Actual imported-provider parser-visible eGet/eIsSet graph and node model; no production implementation or general semantic oracle"
+  }
+]

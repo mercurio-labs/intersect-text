@@ -1,0 +1,56 @@
+[WebServer] (node:60640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:30176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 tests\imported-assignment.spec.js:17:1 › V66 actual worker retains imported feature identity, original reference sequences and atomic source/archive rejection (7.7s)
+(node:48188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 tests\imported-assignment.spec.js:30:1 › V66 original imported source projects retain complete packages and models after save and fresh worker reopen (42.2s)
+
+
+  1) tests\imported-assignment.spec.js:17:1 › V66 actual worker retains imported feature identity, original reference sequences and atomic source/archive rejection 
+
+    AssertionError: Expected values to be strictly deep-equal:
+    + actual - expected
+
+    + [
+    +   {
+    +     end: 1,
+    +     message: 'Duplicate value: Model.refs',
+    +     source: 'memory:imported_refs_default_true/worker.model',
+    +     start: 0
+    +   }
+    + ]
+    - []
+
+
+      12 | async function ready(page){await expect(page.locator('#compile-status')).toContainText('Language compiled',{timeout:60000});const actual=await page.evaluate(async()=>{const response=await fetch('/intersect_web.wasm',{cache:'no-store'});if(!response.ok)throw new Error('Missing runtime');return [...new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))].map(v=>v.toString(16).padStart(2,'0')).join('');});assert.equal(actual,release.artifact.sha256);}
+      13 | function verify(state,c){const compilation=c.selection.compilation;assert.deepEqual(state.package.compilation,compilation);assert.equal(state.package.grammar.profile,profile);assert.equal(state.package.schema.classes.Model.features.refs.unique,!c.id.endsWith('_false'));assert.equal(state.package.schema.classes.Model.features.nodes.unique,true);assert.deepEqual(state.package.schema.declarations.Model.source,compilation.ecore);assert.deepEqual(state.package.grammar.declaration_sources.Model.source,compilation.xtext);}
+    > 14 | function values(state,uri,indices){assert.deepEqual(state.evaluation.diagnostics,[]);const root=state.evaluation.model.elements.find(e=>e.id===uri+'#0');assert(root);assert.deepEqual(root.values.refs,indices.map(i=>uri+'#'+i));}
+         |                                           ^
+      15 | async function defaultsClosed(page){for(const name of ['catalog','loans'])await request(page,'textDocument/didClose',{textDocument:{uri:`file:///models/${name}.library`}});}
+      16 | function rehash(files,path,value){const text=JSON.stringify(value),manifest=JSON.parse(files['manifest.json']);files[path]=text;manifest.files[path]={bytes:Buffer.byteLength(text),sha256:sha(text)};files['manifest.json']=JSON.stringify(manifest);}
+      17 | test('V66 actual worker retains imported feature identity, original reference sequences and atomic source/archive rejection',async({page},info)=>{
+        at values (D:\dev\repos\mercurio-labs\intersect\target\v66i-v3\browser-v1\tests\imported-assignment.spec.js:14:43)
+        at D:\dev\repos\mercurio-labs\intersect\target\v66i-v3\browser-v1\tests\imported-assignment.spec.js:20:427
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    production-results\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: production-results\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    production-results\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\trace.zip
+    Usage:
+
+        npx playwright show-trace production-results\imported-assignment-V66-ac-7f135-ic-source-archive-rejection\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\imported-assignment.spec.js:17:1 › V66 actual worker retains imported feature identity, original reference sequences and atomic source/archive rejection 
+  1 passed (60.0s)

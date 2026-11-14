@@ -1,0 +1,340 @@
+{
+  "version": 1,
+  "state": "exact_existing_negative_source_graphs_have_clean_full_source_generation_record_and_independent_replay",
+  "input_freeze": {
+    "bytes": 3634,
+    "sha256": "a88d9d3a954f72dae81cb0fc6e4e10052a7b9e0b91ee5725d7304f375a426dbc"
+  },
+  "full_source_receipt": {
+    "bytes": 3883,
+    "sha256": "a14b16ac3e8b2bd88194362801c5ef20b855f9f5eb234bb38728112d8a470290"
+  },
+  "native_before": {
+    "bytes": 40947,
+    "sha256": "4e5fe450a98d547563a1bc2b678e137fe1e04d6258ee1dc73eac2d08203af152"
+  },
+  "native_before_replay": {
+    "bytes": 32483,
+    "sha256": "eaaf5a5fbc9c37214fc702d755d6e53dfd33de09e610ac13fe839861ed653428"
+  },
+  "native_capture_profile_clarification": {
+    "bytes": 1128,
+    "sha256": "e936c79fd6bd9b61d240f080311566715bdb49983f413ebd27c52963ef5661c4"
+  },
+  "artifact_pins_per_run": 355,
+  "graphs": 4,
+  "actual_inputs": 36,
+  "accepted": 12,
+  "rejected": 24,
+  "rejected_partials": 13,
+  "cases": [
+    {
+      "id": "nested_fragment",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.GroupedMultiNegation::PAIR",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.GroupedMultiNegation::INNER",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.GroupedMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.GroupedMultiNegation::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "RULE_INNER"
+          },
+          {
+            "source_rule": "audit.GroupedMultiNegation::INNER",
+            "name": "RULE_INNER",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ],
+      "rejected": 5,
+      "rejected_partials": 4
+    },
+    {
+      "id": "mixed_call",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.GroupedMultiNegation::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.GroupedMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~((RULE_PAIR|'x'))"
+          },
+          {
+            "source_rule": "audit.GroupedMultiNegation::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c"
+      ],
+      "rejected": 6,
+      "rejected_partials": 4
+    },
+    {
+      "id": "nested_multi_group",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedMultiNegation::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.GroupedMultiNegation",
+            "issues": [],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.GroupedMultiNegation::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(~(('ab'|'x')))"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "x"
+      ],
+      "rejected": 8,
+      "rejected_partials": 1
+    },
+    {
+      "id": "exact_inherited_parent_negative",
+      "metadata": {
+        "syntax": [
+          {
+            "source": "audit.GroupedInheritedParentBase",
+            "errors": []
+          },
+          {
+            "source": "audit.GroupedInheritedParentChild",
+            "errors": []
+          }
+        ],
+        "linking": [
+          {
+            "source": "audit.GroupedInheritedParentBase",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedInheritedParentBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              },
+              {
+                "target": "audit.GroupedInheritedParentBase::PAIR",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          },
+          {
+            "source": "audit.GroupedInheritedParentChild",
+            "errors": [],
+            "warnings": [],
+            "calls": [
+              {
+                "target": "audit.GroupedInheritedParentBase::VALUE",
+                "proxy": false,
+                "explicit": false
+              }
+            ]
+          }
+        ],
+        "linking_failure": null,
+        "validation": [
+          {
+            "source": "audit.GroupedInheritedParentBase",
+            "issues": [],
+            "failure": null
+          },
+          {
+            "source": "audit.GroupedInheritedParentChild",
+            "issues": [
+              {
+                "severity": "WARNING",
+                "code": "org.eclipse.xtext.grammar.ExplicitOverrideMissing",
+                "start": 155,
+                "length": 5,
+                "message": "This rule overrides Model in audit.GroupedInheritedParentBase and thus should be annotated with @Override."
+              }
+            ],
+            "failure": null
+          }
+        ],
+        "translated_rules": [
+          {
+            "source_rule": "audit.GroupedInheritedParentBase::VALUE",
+            "name": "RULE_VALUE",
+            "fragment": false,
+            "body": "~(RULE_PAIR)"
+          },
+          {
+            "source_rule": "audit.GroupedInheritedParentBase::PAIR",
+            "name": "RULE_PAIR",
+            "fragment": true,
+            "body": "'ab'"
+          }
+        ],
+        "translation_failure": null
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "antlr_diagnostics": [],
+      "actual_inputs": 9,
+      "accepted": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ],
+      "rejected": 5,
+      "rejected_partials": 4
+    }
+  ],
+  "native_implementation_changed": false,
+  "native_award": false,
+  "gate_closures": []
+}

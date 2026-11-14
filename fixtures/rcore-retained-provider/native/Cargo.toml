@@ -1,0 +1,13 @@
+[package]
+name="s09-retained-provider-qualifier"
+version="0.0.0"
+edition="2024"
+[workspace]
+[lib]
+crate-type=["cdylib","rlib"]
+[[bin]]
+name="s09-retained-provider-qualifier"
+path="src/main.rs"
+[dependencies]
+intersect-model={path="../../../crates/intersect-model",features=["allocation-profile"]}
+serde_json="=1.0.151"

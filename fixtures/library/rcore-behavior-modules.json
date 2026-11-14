@@ -1,0 +1,71 @@
+{
+  "bundle": {
+    "version": 1,
+    "sources": [
+      {
+        "id": {
+          "uri": "file:///definitions/library.ecore",
+          "sha256": "2fbb386f44648dadb16460ce3a934f3941b1fa3cf4c10cad14139247b477f1e0"
+        },
+        "kind": "ecore",
+        "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ecore:EPackage xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"library\" nsURI=\"urn:intersect:example:library:1\" nsPrefix=\"lib\">\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Named\" abstract=\"true\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Library\" eSuperTypes=\"#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"copies\" upperBound=\"-1\" containment=\"true\" eType=\"#//BookCopy\" eOpposite=\"#//BookCopy/library\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"members\" upperBound=\"-1\" containment=\"true\" eType=\"#//Member\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"loans\" upperBound=\"-1\" containment=\"true\" eType=\"#//Loan\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"copyCount\" derived=\"true\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"BookCopy\" eSuperTypes=\"#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"title\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"edition\" defaultValueLiteral=\"1\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"library\" eType=\"#//Library\" eOpposite=\"#//Library/copies\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EAttribute\" name=\"available\" derived=\"true\" eType=\"ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean\"/>\n  </eClassifiers>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Member\" eSuperTypes=\"#//Named\"/>\n  <eClassifiers xsi:type=\"ecore:EClass\" name=\"Loan\" eSuperTypes=\"#//Named\">\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"copy\" lowerBound=\"1\" eType=\"#//BookCopy\"/>\n    <eStructuralFeatures xsi:type=\"ecore:EReference\" name=\"member\" lowerBound=\"1\" eType=\"#//Member\"/>\n  </eClassifiers>\n</ecore:EPackage>\n",
+        "dependencies": []
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/library.xtext",
+          "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Library with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:example:library:1\" as lib\n\nLibrary returns lib::Library:\n  'library' name=ID '{'\n    (copies+=BookCopy | members+=Member | loans+=Loan)*\n  '}';\n\nBookCopy returns lib::BookCopy:\n  'copy' name=ID title=STRING ('edition' edition=INT)? ';';\n\nMember returns lib::Member:\n  'member' name=ID ';';\n\nLoan returns lib::Loan:\n  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]\n  'to' member=[lib::Member|ID] ';';\n",
+        "dependencies": [
+          {
+            "uri": "file:///definitions/library.ecore",
+            "sha256": "2fbb386f44648dadb16460ce3a934f3941b1fa3cf4c10cad14139247b477f1e0"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/library-modular-behavior.rcore",
+          "sha256": "4ed141da7db33fe8164e9ddfc0f8f7e2d8e0b2bc359b79add719d54035fb14f2"
+        },
+        "kind": "rcore_behavior",
+        "text": "// Resolution fixture; v2 execution is not yet implemented.\nrcore 1;\npackage example.library version \"1\";\nimport model \"urn:intersect:example:library:1\" as lib;\nimport package example.library.rules version \"1\" as rules;\n\npub derive lib.Library.copyCount(self) -> Int = self.copies.size();\npub derive lib.BookCopy.available(self) -> Bool =\n    incoming::<lib.Loan>(self, lib.Loan.copy).isEmpty();\n\npub validate lib.Loan.singleLoan(self) {\n    require rules.atMostOne(incoming::<lib.Loan>(self.copy, lib.Loan.copy).size())\n        code \"library.single-loan\"\n        message \"A book copy cannot have more than one active loan.\";\n}\n",
+        "dependencies": [
+          {
+            "uri": "file:///definitions/library.ecore",
+            "sha256": "2fbb386f44648dadb16460ce3a934f3941b1fa3cf4c10cad14139247b477f1e0"
+          },
+          {
+            "uri": "file:///definitions/library-rules-behavior.rcore",
+            "sha256": "d2ae78b8bcee295e799d66166aa66d55c3a9e92f7d53604b9e3b40c562be5cb9"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///definitions/library-rules-behavior.rcore",
+          "sha256": "d2ae78b8bcee295e799d66166aa66d55c3a9e92f7d53604b9e3b40c562be5cb9"
+        },
+        "kind": "rcore_behavior",
+        "text": "rcore 1;\npackage example.library.rules version \"1\";\n\npub fn atMostOne(count: Int) -> Bool = count <= 1;\nprivate fn internalLimit() -> Int = 1;\n",
+        "dependencies": []
+      }
+    ],
+    "namespaces": []
+  },
+  "ecore": {
+    "uri": "file:///definitions/library.ecore",
+    "sha256": "2fbb386f44648dadb16460ce3a934f3941b1fa3cf4c10cad14139247b477f1e0"
+  },
+  "xtext": {
+    "uri": "file:///definitions/library.xtext",
+    "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+  },
+  "rcore_behavior": {
+    "uri": "file:///definitions/library-modular-behavior.rcore",
+    "sha256": "4ed141da7db33fe8164e9ddfc0f8f7e2d8e0b2bc359b79add719d54035fb14f2"
+  },
+  "namespace": "urn:intersect:example:library:1"
+}

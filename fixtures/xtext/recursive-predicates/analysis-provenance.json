@@ -1,0 +1,13 @@
+{
+  "jar": "org/xtext/antlr-generator/3.2.1/antlr-generator-3.2.1.jar",
+  "jar_sha256": "9f7315c29dbdab5c88ad6fbd2230e0691b772138be9595ffb02183888b3689a5",
+  "classes": {
+    "org/antlr/analysis/NFAToDFAConverter.class": "41a0ecfadc5f7393ba3907e4a02e73df12df2606c58e1851612c88fc38e31bd8",
+    "org/antlr/analysis/DFA.class": "c3a46e1aec1f337c15867651302c327acf2133eb2226a2b5bc1dda57775857ad",
+    "org/antlr/tool/Grammar.class": "f75303a7116852d1d93013ae741d09365a79febb71268cd181858607372f9b9e",
+    "org/antlr/analysis/NFAContext.class": "df77453ee912bdbc393a98e5872eceaabdfb95466ace08da33a636bdaaf2b3d1"
+  },
+  "inspection": "javap -c -p with Temurin 21.0.6+7",
+  "finding": "NFAToDFAConverter tracks alternatives encountering repeated invocation sites. Multiple recursive alternatives abort unbounded DFA analysis. Grammar.createLookaheadDFA can retry eligible failed decisions with k=1. Native code independently implements bounded graph analysis; no Java code or generated decision tables are used in production.",
+  "limits": "Native graph analysis explicitly rejects unresolved repeated contexts or exhausted aggregate work; not complete ANTLR diagnostic equivalence."
+}

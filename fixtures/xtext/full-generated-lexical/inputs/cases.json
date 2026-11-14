@@ -1,0 +1,173 @@
+[
+  {
+    "id": "nested_groups",
+    "entry": "audit.NestedGroups",
+    "sources": [
+      {
+        "grammar": "audit.NestedGroups",
+        "file": "audit.NestedGroups.xtext"
+      }
+    ],
+    "inputs": [
+      "a",
+      "c",
+      "x",
+      "z",
+      "d",
+      "y"
+    ],
+    "origin": "fixtures/xtext/terminal-negation/cases.json"
+  },
+  {
+    "id": "multichar",
+    "entry": "audit.Multichar",
+    "sources": [
+      {
+        "grammar": "audit.Multichar",
+        "file": "audit.Multichar.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "a",
+      "b",
+      "c",
+      "ab",
+      "ac"
+    ],
+    "origin": "fixtures/xtext/terminal-negation/cases.json"
+  },
+  {
+    "id": "astral_literal",
+    "entry": "audit.AstralLiteral",
+    "sources": [
+      {
+        "grammar": "audit.AstralLiteral",
+        "file": "audit.AstralLiteral.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "a",
+      "\ud83c\udf0d",
+      "\ud83c\udf0e"
+    ],
+    "origin": "fixtures/xtext/terminal-negation/cases.json"
+  },
+  {
+    "id": "alternatives_companion",
+    "entry": "audit.FiniteUntilAlternativesCompanion",
+    "sources": [
+      {
+        "grammar": "audit.FiniteUntilAlternativesCompanion",
+        "file": "audit.FiniteUntilAlternativesCompanion.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@END",
+      "@STOP",
+      "@xEND",
+      "@xSTOP",
+      "@STOPxEND",
+      "@ENDxSTOP",
+      "@EEND",
+      "@ENEND",
+      "@SSTOP",
+      "@STSTOP",
+      "@STOSTOP",
+      "@xENDSTOP",
+      "@EN",
+      "@STO",
+      "@missing",
+      "@ENDx",
+      "@STOPx",
+      "@END@STOP",
+      "@\nEND",
+      "x@END"
+    ],
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-valid-companions-v1\\inputs\\alternatives_companion\\model.xtext"
+  },
+  {
+    "id": "fragment_companion",
+    "entry": "audit.FiniteUntilFragmentCompanion",
+    "sources": [
+      {
+        "grammar": "audit.FiniteUntilFragmentCompanion",
+        "file": "audit.FiniteUntilFragmentCompanion.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@!",
+      "@x!",
+      "@@!",
+      "@!!",
+      "@!x",
+      "@x!y!",
+      "@missing",
+      "@!@!",
+      "@\n!",
+      "x@!"
+    ],
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-valid-companions-v1\\inputs\\fragment_companion\\model.xtext"
+  },
+  {
+    "id": "abc_or_b",
+    "entry": "audit.UntilOverlapAbcOrB",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapAbcOrB",
+        "file": "audit.UntilOverlapAbcOrB.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\abc_or_b\\model.xtext"
+  },
+  {
+    "id": "ab_or_abc",
+    "entry": "audit.UntilOverlapAbOrAbc",
+    "sources": [
+      {
+        "grammar": "audit.UntilOverlapAbOrAbc",
+        "file": "audit.UntilOverlapAbOrAbc.xtext"
+      }
+    ],
+    "inputs": [
+      "",
+      "@",
+      "@a",
+      "@abc",
+      "@abca",
+      "@aabc",
+      "@ababa",
+      "@aba",
+      "@xabc",
+      "@ab",
+      "@acb",
+      "@b",
+      "@missing",
+      "@abcabc",
+      "@aba@aba"
+    ],
+    "origin": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\finite-until-overlap-v1\\inputs\\ab_or_abc\\model.xtext"
+  }
+]

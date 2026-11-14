@@ -1,0 +1,18 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="values" nsURI="urn:values">
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="Number" instanceClassName="java.lang.Integer"/>
+<eClassifiers x:type="e:EDataType" name="List" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Map" instanceClassName="java.util.Map" serializable="false"><eTypeParameters name="K"/><eTypeParameters name="V"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Holder">
+<eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="new"/>
+<eStructuralFeatures x:type="e:EAttribute" name="texts"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="numbers"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//Number"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="nested"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eTypeArguments></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="mapping"><eGenericType eClassifier="#//Map"><eTypeArguments eClassifier="#//Text"/><eTypeArguments eClassifier="#//Number"/></eGenericType></eStructuralFeatures>
+<eStructuralFeatures x:type="e:EAttribute" name="manyTexts" upperBound="-1"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eGenericType></eStructuralFeatures>
+<eOperations name="acceptTexts"><eParameters name="input"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eGenericType></eParameters></eOperations>
+<eOperations name="acceptNumbers"><eParameters name="input"><eGenericType eClassifier="#//List"><eTypeArguments eClassifier="#//Number"/></eGenericType></eParameters></eOperations>
+</eClassifiers>
+<eClassifiers x:type="e:EClass" name="GenericHolder"><eTypeParameters name="T"/><eStructuralFeatures x:type="e:EAttribute" name="values"><eGenericType eClassifier="#//List"><eTypeArguments eTypeParameter="#//GenericHolder/T"/></eGenericType></eStructuralFeatures></eClassifiers>
+<eClassifiers x:type="e:EClass" name="TextHolder"><eGenericSuperTypes eClassifier="#//GenericHolder"><eTypeArguments eClassifier="#//Text"/></eGenericSuperTypes></eClassifiers>
+</e:EPackage>

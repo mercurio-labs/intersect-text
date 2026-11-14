@@ -1,0 +1,102 @@
+{
+  "bundle": {
+    "version": 1,
+    "sources": [
+      {
+        "id": {
+          "uri": "memory:generic.ecore",
+          "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+        },
+        "kind": "ecore",
+        "text": "<e:EPackage xmlns:e=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:x=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"g\" nsURI=\"urn:g\">\n<eClassifiers x:type=\"e:EClass\" name=\"Value\"><eStructuralFeatures x:type=\"e:EAttribute\" name=\"name\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\" defaultValueLiteral=\"new\"/></eClassifiers>\n<eClassifiers x:type=\"e:EClass\" name=\"Other\"/>\n<eClassifiers x:type=\"e:EClass\" name=\"Box\"><eTypeParameters name=\"T\"/><eStructuralFeatures x:type=\"e:EReference\" name=\"value\"><eGenericType eTypeParameter=\"#//Box/T\"/></eStructuralFeatures><eOperations name=\"accept\"><eParameters name=\"input\"><eGenericType eTypeParameter=\"#//Box/T\"/></eParameters></eOperations></eClassifiers>\n<eClassifiers x:type=\"e:EClass\" name=\"ValueBox\"><eGenericSuperTypes eClassifier=\"#//Box\"><eTypeArguments eClassifier=\"#//Value\"/></eGenericSuperTypes></eClassifiers>\n<eClassifiers x:type=\"e:EClass\" name=\"Root\">\n<eStructuralFeatures x:type=\"e:EReference\" name=\"values\" eType=\"#//Value\" upperBound=\"-1\" containment=\"true\"/>\n<eStructuralFeatures x:type=\"e:EReference\" name=\"boxes\" eType=\"#//ValueBox\" upperBound=\"-1\" containment=\"true\"/>\n<eStructuralFeatures x:type=\"e:EAttribute\" name=\"valueCount\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\" derived=\"true\"/>\n</eClassifiers></e:EPackage>\n",
+        "dependencies": []
+      },
+      {
+        "id": {
+          "uri": "memory:generic.xtext",
+          "sha256": "c7f876f692b14bca0251e4fb83397b3342b07bb274660483c4c2c2357ad0f90f"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Generic import \"urn:g\" as g\nRoot returns g::Root: 'root' '{' (values+=Value | boxes+=ValueBox)* '}';\nValue returns g::Value: 'value' name=ID ';';\nValueBox returns g::ValueBox: 'box' value=[g::Value|ID] ';';\n",
+        "dependencies": [
+          {
+            "uri": "memory:generic.ecore",
+            "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "memory:generic-behavior.rcore",
+          "sha256": "a45745a5eb631fe6014f716104d3c193e2e955c642f8bf173d91acf1b7a4bb4e"
+        },
+        "kind": "rcore_behavior",
+        "text": "{\"version\": 1, \"scope\": \"unique_names\", \"derived\": [{\"class\": \"Root\", \"feature\": \"valueCount\", \"expression\": {\"op\": \"count\", \"feature\": \"values\"}}], \"validations\": []}",
+        "dependencies": [
+          {
+            "uri": "memory:generic.ecore",
+            "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+          }
+        ]
+      }
+    ],
+    "namespaces": []
+  },
+  "ecore": {
+    "uri": "memory:generic.ecore",
+    "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+  },
+  "xtext": {
+    "uri": "memory:generic.xtext",
+    "sha256": "c7f876f692b14bca0251e4fb83397b3342b07bb274660483c4c2c2357ad0f90f"
+  },
+  "rcore_behavior": {
+    "uri": "memory:generic-behavior.rcore",
+    "sha256": "a45745a5eb631fe6014f716104d3c193e2e955c642f8bf173d91acf1b7a4bb4e"
+  },
+  "namespace": "urn:g",
+  "materialized_types": [
+    {
+      "kind": "classifier",
+      "declaration": {
+        "source": {
+          "uri": "memory:generic.ecore",
+          "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+        },
+        "path": [
+          0
+        ]
+      },
+      "arguments": [],
+      "raw": false
+    },
+    {
+      "kind": "classifier",
+      "declaration": {
+        "source": {
+          "uri": "memory:generic.ecore",
+          "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+        },
+        "path": [
+          3
+        ]
+      },
+      "arguments": [],
+      "raw": false
+    },
+    {
+      "kind": "classifier",
+      "declaration": {
+        "source": {
+          "uri": "memory:generic.ecore",
+          "sha256": "89072391b5a113b3ad64d6a50cdf32d4e89c3054546c0d649c628affb03479e3"
+        },
+        "path": [
+          4
+        ]
+      },
+      "arguments": [],
+      "raw": false
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+grammar document.provider.NestedMixedEString hidden(WS)
+import "urn:document-provider:paint:no-default:1" as p
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+Paint returns p::Paint: 'paint' color=WrappedColor?;
+WrappedColor returns ecore::EJavaObject: TextColor;
+TextColor returns ecore::EString: Color;
+Color returns ecore::EJavaObject: COLOR_TOKEN;
+terminal COLOR_TOKEN returns ecore::EString: '#' ('0'..'9'|'a'..'f')+;
+terminal WS returns ecore::EString: ' '+;

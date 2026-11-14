@@ -1,0 +1,530 @@
+[
+  {
+    "datatype": {
+      "source": {
+        "uri": "http://www.eclipse.org/emf/2002/Ecore",
+        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+      },
+      "path": [
+        33
+      ]
+    },
+    "provider": {
+      "name": "ecore.feature-entry",
+      "version": "1"
+    },
+    "serializable": false,
+    "declarations": [
+      {
+        "path": [
+          4,
+          0
+        ],
+        "source": {
+          "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+          "uri": "memory:model.rcore"
+        }
+      }
+    ],
+    "members": [
+      {
+        "nullable": false,
+        "value": {
+          "kind": "reference",
+          "class": {
+            "path": [
+              2
+            ],
+            "source": {
+              "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+              "uri": "memory:model.rcore"
+            }
+          },
+          "context": {
+            "bundle": {
+              "version": 1,
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                    "uri": "memory:model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `library` version \"1\";\nmetamodel \"urn:intersect:example:library:1\" prefix `lib` {\n  abstract class `Named` {\n    attr `name`: EString [1,1];\n  }\n  class `Library` extends external \"#//@eClassifiers.0\" {\n    ref `copies`: external \"#//@eClassifiers.2\" [0,*] containment opposite external \"#//@eClassifiers.2/@eStructuralFeatures.4\";\n    ref `members`: external \"#//@eClassifiers.3\" [0,*] containment;\n    ref `loans`: external \"#//@eClassifiers.4\" [0,*] containment;\n    attr `copyCount`: EInt [0,1] derived;\n  }\n  class `BookCopy` extends external \"#//@eClassifiers.0\" {\n    attr `entry`: external \"http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry\" [0,1];\n    attr `featureMap`: external \"http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap\" [0,1];\n    attr `title`: EString [0,1];\n    attr `edition`: EInt [0,1] default \"1\";\n    ref `library`: external \"#//@eClassifiers.1\" [0,1] opposite external \"#//@eClassifiers.1/@eStructuralFeatures.0\";\n    attr `available`: EBoolean [0,1] derived;\n  }\n  class `Member` extends external \"#//@eClassifiers.0\" {\n  }\n  class `Loan` extends external \"#//@eClassifiers.0\" {\n    ref `copy`: external \"#//@eClassifiers.2\" [1,1];\n    ref `member`: external \"#//@eClassifiers.3\" [1,1];\n  }\n  class `SpecialCopy` extends external \"#//@eClassifiers.2\" {\n  }\n}\n"
+                },
+                {
+                  "id": {
+                    "uri": "memory:xtext",
+                    "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar example.Library with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:example:library:1\" as lib\n\nLibrary returns lib::Library:\n  'library' name=ID '{'\n    (copies+=BookCopy | members+=Member | loans+=Loan)*\n  '}';\n\nBookCopy returns lib::BookCopy:\n  'copy' name=ID title=STRING ('edition' edition=INT)? ';';\n\nMember returns lib::Member:\n  'member' name=ID ';';\n\nLoan returns lib::Loan:\n  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]\n  'to' member=[lib::Member|ID] ';';\n",
+                  "dependencies": [
+                    {
+                      "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                      "uri": "memory:model.rcore"
+                    }
+                  ]
+                },
+                {
+                  "id": {
+                    "uri": "memory:rcore_behavior",
+                    "sha256": "a86f5e1f4a2800151976c6d9c522ce2cd091c4bb8f58f0b7c7f1a3750cc6fea3"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\nimport model \"urn:intersect:example:library:1\" as m;\nderive m.`Library`.`copyCount` using count(`copies`);\nderive m.`BookCopy`.`available` using noIncoming(m.`Loan`.`copy`);\nvalidate m.`Loan`.rule0(self) {\n  require size(incoming::<m.`Loan`>(self.`copy`, \"copy\")) <= 1\n    code \"rule0\" message \"A book copy cannot have more than one active loan.\";\n}\n",
+                  "dependencies": [
+                    {
+                      "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                      "uri": "memory:model.rcore"
+                    }
+                  ]
+                }
+              ],
+              "namespaces": []
+            },
+            "entry": {
+              "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+              "uri": "memory:model.rcore"
+            },
+            "namespace": "urn:intersect:example:library:1",
+            "conversions": [
+              {
+                "datatype": {
+                  "source": {
+                    "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                    "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+                  },
+                  "path": [
+                    33
+                  ]
+                },
+                "provider": {
+                  "name": "ecore.feature-entry",
+                  "version": "1"
+                },
+                "serializable": false
+              },
+              {
+                "datatype": {
+                  "source": {
+                    "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                    "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+                  },
+                  "path": [
+                    32
+                  ]
+                },
+                "provider": {
+                  "name": "ecore.feature-map",
+                  "version": "1"
+                },
+                "serializable": false
+              }
+            ],
+            "model": {
+              "elements": [
+                {
+                  "class": "Library",
+                  "end": 103,
+                  "id": "catalog.library#0",
+                  "resource": "catalog.library",
+                  "start": 0,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#1",
+                  "values": {
+                    "copies": [
+                      "catalog.library#1",
+                      "catalog.library#2"
+                    ],
+                    "loans": [],
+                    "members": [
+                      "catalog.library#3"
+                    ],
+                    "name": "Catalog"
+                  }
+                },
+                {
+                  "class": "BookCopy",
+                  "end": 37,
+                  "id": "catalog.library#1",
+                  "resource": "catalog.library",
+                  "start": 20,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#2",
+                  "values": {
+                    "edition": 1,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": "catalog.library#0",
+                    "name": "dune",
+                    "title": "Dune"
+                  }
+                },
+                {
+                  "class": "BookCopy",
+                  "end": 87,
+                  "id": "catalog.library#2",
+                  "resource": "catalog.library",
+                  "start": 40,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#2",
+                  "values": {
+                    "edition": 2,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": "catalog.library#0",
+                    "name": "earthsea",
+                    "title": "A Wizard of Earthsea"
+                  }
+                },
+                {
+                  "class": "Member",
+                  "end": 101,
+                  "id": "catalog.library#3",
+                  "resource": "catalog.library",
+                  "start": 90,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#3",
+                  "values": {
+                    "name": "ada"
+                  }
+                },
+                {
+                  "class": "Library",
+                  "end": 54,
+                  "id": "loans.library#0",
+                  "resource": "loans.library",
+                  "start": 0,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#1",
+                  "values": {
+                    "copies": [],
+                    "loans": [
+                      "loans.library#1"
+                    ],
+                    "members": [],
+                    "name": "Circulation"
+                  }
+                },
+                {
+                  "class": "Loan",
+                  "end": 52,
+                  "id": "loans.library#1",
+                  "resource": "loans.library",
+                  "start": 24,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#4",
+                  "values": {
+                    "copy": "catalog.library#1",
+                    "member": "catalog.library#3",
+                    "name": "first"
+                  }
+                },
+                {
+                  "class": "SpecialCopy",
+                  "end": 87,
+                  "id": "special",
+                  "resource": "catalog.library",
+                  "start": 40,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#5",
+                  "values": {
+                    "edition": 2,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": null,
+                    "name": "special",
+                    "title": "A Wizard of Earthsea"
+                  }
+                }
+              ],
+              "schema_revision": "cdac96a7e1922d8abf8ade38d3bfb85ed386272b9239e0cdc1e98d55b2e42a06",
+              "resources": {
+                "catalog.library": {
+                  "uri": "catalog.library",
+                  "roots": [
+                    "catalog.library#0",
+                    "special"
+                  ],
+                  "content_revision": "0",
+                  "load_state": "Loaded",
+                  "diagnostics": [],
+                  "source": null
+                },
+                "loans.library": {
+                  "uri": "loans.library",
+                  "roots": [
+                    "loans.library#0"
+                  ],
+                  "content_revision": "0",
+                  "load_state": "Loaded",
+                  "diagnostics": [],
+                  "source": null
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "datatype": {
+      "source": {
+        "uri": "http://www.eclipse.org/emf/2002/Ecore",
+        "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+      },
+      "path": [
+        32
+      ]
+    },
+    "provider": {
+      "name": "ecore.feature-map",
+      "version": "1"
+    },
+    "serializable": false,
+    "declarations": [
+      {
+        "path": [
+          4,
+          0
+        ],
+        "source": {
+          "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+          "uri": "memory:model.rcore"
+        }
+      }
+    ],
+    "members": [
+      {
+        "nullable": false,
+        "value": {
+          "kind": "reference",
+          "class": {
+            "path": [
+              2
+            ],
+            "source": {
+              "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+              "uri": "memory:model.rcore"
+            }
+          },
+          "context": {
+            "bundle": {
+              "version": 1,
+              "sources": [
+                {
+                  "dependencies": [],
+                  "id": {
+                    "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                    "uri": "memory:model.rcore"
+                  },
+                  "kind": "rcore",
+                  "text": "rcore 1;\npackage `library` version \"1\";\nmetamodel \"urn:intersect:example:library:1\" prefix `lib` {\n  abstract class `Named` {\n    attr `name`: EString [1,1];\n  }\n  class `Library` extends external \"#//@eClassifiers.0\" {\n    ref `copies`: external \"#//@eClassifiers.2\" [0,*] containment opposite external \"#//@eClassifiers.2/@eStructuralFeatures.4\";\n    ref `members`: external \"#//@eClassifiers.3\" [0,*] containment;\n    ref `loans`: external \"#//@eClassifiers.4\" [0,*] containment;\n    attr `copyCount`: EInt [0,1] derived;\n  }\n  class `BookCopy` extends external \"#//@eClassifiers.0\" {\n    attr `entry`: external \"http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry\" [0,1];\n    attr `featureMap`: external \"http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap\" [0,1];\n    attr `title`: EString [0,1];\n    attr `edition`: EInt [0,1] default \"1\";\n    ref `library`: external \"#//@eClassifiers.1\" [0,1] opposite external \"#//@eClassifiers.1/@eStructuralFeatures.0\";\n    attr `available`: EBoolean [0,1] derived;\n  }\n  class `Member` extends external \"#//@eClassifiers.0\" {\n  }\n  class `Loan` extends external \"#//@eClassifiers.0\" {\n    ref `copy`: external \"#//@eClassifiers.2\" [1,1];\n    ref `member`: external \"#//@eClassifiers.3\" [1,1];\n  }\n  class `SpecialCopy` extends external \"#//@eClassifiers.2\" {\n  }\n}\n"
+                },
+                {
+                  "id": {
+                    "uri": "memory:xtext",
+                    "sha256": "ae3bcebc48bb3c7c1df558929cb8487fdf68bea87ae494b0c72a4168a91d6ba7"
+                  },
+                  "kind": "xtext",
+                  "text": "grammar example.Library with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:example:library:1\" as lib\n\nLibrary returns lib::Library:\n  'library' name=ID '{'\n    (copies+=BookCopy | members+=Member | loans+=Loan)*\n  '}';\n\nBookCopy returns lib::BookCopy:\n  'copy' name=ID title=STRING ('edition' edition=INT)? ';';\n\nMember returns lib::Member:\n  'member' name=ID ';';\n\nLoan returns lib::Loan:\n  'loan' name=ID 'copy' copy=[lib::BookCopy|ID]\n  'to' member=[lib::Member|ID] ';';\n",
+                  "dependencies": [
+                    {
+                      "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                      "uri": "memory:model.rcore"
+                    }
+                  ]
+                },
+                {
+                  "id": {
+                    "uri": "memory:rcore_behavior",
+                    "sha256": "a86f5e1f4a2800151976c6d9c522ce2cd091c4bb8f58f0b7c7f1a3750cc6fea3"
+                  },
+                  "kind": "rcore_behavior",
+                  "text": "rcore 1;\npackage fixtureProviders version \"1\";\nimport model \"urn:intersect:example:library:1\" as m;\nderive m.`Library`.`copyCount` using count(`copies`);\nderive m.`BookCopy`.`available` using noIncoming(m.`Loan`.`copy`);\nvalidate m.`Loan`.rule0(self) {\n  require size(incoming::<m.`Loan`>(self.`copy`, \"copy\")) <= 1\n    code \"rule0\" message \"A book copy cannot have more than one active loan.\";\n}\n",
+                  "dependencies": [
+                    {
+                      "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+                      "uri": "memory:model.rcore"
+                    }
+                  ]
+                }
+              ],
+              "namespaces": []
+            },
+            "entry": {
+              "sha256": "feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183",
+              "uri": "memory:model.rcore"
+            },
+            "namespace": "urn:intersect:example:library:1",
+            "conversions": [
+              {
+                "datatype": {
+                  "source": {
+                    "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                    "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+                  },
+                  "path": [
+                    33
+                  ]
+                },
+                "provider": {
+                  "name": "ecore.feature-entry",
+                  "version": "1"
+                },
+                "serializable": false
+              },
+              {
+                "datatype": {
+                  "source": {
+                    "uri": "http://www.eclipse.org/emf/2002/Ecore",
+                    "sha256": "4ef00e244eda85b2da8670bb5582eb7c8d762d459e3e2c834b228384733c0aa6"
+                  },
+                  "path": [
+                    32
+                  ]
+                },
+                "provider": {
+                  "name": "ecore.feature-map",
+                  "version": "1"
+                },
+                "serializable": false
+              }
+            ],
+            "model": {
+              "elements": [
+                {
+                  "class": "Library",
+                  "end": 103,
+                  "id": "catalog.library#0",
+                  "resource": "catalog.library",
+                  "start": 0,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#1",
+                  "values": {
+                    "copies": [
+                      "catalog.library#1",
+                      "catalog.library#2"
+                    ],
+                    "loans": [],
+                    "members": [
+                      "catalog.library#3"
+                    ],
+                    "name": "Catalog"
+                  }
+                },
+                {
+                  "class": "BookCopy",
+                  "end": 37,
+                  "id": "catalog.library#1",
+                  "resource": "catalog.library",
+                  "start": 20,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#2",
+                  "values": {
+                    "edition": 1,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": "catalog.library#0",
+                    "name": "dune",
+                    "title": "Dune"
+                  }
+                },
+                {
+                  "class": "BookCopy",
+                  "end": 87,
+                  "id": "catalog.library#2",
+                  "resource": "catalog.library",
+                  "start": 40,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#2",
+                  "values": {
+                    "edition": 2,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": "catalog.library#0",
+                    "name": "earthsea",
+                    "title": "A Wizard of Earthsea"
+                  }
+                },
+                {
+                  "class": "Member",
+                  "end": 101,
+                  "id": "catalog.library#3",
+                  "resource": "catalog.library",
+                  "start": 90,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#3",
+                  "values": {
+                    "name": "ada"
+                  }
+                },
+                {
+                  "class": "Library",
+                  "end": 54,
+                  "id": "loans.library#0",
+                  "resource": "loans.library",
+                  "start": 0,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#1",
+                  "values": {
+                    "copies": [],
+                    "loans": [
+                      "loans.library#1"
+                    ],
+                    "members": [],
+                    "name": "Circulation"
+                  }
+                },
+                {
+                  "class": "Loan",
+                  "end": 52,
+                  "id": "loans.library#1",
+                  "resource": "loans.library",
+                  "start": 24,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#4",
+                  "values": {
+                    "copy": "catalog.library#1",
+                    "member": "catalog.library#3",
+                    "name": "first"
+                  }
+                },
+                {
+                  "class": "SpecialCopy",
+                  "end": 87,
+                  "id": "special",
+                  "resource": "catalog.library",
+                  "start": 40,
+                  "type_identity": "memory:model.rcore@feed732a6d9a79cbeefa2101d00dc9773b1af357e85f9a67cfaf782bdd71b183#5",
+                  "values": {
+                    "edition": 2,
+                    "entry": null,
+                    "featureMap": null,
+                    "library": null,
+                    "name": "special",
+                    "title": "A Wizard of Earthsea"
+                  }
+                }
+              ],
+              "schema_revision": "cdac96a7e1922d8abf8ade38d3bfb85ed386272b9239e0cdc1e98d55b2e42a06",
+              "resources": {
+                "catalog.library": {
+                  "uri": "catalog.library",
+                  "roots": [
+                    "catalog.library#0",
+                    "special"
+                  ],
+                  "content_revision": "0",
+                  "load_state": "Loaded",
+                  "diagnostics": [],
+                  "source": null
+                },
+                "loans.library": {
+                  "uri": "loans.library",
+                  "roots": [
+                    "loans.library#0"
+                  ],
+                  "content_revision": "0",
+                  "load_state": "Loaded",
+                  "diagnostics": [],
+                  "source": null
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+// Handwritten provider controls execute through the same Rust engine in fresh WASM.
+import {spawnSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
+import assert from 'node:assert/strict';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const built=spawnSync('cargo',['build','-p','intersect-text-acceptance','--example','xtext_inferred_contexts_probe','--target','wasm32-unknown-unknown','--locked'],{cwd:root,stdio:'inherit'});
+assert.equal(built.status,0,built.error?.message);
+const target=resolve(root,process.env.CARGO_TARGET_DIR||'target');
+const module=await WebAssembly.compile(readFileSync(resolve(target,'wasm32-unknown-unknown/debug/examples/xtext_inferred_contexts_probe.wasm')));
+assert.deepEqual(WebAssembly.Module.imports(module),[]);
+for(let i=0;i<2;i++) {
+  const instance=await WebAssembly.instantiate(module,{});
+  assert.equal(instance.exports.verify_inferred_contexts(),4);
+}
+console.log('Four inferred provider-context groups passed in each of two fresh zero-import WASM instances: converted defaults, source-backed computed read/write, named entries, source replay/archive verification and explicit rejection/rollback controls. Native provider extensions; JSON/catalog/browser/project and independent JVM qualification remain open.');

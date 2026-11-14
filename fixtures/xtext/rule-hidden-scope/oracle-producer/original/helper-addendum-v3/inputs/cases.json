@@ -1,0 +1,752 @@
+[
+  {
+    "id": "namespace_grammar_hidden_control",
+    "entry": "audit.scopes.GrammarHiddenControl",
+    "sources": [
+      {
+        "file": "audit.scopes.GrammarHiddenControl.xtext",
+        "grammar": "audit.scopes.GrammarHiddenControl",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_grammar_hidden_control/audit.scopes.GrammarHiddenControl.xtext",
+          "sha256": "6b37f2d68488cf4d971459a3669dec6ca9ba059874ae89d8ab1627766270dec7"
+        },
+        "bytes": 482
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Whole-source control: lexer priority and ASCII whitespace/comments; Unicode source offsets, invalid and incomplete input retained.",
+    "lineage": {
+      "original_case": "grammar_hidden_control",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_grammar_empty_control",
+    "entry": "audit.scopes.GrammarEmptyControl",
+    "sources": [
+      {
+        "file": "audit.scopes.GrammarEmptyControl.xtext",
+        "grammar": "audit.scopes.GrammarEmptyControl",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_grammar_empty_control/audit.scopes.GrammarEmptyControl.xtext",
+          "sha256": "ac8f6a1eebbc4458423cdf671a0f0ce513ef5cb5921aca32b696d04afefae4d9"
+        },
+        "bytes": 457
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Explicit empty grammar policy; winning terminals retained as significant input.",
+    "lineage": {
+      "original_case": "grammar_empty_control",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_model_empty_scope",
+    "entry": "audit.scopes.ModelEmptyScope",
+    "sources": [
+      {
+        "file": "audit.scopes.ModelEmptyScope.xtext",
+        "grammar": "audit.scopes.ModelEmptyScope",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_model_empty_scope/audit.scopes.ModelEmptyScope.xtext",
+          "sha256": "1256dc9093f7986652c8005fbf98c46bb1be523003badc8b3eaf56e52f260921"
+        },
+        "bytes": 486
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Rule-local empty policy versus nonempty grammar; leading/trailing hidden boundaries are observations, not assumptions.",
+    "lineage": {
+      "original_case": "model_empty_scope",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_model_adds_scope",
+    "entry": "audit.scopes.ModelAddsScope",
+    "sources": [
+      {
+        "file": "audit.scopes.ModelAddsScope.xtext",
+        "grammar": "audit.scopes.ModelAddsScope",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_model_adds_scope/audit.scopes.ModelAddsScope.xtext",
+          "sha256": "cc018747cfc44cf95d06da24ab5aba288539d91ffa026f57b90d5855ce81f135"
+        },
+        "bytes": 485
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Rule-local nonempty policy versus empty grammar, including end-of-resource behavior.",
+    "lineage": {
+      "original_case": "model_adds_scope",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_nested_restore",
+    "entry": "audit.scopes.NestedRestore",
+    "sources": [
+      {
+        "file": "audit.scopes.NestedRestore.xtext",
+        "grammar": "audit.scopes.NestedRestore",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_nested_restore/audit.scopes.NestedRestore.xtext",
+          "sha256": "6081a73809fbea6234196aff32052d43fb27a4724e5f74884157ee75c1809ea2"
+        },
+        "bytes": 593
+      }
+    ],
+    "inputs": [
+      "[abc]done",
+      " [abc] done ",
+      "[a b c]done",
+      "[ab c]done",
+      "[a bc]done",
+      "[a/*x*/b c]done",
+      "[abc]/*x*/done",
+      "[abc]",
+      "[ab]done"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Nested explicit scopes, call entry and successful restoration, missing close/suffix and partial models.",
+    "lineage": {
+      "original_case": "nested_restore",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_same_callee_two_contexts",
+    "entry": "audit.scopes.SameCalleeTwoContexts",
+    "sources": [
+      {
+        "file": "audit.scopes.SameCalleeTwoContexts.xtext",
+        "grammar": "audit.scopes.SameCalleeTwoContexts",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_same_callee_two_contexts/audit.scopes.SameCalleeTwoContexts.xtext",
+          "sha256": "d1f3d09e2c3ab469f8a0ccc052f0b3e49e4a1319461be73ee943eb1686d9ceb2"
+        },
+        "bytes": 656
+      }
+    ],
+    "inputs": [
+      "looseab",
+      "loose a b",
+      "loosea/*x*/b",
+      "tightab",
+      "tight a b",
+      "tighta/*x*/b",
+      "tightab ",
+      "loosea",
+      "tighta"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Unspecified callee policy under two caller contexts; no assumption of static grammar policy inheritance.",
+    "lineage": {
+      "original_case": "same_callee_two_contexts",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_fragment_empty_scope",
+    "entry": "audit.scopes.FragmentEmptyScope",
+    "sources": [
+      {
+        "file": "audit.scopes.FragmentEmptyScope.xtext",
+        "grammar": "audit.scopes.FragmentEmptyScope",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_fragment_empty_scope/audit.scopes.FragmentEmptyScope.xtext",
+          "sha256": "94d32367b0bc4887b0154496a4e19cb6eaabc9c4a8a6025d8b28c671f534e1f6"
+        },
+        "bytes": 557
+      }
+    ],
+    "inputs": [
+      "[a]done",
+      " [a] done ",
+      "[ a]done",
+      "[a ]done",
+      "[a]/*x*/done",
+      "[a/*x*/]done",
+      "[]done",
+      "[a]"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Caller-owned fragment scope and restoration; imported return type retained exactly.",
+    "lineage": {
+      "original_case": "fragment_empty_scope",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_significant_ws_datatype",
+    "entry": "audit.scopes.SignificantWsDatatype",
+    "sources": [
+      {
+        "file": "audit.scopes.SignificantWsDatatype.xtext",
+        "grammar": "audit.scopes.SignificantWsDatatype",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_significant_ws_datatype/audit.scopes.SignificantWsDatatype.xtext",
+          "sha256": "3312bb7e435e824274bd574d438fd10d1912ba35fa71d7d9a63bea363ebd9c89"
+        },
+        "bytes": 509
+      }
+    ],
+    "inputs": [
+      "a b",
+      "a\tb",
+      "a\r\nb",
+      "a  b",
+      "ab",
+      " a b",
+      "a b ",
+      "a/*x*/b",
+      "a\u00e9 b"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "WS used as significant grammar input; complete raw datatype value and source spans required.",
+    "lineage": {
+      "original_case": "significant_ws_datatype",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_significant_comment_datatype",
+    "entry": "audit.scopes.SignificantCommentDatatype",
+    "sources": [
+      {
+        "file": "audit.scopes.SignificantCommentDatatype.xtext",
+        "grammar": "audit.scopes.SignificantCommentDatatype",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_significant_comment_datatype/audit.scopes.SignificantCommentDatatype.xtext",
+          "sha256": "2987ea4ce30828501f62cbe6178fb6e30d82fb8e0194d1f956fd37b23f8ae8b7"
+        },
+        "bytes": 515
+      }
+    ],
+    "inputs": [
+      "a/*x*/b",
+      "a /*x*/ b",
+      "a/*\ud83d\ude00*/b",
+      "a/*x*/\r\nb",
+      "ab",
+      "a/*x*/",
+      "a/*"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Comment token used as significant input; hidden WS compression and Unicode spans remain separate observations.",
+    "lineage": {
+      "original_case": "significant_comment_datatype",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_named_entry_policy",
+    "entry": "audit.scopes.NamedEntryPolicy",
+    "sources": [
+      {
+        "file": "audit.scopes.NamedEntryPolicy.xtext",
+        "grammar": "audit.scopes.NamedEntryPolicy",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_named_entry_policy/audit.scopes.NamedEntryPolicy.xtext",
+          "sha256": "bc297fe09b3c4e13ebbbfae08716a071b68b49d44f1f6868134aa806a5285e77"
+        },
+        "bytes": 520
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [
+      "Model",
+      "Tight"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Same source invoked through resource default and actual named IParser entries; helper addendum must record both independently.",
+    "lineage": {
+      "original_case": "named_entry_policy",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_keyword_hidden_shadow",
+    "entry": "audit.scopes.KeywordHiddenShadow",
+    "sources": [
+      {
+        "file": "audit.scopes.KeywordHiddenShadow.xtext",
+        "grammar": "audit.scopes.KeywordHiddenShadow",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_keyword_hidden_shadow/audit.scopes.KeywordHiddenShadow.xtext",
+          "sha256": "394b20bc1ceaca177fb0ef81894b7256eb904a9e685dbf0d563d995f57da6add"
+        },
+        "bytes": 517
+      }
+    ],
+    "inputs": [
+      "notea",
+      "note a",
+      "note/*x*/a",
+      "a",
+      "note"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Keyword/hidden terminal exact spelling collision: preserve actual validation/generation/reachability failures; never skip keyword by spelling.",
+    "lineage": {
+      "original_case": "keyword_hidden_shadow",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_child_empty_policy",
+    "entry": "audit.scopes.ParentPolicyChild",
+    "sources": [
+      {
+        "file": "audit.scopes.ParentPolicyBase.xtext",
+        "grammar": "audit.scopes.ParentPolicyBase",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyBase.xtext",
+          "sha256": "bd3fcc5171a51f437c899caa62ffa7e5976e7c1ed739d21e7a08213c3417470b"
+        },
+        "bytes": 478
+      },
+      {
+        "file": "audit.scopes.ParentPolicyChild.xtext",
+        "grammar": "audit.scopes.ParentPolicyChild",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_child_empty_policy/audit.scopes.ParentPolicyChild.xtext",
+          "sha256": "08b55311f91489aa588dbced3aa9f3a41f2e70bf5b70a37d5a119a8db93ae017"
+        },
+        "bytes": 236
+      }
+    ],
+    "inputs": [
+      "a",
+      " a ",
+      "a\tb",
+      "a\r\nb",
+      "a/*x*/",
+      "/*x*/a",
+      "a//x\n",
+      "a//x",
+      "a/*\ud83d\ude00*/",
+      "a\u00e9",
+      "\u00a0a",
+      "a/*",
+      "a@",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Child grammar policy with inherited object rule; exact inherited source identity and caller policy remain observable.",
+    "lineage": {
+      "original_case": "child_empty_policy",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_inherited_terminal_override",
+    "entry": "audit.scopes.OverrideTokenChild",
+    "sources": [
+      {
+        "file": "audit.scopes.OverrideTokenBase.xtext",
+        "grammar": "audit.scopes.OverrideTokenBase",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenBase.xtext",
+          "sha256": "f5a71fd5c222cd5520cb7ca0a97188745dd4f269a47dd17fd683e1ab78aaa324"
+        },
+        "bytes": 457
+      },
+      {
+        "file": "audit.scopes.OverrideTokenChild.xtext",
+        "grammar": "audit.scopes.OverrideTokenChild",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_terminal_override/audit.scopes.OverrideTokenChild.xtext",
+          "sha256": "2a4ddbafc6892babf823546672f6ed59a9104e789d9fbef796b1bc2f9efe02d2"
+        },
+        "bytes": 281
+      }
+    ],
+    "inputs": [
+      "a",
+      "~a~",
+      " a ",
+      "a~",
+      "a b",
+      "a~b",
+      "a\u00e9~",
+      "~",
+      ""
+    ],
+    "named_entries": [
+      "Entry",
+      "Model"
+    ],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Hidden token resolution uses effective override identity, not original body or spelling; warnings and lexer priority preserved.",
+    "lineage": {
+      "original_case": "inherited_terminal_override",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_inherited_rule_override",
+    "entry": "audit.scopes.OverrideRuleChild",
+    "sources": [
+      {
+        "file": "audit.scopes.OverrideRuleBase.xtext",
+        "grammar": "audit.scopes.OverrideRuleBase",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleBase.xtext",
+          "sha256": "4c52b4b1d5c8469c01f045af27e7b0120cf81167cea701206888929e49aae271"
+        },
+        "bytes": 478
+      },
+      {
+        "file": "audit.scopes.OverrideRuleChild.xtext",
+        "grammar": "audit.scopes.OverrideRuleChild",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_inherited_rule_override/audit.scopes.OverrideRuleChild.xtext",
+          "sha256": "b36165ebbb4718fd70a589c792f47c5418ce38c99f745c2be0feca82de2ecb53"
+        },
+        "bytes": 252
+      }
+    ],
+    "inputs": [
+      "a!",
+      " a!",
+      "a !",
+      "a! ",
+      "a/*x*/!",
+      "a",
+      "a\u00e9!"
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Effective parser override must carry its own policy and exact source identity; parent remains original.",
+    "lineage": {
+      "original_case": "inherited_rule_override",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_unknown_hidden_target",
+    "entry": "audit.scopes.UnknownHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.scopes.UnknownHiddenTarget.xtext",
+        "grammar": "audit.scopes.UnknownHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_unknown_hidden_target/audit.scopes.UnknownHiddenTarget.xtext",
+          "sha256": "c67bb0d7a1f2725db371d2a9b5ec95208e26e626c8630c10c9dd00b5d11b9079"
+        },
+        "bytes": 475
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Unknown rule-local hidden target; preserve parse/link/validation errors, generation failures and unexecuted runtime.",
+    "lineage": {
+      "original_case": "unknown_hidden_target",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_fragment_hidden_target",
+    "entry": "audit.scopes.FragmentHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.scopes.FragmentHiddenTarget.xtext",
+        "grammar": "audit.scopes.FragmentHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_fragment_hidden_target/audit.scopes.FragmentHiddenTarget.xtext",
+          "sha256": "c9dcde02534e0522e6db42255a87aa456311a3fd3190b5f14beb0ff0f082f588"
+        },
+        "bytes": 502
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Terminal-fragment hidden target admission; source metadata must establish actual validity.",
+    "lineage": {
+      "original_case": "fragment_hidden_target",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  },
+  {
+    "id": "namespace_parser_hidden_target",
+    "entry": "audit.scopes.ParserHiddenTarget",
+    "sources": [
+      {
+        "file": "audit.scopes.ParserHiddenTarget.xtext",
+        "grammar": "audit.scopes.ParserHiddenTarget",
+        "source_id": {
+          "uri": "memory:hidden-scope-companion/namespace_parser_hidden_target/audit.scopes.ParserHiddenTarget.xtext",
+          "sha256": "adc4b829b74e3ad0fd4d2f0faa48b9f61718d2f39d18089832e443a9f2fc7332"
+        },
+        "bytes": 504
+      }
+    ],
+    "inputs": [
+      "a",
+      " a "
+    ],
+    "named_entries": [],
+    "provider": {
+      "file": "imported.ecore",
+      "sha256": "726b2116570fad065036c20eca40be7c4bda665317089fc2cd1f1cab5ea3f734",
+      "bytes": 1283
+    },
+    "purpose": "Parser-rule hidden target admission; no classifier-spelling shortcut.",
+    "lineage": {
+      "original_case": "parser_hidden_target",
+      "original_packet": {
+        "bytes": 4802,
+        "sha256": "add8ad1fdb4c687052d30d7cb1b5b4b787243a8c31440080afead184c4bb31fd"
+      },
+      "reason": "Separate namespace-only source companion after actual keyword-segment syntax failure; original sources and failures are unchanged and never requalified."
+    },
+    "execution": "UNEXECUTED; no validity or runtime inference"
+  }
+]

@@ -1,0 +1,41 @@
+from pathlib import Path
+import json,hashlib,subprocess,os,shutil
+N=Path(__file__).resolve().parent;T=N.parent;I=N/'provider-rgb-node-observer-v1';O=I/'execution';O.mkdir(exist_ok=False);classes=O/'classes';classes.mkdir();B=T/'prgb65r';V=N/'provider-rgb-message-alignment-v2/execution';A=T/'hsv8r/adapter'
+def pin(p):
+ b=Path(p).read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def load(p):return json.loads(Path(p).read_text(encoding='utf-8'))
+def save(p,v):p.write_text(json.dumps(v,ensure_ascii=True,indent=2)+'\n',encoding='utf-8',newline='\n')
+old=load(V/'commands.json');runtime=[r['command']for r in old if 'intersect.oracle.RgbFullRuntime'in r['command']];assert len(runtime)==24;runtime=runtime[:12]
+manifest=load(B/'artifacts-sha256.json');assert all(pin(B/k)['sha256']==h for k,h in manifest.items());inputs={str(B/k):pin(B/k)for k in manifest};inputs.update({str(p):pin(p)for p in A.rglob('*')if p.is_file()});inputs.update({str(p):pin(p)for p in (V/'classes').rglob('*')if p.is_file()});inputs.update({str(p):pin(p)for p in [I/'RgbNodeSnapshotRuntime.java',I/'POLICY.md',Path(__file__),N/'helper-addendum-v1/NodeSnapshotRuntime.java',N/'provider-rgb-converter-oracle-v1/RgbFullRuntime.java',V/'final-comparison-addendum.json']})
+plans=[]
+for cmd in runtime:
+ idx=cmd.index('intersect.oracle.RgbFullRuntime');args=cmd[idx+1:];provider,grammar,text,source,sha,selected,uri=args
+ folder=O/grammar.rsplit('.',1)[-1];folder.mkdir(exist_ok=True);dest=folder/'grammar.xtext'
+ if not dest.exists():dest.write_bytes(Path(source).read_bytes());(folder/'bindings.tsv').write_text('\t'.join(['grammar',grammar,uri,sha,'grammar.xtext'])+'\n',encoding='utf-8',newline='\n')
+ assert pin(dest)['sha256']==sha
+ cp=str(classes)+os.pathsep+str(A)+os.pathsep+cmd[cmd.index('-cp')+1]
+ for entry in ['', 'Paint']:
+  plans.append(cmd[:cmd.index('-cp')]+['-cp',cp,'intersect.oracle.RgbNodeSnapshotRuntime',provider,grammar,text,entry,str(folder/'bindings.tsv'),source,sha,selected,uri])
+compile=['D:/dev/jdks/jdk21/bin/javac.exe','-encoding','UTF-8','--release','17','-cp',plans[0][plans[0].index('-cp')+1],'-d',str(classes),str(I/'RgbNodeSnapshotRuntime.java')]
+for cmd in plans:
+ for segment in cmd[cmd.index('-cp')+1].split(os.pathsep):
+  p=Path(segment)
+  if p.is_file():inputs[str(p)]=pin(p)
+for p in O.rglob('*'):
+ if p.is_file():inputs[str(p)]=pin(p)
+save(O/'preexecution.json',{'inputs':inputs,'compile':compile,'runtime_per_run':plans,'source_scope':'exact same two no-default source graphs and example.rgb/v1 explicit verification adapter; prior generated artifacts reused; no new generation claim','deadline_seconds':15,'original_node_helper':pin(N/'helper-addendum-v1/NodeSnapshotRuntime.java'),'gate_closures':[]})
+commands=[]
+def run(cmd,label,timeout):
+ try:r=subprocess.run(cmd,capture_output=True,timeout=timeout)
+ except subprocess.TimeoutExpired as e:r=subprocess.CompletedProcess(cmd,124,e.stdout or b'',e.stderr or b'')
+ (O/(label+'.stdout.raw')).write_bytes(r.stdout);(O/(label+'.stderr.raw')).write_bytes(r.stderr);obs=[json.loads(l)for l in r.stdout.decode('utf-8',errors='strict').splitlines()if l.startswith('{')];row={'label':label,'command':cmd,'exit_code':r.returncode,'timeout_seconds':timeout,'stdout':pin(O/(label+'.stdout.raw')),'stderr':pin(O/(label+'.stderr.raw')),'observations':obs};commands.append(row);save(O/'commands.json',commands);return row
+r=run(compile,'javac',60);assert r['exit_code']==0,r
+runs=[]
+for name in ['record','replay']:
+ rows=[]
+ for idx,cmd in enumerate(plans):
+  r=run(cmd,name+'-'+str(idx),15);assert r['exit_code']==0 and len(r['observations'])==1,(name,idx,r['exit_code']);rows.append(r['observations'][0]);save(O/(name+'.json'),rows)
+ runs.append(rows)
+assert runs[0]==runs[1]
+assert all(pin(Path(k))==v for k,v in inputs.items())
+save(O/'receipt.json',{'status':'PASS exact complete full-node structured record/replay','preexecution':pin(O/'preexecution.json'),'record':pin(O/'record.json'),'replay':pin(O/'replay.json'),'commands':pin(O/'commands.json'),'fresh_jvm_executions':48,'rows_per_run':24,'source_graphs':2,'probes_per_graph':6,'channels':['default resource plus default parser','default resource plus explicit Paint parser'],'scope':'verification adapter example.rgb/v1, not upstream default converter; all raw original nodes and diagnostics preserved; ANTLR getLookAhead not qualified','gate_closures':[]});print((O/'receipt.json').read_text(encoding='utf-8'))

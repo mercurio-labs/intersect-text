@@ -1,0 +1,30 @@
+rcore 1;
+package example.typing version "1";
+import model "urn:intersect:typing" as types;
+import package example.typing.helpers version "1" as helpers;
+
+pub fn score(item: types.Item) -> Int32 =
+    match helpers.checkedScore(item.score) { Ok(value) => value, Err(_) => 0 };
+pub fn label(item: types.Item?) -> String = item?.name ?? "missing";
+pub fn related(item: types.Item?) -> types.Named? = item?.related;
+pub fn asTagged(item: types.Special) -> types.Tagged = item;
+pub fn choose(flag: Bool, item: types.Item, special: types.Special) -> types.Named? = {
+    let selected = if flag { Some(item) } else { Some(special) };
+    selected
+};
+pub fn captured(value: Int32) -> Int32 = {
+    let increment: (Int32) -> Int32 = |step: Int32| value + step;
+    increment(1)
+};
+pub fn exactLarge() -> UInt64 = 18446744073709551615;
+pub fn minimum() -> Int8 = -(128);
+pub fn nested(value: Result<Bool?, String>) -> Bool = match value {
+    Ok(Some(true)) => true,
+    Ok(Some(false)) => false,
+    Ok(none) => false,
+    Err(_) => false
+};
+derive types.Item.label(self) -> String = helpers.label(self.name);
+validate types.Item.validScore(self) {
+    require self.score >= 0 code "score.nonnegative" message "Score must be nonnegative";
+}

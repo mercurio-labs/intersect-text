@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "classification": "Recovered historical generated input; compatibility evidence only, no semantic qualification",
+  "source_revision": "a7ea7155575214029d47905157ea55c43cb4c80a",
+  "capture_command": "cargo +1.99.1 run -p intersect-acceptance --example compatibility_corpus --locked --offline",
+  "capture_environment": {
+    "CARGO_PROFILE_DEV_OPT_LEVEL": "1",
+    "CARGO_PROFILE_DEV_DEBUG": "0"
+  },
+  "capture_isolation": "git archive snapshot and separate Cargo target; original producer sources unchanged",
+  "generated_input": {
+    "path": "ordinary-baseline-input.rcore",
+    "bytes": 1044,
+    "sha256": "1829936c163c964bee941a362d72007914b0fae010525074f266efd3b2412194",
+    "archive_source_id": {
+      "uri": "memory:model.rcore",
+      "sha256": "1829936c163c964bee941a362d72007914b0fae010525074f266efd3b2412194"
+    }
+  },
+  "producer_sources": {
+    "crates/intersect-model/src/definitions/ecore_migration.rs": "621f64e735ea07f2428e43352b509b82fc500d6f2bc04fbaed0fe8b68d9221fd",
+    "crates/intersect-model/src/definitions/ecore_migration_bundle.rs": "75c658796033386d37b28866d2052082405e7d22d2ade9cc1b18e686adc94940",
+    "tests/acceptance/src/lib.rs": "5f7025372487a077351a3ea3ff4034305b59ade1da70f62100eb679d6bf51d92",
+    "tests/acceptance/tests/xmi/support/compatibility.rs": "1999881acba9ecc9415f6b06a6d1a3f3beb755223bbe12748b28e3de58537e61",
+    "tests/acceptance/examples/compatibility_corpus.rs": "887d69d03526fe93c97f5f318f178c16f850e2be2d8d3090f71c785fb431d984"
+  },
+  "payload_observations_matched": {
+    "definitions/bundle.json": {
+      "bytes": 3222,
+      "sha256": "2944c260da5c88f046c1f306ed2f3d5f77c0f91135959cac6abd6bab225f6cc9"
+    },
+    "package.json": {
+      "bytes": 26942,
+      "sha256": "b3364500bba20699a4e995d3810eed209b57af061d76caaf0352024e66f5ead0"
+    }
+  },
+  "manifest_observation_matched": true,
+  "original_observation_sha256": "9fc5fbe097959cac8caa906e8dd21cc4482b4579837c782aff16082440ec801a",
+  "expectation_regeneration": false,
+  "renderer_changes": [
+    "203902dd",
+    "eeb500c4"
+  ]
+}

@@ -1,0 +1,11 @@
+rcore 1;
+package s04_corpus version "1";
+import model "https://www.omg.org/spec/SysML/20250201" as m;
+fn actions(value:m.ActionDefinition) -> OrderedSet<m.ActionUsage> = value.action;
+fn payload(value:m.AcceptActionUsage) -> m.Expression? = value.payloadArgument;
+fn parameter(value:m.AcceptActionUsage) -> m.ReferenceUsage = value.payloadParameter;
+fn first(value:m.ActionDefinition) -> m.ActionUsage? = value.action[0];
+fn identity<T>(value:T) -> T = value;
+fn nested() -> {items:Sequence<(Int8,Bool)>, flags:Set<Bool>, repeated:Bag<Int8>} =
+    {items:[(1,true)], flags:Set::<Bool>([true,false]), repeated:Bag::<Int8>([1,1])};
+fn inferred() -> Sequence<Int8> = identity::<Sequence<Int8>>([1,2]);

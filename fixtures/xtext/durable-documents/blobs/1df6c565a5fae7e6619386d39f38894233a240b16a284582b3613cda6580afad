@@ -1,0 +1,326 @@
+//! Handwritten durable document state over the shared interpreter. Serialized
+//! nodes and recovered objects are observations, never executable authority.
+use super::*;
+use intersect_model::{core::text_document::{DocumentBuilder,DocumentLimits,DocumentMark,DocumentUsage,NodeData,NodeId,TextDocument,TextRange},definitions::bundle::{SourceId,SourceSpan}};
+use std::sync::Arc;
+
+#[derive(Clone,Debug,Serialize)]
+#[serde(rename_all="snake_case")]
+pub enum OriginKind { ParserRule,TerminalRule,Keyword,RuleCall,CrossReference,Action }
+#[derive(Clone,Debug,Serialize)]
+pub struct GrammarOrigin {
+ pub kind:OriginKind,
+ pub declaration:Option<SourceSpan>,
+ pub expression:Option<SourceSpan>,
+ pub target:Option<SourceSpan>,
+ pub builtin:Option<String>,
+}
+#[derive(Debug,Serialize)]
+struct Origins {
+ entries:Vec<GrammarOrigin>,
+ #[serde(skip)]
+ by_key:BTreeMap<String,usize>,
+}
+#[derive(Clone,Copy,Debug)]
+pub struct AnalysisLimits {
+ pub tree:DocumentLimits,
+ /// Logical language association records/payloads; not allocator capacity.
+ pub association_bytes:usize,
+ pub association_records:usize,
+ pub association_operations:usize,
+}
+impl AnalysisLimits {pub const fn workbench()->Self {Self{tree:DocumentLimits{source_bytes:256_000,nodes:100_000,logical_storage_bytes:32_000_000,operations:2_000_000},association_bytes:16_000_000,association_records:100_000,association_operations:2_000_000}}}
+#[derive(Clone,Copy,Debug,Default,Serialize)]
+struct AssociationUsage{bytes:usize,records:usize,operations:usize}
+impl AssociationUsage {
+ fn admit(&mut self,limits:AnalysisLimits,bytes:usize,records:usize)->Result<(),String>{
+  let operations=self.operations.checked_add(1).ok_or("Document association operation overflow")?;
+  if operations>limits.association_operations{return Err("Document association operation budget exceeded".into())}
+  let bytes=self.bytes.checked_add(bytes).ok_or("Document association storage overflow")?;
+  let records=self.records.checked_add(records).ok_or("Document association record overflow")?;
+  if bytes>limits.association_bytes||records>limits.association_records{return Err("Document association budget exceeded".into())}
+  *self=Self{bytes,records,operations};Ok(())
+ }
+}
+fn kind(expr:&Expr)->Option<OriginKind>{match expr.kind{Kind::Literal(_)=>Some(OriginKind::Keyword),Kind::Call(_)=>Some(OriginKind::RuleCall),Kind::Reference(_)|Kind::ScalarReference{..}=>Some(OriginKind::CrossReference),Kind::Action(_)|Kind::Capture{..}=>Some(OriginKind::Action),_=>None}}
+fn original_source<'a>(p:&'a Package,id:&SourceId)->Result<&'a str,String>{
+ if let Some(s)=p.compilation.as_ref().and_then(|c|c.bundle.sources.iter().find(|s|s.id==*id)){return Ok(&s.text)}
+ if let Some(s)=p.xtext_inference.as_ref().and_then(|c|c.bundle.sources.iter().find(|s|s.id==*id)){return Ok(&s.text)}
+ if let Some(s)=p.sources.get(&id.uri).filter(|s|SourceId::for_text(&id.uri,s)==*id){return Ok(s)}
+ Err("Missing exact grammar source for document origin".into())
+}
+impl Origins {
+ fn prepare(p:&Package,limits:AnalysisLimits)->Result<Self,String>{
+  let g=p.grammar.as_ref().ok_or("Document language needs a text grammar")?;
+  let mut out=Self{entries:Vec::new(),by_key:BTreeMap::new()};let mut budget=AssociationUsage::default();
+  let mut add=|key:String,origin:GrammarOrigin|->Result<(),String>{
+   let payload=origin.declaration.iter().chain(origin.expression.iter()).chain(origin.target.iter()).map(|s|s.source.uri.len()+s.source.sha256.len()).sum::<usize>()+origin.builtin.as_ref().map_or(0,String::len);
+   budget.admit(limits,std::mem::size_of::<GrammarOrigin>()+std::mem::size_of::<(String,usize)>()+key.len()+payload,1)?;
+   if out.by_key.insert(key,out.entries.len()).is_some(){return Err("Duplicate document origin occurrence".into())}out.entries.push(origin);Ok(())
+  };
+  for (name,rule) in &g.rules{
+   let declaration=g.declaration_sources.get(name).cloned().ok_or("Missing exact parser declaration origin")?;let text=original_source(p,&declaration.source)?;
+   if declaration.start>declaration.end||declaration.end>text.len(){return Err("Parser declaration escapes exact source".into())}
+   add(format!("rule/{name}/declaration"),GrammarOrigin{kind:OriginKind::ParserRule,declaration:Some(declaration.clone()),expression:None,target:None,builtin:None})?;
+   let mut pending=vec![(&rule.body,0usize)];
+   while let Some((expr,depth))=pending.pop(){
+    if depth>64{return Err("Document origin depth exceeded".into())}
+    if let Some(kind)=kind(expr){
+     let range=expr.original_range.as_ref().ok_or("Missing same-parser expression origin")?;
+     if range.start<declaration.start||range.end>declaration.end||text.get(range.clone()).is_none(){return Err("Expression origin escapes exact declaration".into())}
+     let path=expr.prediction_path.as_ref().ok_or("Missing exact compiled occurrence path")?;
+     let target=match &expr.kind{Kind::Call(name)|Kind::ScalarReference{rule:name,..}=>g.declaration_sources.get(name).cloned(),_=>None};
+     add(path.clone(),GrammarOrigin{kind,declaration:Some(declaration.clone()),expression:Some(SourceSpan{source:declaration.source.clone(),start:range.start,end:range.end}),target,builtin:None})?;
+    }
+    match &expr.kind{Kind::Sequence(items)|Kind::Alternative(items)=>for item in items.iter().rev(){pending.push((item,depth+1));},Kind::Assign{value,..}|Kind::BooleanAssign{value,..}=>pending.push((value,depth+1)),_=>{}}
+   }
+  }
+  for name in g.terminals.keys().map(String::as_str).chain(["ID","INT","STRING"]).collect::<BTreeSet<_>>(){
+   let key=format!("terminal/{name}");
+   let declaration=g.declaration_sources.get(name).cloned();
+   add(key,GrammarOrigin{kind:OriginKind::TerminalRule,declaration,expression:None,target:None,builtin:(!g.declaration_sources.contains_key(name)).then(||name.to_owned())})?;
+  }
+  Ok(out)
+ }
+ fn get(&self,key:&str)->Result<usize,String>{self.by_key.get(key).copied().ok_or_else(||format!("Missing exact document grammar occurrence {key}"))}
+}
+#[derive(Debug,Serialize)]
+pub struct SyntaxIssue {
+ pub message:String,
+ pub range:TextRange,
+ pub expected:Option<String>,
+ pub recovery:Recovery,
+}
+#[derive(Clone,Copy,Debug,Serialize)]
+#[serde(rename_all="snake_case")]
+pub enum Recovery { Delete,Insert,Resynchronize,Trailing,Lexical }
+#[derive(Debug,Serialize)]
+pub struct FeatureNode {pub owner:String,pub owner_object:usize,pub feature:String,pub node:NodeId,pub identity:intersect_model::definitions::schema::MemberIdentity}
+#[derive(Debug)]
+struct CapturedFeature {owner:String,feature:String,node:NodeId}
+#[derive(Debug,Serialize)]
+pub struct SemanticObjectIdentity {pub id:String,pub class:String,pub classifier:intersect_model::definitions::schema::ClassifierDeclaration,pub runtime_type:Option<intersect_model::definitions::generic_types::RuntimeType>}
+#[derive(Clone,Copy)]
+struct Frame {node:NodeId,anchor:NodeId,fallback:usize}
+pub(crate) struct Capture {
+ pub(crate) builder:DocumentBuilder,
+ origins:Arc<Origins>,
+ frames:Vec<Frame>,
+ frame_undo:Vec<(usize,Frame)>,
+ pub(crate) emitted:usize,
+ pub(crate) issues:Vec<SyntaxIssue>,
+ features:Vec<CapturedFeature>,
+ pub(crate) calls:Vec<String>,
+ lexical_issues:Vec<grammar::LexicalIssue>,
+ pending_error:Option<usize>,
+ pub(crate) recovering:bool,
+ pub(crate) recovered_match:bool,
+ pub(crate) last_error_index:Option<usize>,
+ limits:AnalysisLimits,
+ usage:AssociationUsage,
+}
+pub(crate) struct Mark {tree:DocumentMark,emitted:usize,issues:usize,features:usize,frames:usize,frame_undo:usize,pending_error:Option<usize>,recovering:bool,recovered_match:bool,last_error_index:Option<usize>}
+#[derive(Debug,Serialize)]
+pub struct DocumentSnapshot {
+ pub document:TextDocument,
+ #[serde(serialize_with="serialize_origins")]
+ origins:Arc<Origins>,
+ pub syntax_issues:Vec<SyntaxIssue>,
+ pub lexical_issues:Vec<grammar::LexicalIssue>,
+ pub feature_nodes:Vec<FeatureNode>,
+ pub semantic_objects:Vec<SemanticObjectIdentity>,
+ pub schema_revision:String,
+ pub parse_stage:ParseStage,
+ #[serde(skip)]
+ captured_features:Vec<CapturedFeature>,
+ pub tree_usage:DocumentUsage,
+ association_usage:AssociationUsage,
+}
+fn serialize_origins<S:serde::Serializer>(origins:&Arc<Origins>,s:S)->Result<S::Ok,S::Error>{origins.entries.serialize(s)}
+impl DocumentSnapshot {
+ pub fn origins(&self)->&[GrammarOrigin]{&self.origins.entries}
+ pub fn semantic_object(&self,node:NodeId)->Result<Option<usize>,String>{
+  let mut next=Some(node);let mut remaining=self.document.nodes().len();
+  while let Some(id)=next{if remaining==0{return Err("Cyclic document parent links".into())}remaining-=1;let n=self.document.nodes().get(id.0).ok_or("Unknown document node")?;if n.data.semantic_object.is_some(){return Ok(n.data.semantic_object)}next=n.parent;}Ok(None)
+ }
+}
+impl Capture {
+ fn new(source:&Source,revision:u64,origins:Arc<Origins>,limits:AnalysisLimits)->Result<Self,String>{
+  // Source admission precedes its only owned copy and the builder's digest.
+  if source.text.len()>limits.tree.source_bytes{return Err("Document source byte budget exceeded".into())}
+  let builder=DocumentBuilder::from_source(&source.uri,&source.text,revision,limits.tree)?;
+  Ok(Self{builder,origins,frames:Vec::new(),frame_undo:Vec::new(),emitted:0,issues:Vec::new(),features:Vec::new(),calls:Vec::new(),lexical_issues:Vec::new(),pending_error:None,recovering:false,recovered_match:false,last_error_index:None,limits,usage:AssociationUsage::default()})
+ }
+ pub(crate) fn mark(&mut self)->Result<Mark,String>{Ok(Mark{tree:self.builder.mark()?,emitted:self.emitted,issues:self.issues.len(),features:self.features.len(),frames:self.frames.len(),frame_undo:self.frame_undo.len(),pending_error:self.pending_error,recovering:self.recovering,recovered_match:self.recovered_match,last_error_index:self.last_error_index})}
+ pub(crate) fn check_mark(&self,mark:&Mark)->Result<(),String>{self.builder.check_mark(&mark.tree)}
+ pub(crate) fn commit(&mut self,mark:Mark)->Result<(),String>{self.builder.commit(mark.tree)}
+ pub(crate) fn rollback(&mut self,mark:Mark)->Result<(),String>{self.builder.rollback(mark.tree)?;self.emitted=mark.emitted;self.issues.truncate(mark.issues);self.features.truncate(mark.features);while self.frame_undo.len()>mark.frame_undo{let(index,frame)=self.frame_undo.pop().ok_or("Missing document frame undo")?;if index<mark.frames{*self.frames.get_mut(index).ok_or("Missing original document frame")?=frame;}}self.frames.truncate(mark.frames);self.pending_error=mark.pending_error;self.recovering=mark.recovering;self.recovered_match=mark.recovered_match;self.last_error_index=mark.last_error_index;Ok(())}
+ pub(crate) fn begin(&mut self,key:&str,at:usize)->Result<NodeId,String>{
+  self.usage.admit(self.limits,std::mem::size_of::<Frame>(),1)?;
+  let node=self.builder.begin(at,NodeData{origin:Some(self.origins.get(key)?),..NodeData::default()})?;
+  self.frames.push(Frame{node,anchor:node,fallback:at});Ok(node)
+ }
+ pub(crate) fn close(&mut self,node:NodeId)->Result<(),String>{
+  let frame=self.frames.last().ok_or("Missing document frame")?;if frame.anchor!=node{return Err("Document parser frame mismatch".into())}
+  self.builder.close_from_children(frame.node,frame.fallback)?;self.frames.pop();Ok(())
+ }
+ pub(crate) fn action(&mut self,key:&str)->Result<(),String>{
+  let index=self.frames.len().checked_sub(1).ok_or("Missing action document frame")?;let before=self.frames[index];
+  self.usage.admit(self.limits,std::mem::size_of::<(usize,Frame)>(),1)?;
+  let node=self.builder.wrap_open(before.node,NodeData{origin:Some(self.origins.get(key)?),..NodeData::default()})?;
+  self.frame_undo.push((index,before));self.frames[index].node=node;Ok(())
+ }
+ pub(crate) fn push_call(&mut self,path:&str)->Result<(),String>{
+  if self.calls.len()>=128{return Err("Document recovery call depth exceeded".into())}
+  self.usage.admit(self.limits,std::mem::size_of::<String>()+path.len(),1)?;self.calls.push(path.to_owned());Ok(())
+ }
+ pub(crate) fn associate(&mut self,object:usize)->Result<(),String>{
+  let frame=self.frames.last().ok_or("Missing semantic document frame")?;let mut data=self.builder.node_data(frame.node)?;data.semantic_object=Some(object);data.direct_semantic_association=true;self.builder.set_data(frame.node,data)
+ }
+ pub(crate) fn feature(&mut self,owner:&str,feature:&str,node:NodeId)->Result<(),String>{
+  self.usage.admit(self.limits,std::mem::size_of::<FeatureNode>()+owner.len()+feature.len(),1)?;self.features.push(CapturedFeature{owner:owner.into(),feature:feature.into(),node});Ok(())
+ }
+ pub(crate) fn lexical_issues(&mut self,issues:Vec<grammar::LexicalIssue>)->Result<(),String>{
+  self.usage.admit(self.limits,issues.len().checked_mul(std::mem::size_of::<grammar::LexicalIssue>()).ok_or("Document lexical size overflow")?,issues.len())?;self.lexical_issues=issues;Ok(())
+ }
+ pub(crate) fn lexical_leaf(&mut self,index:usize,range:TextRange)->Result<Option<NodeId>,String>{
+  let Some(issue)=self.lexical_issues.iter().find(|e|e.token==index)else{return Ok(None)};
+  let display=issue.unit.and_then(|u|char::from_u32(u.into())).map_or_else(||"<EOF>".into(),|c|c.to_string().replace('\n',"\\n").replace('\r',"\\r").replace('\t',"\\t"));
+  let message=if let Some(expected)=issue.expected{let expected=char::from_u32(expected.into()).ok_or("Unrepresentable expected lexer unit")?.to_string().replace('\n',"\\n").replace('\r',"\\r").replace('\t',"\\t");format!("mismatched character '{display}' expecting '{expected}'")}else{format!("no viable alternative at character '{display}'")};
+  self.usage.admit(self.limits,std::mem::size_of::<SyntaxIssue>()+message.len(),1)?;let error=self.issues.len();self.issues.push(SyntaxIssue{message,range,expected:None,recovery:Recovery::Lexical});
+  Ok(Some(self.builder.leaf(range,NodeData{origin:None,hidden:true,syntax_error:Some(error),..NodeData::default()})?))
+ }
+ pub(crate) fn matched(&mut self){if self.recovered_match{self.recovered_match=false}else{self.recovering=false;}}
+ pub(crate) fn report(&mut self,message:String,range:TextRange,expected:Option<String>,recovery:Recovery,force:bool)->Result<(),String>{
+  if self.pending_error.is_some()||(self.recovering&&!force){return Ok(())}
+  let was_recovering=self.recovering;
+  self.issue(message,range,expected,recovery)?;
+  // Generated rule catches invoke recover directly, not reportError. The
+  // pinned recover helper attaches currentError without entering report suppression.
+  self.recovering=if force{was_recovering}else{true};Ok(())
+ }
+ pub(crate) fn issue(&mut self,message:String,range:TextRange,expected:Option<String>,recovery:Recovery)->Result<usize,String>{
+  self.usage.admit(self.limits,std::mem::size_of::<SyntaxIssue>()+message.len()+expected.as_ref().map_or(0,String::len),1)?;let id=self.issues.len();self.issues.push(SyntaxIssue{message,range,expected,recovery});self.pending_error=Some(id);Ok(id)
+ }
+ pub(crate) fn leaf(&mut self,key:Option<&str>,range:TextRange,hidden:bool)->Result<NodeId,String>{
+  let error=if hidden{None}else{self.pending_error.take()};self.builder.leaf(range,NodeData{origin:key.map(|key|self.origins.get(key)).transpose()?,hidden,syntax_error:error,..NodeData::default()})
+ }
+ pub(crate) fn finish(mut self)->Result<DocumentSnapshot,String>{
+  if !self.frames.is_empty(){return Err("Unclosed parser document frame".into())}
+  if let Some(error)=self.pending_error.take(){self.builder.attach_final_error(error)?;}
+  let (document,tree_usage,remapping)=self.builder.finish_with_remapping()?;
+  if let Some(remapping)=remapping{for feature in &mut self.features{feature.node=remapping.node(feature.node)?;}}
+  Ok(DocumentSnapshot{document,origins:self.origins,syntax_issues:self.issues,lexical_issues:self.lexical_issues,feature_nodes:Vec::new(),semantic_objects:Vec::new(),schema_revision:String::new(),parse_stage:ParseStage::default(),captured_features:self.features,tree_usage,association_usage:self.usage})
+ }
+}
+/// Actual owned parser-stage observations, captured before reference linking,
+/// model validation and semantic execution. No Deserialize/ModelStore facade.
+#[derive(Debug,Serialize,Default)]
+pub struct ParseStage {pub objects:Vec<ParsedObject>,pub references:Vec<ParsedReference>,pub returned:Option<entry::EntryValue>}
+#[derive(Debug,Serialize)]
+pub struct ParsedObject {pub id:String,pub class:String,pub type_identity:String,pub resource:String,pub start:usize,pub end:usize,pub values:BTreeMap<String,Value>}
+#[derive(Debug,Serialize)]
+pub struct ParsedReference {pub owner:String,pub field:String,pub spelling:String,pub target:String,pub source:SourceId,pub start:usize,pub end:usize,pub index:Option<usize>,pub active:bool}
+impl DocumentSnapshot {
+ pub(crate) fn capture_parse_stage<S:ModelRead>(&mut self,store:&S,uri:&str,count:usize,pending:&[Pending],returned:Option<entry::EntryValue>,limits:AnalysisLimits)->Result<(),String>{
+  for index in 0..count{
+   self.association_usage.admit(limits,uri.len().checked_add(32).ok_or("Parse-stage identity storage overflow")?,0)?;let id=format!("{uri}#{index}");
+   let found=store.inspect(&id,&mut |view|{
+    let header=[view.id().len(),view.class().len(),view.type_identity().len(),view.resource().len(),std::mem::size_of::<ParsedObject>()].into_iter().try_fold(0usize,|n,v|n.checked_add(v).ok_or("Parse-stage object storage overflow"))?;
+    self.association_usage.admit(limits,header,1)?;let mut values=BTreeMap::new();
+    for(name,value)in view.fields(){
+     let mut budget=intersect_model::definitions::metadata_limits::TraversalBudget::new(limits.association_operations.saturating_sub(self.association_usage.operations),64,limits.association_bytes.saturating_sub(self.association_usage.bytes));
+     let payload=budget.inspect(&value)?;let visits=budget.visited_nodes();
+     let bytes=visits.checked_mul(intersect_model::definitions::retained_storage::RETAINED_NODE_BYTES).and_then(|v|v.checked_add(payload)).and_then(|v|v.checked_add(name.len())).ok_or("Parse-stage value storage overflow")?;
+     for _ in 0..visits{self.association_usage.admit(limits,0,0)?;}
+     self.association_usage.admit(limits,bytes,visits)?;values.insert(name.to_owned(),value.to_json());
+    }
+    self.parse_stage.objects.push(ParsedObject{id:view.id().into(),class:view.class().into(),type_identity:view.type_identity().into(),resource:view.resource().into(),start:view.start(),end:view.end(),values});Ok(())
+   })?;if !found{return Err("Parse-stage object disappeared before linking".into())}
+  }
+  for reference in pending{
+   if reference.uri!=self.document.source().uri||reference.start>reference.end||self.document.text().get(reference.start..reference.end).is_none(){return Err("Parse-stage reference is outside exact source".into())}
+   let bytes=[reference.owner.len(),reference.field.len(),reference.spelling.len(),reference.target.len(),self.document.source().uri.len(),self.document.source().sha256.len(),std::mem::size_of::<ParsedReference>()].into_iter().try_fold(0usize,|n,v|n.checked_add(v).ok_or("Parse-stage reference storage overflow"))?;
+   self.association_usage.admit(limits,bytes,1)?;self.parse_stage.references.push(ParsedReference{owner:reference.owner.clone(),field:reference.field.clone(),spelling:reference.spelling.clone(),target:reference.target.clone(),source:self.document.source().clone(),start:reference.start,end:reference.end,index:reference.index,active:reference.active});
+  }
+  if let Some(value)=&returned{let payload=match value{entry::EntryValue::Object(s)|entry::EntryValue::Datatype(s)=>s.len(),entry::EntryValue::Empty=>0};self.association_usage.admit(limits,payload+std::mem::size_of::<entry::EntryValue>(),1)?;}
+  self.parse_stage.returned=returned;Ok(())
+ }
+}
+fn declaration_payload(source:&SourceId,path:&[usize])->Result<usize,String>{source.uri.len().checked_add(source.sha256.len()).and_then(|v|v.checked_add(path.len().checked_mul(std::mem::size_of::<usize>())?)).ok_or_else(||"Document declaration storage overflow".into())}
+fn member_payload(member:&intersect_model::definitions::schema::MemberIdentity)->Result<usize,String>{
+ use intersect_model::definitions::schema::MemberIdentity;
+ match member {MemberIdentity::Source{declaration}=>declaration_payload(&declaration.source,&declaration.path),MemberIdentity::Programmatic{revision,namespace,owner,name}=>[revision.len(),namespace.len(),owner.len(),name.len()].into_iter().try_fold(0usize,|n,v|n.checked_add(v).ok_or_else(||"Document member storage overflow".into()))}
+}
+impl DocumentSnapshot {
+ fn bind_model(&mut self,model:&Model,schema:&intersect_model::definitions::schema::Schema,limits:AnalysisLimits)->Result<(),String>{
+  self.association_usage.admit(limits,schema.revision.len(),0)?;self.schema_revision=schema.revision.clone();
+  for element in &model.elements{
+   let classifier=schema.declarations.get(&element.class).ok_or("Document model class lacks a source declaration")?;
+   let payload=declaration_payload(&classifier.source,&classifier.path)?.checked_add(classifier.namespace.len()).and_then(|v|v.checked_add(classifier.name.len())).and_then(|v|v.checked_add(element.id.len())).and_then(|v|v.checked_add(element.class.len())).and_then(|v|v.checked_add(std::mem::size_of::<SemanticObjectIdentity>())).ok_or("Document object association storage overflow")?;
+   self.association_usage.admit(limits,payload,1)?;
+   self.semantic_objects.push(SemanticObjectIdentity{id:element.id.clone(),class:element.class.clone(),classifier:classifier.clone(),runtime_type:schema.instantiations.get(&element.class).cloned()});
+  }
+  for node in self.document.nodes(){if let Some(object)=node.data.semantic_object{if object>=self.semantic_objects.len(){return Err("Document semantic locator escapes actual analyzed objects".into())}}}
+  for feature in std::mem::take(&mut self.captured_features){
+   let mut selected=None;
+   for(index,element)in model.elements.iter().enumerate(){self.association_usage.admit(limits,0,0)?;if element.id==feature.owner{if selected.is_some(){return Err("Ambiguous document feature owner".into())}selected=Some((index,element));}}
+   let(owner_object,element)=selected.ok_or("Document feature owner is not in analyzed model")?;
+   let member=schema.effective_feature(&element.class,&feature.feature)?;
+   self.association_usage.admit(limits,std::mem::size_of::<FeatureNode>().checked_add(member_payload(&member.identity)?).ok_or("Document feature identity storage overflow")?,1)?;
+   self.feature_nodes.push(FeatureNode{owner:feature.owner,owner_object,feature:feature.feature,node:feature.node,identity:member.identity});
+  }
+  Ok(())
+ }
+}
+/// Source-rebuilt grammar and immutable original/source-generated origin catalog.
+/// Old profiles expose none of this new document/recovery contract.
+pub struct DocumentLanguage {entry:entry::EntryLanguage,origins:Arc<Origins>,limits:AnalysisLimits}
+impl DocumentLanguage {
+ pub fn prepare(package:&Package,host:intersect_model::definitions::schema::CompilationSourcePolicy,limits:AnalysisLimits)->Result<Self,Vec<Diagnostic>>{
+  let entry=entry::EntryLanguage::prepare(package,host)?;
+  let p=entry.package();if !p.grammar.as_ref().is_some_and(|g|g.profile.has_durable_documents()){return Err(vec![Diagnostic::new("document",0,0,"Durable document analysis requires explicit NativeV65")])}
+  let origins=Origins::prepare(p,limits).map_err(|e|vec![Diagnostic::new("document",0,0,e)])?;Ok(Self{entry,origins:Arc::new(origins),limits})
+ }
+ pub fn package(&self)->&Package{self.entry.package()}
+}
+
+/// Recovered objects deliberately expose no ModelStore, mutation, Deserialize or
+/// automatic publication operation. They remain owned analysis observations.
+#[derive(Debug,Serialize)]
+pub struct RecoveredObject { #[serde(flatten)] element:intersect_model::core::model::Element }
+impl RecoveredObject {pub fn id(&self)->&str{&self.element.id}pub fn class(&self)->&str{&self.element.class}pub fn values(&self)->&BTreeMap<String,Value>{&self.element.values}}
+#[derive(Debug,Serialize)]
+pub struct RecoveredGraph {pub schema_revision:String,pub objects:Vec<RecoveredObject>,pub resources:BTreeMap<String,intersect_model::core::resources::ResourceRecord>}
+#[derive(Debug,Serialize)]
+pub struct DocumentAnalysis {
+ pub snapshot:DocumentSnapshot,
+ pub diagnostics:Vec<Diagnostic>,
+ /// Some only after the actual full shared parse/link/validation succeeded.
+ pub valid_model:Option<Evaluation>,
+ pub recovered:Option<RecoveredGraph>,
+}
+pub(crate) struct Request<'a>{origins:Arc<Origins>,limits:AnalysisLimits,output:&'a mut Vec<DocumentSnapshot>}
+impl Request<'_>{
+ pub(crate) fn capture(&self,source:&Source)->Result<Capture,String>{Capture::new(source,0,Arc::clone(&self.origins),self.limits)}
+ pub(crate) fn push(&mut self,snapshot:DocumentSnapshot){self.output.push(snapshot)}
+}
+impl DocumentLanguage {
+ pub fn analyze(&self,source:&Source,selected_entry:Option<&str>,limits:EvaluationLimits)->Result<DocumentAnalysis,String>{
+  if let Some(entry)=selected_entry {if !self.entry.entries().contains_key(entry){return Err(format!("No emitted no-argument parser entry for {entry}"))}}
+  let package=self.package();let mut store=storage::MemoryStore::with_index_policy(evaluation_index_policy(package));let mut documents=Vec::new();
+  let result=storage::atomic(&mut store,|store|evaluate_staged(package,std::slice::from_ref(source),Invocation{limits,entry:selected_entry,values:None,documents:Some(Request{origins:Arc::clone(&self.origins),limits:self.limits,output:&mut documents})},store,None,None,&query::PackageDerived(package)))?;
+  let model=store.into_model()?;if documents.len()!=1{return Err("Document analysis did not produce exactly one source snapshot".into())}
+  let mut snapshot=documents.pop().ok_or("Missing document snapshot")?;
+  let resource=model.resources.get(&source.uri).ok_or("Missing analyzed resource record")?;
+  snapshot.document=snapshot.document.bind_resource(resource)?;
+  snapshot.bind_model(&model,&package.schema,self.limits)?;
+  let diagnostics=result.diagnostics;
+  if diagnostics.is_empty()&&snapshot.syntax_issues.is_empty(){
+   Ok(DocumentAnalysis{snapshot,diagnostics:Vec::new(),valid_model:Some(Evaluation{model,diagnostics,references:result.references,derived:result.derived}),recovered:None})
+  }else{
+   let recovered=RecoveredGraph{schema_revision:model.schema_revision,objects:model.elements.into_iter().map(|element|RecoveredObject{element}).collect(),resources:model.resources};
+   Ok(DocumentAnalysis{snapshot,diagnostics,valid_model:None,recovered:Some(recovered)})
+  }
+ }
+}

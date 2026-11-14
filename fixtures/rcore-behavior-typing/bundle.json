@@ -1,0 +1,71 @@
+{
+  "bundle": {
+    "version": 1,
+    "sources": [
+      {
+        "id": {
+          "uri": "file:///typing/model.ecore",
+          "sha256": "2a62dea083ae68140c3ef61fc62e1b05116afdfe2b64f363db0c8b9f2a4bd6a7"
+        },
+        "kind": "ecore",
+        "text": "<e:EPackage xmlns:e=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:x=\"http://www.w3.org/2001/XMLSchema-instance\" name=\"typing\" nsURI=\"urn:intersect:typing\" nsPrefix=\"types\">\n  <eClassifiers x:type=\"e:EClass\" name=\"Named\" abstract=\"true\">\n    <eStructuralFeatures x:type=\"e:EAttribute\" name=\"name\" lowerBound=\"1\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n  <eClassifiers x:type=\"e:EClass\" name=\"Item\" eSuperTypes=\"#//Named\">\n    <eStructuralFeatures x:type=\"e:EAttribute\" name=\"score\" lowerBound=\"1\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt\"/>\n    <eStructuralFeatures x:type=\"e:EAttribute\" name=\"label\" lowerBound=\"1\" derived=\"true\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n    <eStructuralFeatures x:type=\"e:EReference\" name=\"related\" eType=\"#//Named\"/>\n  </eClassifiers>\n  <eClassifiers x:type=\"e:EClass\" name=\"Tagged\" abstract=\"true\">\n    <eStructuralFeatures x:type=\"e:EAttribute\" name=\"tag\" lowerBound=\"1\" eType=\"e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString\"/>\n  </eClassifiers>\n  <eClassifiers x:type=\"e:EClass\" name=\"Special\" eSuperTypes=\"#//Item #//Tagged\"/>\n</e:EPackage>\n",
+        "dependencies": []
+      },
+      {
+        "id": {
+          "uri": "file:///typing/model.xtext",
+          "sha256": "a192b2dc7eb7c962acdba0884bb5b982223bd31f2d5603aeb7d13934c6fba06d"
+        },
+        "kind": "xtext",
+        "text": "grammar example.Typing with org.eclipse.xtext.common.Terminals\nimport \"urn:intersect:typing\" as types\nItem returns types::Item: 'item' name=ID score=INT;\n",
+        "dependencies": [
+          {
+            "uri": "file:///typing/model.ecore",
+            "sha256": "2a62dea083ae68140c3ef61fc62e1b05116afdfe2b64f363db0c8b9f2a4bd6a7"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///typing/main-behavior.rcore",
+          "sha256": "787717940206a56fdb67291c31bc63825ed693a5118d98057f8c2cdcdbfc987e"
+        },
+        "kind": "rcore_behavior",
+        "text": "rcore 1;\npackage example.typing version \"1\";\nimport model \"urn:intersect:typing\" as types;\nimport package example.typing.helpers version \"1\" as helpers;\n\npub fn score(item: types.Item) -> Int32 =\n    match helpers.checkedScore(item.score) { Ok(value) => value, Err(_) => 0 };\npub fn label(item: types.Item?) -> String = item?.name ?? \"missing\";\npub fn related(item: types.Item?) -> types.Named? = item?.related;\npub fn asTagged(item: types.Special) -> types.Tagged = item;\npub fn choose(flag: Bool, item: types.Item, special: types.Special) -> types.Named? = {\n    let selected = if flag { Some(item) } else { Some(special) };\n    selected\n};\npub fn captured(value: Int32) -> Int32 = {\n    let increment: (Int32) -> Int32 = |step: Int32| value + step;\n    increment(1)\n};\npub fn exactLarge() -> UInt64 = 18446744073709551615;\npub fn minimum() -> Int8 = -(128);\npub fn nested(value: Result<Bool?, String>) -> Bool = match value {\n    Ok(Some(true)) => true,\n    Ok(Some(false)) => false,\n    Ok(none) => false,\n    Err(_) => false\n};\nderive types.Item.label(self) -> String = helpers.label(self.name);\nvalidate types.Item.validScore(self) {\n    require self.score >= 0 code \"score.nonnegative\" message \"Score must be nonnegative\";\n}\n",
+        "dependencies": [
+          {
+            "uri": "file:///typing/model.ecore",
+            "sha256": "2a62dea083ae68140c3ef61fc62e1b05116afdfe2b64f363db0c8b9f2a4bd6a7"
+          },
+          {
+            "uri": "file:///typing/helpers-behavior.rcore",
+            "sha256": "464e680def6603110d18735fe736cf5c0beb5e29bfa8771eb764075547320124"
+          }
+        ]
+      },
+      {
+        "id": {
+          "uri": "file:///typing/helpers-behavior.rcore",
+          "sha256": "464e680def6603110d18735fe736cf5c0beb5e29bfa8771eb764075547320124"
+        },
+        "kind": "rcore_behavior",
+        "text": "rcore 1;\npackage example.typing.helpers version \"1\";\npub fn checkedScore(value: Int32) -> Result<Int32, String> =\n    if value >= 0 { Ok(value) } else { Err(\"negative score\") };\npub fn label(value: String) -> String = value;\n",
+        "dependencies": []
+      }
+    ],
+    "namespaces": []
+  },
+  "ecore": {
+    "uri": "file:///typing/model.ecore",
+    "sha256": "2a62dea083ae68140c3ef61fc62e1b05116afdfe2b64f363db0c8b9f2a4bd6a7"
+  },
+  "namespace": "urn:intersect:typing",
+  "xtext": {
+    "uri": "file:///typing/model.xtext",
+    "sha256": "a192b2dc7eb7c962acdba0884bb5b982223bd31f2d5603aeb7d13934c6fba06d"
+  },
+  "rcore_behavior": {
+    "uri": "file:///typing/main-behavior.rcore",
+    "sha256": "787717940206a56fdb67291c31bc63825ed693a5118d98057f8c2cdcdbfc987e"
+  }
+}

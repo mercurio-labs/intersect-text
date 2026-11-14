@@ -1,0 +1,142 @@
+[
+  {
+    "name": "chain",
+    "nodes": [
+      "A",
+      "B",
+      "C"
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "C"
+      ]
+    ],
+    "seeds": [
+      "A"
+    ],
+    "expected": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  {
+    "name": "duplicate-diamond",
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "D"
+      ],
+      [
+        "C",
+        "D"
+      ]
+    ],
+    "seeds": [
+      "A",
+      "A"
+    ],
+    "expected": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  {
+    "name": "cycle",
+    "nodes": [
+      "A",
+      "B",
+      "C"
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "A"
+      ],
+      [
+        "B",
+        "C"
+      ]
+    ],
+    "seeds": [
+      "A"
+    ],
+    "expected": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  {
+    "name": "isolated",
+    "nodes": [
+      "A"
+    ],
+    "edges": [],
+    "seeds": [
+      "A"
+    ],
+    "expected": [
+      "A"
+    ]
+  },
+  {
+    "name": "empty-input",
+    "nodes": [
+      "A"
+    ],
+    "edges": [],
+    "seeds": [],
+    "expected": []
+  },
+  {
+    "name": "edited-chain",
+    "nodes": [
+      "A",
+      "B",
+      "C"
+    ],
+    "edges": [
+      [
+        "A",
+        "C"
+      ]
+    ],
+    "seeds": [
+      "A"
+    ],
+    "expected": [
+      "A",
+      "C"
+    ]
+  }
+]

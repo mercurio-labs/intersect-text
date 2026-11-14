@@ -1,0 +1,34 @@
+rcore 1;
+package `kermlEnums` version "1";
+metamodel "urn:intersect:xtext:mini-kerml:enums:1" prefix `k` {
+  class `Model` {
+    attr `name`: EString [0,1];
+    attr `documentation`: EString [0,1];
+    ref `members`: external "#//@eClassifiers.1" [0,*] containment;
+  }
+  abstract class `Element` {
+    attr `name`: EString [0,1] unsettable;
+  }
+  class `Type` extends external "#//@eClassifiers.1" {
+    attr `visibility`: external "#//@eClassifiers.4" [0,1];
+    attr `operator`: EString [0,1];
+    attr `count`: EInt [0,1];
+    attr `magnitude`: EString [0,1];
+    attr `description`: EString [0,1];
+    attr `isAbstract`: EBoolean [0,1] unsettable;
+  }
+  class `Feature` extends external "#//@eClassifiers.1" {
+    attr `direction`: external "#//@eClassifiers.5" [0,1];
+    ref `target`: external "#//@eClassifiers.2" [0,1] unsettable;
+  }
+  enum `VisibilityKind` {
+    `private` = 0;
+    `protected` = 1;
+    `public` = 2;
+  }
+  enum `FeatureDirectionKind` {
+    `in` = 0;
+    `inout` = 1;
+    `out` = 2;
+  }
+}

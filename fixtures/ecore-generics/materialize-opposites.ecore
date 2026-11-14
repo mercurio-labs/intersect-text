@@ -1,0 +1,6 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="g" nsURI="urn:g">
+<eClassifiers x:type="e:EClass" name="Value"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="new"/></eClassifiers>
+<eClassifiers x:type="e:EClass" name="Other"/>
+<eClassifiers x:type="e:EClass" name="Box"><eTypeParameters name="T"/><eStructuralFeatures x:type="e:EReference" name="value"><eGenericType eTypeParameter="#//Box/T"/></eStructuralFeatures><eStructuralFeatures x:type="e:EReference" name="children" upperBound="-1" containment="true" eOpposite="#//Box/parent"><eGenericType eClassifier="#//Box"><eTypeArguments eTypeParameter="#//Box/T"/></eGenericType></eStructuralFeatures><eStructuralFeatures x:type="e:EReference" name="parent"><eGenericType eClassifier="#//Box"><eTypeArguments eTypeParameter="#//Box/T"/></eGenericType><eOpposite href="#//Box/children" x:type="e:EReference"/></eStructuralFeatures><eOperations name="accept"><eParameters name="input"><eGenericType eTypeParameter="#//Box/T"/></eParameters></eOperations></eClassifiers>
+<eClassifiers x:type="e:EClass" name="ValueBox"><eGenericSuperTypes eClassifier="#//Box"><eTypeArguments eClassifier="#//Value"/></eGenericSuperTypes></eClassifiers>
+</e:EPackage>

@@ -1,0 +1,600 @@
+{
+  "version": 1,
+  "state": "original_contextual_first_rule_record_and_independent_replay_equal",
+  "graphs": 5,
+  "planned_inputs_per_run": 25,
+  "comparison_exception": "Only row.provider.genmodel after validating exact absolute owned provider-<EcoreSHA12>/provider.genmodel in its run root. No other output normalization.",
+  "preexecution": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\preexecution.json",
+    "bytes": 4376,
+    "sha256": "8e3f4663ee09c5edc82005f9679014eb5a8c1ccb9d59bbfebfbdf6eb2e5191d8"
+  },
+  "cases": [
+    {
+      "id": "wildcard_original_control",
+      "syntax": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "errors": []
+        }
+      ],
+      "validation": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "first_rule_metadata": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "inference.fragments.WildcardBasic",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:inference:fragments:wildcard_basic",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "Fields",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": false,
+                  "classifier": null
+                },
+                {
+                  "name": "ID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "WS",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "provider": {
+        "generation_exit": 0,
+        "compile_exit": 0
+      },
+      "generation": {
+        "exit_code": 0,
+        "source_unchanged": true
+      },
+      "compilation": {
+        "exit_code": 0
+      },
+      "planned_inputs": 5,
+      "actual_runtime_inputs_per_run": 5,
+      "unexecuted_inputs": [],
+      "accepted_per_run": 1
+    },
+    {
+      "id": "wildcard_first_null",
+      "syntax": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "errors": []
+        }
+      ],
+      "validation": [
+        {
+          "source": "inference.fragments.WildcardBasic",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": "org.eclipse.xtext.grammar.InvalidFragmentFirstRule",
+              "start": 169,
+              "length": 8,
+              "message": "The first rule must not be a fragment"
+            }
+          ],
+          "failure": null
+        }
+      ],
+      "first_rule_metadata": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "inference.fragments.WildcardBasic",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Fields",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": false,
+                  "classifier": null
+                },
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:inference:fragments:wildcard_basic",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "ID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "WS",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "provider": {
+        "generation_exit": 0,
+        "compile_exit": 0
+      },
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "compilation": null,
+      "planned_inputs": 5,
+      "actual_runtime_inputs_per_run": 0,
+      "unexecuted_inputs": [
+        "m alpha",
+        "malpha",
+        "m ",
+        "",
+        "m alpha beta"
+      ],
+      "accepted_per_run": 0
+    },
+    {
+      "id": "scalar_fragment_library",
+      "syntax": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "errors": []
+        }
+      ],
+      "validation": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "first_rule_metadata": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofScalarFragmentLibrary",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Text",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": true,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "provider": {
+        "generation_exit": 0,
+        "compile_exit": 0
+      },
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "compilation": null,
+      "planned_inputs": 5,
+      "actual_runtime_inputs_per_run": 0,
+      "unexecuted_inputs": [
+        "a",
+        "b",
+        "",
+        "aa",
+        "a\ud83c\udf0d"
+      ],
+      "accepted_per_run": 0
+    },
+    {
+      "id": "scalar_fragment_model_child",
+      "syntax": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "errors": []
+        },
+        {
+          "source": "audit.ProofScalarFragmentChild",
+          "errors": []
+        }
+      ],
+      "validation": [
+        {
+          "source": "audit.ProofScalarFragmentLibrary",
+          "issues": [],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofScalarFragmentChild",
+          "issues": [],
+          "failure": null
+        }
+      ],
+      "first_rule_metadata": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofScalarFragmentLibrary",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Text",
+                  "kind": "ParserRule",
+                  "fragment": true,
+                  "datatype": true,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofScalarFragmentChild",
+              "used": [
+                {
+                  "name": "audit.ProofScalarFragmentLibrary",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofScalarFragmentLibrary.xtext#XtextFragmentProvider_audit.ProofScalarFragmentLibrary"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                    "resource_fragment": "//Model"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "provider": {
+        "generation_exit": 0,
+        "compile_exit": 0
+      },
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "compilation": null,
+      "planned_inputs": 5,
+      "actual_runtime_inputs_per_run": 0,
+      "unexecuted_inputs": [
+        "a",
+        "b",
+        "",
+        "aa",
+        "a\ud83c\udf0d"
+      ],
+      "accepted_per_run": 0
+    },
+    {
+      "id": "syntax_clean_object_three_level",
+      "syntax": [
+        {
+          "source": "audit.ProofObjectBase",
+          "errors": []
+        },
+        {
+          "source": "audit.ProofObjectMiddle",
+          "errors": []
+        },
+        {
+          "source": "audit.ProofObjectChild",
+          "errors": []
+        }
+      ],
+      "validation": [
+        {
+          "source": "audit.ProofObjectBase",
+          "issues": [],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofObjectMiddle",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": null,
+              "start": 69,
+              "length": 3,
+              "message": "The first rule must be a parser rule."
+            }
+          ],
+          "failure": null
+        },
+        {
+          "source": "audit.ProofObjectChild",
+          "issues": [
+            {
+              "severity": "ERROR",
+              "code": null,
+              "start": 70,
+              "length": 5,
+              "message": "The first rule must be a parser rule."
+            }
+          ],
+          "failure": null
+        }
+      ],
+      "first_rule_metadata": {
+        "exit_code": 0,
+        "observation": {
+          "grammars": [
+            {
+              "source": "audit.ProofObjectBase",
+              "used": [],
+              "rules": [
+                {
+                  "name": "Model",
+                  "kind": "ParserRule",
+                  "fragment": false,
+                  "datatype": false,
+                  "classifier": {
+                    "name": "Model",
+                    "kind": "EClass",
+                    "proxy": false,
+                    "namespace": "urn:intersect:xtext:mini-kerml:terminal-spellings:1",
+                    "resource_fragment": "//Model"
+                  }
+                },
+                {
+                  "name": "VALUE",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofObjectMiddle",
+              "used": [
+                {
+                  "name": "audit.ProofObjectBase",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofObjectBase.xtext#XtextFragmentProvider_audit.ProofObjectBase"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "MID",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            },
+            {
+              "source": "audit.ProofObjectChild",
+              "used": [
+                {
+                  "name": "audit.ProofObjectMiddle",
+                  "proxy": false,
+                  "uri": "memory:/audit/ProofObjectMiddle.xtext#XtextFragmentProvider_audit.ProofObjectMiddle"
+                }
+              ],
+              "rules": [
+                {
+                  "name": "FIRST",
+                  "kind": "TerminalRule",
+                  "fragment": false,
+                  "datatype": null,
+                  "classifier": {
+                    "name": "EString",
+                    "kind": "EDataType",
+                    "proxy": false,
+                    "namespace": "http://www.eclipse.org/emf/2002/Ecore",
+                    "resource_fragment": "//EString"
+                  }
+                }
+              ]
+            }
+          ],
+          "linking_failure": null
+        }
+      },
+      "provider": {
+        "generation_exit": 0,
+        "compile_exit": 0
+      },
+      "generation": {
+        "exit_code": 1,
+        "source_unchanged": true
+      },
+      "compilation": null,
+      "planned_inputs": 5,
+      "actual_runtime_inputs_per_run": 0,
+      "unexecuted_inputs": [
+        "a",
+        "b",
+        "z",
+        "",
+        "ab"
+      ],
+      "accepted_per_run": 0
+    }
+  ],
+  "runs": {
+    "record": {
+      "observations": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\observations.json",
+        "bytes": 35892,
+        "sha256": "c10c7de2f6789cf56bc9c900f7daa3e92e01dc0f73dbd094392cdcbb18b09558"
+      },
+      "artifact_manifest": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\artifacts-sha256.json",
+        "bytes": 34991,
+        "sha256": "e7913e7a796542d15de9655fddefe1a568f39f5a50527aeecb3e8ec92e2f78f1"
+      },
+      "artifact_pins": 248,
+      "commands": 25,
+      "runtime_processes": 5,
+      "toolchain": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\record\\toolchain.json",
+        "bytes": 12372,
+        "sha256": "faed4784b4aee427098e9ca04235aef4be4004a2fb6df9652736da0038ff3834"
+      }
+    },
+    "replay": {
+      "observations": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\replay\\observations.json",
+        "bytes": 35892,
+        "sha256": "439d3c2f689ebba06661ee91520735495352988a676a1353c1ac3177ceeae4d4"
+      },
+      "artifact_manifest": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\replay\\artifacts-sha256.json",
+        "bytes": 34991,
+        "sha256": "3aa71ba61a6a903658efae9f5c4ec1c47c8a67c54cb679405c4a8087d1931657"
+      },
+      "artifact_pins": 248,
+      "commands": 25,
+      "runtime_processes": 5,
+      "toolchain": {
+        "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\contextual-first-rule-proof-gaps-oracle-v1\\replay\\toolchain.json",
+        "bytes": 12372,
+        "sha256": "faed4784b4aee427098e9ca04235aef4be4004a2fb6df9652736da0038ff3834"
+      }
+    }
+  },
+  "native_support_award": false,
+  "gate_closures": [],
+  "producer": {
+    "path": "D:\\dev\\repos\\mercurio-labs\\intersect\\target\\rcore-xtext-support-evidence\\contextual-first-rule-proof-gaps-v1\\verify-original.py",
+    "bytes": 4148,
+    "sha256": "4fae2266bbb288d355ba6b75d1880b8e15c871fd072359e41ada5989b0474ebc"
+  }
+}

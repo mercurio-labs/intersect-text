@@ -1,0 +1,10 @@
+<e:EPackage xmlns:e="http://www.eclipse.org/emf/2002/Ecore" xmlns:x="http://www.w3.org/2001/XMLSchema-instance" name="constructors" nsURI="urn:constructors">
+<eClassifiers x:type="e:EDataType" name="Text" instanceClassName="java.lang.String"/>
+<eClassifiers x:type="e:EDataType" name="List" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Alias" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Bounded" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"><eTypeParameters name="T"><eBounds eClassifier="#//List"><eTypeArguments eClassifier="#//Text"/></eBounds></eTypeParameters></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Wrapper" instanceClassName="org.eclipse.emf.common.util.EList" serializable="false"/>
+<eClassifiers x:type="e:EClass" name="Holder"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/><eStructuralFeatures x:type="e:EAttribute" name="values"><eGenericType eClassifier="#//Bounded"><eTypeArguments eClassifier="#//Alias"><eTypeArguments eClassifier="#//Text"/></eTypeArguments></eGenericType></eStructuralFeatures><eStructuralFeatures x:type="e:EAttribute" name="many" upperBound="-1" ordered="false" unique="false"><eGenericType eClassifier="#//Bounded"><eTypeArguments eClassifier="#//Alias"><eTypeArguments eClassifier="#//Text"/></eTypeArguments></eGenericType></eStructuralFeatures></eClassifiers>
+<eClassifiers x:type="e:EClass" name="OnlyWrapped"><eStructuralFeatures x:type="e:EAttribute" name="name" eType="e:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/><eStructuralFeatures x:type="e:EAttribute" name="wrapped" eType="#//Wrapper"/></eClassifiers>
+<eClassifiers x:type="e:EDataType" name="Number" instanceClassName="java.lang.Integer"/>
+</e:EPackage>

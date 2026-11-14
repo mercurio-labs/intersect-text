@@ -1,0 +1,7 @@
+grammar intersect.iteration.oracle.IterationCallerTail hidden(WS)
+import "urn:intersect:oracle:WholeIterationGate" as gate
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+Root returns gate::Root: {gate::Root} Payload 'x';
+fragment Payload returns gate::Root: (=> children+=Target)*;
+Target returns gate::Target: {gate::Target} tag='x';
+terminal WS: (' ' | '\t' | '\r' | '\n')+;

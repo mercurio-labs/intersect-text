@@ -1,0 +1,12 @@
+rcore 1;
+package `errors` version "1";
+metamodel "urn:intersect:errors" prefix `errors` {
+  datatype `InvocationError` instanceClass "java.lang.reflect.InvocationTargetException" nonserializable {  }
+  class `Attempt` {
+    attr `name`: EString [0,1];
+    attr `failure`: external "http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException" [0,1];
+    attr `history`: external "http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException" [0,*];
+    attr `localFailure`: external "#//@eClassifiers.1" [0,1];
+    op `identity`(`failure`: external "http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException" [0,1]) -> external "http://www.eclipse.org/emf/2002/Ecore#//EInvocationTargetException" [0,1];
+  }
+}
