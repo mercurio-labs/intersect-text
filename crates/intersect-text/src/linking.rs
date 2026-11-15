@@ -7,6 +7,9 @@ use intersect_model::core::{
 };
 use serde_json::Value;
 
+#[path = "linking_conformance.rs"]
+mod conformance;
+
 /// Exact pending text reference; source coordinates retain the parser's meaning.
 #[derive(Clone, Copy, Debug)]
 pub struct ReferenceRequest<'a> {
@@ -135,9 +138,10 @@ pub(crate) fn link_pending<S: crate::storage::ModelStore, P: PendingPolicy<S>>(
     store: &mut S,
     policy: &mut P,
     output: &mut crate::StoredEvaluation,
+    reuse_metadata: bool,
 ) -> Result<(), String> {
     let mut access = OrdinaryPendingAccess { store, policy };
-    link_pending_with_access(schema, pending, &mut access, output)
+    link_pending_with_access(schema, pending, &mut access, output, reuse_metadata)
 }
 
 // The scheduling/decision body below is shared, including duplicates, diagnostics
@@ -191,7 +195,9 @@ pub(crate) fn link_pending_with_access<A: PendingAccess>(
     pending: Vec<crate::Pending>,
     access: &mut A,
     output: &mut crate::StoredEvaluation,
+    reuse_metadata: bool,
 ) -> Result<(), String> {
+    let mut metadata = reuse_metadata.then(|| conformance::ConformanceCache::new(schema));
     for reference in pending.into_iter().filter(|reference| reference.active) {
         let mut targets = Vec::new();
         let mut unresolved = None;
@@ -214,8 +220,16 @@ pub(crate) fn link_pending_with_access<A: PendingAccess>(
         for id in candidates {
             access.before_candidate()?;
             let class = access.class(&id)?.ok_or("Missing indexed name target")?;
-            if schema.conforms(&class, &reference.target) {
-                match schema.reference_conforms(&owner_class, &reference.field, &class) {
+            let matches_target = match &mut metadata {
+                Some(cache) => cache.class_matches(&class, &reference.target),
+                None => schema.conforms(&class, &reference.target),
+            };
+            if matches_target {
+                let conforms = match &mut metadata {
+                    Some(cache) => cache.reference_matches(&owner_class, &reference.field, &class),
+                    None => schema.reference_conforms(&owner_class, &reference.field, &class),
+                };
+                match conforms {
                     Ok(true) => targets.push(id),
                     Ok(false) => {}
                     Err(message) => unresolved = Some(message),
@@ -252,7 +266,7 @@ pub(crate) fn link_pending_with_access<A: PendingAccess>(
         let target = &targets[0];
         access.resolve(&reference, &owner_class, target)?;
         output.references.push(crate::Reference {
-            uri: reference.uri,
+            uri: reference.uri.to_string(),
             start: reference.start,
             end: reference.end,
             target: target.clone(),

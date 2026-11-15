@@ -8,6 +8,10 @@ use super::EvaluationLimits;
 use intersect_model::core::query::QueryBudget;
 
 pub(super) trait ResourceAccounting {
+    // Explicit shared ledgers retain their existing canonical linking path.
+    fn reuse_link_metadata(&self) -> bool {
+        false
+    }
     fn begin(&mut self, limits: EvaluationLimits) -> EvaluationLimits;
     fn finish(
         &mut self,
@@ -19,6 +23,9 @@ pub(super) trait ResourceAccounting {
 pub(super) struct NoResourceAccounting;
 
 impl ResourceAccounting for NoResourceAccounting {
+    fn reuse_link_metadata(&self) -> bool {
+        true
+    }
     fn begin(&mut self, limits: EvaluationLimits) -> EvaluationLimits {
         limits
     }
@@ -96,6 +103,15 @@ impl ResourceAccounting for SharedResourceAccounting<'_> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn shared_resource_accounting_keeps_link_metadata_uncached() {
+        assert!(NoResourceAccounting.reuse_link_metadata());
+        let mut budget = QueryBudget::new(7);
+        assert!(!SharedResourceAccounting::new(&mut budget).reuse_link_metadata());
+        assert_eq!(budget.reads, 0);
+        assert_eq!(budget.remaining(), 7);
+    }
 
     /// The previous unit-at-a-time transfer, as the oracle.
     fn reference(

@@ -193,11 +193,13 @@ impl Default for EvaluationLimits {
 }
 #[derive(Clone)]
 struct Pending {
-    owner: String,
-    field: String,
+    // A resource's references repeat their owner, feature, target class and
+    // URI; each spelling is shared rather than copied per reference.
+    owner: std::rc::Rc<str>,
+    field: std::rc::Rc<str>,
     spelling: String,
-    target: String,
-    uri: String,
+    target: std::rc::Rc<str>,
+    uri: std::rc::Rc<str>,
     start: usize,
     end: usize,
     index: Option<usize>,
@@ -269,7 +271,9 @@ struct OnceDocumentPhase<'a> {
 }
 struct Checkpoint {
     document: Option<document::Mark>,
-    storage: storage::Checkpoint,
+    /// None when an enclosing checkpoint restores the store: see
+    /// `Machine::propagating_checkpoint`.
+    storage: Option<storage::Checkpoint>,
     text: Option<TextCheckpoint>,
     cursor: TokenCursor,
     datatype_span: Option<(usize, usize)>,
@@ -364,6 +368,110 @@ impl ParseTables {
 struct NestedDecisions {
     selections: std::collections::HashMap<grammar::NestedDecisionKey, Option<usize>>,
     viability: std::collections::HashMap<grammar::ViabilityKey, bool>,
+    /// Boxed so the machine keeps its size.
+    reuse: Box<Reuse>,
+}
+/// An element index and its identity spelling.
+type RecentIdentity = Option<(usize, std::rc::Rc<str>)>;
+/// Work one machine can reuse because its resource, grammar and tokens are
+/// fixed: nothing here changes what the machine computes.
+#[derive(Default)]
+struct Reuse {
+    memo: PredictionMemo,
+    pending_names: PendingNames,
+    /// Recently spelled element identities, by element index.
+    identities: std::cell::RefCell<[RecentIdentity; 8]>,
+}
+/// Shared spellings of one machine's pending references.
+#[derive(Default)]
+struct PendingNames {
+    names: BTreeSet<std::rc::Rc<str>>,
+}
+impl PendingNames {
+    fn name(&mut self, name: &str) -> std::rc::Rc<str> {
+        if let Some(known) = self.names.get(name) {
+            return known.clone();
+        }
+        let shared: std::rc::Rc<str> = name.into();
+        self.names.insert(shared.clone());
+        shared
+    }
+}
+/// Outcomes of predictions that read only their token classifications: no
+/// nested-decision state, budget, document or audit. Such a prediction is a
+/// function of its decision and the classifications it read, so the same
+/// classifications at another position select the same alternative.
+#[derive(Default)]
+struct PredictionMemo {
+    decisions: std::collections::HashMap<usize, Vec<MemoizedPrediction>>,
+}
+struct MemoizedPrediction {
+    suffix: Box<str>,
+    /// Classification of every token the prediction read, in order.
+    symbols: Box<[u32]>,
+    selected: Option<usize>,
+    /// Reported lookahead extent, relative to the first token.
+    furthest: usize,
+}
+impl PredictionMemo {
+    const END: u32 = u32::MAX;
+    const MAX_SYMBOLS: usize = 8;
+    const MAX_OUTCOMES: usize = 32;
+    fn symbol<T>(tokens: &[Token<T>], position: usize) -> Option<u32> {
+        match tokens.get(position) {
+            Some(token) => token
+                .lexical_alternative
+                .and_then(|alternative| u32::try_from(alternative).ok())
+                .filter(|symbol| *symbol != Self::END),
+            None => (position == tokens.len()).then_some(Self::END),
+        }
+    }
+    fn get<T>(
+        &self,
+        expr: usize,
+        suffix: &str,
+        tokens: &[Token<T>],
+        start: usize,
+    ) -> Option<(Option<usize>, usize)> {
+        self.decisions.get(&expr)?.iter().find_map(|outcome| {
+            (&*outcome.suffix == suffix
+                && outcome
+                    .symbols
+                    .iter()
+                    .enumerate()
+                    .all(|(offset, symbol)| Self::symbol(tokens, start + offset) == Some(*symbol)))
+            .then_some((outcome.selected, start + outcome.furthest))
+        })
+    }
+    fn insert<T>(
+        &mut self,
+        expr: usize,
+        suffix: &str,
+        tokens: &[Token<T>],
+        read: std::ops::Range<usize>,
+        selected: Option<usize>,
+        furthest: usize,
+    ) {
+        if read.len() > Self::MAX_SYMBOLS || furthest < read.start {
+            return;
+        }
+        let Some(symbols) = read
+            .clone()
+            .map(|position| Self::symbol(tokens, position))
+            .collect::<Option<Box<[u32]>>>()
+        else {
+            return;
+        };
+        let outcomes = self.decisions.entry(expr).or_default();
+        if outcomes.len() < Self::MAX_OUTCOMES {
+            outcomes.push(MemoizedPrediction {
+                suffix: suffix.into(),
+                symbols,
+                selected,
+                furthest: furthest - read.start,
+            });
+        }
+    }
 }
 struct Machine<'a, 'store, S: ModelStore, C: draft::ParseContext<S> = Package> {
     document: Option<Box<document::Capture>>,
@@ -432,6 +540,10 @@ struct PredictionTokens<'a, T> {
     /// and the interrupted chain awaiting resolution, deepest first.
     deferral: usize,
     deferred: Vec<grammar::DeferredNestedDecision>,
+    /// One past the last token position any read reached; never restored.
+    read: usize,
+    /// Whether nested-decision state was recorded.
+    stateful: bool,
 }
 impl<T> PredictionTokens<'_, T> {
     fn read_next(
@@ -440,6 +552,7 @@ impl<T> PredictionTokens<'_, T> {
     ) -> Result<Option<grammar::PredictionSymbol>, String> {
         let result = self.read_body(work);
         self.furthest = self.furthest.max(self.cursor.position);
+        self.read = self.read.max(self.cursor.position);
         result
     }
     fn read_body(
@@ -485,6 +598,7 @@ impl<T> grammar::PredictionInput for PredictionTokens<'_, T> {
         self.nested.viability.get(key).copied()
     }
     fn record_viability(&mut self, keys: Vec<grammar::ViabilityKey>, accepted: bool) {
+        self.stateful = true;
         for key in keys {
             self.nested.viability.insert(key, accepted);
         }
@@ -523,6 +637,7 @@ impl<T> grammar::PredictionInput for PredictionTokens<'_, T> {
         key: grammar::NestedDecisionKey,
         selected: Option<usize>,
     ) {
+        self.stateful = true;
         self.nested.selections.insert(key, selected);
     }
     fn checkpoint(&self) -> Result<usize, String> {
@@ -824,8 +939,60 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
             .map(|current| current.index)
             .ok_or_else(|| ParseError::Storage("Assignment requires a current object".into()))
     }
-    fn identity(&self, index: usize) -> String {
-        format!("{}#{index}", self.uri)
+    /// `{uri}#{index}`. The spelling depends only on this machine's resource
+    /// and the index, so recent ones are shared rather than rebuilt.
+    fn identity(&self, index: usize) -> std::rc::Rc<str> {
+        if let Ok(mut recent) = self.nested_decisions.reuse.identities.try_borrow_mut() {
+            let slot = &mut recent[index % 8];
+            if let Some((known, identity)) = slot
+                && *known == index
+            {
+                return identity.clone();
+            }
+            let identity: std::rc::Rc<str> = self.spell_identity(index).into();
+            *slot = Some((index, identity.clone()));
+            return identity;
+        }
+        self.spell_identity(index).into()
+    }
+    fn spell_identity(&self, index: usize) -> String {
+        let mut digits = [0u8; 20];
+        let mut at = digits.len();
+        let mut rest = index;
+        loop {
+            at -= 1;
+            digits[at] = b'0' + (rest % 10) as u8;
+            rest /= 10;
+            if rest == 0 {
+                break;
+            }
+        }
+        let mut id = String::with_capacity(self.uri.len() + 1 + digits.len() - at);
+        id.push_str(self.uri);
+        id.push('#');
+        id.extend(digits[at..].iter().map(|digit| char::from(*digit)));
+        id
+    }
+    /// Parser state only, for an attempt whose failure always propagates to
+    /// an enclosing checkpoint. Outside document recovery, a failed
+    /// exactly-once or predicted expression returns its error (see
+    /// `finish_expr_attempt`) to the nearest unpredicted optional, repeated
+    /// or alternative attempt, or to the resource transaction, which rolls
+    /// the store back to an earlier state; nothing between reads or writes
+    /// the store. A nested store frame would therefore be
+    /// merged into, or discarded with, that outer frame unobserved.
+    fn propagating_checkpoint(&self) -> Checkpoint {
+        Checkpoint {
+            document: None,
+            storage: None,
+            text: self.datatype_text.as_ref().map(DatatypeText::checkpoint),
+            cursor: self.cursor,
+            datatype_span: self.datatype_span,
+            elements: self.elements,
+            undo: self.undo.len(),
+            pending: self.pending.len(),
+            depth: self.depth,
+        }
     }
     fn checkpoint(&mut self) -> Result<Checkpoint, ParseError> {
         let document = self
@@ -845,7 +1012,7 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
         };
         Ok(Checkpoint {
             document,
-            storage,
+            storage: Some(storage),
             text: self.datatype_text.as_ref().map(DatatypeText::checkpoint),
             cursor: self.cursor,
             datatype_span: self.datatype_span,
@@ -860,10 +1027,11 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
         {
             document.check_mark(mark).map_err(ParseError::Storage)?;
         }
-        if let Err(error) = self.store.commit(&checkpoint.storage) {
-            self.store
-                .rollback(&checkpoint.storage)
-                .map_err(ParseError::Storage)?;
+        let Some(storage) = &checkpoint.storage else {
+            return Ok(());
+        };
+        if let Err(error) = self.store.commit(storage) {
+            self.store.rollback(storage).map_err(ParseError::Storage)?;
             if let (Some(document), Some(mark)) = (self.document.as_mut(), checkpoint.document) {
                 document.rollback(mark).map_err(ParseError::Storage)?;
             }
@@ -884,9 +1052,9 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
                 ));
             }
         }
-        self.store
-            .rollback(&checkpoint.storage)
-            .map_err(ParseError::Storage)?;
+        if let Some(storage) = &checkpoint.storage {
+            self.store.rollback(storage).map_err(ParseError::Storage)?;
+        }
         while self.undo.len() > checkpoint.undo {
             let undo = self
                 .undo
@@ -1358,7 +1526,7 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
         };
         let next = self.create_current(class, action_start)?;
         self.admit_assignment(next, feature, many)?;
-        let captured = Value::String(self.identity(owner));
+        let captured = Value::String(self.identity(owner).to_string());
         if C::NEEDS_VALUE_ADMISSION {
             if end < start {
                 return Err(ParseError::Storage(
@@ -2467,7 +2635,7 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
         // model state; reference undo is needed only while the rule is speculative.
         self.undo.truncate(undo_start);
         self.scalar_pending.retain(|(owner, _), _| *owner != index);
-        Ok(Value::String(id))
+        Ok(Value::String(id.to_string()))
     }
     fn finish_forwarding_rule(
         &mut self,
@@ -2483,7 +2651,7 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
             result?;
         }
         match current {
-            Some(current) => Ok(Value::String(self.identity(current.index))),
+            Some(current) => Ok(Value::String(self.identity(current.index).to_string())),
             None if profile.has_constant_guards() => Ok(Value::Null),
             None => Err(ParseError::Storage(
                 "Forwarding rule produced no object".into(),
@@ -2575,6 +2743,44 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
         let policy = self.hidden_policy;
         let retained = self.retained_tokens;
         let document = self.document.is_some();
+        // With no budget, document, audit or recorded nested decision, the
+        // outcome depends only on the classifications the prediction reads.
+        let memoizable = !C::LIVE_CALLERS
+            && !C::AUDIT_PREDICTION
+            && !C::AUDIT_RUNTIME_WORK
+            && !document
+            && remaining.is_none()
+            && matches!(
+                grammar.profile,
+                grammar::Profile::NativeV74
+                    | grammar::Profile::NativeV75
+                    | grammar::Profile::NativeV76
+                    | grammar::Profile::NativeV77
+                    | grammar::Profile::NativeV78
+                    | grammar::Profile::NativeV79
+                    | grammar::Profile::NativeV80
+                    | grammar::Profile::NativeV81
+                    | grammar::Profile::NativeV82
+            )
+            && self.nested_decisions.selections.is_empty()
+            && self.nested_decisions.viability.is_empty();
+        let expression = std::ptr::from_ref(expr) as usize;
+        if memoizable
+            && let Some((selected, furthest)) =
+                self.nested_decisions
+                    .reuse
+                    .memo
+                    .get(expression, suffix, tokens, prediction_start)
+        {
+            if selected.is_none() && suffix == "choice" {
+                let farthest = furthest.saturating_sub(1).min(tokens.len());
+                if farthest >= self.farthest {
+                    self.farthest = farthest;
+                    self.expected = "No viable predicted alternative".into();
+                }
+            }
+            return Ok(selected);
+        }
         let mut input = PredictionTokens {
             cursor,
             tokens,
@@ -2586,6 +2792,8 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
             nested: &mut self.nested_decisions,
             deferral: 0,
             deferred: Vec::new(),
+            read: cursor.position,
+            stateful: false,
         };
         let decision = format!("{path}/{suffix}");
         let result = if C::LIVE_CALLERS {
@@ -2757,6 +2965,17 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
             program.predict_with_input_work(&decision, |work| input.read_next(work), &mut remaining)
         };
         cursor.position = input.furthest;
+        let memoize = (memoizable && !input.stateful).then_some(input.read);
+        if let (Some(read), Ok(selected)) = (memoize, &result) {
+            self.nested_decisions.reuse.memo.insert(
+                expression,
+                suffix,
+                tokens,
+                prediction_start..read,
+                *selected,
+                cursor.position,
+            );
+        }
         if let (Some(before), Some(after)) = (before, remaining) {
             self.steps = self.steps.saturating_add(before - after);
         }
@@ -2819,7 +3038,11 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
             {
                 break;
             }
-            let checkpoint = self.checkpoint()?;
+            let checkpoint = if (expr.cardinality == '1' || predicted) && self.document.is_none() {
+                self.propagating_checkpoint()
+            } else {
+                self.checkpoint()?
+            };
             let previous_current = *owner;
             let outcome = self.once(expr, owner);
             match self.finish_expr_attempt(
@@ -3393,7 +3616,7 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
                 let previous = owner.ok_or_else(|| ParseError::Storage("Capture requires a current object".into()))?;
                 let next = self.capture_current(previous, class, feature, *many)?;
                 *owner = Some(Current::local(next));
-                Ok(Value::String(self.identity(next)))
+                Ok(Value::String(self.identity(next).to_string()))
             },
             Kind::Literal(text) => {
                 if self
@@ -3546,12 +3769,13 @@ impl<'a, S: ModelStore, C: draft::ParseContext<S>> Machine<'a, '_, S, C> {
                         .set_unresolved_reference(&owner_id, feature, &spelling, *many)
                         .map_err(ParseError::Storage)?;
                     let pending = self.pending.len();
+                    let names = &mut self.nested_decisions.reuse.pending_names;
                     self.pending.push(Pending {
                         owner: owner_id,
-                        field: feature.clone(),
+                        field: names.name(feature),
                         spelling,
-                        target: target.clone(),
-                        uri: self.uri.into(),
+                        target: names.name(target),
+                        uri: names.name(self.uri),
                         start,
                         end,
                         index,
@@ -4270,6 +4494,12 @@ fn evaluate_staged_with_parse_context<
         ));
         return Ok(output);
     }
+    let reuse_link_metadata = linking.is_none()
+        && invocation.documents.is_none()
+        && conversions.is_none()
+        && settings.is_none()
+        && initializers.is_none()
+        && accounting.reuse_link_metadata();
     let (pending, parsed_resources) = parse_resources_accounted(
         parse_context,
         sources,
@@ -4290,6 +4520,7 @@ fn evaluate_staged_with_parse_context<
         store,
         &mut linking::LegacyPending { context: linking },
         &mut output,
+        reuse_link_metadata,
     )?;
     reconcile_stored_opposites(store, package.schema, &mut output)?;
     if output.diagnostics.is_empty() {

@@ -2582,47 +2582,100 @@ pub fn lex_borrowed_with_prediction<'a>(
     .map(|scanned| scanned.tokens)
 }
 
-fn predicted_lexeme(
+/// Scan-local outcomes of unbudgeted lexeme selections, keyed by the exact
+/// ASCII source prefix that alone determined them. Prediction and terminal
+/// recognition read their input left to right and are functions of what they
+/// read, so the same prefix elsewhere selects the same alternative and end.
+#[derive(Default)]
+struct LexemeMemo {
+    by_first: BTreeMap<u8, Vec<MemoizedLexeme>>,
+}
+struct MemoizedLexeme {
+    prefix: Box<[u8]>,
+    alternative: usize,
+    length: usize,
+    hits: usize,
+}
+impl LexemeMemo {
+    const MAX_PREFIX: usize = 24;
+    const MAX_PER_FIRST: usize = 16;
+    fn get(&mut self, rest: &[u8]) -> Option<(usize, usize)> {
+        let known = self.by_first.get_mut(rest.first()?)?;
+        let found = known
+            .iter_mut()
+            .find(|lexeme| rest.starts_with(&lexeme.prefix))?;
+        found.hits = found.hits.saturating_add(1);
+        Some((found.alternative, found.length))
+    }
+    fn insert(&mut self, prefix: &[u8], alternative: usize, length: usize) {
+        let Some(first) = prefix.first() else {
+            return;
+        };
+        if prefix.len() > Self::MAX_PREFIX || length == 0 || length > prefix.len() {
+            return;
+        }
+        let known = self.by_first.entry(*first).or_default();
+        let lexeme = MemoizedLexeme {
+            prefix: prefix.into(),
+            alternative,
+            length,
+            hits: 0,
+        };
+        if known.len() < Self::MAX_PER_FIRST {
+            known.push(lexeme);
+        } else if let Some(unused) = known.iter_mut().rev().find(|known| known.hits == 0) {
+            // Keep outcomes that recur; unique spellings give way.
+            *unused = lexeme;
+        }
+    }
+}
+
+fn predicted_lexeme<'program>(
     source: &str,
     start: usize,
-    terminals: Option<&BTreeMap<String, Terminal>>,
-    prediction: &LexerPrediction,
+    terminals: Option<&'program BTreeMap<String, Terminal>>,
+    initial: &mut lexer_prediction::ReusableLexicalInitial<'_>,
+    terminal_initials: &terminals::ReusableTerminalPredictions<'program>,
+    memo: &mut LexemeMemo,
     work: &mut Option<usize>,
 ) -> Result<Option<(usize, usize)>, (usize, String)> {
-    let selected = prediction
-        .predict_document(&source[start..], work)
+    let prediction = initial.program();
+    // A step budget must receive every canonical debit.
+    let memoizable = work.is_none();
+    if memoizable && let Some((index, length)) = memo.get(&source.as_bytes()[start..]) {
+        return Ok(Some((index, start + length)));
+    }
+    let (selected, predicted) = initial
+        .predict_document_observed(&source[start..], work)
         .map_err(|e| (start, e))?;
     let lexer_prediction::LexicalDecision::Selected(index) = selected else {
         return Ok(None);
     };
-    let end = selected_lexeme_end(source, start, terminals, prediction, index, work)?;
-    Ok(Some((index, end)))
-}
-fn selected_lexeme_end(
-    source: &str,
-    start: usize,
-    terminals: Option<&BTreeMap<String, Terminal>>,
-    prediction: &LexerPrediction,
-    index: usize,
-    work: &mut Option<usize>,
-) -> Result<usize, (usize, String)> {
-    let end = match prediction.alternative(index).map_err(|e| (start, e))? {
+    let (end, matched) = match prediction.alternative(index).map_err(|e| (start, e))? {
         LexicalAlternative::Terminal(name) => {
-            start
-                + terminals
-                    .and_then(|v| v.get(name))
-                    .ok_or_else(|| (start, "Missing predicted terminal".into()))?
-                    .match_len_with_work(&source[start..], work)
-                    .map_err(|e| (start, e))?
+            let (length, observed) = terminals
+                .and_then(|v| v.get(name))
+                .ok_or_else(|| (start, "Missing predicted terminal".into()))?
+                .match_len_reusing_observed(&source[start..], terminal_initials, work)
+                .map_err(|e| (start, e))?;
+            (start + length, observed)
         }
         LexicalAlternative::Keyword(text) => {
             if !source[start..].starts_with(text) {
                 return Err((start, format!("Expected keyword {text}")));
             }
-            start + text.len()
+            (start + text.len(), Some(text.len()))
         }
     };
-    Ok(end)
+    if memoizable && let (Some(predicted), Some(matched)) = (predicted, matched) {
+        let observed = predicted.max(matched).max(end - start);
+        if let Some(prefix) = source.as_bytes().get(start..start + observed)
+            && prefix.is_ascii()
+        {
+            memo.insert(prefix, index, end - start);
+        }
+    }
+    Ok(Some((index, end)))
 }
 #[derive(Debug, Serialize)]
 pub struct LexicalIssue {
@@ -3011,9 +3064,18 @@ fn scan<'a>(
         prediction,
         syntax,
     } = policy;
-    let mut tokens = Vec::new();
+    // Bounded first allocation: large sources otherwise regrow and copy the
+    // token vector many times. The token ceiling still decides admission.
+    let mut tokens = Vec::with_capacity(
+        (source.len() / 4)
+            .min(1 << 20)
+            .min(token_limit.map_or(usize::MAX, |limit| limit.saturating_add(1))),
+    );
     let mut strings = BTreeMap::new();
     let mut iter = source.char_indices().peekable();
+    let mut initial = prediction.map(lexer_prediction::ReusableLexicalInitial::new);
+    let terminal_initials = terminals::ReusableTerminalPredictions::default();
+    let mut lexemes = LexemeMemo::default();
     while let Some((start, ch)) = iter.next() {
         if hidden.is_none()
             && if syntax {
@@ -3061,9 +3123,18 @@ fn scan<'a>(
         let mut end = start + ch.len_utf8();
         let quoted = hidden.is_none() && (ch == '\'' || ch == '"');
         let mut predicted_end = None;
-        let predicted = if let Some(prediction) = prediction {
-            let (index, end) = predicted_lexeme(source, start, terminals, prediction, work)?
-                .ok_or_else(|| (start, "No viable lexical alternative".into()))?;
+        let predicted = if let Some(initial) = &mut initial {
+            let prediction = initial.program();
+            let (index, end) = predicted_lexeme(
+                source,
+                start,
+                terminals,
+                initial,
+                &terminal_initials,
+                &mut lexemes,
+                work,
+            )?
+            .ok_or_else(|| (start, "No viable lexical alternative".into()))?;
             predicted_end = Some(end);
             Some((
                 index,
@@ -3099,7 +3170,7 @@ fn scan<'a>(
             } else {
                 start
                     + terminal
-                        .match_len_with_work(&source[start..], work)
+                        .match_len_reusing(&source[start..], &terminal_initials, work)
                         .map_err(|error| (start, error))?
             };
             while iter.peek().is_some_and(|(offset, _)| *offset < end) {

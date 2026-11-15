@@ -27,6 +27,7 @@ mod runtime_guarded;
 pub use runtime_guarded::{
     RuntimeAdmissionLoadMode, RuntimeGuardedAdmission, RuntimeGuardedPolicy, SavedRuntimeAdmission,
 };
+mod ordinary_returns;
 mod shared_returns;
 use analysis_calls::Calls;
 pub use live_callers::LiveCallerPrediction;
@@ -2952,6 +2953,19 @@ impl ParserPrediction {
         verification: CompletionVerification,
         local: Option<RuleLocalCompletionDecision<'_>>,
     ) -> Result<PredictionOutcome, String> {
+        if !input.runtime_work_diagnostics() {
+            return self
+                .run_prediction_with_return_storage::<ordinary_returns::OrdinaryReturns, _>(
+                    goal,
+                    input,
+                    remaining,
+                    base_depth,
+                    verification,
+                    local,
+                    &mut runtime_source::NoInitialSource,
+                    None,
+                );
+        }
         self.run_prediction_at_depth_with_local_decision_and_source(
             goal,
             input,
@@ -3450,12 +3464,14 @@ impl ParserPrediction {
                     None
                 };
                 if goal.decision().is_some() && !goal.live_boundary() {
-                    let alternatives: BTreeSet<_> =
-                        pending.iter().map(|row| row.alternative).collect();
-                    if alternatives.len() == 1 {
-                        let selected = *alternatives
-                            .first()
-                            .ok_or("Missing parser prediction alternative")?;
+                    let first = pending
+                        .front()
+                        .ok_or("Missing parser prediction alternative")?;
+                    let (selected, last) = pending.iter().fold(
+                        (first.alternative, first.alternative),
+                        |(low, high), row| (low.min(row.alternative), high.max(row.alternative)),
+                    );
+                    if selected == last {
                         if S::PREPARE_ONLY {
                             return Ok(PredictionOutcome::InitialPrepared(
                                 runtime_source::InitialPreparation::Ineligible,
@@ -3463,29 +3479,19 @@ impl ParserPrediction {
                         }
                         return goal.selected(selected);
                     }
-                    if let Some(first) = pending.front() {
-                        let last = pending
+                    if pending
+                        .iter()
+                        .all(|row| row.state == first.state && row.returns == first.returns)
+                        && pending
                             .iter()
-                            .map(|row| row.alternative)
-                            .max()
-                            .ok_or("Missing prediction alternative")?;
-                        if pending
-                            .iter()
-                            .all(|row| row.state == first.state && row.returns == first.returns)
-                            && pending
-                                .iter()
-                                .all(|row| row.alternative == last || row.guarded)
-                        {
-                            let selected = *alternatives
-                                .first()
-                                .ok_or("Missing prediction alternative")?;
-                            if S::PREPARE_ONLY {
-                                return Ok(PredictionOutcome::InitialPrepared(
-                                    runtime_source::InitialPreparation::Ineligible,
-                                ));
-                            }
-                            return goal.selected(selected);
+                            .all(|row| row.alternative == last || row.guarded)
+                    {
+                        if S::PREPARE_ONLY {
+                            return Ok(PredictionOutcome::InitialPrepared(
+                                runtime_source::InitialPreparation::Ineligible,
+                            ));
                         }
+                        return goal.selected(selected);
                     }
                 }
                 runtime_work_snapshot(input, "frontier_decision", remaining);
@@ -6377,6 +6383,7 @@ mod tests {
     include!("parser_prediction/runtime_live_prepared_tests.rs");
     include!("parser_prediction/live_caller_tests.rs");
     include!("parser_prediction/shared_return_tests.rs");
+    include!("parser_prediction/ordinary_return_tests.rs");
     include!("parser_prediction/runtime_geometry_tests.rs");
     include!("parser_prediction/runtime_ports_tests.rs");
     mod full_layout_tests {

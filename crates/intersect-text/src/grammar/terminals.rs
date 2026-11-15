@@ -4,6 +4,13 @@
 use super::{Grammar, Kind, Parser};
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
+#[path = "terminal_initial_reuse.rs"]
+mod initial_reuse;
+pub(super) use initial_reuse::ReusableTerminalPredictions;
+use initial_reuse::ReusedPrediction;
+#[path = "terminal_units.rs"]
+mod units;
+use units::{BufferedUnits, StringUnits, UnitInput};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Terminal {
@@ -908,14 +915,49 @@ impl Terminal {
         input: &str,
         work: &mut Option<usize>,
     ) -> Result<usize, String> {
+        self.match_len_mode(input, work, ColdPrediction)
+    }
+    pub(super) fn match_len_reusing<'program>(
+        &'program self,
+        input: &str,
+        registry: &ReusableTerminalPredictions<'program>,
+        work: &mut Option<usize>,
+    ) -> Result<usize, String> {
+        self.match_len_mode(input, work, ReusedPrediction(registry))
+    }
+    fn match_len_mode<'program, P: LocalPrediction<'program>>(
+        &'program self,
+        input: &str,
+        work: &mut Option<usize>,
+        prediction: P,
+    ) -> Result<usize, String> {
+        self.match_len_observed(input, work, prediction)
+            .map(|(end, _)| end)
+    }
+    /// The match length and, when known, the ASCII prefix of `input` that
+    /// alone determined it (see `StringUnits::observed_ascii_prefix`).
+    pub(super) fn match_len_reusing_observed<'program>(
+        &'program self,
+        input: &str,
+        registry: &ReusableTerminalPredictions<'program>,
+        work: &mut Option<usize>,
+    ) -> Result<(usize, Option<usize>), String> {
+        self.match_len_observed(input, work, ReusedPrediction(registry))
+    }
+    fn match_len_observed<'program, P: LocalPrediction<'program>>(
+        &'program self,
+        input: &str,
+        work: &mut Option<usize>,
+        prediction: P,
+    ) -> Result<(usize, Option<usize>), String> {
         let mut matcher = Matcher {
-            remaining: input.encode_utf16(),
-            units: Vec::new(),
+            input: StringUnits::new(input),
             work: *work,
             error: None,
             observe_failure: false,
             failure: None,
-            prediction: ColdPrediction,
+            prediction,
+            program: std::marker::PhantomData,
         };
         let result = matcher.matched(&self.body, 0);
         *work = matcher.work;
@@ -924,7 +966,8 @@ impl Terminal {
         }
         let end =
             result.ok_or_else(|| format!("Incomplete or invalid terminal {}", self.identity))?;
-        utf8_endpoint(input, end)
+        let observed = matcher.input.observed_ascii_prefix();
+        Ok((matcher.input.byte_endpoint(end)?, observed))
     }
     /// Diagnostic observation over this exact committed recognizer. It does
     /// not retry an alternative or turn a failed body into a matched token.
@@ -934,13 +977,13 @@ impl Terminal {
         work: &mut Option<usize>,
     ) -> Result<DocumentMatch, String> {
         let mut matcher = Matcher {
-            remaining: input.encode_utf16(),
-            units: Vec::new(),
+            input: BufferedUnits::new(input.encode_utf16()),
             work: *work,
             error: None,
             observe_failure: true,
             failure: None,
             prediction: ColdPrediction,
+            program: std::marker::PhantomData,
         };
         let result = matcher.matched(&self.body, 0);
         *work = matcher.work;
@@ -1003,20 +1046,20 @@ impl Terminal {
             self.match_document_units_mode(input, work, ColdPrediction)
         }
     }
-    fn match_document_units_mode<P: LocalPrediction>(
-        &self,
+    fn match_document_units_mode<'program, P: LocalPrediction<'program>>(
+        &'program self,
         input: impl Iterator<Item = u16>,
         work: &mut Option<usize>,
         prediction: P,
     ) -> Result<DocumentUnitMatch, String> {
         let mut matcher = Matcher {
-            remaining: input,
-            units: Vec::new(),
+            input: BufferedUnits::new(input),
             work: *work,
             error: None,
             observe_failure: true,
             failure: None,
             prediction,
+            program: std::marker::PhantomData,
         };
         let result = matcher.matched(&self.body, 0);
         *work = matcher.work;
@@ -1095,22 +1138,29 @@ fn literal_entry(expr: &Expression, depth: usize) -> Option<u16> {
         _ => None,
     }
 }
-trait LocalPrediction: Copy {
+trait LocalPrediction<'program>: Copy {
     fn predict(
         self,
-        program: &super::LexerPrediction,
+        program: &'program super::LexerPrediction,
         units: impl Iterator<Item = u16>,
         work: &mut Option<usize>,
         nongreedy: bool,
     ) -> Result<usize, String>;
+    /// Whether unbudgeted greedy selections that read exactly one unit may
+    /// be recalled by that unit (`recall`/`remember`).
+    const RECALLS: bool = false;
+    fn recall(self, _program: &'program super::LexerPrediction, _unit: u16) -> Option<usize> {
+        None
+    }
+    fn remember(self, _program: &'program super::LexerPrediction, _unit: u16, _selected: usize) {}
 }
 #[derive(Clone, Copy)]
 struct ColdPrediction;
 const _: () = assert!(std::mem::size_of::<ColdPrediction>() == 0);
-impl LocalPrediction for ColdPrediction {
+impl<'program> LocalPrediction<'program> for ColdPrediction {
     fn predict(
         self,
-        program: &super::LexerPrediction,
+        program: &'program super::LexerPrediction,
         units: impl Iterator<Item = u16>,
         work: &mut Option<usize>,
         nongreedy: bool,
@@ -1126,10 +1176,10 @@ impl LocalPrediction for ColdPrediction {
 struct PreparedPrediction<'context, 'program>(
     &'context super::lexer_prediction::PreparedTerminalInitials<'program>,
 );
-impl LocalPrediction for PreparedPrediction<'_, '_> {
+impl<'program> LocalPrediction<'program> for PreparedPrediction<'_, '_> {
     fn predict(
         self,
-        program: &super::LexerPrediction,
+        program: &'program super::LexerPrediction,
         units: impl Iterator<Item = u16>,
         work: &mut Option<usize>,
         nongreedy: bool,
@@ -1137,21 +1187,18 @@ impl LocalPrediction for PreparedPrediction<'_, '_> {
         self.0.predict(program, units, work, nongreedy)
     }
 }
-struct Matcher<I: Iterator<Item = u16>, P: LocalPrediction = ColdPrediction> {
-    remaining: I,
-    units: Vec<u16>,
+struct Matcher<'program, I: UnitInput, P: LocalPrediction<'program> = ColdPrediction> {
+    input: I,
     work: Option<usize>,
     error: Option<String>,
     observe_failure: bool,
     failure: Option<TerminalFailure>,
     prediction: P,
+    program: std::marker::PhantomData<&'program Expression>,
 }
-impl<I: Iterator<Item = u16>, P: LocalPrediction> Matcher<I, P> {
+impl<'program, I: UnitInput, P: LocalPrediction<'program>> Matcher<'program, I, P> {
     fn unit(&mut self, offset: usize) -> Option<u16> {
-        while self.units.len() <= offset {
-            self.units.push(self.remaining.next()?);
-        }
-        self.units.get(offset).copied()
+        self.input.unit(offset)
     }
     fn starts(&mut self, expr: &Expression, offset: usize) -> bool {
         self.unit(offset)
@@ -1159,19 +1206,40 @@ impl<I: Iterator<Item = u16>, P: LocalPrediction> Matcher<I, P> {
     }
     fn select_cardinality(
         &mut self,
-        decision: &super::LexerPrediction,
+        decision: &'program super::LexerPrediction,
         offset: usize,
     ) -> Option<usize> {
         let mut cursor = offset;
         let mut work = self.work;
         let prediction = self.prediction;
+        // The selection reads its units in order and is a function of what
+        // it reads: one that read a single unit selects the same alternative
+        // wherever that unit recurs. A budget needs every canonical debit.
+        let first = if P::RECALLS && work.is_none() {
+            self.unit(offset)
+        } else {
+            None
+        };
+        if let Some(unit) = first
+            && let Some(selected) = prediction.recall(decision, unit)
+        {
+            return Some(selected);
+        }
+        let mut ended = false;
         let units = std::iter::from_fn(|| {
             let unit = self.unit(cursor);
             cursor += 1;
+            ended |= unit.is_none();
             unit
         });
         let selected = prediction.predict(decision, units, &mut work, false);
         self.work = work;
+        if let (Some(unit), Ok(selected)) = (first, &selected)
+            && cursor - offset == 1
+            && !ended
+        {
+            prediction.remember(decision, unit, *selected);
+        }
         match selected {
             Ok(selected) => Some(selected),
             Err(error) => {
@@ -1180,7 +1248,7 @@ impl<I: Iterator<Item = u16>, P: LocalPrediction> Matcher<I, P> {
             }
         }
     }
-    fn matched(&mut self, expr: &Expression, offset: usize) -> Option<usize> {
+    fn matched(&mut self, expr: &'program Expression, offset: usize) -> Option<usize> {
         if let Some(decision) = &expr.cardinality_decision {
             match expr.cardinality {
                 '?' => {
@@ -1247,7 +1315,7 @@ impl<I: Iterator<Item = u16>, P: LocalPrediction> Matcher<I, P> {
             _ => None,
         }
     }
-    fn expression_body(&mut self, expr: &Expression, offset: usize) -> Option<usize> {
+    fn expression_body(&mut self, expr: &'program Expression, offset: usize) -> Option<usize> {
         if let (Some(decision), Operation::Alternative(items)) = (&expr.decision, &expr.kind) {
             let mut cursor = offset;
             let mut work = self.work;
@@ -1270,7 +1338,7 @@ impl<I: Iterator<Item = u16>, P: LocalPrediction> Matcher<I, P> {
         }
         self.body(&expr.kind, offset)
     }
-    fn body(&mut self, kind: &Operation, offset: usize) -> Option<usize> {
+    fn body(&mut self, kind: &'program Operation, offset: usize) -> Option<usize> {
         match kind {
             Operation::Wildcard => self.unit(offset).map(|_| offset + 1),
             Operation::Eof => self.unit(offset).is_none().then_some(offset),

@@ -1403,7 +1403,7 @@ impl DocumentSnapshot {
             }
         }
         for reference in pending {
-            if reference.uri != self.document.source().uri
+            if *reference.uri != *self.document.source().uri
                 || reference.start > reference.end
                 || self
                     .document
@@ -1429,10 +1429,10 @@ impl DocumentSnapshot {
             })?;
             self.association_usage.admit(limits, bytes, 1)?;
             self.parse_stage.references.push(ParsedReference {
-                owner: reference.owner.clone(),
-                field: reference.field.clone(),
+                owner: reference.owner.to_string(),
+                field: reference.field.to_string(),
                 spelling: reference.spelling.clone(),
-                target: reference.target.clone(),
+                target: reference.target.to_string(),
                 source: self.document.source().clone(),
                 start: reference.start,
                 end: reference.end,

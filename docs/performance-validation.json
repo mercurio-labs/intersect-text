@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-15",
+  "toolchain": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "model_repository": "https://github.com/mercurio-labs/intersect-model.git",
+  "model_revision": "de6b99b477fa11b39e889cd83be7a8ebb4f7fa11",
+  "runtime_files_sha256": {
+    "crates/intersect-text/src/document.rs": "f7b7a4518a1edb53400b3d66ed913015efa0dad366487cf87635b99b55b0dce9",
+    "crates/intersect-text/src/grammar.rs": "043bd7252d838865814f7d3c896ad6eb054c086391372daff02c845e3a3c7b56",
+    "crates/intersect-text/src/grammar/lexer_initial_reuse.rs": "dc2bcc3eafbcb34b66186145d3349eaf6173b9dea18bd147761f6d299cf16ede",
+    "crates/intersect-text/src/grammar/lexer_prediction.rs": "5e05ee3e4a1c84acfba494fe1396c6c7f8a2fb543e97a0b02fe8df0ad387cfd3",
+    "crates/intersect-text/src/grammar/lexer_transition_reuse.rs": "8d66e1a8d4e4e8ef99f1383b91c3aac72ca912b01faac90edcc03e07603c72de",
+    "crates/intersect-text/src/grammar/parser_prediction.rs": "d0a89845014eca551f2f3302ba3f8caec7df07d02d84cb37ae94894da73deccd",
+    "crates/intersect-text/src/grammar/parser_prediction/ordinary_return_tests.rs": "a0ef9818baa567c142cb1e3077e1d41d97476e7e4021c16127dba7fb4d17710d",
+    "crates/intersect-text/src/grammar/parser_prediction/ordinary_returns.rs": "90611a2804a9f1d04c0db081c1aa0a15cf5d91fb08cb3e1979ac589adf995138",
+    "crates/intersect-text/src/grammar/terminal_initial_reuse.rs": "354764b2bf513bd582fb1b9789c0f572fe636679250d3f4e6d0cf778f8cda9f5",
+    "crates/intersect-text/src/grammar/terminal_units.rs": "91b61a7a30c4d519f07d5fca3905f12bf8448695ae535ae69740a9665ed76bef",
+    "crates/intersect-text/src/grammar/terminals.rs": "3b6f092aa159100048b63124bc0ae01a400dd34addd5d013ec8cc6d4c84b96b1",
+    "crates/intersect-text/src/lib.rs": "97dc3caa8f9f549d4458f5de950ac624060ecc0b530bea2930589bcfe494bc25",
+    "crates/intersect-text/src/linking.rs": "91d04959e3d882246e03b8ad7d7ec65b5ed09f162e07d550e699756c2fa161e6",
+    "crates/intersect-text/src/linking_conformance.rs": "d13a4a862f2aa9bba3444a89d579796c0751376936e7204b5a7cde1d817837f5",
+    "crates/intersect-text/src/linking_tests.rs": "895fcd78d0f1fcb80e49dea74c5c39b555225f2cf3b6f62fd53c345e4ba2d270",
+    "crates/intersect-text/src/parser_tests.rs": "95eb6d860aedaa5a7be648b6231bc87cfd4cb334b6db4551bcd200d5dd450418",
+    "crates/intersect-text/src/resource_accounting.rs": "012fb6c6ad7349be59579dbee0363999c260405e0ac991949b51d32e5dce6696"
+  },
+  "native": {
+    "command": "cargo test --profile test-fast -p intersect-text --lib --tests --locked",
+    "totals": {
+      "passed": 950,
+      "failed": 0,
+      "ignored": 2,
+      "binaries": 2,
+      "binaries_built_not_run": 0,
+      "binaries_done": 2,
+      "binaries_crashed": 0,
+      "test_seconds": 4.4,
+      "build_seconds": 122.5,
+      "crates_built": 43
+    },
+    "report": "http://localhost:8765/intersect-text/20261115-131443/"
+  },
+  "benchmark_allocator": {
+    "command": "cargo test --manifest-path benchmarks/java-parity/allocator-tests/Cargo.toml --locked",
+    "totals": {
+      "passed": 3,
+      "failed": 0,
+      "ignored": 0,
+      "binaries": 1,
+      "binaries_built_not_run": 0,
+      "binaries_done": 1,
+      "binaries_crashed": 0,
+      "test_seconds": 0.0,
+      "build_seconds": 0.7,
+      "crates_built": 1
+    },
+    "report": "http://localhost:8765/intersect-text/20261115-130344/",
+    "test_source_sha256": "ed0cc131bf12e8ab9e33a2076748355e894f395fdfc75c35ec0595c4f5068159"
+  },
+  "passed_checks": [
+    "python -B tools/format_workspace.py --check",
+    "cargo clippy -p intersect-text --all-targets --locked -- -D warnings",
+    "cargo check -p intersect-text --lib --target wasm32-unknown-unknown --locked",
+    "Default pinned rustdoc API and signature/Serde contract checks, unchanged baselines",
+    "python -B tools/check_text_release_contract.py",
+    "python -B tools/check_text_separation.py",
+    "Locked offline Cargo metadata for root and three standalone consumer workspaces, one canonical Model revision",
+    "10 release-contract Python tests and 13 API-guard Python tests",
+    "Benchmark Python source parsing and command-line help"
+  ],
+  "source_acquisition": "The unpublished Model commit was seeded into Cargo using a process-local Git URL mapping to the active Model checkout. All committed manifests, locks and resolved source IDs retain the canonical GitHub URL and full revision. No persistent Git/Cargo override or default sibling dependency was added.",
+  "excluded": [
+    "Hosted CI",
+    "Full workspace and milestone language suites",
+    "Broad Java parity measurements",
+    "Browser/runtime artifact rebuilds",
+    "Canonical GitHub fetching of unpublished migration commits",
+    "Updating KerML/Toolkit pins before upstream changes land"
+  ]
+}

@@ -15,6 +15,15 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 mod initial_prepared;
 pub use initial_prepared::PreparedLexicalInitial;
 pub(super) use initial_prepared::terminal_initials::PreparedTerminalInitials;
+#[path = "lexer_initial_reuse.rs"]
+mod initial_reuse;
+use initial_reuse::InitialFrontier;
+pub(super) use initial_reuse::ReusableLexicalInitial;
+#[path = "lexer_transition_reuse.rs"]
+mod transition_reuse;
+use transition_reuse::{Current, Transitions};
+
+const STEP_BUDGET_EXCEEDED: &str = "Execution step budget exceeded during lexical prediction";
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Alternative {
@@ -238,7 +247,7 @@ impl LexerPrediction {
     fn consume(work: &mut Option<usize>) -> Result<(), String> {
         if let Some(remaining) = work {
             if *remaining == 0 {
-                return Err("Execution step budget exceeded during lexical prediction".into());
+                return Err(STEP_BUDGET_EXCEEDED.into());
             }
             *remaining -= 1;
         }
@@ -287,15 +296,6 @@ impl LexerPrediction {
             }
         }
         Ok(result)
-    }
-    /// The same decision, with an explicit unselected-input observation. A
-    /// selected alternative still commits; body failure never falls back.
-    pub(crate) fn predict_document(
-        &self,
-        input: &str,
-        work: &mut Option<usize>,
-    ) -> Result<LexicalDecision, String> {
-        self.predict_units_with_policy(input.encode_utf16(), work, false)
     }
     pub(crate) fn predict_document_units(
         &self,
@@ -592,10 +592,21 @@ impl LexerPrediction {
     }
     fn predict_units_with_initial<const PREPARED: bool>(
         &self,
+        units: impl Iterator<Item = u16>,
+        work: &mut Option<usize>,
+        nongreedy: bool,
+        prepared: Option<&PreparedLexicalInitial<'_>>,
+    ) -> Result<LexicalDecision, String> {
+        self.predict_units_with_frontier::<PREPARED>(units, work, nongreedy, prepared, None, None)
+    }
+    fn predict_units_with_frontier<const PREPARED: bool>(
+        &self,
         mut units: impl Iterator<Item = u16>,
         work: &mut Option<usize>,
         nongreedy: bool,
         prepared: Option<&PreparedLexicalInitial<'_>>,
+        initial: Option<InitialFrontier<'_>>,
+        mut transitions: Option<&mut Transitions<'_>>,
     ) -> Result<LexicalDecision, String> {
         let mut offset = 0usize;
         let mut first = if PREPARED {
@@ -605,16 +616,29 @@ impl LexerPrediction {
                     .seed(self, work)?,
             )
         } else {
-            None
+            initial
         };
         let mut current = match first {
-            Some((initial, _, _)) => Cow::Borrowed(initial),
-            None => Cow::Owned(self.closure(self.roots.iter().copied(), work)?),
+            Some((initial, _, _)) => Current::Canonical(Cow::Borrowed(initial)),
+            None => Current::Canonical(Cow::Owned(self.closure(self.roots.iter().copied(), work)?)),
         };
         loop {
-            let (owners, mut accepting) = match first.take() {
-                Some((_, owners, accepting)) => (Cow::Borrowed(owners), Cow::Borrowed(accepting)),
-                None => {
+            // The owned Arc keeps these immutable sets independent of current,
+            // which EOF closure may materialize and mutate below.
+            let retained = if !PREPARED && first.is_none() {
+                match transitions.as_mut() {
+                    Some(cache) => cache.owner_sets(self, &current, work)?,
+                    None => None,
+                }
+            } else {
+                None
+            };
+            let (owners, mut accepting) = match (first.take(), retained.as_ref()) {
+                (Some((_, owners, accepting)), _) => {
+                    (Cow::Borrowed(owners), Cow::Borrowed(accepting))
+                }
+                (None, Some(sets)) => (Cow::Borrowed(&sets.owners), Cow::Borrowed(&sets.accepting)),
+                (None, None) => {
                     let (owners, accepting) = self.frontier_owners(&current, work)?;
                     (Cow::Owned(owners), Cow::Owned(accepting))
                 }
@@ -637,19 +661,19 @@ impl LexerPrediction {
                         .get(index)
                         .is_some_and(|state| !state.eof.is_empty())
                 }) {
-                    // Copy only when an EOF branch actually mutates a borrowed
-                    // first frontier; charge each copied record on this call.
-                    if matches!(current, Cow::Borrowed(_)) {
+                    // Prepared facts charge each copied record. Ordinary
+                    // initial reuse preserves the canonical owned-path debits.
+                    if PREPARED && current.is_borrowed() {
                         for _ in current.iter() {
                             Self::consume(work)?;
                         }
                     }
-                    if matches!(accepting, Cow::Borrowed(_)) {
+                    if PREPARED && matches!(accepting, Cow::Borrowed(_)) {
                         for _ in accepting.iter() {
                             Self::consume(work)?;
                         }
                     }
-                    self.close_eof(current.to_mut(), work)?;
+                    self.close_eof(current.to_mut()?, work)?;
                     for index in current.iter() {
                         let state = self
                             .states
@@ -688,8 +712,25 @@ impl LexerPrediction {
                 offset = offset
                     .checked_add(1)
                     .ok_or("Lexical lookahead offset overflow")?;
-                current = Cow::Borrowed(initial);
+                current = Current::Canonical(Cow::Borrowed(initial));
                 first = Some((initial, owners, next_accepting));
+                continue;
+            }
+            if !PREPARED && let Some(cache) = transitions.as_mut() {
+                let next = cache.advance(self, &current, unit, work)?;
+                if next.is_empty() {
+                    return Ok(accepting.first().copied().map_or(
+                        LexicalDecision::Unselected {
+                            utf16_lookahead: offset,
+                            unit: Some(unit),
+                        },
+                        LexicalDecision::Selected,
+                    ));
+                }
+                offset = offset
+                    .checked_add(1)
+                    .ok_or("Lexical lookahead offset overflow")?;
+                current = next;
                 continue;
             }
             let targets = self.advance(&current, unit, work)?;
@@ -705,7 +746,7 @@ impl LexerPrediction {
             offset = offset
                 .checked_add(1)
                 .ok_or("Lexical lookahead offset overflow")?;
-            current = Cow::Owned(self.closure(targets, work)?);
+            current = Current::Canonical(Cow::Owned(self.closure(targets, work)?));
         }
     }
 }

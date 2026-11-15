@@ -4,6 +4,132 @@ use crate::linking::{LinkingContext, ReferenceCandidates, ReferenceRequest, Uniq
 use intersect_model::core::query::QueryBudget;
 use std::cell::RefCell;
 
+#[test]
+fn linking_metadata_reuse_keeps_live_reads_decisions_failures_and_callback_order() {
+    use crate::linking::{PendingAccess, link_pending_with_access};
+    use intersect_model::definitions::dynamic::{ScalarType, SchemaBuilder};
+
+    #[derive(Default)]
+    struct Access {
+        events: Vec<String>,
+        changed: bool,
+        candidates: usize,
+        fail_at: Option<usize>,
+    }
+    impl PendingAccess for Access {
+        fn before_owner(&mut self) -> Result<(), String> {
+            self.events.push("owner".into());
+            Ok(())
+        }
+        fn class(&mut self, object: &str) -> Result<Option<String>, String> {
+            self.events.push(format!("class:{object}"));
+            Ok(match object {
+                "owner" => Some("Owner".into()),
+                "a" => Some("Item".into()),
+                "b" => Some(if self.changed { "Other" } else { "Item" }.into()),
+                _ => None,
+            })
+        }
+        fn candidates(
+            &mut self,
+            request: &ReferenceRequest<'_>,
+            actual: &str,
+        ) -> Result<Vec<String>, String> {
+            self.events
+                .push(format!("lookup:{actual}:{}", request.spelling));
+            Ok(match request.spelling {
+                "duplicate" => vec!["a".into(), "a".into()],
+                "changed" => vec!["b".into()],
+                "missing" => vec!["missing".into()],
+                _ => vec!["a".into()],
+            })
+        }
+        fn before_candidate(&mut self) -> Result<(), String> {
+            self.events.push("candidate".into());
+            self.candidates += 1;
+            if self.fail_at == Some(self.candidates) {
+                return Err("candidate budget exhausted".into());
+            }
+            Ok(())
+        }
+        fn resolve(&mut self, pending: &Pending, actual: &str, target: &str) -> Result<(), String> {
+            self.events
+                .push(format!("resolve:{actual}:{}:{target}", pending.spelling));
+            self.changed = true;
+            Ok(())
+        }
+    }
+    let mut builder = SchemaBuilder::new("link-live", "urn:link-live");
+    let item = builder.class("Item").unwrap();
+    let special = builder.class("Special").unwrap();
+    special.extends(&item).unwrap();
+    let other = builder.class("Other").unwrap();
+    let owner = builder.class("Owner").unwrap();
+    owner.reference("link", &item).optional().unwrap();
+    owner.reference("other", &other).optional().unwrap();
+    owner
+        .attribute("name", ScalarType::String)
+        .optional()
+        .unwrap();
+    let schema = builder.build().unwrap();
+    let make = |spelling: &str, field: &str, target: &str, start| Pending {
+        owner: "owner".into(),
+        field: field.into(),
+        spelling: spelling.into(),
+        target: target.into(),
+        uri: "memory:live".into(),
+        start,
+        end: start + 1,
+        index: None,
+        active: true,
+    };
+    let pending = vec![
+        make("ok", "link", "Item", 1),
+        make("changed", "link", "Item", 2),
+        make("narrow", "link", "Special", 3),
+        make("duplicate", "link", "Item", 4),
+        make("wrong", "other", "Item", 5),
+        make("attribute", "name", "Item", 6),
+        make("attribute-again", "name", "Item", 7),
+    ];
+    for fail_at in [None, Some(2), Some(5)] {
+        for suffix in [None, Some("missing")] {
+            let mut rows = pending.clone();
+            if let Some(spelling) = suffix {
+                rows.push(make(spelling, "link", "Item", 8));
+            }
+            let mut expected = Access {
+                fail_at,
+                ..Default::default()
+            };
+            let mut actual = Access {
+                fail_at,
+                ..Default::default()
+            };
+            let mut before = StoredEvaluation::default();
+            let mut after = StoredEvaluation::default();
+            let old = link_pending_with_access(
+                schema.as_schema(),
+                rows.clone(),
+                &mut expected,
+                &mut before,
+                false,
+            );
+            let new =
+                link_pending_with_access(schema.as_schema(), rows, &mut actual, &mut after, true);
+            assert_eq!(new, old);
+            assert_eq!(json!(after), json!(before));
+            assert_eq!(actual.events, expected.events);
+            assert_eq!(actual.candidates, expected.candidates);
+            if fail_at.is_none() && suffix.is_none() {
+                assert_eq!(after.references.len(), 1);
+                assert_eq!(after.diagnostics.len(), 6);
+                assert!(after.diagnostics[2].message.contains("Ambiguous"));
+            }
+        }
+    }
+}
+
 const GOOD: &str = "library L { copy C \"title\"; member M; loan Q copy C to M; }";
 fn package() -> Package {
     compile_migrated_fixture(

@@ -2,6 +2,116 @@
 use super::*;
 use intersect_model::frozen::FrozenStore;
 
+#[test]
+fn unbudgeted_native_reuse_matches_budgeted_parsing_and_resource_rollback() {
+    use crate::package::BundleCompilation;
+    use intersect_model::core::storage::ModelRead;
+    use intersect_model::definitions::bundle::{DefinitionBundle, DefinitionSource, SourceKind};
+    let model = DefinitionSource::new(
+        "memory:reuse.rcore",
+        SourceKind::Rcore,
+        include_str!("../assets/fixtures/library/library-project.rcore"),
+    );
+    let mut grammar = DefinitionSource::new(
+        "memory:reuse.xtext",
+        SourceKind::Xtext,
+        include_str!("../assets/fixtures/library/library.xtext"),
+    );
+    let mut common = DefinitionSource::new(
+        "classpath:/org/eclipse/xtext/common/Terminals.xtext",
+        SourceKind::Xtext,
+        include_str!(
+            "../../../fixtures/definition-conformance/upstream/xtext/org/eclipse/xtext/common/Terminals.xtext"
+        ),
+    );
+    common.dependencies.push(model.id.clone());
+    grammar.dependencies = vec![model.id.clone(), common.id.clone()];
+    let package = ordinary::compile(
+        BundleCompilation {
+            materialized_types: vec![],
+            ecore: model.id.clone(),
+            namespace: "urn:intersect:example:library:1".into(),
+            xtext: Some(grammar.id.clone()),
+            rcore_behavior: model.id.clone(),
+            bundle: DefinitionBundle {
+                version: 1,
+                sources: vec![model, grammar, common],
+                namespaces: vec![],
+            },
+        },
+        grammar::Profile::NativeV82,
+    )
+    .unwrap();
+    let finite = EvaluationLimits {
+        steps_per_resource: Some(1_000_000),
+        ..EvaluationLimits::native()
+    };
+    let repeated = (0..12)
+        .map(|index| format!("copy b{index} \"É 😀\" edition 2; member m{index};"))
+        .collect::<String>();
+    for (body, valid) in [
+        ("".to_owned(), true),
+        ("member first; member second;".into(), true),
+        (repeated.clone(), true),
+        (format!("{repeated} loan l copy b0 to m0;"), true),
+        (format!("{repeated} loan l copy missing to m0;"), false),
+        (format!("{repeated} copy broken \"unterminated"), false),
+        (format!("{repeated} member missing_semicolon"), false),
+        (format!("{repeated} ?"), false),
+    ] {
+        let sources = [
+            Source {
+                uri: "memory:repeated.library".into(),
+                text: format!("library Repeated {{ {body} }}"),
+            },
+            Source {
+                uri: "memory:independent.library".into(),
+                text: "library Independent { member survivor; }".into(),
+            },
+        ];
+        // Finite budgets disable decision memoization and still perform every
+        // canonical debit. Both paths must publish identical successful graphs,
+        // diagnostics and reference spans, including after resource rollback.
+        let reused = evaluate_stored(&package, &sources, EvaluationLimits::native()).unwrap();
+        let budgeted = evaluate_stored(&package, &sources, finite).unwrap();
+        assert_eq!(
+            reused.evaluation.diagnostics.is_empty(),
+            valid,
+            "{body}: {:?}",
+            reused.evaluation.diagnostics
+        );
+        assert_eq!(
+            reused
+                .store
+                .query(storage::Query::Value("name", &json!("survivor")))
+                .unwrap()
+                .len(),
+            1,
+            "The independent resource must survive: {body}"
+        );
+        assert_eq!(
+            storage::export(&reused.store).unwrap(),
+            storage::export(&budgeted.store).unwrap(),
+            "{body}"
+        );
+        assert_eq!(
+            serde_json::to_value((
+                reused.evaluation.diagnostics,
+                reused.evaluation.references,
+                reused.evaluation.derived,
+            ))
+            .unwrap(),
+            serde_json::to_value((
+                budgeted.evaluation.diagnostics,
+                budgeted.evaluation.references,
+                budgeted.evaluation.derived,
+            ))
+            .unwrap(),
+            "{body}"
+        );
+    }
+}
+
 fn expr(kind: Kind) -> Expr {
     Expr {
         kind,
@@ -693,7 +803,7 @@ fn fragment_rollback(generic: bool) {
         Some(json!("wheel"))
     );
     assert_eq!(machine.pending.len(), 1);
-    assert_eq!(machine.pending[0].owner, "test#0");
+    assert_eq!(&*machine.pending[0].owner, "test#0");
     assert_eq!(machine.pending[0].spelling, "Vehicle");
     assert_eq!(machine.elements, 1);
     machine.rollback(checkpoint).unwrap();
