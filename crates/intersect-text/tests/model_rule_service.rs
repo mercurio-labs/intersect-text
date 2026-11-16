@@ -12,6 +12,7 @@ fn xtext_facade_matches_shared_literal_success_and_rejection_without_touching_re
     for rejected in [false, true] {
         let (values, diagnostics) = controls::seed();
         let mut metadata = StoredEvaluation {
+            unresolved_references: vec![],
             derived: values.clone(),
             diagnostics: diagnostics.clone(),
             references: vec![Reference {

@@ -117,6 +117,21 @@ fn catalog_language_parses_links_with_rcore_scoping_and_validates() -> Result<()
             "{name}: {:?}",
             evaluation.diagnostics
         );
+        assert_eq!(written, evaluation.unresolved_references.len());
+        assert!(
+            evaluation.references.is_empty(),
+            "construction does not invent resolved targets"
+        );
+        for reference in &evaluation.unresolved_references {
+            assert_eq!(reference.uri, source.uri);
+            assert_eq!(
+                &source.text[reference.start..reference.end],
+                reference.spelling
+            );
+            assert!(!reference.owner.is_empty());
+            assert!(!reference.feature.is_empty());
+            assert!(!reference.target_class.is_empty());
+        }
         proxies += written;
     }
     assert_eq!(proxies, 9, "cross references left for the linker");

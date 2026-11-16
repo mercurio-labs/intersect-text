@@ -447,7 +447,12 @@ impl<C: DraftCapability> DraftLanguage<'_, '_, C> {
                 None,
                 &mut crate::resource_accounting::SharedResourceAccounting::new(caller),
             )?;
-            Ok(pending.iter().filter(|reference| reference.active).count())
+            output.unresolved_references = pending
+                .iter()
+                .filter(|reference| reference.active)
+                .map(crate::UnresolvedReference::from)
+                .collect();
+            Ok(output.unresolved_references.len())
         });
         match result {
             Ok(proxies) => Ok((output, proxies, context.consumed.get())),
