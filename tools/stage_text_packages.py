@@ -334,8 +334,10 @@ def resolved_targets():
     if owns_text and 'intersect-model' not in local:
         command = ['cargo', 'metadata', '--format-version', '1', '--locked', '--offline']
         metadata = json.loads(subprocess.check_output(command, cwd=ROOT))
+        model = tomllib.loads((ROOT / 'Cargo.toml').read_text(encoding='utf-8'))['workspace']['dependencies']['intersect-model']
+        selected_source = f"git+{model['git']}?rev={model['rev']}#{model['rev']}"
         for name in ('intersect-model', 'intersect-build-support'):
-            packages = [p for p in metadata['packages'] if p['name'] == name]
+            packages = [p for p in metadata['packages'] if p['name'] == name and p['source'] == selected_source]
             if len(packages) != 1:
                 raise ValueError(f'Require exactly one resolved {name} source')
             local[name] = process_path(Path(packages[0]['manifest_path']).parent)

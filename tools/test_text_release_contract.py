@@ -12,6 +12,27 @@ DEPENDENCY = f'intersect-model = {{ version = "0.1.0", git = "{REPOSITORY}", rev
 
 
 class ReleaseContractTests(unittest.TestCase):
+    def test_only_recorded_host_adapters_may_use_exact_registry_model(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.fixture(root)
+            policy_path = root / 'docs/text-compatibility.json'
+            contract = json.loads(policy_path.read_text())
+            contract['model_dependency']['registry_consumers'] = ['crates/intersect-web/Cargo.toml']
+            policy_path.write_text(json.dumps(contract))
+            host = root / 'crates/intersect-web/Cargo.toml'
+            host.parent.mkdir(parents=True)
+            host.write_text('[package]\nname = "intersect-web"\nversion = "0.1.0"\n'
+                            '[dependencies]\nintersect-model = "=0.1.0"\n')
+            lock = root / 'Cargo.lock'
+            registry = ('\n[[package]]\nname = "intersect-model"\nversion = "0.1.0"\n'
+                        'source = "registry+https://github.com/rust-lang/crates.io-index"\n'
+                        'checksum = "' + 'a' * 64 + '"\n')
+            lock.write_text(lock.read_text() + registry)
+            self.assertEqual(guard.check(root), [])
+            host.write_text(host.read_text().replace('"=0.1.0"', '"0.1.0"'))
+            self.assertTrue(any('immutable Model source' in error for error in guard.check(root)))
+
     def fixture(self, root):
         contract = {'model': {'version': '0.1.0', 'minimum_tested_revision': '0' * 40},
                     'text': {'version': '0.1.0', 'model_version_requirement': '0.1.0'},

@@ -19,8 +19,13 @@
   },
   "model_dependency": {
     "repository": "https://github.com/mercurio-labs/intersect-model.git",
-    "revision": "c04011eb4b5c105e466cf33392b5b9237f007551",
-    "scope": "All maintained crates/* and tests/* manifests and their workspace locks; historical fixture and experiment manifests are excluded.",
-    "availability": "Registry-release candidate selected by immutable revision and fetched from its canonical GitHub URL. Artifact and platform checks are recorded separately."
+    "revision": "9f026067f71721909ea508177127fccf5e7efd44",
+    "scope": "Core and qualification sources use the recorded exact Git revision. Public Library/Web host adapters consume the exact released registry Model version; browser bindings use the shared released-Model example support adapter.",
+    "availability": "Public adapter integration candidate; runtime hosts use the exact released registry crates while source qualification retains this canonical Git revision.",
+    "registry_consumers": [
+      "crates/intersect-library/Cargo.toml",
+      "crates/intersect-web/Cargo.toml",
+      "crates/intersect-text-example-support/Cargo.toml"
+    ]
   }
 }

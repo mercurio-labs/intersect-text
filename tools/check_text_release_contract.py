@@ -12,6 +12,7 @@ MODEL_PACKAGES = {
     'intersect-model', 'intersect-build-support', 'intersect-codegen',
     'intersect-project-host', 'intersect-run', 'intersect-model-test-support',
     'intersect-rust-bindings-tests', 'intersect-semantic-bindings-tests',
+    'intersect-model-example-support',
 }
 DEPENDENCY_KINDS = ('dependencies', 'build-dependencies', 'dev-dependencies')
 
@@ -41,6 +42,7 @@ def check_model_pins(root, contract):
     manifests = {path: tomllib.loads(path.read_text(encoding='utf-8'))
                  for path in manifest_paths(root)}
     errors = []
+    registry_consumers = set(policy.get('registry_consumers', []))
     lock_roots = set()
     for path, manifest in manifests.items():
         # A standalone consumer's own workspace takes precedence over the root.
@@ -68,6 +70,10 @@ def check_model_pins(root, contract):
                 if package not in MODEL_PACKAGES and spec.get('git') != repository:
                     continue
                 location = f'{path.relative_to(root).as_posix()} [{section}] {alias}'
+                if (package == 'intersect-model' and path.relative_to(root).as_posix() in registry_consumers
+                        and spec.get('version') == '=' + contract['model']['version']
+                        and not any(key in spec for key in ('git', 'rev', 'path', 'branch', 'tag'))):
+                    continue
                 if (spec.get('git') != repository or spec.get('rev') != revision
                         or any(key in spec for key in ('path', 'branch', 'tag'))):
                     errors.append(f'{location}: must use the recorded immutable Model source')
@@ -81,17 +87,23 @@ def check_model_pins(root, contract):
             continue
         packages = tomllib.loads(path.read_text(encoding='utf-8')).get('package', [])
         seen = set()
+        names = set()
         for package in packages:
             name, source = package['name'], package.get('source', '')
             if name not in MODEL_PACKAGES and repository not in source:
                 continue
-            if source != expected:
+            registry = (bool(registry_consumers) and name in ('intersect-model', 'intersect-build-support')
+                        and source == 'registry+https://github.com/rust-lang/crates.io-index'
+                        and package['version'] == contract['model']['version']
+                        and re.fullmatch('[0-9a-f]{64}', package.get('checksum', '')) is not None)
+            if source != expected and not registry:
                 errors.append(f'{path.relative_to(root)}: {name} has a different resolved Model source')
-            if name in seen:
+            if (name, source) in seen:
                 errors.append(f'{path.relative_to(root)}: duplicate Model package {name}')
-            seen.add(name)
+            seen.add((name, source))
+            names.add(name)
         for required in ('intersect-model', 'intersect-build-support'):
-            if required not in seen:
+            if required not in names:
                 errors.append(f'{path.relative_to(root)}: missing resolved {required}')
     legacy = root / 'docs/xtext-compatibility.json'
     if legacy.is_file():

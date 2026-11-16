@@ -42,3 +42,13 @@ The [editing guide](text-editing-guide.md) distinguishes canonical generation,
 general preservation and bounded helpers. Hosts own cancellation, memory
 admission, editor/disk writes and final revision checks. Native library, Node
 WASM and browser workflows need separate qualification evidence.
+
+## Released runtime adapters
+
+Unpublished host/example adapters consume the exact released Model/Text crates.
+Model owns `intersect-project-host`, the language-neutral `intersect-views` wire
+contracts, and `intersect-model-example-support`. The last adapter compiles the
+existing shared binding fixture sources against the registry Model types; it
+does not duplicate their implementations. Text Library/Web adapters likewise use
+registry runtime types. Source qualification harnesses retain their original
+workspace/Git runtime identities. Ordinary downstream builds use no local patches.

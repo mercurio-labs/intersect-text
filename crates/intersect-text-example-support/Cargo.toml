@@ -1,0 +1,14 @@
+[package]
+name = "intersect-text-example-support"
+description = "Shared browser/native fixture adapters against released Model and Text."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+intersect-model = "=0.1.0-alpha.1"
+intersect-text = "=0.1.0-alpha.1"
+intersect-model-test-support = { package = "intersect-model-example-support", git = "https://github.com/mercurio-labs/intersect-model.git", rev = "9f026067f71721909ea508177127fccf5e7efd44", version = "0.1.0-alpha.1" }
+serde_json.workspace = true
