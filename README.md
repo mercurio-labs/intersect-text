@@ -110,7 +110,7 @@ The [Xtext project](https://eclipse.dev/Xtext/) provides the conceptual referenc
 Intersect Text does not promise arbitrary Xtext language or IDE-feature parity;
 see the [language guide](docs/language-guide.md) for admission and execution limits.
 
-## Try the browser Toolkit and examples
+## Try the browser Toolkit
 
 [Open the Toolkit workbench](https://mercurio-labs.github.io/intersect-lang-examples/toolkit/)
 for language authoring and model/text workflows.
