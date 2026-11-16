@@ -141,7 +141,7 @@ def manifest_text(data):
     return text
 
 
-def standalone_manifest(data, workspace, patches=None):
+def standalone_manifest(data, workspace, patches=None, registry=False):
     data = copy.deepcopy(data)
     for key, value in list(data['package'].items()):
         if isinstance(value, dict) and value.get('workspace'):
@@ -170,6 +170,8 @@ def standalone_manifest(data, workspace, patches=None):
                         raise ValueError(f'Unstaged Git dependency: {alias}')
                     for key in ('git', 'rev', 'tag', 'branch'):
                         value.pop(key, None)
+                if registry and value.get('package', alias) in PACKAGES:
+                    value['version'] = '=' + value['version'].lstrip('=')
                 tables[kind][alias] = value
     dependencies(data)
     for target in data.get('target', {}).values():
@@ -184,8 +186,8 @@ def standalone_manifest(data, workspace, patches=None):
         data.pop('patch', None)
     data['package']['license-file'] = 'LICENSE'
     data['package'].pop('license', None)
-    # These are GitHub source-bundle artifacts, not registry publish candidates.
-    data['package']['publish'] = False
+    # Registry publication is an explicit opt-in; source bundles stay unpublished.
+    data['package']['publish'] = ['crates-io'] if registry else False
     return data
 
 
@@ -205,7 +207,7 @@ def fixture_owner(path, root=None):
     return root.joinpath(*parts[:depth])
 
 
-def package_inputs(name, tracked, package=None, root=None):
+def package_inputs(name, tracked, package=None, root=None, full_evidence=True):
     root = root or ROOT
     package = package or root / 'crates' / name
     owned = {path for path in tracked if path.is_relative_to(package) and io_path(path).is_file()}
@@ -233,7 +235,7 @@ def package_inputs(name, tracked, package=None, root=None):
     # oracle results. Copies are distribution artifacts, not new golden owners.
     owners = {owner for source in mapping if (owner := fixture_owner(source, root)) is not None}
     for path in tracked:
-        if any(path.is_relative_to(owner) for owner in owners) and io_path(path).is_file():
+        if full_evidence and any(path.is_relative_to(owner) for owner in owners) and io_path(path).is_file():
             resolved = path.resolve()
             mapping.setdefault(resolved, Path('packaged-inputs') / path.relative_to(root))
     add_notice_inputs(mapping, {path.resolve() for path in tracked}, root.resolve())
@@ -353,7 +355,37 @@ def resolved_targets():
     return targets
 
 
-def stage(output, vendor=False):
+def registry_metadata(output, ledger, roots):
+    """Retain portable provenance and notice indexes inside each registry package."""
+    notices = json.loads((output / 'third-party-notices.json').read_text(encoding='utf-8'))
+    for name, entry in ledger['packages'].items():
+        destination = output / 'packages' / name
+        provenance = {
+            'repository': roots[entry['source_root']],
+            'revision': entry['source_commit'],
+            'source_dirty': ledger['source_dirty'],
+            'distribution': 'Standalone registry package; literal input paths and documentation links are relocated. File hashes describe the stage before Cargo normalizes its manifest and lockfile.',
+            'files': entry['files'],
+        }
+        (destination / 'SOURCE_PROVENANCE.json').write_text(json.dumps(provenance, indent=2) + '\n', encoding='utf-8')
+        components = copy.deepcopy(notices['packages'][name])
+        for component in components:
+            for notice in component['notices']:
+                prefix = f'packages/{name}/'
+                if not notice['path'].startswith(prefix):
+                    raise ValueError('Registry notice escapes its package: ' + notice['path'])
+                notice['path'] = notice['path'][len(prefix):]
+        (destination / 'third-party-notices.json').write_text(json.dumps(components, indent=2) + '\n', encoding='utf-8')
+        lines = ['# Third-party notices', '',
+                 'Intersect-authored code uses MIT; imported inputs retain their own terms.',
+                 'See third-party-notices.json for exact component versions and notice hashes.', '']
+        for component in components:
+            lines.append('- ' + component['component'] + ': ' + component['license'] + '. ' +
+                         ', '.join(f"[{Path(n['path']).name}]({n['path']})" for n in component['notices']))
+        (destination / 'THIRD_PARTY_NOTICES.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+
+
+def stage(output, vendor=False, registry=False):
     output = output.resolve()
     if output.exists():
         raise ValueError(f'Use a new output directory: {output}')
@@ -364,7 +396,8 @@ def stage(output, vendor=False):
     roots = {repository for _, _, _, repository in targets}
     tracked = {repository: tracked_files(repository) for repository in roots}
     workspaces = {repository: tomllib.loads((repository / 'Cargo.toml').read_text(encoding='utf-8'))['workspace'] for repository in roots}
-    plans = {(group, name): package_inputs(name, tracked[repository], owner, repository)
+    plans = {(group, name): package_inputs(name, tracked[repository], owner, repository,
+                                         full_evidence=not registry)
              for group, name, owner, repository in targets}
     sources = {path: io_path(path).read_bytes() for mapping, _ in plans.values() for path in mapping}
     output.mkdir(parents=True)
@@ -415,7 +448,8 @@ def stage(output, vendor=False):
             required = ('intersect-build-support', 'intersect-model')
         prefix = '../' if group == 'packages' else '../../packages/'
         patches = {dependency: {'path': prefix + dependency} for dependency in required if dependency != name}
-        manifest = standalone_manifest(tomllib.loads((owner / 'Cargo.toml').read_text(encoding='utf-8')), workspace, patches)
+        manifest = standalone_manifest(tomllib.loads((owner / 'Cargo.toml').read_text(encoding='utf-8')), workspace,
+                                       patches, registry=registry and group == 'packages')
         normalized = manifest_text(manifest).encode('utf-8')
         (destination / 'Cargo.toml').write_bytes(normalized)
         manifest_row = next(row for row in rows if row['staged'] == 'Cargo.toml')
@@ -442,6 +476,9 @@ def stage(output, vendor=False):
     if vendor:
         vendor_dependencies(output, ledger)
     write_index(output, ledger)
+    if registry:
+        registry_metadata(output, ledger, {
+            str(process_path(repository)): workspaces[repository]['package']['repository'] for repository in roots})
     verification = output / 'verification'
     verification.mkdir()
     ledger['verification'] = {}
@@ -462,8 +499,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--vendor', action='store_true', help='Package locked registry dependencies for offline workers')
+    parser.add_argument('--registry', action='store_true', help='Opt packages into crates.io with exact internal versions and portable provenance')
     args = parser.parse_args()
-    stage(args.output, args.vendor)
+    stage(args.output, args.vendor, args.registry)
 
 
 if __name__ == '__main__':

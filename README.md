@@ -32,6 +32,19 @@ Grammar admission, execution, serialization, and preservation have distinct
 support boundaries. Arbitrary Xtext languages and Java/Xtend customizations are
 not automatically supported; custom semantics need explicit native providers.
 
+## Install
+
+The first registry release is `0.1.0-alpha.1`, for evaluation and feedback:
+
+```toml
+[dependencies]
+intersect-text = "=0.1.0-alpha.1"
+```
+
+Model services are included as a dependency. Add `intersect-model` at the same
+exact alpha version if your application also imports its APIs directly.
+APIs may change between alpha releases. Native Rust and WebAssembly are supported.
+
 ## A small language
 
 This example defines a language that reads `item first;` into an `Item` model:
@@ -128,11 +141,11 @@ checkout is not required for the normal build.
 
 The repositories are preparing their first release after the Model/Text split.
 Use the [release plan](docs/release-plan.md) for scope, known gaps, and acceptance
-criteria. Registry installation and unrestricted Xtext compatibility are not
-claimed here. Fetching the private Model dependency requires repository access.
-This GitHub prerelease plans no crates.io publication. The proposed later registry
+criteria. Unrestricted Xtext compatibility is not claimed. The registry release
 set is `intersect-model`, `intersect-text`, and their shared host-only
 `intersect-build-support`; see the [package boundary](docs/release-plan.md#package-and-api-boundary).
+The [registry release procedure](docs/registry-release.md) explains standalone
+packages, retained upstream notices, and release verification.
 
 - [Architecture](docs/architecture.md) and [documentation index](docs/README.md)
 - [Language guide](docs/language-guide.md) and [text editing guide](docs/text-editing-guide.md)
@@ -171,7 +184,8 @@ Hosted CI must be qualified on the final baseline; workflow definitions
 and skipped platform checks are not passing evidence.
 Registry publication is a separate operation.
 
-Text CI needs the organization secret `INTERSECT_READ_TOKEN` with read access to both private repositories. Runners need GitHub CLI for the configured credential helper. CI execution remains user-skipped.
+The public Model dependency requires no private read token. Hosted CI results
+remain separate from local release verification.
 
 ## License
 

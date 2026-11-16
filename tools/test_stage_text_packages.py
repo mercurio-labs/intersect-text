@@ -113,6 +113,35 @@ const ACTUAL: &str = include_str!(r#"actual.txt"#);
         self.assertNotIn('license', result['package'])
         self.assertEqual(result['package']['license-file'], 'LICENSE')
 
+    def test_registry_dependencies_are_exact_and_sources_remain_local_only_in_patches(self):
+        data = {'package': {'name': 'intersect-text', 'version': '0.1.0-alpha.1'},
+                'dependencies': {'intersect-model': {'git': 'https://example.test/model',
+                                                   'rev': 'a' * 40, 'version': '0.1.0-alpha.1'}}}
+        result = stage.standalone_manifest(data, {'package': {}}, patches={}, registry=True)
+        self.assertEqual(result['package']['publish'], ['crates-io'])
+        self.assertEqual(result['dependencies']['intersect-model'], {'version': '=0.1.0-alpha.1'})
+        self.assertNotIn('patch', result)
+        stage.manifest_text(result)
+
+    def test_registry_keeps_literal_inputs_without_unrelated_oracle_corpora(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            package = root / 'crates/example'
+            source = package / 'src/lib.rs'
+            source.parent.mkdir(parents=True)
+            source.write_text('const INPUT: &str = include_str!("../../../fixtures/demo/used.txt");')
+            used = root / 'fixtures/demo/used.txt'
+            used.parent.mkdir(parents=True)
+            used.write_text('required bytes')
+            extra = used.with_name('unrelated-oracle.txt')
+            extra.write_text('source-bundle evidence')
+            tracked = {source, used, extra}
+            full, _ = stage.package_inputs('example', tracked, package, root)
+            registry, _ = stage.package_inputs('example', tracked, package, root, full_evidence=False)
+            self.assertIn(extra, full)
+            self.assertIn(used, registry)
+            self.assertNotIn(extra, registry)
+
 
 if __name__ == '__main__':
     unittest.main()

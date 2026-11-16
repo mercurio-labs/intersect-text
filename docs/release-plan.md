@@ -1,6 +1,6 @@
 # Evaluation alpha release plan
 
-Updated 2026-11-13. This fresh-history baseline contains the integrated alpha work
+Updated 2026-11-16. This fresh-history baseline contains the integrated alpha work
 and approved cleanup. Earlier development history and component-design work remain
 in private pre-dev storage and independently restored local backups. Release
 publication and final artifact qualification are separate decisions.
@@ -8,8 +8,10 @@ publication and final artifact qualification are separate decisions.
 ## Release objective and scope
 
 The coordinated `0.1.0-alpha.1` release is for evaluation and feedback.
-Distribution is a GitHub prerelease with source/package artifacts and a runnable
-browser example. This release publishes **zero crates.io packages**.
+Distribution includes public Model and Text repositories and three crates.io
+packages: `intersect-build-support`, `intersect-model`, and `intersect-text`.
+See [the registry procedure](registry-release.md) for standalone package preparation,
+publication order, exact dependency pairing, and retained notices.
 
 Model's application entry points are DynamicSchema/DynamicModel, Rcore packages,
 checked editing, resources, persistence and supported execution. Text adds admitted
@@ -32,10 +34,11 @@ This cleanup changes no format/profile identifiers, limits or decoding rules.
 
 ### Package and API boundary
 
-A later registry release would require `intersect-model`, `intersect-text` and the
-host-only `intersect-build-support` under the current architecture. Other workspace
-crates are maintained development/host/example components, not additional registry
-products in this alpha. Registry publication needs a separate preparation and decision.
+The registry release includes `intersect-model`, `intersect-text` and the host-only
+`intersect-build-support`. Other workspace crates remain development/host/example
+components and are not registry products in this alpha. The release owner has
+authorized public visibility of the active Model/Text repositories and crate
+publication. Archived pre-dev repositories remain private.
 
 Use the application facades documented in the guides. Advanced activation and host
 contracts have an `extensions` entry point; specialized provider/storage modules
