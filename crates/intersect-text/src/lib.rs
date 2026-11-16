@@ -4025,7 +4025,39 @@ pub fn evaluate(package: &Package, sources: &[Source]) -> Evaluation {
 pub struct StoredEvaluation {
     pub diagnostics: Vec<Diagnostic>,
     pub references: Vec<Reference>,
+    /// Exact active reference occurrences from construction-only runtime parsing.
+    /// These carry no resolution claim; a later language linker supplies targets.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub unresolved_references: Vec<UnresolvedReference>,
     pub derived: BTreeMap<String, BTreeMap<String, Value>>,
+}
+
+/// Language-neutral source occurrence retained before a separate linking phase.
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+pub struct UnresolvedReference {
+    pub owner: String,
+    pub feature: String,
+    pub spelling: String,
+    pub target_class: String,
+    pub uri: String,
+    pub start: usize,
+    pub end: usize,
+    pub index: Option<usize>,
+}
+
+impl From<&Pending> for UnresolvedReference {
+    fn from(reference: &Pending) -> Self {
+        Self {
+            owner: reference.owner.to_string(),
+            feature: reference.field.to_string(),
+            spelling: reference.spelling.clone(),
+            target_class: reference.target.to_string(),
+            uri: reference.uri.to_string(),
+            start: reference.start,
+            end: reference.end,
+            index: reference.index,
+        }
+    }
 }
 
 /// A live, compact model and its evaluation metadata. Creating this result does
