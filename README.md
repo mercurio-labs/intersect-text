@@ -2,6 +2,9 @@
 
 **Turn language definitions into parsers, linked models, and model-aware text editing.**
 
+[Try the browser Toolkit](https://mercurio-labs.github.io/intersect-lang-examples/toolkit/)
+· [Explore the examples](https://mercurio-labs.github.io/intersect-lang-examples/)
+
 Intersect Text was designed around the same conceptual ideas as
 [Eclipse Xtext](https://eclipse.dev/Xtext/): describe a language's grammar and
 connect parsing, linking, diagnostics and editing to its model. It implements
@@ -107,16 +110,11 @@ The [Xtext project](https://eclipse.dev/Xtext/) provides the conceptual referenc
 Intersect Text does not promise arbitrary Xtext language or IDE-feature parity;
 see the [language guide](docs/language-guide.md) for admission and execution limits.
 
-## Try the browser Toolkit
+## Try the browser Toolkit and examples
 
-Hosting is currently disabled. Download **examples-site.zip** from the
-[verified preview build](https://github.com/mercurio-labs/intersect-lang-examples/releases/tag/examples-preview-2026-11-13), unzip it,
-then run `python -m http.server 8000` in the extracted directory and open
-`http://localhost:8000/`. The site links below are reserved for future hosting.
-Future successful Browser examples workflow runs also provide an `examples-site`
-artifact; the preview download is built and checked locally.
-
-[Open the interactive example site](https://mercurio-labs.github.io/intersect-lang-examples/) for Petri simulation,
+[Open the Toolkit workbench](https://mercurio-labs.github.io/intersect-lang-examples/toolkit/)
+for language authoring and model/text workflows.
+[Browse the interactive examples](https://mercurio-labs.github.io/intersect-lang-examples/) for Petri simulation,
 Catalog reference exploration, and the Library simulator's synchronized model
 and text editing. Toolkit now lives in
 [intersect-lang-examples/toolkit](https://github.com/mercurio-labs/intersect-lang-examples/tree/develop/toolkit),
