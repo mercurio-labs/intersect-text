@@ -137,6 +137,9 @@ pub struct Source {
     pub uri: String,
     pub text: String,
 }
+
+#[cfg(feature = "components")]
+pub mod components;
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Reference {
     pub uri: String,

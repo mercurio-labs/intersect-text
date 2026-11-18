@@ -5,6 +5,9 @@
 //! helper files are loaded once per former binary, as before the merge.
 #![allow(clippy::duplicate_mod)]
 
+#[cfg(feature = "components")]
+mod component_sessions;
+
 #[path = "call_free_relative_v75.rs"]
 pub mod call_free_relative_v75;
 

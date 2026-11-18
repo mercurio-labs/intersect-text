@@ -361,6 +361,50 @@ impl<C: DraftCapability> DraftLanguage<'_, '_, C> {
         store: &mut S,
         caller: &mut QueryBudget,
     ) -> Result<(StoredEvaluation, usize, usize), String> {
+        self.parse_runtime_pending_with_settings(source, limits, settings, store, caller)
+            .map(|(evaluation, pending, consumed)| (evaluation, pending.len(), consumed))
+    }
+
+    /// Construction with exact pending reference locations retained for a
+    /// component-aware linker. Uses the same parser and capability checks.
+    #[cfg(feature = "components")]
+    pub fn parse_component_into_with_settings<S: ModelStore>(
+        &self,
+        source: &Source,
+        limits: EvaluationLimits,
+        settings: Option<&setting::CheckedDraftTextSettings<'_>>,
+        store: &mut S,
+        caller: &mut QueryBudget,
+    ) -> Result<crate::components::ParsedComponentSource, String> {
+        let (evaluation, pending, consumed) =
+            self.parse_runtime_pending_with_settings(source, limits, settings, store, caller)?;
+        Ok(crate::components::ParsedComponentSource {
+            evaluation,
+            pending: pending
+                .into_iter()
+                .map(|reference| crate::components::PendingReference {
+                    owner: reference.owner.to_string(),
+                    feature: reference.field.to_string(),
+                    spelling: reference.spelling,
+                    target_class: reference.target.to_string(),
+                    uri: reference.uri.to_string(),
+                    start: reference.start,
+                    end: reference.end,
+                    index: reference.index,
+                })
+                .collect(),
+            consumed,
+        })
+    }
+
+    fn parse_runtime_pending_with_settings<S: ModelStore>(
+        &self,
+        source: &Source,
+        limits: EvaluationLimits,
+        settings: Option<&setting::CheckedDraftTextSettings<'_>>,
+        store: &mut S,
+        caller: &mut QueryBudget,
+    ) -> Result<(StoredEvaluation, Vec<crate::Pending>, usize), String> {
         if let Some(settings) = settings
             && !settings.belongs_to(self.definition)
         {
@@ -422,7 +466,7 @@ impl<C: DraftCapability> DraftLanguage<'_, '_, C> {
         limits: EvaluationLimits,
         store: &mut S,
         caller: &mut QueryBudget,
-    ) -> Result<(StoredEvaluation, usize, usize), String> {
+    ) -> Result<(StoredEvaluation, Vec<crate::Pending>, usize), String> {
         let grammar = self
             .definition
             .grammar()
@@ -452,7 +496,10 @@ impl<C: DraftCapability> DraftLanguage<'_, '_, C> {
                 .filter(|reference| reference.active)
                 .map(crate::UnresolvedReference::from)
                 .collect();
-            Ok(output.unresolved_references.len())
+            Ok(pending
+                .into_iter()
+                .filter(|reference| reference.active)
+                .collect())
         });
         match result {
             Ok(proxies) => Ok((output, proxies, context.consumed.get())),
