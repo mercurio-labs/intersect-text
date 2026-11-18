@@ -152,3 +152,38 @@ jobs:
             target/test-reports/
           if-no-files-found: warn
           retention-days: 14
+
+  components:
+    name: Retained component sessions (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Enable long paths
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: gh auth setup-git
+      - name: Install Rust
+        run: rustup toolchain install 1.99.1 --profile minimal --component clippy --target wasm32-unknown-unknown
+      - name: Component-enabled runtime controls
+        run: python -B tools/test_report.py run -- --profile test-fast -p intersect-text --features components --test all --locked
+      - name: Component-enabled strict lint
+        run: cargo clippy -p intersect-text --features components --all-targets --locked -- -D warnings
+      - name: Component-enabled WASM
+        run: cargo build -p intersect-text --features components --lib --target wasm32-unknown-unknown --locked
+      - name: Reviewed component API contracts (Windows baseline)
+        if: runner.os == 'Windows'
+        env:
+          RUSTC_BOOTSTRAP: "1"
+          RUSTDOCFLAGS: "-D warnings"
+        run: |
+          cargo rustdoc -p intersect-text --lib --features components --locked -- -Z unstable-options --output-format json --document-private-items --document-hidden-items
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B tools/api_surface.py target/doc/intersect_text.json --check tests/api-surface/components.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B tools/api_contracts.py target/doc/intersect_text.json --check tests/api-surface/contracts-components.json
