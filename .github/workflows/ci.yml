@@ -47,10 +47,12 @@ jobs:
         run: gh auth setup-git
       - name: Install minimum Rust
         run: rustup toolchain install 1.88.0 --profile minimal --target wasm32-unknown-unknown
+      - name: Fetch locked dependencies
+        run: cargo fetch --locked
       - name: Check native library features
-        run: cargo check --workspace --lib --all-features --locked
+        run: python -B tools/compiler_build.py -- check --workspace --lib --all-features --locked
       - name: Check WASM libraries
-        run: cargo check --workspace --lib --target wasm32-unknown-unknown --locked
+        run: python -B tools/compiler_build.py -- check --workspace --lib --target wasm32-unknown-unknown --locked
 
   scoped:
     name: ${{ matrix.scope }} native/WASM (${{ matrix.os }})
