@@ -45,3 +45,21 @@ Read README.md, docs/architecture.md, and docs/release-plan.md before changing s
   documented in README.md.
 - Follow user-authorized scope. A starter, proposal, or metadata registration
   must not be described as a completed modeling framework.
+
+## Approved local loader/cache correction
+
+On 2026-11-18 the user approved the completed Views
+docs/loader-boundary-correction-spec.md. In this isolated worktree, add the
+neutral intersect-load package, preserve Text runtime source/APIs, and pair the
+recorded 4247679 runtime baseline with the approved Model build-support correction
+through full immutable local Git pins and maintained locks. Preserve original,
+M13/M14 and newer develop work. No push, merge or publication is authorized.
+
+## Approved M14 read-preparation correction
+
+On 2026-11-19 the user explicitly approved Views
+docs/m14-read-boundary-correction-spec.md. This new isolated worktree may pair
+the qualified a4b66da Text/loader baseline with the approved internal Model
+read-preparation correction through immutable Model/build-support pins and all
+maintained locks. Text runtime source/APIs stay unchanged. Preserve original,
+qualified and M14 work; no installer, server, push, merge or publication work.

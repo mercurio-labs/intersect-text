@@ -1,0 +1,650 @@
+[
+  {
+    "case": "clean",
+    "outcome": {
+      "clean": true,
+      "diagnostics": [],
+      "model": {
+        "elements": [
+          {
+            "class": "Model",
+            "end": 117,
+            "id": "types.catalog#0",
+            "resource": "types.catalog",
+            "start": 0,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#0",
+            "values": {
+              "elements": [
+                "types.catalog#1",
+                "types.catalog#4"
+              ],
+              "imports": []
+            }
+          },
+          {
+            "class": "Package",
+            "end": 55,
+            "id": "types.catalog#1",
+            "resource": "types.catalog",
+            "start": 0,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#3",
+            "values": {
+              "elements": [
+                "types.catalog#2",
+                "types.catalog#3"
+              ],
+              "name": "base.types"
+            }
+          },
+          {
+            "class": "DataType",
+            "end": 38,
+            "id": "types.catalog#2",
+            "resource": "types.catalog",
+            "start": 23,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#5",
+            "values": {
+              "name": "String"
+            }
+          },
+          {
+            "class": "DataType",
+            "end": 53,
+            "id": "types.catalog#3",
+            "resource": "types.catalog",
+            "start": 41,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#5",
+            "values": {
+              "name": "Int"
+            }
+          },
+          {
+            "class": "Package",
+            "end": 117,
+            "id": "types.catalog#4",
+            "resource": "types.catalog",
+            "start": 56,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#3",
+            "values": {
+              "elements": [
+                "types.catalog#5"
+              ],
+              "name": "base"
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 115,
+            "id": "types.catalog#5",
+            "resource": "types.catalog",
+            "start": 73,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [
+                "types.catalog#6"
+              ],
+              "name": "Named",
+              "superType": null
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 111,
+            "id": "types.catalog#6",
+            "resource": "types.catalog",
+            "start": 92,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "name",
+              "type": "types.catalog#2"
+            }
+          },
+          {
+            "class": "Model",
+            "end": 317,
+            "id": "shop.catalog#0",
+            "resource": "shop.catalog",
+            "start": 0,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#0",
+            "values": {
+              "elements": [
+                "shop.catalog#3"
+              ],
+              "imports": [
+                "shop.catalog#1",
+                "shop.catalog#2"
+              ]
+            }
+          },
+          {
+            "class": "Import",
+            "end": 19,
+            "id": "shop.catalog#1",
+            "resource": "shop.catalog",
+            "start": 0,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#1",
+            "values": {
+              "importedNamespace": "base.types.*"
+            }
+          },
+          {
+            "class": "Import",
+            "end": 37,
+            "id": "shop.catalog#2",
+            "resource": "shop.catalog",
+            "start": 20,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#1",
+            "values": {
+              "importedNamespace": "base.Named"
+            }
+          },
+          {
+            "class": "Package",
+            "end": 317,
+            "id": "shop.catalog#3",
+            "resource": "shop.catalog",
+            "start": 38,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#3",
+            "values": {
+              "elements": [
+                "shop.catalog#4",
+                "shop.catalog#7",
+                "shop.catalog#10"
+              ],
+              "name": "shop"
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 128,
+            "id": "shop.catalog#4",
+            "resource": "shop.catalog",
+            "start": 55,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [
+                "shop.catalog#5",
+                "shop.catalog#6"
+              ],
+              "name": "Customer",
+              "superType": "types.catalog#5"
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 100,
+            "id": "shop.catalog#5",
+            "resource": "shop.catalog",
+            "start": 91,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "age",
+              "type": "types.catalog#3"
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 124,
+            "id": "shop.catalog#6",
+            "resource": "shop.catalog",
+            "start": 105,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": true,
+              "name": "orders",
+              "type": "shop.catalog#7"
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 200,
+            "id": "shop.catalog#7",
+            "resource": "shop.catalog",
+            "start": 131,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [
+                "shop.catalog#8",
+                "shop.catalog#9"
+              ],
+              "name": "Order",
+              "superType": null
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 169,
+            "id": "shop.catalog#8",
+            "resource": "shop.catalog",
+            "start": 150,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "customer",
+              "type": "shop.catalog#4"
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 196,
+            "id": "shop.catalog#9",
+            "resource": "shop.catalog",
+            "start": 174,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "total",
+              "type": "types.catalog#3"
+            }
+          },
+          {
+            "class": "Package",
+            "end": 315,
+            "id": "shop.catalog#10",
+            "resource": "shop.catalog",
+            "start": 203,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#3",
+            "values": {
+              "elements": [
+                "shop.catalog#11"
+              ],
+              "name": "billing"
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 311,
+            "id": "shop.catalog#11",
+            "resource": "shop.catalog",
+            "start": 225,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [
+                "shop.catalog#12",
+                "shop.catalog#13"
+              ],
+              "name": "Invoice",
+              "superType": "shop.catalog#7"
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 282,
+            "id": "shop.catalog#12",
+            "resource": "shop.catalog",
+            "start": 267,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "number",
+              "type": "types.catalog#2"
+            }
+          },
+          {
+            "class": "Feature",
+            "end": 305,
+            "id": "shop.catalog#13",
+            "resource": "shop.catalog",
+            "start": 289,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#7",
+            "values": {
+              "many": false,
+              "name": "buyer",
+              "type": "shop.catalog#4"
+            }
+          }
+        ],
+        "resources": {
+          "shop.catalog": {
+            "content_revision": "90",
+            "diagnostics": [],
+            "load_state": "Loaded",
+            "roots": [
+              "shop.catalog#0"
+            ],
+            "source": null,
+            "uri": "shop.catalog"
+          },
+          "types.catalog": {
+            "content_revision": "40",
+            "diagnostics": [],
+            "load_state": "Loaded",
+            "roots": [
+              "types.catalog#0"
+            ],
+            "source": null,
+            "uri": "types.catalog"
+          }
+        },
+        "schema_revision": "f6e429e4cd1da3c5899faee578f586346f24af8846e4f09e34ad478ecedb4887"
+      },
+      "navigation": [
+        {
+          "end": 84,
+          "start": 79,
+          "target": "types.catalog#5",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 100,
+          "start": 97,
+          "target": "types.catalog#3",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 124,
+          "start": 119,
+          "target": "shop.catalog#7",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 169,
+          "start": 161,
+          "target": "shop.catalog#4",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 196,
+          "start": 182,
+          "target": "types.catalog#3",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 258,
+          "start": 248,
+          "target": "shop.catalog#7",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 282,
+          "start": 276,
+          "target": "types.catalog#2",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 305,
+          "start": 297,
+          "target": "shop.catalog#4",
+          "uri": "shop.catalog"
+        },
+        {
+          "end": 111,
+          "start": 99,
+          "target": "types.catalog#2",
+          "uri": "types.catalog"
+        }
+      ],
+      "phases": [
+        "parse_end",
+        "link_end",
+        "implicit_end",
+        "defaults_end",
+        "validate_end",
+        "check_end"
+      ],
+      "proxies": 9,
+      "references": 9,
+      "resolved": 9,
+      "unresolvedOccurrences": 9
+    }
+  },
+  {
+    "case": "unresolved",
+    "outcome": {
+      "clean": false,
+      "diagnostics": [
+        {
+          "end": 26,
+          "message": "missing.catalog#2.type: no element named 'Missing'",
+          "object": "missing.catalog#2",
+          "phase": "link",
+          "resource": "missing.catalog",
+          "severity": "error",
+          "start": 11
+        },
+        {
+          "code": "Unresolved",
+          "message": "missing.catalog#2.type: unresolved reference 'Missing'",
+          "object": "missing.catalog#2",
+          "phase": "link",
+          "severity": "error"
+        }
+      ],
+      "model": null,
+      "navigation": [],
+      "phases": [
+        "parse_end",
+        "link_end"
+      ],
+      "proxies": 1,
+      "references": 1,
+      "resolved": 0,
+      "unresolvedOccurrences": 1
+    }
+  },
+  {
+    "case": "parse",
+    "outcome": {
+      "clean": false,
+      "diagnostics": [
+        {
+          "end": 10,
+          "message": "Expected ID",
+          "phase": "parse",
+          "resource": "parse.catalog",
+          "severity": "error",
+          "start": 9
+        }
+      ],
+      "model": {
+        "elements": [],
+        "resources": {
+          "parse.catalog": {
+            "content_revision": "0",
+            "diagnostics": [],
+            "load_state": "Loaded",
+            "roots": [],
+            "source": null,
+            "uri": "parse.catalog"
+          }
+        },
+        "schema_revision": "f6e429e4cd1da3c5899faee578f586346f24af8846e4f09e34ad478ecedb4887"
+      },
+      "navigation": [],
+      "phases": [
+        "parse_end",
+        "link_end",
+        "implicit_end",
+        "defaults_end",
+        "validate_end",
+        "check_end"
+      ],
+      "proxies": 0,
+      "references": 0,
+      "resolved": 0,
+      "unresolvedOccurrences": 0
+    }
+  },
+  {
+    "case": "structure",
+    "outcome": {
+      "clean": false,
+      "diagnostics": [
+        {
+          "code": "Multiplicity",
+          "message": "structure.catalog#1.name: 0 values outside [1,1]",
+          "object": "structure.catalog#1",
+          "phase": "validate",
+          "severity": "error"
+        }
+      ],
+      "model": null,
+      "navigation": [],
+      "phases": [
+        "parse_end",
+        "link_end",
+        "implicit_end",
+        "defaults_end",
+        "validate_end"
+      ],
+      "proxies": 0,
+      "references": 0,
+      "resolved": 0,
+      "unresolvedOccurrences": 0
+    }
+  },
+  {
+    "case": "error",
+    "outcome": {
+      "clean": false,
+      "diagnostics": [
+        {
+          "code": "fixture.error",
+          "end": 22,
+          "feature": "name",
+          "message": "Rejected entity.",
+          "object": "error.catalog#1",
+          "phase": "check",
+          "resource": "error.catalog",
+          "severity": "error",
+          "start": 9
+        }
+      ],
+      "model": {
+        "elements": [
+          {
+            "class": "Model",
+            "end": 22,
+            "id": "error.catalog#0",
+            "resource": "error.catalog",
+            "start": 9,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#0",
+            "values": {
+              "elements": [
+                "error.catalog#1"
+              ],
+              "imports": []
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 22,
+            "id": "error.catalog#1",
+            "resource": "error.catalog",
+            "start": 9,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [],
+              "name": "Bad",
+              "superType": null
+            }
+          }
+        ],
+        "resources": {
+          "error.catalog": {
+            "content_revision": "9",
+            "diagnostics": [],
+            "load_state": "Loaded",
+            "roots": [
+              "error.catalog#0"
+            ],
+            "source": null,
+            "uri": "error.catalog"
+          }
+        },
+        "schema_revision": "f6e429e4cd1da3c5899faee578f586346f24af8846e4f09e34ad478ecedb4887"
+      },
+      "navigation": [],
+      "phases": [
+        "parse_end",
+        "link_end",
+        "implicit_end",
+        "defaults_end",
+        "validate_end",
+        "check_end"
+      ],
+      "proxies": 0,
+      "references": 0,
+      "resolved": 0,
+      "unresolvedOccurrences": 0
+    }
+  },
+  {
+    "case": "warning",
+    "outcome": {
+      "clean": true,
+      "diagnostics": [
+        {
+          "code": "fixture.warning",
+          "end": 23,
+          "feature": "name",
+          "message": "Review entity.",
+          "object": "warning.catalog#1",
+          "phase": "check",
+          "resource": "warning.catalog",
+          "severity": "warning",
+          "start": 9
+        }
+      ],
+      "model": {
+        "elements": [
+          {
+            "class": "Model",
+            "end": 23,
+            "id": "warning.catalog#0",
+            "resource": "warning.catalog",
+            "start": 9,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#0",
+            "values": {
+              "elements": [
+                "warning.catalog#1"
+              ],
+              "imports": []
+            }
+          },
+          {
+            "class": "Entity",
+            "end": 23,
+            "id": "warning.catalog#1",
+            "resource": "warning.catalog",
+            "start": 9,
+            "type_identity": "catalog.rcore@57b8c4f9119b3f83a28b5631f603fa22d8ab1c028de6da32d8ba69542c353f11#6",
+            "values": {
+              "features": [],
+              "name": "Warn",
+              "superType": null
+            }
+          }
+        ],
+        "resources": {
+          "warning.catalog": {
+            "content_revision": "9",
+            "diagnostics": [],
+            "load_state": "Loaded",
+            "roots": [
+              "warning.catalog#0"
+            ],
+            "source": null,
+            "uri": "warning.catalog"
+          }
+        },
+        "schema_revision": "f6e429e4cd1da3c5899faee578f586346f24af8846e4f09e34ad478ecedb4887"
+      },
+      "navigation": [],
+      "phases": [
+        "parse_end",
+        "link_end",
+        "implicit_end",
+        "defaults_end",
+        "validate_end",
+        "check_end"
+      ],
+      "proxies": 0,
+      "references": 0,
+      "resolved": 0,
+      "unresolvedOccurrences": 0
+    }
+  }
+]

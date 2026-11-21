@@ -27,6 +27,7 @@ See [repository development](repository-development.md) and the current
 | Component | Responsibility |
 | --- | --- |
 | `intersect-text` | Source-authoritative grammar compilation, inference, analysis, linking and text/model correspondence |
+| `intersect-load` | Unpublished language-neutral frozen loading and diagnostics; depends on Text/Model, without Views or language-package dependencies |
 | `intersect-library` | Independent example language and consumer of shared model/text services |
 | `intersect-web` | WASM request/response host and explicit session contracts |
 | `intersect-lang-examples/toolkit/` | Browser UI, workers, source drafts, transport and publication |
