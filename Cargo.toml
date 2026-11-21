@@ -8,3 +8,10 @@
 
 ["profile"]
 "test-fast" = { "inherits" = "dev", "opt-level" = 1, "debug" = 0, "incremental" = true, "package" = { "*" = { "opt-level" = 3 } } }
+
+# Source checkout builds share one runtime with the registry-compatible adapters.
+# Downstream workspaces and staged packages select their own released pair.
+[patch.crates-io]
+intersect-model = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "b3b1b5e825e969bcb5e0219416ec2f053aa84206" }
+intersect-build-support = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "b3b1b5e825e969bcb5e0219416ec2f053aa84206" }
+intersect-text = { path = "crates/intersect-text" }
