@@ -4,7 +4,7 @@
 "members" = ["crates/intersect-load", "crates/intersect-text", "crates/intersect-library", "crates/intersect-web", "crates/intersect-text-example-support", "tests/text-acceptance", "tests/resource-lifecycle", "tests/model-text"]
 "resolver" = "3"
 "package" = { "version" = "0.1.0-alpha.2", "edition" = "2024", "rust-version" = "1.88", "license" = "MIT", "repository" = "https://github.com/mercurio-labs/intersect-text", "publish" = false }
-"dependencies" = { "intersect-model" = { "version" = "0.1.0-alpha.2", "git" = "https://github.com/mercurio-labs/intersect-model.git", "rev" = "a7c8a8a5ec25c0cc12dbbde8d2dce10083c83cff" }, "intersect-text" = { "path" = "crates/intersect-text", "version" = "0.1.0-alpha.2" }, "serde" = { "version" = "1.0.228", "features" = ["derive", "rc"] }, "serde_json" = "1.0.149", "quick-xml" = "0.41.0", "sha2" = "0.10.9", "iri-string" = { "version" = "0.7.12", "default-features" = false, "features" = ["alloc"] } }
+"dependencies" = { "intersect-model" = { "version" = "0.1.0-alpha.2", "git" = "https://github.com/mercurio-labs/intersect-model.git", "rev" = "11c33990a50cb4074d4f97619687a6b33358e560" }, "intersect-text" = { "path" = "crates/intersect-text", "version" = "0.1.0-alpha.2" }, "serde" = { "version" = "1.0.228", "features" = ["derive", "rc"] }, "serde_json" = "1.0.149", "quick-xml" = "0.41.0", "sha2" = "0.10.9", "iri-string" = { "version" = "0.7.12", "default-features" = false, "features" = ["alloc"] } }
 
 ["profile"]
 "test-fast" = { "inherits" = "dev", "opt-level" = 1, "debug" = 0, "incremental" = true, "package" = { "*" = { "opt-level" = 3 } } }
@@ -12,6 +12,6 @@
 # Source checkout builds share one runtime with the registry-compatible adapters.
 # Downstream workspaces and staged packages select their own released pair.
 [patch.crates-io]
-intersect-model = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "a7c8a8a5ec25c0cc12dbbde8d2dce10083c83cff" }
-intersect-build-support = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "a7c8a8a5ec25c0cc12dbbde8d2dce10083c83cff" }
+intersect-model = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "11c33990a50cb4074d4f97619687a6b33358e560" }
+intersect-build-support = { git = "https://github.com/mercurio-labs/intersect-model.git", rev = "11c33990a50cb4074d4f97619687a6b33358e560" }
 intersect-text = { path = "crates/intersect-text" }
