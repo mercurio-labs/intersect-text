@@ -3,7 +3,8 @@
 **Turn language definitions into parsers, linked models, and model-aware text editing.**
 
 [Try the browser Toolkit](https://mercurio-labs.github.io/intersect-lang-examples/toolkit/)
-· [Explore the examples](https://mercurio-labs.github.io/intersect-lang-examples/)
+· [Rust API reference](https://docs.rs/intersect-text/latest/intersect_text/)
+· [Language guide](docs/language-guide.md)
 
 Intersect Text was designed around the same conceptual ideas as
 [Eclipse Xtext](https://eclipse.dev/Xtext/): describe a language's grammar and
@@ -132,18 +133,32 @@ scoping, and standard libraries. The
 provides those languages separately.
 
 This repository contains `intersect-text` (the library), `intersect-library`
-(an example language), `intersect-web` (the WASM host), while the browser application lives in `intersect-lang-examples/toolkit`. Model is an immutable Git dependency; a sibling
-checkout is not required for the normal build.
+(an example language) and `intersect-web` (the WASM host). The Toolkit application
+lives in `intersect-lang-examples/toolkit`. Source builds of this checkout fetch
+Model at the exact public Git revision in the Cargo manifests. The published Text
+package uses the matching Model crate from the registry.
 
-## Status and documentation
+## API reference and release status
 
-The repositories are preparing their first release after the Model/Text split.
-Use the [release plan](docs/release-plan.md) for scope, known gaps, and acceptance
-criteria. Unrestricted Xtext compatibility is not claimed. The registry release
-set is `intersect-model`, `intersect-text`, and their shared host-only
-`intersect-build-support`; see the [package boundary](docs/release-plan.md#package-and-api-boundary).
-The [registry release procedure](docs/registry-release.md) explains standalone
-packages, retained upstream notices, and release verification.
+The published evaluation release is `0.1.0-alpha.1`. The API reference on
+[docs.rs](https://docs.rs/intersect-text/latest/intersect_text/) has a version
+selector for the release you installed. Start with `compiler::compile_rcore_project`
+and `evaluate` for parsing and linking. Use `document` and `source_edit` when
+you need diagnostics and edits that preserve source. See the
+[crate entry point](crates/intersect-text/src/lib.rs) for the API map.
+
+This development branch also has experimental
+[retained component sessions](docs/component-sessions.md). Hosts supply
+prepared dependencies, and sessions adopt them against the current buffer
+revision. Generate the API reference for this checkout with the feature enabled:
+
+```sh
+cargo doc --locked --no-deps -p intersect-text --features components --open
+```
+
+The [evaluation alpha plan](docs/release-plan.md) records the `alpha.1` scope.
+The [registry release procedure](docs/registry-release.md) covers standalone
+packages, retained upstream notices, and verification.
 
 - [Architecture](docs/architecture.md) and [documentation index](docs/README.md)
 - [Language guide](docs/language-guide.md) and [text editing guide](docs/text-editing-guide.md)

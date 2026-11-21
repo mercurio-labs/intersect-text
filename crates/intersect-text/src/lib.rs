@@ -7,6 +7,12 @@
 //! Use [`document`], [`source_edit`] and [`serialization`] for editing, and
 //! [`distribution`] for source-authoritative language archives.
 //!
+//! # Retained component sessions
+//! With the `components` feature, `components::ComponentSession` retains saved
+//! and current editor text. An installed language adapter analyzes the buffers
+//! against host-prepared dependencies. Prepare a usage change against an exact
+//! lock, then adopt the candidate at the same session revision.
+//!
 //! # Advanced extension contracts
 //! [`extensions`] separates getter activation and runtime-guarded execution
 //! from ordinary evaluation, and identifies the owning provider/policy modules.
