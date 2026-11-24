@@ -493,15 +493,11 @@ pub fn dispatch(input: &str) -> Result<Value, String> {
             )))
         }
         "package/import_with_conversions" => conversions::import(&request),
+        "package/import_with_execution" | "package/export_with_execution" => {
+            execution_archive(&request, method == "package/import_with_execution")
+        }
         "package/import" => {
-            let files = serde_json::from_value(
-                request
-                    .get("files")
-                    .cloned()
-                    .ok_or("Missing extracted archive files")?,
-            )
-            .map_err(|e| format!("Invalid archive files: {e}"))?;
-            let imported = intersect_text::distribution::import_files(files)?;
+            let imported = intersect_text::distribution::import_files(archive_files(&request)?)?;
             let keywords = intersect_text::keywords(&imported.package);
             let mut response = serde_json::to_value(imported).map_err(|e| e.to_string())?;
             response["keywords"] = json!(keywords);
@@ -535,6 +531,44 @@ pub fn dispatch(input: &str) -> Result<Value, String> {
         method if method.starts_with("script/") => scripting::dispatch(method, &request),
         _ => Err("Unknown method".into()),
     }
+}
+
+fn archive_files(request: &Value) -> Result<std::collections::BTreeMap<String, String>, String> {
+    serde_json::from_value(
+        request
+            .get("files")
+            .cloned()
+            .ok_or("Missing extracted archive files")?,
+    )
+    .map_err(|e| format!("Invalid archive files: {e}"))
+}
+
+fn execution_archive(request: &Value, include_keywords: bool) -> Result<Value, String> {
+    use intersect_text::distribution::{LanguageArchive, import_archive};
+
+    if request.as_object().is_some_and(|fields| {
+        fields
+            .keys()
+            .any(|key| !matches!(key.as_str(), "method" | "files"))
+    }) {
+        return Err("Execution archive requests take only the retained archive files".into());
+    }
+    let files = archive_files(request)?;
+    let manifest = files
+        .get("manifest.json")
+        .cloned()
+        .ok_or("Missing manifest.json")?;
+    let LanguageArchive::Execution(archive) = import_archive(files)? else {
+        return Err("Execution archive requests require a format-3 language archive".into());
+    };
+    let keywords = include_keywords.then(|| intersect_text::keywords(&archive.package));
+    let mut response = serde_json::to_value(archive).map_err(|e| e.to_string())?;
+    // Keep the original wire bytes in the transport file map for an exact re-export.
+    response["files"]["manifest.json"] = json!(manifest);
+    if let Some(keywords) = keywords {
+        response["keywords"] = json!(keywords);
+    }
+    Ok(response)
 }
 
 /// New requests use the default profile when omitted; retained packages require an explicit profile.
