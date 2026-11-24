@@ -79,6 +79,8 @@ pub mod eobject_construction;
 #[path = "evaluation_limits.rs"]
 pub mod evaluation_limits;
 
+mod execution_archive;
+
 #[path = "feature_maps.rs"]
 pub mod feature_maps;
 

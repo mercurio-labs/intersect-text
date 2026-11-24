@@ -77,7 +77,7 @@ human-readable explanations, not stable machine identifiers.
 | `Package` JSON | Version 2 is accepted by replay. The DTO tolerates unknown top-level fields, which are discarded; duplicate known fields fail. Decoding an unsupported numeric version can succeed, but replay rejects it. Cached schema/program data is rebuilt from retained sources. |
 | Ordinary/inference recipes | Unknown fields fail. Optional fields retain their declared defaults/omission rules. Source identity, selected profile and host limits are checked by the matching compiler. |
 | Grammar profile | Preserve the exact retained ID. Unknown identifiers fail; a higher profile number is not a blanket compatibility promise. |
-| Language archive | Current ordinary manifest/package format 2; strict manifest and runtime requirement records. Import validates file inventory/digests and compiler/profile requirements, then recompiles retained sources. Keep legacy descriptors separate from the current crate version. |
+| Language archive | Manifest format 2 covers ordinary source archives. Format 3 also retains named execution profiles and their Rcore files. Both use package format 2. Import verifies file inventories, digests, and compiler requirements, then recompiles the retained language definitions. |
 | Model data and binary caches | Follow Model's separate snapshot/interchange contracts. A source archive is not permission to trust arbitrary cached execution metadata. |
 
 Hosts should use the supported import/replay/preparation boundary for loaded
@@ -85,7 +85,25 @@ data, rather than treating a decoded DTO as a checked language. `usize` byte and
 work limits must fit the receiving target and remain below independently chosen
 host ceilings. The new controls exercise valid round trips, future/duplicate
 versions, unknown recipe/profile fields and cached-schema tampering on native
-Rust and WASM. No existing wire ID or format version changed in this review.
+Rust and WASM. Existing format-2 archives retain their wire representation and
+revision.
+
+`import_files` opens format 2 and returns the existing `Distribution` and
+`LanguageManifest` types. Hosts that handle execution archives can use
+`import_archive` to open either format. `Distribution::with_execution` builds
+an `ExecutionDistribution` with its own format-3 manifest.
+
+Each execution profile declares a versioned engine and a relative path to its
+Rcore source. Format 3 rejects duplicate profile names and any file path that
+also names a parent directory in the archive. Profile declarations and exact
+source bytes contribute to the archive revision. The schema revision continues
+to identify the structural definition. A Run-capable host prepares the engine
+contract and Rcore bindings.
+
+The Web host opens format 3 with `package/import_with_execution`. Pass the
+returned `files` map to `package/export_with_execution` to verify and preserve
+the complete archive, including the original manifest and Rcore files. The
+ordinary Web import and export routes use format 2.
 
 The [release plan](release-plan.md) records the signature and Serde declaration
 guards. They do not inspect custom serialization code bodies, prove ABI/semver

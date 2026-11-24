@@ -8,6 +8,8 @@
 #[cfg(feature = "components")]
 mod component_sessions;
 
+mod execution_archive;
+
 #[path = "call_free_relative_v75.rs"]
 pub mod call_free_relative_v75;
 
