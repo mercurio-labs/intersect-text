@@ -283,3 +283,29 @@ pub fn import_files_with_context(
         Some(&OrdinaryFrontend { conversions }),
     )
 }
+
+/// Verify an archive and retain its execution files and declarations, if present.
+/// Callers select and prepare engines separately from archive verification.
+pub fn import_archive(files: BTreeMap<String, String>) -> Result<LanguageArchive, String> {
+    import_archive_with_context(files, &[], None, CompilationSourcePolicy::default())
+}
+
+/// Verify an archive with independently installed contracts and providers while
+/// retaining format-3 execution metadata for an execution-aware consumer.
+pub fn import_archive_with_context(
+    files: BTreeMap<String, String>,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    conversions: Option<&intersect_model::definitions::conversion::ConversionRegistry<'_>>,
+    host: CompilationSourcePolicy,
+) -> Result<LanguageArchive, String> {
+    ordinary::import_archive_with_frontends(
+        files,
+        settings,
+        host,
+        Some(&InferenceContextFrontend {
+            settings,
+            conversions,
+        }),
+        Some(&OrdinaryFrontend { conversions }),
+    )
+}

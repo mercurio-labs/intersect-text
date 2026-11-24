@@ -3,11 +3,21 @@
 use crate::package::Package;
 use crate::{compiler, grammar::Profile};
 use intersect_model::definitions::PackageId;
-use serde::{Deserialize, Serialize};
+use serde::{
+    Deserialize, Deserializer, Serialize,
+    de::{
+        self, DeserializeSeed, IntoDeserializer, MapAccess, Visitor, value::MapAccessDeserializer,
+    },
+};
 use sha2::{Digest, Sha256};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
+use std::fmt;
 
 pub const PROFILE: &str = "intersect.workbench.v1";
+const SOURCE_ARCHIVE_FORMAT: u32 = 2;
+const EXECUTION_ARCHIVE_FORMAT: u32 = 3;
+const MAX_ARCHIVE_FILES: usize = 64;
+const MAX_ARCHIVE_BYTES: usize = 2_000_000;
 /// Frozen compatibility descriptor of format-2 legacy ordinary source archives.
 /// This names the historical wire contract, not an installed package release.
 pub const LEGACY_ORDINARY_COMPILER_VERSION: &str = "0.1.0";
@@ -104,6 +114,101 @@ pub struct PythonBinding {
     pub stub: String,
 }
 
+/// A language's named execution profiles and its optional default selection.
+/// Engine contracts are prepared by the Run-capable host.
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(deny_unknown_fields)]
+pub struct ExecutionManifest {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub default: Option<String>,
+    #[serde(deserialize_with = "deserialize_execution_profiles")]
+    pub profiles: BTreeMap<String, ExecutionProfile>,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(deny_unknown_fields)]
+pub struct ExecutionProfile {
+    /// A versioned host engine ID, such as `intersect.state-machine@1`.
+    pub engine: String,
+    /// A relative archive path to the Rcore bindings and behavior.
+    pub source: String,
+}
+
+fn deserialize_execution_profiles<'de, D>(
+    deserializer: D,
+) -> Result<BTreeMap<String, ExecutionProfile>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    struct Profiles;
+
+    impl<'de> Visitor<'de> for Profiles {
+        type Value = BTreeMap<String, ExecutionProfile>;
+
+        fn expecting(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+            formatter.write_str("a map of uniquely named execution profiles")
+        }
+
+        fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Self::Value, M::Error> {
+            let mut profiles = BTreeMap::new();
+            while let Some((name, profile)) = map.next_entry::<String, ExecutionProfile>()? {
+                match profiles.entry(name) {
+                    std::collections::btree_map::Entry::Vacant(entry) => entry.insert(profile),
+                    std::collections::btree_map::Entry::Occupied(entry) => {
+                        return Err(de::Error::custom(format!(
+                            "Duplicate execution profile name {:?}",
+                            entry.key()
+                        )));
+                    }
+                };
+            }
+            Ok(profiles)
+        }
+    }
+
+    deserializer.deserialize_map(Profiles)
+}
+
+impl ExecutionManifest {
+    /// Validate profile declarations and return their distinct source paths.
+    pub fn source_paths(&self) -> Result<BTreeSet<&str>, String> {
+        if self.profiles.is_empty() {
+            return Err("Execution metadata must declare at least one profile".into());
+        }
+        if let Some(default) = &self.default
+            && !self.profiles.contains_key(default)
+        {
+            return Err(format!("Unknown default execution profile {default:?}"));
+        }
+        let mut paths = BTreeSet::new();
+        for (name, profile) in &self.profiles {
+            if !is_archive_identifier(name) {
+                return Err(format!("Invalid execution profile name {name:?}"));
+            }
+            if !profile.engine.split_once('@').is_some_and(|(id, version)| {
+                is_archive_identifier(id)
+                    && !version.starts_with('0')
+                    && version.bytes().all(|b| b.is_ascii_digit())
+                    && version.parse::<u32>().is_ok()
+            }) {
+                return Err(format!(
+                    "Execution profile {name:?} requires a versioned engine ID"
+                ));
+            }
+            if !safe_archive_path(&profile.source)
+                || !profile.source.ends_with(".rcore")
+                || profile.source.chars().any(char::is_control)
+            {
+                return Err(format!(
+                    "Execution profile {name:?} requires a relative .rcore source path"
+                ));
+            }
+            paths.insert(profile.source.as_str());
+        }
+        Ok(paths)
+    }
+}
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct LanguageManifest {
@@ -133,6 +238,217 @@ pub struct Distribution {
     pub manifest: LanguageManifest,
     pub package: Package,
     pub files: BTreeMap<String, String>,
+}
+
+/// Format-3 archive metadata. The common language fields and `execution` share
+/// one object on the wire. The language revision includes the execution inputs.
+#[derive(Clone, Debug, Serialize)]
+pub struct ExecutionLanguageManifest {
+    #[serde(flatten)]
+    pub language: LanguageManifest,
+    pub execution: ExecutionManifest,
+}
+
+impl<'de> Deserialize<'de> for ExecutionLanguageManifest {
+    fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        struct Manifest;
+
+        impl<'de> Visitor<'de> for Manifest {
+            type Value = ExecutionLanguageManifest;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+                formatter.write_str("a format-3 language manifest")
+            }
+
+            fn visit_map<M: MapAccess<'de>>(self, map: M) -> Result<Self::Value, M::Error> {
+                let mut execution = None;
+                let language =
+                    LanguageManifest::deserialize(MapAccessDeserializer::new(LanguageFields {
+                        map,
+                        execution: &mut execution,
+                    }))?;
+                Ok(ExecutionLanguageManifest {
+                    language,
+                    execution: execution.ok_or_else(|| de::Error::missing_field("execution"))?,
+                })
+            }
+        }
+
+        deserializer.deserialize_map(Manifest)
+    }
+}
+
+/// Stream common fields to the original strict manifest decoder while reading
+/// the execution declaration separately, preserving duplicate checks in both.
+struct LanguageFields<'a, M> {
+    map: M,
+    execution: &'a mut Option<ExecutionManifest>,
+}
+
+impl<'de, M: MapAccess<'de>> MapAccess<'de> for LanguageFields<'_, M> {
+    type Error = M::Error;
+
+    fn next_key_seed<K: DeserializeSeed<'de>>(
+        &mut self,
+        seed: K,
+    ) -> Result<Option<K::Value>, Self::Error> {
+        while let Some(key) = self.map.next_key::<String>()? {
+            if key != "execution" {
+                return seed.deserialize(key.into_deserializer()).map(Some);
+            }
+            if self.execution.is_some() {
+                return Err(de::Error::duplicate_field("execution"));
+            }
+            *self.execution = Some(self.map.next_value()?);
+        }
+        Ok(None)
+    }
+
+    fn next_value_seed<V: DeserializeSeed<'de>>(
+        &mut self,
+        seed: V,
+    ) -> Result<V::Value, Self::Error> {
+        self.map.next_value_seed(seed)
+    }
+}
+
+/// A checked format-3 archive with its retained definition and execution files.
+#[derive(Clone, Debug, Serialize)]
+pub struct ExecutionDistribution {
+    pub manifest: ExecutionLanguageManifest,
+    pub package: Package,
+    pub files: BTreeMap<String, String>,
+}
+
+/// Result of importing an archive through an execution-aware consumer.
+#[derive(Clone, Debug, Serialize)]
+#[serde(untagged)]
+pub enum LanguageArchive {
+    Source(Distribution),
+    Execution(ExecutionDistribution),
+}
+
+impl Distribution {
+    /// Attach authoritative execution metadata and Rcore sources to a source
+    /// archive before generating revision-bound assets such as Python bindings.
+    pub fn with_execution(
+        mut self,
+        execution: ExecutionManifest,
+        sources: BTreeMap<String, String>,
+    ) -> Result<ExecutionDistribution, String> {
+        if self.manifest.format_version != SOURCE_ARCHIVE_FORMAT {
+            return Err("Execution profiles can only be attached to a source archive once".into());
+        }
+        if self.manifest.python.is_some() {
+            return Err("Attach execution profiles before generating Python bindings".into());
+        }
+        let paths = execution.source_paths()?;
+        if !paths.iter().copied().eq(sources.keys().map(String::as_str)) {
+            return Err("Execution sources must match the declared profile paths".into());
+        }
+        check_execution_archive_paths(
+            self.files
+                .keys()
+                .chain(sources.keys())
+                .map(String::as_str)
+                .chain(["manifest.json"]),
+        )?;
+        let digests = sources
+            .iter()
+            .map(|(path, source)| {
+                if self.files.contains_key(path) || self.manifest.files.contains_key(path) {
+                    return Err(format!("Execution source path collides with {path:?}"));
+                }
+                Ok((path.as_str(), FileDigest::of(source.as_bytes())))
+            })
+            .collect::<Result<BTreeMap<_, _>, _>>()?;
+        self.manifest.revision = execution_revision(&self.manifest.revision, &execution, &digests)?;
+        self.manifest.format_version = EXECUTION_ARCHIVE_FORMAT;
+        self.manifest.files.extend(
+            digests
+                .into_iter()
+                .map(|(path, digest)| (path.to_owned(), digest)),
+        );
+        self.files.extend(sources);
+        let manifest = ExecutionLanguageManifest {
+            language: self.manifest,
+            execution,
+        };
+        let manifest_bytes = serde_json::to_string_pretty(&manifest)
+            .map_err(|error| error.to_string())?
+            .len();
+        check_archive_bounds(
+            self.files.len() + 1,
+            self.files.values().map(String::len).sum::<usize>() + manifest_bytes,
+        )?;
+        Ok(ExecutionDistribution {
+            manifest,
+            package: self.package,
+            files: self.files,
+        })
+    }
+}
+
+fn is_archive_identifier(value: &str) -> bool {
+    value
+        .bytes()
+        .next()
+        .is_some_and(|b| b.is_ascii_alphanumeric())
+        && value
+            .bytes()
+            .all(|b| b.is_ascii_alphanumeric() || b"._-".contains(&b))
+}
+
+fn safe_archive_path(path: &str) -> bool {
+    !path.is_empty()
+        && !path.contains(['\\', ':'])
+        && path
+            .split('/')
+            .all(|part| !part.is_empty() && part != "." && part != "..")
+}
+
+fn check_execution_archive_paths<'a>(
+    paths: impl IntoIterator<Item = &'a str>,
+) -> Result<(), String> {
+    let mut inventory = BTreeSet::new();
+    for path in paths {
+        if !inventory.insert(path) {
+            return Err(format!("Language archive path collides with {path:?}"));
+        }
+    }
+    for path in &inventory {
+        for (separator, _) in path.match_indices('/') {
+            let parent = &path[..separator];
+            if inventory.contains(parent) {
+                return Err(format!(
+                    "Language archive path collides with a parent file: {path:?} and {parent:?}"
+                ));
+            }
+        }
+    }
+    Ok(())
+}
+
+fn check_archive_bounds(files: usize, bytes: usize) -> Result<(), String> {
+    if files > MAX_ARCHIVE_FILES || bytes > MAX_ARCHIVE_BYTES {
+        return Err("Language archive exceeds 64 files or 2 MB expanded text".into());
+    }
+    Ok(())
+}
+
+fn execution_revision(
+    definitions_revision: &str,
+    execution: &ExecutionManifest,
+    sources: &BTreeMap<&str, FileDigest>,
+) -> Result<String, String> {
+    let input = serde_json::to_vec(&(
+        "intersect.language.execution-inputs.v1",
+        definitions_revision,
+        execution,
+        sources,
+    ))
+    .map_err(|error| error.to_string())?;
+    Ok(format!("sha256:{:x}", Sha256::digest(input)))
 }
 
 /// A host-installed language compiler, never selected as executable code by
@@ -497,7 +813,7 @@ fn assemble_with_compiler(
         .collect();
     Ok(Distribution {
         manifest: LanguageManifest {
-            format_version: 2,
+            format_version: SOURCE_ARCHIVE_FORMAT,
             metadata,
             revision,
             ecore_namespace: package.schema.uri.clone(),
@@ -572,27 +888,78 @@ fn import_files_context(
     inference_frontend: Option<&dyn XtextInferenceFrontend>,
     ordinary_frontend: Option<&dyn BundleCompilationFrontend>,
 ) -> Result<Distribution, String> {
-    if files.len() > 64 || files.values().map(String::len).sum::<usize>() > 2_000_000 {
-        return Err("Language archive exceeds 64 files or 2 MB expanded text".into());
+    match import_archive_context(
+        files,
+        settings,
+        host,
+        inference_frontend,
+        ordinary_frontend,
+        false,
+    )? {
+        LanguageArchive::Source(distribution) => Ok(distribution),
+        LanguageArchive::Execution(_) => {
+            Err("Format-3 language archives require execution-aware import".into())
+        }
     }
-    let safe_path = |path: &str| {
-        !path.is_empty()
-            && !path.contains(['\\', ':'])
-            && path
-                .split('/')
-                .all(|part| !part.is_empty() && part != "." && part != "..")
-    };
-    if files.keys().any(|p| !safe_path(p)) {
+}
+
+pub(crate) fn import_archive_with_frontends(
+    files: BTreeMap<String, String>,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    host: crate::package::CompilationSourcePolicy,
+    inference_frontend: Option<&dyn XtextInferenceFrontend>,
+    ordinary_frontend: Option<&dyn BundleCompilationFrontend>,
+) -> Result<LanguageArchive, String> {
+    import_archive_context(
+        files,
+        settings,
+        host,
+        inference_frontend,
+        ordinary_frontend,
+        true,
+    )
+}
+
+fn import_archive_context(
+    files: BTreeMap<String, String>,
+    settings: &[intersect_model::definitions::setting::ComputedSettingContract],
+    host: crate::package::CompilationSourcePolicy,
+    inference_frontend: Option<&dyn XtextInferenceFrontend>,
+    ordinary_frontend: Option<&dyn BundleCompilationFrontend>,
+    allow_execution: bool,
+) -> Result<LanguageArchive, String> {
+    check_archive_bounds(files.len(), files.values().map(String::len).sum())?;
+    if files.keys().any(|p| !safe_archive_path(p)) {
         return Err("Invalid language archive path".into());
     }
-    let manifest: LanguageManifest =
-        serde_json::from_str(files.get("manifest.json").ok_or("Missing manifest.json")?)
-            .map_err(|e| format!("Invalid manifest: {e}"))?;
+    #[derive(Deserialize)]
+    struct FormatVersion {
+        format_version: u32,
+    }
+    let manifest_source = files.get("manifest.json").ok_or("Missing manifest.json")?;
+    let FormatVersion { format_version } =
+        serde_json::from_str(manifest_source).map_err(|e| format!("Invalid manifest: {e}"))?;
+    let (manifest, execution) = match format_version {
+        SOURCE_ARCHIVE_FORMAT => (
+            serde_json::from_str(manifest_source).map_err(|e| format!("Invalid manifest: {e}"))?,
+            None,
+        ),
+        EXECUTION_ARCHIVE_FORMAT if allow_execution => {
+            check_execution_archive_paths(files.keys().map(String::as_str))?;
+            let ExecutionLanguageManifest {
+                language,
+                execution,
+            } = serde_json::from_str(manifest_source)
+                .map_err(|e| format!("Invalid manifest: {e}"))?;
+            (language, Some(execution))
+        }
+        EXECUTION_ARCHIVE_FORMAT => {
+            return Err("Format-3 language archives require execution-aware import".into());
+        }
+        _ => return Err("Unsupported language archive format or runtime profile".into()),
+    };
     manifest.metadata.validate()?;
-    if manifest.format_version != 2
-        || manifest.runtime.package_format != 2
-        || manifest.runtime.rcore_behavior_format != 1
-    {
+    if manifest.runtime.package_format != 2 || manifest.runtime.rcore_behavior_format != 1 {
         return Err("Unsupported language archive format or runtime profile".into());
     }
 
@@ -720,7 +1087,33 @@ fn import_files_context(
     if rebuilt.manifest.compiler != manifest.compiler {
         return Err("Language archive requires a different compiler version".into());
     }
-    if rebuilt.manifest.revision != manifest.revision
+    let expected_revision = if let Some(execution) = &execution {
+        let digests = execution
+            .source_paths()?
+            .into_iter()
+            .map(|path| {
+                if rebuilt.files.contains_key(path)
+                    || manifest.definitions.values().any(|source| source == path)
+                    || manifest.compiled_package == path
+                    || manifest
+                        .python
+                        .as_ref()
+                        .is_some_and(|python| path == python.source || path == python.stub)
+                {
+                    return Err(format!("Execution source path collides with {path:?}"));
+                }
+                let digest = manifest
+                    .files
+                    .get(path)
+                    .ok_or_else(|| format!("Missing execution profile source {path:?}"))?;
+                Ok((path, digest.clone()))
+            })
+            .collect::<Result<BTreeMap<_, _>, _>>()?;
+        execution_revision(&rebuilt.manifest.revision, execution, &digests)?
+    } else {
+        rebuilt.manifest.revision
+    };
+    if expected_revision != manifest.revision
         || rebuilt.manifest.schema_revision != manifest.schema_revision
         || rebuilt.manifest.ecore_namespace != manifest.ecore_namespace
     {
@@ -756,12 +1149,24 @@ fn import_files_context(
     {
         return Err("Unsupported or inconsistent Python binding metadata".into());
     }
-    Ok(Distribution {
-        manifest,
-        package: rebuilt.package,
-        files: files
-            .into_iter()
-            .filter(|(p, _)| p != "manifest.json")
-            .collect(),
+    let package = rebuilt.package;
+    let files = files
+        .into_iter()
+        .filter(|(p, _)| p != "manifest.json")
+        .collect();
+    Ok(match execution {
+        Some(execution) => LanguageArchive::Execution(ExecutionDistribution {
+            manifest: ExecutionLanguageManifest {
+                language: manifest,
+                execution,
+            },
+            package,
+            files,
+        }),
+        None => LanguageArchive::Source(Distribution {
+            manifest,
+            package,
+            files,
+        }),
     })
 }
